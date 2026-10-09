@@ -1,0 +1,20 @@
+/* Shared brand styles for blog graphics (rendered to PNG by tools/render_graphics.js). */
+@font-face{font-family:Cormorant;font-weight:400;src:url(../../tools/fonts/cormorant-garamond-latin-400-normal.woff2)}
+@font-face{font-family:Cormorant;font-weight:400;font-style:italic;src:url(../../tools/fonts/cormorant-garamond-latin-400-italic.woff2)}
+@font-face{font-family:Cormorant;font-weight:500;src:url(../../tools/fonts/cormorant-garamond-latin-500-normal.woff2)}
+@font-face{font-family:Inter;font-weight:300;src:url(../../tools/fonts/inter-latin-300-normal.woff2)}
+@font-face{font-family:Inter;font-weight:400;src:url(../../tools/fonts/inter-latin-400-normal.woff2)}
+@font-face{font-family:Inter;font-weight:500;src:url(../../tools/fonts/inter-latin-500-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(../../tools/fonts/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:700;src:url(../../tools/fonts/inter-latin-700-normal.woff2)}
+:root{--navy:#10233F;--navy-2:#1B3557;--navy-3:#162C4C;--gold:#B08D3F;--gold-b:#D8B769;--paper:#FDFDFC;--paper-2:#F5F4EF;--ink:#151515}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:var(--w);height:var(--h);overflow:hidden}
+body{font-family:Inter,sans-serif;background:var(--navy);color:#fff;-webkit-font-smoothing:antialiased}
+.serif{font-family:Cormorant,serif}
+.eyebrow{font-size:15px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-b)}
+.frame{position:absolute;inset:28px;border:1px solid rgba(216,183,105,.35);border-radius:22px;pointer-events:none}
+.brandline{display:flex;align-items:center;gap:14px}
+.brandline img{width:46px;height:46px;border-radius:11px}
+.brandline b{font-family:Cormorant,serif;font-weight:500;font-size:26px;display:block;line-height:1}
+.brandline i{font-style:normal;font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6)}

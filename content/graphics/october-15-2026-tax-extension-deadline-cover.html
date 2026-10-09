@@ -1,0 +1,79 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="_base.css"/>
+<style>
+:root{--w:1200px;--h:1360px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.wrap{position:absolute;inset:72px 80px 64px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;font-size:84px;line-height:1;margin:48px 0 14px;letter-spacing:-.01em}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-size:20px;font-weight:300;color:rgba(255,255,255,.72)}
+/* timeline */
+.tl{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.tl:before{content:"";position:absolute;left:14px;right:14px;top:14px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,.25),var(--gold-b) 50%,rgba(255,255,255,.25))}
+.st{position:relative;padding-right:26px}
+.dot{width:30px;height:30px;border-radius:50%;background:var(--navy);border:2px solid rgba(255,255,255,.4);position:relative;z-index:1}
+.st.hot .dot{background:var(--gold-b);border-color:var(--gold-b);box-shadow:0 0 0 8px rgba(216,183,105,.18)}
+.st .d{font-family:Cormorant,serif;font-size:38px;font-weight:500;margin:20px 0 8px;line-height:1}
+.st.hot .d{color:var(--gold-b)}
+.st .k{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.st p{font-size:17px;font-weight:300;line-height:1.5;color:rgba(255,255,255,.82)}
+/* cost cards */
+.sec{margin-top:54px}
+.sec h2{font-size:13px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-b);margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 20px}
+.card .n{font-family:Cormorant,serif;font-size:50px;font-weight:500;line-height:1;color:#fff}
+.card .n small{font-size:22px;color:rgba(255,255,255,.7)}
+.card .l{font-size:14px;font-weight:600;margin:12px 0 6px}
+.card .x{font-size:13.5px;font-weight:300;line-height:1.45;color:rgba(255,255,255,.66)}
+/* checklist */
+.check{background:var(--paper);color:var(--ink);border-radius:18px;padding:30px 34px}
+.check h2{color:var(--gold)}
+.check ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px 34px}
+.check li{display:flex;gap:14px;font-size:16.5px;line-height:1.45;font-weight:400}
+.check li:before{content:"";flex:0 0 22px;height:22px;border:2px solid var(--gold);border-radius:6px;margin-top:1px}
+.check li b{font-weight:600;color:var(--navy)}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+</style></head><body>
+<div class="frame"></div>
+<div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights · Keep-handy guide</span><span class="tag">Tax year 2025</span></div>
+  <h1>The <em>Oct. 15, 2026</em><br/>extension deadline</h1>
+  <p class="sub">For individuals who filed Form 4868 for their 2025 federal return.</p>
+
+  <div class="tl">
+    <div class="st"><div class="dot"></div><div class="d">Apr. 15, 2026</div><div class="k">Original due date</div><p>Tax was due. Interest has run on any unpaid balance since this date.</p></div>
+    <div class="st hot"><div class="dot"></div><div class="d">Thu, Oct. 15</div><div class="k">Extended filing deadline</div><p>Last day to file. Most filers can't extend again.</p></div>
+    <div class="st"><div class="dot"></div><div class="d">Feb. 1, 2027</div><div class="k">Disaster areas only</div><p>Later filing date for IRS-designated counties. Check yours on IRS.gov.</p></div>
+  </div>
+
+  <div class="sec"><h2>What waiting costs</h2>
+    <div class="cards">
+      <div class="card"><div class="n">5%<small>/mo</small></div><div class="l">Failure-to-file</div><div class="x">Of unpaid tax, per month or part month, up to 25%.</div></div>
+      <div class="card"><div class="n">$525</div><div class="l">Minimum penalty</div><div class="x">If filed 60+ days late (or 100% of tax owed, if less).</div></div>
+      <div class="card"><div class="n">0.5%<small>/mo</small></div><div class="l">Failure-to-pay</div><div class="x">Of unpaid tax, per month, up to 25%.</div></div>
+      <div class="card"><div class="n">7%</div><div class="l">IRS interest</div><div class="x">Annual rate for Q4 2026, compounded daily.</div></div>
+    </div>
+  </div>
+
+  <div class="sec check"><h2>Before Oct. 15 checklist</h2>
+    <ul>
+      <li><span><b>E-file your 2025 return.</b> IRS Free File runs through Oct. 15 (AGI $89,000 or less).</span></li>
+      <li><span><b>Pay what you can now</b> with IRS Direct Pay or your IRS Online Account.</span></li>
+      <li><span><b>Can't pay it all?</b> File anyway, then request an IRS payment plan.</span></li>
+      <li><span><b>Self-employed?</b> 2025 SEP-IRA and solo 401(k) employer contributions are due by your extended due date.</span></li>
+      <li><span><b>New Jersey filers:</b> NJ-1040 is also due Oct. 15 if 80% of your tax was paid by Apr. 15.</span></li>
+      <li><span><b>Keep copies</b> of your return and records for at least 3 years.</span></li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com · info@mfa-advisory.com</b><br/>General information, not tax advice. Facts checked Oct. 9, 2026.</div>
+  </div>
+</div>
+</body></html>
