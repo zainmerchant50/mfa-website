@@ -25,6 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 POSTS_DIR = ROOT / "content" / "posts"
+PAGES_DIR = ROOT / "content" / "pages"
 BASE = "https://mfa-advisory.com"
 BOOK_URL = BASE + "/#book"
 EMAIL = "info@mfa-advisory.com"
@@ -35,6 +36,10 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"/>'
 MAIL_ICON = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" '
              'stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/>'
              '<path d="m22 7-10 6L2 7"/></svg>')
+TOPICS = ["Tax Filing & Deadlines", "Tax Planning", "Accrual Accounting", "QuickBooks Tips & Updates",
+          "Bookkeeping Best Practices", "Small & Mid-Sized Business Finance"]
+BLOG_DESC = ("Practical tax, accounting, and QuickBooks guidance for individuals and small and mid-sized businesses: "
+             "filing deadlines and IRS updates, tax planning, accrual accounting, bookkeeping best practices, and QuickBooks tips.")
 DISCLAIMER = ("This article is general information, not tax, legal, or financial advice, and reading it does not "
               "create a client relationship. Tax rules change and every situation is different; confirm the details "
               "for your situation with a qualified professional before acting.")
@@ -75,7 +80,8 @@ def nav(active):
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
   <span>© {datetime.now().year} Merchant Financial Advisory LLC · Union City, NJ · Serving clients nationwide</span>
-  <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+  <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+  <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
 </div></footer>'''
 
 
@@ -101,7 +107,7 @@ def cta(p):
     return f'''<section class="cta-block" aria-label="Book a consultation"><div class="cta-card">
   <span class="eyebrow">Talk to MFA</span>
   <h2>{esc(p.get("ctaHeadline", "Want a second set of eyes before you act?"))}</h2>
-  <p>Book a free 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We work with individuals and business owners in New Jersey and nationwide.</p>
+  <p>Book a free 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide tax and accounting solutions for individuals and small and mid-sized businesses in New Jersey and nationwide.</p>
   <div class="cta-btns"><a class="btn btn-gold" href="{BOOK_URL}">Book a consultation</a><a class="btn btn-line" href="mailto:{EMAIL}?subject={esc(p['title'])}">Email info@mfa-advisory.com</a></div>
 </div></section>'''
 
@@ -152,15 +158,16 @@ def build_index(posts):
   <div class="thumb"><img src="/blog/{p["slug"]}/{p["og"]}" alt="{esc(p["coverAlt"])}" loading="lazy" width="1200" height="630"/></div>
   <div class="body"><span class="meta">{esc(p["category"])} · {p["dt"].strftime("%b %-d, %Y")}</span>
   <h2>{esc(p["title"])}</h2><p>{esc(p["description"])}</p><span class="more">Read the article →</span></div></a>''' for p in posts)
-    desc = "Plain-English tax deadlines, IRS updates, and practical planning tips for individuals and business owners from Merchant Financial Advisory."
+    desc = BLOG_DESC
     og = f'{BASE}/blog/{posts[0]["slug"]}/{posts[0]["og"]}' if posts else BASE + "/apple-touch-icon.png"
-    page = f'''{head("Insights: Tax Deadlines, IRS Updates & Planning Tips | Merchant Financial Advisory", desc, BASE + "/blog/", og)}
+    page = f'''{head("MFA Insights: Tax, Accounting & QuickBooks Tips for Individuals and Small Businesses", desc, BASE + "/blog/", og)}
 <body>{nav("blog")}
 <header class="bhero"><div class="wrap"><span class="eyebrow">MFA Insights</span>
-<h1>Tax deadlines and IRS updates, <em>made usable.</em></h1>
-<p>{desc}</p></div></header>
+<h1>Tax, accounting &amp; QuickBooks, <em>made usable.</em></h1>
+<p>Practical guidance for individuals and small and mid-sized businesses, from filing deadlines and tax planning to accrual accounting, clean books and getting more out of QuickBooks.</p>
+<ul class="topics" aria-label="Topics we cover">{"".join(f"<li>{esc(t)}</li>" for t in TOPICS)}</ul></div></header>
 <main class="wrap plist">{cards}</main>
-{cta({"title": "Question from the MFA blog", "ctaHeadline": "Have a question about your own taxes or books?", "ctaTopic": "your taxes, books, or planning"})}
+{cta({"title": "Question from the MFA blog", "ctaHeadline": "Have a question about your taxes, books, or QuickBooks?", "ctaTopic": "your taxes, accounting, or QuickBooks setup"})}
 {FOOT}</body></html>'''
     (SITE / "blog" / "index.html").write_text(page, encoding="utf-8")
 
@@ -174,15 +181,40 @@ def build_feed(posts):
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
 <title>MFA Insights</title><link>{BASE}/blog/</link>
 <atom:link href="{BASE}/blog/feed.xml" rel="self" type="application/rss+xml"/>
-<description>Tax deadlines, IRS updates and planning tips from Merchant Financial Advisory.</description>
+<description>{esc(BLOG_DESC)}</description>
 <language>en-us</language>{items}</channel></rss>'''
     (SITE / "blog" / "feed.xml").write_text(feed, encoding="utf-8")
 
 
-def build_sitemap(posts):
+def build_pages():
+    out = []
+    for f in sorted(PAGES_DIR.glob("*.html")):
+        m = re.match(r"\s*<!--meta\s*(\{.*?\})\s*-->\s*(.*)\Z", f.read_text(encoding="utf-8"), re.S)
+        meta, body = json.loads(m.group(1)), m.group(2).strip()
+        url = f"{BASE}/{meta['slug']}.html"
+        upd = datetime.fromisoformat(meta["updated"]).strftime("%B %-d, %Y")
+        page = f'''{head(meta["title"] + " | Merchant Financial Advisory", meta["description"], url, BASE + "/apple-touch-icon.png")}
+<body>{nav("")}
+<header class="ahead"><div class="wrap"><div class="crumbs"><a href="/">Home</a> / {esc(meta["title"])}</div>
+<span class="eyebrow">Legal</span><h1>{esc(meta["title"])}</h1><div class="ameta"><span>Last updated {upd}</span></div></div></header>
+<main><article class="article legalpage">{body}</article></main>
+{FOOT}</body></html>'''
+        (SITE / f"{meta['slug']}.html").write_text(page, encoding="utf-8")
+        out.append(meta)
+    return out
+
+
+def build_latest(posts, n=5):
+    data = [{"title": p["title"], "url": f"/blog/{p['slug']}/", "date": p["date"], "category": p["category"],
+             "thumb": f"/blog/{p['slug']}/{p['og']}", "description": p["description"]} for p in posts[:n]]
+    (SITE / "blog" / "latest.json").write_text(json.dumps({"posts": data}, indent=1), encoding="utf-8")
+
+
+def build_sitemap(posts, pages=()):
     today = datetime.now(timezone.utc).date().isoformat()
     urls = [(BASE + "/", today), (BASE + "/blog/", posts[0]["date"] if posts else today)]
     urls += [(f'{BASE}/blog/{p["slug"]}/', p.get("updated", p["date"])) for p in posts]
+    urls += [(f"{BASE}/{pg['slug']}.html", pg["updated"]) for pg in pages]
     body = "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (SITE / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>',
@@ -196,5 +228,7 @@ if __name__ == "__main__":
         build_post(p)
     build_index(posts)
     build_feed(posts)
-    build_sitemap(posts)
+    build_latest(posts)
+    pages = build_pages()
+    build_sitemap(posts, pages)
     print(f"Built {len(posts)} post(s): " + ", ".join(p["slug"] for p in posts))

@@ -630,6 +630,46 @@ body.scrolled .burger{color:var(--ink)}
   .h-line span{transform:none}
   .pq-w{opacity:1}
 }
+
+/* Footer legal disclaimer */
+.foot-legal{padding:0 28px 100px}
+.foot-legal p{font-size:.74rem;line-height:1.7;color:rgba(21,21,21,.45);max-width:980px}
+.foot-legal b{font-weight:600;color:rgba(21,21,21,.6)}
+.foot-legal a{color:rgba(21,21,21,.6);border-bottom:1px solid rgba(176,141,63,.5)}
+
+/* Latest Insights window */
+.ins{position:fixed;left:24px;bottom:24px;z-index:45;display:flex;flex-direction:column;align-items:flex-start;gap:12px;
+  opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease);pointer-events:none}
+.ins.show{opacity:1;transform:none}
+.ins.show .ins-btn{pointer-events:auto}
+.ins-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px 12px 15px;border-radius:999px;border:1px solid rgba(216,183,105,.45);
+  background:var(--navy);color:#fff;font:700 9.5px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 14px 34px rgba(16,35,63,.32);position:relative;transition:transform .4s var(--ease),background .3s}
+.ins-btn:hover{transform:translateY(-2px);background:var(--navy-2)}
+.ins-btn svg{width:17px;height:17px;color:var(--gold-b);flex-shrink:0}
+.ins-dot{position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--gold-b);border:2px solid #fff;animation:insPulse 2s infinite}
+@keyframes insPulse{0%{box-shadow:0 0 0 0 rgba(216,183,105,.6)}70%{box-shadow:0 0 0 10px rgba(216,183,105,0)}100%{box-shadow:0 0 0 0 rgba(216,183,105,0)}}
+.ins-panel{width:340px;max-width:calc(100vw - 48px);background:#fff;border:1px solid var(--hair);border-radius:18px;overflow:hidden;
+  box-shadow:0 28px 70px rgba(16,35,63,.24);transform-origin:bottom left;transform:translateY(10px) scale(.96);opacity:0;visibility:hidden;
+  transition:opacity .4s var(--ease),transform .4s var(--ease),visibility 0s .4s;pointer-events:none}
+.ins.open .ins-panel{opacity:1;transform:none;visibility:visible;transition-delay:0s;pointer-events:auto}
+.ins-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 18px 14px;background:var(--navy);color:#fff}
+.ins-eyebrow{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-b)}
+.ins-head h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem;line-height:1.1;margin-top:6px}
+.ins-x{background:none;border:0;color:rgba(255,255,255,.7);cursor:pointer;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.ins-x:hover{background:rgba(255,255,255,.1);color:#fff}
+.ins-x svg{width:16px;height:16px}
+.ins-list{list-style:none;margin:0;padding:6px 0}
+.ins-list a{display:grid;grid-template-columns:76px 1fr;gap:12px;align-items:center;padding:11px 18px;transition:background .25s}
+.ins-list a:hover{background:var(--paper-2)}
+.ins-list img{width:76px;height:40px;object-fit:cover;border-radius:7px;background:var(--navy)}
+.ins-list .m{font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;gap:6px;align-items:center}
+.ins-list .new{background:var(--gold-b);color:var(--navy);border-radius:999px;padding:2px 6px;letter-spacing:.12em}
+.ins-list .t{font-size:.84rem;font-weight:500;line-height:1.35;color:var(--ink);margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ins-all{display:block;padding:14px 18px;border-top:1px solid var(--hair);font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy)}
+.ins-all:hover{color:var(--gold)}
+@media(max-width:600px){.ins{left:14px;bottom:14px}.ins-lbl{display:none}.ins-btn{padding:13px}.ins-btn svg{width:19px;height:19px}}
+@media(prefers-reduced-motion:reduce){.ins,.ins-panel{transition:none}.ins-dot{animation:none}}
 </style>
 </head>
 <body>
@@ -1285,12 +1325,32 @@ body.scrolled .burger{color:var(--ink)}
   <div class="wrap foot-btm">
     <p>© <span id="yr"></span> Merchant Financial Advisory LLC</p>
     <div class="lg">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
     </div>
     <p>Union City, NJ · Serving Clients Nationwide</p>
   </div>
+  <div class="wrap foot-legal">
+    <p><b>Disclaimer:</b> The information on this website, including MFA Insights articles, graphics and newsletters, is for general informational purposes only and does not constitute tax, accounting, legal, investment or financial advice. Viewing this site, contacting us, or booking a consultation does not create a client relationship; professional services are provided only under a signed engagement letter. Tax laws and guidance change frequently, so consult a qualified professional about your specific situation before acting. See our <a href="/disclaimer.html">full disclaimer</a>.</p>
+  </div>
 </footer>
+
+<!-- Latest Insights window (fed by /blog/latest.json, regenerated on every blog build) -->
+<aside class="ins" id="ins" aria-label="Latest Insights" hidden>
+  <div class="ins-panel" id="insPanel" role="dialog" aria-labelledby="insTitle" aria-hidden="true">
+    <div class="ins-head">
+      <div><span class="ins-eyebrow">MFA Insights</span><h3 id="insTitle">Latest from the blog</h3></div>
+      <button class="ins-x" id="insClose" aria-label="Close latest insights"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <ul class="ins-list" id="insList"></ul>
+    <a class="ins-all" href="/blog/">View all insights <span aria-hidden="true">→</span></a>
+  </div>
+  <button class="ins-btn" id="insBtn" aria-expanded="false" aria-controls="insPanel">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M19 9h1a1 1 0 0 1 1 1v8a2 2 0 0 1-2 2"/><path d="M8 9h7M8 13h7M8 17h4"/></svg>
+    <span class="ins-lbl">Latest Insights</span><span class="ins-dot" id="insDot" hidden></span>
+  </button>
+</aside>
 
 <script>
 (function(){
@@ -1538,6 +1598,34 @@ body.scrolled .burger{color:var(--ink)}
     loader(); scrolled(); sheet(); reveal(); spy();
     counters(); grid(); tilt(); pq(); faq(); form(); anchors(); year();
   });
+})();
+</script>
+<script>
+/* Latest Insights window: lists the newest posts from /blog/latest.json and pops open once per new post per visitor. */
+(function(){
+  var box=document.getElementById('ins'); if(!box||!window.fetch) return;
+  var panel=document.getElementById('insPanel'), btn=document.getElementById('insBtn'), list=document.getElementById('insList'), dot=document.getElementById('insDot');
+  var KEY='mfaInsightsSeen', get=function(){try{return localStorage.getItem(KEY)}catch(e){return null}}, set=function(v){try{localStorage.setItem(KEY,v)}catch(e){}};
+  var esc=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML};
+  var fmt=function(d){var p=d.split('-');return new Date(+p[0],p[1]-1,+p[2]).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})};
+  function setOpen(o){box.classList.toggle('open',o);btn.setAttribute('aria-expanded',o);panel.setAttribute('aria-hidden',!o);if(o){set(newest);dot.hidden=true;}}
+  var newest='';
+  fetch('/blog/latest.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    if(!d||!d.posts||!d.posts.length) return;
+    var posts=d.posts.slice(0,3); newest=posts[0].url;
+    list.innerHTML=posts.map(function(p,i){return '<li><a href="'+p.url+'"><img src="'+p.thumb+'" alt="" loading="lazy" width="76" height="40"/><span><span class="m">'+(i===0&&get()!==newest?'<span class="new">New</span>':'')+esc(p.category)+' · '+fmt(p.date)+'</span><span class="t">'+esc(p.title)+'</span></span></a></li>'}).join('');
+    box.hidden=false;
+    var unseen=get()!==newest; if(unseen) dot.hidden=false;
+    setTimeout(function(){box.classList.add('show')},1800);
+    if(unseen){
+      var popped=false, pop=function(){if(popped)return;popped=true;window.removeEventListener('scroll',onS);setOpen(true)};
+      var onS=function(){if(window.scrollY>window.innerHeight*0.9)pop()};
+      window.addEventListener('scroll',onS,{passive:true}); setTimeout(pop,9000);
+    }
+  }).catch(function(){});
+  btn.addEventListener('click',function(){setOpen(!box.classList.contains('open'))});
+  document.getElementById('insClose').addEventListener('click',function(){setOpen(false);btn.focus()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&box.classList.contains('open'))setOpen(false)});
 })();
 </script>
 </body>

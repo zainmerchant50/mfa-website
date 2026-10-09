@@ -1,14 +1,23 @@
 ---
 name: mfa-contentcreator
-description: Research, write, design and publish an SEO-optimized MFA Insights blog post on IRS/tax updates (with a keep-handy branded graphic and booking CTA) to mfa-advisory.com, or repurpose it for LinkedIn, Instagram or the newsletter. Use for any MFA blog, tax-update article, or content request.
+description: Research, write, design and publish an SEO-optimized MFA Insights post (tax, accounting, QuickBooks, small-business finance) with a keep-handy branded graphic and booking CTA to mfa-advisory.com, or repurpose it for LinkedIn, Instagram or the newsletter. Use for any MFA blog or content request.
 ---
 
 # MFA Content Creator
 
-Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey accounting, tax and advisory firm (mfa-advisory.com, info@mfa-advisory.com). The primary output is an MFA Insights blog post. The same research can be repurposed for LinkedIn, Instagram and the weekly newsletter.
+Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **accounting and tax solutions provider** (never position it as only tax or only accounting) (mfa-advisory.com, info@mfa-advisory.com). The primary output is an MFA Insights blog post. The same research can be repurposed for LinkedIn, Instagram and the weekly newsletter.
 
 ## Standing requirements (from Zain)
-- **Topic source:** the latest IRS updates (IRS Newsroom, IR- releases, tax tips, disaster relief), plus key dates and deadlines that are coming up. Include New Jersey (NJ Division of Taxation) angles when they apply.
+- **Audience:** individuals, and small and mid-sized businesses.
+- **Topic mix (rotate so no area dominates):**
+  1. *Tax filing & deadlines:* IRS updates (Newsroom, IR- releases, tax tips, disaster relief), key dates, filing and preparation. Include NJ angles when they apply.
+  2. *Tax planning:* individuals and business owners (entity choice, estimated taxes, retirement contributions, deductions).
+  3. *Accrual accounting:* revenue recognition basics, accruals vs. cash, month-end close, why lenders and buyers want accrual books.
+  4. *QuickBooks:* QuickBooks Online and Desktop product updates and release notes, practical tips, setup and cleanup.
+  5. *Bookkeeping best practices* for SMBs: reconciliations, chart of accounts, internal controls, documentation.
+  6. *Small & mid-sized business finance:* cash flow, KPIs, budgeting, fractional CFO topics.
+  - Suggested rhythm: **Mon = tax**, **Wed = accounting/bookkeeping**, **Fri = QuickBooks or business finance**. Breaking IRS news can override any slot.
+- **Category labels** (meta `category`): Tax Deadlines, Tax Planning, Accrual Accounting, QuickBooks, Bookkeeping, Business Finance.
 - **Every post must have:** target keywords, key dates, current and accurate facts, practical tips, a keep-handy graphic, and an ending CTA. The CTA is "Book a consultation" (https://mfa-advisory.com/#book) or "email info@mfa-advisory.com".
 - **Graphic:** use only the site's navy, white and gold theme. It must be *useful*, not decorative. Good formats are a timeline, key-numbers cards, a checklist, a "who this affects" chart or a decision tree: something a reader would save and keep handy. One main graphic per post, plus a 1200×630 social card.
 - **Cadence:** 3 posts a week (Mon, Wed, Fri), live at **7:30am ET**, plus a bonus post when the IRS releases major news.
@@ -16,12 +25,13 @@ Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey acc
 - **Tone:** plain English, confident and helpful. No hype and no fearmongering. Write for individuals and small-business owners.
 
 ## Accuracy rules (non-negotiable)
-1. **Primary sources only for facts:** irs.gov (newsroom, forms, publications, payment and penalty pages), nj.gov/treasury/taxation, and federal law and regulations. Secondary sites may be used to find leads, never as the citation.
+1. **Primary sources only for facts:** irs.gov (newsroom, forms, publications, payment and penalty pages), nj.gov/treasury/taxation, federal law and regulations, FASB/AICPA for accounting standards, and Intuit's official QuickBooks release notes, blog and support pages for QuickBooks features. Secondary sites may be used to find leads, never as the citation.
 2. **Verify every number and date** on the primary page this session: deadlines, penalty rates, inflation-adjusted amounts, AGI limits, interest rates. Don't rely on memory. If a fact can't be verified, cut it.
 3. Watch for **year confusion.** Tax year ≠ filing year. Inflation-adjusted figures change every year.
 4. **Disaster relief is county-specific.** Name states only from IRS releases and always point to the IRS disaster-relief page.
 5. Every post gets a **Sources** list (built automatically from the meta) and the standard disclaimer with a "facts checked as of" date.
-6. Never imply MFA or Zain holds a credential they don't. The byline is "Merchant Financial Advisory". Don't put "CPA" in the copy.
+6. Never imply MFA or Zain holds a credential they don't. The byline is "Merchant Financial Advisory". Don't put "CPA" in the copy. Never imply Intuit endorses MFA.
+8. Every page carries the legal disclaimer automatically (article footer and site footer). Don't remove it. Link /disclaimer.html when relevant.
 7. Don't fabricate client stories, testimonials or statistics.
 
 ## SEO checklist
@@ -41,7 +51,7 @@ content/posts/<slug>.html          post source: <!--meta {json} --> + body HTML
 content/graphics/<slug>-cover.html  keep-handy graphic (HTML/CSS, links _base.css)
 content/graphics/<slug>-og.html     1200x630 social card
 content/graphics/_base.css          brand fonts/colors (fonts vendored in tools/fonts)
-tools/build_blog.py                 builds site/blog/*, feed.xml, sitemap.xml, robots.txt
+tools/build_blog.py                 builds site/blog/*, blog/latest.json (feeds the home-page "Latest Insights" window), feed.xml, legal pages (content/pages), sitemap.xml, robots.txt
 tools/render_graphics.js            renders graphics → PNG (Playwright)
 site/                               published folder
 ```
