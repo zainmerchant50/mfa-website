@@ -42,15 +42,26 @@ BLOG_DESC = ("Practical tax, accounting, and QuickBooks guidance for individuals
              "filing deadlines and IRS updates, tax planning, accrual accounting, bookkeeping best practices, and QuickBooks tips.")
 # Default author for every post (override per post with "author" in the meta).
 AUTHOR_LINKEDIN = "https://www.linkedin.com/in/zainmerchant50"
+AUTHOR_PATH = "/authors/zain-merchant/"
 AUTHOR = {
     "name": "Zain Merchant",
     "credential": "ACCA",
     "title": "Founder & Principal, Merchant Financial Advisory",
-    "url": AUTHOR_LINKEDIN,
+    "url": BASE + AUTHOR_PATH,
+    "linkedin": AUTHOR_LINKEDIN,
+    "sameAs": [AUTHOR_LINKEDIN, "https://www.upwork.com/freelancers/zainmerchant50", "https://www.fiverr.com/zainmerchant50"],
     "bio": ("Zain Merchant, ACCA, is the founder and principal of Merchant Financial Advisory. A QuickBooks ProAdvisor "
             "with Big Four (PwC) audit and tax experience, he helps individuals and small and mid-sized businesses with "
             "accrual accounting, clean books, and tax filing and preparation."),
 }
+
+
+def person_ld(a):
+    return {"@type": "Person", "@id": a["url"] + "#person", "name": a["name"], "url": a["url"], "jobTitle": a["title"],
+            "honorificSuffix": a["credential"], "sameAs": a["sameAs"],
+            "worksFor": {"@type": "Organization", "name": "Merchant Financial Advisory LLC", "url": BASE}}
+
+
 LI_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.23 0z"/></svg>')
 
 
@@ -58,9 +69,10 @@ def author_box(a):
     initials = "".join(w[0] for w in a["name"].split()[:2])
     return (f'<aside class="author" aria-label="About the author"><div class="av" aria-hidden="true">{initials}</div>'
             f'<div><span class="author-k">About the author</span>'
-            f'<a class="author-n" href="{a["url"]}" target="_blank" rel="noopener author">{esc(a["name"])}, {esc(a["credential"])}</a>'
+            f'<a class="author-n" href="{a["url"]}" rel="author">{esc(a["name"])}, {esc(a["credential"])}</a>'
             f'<span class="author-t">{esc(a["title"])}</span><p>{esc(a["bio"])}</p>'
-            f'<a class="author-li" href="{a["url"]}" target="_blank" rel="noopener">{LI_ICON}Connect on LinkedIn</a></div></aside>')
+            f'<a class="author-li" href="{a["linkedin"]}" target="_blank" rel="noopener">{LI_ICON}Connect on LinkedIn</a>'
+            f'<a class="author-more" href="{a["url"]}">More articles by {esc(a["name"].split()[0])} →</a></div></aside>')
 
 
 DISCLAIMER = ("This article is general information, not tax, legal, or financial advice, and reading it does not "
@@ -232,8 +244,7 @@ def build_post(p):
         {"@type": "BlogPosting", "headline": p["title"], "description": p["description"],
          "datePublished": p["date"], "dateModified": p.get("updated", p["date"]),
          "image": img, "mainEntityOfPage": url, "keywords": ", ".join(p.get("keywords", [])),
-         "author": {"@type": "Person", "name": A["name"], "jobTitle": A["title"], "url": A["url"], "sameAs": [A["url"]],
-                    "worksFor": {"@type": "Organization", "name": "Merchant Financial Advisory LLC", "url": BASE}},
+         "author": person_ld(A),
          "publisher": {"@type": "Organization", "name": "Merchant Financial Advisory LLC",
                        "logo": {"@type": "ImageObject", "url": BASE + "/apple-touch-icon.png"}}},
         {"@type": "BreadcrumbList", "itemListElement": [
@@ -256,7 +267,7 @@ def build_post(p):
   <span class="eyebrow">{esc(p["category"])}</span>
   <h1>{esc(p["title"])}</h1>
   <p class="dek">{esc(p["dek"])}</p>
-  <div class="ameta"><span>By <a class="byline" href="{A["url"]}" target="_blank" rel="noopener author"><b>{esc(A["name"])}, {esc(A["credential"])}</b></a></span><span>{nice}</span><span>{p["minutes"]} min read</span></div>
+  <div class="ameta"><span>By <a class="byline" href="{A["url"]}" rel="author"><b>{esc(A["name"])}, {esc(A["credential"])}</b></a></span><span>{nice}</span><span>{p["minutes"]} min read</span></div>
   {share_bar(p, url, "share-dark")}
 </div></header>
 <main><article class="article">
@@ -331,10 +342,57 @@ def build_latest(posts, n=5):
     (SITE / "blog" / "latest.json").write_text(json.dumps({"posts": data}, indent=1), encoding="utf-8")
 
 
+def build_author(posts):
+    a = AUTHOR
+    url = a["url"]
+    mine = [p for p in posts if {**AUTHOR, **p.get("author", {})}["name"] == a["name"]]
+    items = "".join(f'<li><a href="/blog/{p["slug"]}/"><span class="m">{esc(p["category"])} · {p["dt"].strftime("%b %-d, %Y")}</span>'
+                    f'<b>{esc(p["title"])}</b><span class="d">{esc(p["description"])}</span></a></li>' for p in mine)
+    person = person_ld(a)
+    person.update({"description": a["bio"], "image": BASE + "/apple-touch-icon.png",
+                   "address": {"@type": "PostalAddress", "addressLocality": "Princeton", "addressRegion": "NJ", "addressCountry": "US"},
+                   "knowsAbout": ["Tax preparation", "Tax planning", "Accrual accounting", "Bookkeeping", "QuickBooks Online",
+                                  "Form 1099 reporting", "Financial reporting", "Internal controls", "SOX compliance", "Audit"]})
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "ProfilePage", "@id": url, "url": url, "name": f'{a["name"]}, {a["credential"]}', "mainEntity": {"@id": url + "#person"},
+         "hasPart": [{"@type": "BlogPosting", "headline": p["title"], "url": f'{BASE}/blog/{p["slug"]}/'} for p in mine]},
+        person]}
+    desc = (f'{a["name"]}, ACCA, is a Princeton, NJ accountant and founder of Merchant Financial Advisory, writing on tax deadlines, '
+            f'1099s, accrual accounting and QuickBooks for individuals and small businesses.')
+    li_btn = f'<a class="btn btn-gold" href="{a["linkedin"]}" target="_blank" rel="noopener me">{LI_ICON}Connect on LinkedIn</a>'
+    page = f"""{head(f'{a["name"]}, ACCA | Accountant & Tax Advisor, Princeton NJ | Merchant Financial Advisory', desc, url,
+                 BASE + "/apple-touch-icon.png", f'<script type="application/ld+json">{json.dumps(ld)}</script>', None, "profile")}
+<body>{nav("blog")}
+<header class="ahead aprofile"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / <a href="/blog/">Insights</a> / Authors</div>
+  <div class="ap-row"><div class="ap-av" aria-hidden="true">ZM</div><div>
+  <span class="eyebrow">Author</span>
+  <h1>{esc(a["name"])}, {esc(a["credential"])}</h1>
+  <p class="dek">Founder &amp; Principal of Merchant Financial Advisory, an accounting and tax solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide.</p>
+  <div class="cta-btns">{li_btn}<a class="btn btn-line" href="/#book">Book a consultation</a></div></div></div>
+</div></header>
+<main><article class="article">
+<h2>About Zain</h2>
+<p>Zain Merchant is an ACCA-qualified accountant and the founder of Merchant Financial Advisory (MFA). Before starting MFA, he was a Senior Associate at PwC in New York, working on audits, SOX and internal-controls engagements for Fortune 500 financial services clients, with a rotation through PwC's tax practice.</p>
+<p>Today he helps individuals, freelancers and small and mid-sized businesses keep accurate, accrual-basis books, stay on top of IRS and New Jersey filing deadlines, and get more out of QuickBooks. He is a certified QuickBooks ProAdvisor.</p>
+<h2>What Zain writes about</h2>
+<ul><li>Tax filing deadlines, IRS updates and New Jersey tax rules</li><li>Form 1099s, W-9s and year-end compliance</li><li>Accrual accounting, month-end close and clean books</li><li>QuickBooks Online tips, setup and cleanups</li><li>Tax planning for business owners and the self-employed</li></ul>
+<h2>Articles by {esc(a["name"])}</h2>
+<ul class="alist">{items}</ul>
+<h2>Connect</h2>
+<p><a href="{a["linkedin"]}" target="_blank" rel="noopener me">LinkedIn</a> · <a href="https://www.upwork.com/freelancers/zainmerchant50" target="_blank" rel="noopener me">Upwork</a> · <a href="https://www.fiverr.com/zainmerchant50" target="_blank" rel="noopener me">Fiverr</a> · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+</article></main>
+{FOOT}</body></html>"""
+    out = SITE / AUTHOR_PATH.strip("/") / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(page, encoding="utf-8")
+
+
 def build_sitemap(posts, pages=()):
     today = datetime.now(timezone.utc).date().isoformat()
     urls = [(BASE + "/", today), (BASE + "/blog/", posts[0]["date"] if posts else today)]
     urls += [(f'{BASE}/blog/{p["slug"]}/', p.get("updated", p["date"])) for p in posts]
+    urls += [(AUTHOR["url"], posts[0]["date"] if posts else today)]
     urls += [(f"{BASE}/{pg['slug']}.html", pg["updated"]) for pg in pages]
     body = "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (SITE / "sitemap.xml").write_text(
@@ -357,6 +415,7 @@ def build_llms(posts):
         "## Key pages",
         f"- [Home and services]({BASE}/): services, approach, client reviews, booking and contact",
         f"- [MFA Insights blog]({BASE}/blog/): tax deadlines, IRS updates, accounting best practices and QuickBooks tips",
+        f"- [Zain Merchant, ACCA]({AUTHOR['url']}): founder and principal of MFA, author of MFA Insights",
         f"- [Disclaimer]({BASE}/disclaimer.html): site content is general information, not tax, accounting, legal or financial advice",
         "",
         "## Latest articles",
@@ -374,5 +433,6 @@ if __name__ == "__main__":
     build_latest(posts)
     pages = build_pages()
     build_sitemap(posts, pages)
+    build_author(posts)
     build_llms(posts)
     print(f"Built {len(posts)} post(s): " + ", ".join(p["slug"] for p in posts))
