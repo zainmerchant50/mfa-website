@@ -82,7 +82,7 @@ tools/render_graphics.js            renders graphics → PNG (Playwright)
 tools/build_landing.py              builds the Google Ads landing pages site/union-city-nj/ and site/princeton-nj/ (phone, conversion IDs in its CONFIG)
 site/                               published folder
 ```
-**Meta fields:** title, seoTitle, slug, date (YYYY-MM-DD), factsAsOf, category, description, dek, keywords[], cover ("cover.png"), coverAlt, og ("og.png"), ctaHeadline, ctaTopic, sources[{title,url}]. Optional: updated, status ("draft" to exclude).
+**Meta fields:** title, seoTitle, slug, date (YYYY-MM-DD), factsAsOf, category, description, dek, keywords[], cover ("cover.png"), coverAlt, og ("og.png"), ctaHeadline, ctaTopic, sources[{title,url}]. Optional: updated, status ("draft" to exclude), time ("HH:MM", orders same-day posts; newest first).
 
 **Body building blocks** (styled by site/blog/blog.css): `<div class="tldr">`, `<figure class="figure"><img src="cover.png" ...>`, `<table class="tbl">`, `<h2>`, `<h3>`, `<ol>`, `<ul>`. The CTA, sources and disclaimer are added automatically.
 

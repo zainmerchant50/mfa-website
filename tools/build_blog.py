@@ -100,7 +100,7 @@ def load_posts():
         meta["body"] = body
         meta["dt"] = datetime.fromisoformat(meta["date"]).replace(tzinfo=timezone.utc)
         posts.append(meta)
-    posts.sort(key=lambda p: p["dt"], reverse=True)
+    posts.sort(key=lambda p: (p["dt"], p.get("time", "00:00")), reverse=True)  # optional "time" (HH:MM) breaks same-day ties
     return posts
 
 
