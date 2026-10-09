@@ -71,7 +71,7 @@ Author byline and "About the author" box (Zain Merchant, ACCA, linked to LinkedI
 - Length: 700–1,300 words. One idea per paragraph; tables for numbers.
 - Avoid scaled-content patterns. Each post must add something specific (dates, numbers, steps). Don't rewrite the same topic every week; update the existing post instead (set `updated`).
 
-## Repo and build (zainmerchant50/mfa-website; the host — Netlify, moving to Cloudflare Pages — auto-deploys `main`)
+## Repo and build (zainmerchant50/mfa-website; Cloudflare Pages auto-deploys `main`)
 ```
 content/posts/<slug>.html          post source: <!--meta {json} --> + body HTML
 content/graphics/<slug>-cover.html  keep-handy graphic (HTML/CSS, links _base.css)
@@ -96,9 +96,8 @@ site/                               published folder
 4. `python3 tools/build_blog.py`
 5. QA: screenshot the post at 1300px and 390px (no horizontal scroll, image not distorted). Re-read every number against its source.
 6. **Draft mode:** commit to branch `draft/<slug>`, push, and email Zain the branch preview link with a 3-line summary. Subject: "Approve? MFA post for <date>".
-   - **Cloudflare Pages (after the move):** branch previews don't use `main`'s deploy budget. Get the exact preview URL from the pushed commit's GitHub check/status posted by Cloudflare Pages (its "details" link, e.g. `https://<alias>.mfa-advisory.pages.dev/blog/<slug>/`). Don't hand-build it: Cloudflare shortens long branch names in the alias.
-   - **Netlify (until the move):** `https://draft-<slug>--mfa-advisory.netlify.app/blog/<slug>/`.
-   - **Deploy budget:** every merge to `main` is a production deploy. Publish at most one merge per run and bundle site edits into a single commit.
+   - **Preview URL (Cloudflare Pages):** get it from the pushed commit's GitHub check/status posted by Cloudflare Pages (its "details" link, like `https://<branch-alias>.mfa-website-83y.pages.dev/blog/<slug>/`). Don't hand-build it: Cloudflare shortens long branch names in the alias.
+   - Hosting is Cloudflare Pages (free, unlimited deploys); merging to `main` goes live in ~1 minute. Still publish at most one post per run.
    **Publish:** merge to `main` (or commit directly for an approved or trial post) and push. Then verify the live URL and that `/blog/feed.xml` includes it.
 7. Commit messages end with the session attribution lines.
 
