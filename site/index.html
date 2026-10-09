@@ -643,7 +643,7 @@ body.scrolled .burger{color:var(--ink)}
 .foot-legal a{color:rgba(21,21,21,.6);border-bottom:1px solid rgba(176,141,63,.5)}
 
 /* Latest Insights window */
-.ins{position:fixed;left:24px;bottom:24px;z-index:45;display:flex;flex-direction:column;align-items:flex-start;gap:12px;
+.ins{position:fixed;right:24px;bottom:24px;z-index:45;display:flex;flex-direction:column;align-items:flex-end;gap:12px;
   opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease);pointer-events:none}
 .ins.show{opacity:1;transform:none}
 .ins.show .ins-btn{pointer-events:auto}
@@ -655,7 +655,7 @@ body.scrolled .burger{color:var(--ink)}
 .ins-dot{position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--gold-b);border:2px solid #fff;animation:insPulse 2s infinite}
 @keyframes insPulse{0%{box-shadow:0 0 0 0 rgba(216,183,105,.6)}70%{box-shadow:0 0 0 10px rgba(216,183,105,0)}100%{box-shadow:0 0 0 0 rgba(216,183,105,0)}}
 .ins-panel{width:340px;max-width:calc(100vw - 48px);background:#fff;border:1px solid var(--hair);border-radius:18px;overflow:hidden;
-  box-shadow:0 28px 70px rgba(16,35,63,.24);transform-origin:bottom left;transform:translateY(10px) scale(.96);opacity:0;visibility:hidden;
+  box-shadow:0 28px 70px rgba(16,35,63,.24);transform-origin:bottom right;transform:translateY(10px) scale(.96);opacity:0;visibility:hidden;
   transition:opacity .4s var(--ease),transform .4s var(--ease),visibility 0s .4s;pointer-events:none}
 .ins.open .ins-panel{opacity:1;transform:none;visibility:visible;transition-delay:0s;pointer-events:auto}
 .ins-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 18px 14px;background:var(--navy);color:#fff}
@@ -673,7 +673,8 @@ body.scrolled .burger{color:var(--ink)}
 .ins-list .t{font-size:.84rem;font-weight:500;line-height:1.35;color:var(--ink);margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ins-all{display:block;padding:14px 18px;border-top:1px solid var(--hair);font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy)}
 .ins-all:hover{color:var(--gold)}
-@media(max-width:600px){.ins{left:14px;bottom:14px}.ins-lbl{display:none}.ins-btn{padding:13px}.ins-btn svg{width:19px;height:19px}}
+@media(max-width:1100px){.ins-lbl{display:none}.ins-btn{padding:13px}.ins-btn svg{width:19px;height:19px}}
+@media(max-width:600px){.ins{right:14px;bottom:14px}}
 @media(prefers-reduced-motion:reduce){.ins,.ins-panel{transition:none}.ins-dot{animation:none}}
 </style>
 </head>
@@ -1280,12 +1281,12 @@ body.scrolled .burger{color:var(--ink)}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
-        <p class="f-note">We respond within one business day.</p>
+        <p class="f-note">We respond within one to three business days.</p>
       </form>
       <div class="f-done" id="fdone">
         <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <h3>Request received.</h3>
-        <p>We'll be in touch within one business day.</p>
+        <p>We'll be in touch within one to three business days.</p>
       </div>
     </div>
   </div>

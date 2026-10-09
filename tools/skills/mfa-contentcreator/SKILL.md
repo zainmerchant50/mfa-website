@@ -32,7 +32,7 @@ Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **a
 5. Every post gets a **Sources** list (built automatically from the meta) and the standard disclaimer with a "facts checked as of" date.
 6. Never imply MFA or Zain holds a credential they don't. The byline is "Merchant Financial Advisory". Never imply Intuit endorses MFA.
    - **Never call MFA a CPA firm or Zain a "CPA"/"CA"/"chartered accountant"**, and never say the team "is" or "includes" CPAs. MFA is not a NJ-registered CPA firm (N.J.S.A. 45:2B-62(b),(e)); Google Ads also rejects unverifiable credential claims. Zain chose this wording (Oct 2026).
-   - Approved wording: "a senior team of experienced accountants and tax professionals"; "founder Zain Merchant, a member of ACCA (the Association of Chartered Certified Accountants, UK)"; "Big Four audit and assurance experience" (say Big Four, not PwC); "for engagements that require a licensed CPA, we partner with licensed CPAs" (website only, not in ads).
+   - Approved wording: "a senior team of experienced accountants and tax professionals"; "founder Zain Merchant, a member of ACCA (the Association of Chartered Certified Accountants, UK)"; "Big Four audit and assurance experience" (say Big Four, not PwC; PwC New York appears only in Zain's author bio); "for engagements that require a licensed CPA, we partner with licensed CPAs" (website only, not in ads).
 7. Don't fabricate client stories, testimonials or statistics.
 8. Every page carries the legal disclaimer automatically (article footer and site footer). Don't remove it. Link /disclaimer.html when relevant.
 
