@@ -51,7 +51,7 @@ AUTHOR = {
     "linkedin": AUTHOR_LINKEDIN,
     "sameAs": [AUTHOR_LINKEDIN, "https://www.upwork.com/freelancers/zainmerchant50", "https://www.fiverr.com/zainmerchant50"],
     "bio": ("Zain Merchant, ACCA, is the founder and principal of Merchant Financial Advisory. A QuickBooks ProAdvisor "
-            "with Big Four (PwC) audit and tax experience, he helps individuals and small and mid-sized businesses with "
+            "with eight years of Big Four audit and tax experience, he helps individuals and small and mid-sized businesses with "
             "accrual accounting, clean books, and tax filing and preparation."),
 }
 
@@ -373,7 +373,7 @@ def build_author(posts):
 </div></header>
 <main><article class="article">
 <h2>About Zain</h2>
-<p>Zain Merchant is an ACCA-qualified accountant and the founder of Merchant Financial Advisory (MFA). Before starting MFA, he was a Senior Associate at PwC in New York, working on audits, SOX and internal-controls engagements for Fortune 500 financial services clients, with a rotation through PwC's tax practice.</p>
+<p>Zain Merchant is an ACCA-qualified accountant and the founder of Merchant Financial Advisory (MFA). Before starting MFA, he spent eight years at Big Four accounting firms, including PwC in New York, working on audits, SOX and internal-controls engagements for Fortune 500 financial services clients, with a rotation through tax.</p>
 <p>Today he helps individuals, freelancers and small and mid-sized businesses keep accurate, accrual-basis books, stay on top of IRS and New Jersey filing deadlines, and get more out of QuickBooks. He is a certified QuickBooks ProAdvisor.</p>
 <h2>What Zain writes about</h2>
 <ul><li>Tax filing deadlines, IRS updates and New Jersey tax rules</li><li>Form 1099s, W-9s and year-end compliance</li><li>Accrual accounting, month-end close and clean books</li><li>QuickBooks Online tips, setup and cleanups</li><li>Tax planning for business owners and the self-employed</li></ul>
