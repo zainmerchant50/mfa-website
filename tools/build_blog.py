@@ -191,6 +191,39 @@ def faq_schema(body):
         {"@type": "Question", "name": strip(q), "acceptedAnswer": {"@type": "Answer", "text": strip(a)}} for q, a in pairs]}
 
 
+
+def seo_lint(p):
+    """Warn when target keywords aren't actually used on the page (meta keywords alone don't rank)."""
+    norm = lambda t: re.sub(r"[^a-z0-9$%]+", " ", html.unescape(re.sub(r"<[^>]+>", " ", t)).lower()).strip()
+    body, title = norm(p["body"]), norm(p.get("seoTitle", "") + " " + p["title"])
+    heads = norm(" ".join(re.findall(r"<h[23]>(.*?)</h[23]>", p["body"])))
+    intro = " ".join(body.split()[:160])
+    warn = []
+    kws = p.get("keywords", [])
+    if kws:
+        prim = norm(kws[0]).split()
+        if not all(w in title.split() for w in prim):
+            warn.append(f"primary keyword '{kws[0]}' not fully in title/seoTitle")
+        if norm(kws[0]) not in intro and norm(kws[0]) not in heads:
+            warn.append(f"primary keyword '{kws[0]}' not in first 160 words or a heading")
+    for k in kws:
+        if norm(k) not in body and norm(k) not in title:
+            warn.append(f"keyword '{k}' never appears in the article text")
+    if not 120 <= len(p["description"]) <= 165:
+        warn.append(f"description is {len(p['description'])} chars (aim 140-160)")
+    for w in warn:
+        print(f"  SEO [{p['slug']}]: {w}")
+    return warn
+
+
+def tags_block(p):
+    kws = p.get("keywords", [])
+    if not kws:
+        return ""
+    return ('<div class="tags"><span class="tags-k">Topics covered</span><ul>'
+            + "".join(f"<li>{esc(k)}</li>" for k in kws) + "</ul></div>")
+
+
 def build_post(p):
     A = {**AUTHOR, **p.get("author", {})}
     url = f"{BASE}/blog/{p['slug']}/"
@@ -228,6 +261,7 @@ def build_post(p):
 </div></header>
 <main><article class="article">
 {p["body"]}
+{tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>
 {author_box(A)}
 <section class="sources"><h2>Sources</h2><ul>{sources}</ul>
@@ -333,6 +367,7 @@ def build_llms(posts):
 if __name__ == "__main__":
     posts = load_posts()
     for p in posts:
+        seo_lint(p)
         build_post(p)
     build_index(posts)
     build_feed(posts)

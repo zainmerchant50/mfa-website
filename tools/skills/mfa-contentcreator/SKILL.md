@@ -57,6 +57,8 @@ Timeline, key-numbers cards, checklist, decision flowchart ("Do I need to file�
 Author byline and "About the author" box (Zain Merchant, ACCA, linked to LinkedIn; set in AUTHOR at the top of tools/build_blog.py, override per post with an "author" meta field), share bar (Post on LinkedIn, X, Facebook, email, copy link, native share on phones) at the top and bottom of each article, CTA block, sources, disclaimer, the home-page "Latest Insights" window (reads `/blog/latest.json`), the RSS feed, sitemap, FAQ schema and llms.txt.
 
 ## SEO checklist
+- **Keywords must be used on the page, not just listed.** Google ignores the meta-keywords tag; rankings come from where the phrases appear. The first keyword in `keywords` is the **primary** one: put it in the title or seoTitle, the first paragraph or an H2, and the description. Every other keyword must appear naturally somewhere in the article (an H2, an FAQ question, a sentence). Write them as people search: "1099 threshold for 2026", "who needs a 1099", "do I send a 1099 to an LLC".
+- `python3 tools/build_blog.py` runs an SEO check and prints `SEO [...]` warnings. **Fix every warning before committing.** The keywords also render as a visible "Topics covered" list at the end of each article.
 - `title`: about 50–65 characters, with the primary keyword and the date or year. `seoTitle` can differ for the <title> tag.
 - `description`: 140–160 characters. It should answer "what and when", with a hook.
 - 5–8 `keywords`: primary, secondary, long-tail and a local NJ variant where relevant.
