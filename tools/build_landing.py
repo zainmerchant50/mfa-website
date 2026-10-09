@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds the Google Ads landing page: site/union-city-nj/index.html
+"""Builds the Google Ads landing pages: site/union-city-nj/ and site/princeton-nj/ (one per LOCATIONS entry)
 
 Edit the CONFIG block below, then run:  python3 tools/build_landing.py
 (build_blog.py also adds this page to sitemap.xml and llms.txt.)
@@ -10,15 +10,19 @@ Ad final URLs (one per ad group) — the ?s= value swaps the headline and pre-se
   https://mfa-advisory.com/union-city-nj/?s=tax
   https://mfa-advisory.com/union-city-nj/?s=accounting
 """
-import json
+import json, subprocess, sys
 from html import escape as esc
 from pathlib import Path
 
 # ---------------------------------------------------------------- CONFIG
 PHONE = "(347) 205-4468"   # Leave "" to hide all call buttons.
 EMAIL = "info@mfa-advisory.com"
-CITY = "Union City, NJ"
-AREA = ["Union City", "West New York", "North Bergen", "Weehawken", "Hoboken", "Jersey City", "Guttenberg", "Secaucus"]
+LOCATIONS = {
+    "union-city": dict(slug="union-city-nj", city="Union City", region="Hudson County",
+                       area=["Union City", "West New York", "North Bergen", "Weehawken", "Hoboken", "Jersey City", "Guttenberg", "Secaucus"]),
+    "princeton": dict(slug="princeton-nj", city="Princeton", region="Mercer County",
+                      area=["Princeton", "West Windsor", "Plainsboro", "Lawrenceville", "Montgomery", "Hopewell", "Kingston"]),
+}
 BOOK_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z1XCM1FcZDRE6VnHyWPfqXcgkL1-kxgrTJaKaM-0VCun9u0cVIziW87B0XAQGVXE51SZ0LOo9"
 # Form delivery (works on any host, incl. Cloudflare Pages). First submission sends a one-time
 # activation email to EMAIL from FormSubmit; click it and every later lead arrives in the inbox.
@@ -32,36 +36,42 @@ ADS = {
 }
 # ---------------------------------------------------------------- /CONFIG
 
+if len(sys.argv) < 2:   # build every location page
+    for key in LOCATIONS:
+        subprocess.run([sys.executable, __file__, key], check=True)
+    sys.exit(0)
+L = LOCATIONS[sys.argv[1]]
+AREA = L["area"]
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "site" / "union-city-nj" / "index.html"
-URL = "https://mfa-advisory.com/union-city-nj/"
+OUT = ROOT / "site" / L["slug"] / "index.html"
+URL = f"https://mfa-advisory.com/{L['slug']}/"
 
 tel = "+1" + "".join(c for c in PHONE if c.isdigit())[-10:] if PHONE else ""
 
 VARIANTS = {
     "default": {
-        "h1": "Bookkeeping, Accounting &amp; Tax Preparation in Union City, NJ",
-        "lead": "One team for your books and your taxes. Small businesses, self-employed professionals and households in Hudson County get clean monthly books, accurate returns and a fixed fee quoted before we start.",
+        "h1": "Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ",
+        "lead": "One team for your books and your taxes. Small businesses, self-employed professionals and households in §REGION§ get clean monthly books, accurate returns and a fixed fee quoted before we start.",
         "svc": "",
     },
     "bookkeeping": {
-        "h1": "Bookkeeping Services in Union City, NJ",
+        "h1": "Bookkeeping Services in §CITY§, NJ",
         "lead": "Monthly bookkeeping, catch-up work and QuickBooks cleanup for small businesses. Reconciled every month, ready for tax time and for your lender, at a fixed monthly fee.",
         "svc": "Bookkeeping & Accounting",
     },
     "tax": {
-        "h1": "Tax Preparation in Union City, NJ",
+        "h1": "Tax Preparation in §CITY§, NJ",
         "lead": "Individual, self-employed and small-business returns, federal and New Jersey, prepared accurately and filed on time. Behind on filings? We can help you catch up.",
         "svc": "Tax Preparation & Filing",
     },
     "hindi-urdu": {
         "h1": "Accountant &amp; Tax Preparer Who Speaks Hindi &amp; Urdu",
-        "lead": "Bookkeeping, accounting and tax preparation for families and small businesses in Jersey City, Union City and across Hudson County, explained in English, Hindi or Urdu, at a fixed fee quoted upfront.",
+        "lead": "Bookkeeping, accounting and tax preparation for families and small businesses in §CITY§ and across §REGION§, explained in English, Hindi or Urdu, at a fixed fee quoted upfront.",
         "svc": "",
     },
     "accounting": {
-        "h1": "Small Business Accounting in Union City, NJ",
-        "lead": "Monthly close, financial statements and accrual-basis accounting that you, your bank and your tax return can rely on. Big 4 training, small-firm attention.",
+        "h1": "Small Business Accounting in §CITY§, NJ",
+        "lead": "Monthly close, financial statements and accrual-basis accounting that you, your bank and your tax return can rely on. Big Four training, small-firm attention.",
         "svc": "Bookkeeping & Accounting",
     },
 }
@@ -94,9 +104,9 @@ REVIEWS = [
 ]
 
 FAQ = [
-    ("Where are you located?", f"We're based in Princeton, NJ and work with clients across Hudson County, including {', '.join(AREA[:-1])} and {AREA[-1]}. Most work happens by video call, phone and secure document upload, so you don't need to take time off to drop off paperwork."),
+    ("Where are you located?", f"We're based in Princeton, NJ and work with clients across §REGION§, including {', '.join(AREA[:-1])} and {AREA[-1]}. Most work happens by video call, phone and secure document upload, so you don't need to take time off to drop off paperwork."),
     ("Do you speak Hindi or Urdu?", "Yes. We work in English, Hindi and Urdu, so you can ask questions and review your return or your books in the language you're most comfortable with."),
-    ("Who will work on my account?", "A senior team of experienced accountants and tax professionals, led by founder Zain Merchant (ACCA member, PwC New York audit and assurance experience). You get one point of contact who knows your file."),
+    ("Who will work on my account?", "A senior team of experienced accountants and tax professionals, led by founder Zain Merchant, a member of ACCA (the Association of Chartered Certified Accountants, UK) with Big Four audit and assurance experience. For engagements that require a licensed CPA, we partner with licensed CPAs. You get one point of contact who knows your file."),
     ("How much do you charge?", "Most engagements are fixed-fee, quoted upfront after a free consultation, so you know exactly what you'll pay before we begin. Ongoing bookkeeping is a flat monthly fee based on your transaction volume."),
     ("I'm behind on my books or haven't filed. Can you help?", "Yes. Catch-up bookkeeping and prior-year returns are a regular part of our work. We rebuild the records, reconcile every account and get your filings current."),
     ("Do you work with QuickBooks?", "Yes. We're a QuickBooks ProAdvisor and handle QuickBooks Online setup, cleanup and ongoing bookkeeping. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
@@ -232,8 +242,8 @@ JS = """
   f.addEventListener('submit',function(e){
     e.preventDefault(); if(f._honey.value)return; if(!f.checkValidity()){f.reportValidity();return;}
     var label=btn.innerHTML; btn.disabled=true; btn.textContent='Sending…';
-    var d=new FormData(f); d.append('_subject','New lead (Union City page): '+(d.get('service')||'')); d.append('_captcha','false'); d.append('_template','table');
-    d.append('source', 'union-city-nj' + (s ? ' / ' + s : '') + (location.search.indexOf('gclid')>-1?' / Google Ads':''));
+    var d=new FormData(f); d.append('_subject','New lead (§CITY§ page): '+(d.get('service')||'')); d.append('_captcha','false'); d.append('_template','table');
+    d.append('source', '§SLUG§' + (s ? ' / ' + s : '') + (location.search.indexOf('gclid')>-1?' / Google Ads':''));
     fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:d})
       .then(function(r){if(!r.ok)throw 0;return r.json();})
       .then(function(j){ if(j.success===false||j.success==='false')throw 0; f.style.display='none'; document.getElementById('ldone').classList.add('show'); conv('form'); })
@@ -249,12 +259,12 @@ call_top = f'<a href="tel:{tel}" class="tel" data-conv="call">{phone_ico}<span>{
 
 page = f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Bookkeeping, Accounting &amp; Tax Preparation in Union City, NJ | MFA</title>
-<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in Union City, NJ. QuickBooks ProAdvisor, Big 4 trained, fixed fees quoted upfront. Book a free 30-minute consultation."/>
+<title>Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ | MFA</title>
+<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in §CITY§, NJ. QuickBooks ProAdvisor, Big Four trained, fixed fees quoted upfront. Book a free 30-minute consultation."/>
 <link rel="canonical" href="{URL}"/>
 <meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/>
-<meta property="og:title" content="Bookkeeping, Accounting &amp; Tax Preparation in Union City, NJ"/>
-<meta property="og:description" content="Clean monthly books and accurate tax returns for Hudson County small businesses and households. Free 30-minute consultation."/>
+<meta property="og:title" content="Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ"/>
+<meta property="og:description" content="Clean monthly books and accurate tax returns for §REGION§ small businesses and households. Free 30-minute consultation."/>
 <meta property="og:url" content="{URL}"/><meta property="og:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -271,11 +281,11 @@ page = f'''<!doctype html><html lang="en"><head>
 <main>
 <section class="hero"><div class="wrap hero-g">
   <div>
-    <span class="eyebrow">Union City · Hudson County, NJ</span>
+    <span class="eyebrow">§CITY§ · §REGION§, NJ</span>
     <h1 id="h1">{d["h1"]}</h1>
     <p class="lead" id="lead">{d["lead"]}</p>
     <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a free 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
-    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}PwC New York experience</span><span>{check}Fixed fees, quoted upfront</span><span>{check}English · Hindi · Urdu</span></div>
+    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}Big Four experience</span><span>{check}Fixed fees, quoted upfront</span></div>
   </div>
   <div class="hero-card" id="quote">
     <h2>Get a fixed-fee quote</h2>
@@ -312,12 +322,12 @@ page = f'''<!doctype html><html lang="en"><head>
 </div></section>
 
 <section class="sec"><div class="wrap">
-  <div class="sec-hd"><span class="eyebrow">Why MFA</span><h2>Big 4 training. Local, small-firm attention.</h2></div>
+  <div class="sec-hd"><span class="eyebrow">Why MFA</span><h2>Big Four training. Local, small-firm attention.</h2></div>
   <div class="why">
-    <div><b>Senior team</b><span>experienced accountants and tax professionals with 10+ years in accounting, audit and tax, including PwC New York</span></div>
+    <div><b>Senior team</b><span>experienced accountants and tax professionals with 10+ years in accounting, audit and tax, including at Big Four firms</span></div>
     <div><b>ProAdvisor</b><span>QuickBooks Online setup, cleanup and support</span></div>
     <div><b>Fixed fees</b><span>quoted upfront after a free consultation</span></div>
-    <div><b>Your language</b><span>English, Hindi or Urdu, with direct access to your advisor, not a call center</span></div>
+    <div><b>Direct access</b><span>you talk to your advisor, not a call center or a seasonal temp</span></div>
   </div>
 </div></section>
 
@@ -347,16 +357,17 @@ page = f'''<!doctype html><html lang="en"><head>
 </main>
 
 <footer><div class="wrap">
-  <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Princeton, NJ · Serving Union City &amp; Hudson County · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
+  <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Princeton, NJ · Serving §CITY§ &amp; §REGION§ · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
   <nav><a href="/">Main site</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
   <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc.; MFA is not affiliated with or endorsed by Intuit.</p>
 </div></footer>
 
 <div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#book" class="btn btn-gold" data-conv="book">Book free call</a></div>
-<script>{JS % (json.dumps(variants_js), json.dumps(ADS), json.dumps(FORM_ENDPOINT), EMAIL)}</script>
+<script>{JS % (json.dumps(variants_js, ensure_ascii=False), json.dumps(ADS), json.dumps(FORM_ENDPOINT), EMAIL)}</script>
 </body></html>
 '''
 
+page = page.replace("§CITY§", L["city"]).replace("§REGION§", L["region"]).replace("§SLUG§", L["slug"])
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(page, encoding="utf-8")
 print(f"Wrote {OUT.relative_to(ROOT)}  (phone {'ON' if tel else 'OFF'}, ads tag {'ON' if ADS['id'] else 'OFF'})")

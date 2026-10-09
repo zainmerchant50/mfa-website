@@ -373,7 +373,7 @@ def build_author(posts):
 </div></header>
 <main><article class="article">
 <h2>About Zain</h2>
-<p>Zain Merchant is an ACCA-qualified accountant and the founder of Merchant Financial Advisory (MFA). Before starting MFA, he spent eight years at Big Four accounting firms, including PwC in New York, working on audits, SOX and internal-controls engagements for Fortune 500 financial services clients, with a rotation through tax.</p>
+<p>Zain Merchant is an ACCA-qualified accountant and the founder of Merchant Financial Advisory (MFA). Before starting MFA, he spent eight years at Big Four accounting firms, working on audits, SOX and internal-controls engagements for Fortune 500 financial services clients, with a rotation through tax.</p>
 <p>Today he helps individuals, freelancers and small and mid-sized businesses keep accurate, accrual-basis books, stay on top of IRS and New Jersey filing deadlines, and get more out of QuickBooks. He is a certified QuickBooks ProAdvisor.</p>
 <h2>What Zain writes about</h2>
 <ul><li>Tax filing deadlines, IRS updates and New Jersey tax rules</li><li>Form 1099s, W-9s and year-end compliance</li><li>Accrual accounting, month-end close and clean books</li><li>QuickBooks Online tips, setup and cleanups</li><li>Tax planning for business owners and the self-employed</li></ul>
@@ -393,8 +393,9 @@ def build_sitemap(posts, pages=()):
     urls = [(BASE + "/", today), (BASE + "/blog/", posts[0]["date"] if posts else today)]
     urls += [(f'{BASE}/blog/{p["slug"]}/', p.get("updated", p["date"])) for p in posts]
     urls += [(AUTHOR["url"], posts[0]["date"] if posts else today)]
-    if (SITE / "union-city-nj" / "index.html").exists():
-        urls += [(BASE + "/union-city-nj/", today)]
+    for lp in ("union-city-nj", "princeton-nj"):   # Google Ads landing pages (tools/build_landing.py)
+        if (SITE / lp / "index.html").exists():
+            urls += [(f"{BASE}/{lp}/", today)]
     urls += [(f"{BASE}/{pg['slug']}.html", pg["updated"]) for pg in pages]
     body = "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (SITE / "sitemap.xml").write_text(
@@ -417,6 +418,7 @@ def build_llms(posts):
         "## Key pages",
         f"- [Home and services]({BASE}/): services, approach, client reviews, booking and contact",
         f"- [Union City, NJ bookkeeping, accounting and tax preparation]({BASE}/union-city-nj/): local services page for Union City and Hudson County, NJ",
+        f"- [Princeton, NJ bookkeeping, accounting and tax preparation]({BASE}/princeton-nj/): local services page for Princeton and Mercer County, NJ",
         f"- [MFA Insights blog]({BASE}/blog/): tax deadlines, IRS updates, accounting best practices and QuickBooks tips",
         f"- [Zain Merchant, ACCA]({AUTHOR['url']}): founder and principal of MFA, author of MFA Insights",
         f"- [Disclaimer]({BASE}/disclaimer.html): site content is general information, not tax, accounting, legal or financial advice",
