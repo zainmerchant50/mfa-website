@@ -1,0 +1,24 @@
+# Old WordPress URLs (pre-Oct 2026). Useful pages -> 301 to their new home.
+/contact              /#contact        301
+/contact-us           /#contact        301
+/contact/*            /#contact        301
+/services             /#services       301
+/services/*           /#services       301
+/service/*            /#services       301
+/about                /#approach       301
+/about-us             /#approach       301
+/about-us/*           /#approach       301
+/privacy-policy       /privacy.html    301
+/privacy-policy/*     /privacy.html    301
+/terms-conditions     /terms.html      301
+/terms-conditions/*   /terms.html      301
+/terms-and-conditions /terms.html      301
+/feed                 /blog/feed.xml   301
+/feed/*               /blog/feed.xml   301
+/privacy              /privacy.html    301
+/terms                /terms.html      301
+/disclaimer           /disclaimer.html 301
+
+# Everything else that no longer exists (old portfolio, demo pages, footer templates, wp-* paths)
+# returns 410 Gone so Google drops it quickly. Only applies when no real file matches.
+/*                    /404.html        410
