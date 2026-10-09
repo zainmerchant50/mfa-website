@@ -51,12 +51,12 @@ tel = "+1" + "".join(c for c in PHONE if c.isdigit())[-10:] if PHONE else ""
 VARIANTS = {
     "default": {
         "h1": "Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ",
-        "lead": "One team for your books and your taxes. Small businesses, self-employed professionals and households in §REGION§ get clean monthly books, accurate returns and a fixed fee quoted before we start.",
+        "lead": "One team for your books and your taxes. Small businesses, self-employed professionals and households in §REGION§ get clean monthly books, accurate returns and a clear quote before we start: a flat monthly fee or hourly, whichever suits you.",
         "svc": "",
     },
     "bookkeeping": {
         "h1": "Bookkeeping Services in §CITY§, NJ",
-        "lead": "Monthly bookkeeping, catch-up work and QuickBooks cleanup for small businesses. Reconciled every month, ready for tax time and for your lender, at a fixed monthly fee.",
+        "lead": "Monthly bookkeeping, catch-up work and QuickBooks cleanup for small businesses. Reconciled every month, ready for tax time and for your lender, at a flat monthly fee or hourly.",
         "svc": "Bookkeeping & Accounting",
     },
     "tax": {
@@ -66,7 +66,7 @@ VARIANTS = {
     },
     "hindi-urdu": {
         "h1": "Accountant &amp; Tax Preparer Who Speaks Hindi &amp; Urdu",
-        "lead": "Bookkeeping, accounting and tax preparation for families and small businesses in §CITY§ and across §REGION§, explained in English, Hindi or Urdu, at a fixed fee quoted upfront.",
+        "lead": "Bookkeeping, accounting and tax preparation for families and small businesses in §CITY§ and across §REGION§, explained in English, Hindi or Urdu, with a clear quote upfront.",
         "svc": "",
     },
     "accounting": {
@@ -105,12 +105,11 @@ REVIEWS = [
 
 FAQ = [
     ("Where are you located?", f"We're based in Princeton, NJ and work with clients across §REGION§, including {', '.join(AREA[:-1])} and {AREA[-1]}. Most work happens by video call, phone and secure document upload, so you don't need to take time off to drop off paperwork."),
-    ("Do you speak Hindi or Urdu?", "Yes. We work in English, Hindi and Urdu, so you can ask questions and review your return or your books in the language you're most comfortable with."),
     ("Who will work on my account?", "A senior team of experienced accountants and tax professionals, led by founder Zain Merchant, a member of ACCA (the Association of Chartered Certified Accountants, UK) with Big Four audit and assurance experience. For engagements that require a licensed CPA, we partner with licensed CPAs. You get one point of contact who knows your file."),
-    ("How much do you charge?", "Most engagements are fixed-fee, quoted upfront after a free consultation, so you know exactly what you'll pay before we begin. Ongoing bookkeeping is a flat monthly fee based on your transaction volume."),
+    ("How much do you charge?", "You choose how you pay. Ongoing bookkeeping and advisory are usually a flat monthly fee, so your cost is predictable. One-off projects like cleanups and catch-up work get a project quote, and we also work on hourly contracts if you prefer to pay as you go. Bookkeeping pricing depends mainly on how many transactions you have each month, the number of accounts, the complexity of your business, and whether your books are kept on a cash or accrual basis. Every engagement is quoted upfront after a free consultation."),
     ("I'm behind on my books or haven't filed. Can you help?", "Yes. Catch-up bookkeeping and prior-year returns are a regular part of our work. We rebuild the records, reconcile every account and get your filings current."),
     ("Do you work with QuickBooks?", "Yes. We're a QuickBooks ProAdvisor and handle QuickBooks Online setup, cleanup and ongoing bookkeeping. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
-    ("What should I bring to the first call?", "Nothing is required. If it's handy, have last year's tax return or a recent bank statement nearby so we can give you a more precise quote."),
+    ("What should I bring to the first call?", "For bookkeeping, tell us roughly how many accounts your business has, including bank accounts, credit cards and loans (an estimate is fine). That tells us your approximate monthly transaction volume, which, together with complexity, is what drives bookkeeping pricing. If you know whether your books are on a cash or accrual basis, mention that too; if not, we'll work it out together. For tax returns, have last year's return handy if you can."),
 ]
 
 check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>'
@@ -260,7 +259,7 @@ call_top = f'<a href="tel:{tel}" class="tel" data-conv="call">{phone_ico}<span>{
 page = f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ | MFA</title>
-<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in §CITY§, NJ. QuickBooks ProAdvisor, Big Four trained, fixed fees quoted upfront. Book a free 30-minute consultation."/>
+<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in §CITY§, NJ. QuickBooks ProAdvisor, Big Four trained, flat-fee or hourly pricing quoted upfront. Book a free 30-minute consultation."/>
 <link rel="canonical" href="{URL}"/>
 <meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/>
 <meta property="og:title" content="Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ"/>
@@ -285,10 +284,10 @@ page = f'''<!doctype html><html lang="en"><head>
     <h1 id="h1">{d["h1"]}</h1>
     <p class="lead" id="lead">{d["lead"]}</p>
     <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a free 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
-    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}Big Four experience</span><span>{check}Fixed fees, quoted upfront</span></div>
+    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}Big Four experience</span><span>{check}Flat-fee or hourly pricing</span></div>
   </div>
   <div class="hero-card" id="quote">
-    <h2>Get a fixed-fee quote</h2>
+    <h2>Get a free quote</h2>
     <p class="s">Tell us what you need. We reply within one to three business days.</p>
     <form id="lf" novalidate>
       <div class="row"><div class="f"><label for="f-n">Name *</label><input id="f-n" name="name" autocomplete="name" required/></div>
@@ -316,7 +315,7 @@ page = f'''<!doctype html><html lang="en"><head>
   <div class="sec-hd"><span class="eyebrow">How it works</span><h2>Three steps to books and taxes you don't have to think about</h2></div>
   <div class="steps">
     <div class="step"><h3>Free 30-minute call</h3><p>We look at where you are today: your books, your last return and what's coming up.</p></div>
-    <div class="step"><h3>Fixed-fee quote</h3><p>You get a clear scope and price before any work starts. No hourly surprises.</p></div>
+    <div class="step"><h3>A clear quote</h3><p>You get the scope and price before any work starts: a flat monthly fee, a project fee, or hourly if you prefer.</p></div>
     <div class="step"><h3>We take it from there</h3><p>Secure document upload, monthly books, and returns filed on time, with one person you can call.</p></div>
   </div>
 </div></section>
@@ -326,7 +325,7 @@ page = f'''<!doctype html><html lang="en"><head>
   <div class="why">
     <div><b>Senior team</b><span>experienced accountants and tax professionals with 10+ years in accounting, audit and tax, including at Big Four firms</span></div>
     <div><b>ProAdvisor</b><span>QuickBooks Online setup, cleanup and support</span></div>
-    <div><b>Fixed fees</b><span>quoted upfront after a free consultation</span></div>
+    <div><b>Flexible pricing</b><span>flat monthly, project or hourly, quoted upfront after a free consultation</span></div>
     <div><b>Direct access</b><span>you talk to your advisor, not a call center or a seasonal temp</span></div>
   </div>
 </div></section>
@@ -351,7 +350,7 @@ page = f'''<!doctype html><html lang="en"><head>
 
 <section class="final"><div class="wrap">
   <h2>Let's get your books and taxes in order.</h2>
-  <p>Free consultation. Fixed-fee quote. No obligation.</p>
+  <p>Free consultation. Clear quote. No obligation.</p>
   <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a free call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}<a href="#quote" class="btn btn-line">Get a quote</a></div>
 </div></section>
 </main>

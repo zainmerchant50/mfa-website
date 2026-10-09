@@ -28,6 +28,7 @@ POSTS_DIR = ROOT / "content" / "posts"
 PAGES_DIR = ROOT / "content" / "pages"
 BASE = "https://mfa-advisory.com"
 BOOK_URL = BASE + "/#book"
+FORM_ENDPOINT = "https://formsubmit.co/ajax/info@mfa-advisory.com"   # same inbox as the site contact forms
 EMAIL = "info@mfa-advisory.com"
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"/>'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>'
@@ -145,6 +146,31 @@ def cta(p):
   <p>Book a free 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide tax and accounting solutions for individuals and small and mid-sized businesses in New Jersey and nationwide.</p>
   <div class="cta-btns"><a class="btn btn-gold" href="{BOOK_URL}">Book a consultation</a><a class="btn btn-line" href="mailto:{EMAIL}?subject={esc(p['title'])}">Email info@mfa-advisory.com</a></div>
 </div></section>'''
+
+
+def ask_box(p):
+    """Private 'Have a question about this?' form on every post. Sent by FormSubmit to EMAIL (not published)."""
+    return f'''<section class="ask" aria-label="Ask a question about this article">
+  <h2>Have a question about this?</h2>
+  <p>Ask us privately. Your question goes straight to our inbox, not onto the page, and we reply by email within one to three business days. Please don't include Social Security or account numbers.</p>
+  <form class="ask-f" data-post="{esc(p["title"])}" novalidate>
+    <div class="ask-row"><label>Name<input name="name" autocomplete="name" required/></label><label>Email<input name="email" type="email" autocomplete="email" required/></label></div>
+    <label>Your question<textarea name="question" rows="4" required placeholder="Type your question about this article"></textarea></label>
+    <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+    <button class="btn btn-ink" type="submit">Send my question</button>
+    <p class="ask-st" role="status" aria-live="polite"></p>
+  </form>
+  <p class="ask-done" hidden>Thanks, your question is in. We'll reply by email within one to three business days.</p>
+</section>
+<script>
+(function(){{var s=document.currentScript.previousElementSibling,f=s.querySelector('.ask-f'),st=s.querySelector('.ask-st');
+f.addEventListener('submit',function(e){{e.preventDefault();if(f._honey.value)return;if(!f.checkValidity()){{f.reportValidity();return;}}
+var b=f.querySelector('button'),l=b.textContent;b.disabled=true;b.textContent='Sending\u2026';var d=new FormData(f);
+d.append('article',f.dataset.post);d.append('page',location.href);d.append('_subject','Blog question: '+f.dataset.post);d.append('_captcha','false');d.append('_template','table');
+fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).then(function(r){{if(!r.ok)throw 0;return r.json();}})
+.then(function(j){{if(j.success===false||j.success==='false')throw 0;f.hidden=true;s.querySelector('.ask-done').hidden=false;}})
+.catch(function(){{st.textContent='Couldn’t send. Please email {EMAIL} directly.';b.disabled=false;b.textContent=l;}});}});}})();
+</script>'''
 
 
 SHARE_ICONS = {
@@ -274,6 +300,7 @@ def build_post(p):
 {p["body"]}
 {tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>
+{ask_box(p)}
 {author_box(A)}
 <section class="sources"><h2>Sources</h2><ul>{sources}</ul>
 <p class="disclaimer">Facts checked against the sources above as of {asof}. {DISCLAIMER}</p></section>
