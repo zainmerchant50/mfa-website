@@ -393,6 +393,8 @@ def build_sitemap(posts, pages=()):
     urls = [(BASE + "/", today), (BASE + "/blog/", posts[0]["date"] if posts else today)]
     urls += [(f'{BASE}/blog/{p["slug"]}/', p.get("updated", p["date"])) for p in posts]
     urls += [(AUTHOR["url"], posts[0]["date"] if posts else today)]
+    if (SITE / "union-city-nj" / "index.html").exists():
+        urls += [(BASE + "/union-city-nj/", today)]
     urls += [(f"{BASE}/{pg['slug']}.html", pg["updated"]) for pg in pages]
     body = "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (SITE / "sitemap.xml").write_text(
@@ -414,6 +416,7 @@ def build_llms(posts):
         "",
         "## Key pages",
         f"- [Home and services]({BASE}/): services, approach, client reviews, booking and contact",
+        f"- [Union City, NJ bookkeeping, accounting and tax preparation]({BASE}/union-city-nj/): local services page for Union City and Hudson County, NJ",
         f"- [MFA Insights blog]({BASE}/blog/): tax deadlines, IRS updates, accounting best practices and QuickBooks tips",
         f"- [Zain Merchant, ACCA]({AUTHOR['url']}): founder and principal of MFA, author of MFA Insights",
         f"- [Disclaimer]({BASE}/disclaimer.html): site content is general information, not tax, accounting, legal or financial advice",

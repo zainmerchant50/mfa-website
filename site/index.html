@@ -1225,8 +1225,7 @@ body.scrolled .burger{color:var(--ink)}
     </div>
 
     <div class="c-form reveal">
-      <form id="cform" class="f-grid" name="contact" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
-        <input type="hidden" name="form-name" value="contact"/>
+      <form id="cform" class="f-grid" name="contact" method="POST" novalidate>
         <div class="f-f">
           <label for="f-name">First &amp; Last Name <span class="rq">*</span></label>
           <input type="text" id="f-name" name="your-name" autocomplete="name" required/>
@@ -1384,9 +1383,9 @@ body.scrolled .burger{color:var(--ink)}
 (function(){
   'use strict';
 
-  /* Contact form is handled by Netlify Forms. Submissions appear in
-     Netlify → Forms, and email notifications go to info@mfa-advisory.com
-     (set under Site configuration → Notifications). No setup needed here. */
+  /* Contact form posts to FormSubmit (host-independent: works on Netlify or Cloudflare Pages).
+     Submissions are emailed to info@mfa-advisory.com. The very first submission triggers a
+     one-time activation email from FormSubmit; click the link in it to start receiving leads. */
 
   var $ = function(s,c){return (c||document).querySelector(s);};
   var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
@@ -1587,14 +1586,19 @@ body.scrolled .burger{color:var(--ink)}
       btn.disabled = true;
       btn.textContent = 'Sending…';
 
-      var body = new URLSearchParams(new FormData(f)).toString();
-      fetch('/', {
+      var body = new FormData(f);
+      body.delete('website');
+      body.append('_subject', 'New website enquiry: ' + (body.get('your-service') || ''));
+      body.append('_captcha', 'false');
+      body.append('_template', 'table');
+      fetch('https://formsubmit.co/ajax/info@mfa-advisory.com', {
         method:'POST',
-        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        headers:{'Accept':'application/json'},
         body: body
       })
-        .then(function(r){
-          if(!r.ok) throw new Error(r.status);
+        .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function(j){
+          if(j && (j.success === false || j.success === 'false')) throw new Error('rejected');
           f.style.display = 'none';
           done.classList.add('show');
         })

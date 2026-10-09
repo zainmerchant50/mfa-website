@@ -69,7 +69,7 @@ Author byline and "About the author" box (Zain Merchant, ACCA, linked to LinkedI
 - Length: 700–1,300 words. One idea per paragraph; tables for numbers.
 - Avoid scaled-content patterns. Each post must add something specific (dates, numbers, steps). Don't rewrite the same topic every week; update the existing post instead (set `updated`).
 
-## Repo and build (zainmerchant50/mfa-website, Netlify auto-deploys `main`)
+## Repo and build (zainmerchant50/mfa-website; the host — Netlify, moving to Cloudflare Pages — auto-deploys `main`)
 ```
 content/posts/<slug>.html          post source: <!--meta {json} --> + body HTML
 content/graphics/<slug>-cover.html  keep-handy graphic (HTML/CSS, links _base.css)
@@ -77,6 +77,7 @@ content/graphics/<slug>-og.html     1200x630 social card
 content/graphics/_base.css          brand fonts/colors (fonts vendored in tools/fonts)
 tools/build_blog.py                 builds site/blog/*, blog/latest.json (feeds the home-page "Latest Insights" window), feed.xml, legal pages (content/pages), sitemap.xml, robots.txt
 tools/render_graphics.js            renders graphics → PNG (Playwright)
+tools/build_landing.py              builds the Google Ads landing page site/union-city-nj/ (phone, conversion IDs in its CONFIG)
 site/                               published folder
 ```
 **Meta fields:** title, seoTitle, slug, date (YYYY-MM-DD), factsAsOf, category, description, dek, keywords[], cover ("cover.png"), coverAlt, og ("og.png"), ctaHeadline, ctaTopic, sources[{title,url}]. Optional: updated, status ("draft" to exclude).
@@ -92,7 +93,10 @@ site/                               published folder
    Look at both PNGs. Fix any overflow, empty space or wrong figures. Keep the cover height tight to its content.
 4. `python3 tools/build_blog.py`
 5. QA: screenshot the post at 1300px and 390px (no horizontal scroll, image not distorted). Re-read every number against its source.
-6. **Draft mode:** commit to branch `draft/<slug>`, push, and email Zain the Netlify branch preview link (`https://draft-<slug>--mfa-advisory.netlify.app/blog/<slug>/`) with a 3-line summary. Subject: "Approve? MFA post for <date>".
+6. **Draft mode:** commit to branch `draft/<slug>`, push, and email Zain the branch preview link with a 3-line summary. Subject: "Approve? MFA post for <date>".
+   - **Cloudflare Pages (after the move):** branch previews don't use `main`'s deploy budget. Get the exact preview URL from the pushed commit's GitHub check/status posted by Cloudflare Pages (its "details" link, e.g. `https://<alias>.mfa-advisory.pages.dev/blog/<slug>/`). Don't hand-build it: Cloudflare shortens long branch names in the alias.
+   - **Netlify (until the move):** `https://draft-<slug>--mfa-advisory.netlify.app/blog/<slug>/`.
+   - **Deploy budget:** every merge to `main` is a production deploy. Publish at most one merge per run and bundle site edits into a single commit.
    **Publish:** merge to `main` (or commit directly for an approved or trial post) and push. Then verify the live URL and that `/blog/feed.xml` includes it.
 7. Commit messages end with the session attribution lines.
 

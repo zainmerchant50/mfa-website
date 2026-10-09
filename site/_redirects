@@ -15,10 +15,9 @@
 /terms-and-conditions /terms.html      301
 /feed                 /blog/feed.xml   301
 /feed/*               /blog/feed.xml   301
-/privacy              /privacy.html    301
-/terms                /terms.html      301
-/disclaimer           /disclaimer.html 301
+# (/privacy, /terms, /disclaimer need no rule: both hosts serve the .html file at the bare path,
+#  and on Cloudflare a /privacy -> /privacy.html rule would loop with its .html -> bare redirect.)
 
-# Everything else that no longer exists (old portfolio, demo pages, footer templates, wp-* paths)
-# returns 410 Gone so Google drops it quickly. Only applies when no real file matches.
-/*                    /404.html        410
+# Everything else that no longer exists (old portfolio, demo pages, wp-* paths) falls through to
+# /404.html with a 404 status automatically (Netlify and Cloudflare Pages both do this).
+# A 410 catch-all was removed because Cloudflare Pages _redirects doesn't support status 410.

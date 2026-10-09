@@ -1,0 +1,351 @@
+#!/usr/bin/env python3
+"""Builds the Google Ads landing page: site/union-city-nj/index.html
+
+Edit the CONFIG block below, then run:  python3 tools/build_landing.py
+(build_blog.py also adds this page to sitemap.xml and llms.txt.)
+
+Ad final URLs (one per ad group) — the ?s= value swaps the headline and pre-selects the form:
+  https://mfa-advisory.com/union-city-nj/?s=bookkeeping
+  https://mfa-advisory.com/union-city-nj/?s=tax
+  https://mfa-advisory.com/union-city-nj/?s=accounting
+"""
+import json
+from html import escape as esc
+from pathlib import Path
+
+# ---------------------------------------------------------------- CONFIG
+PHONE = ""            # e.g. "(201) 555-0123". Leave "" to hide all call buttons.
+EMAIL = "info@mfa-advisory.com"
+CITY = "Union City, NJ"
+AREA = ["Union City", "West New York", "North Bergen", "Weehawken", "Hoboken", "Jersey City", "Guttenberg", "Secaucus"]
+BOOK_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z1XCM1FcZDRE6VnHyWPfqXcgkL1-kxgrTJaKaM-0VCun9u0cVIziW87B0XAQGVXE51SZ0LOo9"
+# Form delivery (works on any host, incl. Cloudflare Pages). First submission sends a one-time
+# activation email to EMAIL from FormSubmit; click it and every later lead arrives in the inbox.
+FORM_ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL
+# Google Ads conversion tracking. Paste values from Google Ads → Goals → Conversions → (action) → Tag setup.
+ADS = {
+    "id": "",          # e.g. "AW-123456789"  (blank = no tag loaded)
+    "form": "",        # conversion label for "Lead form submitted"
+    "call": "",        # conversion label for "Click to call"
+    "book": "",        # conversion label for "Opened booking calendar"
+}
+# ---------------------------------------------------------------- /CONFIG
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "site" / "union-city-nj" / "index.html"
+URL = "https://mfa-advisory.com/union-city-nj/"
+
+tel = "+1" + "".join(c for c in PHONE if c.isdigit())[-10:] if PHONE else ""
+
+VARIANTS = {
+    "default": {
+        "h1": "Bookkeeping, Accounting &amp; Tax Preparation in Union City, NJ",
+        "lead": "One team for your books and your taxes. Small businesses, self-employed professionals and households in Hudson County get clean monthly books, accurate returns and a fixed fee quoted before we start.",
+        "svc": "",
+    },
+    "bookkeeping": {
+        "h1": "Bookkeeping Services in Union City, NJ",
+        "lead": "Monthly bookkeeping, catch-up work and QuickBooks cleanup for small businesses. Reconciled every month, ready for tax time and for your lender, at a fixed monthly fee.",
+        "svc": "Bookkeeping & Accounting",
+    },
+    "tax": {
+        "h1": "Tax Preparation in Union City, NJ",
+        "lead": "Individual, self-employed and small-business returns, federal and New Jersey, prepared accurately and filed on time. Behind on filings? We can help you catch up.",
+        "svc": "Tax Preparation & Filing",
+    },
+    "accounting": {
+        "h1": "Small Business Accounting in Union City, NJ",
+        "lead": "Monthly close, financial statements and accrual-basis accounting that you, your bank and your tax return can rely on. Big 4 training, small-firm attention.",
+        "svc": "Bookkeeping & Accounting",
+    },
+}
+
+SERVICES = [
+    ("Bookkeeping", "bookkeeping", [
+        "Monthly bookkeeping and bank/credit card reconciliations",
+        "Catch-up bookkeeping if you're months (or years) behind",
+        "QuickBooks Online setup and cleanup (QuickBooks ProAdvisor)",
+        "Payables, receivables and sales-tax tracking",
+    ]),
+    ("Accounting", "accounting", [
+        "Month-end close with P&amp;L, balance sheet and cash flow",
+        "Accrual-basis books for lenders, investors and buyers",
+        "Budgets, cash-flow forecasts and fractional CFO support",
+        "Year-end adjustments handed straight to your tax return",
+    ]),
+    ("Tax preparation", "tax", [
+        "Individual returns (1040), including self-employed and 1099 income",
+        "Business returns for LLCs, S corps, partnerships and C corps",
+        "New Jersey and multi-state returns",
+        "Extensions, prior-year and late filings, IRS notice help",
+    ]),
+]
+
+REVIEWS = [
+    ("Merchant Financial Advisory has been outstanding in providing fractional CFO and bookkeeping services… They are responsive, professional, and truly feel like an extension of your team.", "Bilal Malik", "Google review"),
+    ("He set up QuickBooks Online for my new LLC and made sure everything was organized in a way that makes sense for both day-to-day bookkeeping and year-end taxes…", "QuickBooks setup &amp; LLC tax client", "Verified review · Upwork"),
+    ("He really does make the whole process insanely easy. His communication is super clear and quick, and he checks in to make sure he's actually building what you need.", "Repeat client", "Verified review · Fiverr"),
+]
+
+FAQ = [
+    ("Where are you located?", f"We're based in Union City, NJ and work with clients across Hudson County, including {', '.join(AREA[1:-1])} and {AREA[-1]}. Most work happens by video call, phone and secure document upload, so you don't need to take time off to drop off paperwork."),
+    ("How much do you charge?", "Most engagements are fixed-fee, quoted upfront after a free consultation, so you know exactly what you'll pay before we begin. Ongoing bookkeeping is a flat monthly fee based on your transaction volume."),
+    ("I'm behind on my books or haven't filed. Can you help?", "Yes. Catch-up bookkeeping and prior-year returns are a regular part of our work. We rebuild the records, reconcile every account and get your filings current."),
+    ("Do you work with QuickBooks?", "Yes. We're a QuickBooks ProAdvisor and handle QuickBooks Online setup, cleanup and ongoing bookkeeping. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
+    ("What should I bring to the first call?", "Nothing is required. If it's handy, have last year's tax return or a recent bank statement nearby so we can give you a more precise quote."),
+]
+
+check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>'
+phone_ico = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>'
+cal_ico = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'
+
+def call_btn(cls, label):
+    return f'<a href="tel:{tel}" class="{cls}" data-conv="call">{phone_ico}{label}</a>' if tel else ""
+
+svc_html = "".join(
+    f'<article class="card" id="svc-{k}"><h3>{t}</h3><ul>' + "".join(f"<li>{check}<span>{i}</span></li>" for i in items) + "</ul></article>"
+    for t, k, items in SERVICES)
+rev_html = "".join(
+    f'<figure class="rev"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“{q}”</blockquote><figcaption><b>{n}</b><span>{s}</span></figcaption></figure>'
+    for q, n, s in REVIEWS)
+faq_html = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in FAQ)
+opts = "".join(f"<option>{esc(o)}</option>" for o in ["Bookkeeping & Accounting", "Tax Preparation & Filing", "Tax Planning & Strategy", "QuickBooks Setup / Cleanup", "Fractional CFO", "Other"])
+
+ld = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {"@type": "AccountingService", "@id": "https://mfa-advisory.com/#org", "name": "Merchant Financial Advisory LLC",
+         "url": URL, "email": EMAIL, **({"telephone": tel} if tel else {}),
+         "logo": "https://mfa-advisory.com/apple-touch-icon.png",
+         "address": {"@type": "PostalAddress", "addressLocality": "Union City", "addressRegion": "NJ", "postalCode": "07087", "addressCountry": "US"},
+         "areaServed": [{"@type": "City", "name": f"{c}, NJ"} for c in AREA],
+         "serviceType": ["Bookkeeping", "Accounting", "Tax Preparation", "QuickBooks Setup and Cleanup"]},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
+    ],
+}
+
+gtag = ""
+if ADS["id"]:
+    gtag = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={ADS["id"]}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{ADS["id"]}');</script>'''
+
+CSS = """
+:root{--paper:#FDFDFC;--paper-2:#F5F4EF;--ink:#151515;--navy:#10233F;--navy-2:#1B3557;--gold:#B08D3F;--gold-b:#D8B769;--muted:rgba(21,21,21,.62);--hair:rgba(21,21,21,.1)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}svg{width:16px;height:16px;flex:none}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.eyebrow{display:block;font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:16px 26px;border-radius:999px;border:1px solid transparent;transition:background .3s,color .3s,border-color .3s;cursor:pointer;font-family:inherit}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:#9a7a33}
+.btn-line{border-color:rgba(255,255,255,.35);color:#fff}.btn-line:hover{border-color:#fff}
+.btn-ink{background:var(--navy);color:#fff}.btn-ink:hover{background:var(--navy-2)}
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(253,253,252,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}.brand img{width:38px;height:38px}
+.brand b{display:block;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;line-height:1}.brand i{font-style:normal;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.top-act{display:flex;gap:10px;align-items:center}.top-act .tel{display:flex;gap:8px;align-items:center;font-weight:600;font-size:15px;color:var(--navy)}
+.top-act .btn{padding:12px 20px}
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:64px 0 72px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;border:1px solid rgba(216,183,105,.18)}
+.hero-g{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(38px,5vw,60px);margin-bottom:20px}
+.hero .lead{font-size:18px;color:rgba(255,255,255,.78);max-width:600px;margin-bottom:30px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:rgba(255,255,255,.75)}
+.trust span{display:flex;gap:8px;align-items:center}.trust svg{color:var(--gold-b)}
+.hero-card{background:#fff;color:var(--ink);border-radius:14px;padding:28px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.hero-card h2{font-size:28px;margin-bottom:6px}.hero-card p.s{font-size:14px;color:var(--muted);margin-bottom:18px}
+.rating{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--hair);font-size:13px;color:var(--muted)}
+.rating b{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--ink)}.rating .st{color:var(--gold);letter-spacing:2px}
+/* form */
+form .f{margin-bottom:12px}form label{display:block;font-size:12px;font-weight:600;margin-bottom:5px}
+form input,form select,form textarea{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1px solid rgba(21,21,21,.18);border-radius:8px;background:#fff;color:var(--ink)}
+form textarea{min-height:84px;resize:vertical}form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}form .btn{width:100%;margin-top:4px}
+.hp{position:absolute;left:-9999px}.f-stat{font-size:13px;margin:6px 0;color:#a33}
+.done{display:none;text-align:center;padding:30px 6px}.done.show{display:block}.done h3{font-size:28px;margin-bottom:8px}
+.fine{font-size:11px;color:var(--muted);margin-top:10px;text-align:center}
+/* sections */
+.sec{padding:84px 0}.sec.alt{background:var(--paper-2)}
+.sec-hd{max-width:720px;margin-bottom:40px}.sec-hd h2{font-size:clamp(32px,4vw,46px);margin-bottom:12px}.sec-hd p{color:var(--muted);font-size:17px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--hair);border-radius:14px;padding:28px;transition:border-color .3s,box-shadow .3s}
+.card.hl{border-color:var(--gold);box-shadow:0 12px 30px rgba(176,141,63,.15)}
+.card h3{font-size:28px;margin-bottom:14px;color:var(--navy)}.card ul{list-style:none;display:grid;gap:10px}
+.card li{display:flex;gap:10px;font-size:15px}.card li svg{color:var(--gold);margin-top:5px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{padding:26px;border-top:2px solid var(--gold);background:#fff;border-radius:0 0 12px 12px}
+.step:before{counter-increment:s;content:"0" counter(s);font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--gold);display:block;line-height:1;margin-bottom:10px}
+.step h3{font-size:24px;margin-bottom:6px}.step p{color:var(--muted);font-size:15px}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.why div{padding:22px;border:1px solid var(--hair);border-radius:12px;background:#fff}.why b{display:block;font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--navy);margin-bottom:4px}.why span{font-size:14px;color:var(--muted)}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:#fff;border:1px solid var(--hair);border-radius:14px;padding:26px;display:flex;flex-direction:column}
+.rev .stars{color:var(--gold);letter-spacing:3px;margin-bottom:10px}.rev blockquote{font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.35;flex:1;margin-bottom:16px}
+.rev figcaption b{display:block;font-size:14px}.rev figcaption span{font-size:12px;color:var(--muted)}
+.area{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.area span{font-size:13px;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--hair)}
+.book-frame{background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden}.book-frame iframe{width:100%;height:640px;border:0;display:block}
+.book-alt{font-size:14px;color:var(--muted);margin-top:12px}.book-alt a{color:var(--navy);font-weight:600;text-decoration:underline}
+details{border-bottom:1px solid var(--hair);padding:18px 0}summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary:after{content:"+";color:var(--gold);font-size:22px;line-height:1}details[open] summary:after{content:"–"}details p{color:var(--muted);margin-top:10px;max-width:760px}
+.final{background:var(--navy);color:#fff;text-align:center;padding:72px 0}.final h2{font-size:clamp(32px,4vw,46px);margin-bottom:12px}.final p{color:rgba(255,255,255,.75);margin-bottom:26px}
+.final .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{padding:34px 0 100px;font-size:13px;color:var(--muted)}footer nav{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}footer a{text-decoration:underline}
+footer .legal{font-size:12px;max-width:820px}
+.mbar{display:none}
+@media (max-width:900px){
+  .hero-g,.cards,.revs,.steps{grid-template-columns:1fr}.why{grid-template-columns:1fr 1fr}
+  .hero{padding:40px 0 48px}.sec{padding:60px 0}.top-act .btn,.top-act .tel span{display:none}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--navy);box-shadow:0 -8px 20px rgba(0,0,0,.15)}
+  .mbar .btn{padding:14px 10px}.mbar.one{grid-template-columns:1fr}
+}
+@media (max-width:480px){form .row{grid-template-columns:1fr}.why{grid-template-columns:1fr}.book-frame iframe{height:720px}}
+"""
+
+JS = """
+(function(){
+  var V=%s, ADS=%s, ENDPOINT=%s;
+  var s=(new URLSearchParams(location.search).get('s')||'').toLowerCase();
+  var v=V[s]; if(v){
+    document.getElementById('h1').innerHTML=v.h1; document.getElementById('lead').textContent=v.lead;
+    var sel=document.getElementById('f-svc'); if(sel&&v.svc){sel.value=v.svc;}
+    var c=document.getElementById('svc-'+s); if(c)c.classList.add('hl');
+  }
+  function conv(kind){ if(window.gtag&&ADS.id&&ADS[kind]){ gtag('event','conversion',{send_to:ADS.id+'/'+ADS[kind]}); } }
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-conv]'); if(a)conv(a.getAttribute('data-conv'));});
+  var f=document.getElementById('lf'), btn=document.getElementById('lbtn'), st=document.getElementById('lstat');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); if(f._honey.value)return; if(!f.checkValidity()){f.reportValidity();return;}
+    var label=btn.innerHTML; btn.disabled=true; btn.textContent='Sending…';
+    var d=new FormData(f); d.append('_subject','New lead (Union City page): '+(d.get('service')||'')); d.append('_captcha','false'); d.append('_template','table');
+    d.append('source', 'union-city-nj' + (s ? ' / ' + s : '') + (location.search.indexOf('gclid')>-1?' / Google Ads':''));
+    fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:d})
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(j){ if(j.success===false||j.success==='false')throw 0; f.style.display='none'; document.getElementById('ldone').classList.add('show'); conv('form'); })
+      .catch(function(){ st.textContent='Couldn\\'t send. Please email %s directly.'; btn.disabled=false; btn.innerHTML=label; });
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+"""
+
+variants_js = {k: {"h1": v["h1"], "lead": v["lead"], "svc": v["svc"]} for k, v in VARIANTS.items() if k != "default"}
+d = VARIANTS["default"]
+call_top = f'<a href="tel:{tel}" class="tel" data-conv="call">{phone_ico}<span>{esc(PHONE)}</span></a>' if tel else ""
+
+page = f'''<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Bookkeeping, Accounting &amp; Tax Preparation in Union City, NJ | MFA</title>
+<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in Union City, NJ. QuickBooks ProAdvisor, Big 4 trained, fixed fees quoted upfront. Book a free 30-minute consultation."/>
+<link rel="canonical" href="{URL}"/>
+<meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/>
+<meta property="og:title" content="Bookkeeping, Accounting &amp; Tax Preparation in Union City, NJ"/>
+<meta property="og:description" content="Clean monthly books and accurate tax returns for Hudson County small businesses and households. Free 30-minute consultation."/>
+<meta property="og:url" content="{URL}"/><meta property="og:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
+<link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+{gtag}
+<style>{CSS}</style></head><body>
+
+<header class="top"><div class="wrap">
+  <a href="/" class="brand" aria-label="Merchant Financial Advisory home"><img src="/apple-touch-icon.png" alt="" width="38" height="38"/><span><b>Merchant</b><i>Financial Advisory</i></span></a>
+  <div class="top-act">{call_top}<a href="#book" class="btn btn-ink" data-conv="book">{cal_ico}Free consultation</a></div>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-g">
+  <div>
+    <span class="eyebrow">Union City · Hudson County, NJ</span>
+    <h1 id="h1">{d["h1"]}</h1>
+    <p class="lead" id="lead">{d["lead"]}</p>
+    <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a free 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
+    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}PwC New York experience</span><span>{check}Fixed fees, quoted upfront</span></div>
+  </div>
+  <div class="hero-card" id="quote">
+    <h2>Get a fixed-fee quote</h2>
+    <p class="s">Tell us what you need. We reply within one business day.</p>
+    <form id="lf" novalidate>
+      <div class="row"><div class="f"><label for="f-n">Name *</label><input id="f-n" name="name" autocomplete="name" required/></div>
+      <div class="f"><label for="f-p">Phone</label><input id="f-p" name="phone" type="tel" autocomplete="tel"/></div></div>
+      <div class="f"><label for="f-e">Email *</label><input id="f-e" name="email" type="email" autocomplete="email" required/></div>
+      <div class="f"><label for="f-svc">I need help with *</label><select id="f-svc" name="service" required><option value="" disabled selected>Select a service…</option>{opts}</select></div>
+      <div class="f"><label for="f-m">Anything we should know?</label><textarea id="f-m" name="message" placeholder="e.g. LLC, about 80 transactions a month, two years behind on bookkeeping"></textarea></div>
+      <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+      <div class="f-stat" id="lstat" role="status" aria-live="polite"></div>
+      <button class="btn btn-gold" id="lbtn" type="submit">Request my quote</button>
+      <p class="fine">Confidential. No obligation. We never share your details.</p>
+    </form>
+    <div class="done" id="ldone"><h3>Thank you.</h3><p>We've received your request and will reply within one business day. Want to talk sooner? <a href="#book" style="color:var(--navy);text-decoration:underline">Pick a time on the calendar</a>.</p></div>
+    <div class="rating"><b>5.0</b><div><div class="st">★★★★★</div>Average across verified reviews on Google, Upwork &amp; Fiverr</div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">What we do</span><h2>Bookkeeping, accounting and tax preparation under one roof</h2>
+  <p>Most small businesses hire a bookkeeper and a tax preparer separately, then pay for the gaps between them. We handle both, so your books are ready when your return is due.</p></div>
+  <div class="cards">{svc_html}</div>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">How it works</span><h2>Three steps to books and taxes you don't have to think about</h2></div>
+  <div class="steps">
+    <div class="step"><h3>Free 30-minute call</h3><p>We look at where you are today: your books, your last return and what's coming up.</p></div>
+    <div class="step"><h3>Fixed-fee quote</h3><p>You get a clear scope and price before any work starts. No hourly surprises.</p></div>
+    <div class="step"><h3>We take it from there</h3><p>Secure document upload, monthly books, and returns filed on time, with one person you can call.</p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">Why MFA</span><h2>Big 4 training. Local, small-firm attention.</h2></div>
+  <div class="why">
+    <div><b>10+ years</b><span>in accounting, audit and tax, including PwC New York</span></div>
+    <div><b>ProAdvisor</b><span>QuickBooks Online setup, cleanup and support</span></div>
+    <div><b>Fixed fees</b><span>quoted upfront after a free consultation</span></div>
+    <div><b>Direct access</b><span>you talk to your advisor, not a call center or a seasonal temp</span></div>
+  </div>
+</div></section>
+
+<section class="sec alt" id="reviews"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">Client reviews</span><h2>5.0 stars, client after client</h2></div>
+  <div class="revs">{rev_html}</div>
+</div></section>
+
+<section class="sec" id="book"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">Book a call</span><h2>Thirty minutes. Your numbers, our full attention.</h2>
+  <p>Pick a time that works for you. It's free, it's on Google Meet, and you'll leave knowing what to fix first and what it will cost.</p></div>
+  <div class="book-frame"><iframe src="{BOOK_URL}?gv=true" title="Book a free consultation with Merchant Financial Advisory" loading="lazy"></iframe></div>
+  <p class="book-alt">Calendar not loading? <a href="{BOOK_URL}" target="_blank" rel="noopener" data-conv="book">Open the booking page</a> or email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+  <div class="area" aria-label="Areas served">{"".join(f"<span>{c}</span>" for c in AREA)}</div>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">Common questions</span><h2>Before you reach out</h2></div>
+  {faq_html}
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Let's get your books and taxes in order.</h2>
+  <p>Free consultation. Fixed-fee quote. No obligation.</p>
+  <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a free call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}<a href="#quote" class="btn btn-line">Get a quote</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Union City, NJ · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
+  <nav><a href="/">Main site</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
+  <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc.; MFA is not affiliated with or endorsed by Intuit.</p>
+</div></footer>
+
+<div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#book" class="btn btn-gold" data-conv="book">Book free call</a></div>
+<script>{JS % (json.dumps(variants_js), json.dumps(ADS), json.dumps(FORM_ENDPOINT), EMAIL)}</script>
+</body></html>
+'''
+
+OUT.parent.mkdir(parents=True, exist_ok=True)
+OUT.write_text(page, encoding="utf-8")
+print(f"Wrote {OUT.relative_to(ROOT)}  (phone {'ON' if tel else 'OFF'}, ads tag {'ON' if ADS['id'] else 'OFF'})")
