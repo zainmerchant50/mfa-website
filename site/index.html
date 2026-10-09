@@ -218,14 +218,14 @@ body.scrolled .brand-txt i{color:rgba(21,21,21,.45)}
 }
 .nav-links a:hover::after,.nav-links a.on::after{transform:scaleX(1)}
 body.scrolled .nav-links a{color:var(--ink)}
-.nav-cta{
-  padding:11px 22px;border:1px solid rgba(255,255,255,.24);border-radius:999px;
-  font-size:9.5px!important;font-weight:700!important;display:inline-flex;align-items:center;gap:8px;
+.nav-links .nav-cta{
+  padding:11px 22px 11px 18px;border:1px solid rgba(255,255,255,.24);border-radius:999px;line-height:1;white-space:nowrap;flex-shrink:0;
+  font-size:9.5px!important;font-weight:700!important;display:inline-flex;align-items:center;gap:9px;
   transition:background .4s,color .4s,border-color .4s;
 }
 .nav-cta::after{display:none!important}
 .nav-cta:hover{background:#fff;color:var(--ink)!important;opacity:1!important}
-.nav-cta svg{width:12px;height:12px}
+.nav-cta svg{width:13px;height:13px;flex-shrink:0;display:block}
 body.scrolled .nav-cta{border-color:rgba(21,21,21,.16)}
 body.scrolled .nav-cta:hover{background:var(--ink);color:#fff!important}
 
