@@ -15,7 +15,7 @@ from html import escape as esc
 from pathlib import Path
 
 # ---------------------------------------------------------------- CONFIG
-PHONE = ""            # e.g. "(201) 555-0123". Leave "" to hide all call buttons.
+PHONE = "(347) 205-4468"   # Leave "" to hide all call buttons.
 EMAIL = "info@mfa-advisory.com"
 CITY = "Union City, NJ"
 AREA = ["Union City", "West New York", "North Bergen", "Weehawken", "Hoboken", "Jersey City", "Guttenberg", "Secaucus"]
@@ -54,6 +54,11 @@ VARIANTS = {
         "lead": "Individual, self-employed and small-business returns, federal and New Jersey, prepared accurately and filed on time. Behind on filings? We can help you catch up.",
         "svc": "Tax Preparation & Filing",
     },
+    "hindi-urdu": {
+        "h1": "Accountant &amp; Tax Preparer Who Speaks Hindi &amp; Urdu",
+        "lead": "Bookkeeping, accounting and tax preparation for families and small businesses in Jersey City, Union City and across Hudson County, explained in English, Hindi or Urdu, at a fixed fee quoted upfront.",
+        "svc": "",
+    },
     "accounting": {
         "h1": "Small Business Accounting in Union City, NJ",
         "lead": "Monthly close, financial statements and accrual-basis accounting that you, your bank and your tax return can rely on. Big 4 training, small-firm attention.",
@@ -89,7 +94,9 @@ REVIEWS = [
 ]
 
 FAQ = [
-    ("Where are you located?", f"We're based in Union City, NJ and work with clients across Hudson County, including {', '.join(AREA[1:-1])} and {AREA[-1]}. Most work happens by video call, phone and secure document upload, so you don't need to take time off to drop off paperwork."),
+    ("Where are you located?", f"We're based in Princeton, NJ and work with clients across Hudson County, including {', '.join(AREA[:-1])} and {AREA[-1]}. Most work happens by video call, phone and secure document upload, so you don't need to take time off to drop off paperwork."),
+    ("Do you speak Hindi or Urdu?", "Yes. We work in English, Hindi and Urdu, so you can ask questions and review your return or your books in the language you're most comfortable with."),
+    ("Who will work on my account?", "A senior team of experienced accountants and tax professionals, led by founder Zain Merchant (ACCA member, PwC New York audit and assurance experience). You get one point of contact who knows your file."),
     ("How much do you charge?", "Most engagements are fixed-fee, quoted upfront after a free consultation, so you know exactly what you'll pay before we begin. Ongoing bookkeeping is a flat monthly fee based on your transaction volume."),
     ("I'm behind on my books or haven't filed. Can you help?", "Yes. Catch-up bookkeeping and prior-year returns are a regular part of our work. We rebuild the records, reconcile every account and get your filings current."),
     ("Do you work with QuickBooks?", "Yes. We're a QuickBooks ProAdvisor and handle QuickBooks Online setup, cleanup and ongoing bookkeeping. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
@@ -118,7 +125,8 @@ ld = {
         {"@type": "AccountingService", "@id": "https://mfa-advisory.com/#org", "name": "Merchant Financial Advisory LLC",
          "url": URL, "email": EMAIL, **({"telephone": tel} if tel else {}),
          "logo": "https://mfa-advisory.com/apple-touch-icon.png",
-         "address": {"@type": "PostalAddress", "addressLocality": "Union City", "addressRegion": "NJ", "postalCode": "07087", "addressCountry": "US"},
+         "address": {"@type": "PostalAddress", "addressLocality": "Princeton", "addressRegion": "NJ", "addressCountry": "US"},
+         "knowsLanguage": ["English", "Hindi", "Urdu"],
          "areaServed": [{"@type": "City", "name": f"{c}, NJ"} for c in AREA],
          "serviceType": ["Bookkeeping", "Accounting", "Tax Preparation", "QuickBooks Setup and Cleanup"]},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
@@ -267,7 +275,7 @@ page = f'''<!doctype html><html lang="en"><head>
     <h1 id="h1">{d["h1"]}</h1>
     <p class="lead" id="lead">{d["lead"]}</p>
     <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a free 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
-    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}PwC New York experience</span><span>{check}Fixed fees, quoted upfront</span></div>
+    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}PwC New York experience</span><span>{check}Fixed fees, quoted upfront</span><span>{check}English · Hindi · Urdu</span></div>
   </div>
   <div class="hero-card" id="quote">
     <h2>Get a fixed-fee quote</h2>
@@ -306,10 +314,10 @@ page = f'''<!doctype html><html lang="en"><head>
 <section class="sec"><div class="wrap">
   <div class="sec-hd"><span class="eyebrow">Why MFA</span><h2>Big 4 training. Local, small-firm attention.</h2></div>
   <div class="why">
-    <div><b>10+ years</b><span>in accounting, audit and tax, including PwC New York</span></div>
+    <div><b>Senior team</b><span>experienced accountants and tax professionals with 10+ years in accounting, audit and tax, including PwC New York</span></div>
     <div><b>ProAdvisor</b><span>QuickBooks Online setup, cleanup and support</span></div>
     <div><b>Fixed fees</b><span>quoted upfront after a free consultation</span></div>
-    <div><b>Direct access</b><span>you talk to your advisor, not a call center or a seasonal temp</span></div>
+    <div><b>Your language</b><span>English, Hindi or Urdu, with direct access to your advisor, not a call center</span></div>
   </div>
 </div></section>
 
@@ -339,7 +347,7 @@ page = f'''<!doctype html><html lang="en"><head>
 </main>
 
 <footer><div class="wrap">
-  <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Union City, NJ · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
+  <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Princeton, NJ · Serving Union City &amp; Hudson County · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
   <nav><a href="/">Main site</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
   <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc.; MFA is not affiliated with or endorsed by Intuit.</p>
 </div></footer>

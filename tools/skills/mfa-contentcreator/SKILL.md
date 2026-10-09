@@ -30,7 +30,9 @@ Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **a
 3. Watch for **year confusion.** Tax year ≠ filing year. Inflation-adjusted figures change every year.
 4. **Disaster relief is county-specific.** Name states only from IRS releases and always point to the IRS disaster-relief page.
 5. Every post gets a **Sources** list (built automatically from the meta) and the standard disclaimer with a "facts checked as of" date.
-6. Never imply MFA or Zain holds a credential they don't. The byline is "Merchant Financial Advisory". Don't put "CPA" in the copy. Never imply Intuit endorses MFA.
+6. Never imply MFA or Zain holds a credential they don't. The byline is "Merchant Financial Advisory". Never imply Intuit endorses MFA.
+   - **No "CPA", "certified public accountant", "chartered accountant", "CA", "certified accountant" or "licensed accountant"** anywhere (site, posts, ads, social). MFA is not a NJ-registered CPA firm, and N.J.S.A. 45:2B-62(b) and (e) bar unregistered firms from those titles or implying the firm is composed of CPAs. Google Ads also disapproves misleading credential claims.
+   - Approved team wording: "a senior team of experienced accountants and tax professionals", "led by an ACCA-qualified founder with PwC New York audit and assurance experience", "Big 4 trained". "ACCA member" refers to Zain personally.
 7. Don't fabricate client stories, testimonials or statistics.
 8. Every page carries the legal disclaimer automatically (article footer and site footer). Don't remove it. Link /disclaimer.html when relevant.
 
@@ -47,7 +49,7 @@ Log the chosen topic and why in the commit message.
 - Write to **search intent**. Use phrases people actually type or ask an AI: "best way to…", "best accounting software for small business", "best practices for month-end close", "how to…", "what is…", "do I need to…", "<deadline> 2026". Put the primary phrase in the title, first paragraph, one H2 and the meta description.
 - "Best" phrasing is for **topics** ("best practices", "best QuickBooks settings for…"). **Never claim MFA is "the best" or "top-rated"** or make other unverifiable superlatives about the firm. That risks FTC and false-advertising problems and hurts credibility. Let verifiable facts do the selling: 5.0 average rating on Fiverr and Upwork, QuickBooks ProAdvisor, ACCA (UK), 10+ years, PwC background.
 - **Answer-first structure** helps AI engines (ChatGPT, Perplexity, Google AI Overviews, Claude) quote you. Open with "The short version". Use clear H2 questions and a "Quick answers" FAQ (the build turns it into FAQPage schema automatically; keep the `<h2>Quick answers</h2>` + `<h3>question</h3><p>answer</p>` pattern). Use specific numbers, dates and named sources, and add a one-line definition when you introduce a term.
-- **Entity consistency:** always "Merchant Financial Advisory (MFA), an accounting and tax solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide". The build regenerates `/llms.txt` and `robots.txt` (AI crawlers allowed) on every run.
+- **Entity consistency:** always "Merchant Financial Advisory (MFA), an accounting and tax solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide". Phone (347) 205-4468, info@mfa-advisory.com. Languages: English, Hindi, Urdu. Never publish a street address. The build regenerates `/llms.txt` and `robots.txt` (AI crawlers allowed) on every run.
 - Link internally: 1–2 links to related MFA posts and one to the relevant service on the home page.
 
 ## Graphic formats (rotate)

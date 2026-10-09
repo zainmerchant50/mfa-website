@@ -114,7 +114,7 @@ def nav(active):
 
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
-  <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · Serving clients nationwide</span>
+  <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468">(347) 205-4468</a> · Serving clients nationwide</span>
   <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
 </div></footer>'''
@@ -412,7 +412,7 @@ def build_llms(posts):
         "> Accounting and tax solutions provider based in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide.",
         "",
         "MFA provides tax preparation and filing, tax planning, bookkeeping, accrual-basis accounting and financial reporting, QuickBooks setup, cleanup and support, fractional CFO and business advisory, and audit support.",
-        "Contact: info@mfa-advisory.com. Book a free 30-minute consultation: https://mfa-advisory.com/#book",
+        "Contact: info@mfa-advisory.com, (347) 205-4468. Languages: English, Hindi, Urdu. Book a free 30-minute consultation: https://mfa-advisory.com/#book",
         "",
         "## Key pages",
         f"- [Home and services]({BASE}/): services, approach, client reviews, booking and contact",
