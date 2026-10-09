@@ -115,3 +115,22 @@ img{max-width:100%;height:auto;display:block}
 .bfoot .legal a{border-bottom:1px solid rgba(176,141,63,.5)}
 /* Legal pages */
 .legalpage h2{font-size:1.6rem;margin-top:40px}
+/* Share bar */
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:26px}
+.share-lbl{font-size:9.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.sh{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;min-width:40px;padding:0 12px;border-radius:999px;border:1px solid var(--hair);background:#fff;color:var(--navy);cursor:pointer;font:600 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s,transform .3s var(--ease)}
+.article .sh{border-bottom:1px solid var(--hair);color:var(--navy)}
+.sh:hover{transform:translateY(-2px);border-color:var(--gold);color:var(--gold)}
+.sh svg{width:16px;height:16px;display:block;flex-shrink:0}
+.sh-li-wide{background:#0A66C2;border-color:#0A66C2;color:#fff!important;padding:0 16px}
+.sh-li-wide:hover{background:#004182;border-color:#004182;color:#fff!important}
+.sh-linkedin{display:none}
+.sh-copy.ok{background:var(--navy);border-color:var(--navy);color:#fff!important}
+.share-dark .share-lbl{color:rgba(255,255,255,.55)}
+.share-dark .sh:not(.sh-li-wide){background:transparent;border-color:rgba(255,255,255,.22);color:#fff}
+.share-dark .sh:not(.sh-li-wide):hover{border-color:var(--gold-b);color:var(--gold-b)}
+.share-dark .sh-copy.ok{background:var(--gold-b);color:var(--navy)!important}
+.share-end{margin:46px 0 0;padding:26px 28px;background:var(--paper-2);border-radius:16px}
+.share-end p{margin:0!important;font-weight:500!important;color:var(--ink)!important}
+.share-end .share{margin-top:14px}
+@media (max-width:480px){.sh-copy span{display:none}.sh-copy{padding:0 12px}}

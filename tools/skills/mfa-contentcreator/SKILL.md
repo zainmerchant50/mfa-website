@@ -31,8 +31,30 @@ Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **a
 4. **Disaster relief is county-specific.** Name states only from IRS releases and always point to the IRS disaster-relief page.
 5. Every post gets a **Sources** list (built automatically from the meta) and the standard disclaimer with a "facts checked as of" date.
 6. Never imply MFA or Zain holds a credential they don't. The byline is "Merchant Financial Advisory". Don't put "CPA" in the copy. Never imply Intuit endorses MFA.
-8. Every page carries the legal disclaimer automatically (article footer and site footer). Don't remove it. Link /disclaimer.html when relevant.
 7. Don't fabricate client stories, testimonials or statistics.
+8. Every page carries the legal disclaimer automatically (article footer and site footer). Don't remove it. Link /disclaimer.html when relevant.
+
+## Topic discovery: monitor what's trending (do this first, every run)
+Check these, then pick the most timely and useful topic that isn't already covered (compare with `content/posts/`):
+- **IRS:** Newsroom (irs.gov/newsroom), latest IR- news releases, Tax Tips, disaster-relief releases, new or draft forms and inflation adjustments, and upcoming deadlines in the next 2–6 weeks.
+- **Accounting:** FASB news and ASU releases, AICPA & CIMA news, and small-business accounting changes (e.g. 1099/W-2 thresholds, BOI/FinCEN updates if relevant).
+- **QuickBooks:** Intuit's QuickBooks blog, "What's new in QuickBooks Online" release notes, and Intuit price and plan changes.
+- **NJ:** NJ Division of Taxation news (NJ-1040, sales tax, ANCHOR and other programs) for local relevance.
+- **Demand signals:** WebSearch for what people are asking right now ("<topic> 2026", "how do I…", "best way to…") and seasonal search interest. Prefer topics with clear search intent.
+Log the chosen topic and why in the commit message.
+
+## Search & AI-search optimization
+- Write to **search intent**. Use phrases people actually type or ask an AI: "best way to…", "best accounting software for small business", "best practices for month-end close", "how to…", "what is…", "do I need to…", "<deadline> 2026". Put the primary phrase in the title, first paragraph, one H2 and the meta description.
+- "Best" phrasing is for **topics** ("best practices", "best QuickBooks settings for…"). **Never claim MFA is "the best" or "top-rated"** or make other unverifiable superlatives about the firm. That risks FTC and false-advertising problems and hurts credibility. Let verifiable facts do the selling: 5.0 average rating on Fiverr and Upwork, QuickBooks ProAdvisor, ACCA (UK), 10+ years, PwC background.
+- **Answer-first structure** helps AI engines (ChatGPT, Perplexity, Google AI Overviews, Claude) quote you. Open with "The short version". Use clear H2 questions and a "Quick answers" FAQ (the build turns it into FAQPage schema automatically; keep the `<h2>Quick answers</h2>` + `<h3>question</h3><p>answer</p>` pattern). Use specific numbers, dates and named sources, and add a one-line definition when you introduce a term.
+- **Entity consistency:** always "Merchant Financial Advisory (MFA), an accounting and tax solutions provider in Union City, New Jersey, serving individuals and small and mid-sized businesses nationwide". The build regenerates `/llms.txt` and `robots.txt` (AI crawlers allowed) on every run.
+- Link internally: 1–2 links to related MFA posts and one to the relevant service on the home page.
+
+## Graphic formats (rotate)
+Timeline, key-numbers cards, checklist, decision flowchart ("Do I need to file…?"), comparison table (cash vs. accrual), flashcard set (term → plain-English meaning), and QuickBooks "where to click" step cards (described, never Intuit screenshots or logos). Every graphic: navy/white/gold, MFA lockup, mfa-advisory.com, and "General information, not tax advice. Facts checked <date>."
+
+## Built-in page features (automatic, no action needed)
+Share bar (Post on LinkedIn, X, Facebook, email, copy link, native share on phones) at the top and bottom of each article, CTA block, sources, disclaimer, the home-page "Latest Insights" window (reads `/blog/latest.json`), the RSS feed, sitemap, FAQ schema and llms.txt.
 
 ## SEO checklist
 - `title`: about 50–65 characters, with the primary keyword and the date or year. `seoTitle` can differ for the <title> tag.

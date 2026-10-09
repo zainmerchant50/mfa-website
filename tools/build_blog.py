@@ -112,6 +112,62 @@ def cta(p):
 </div></section>'''
 
 
+SHARE_ICONS = {
+    "linkedin": '<path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.23 0z"/>',
+    "x": '<path fill="currentColor" d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/>',
+    "facebook": '<path fill="currentColor" d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.5h-2.8V24C19.62 23.1 24 18.1 24 12.07"/>',
+    "email": '<g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></g>',
+    "link": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></g>',
+    "share": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4M12 2v13"/></g>',
+}
+
+
+def share_bar(p, url, variant=""):
+    from urllib.parse import quote
+    u, t = quote(url, safe=""), quote(p["title"], safe="")
+    ic = lambda k: f'<svg viewBox="0 0 24 24" aria-hidden="true">{SHARE_ICONS[k]}</svg>'
+    links = [
+        ("linkedin", "Share on LinkedIn", f"https://www.linkedin.com/sharing/share-offsite/?url={u}"),
+        ("x", "Share on X", f"https://twitter.com/intent/tweet?url={u}&text={t}"),
+        ("facebook", "Share on Facebook", f"https://www.facebook.com/sharer/sharer.php?u={u}"),
+        ("email", "Share by email", f"mailto:?subject={t}&body={quote(p['description'] + ' ', safe='')}{u}"),
+    ]
+    a = "".join(f'<a class="sh sh-{k}" href="{h}" target="_blank" rel="noopener" aria-label="{lbl}" title="{lbl}">{ic(k)}</a>'
+                for k, lbl, h in links)
+    return (f'<div class="share {variant}" data-url="{esc(url)}" data-title="{esc(p["title"])}">'
+            f'<span class="share-lbl">Share</span>'
+            f'<a class="sh sh-li-wide" href="{links[0][2]}" target="_blank" rel="noopener">{ic("linkedin")}<span>Post on LinkedIn</span></a>'
+            f'{a}<button type="button" class="sh sh-copy" aria-label="Copy link">{ic("link")}<span>Copy link</span></button>'
+            f'<button type="button" class="sh sh-native" aria-label="Share" hidden>{ic("share")}</button></div>')
+
+
+SHARE_JS = """<script>
+(function(){document.querySelectorAll('.share').forEach(function(b){
+ var url=b.getAttribute('data-url'),title=b.getAttribute('data-title');
+ var c=b.querySelector('.sh-copy'),lbl=c.querySelector('span');
+ c.addEventListener('click',function(){
+  var done=function(){lbl.textContent='Link copied';c.classList.add('ok');setTimeout(function(){lbl.textContent='Copy link';c.classList.remove('ok')},2200)};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(url).then(done,fallback)}else{fallback()}
+  function fallback(){var t=document.createElement('textarea');t.value=url;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){prompt('Copy this link:',url)}document.body.removeChild(t)}
+ });
+ var n=b.querySelector('.sh-native');
+ if(navigator.share&&matchMedia('(pointer:coarse)').matches){n.hidden=false;n.addEventListener('click',function(){navigator.share({title:title,url:url}).catch(function(){})})}
+});})();
+</script>"""
+
+
+def faq_schema(body):
+    m = re.search(r"<h2>Quick answers</h2>(.*)", body, re.S)
+    if not m:
+        return None
+    pairs = re.findall(r"<h3>(.*?)</h3>\s*<p>(.*?)</p>", m.group(1), re.S)
+    strip = lambda h: html.unescape(re.sub(r"<[^>]+>", "", h)).strip()
+    if not pairs:
+        return None
+    return {"@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": strip(q), "acceptedAnswer": {"@type": "Answer", "text": strip(a)}} for q, a in pairs]}
+
+
 def build_post(p):
     url = f"{BASE}/blog/{p['slug']}/"
     img = url + p["og"]
@@ -126,6 +182,9 @@ def build_post(p):
             {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
             {"@type": "ListItem", "position": 2, "name": "Insights", "item": BASE + "/blog/"},
             {"@type": "ListItem", "position": 3, "name": p["title"], "item": url}]}]}
+    faq = faq_schema(p["body"])
+    if faq:
+        ld["@graph"].append(faq)
     extra = (f'<meta property="article:published_time" content="{p["date"]}"/>'
              f'<script type="application/ld+json">{json.dumps(ld)}</script>')
     sources = "".join(f'<li><a href="{esc(s["url"])}" target="_blank" rel="noopener">{esc(s["title"])}</a></li>'
@@ -140,14 +199,16 @@ def build_post(p):
   <h1>{esc(p["title"])}</h1>
   <p class="dek">{esc(p["dek"])}</p>
   <div class="ameta"><span><b>Merchant Financial Advisory</b></span><span>{nice}</span><span>{p["minutes"]} min read</span></div>
+  {share_bar(p, url, "share-dark")}
 </div></header>
 <main><article class="article">
 {p["body"]}
+<div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>
 <section class="sources"><h2>Sources</h2><ul>{sources}</ul>
 <p class="disclaimer">Facts checked against the sources above as of {asof}. {DISCLAIMER}</p></section>
 </article>
 {cta(p)}</main>
-{FOOT}</body></html>'''
+{FOOT}{SHARE_JS}</body></html>'''
     out = SITE / "blog" / p["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
@@ -219,7 +280,28 @@ def build_sitemap(posts, pages=()):
     (SITE / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>',
         encoding="utf-8")
-    (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
+    bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"]
+    robots = "User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {BASE}/sitemap.xml\n"
+    (SITE / "robots.txt").write_text(robots, encoding="utf-8")
+
+
+def build_llms(posts):
+    lines = [
+        "# Merchant Financial Advisory LLC (MFA)",
+        "",
+        "> Accounting and tax solutions provider based in Union City, New Jersey, serving individuals and small and mid-sized businesses nationwide.",
+        "",
+        "MFA provides tax preparation and filing, tax planning, bookkeeping, accrual-basis accounting and financial reporting, QuickBooks setup, cleanup and support, fractional CFO and business advisory, and audit support.",
+        "Contact: info@mfa-advisory.com. Book a free 30-minute consultation: https://mfa-advisory.com/#book",
+        "",
+        "## Key pages",
+        f"- [Home and services]({BASE}/): services, approach, client reviews, booking and contact",
+        f"- [MFA Insights blog]({BASE}/blog/): tax deadlines, IRS updates, accounting best practices and QuickBooks tips",
+        f"- [Disclaimer]({BASE}/disclaimer.html): site content is general information, not tax, accounting, legal or financial advice",
+        "",
+        "## Latest articles",
+    ] + [f"- [{p['title']}]({BASE}/blog/{p['slug']}/): {p['description']}" for p in posts[:30]]
+    (SITE / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
@@ -231,4 +313,5 @@ if __name__ == "__main__":
     build_latest(posts)
     pages = build_pages()
     build_sitemap(posts, pages)
+    build_llms(posts)
     print(f"Built {len(posts)} post(s): " + ", ".join(p["slug"] for p in posts))
