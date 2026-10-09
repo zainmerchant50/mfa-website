@@ -1,0 +1,86 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="_base.css"/>
+<style>
+:root{--w:1200px;--h:1150px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.wrap{position:absolute;inset:72px 80px 64px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;font-size:74px;line-height:1;margin:36px 0 12px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-size:19px;font-weight:300;color:rgba(255,255,255,.72)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+.col{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px 26px}
+.col h2{font-family:Cormorant,serif;font-weight:500;font-size:34px;line-height:1.05}
+.col .big{font-family:Cormorant,serif;font-size:64px;color:var(--gold-b);line-height:1;margin:14px 0 4px}
+.col .cap{font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.col ul{list-style:none;margin-top:16px;display:grid;gap:9px}
+.col li{font-size:15px;line-height:1.4;padding-left:20px;position:relative;color:rgba(255,255,255,.88)}
+.col li:before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--gold-b)}
+.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;margin-top:22px}
+.box{background:var(--paper);color:var(--ink);border-radius:16px;padding:22px 26px}
+.box h3{font-size:12.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.box ol{padding-left:20px;display:grid;gap:8px;font-size:14.5px;line-height:1.4}
+.box ol b{color:var(--navy)}
+.box table{width:100%;border-collapse:collapse;font-size:14.5px}
+.box td{padding:7px 0;border-bottom:1px solid rgba(21,21,21,.08)}
+.box td:last-child{text-align:right;font-weight:700;color:var(--navy);white-space:nowrap}
+.box tr:last-child td{border-bottom:0}
+.tip{margin-top:22px;background:var(--gold-b);color:var(--navy);border-radius:14px;padding:16px 22px;font-size:16px;font-weight:600;line-height:1.4}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+</style></head><body>
+<div class="frame"></div>
+<div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights · Keep-handy comparison</span><span class="tag">Tax year 2026</span></div>
+  <h1>Writing off equipment:<br/><em>Section 179 vs. bonus</em></h1>
+  <p class="sub">Both let you deduct the full cost in year one. Here's how they differ.</p>
+
+  <div class="cols">
+    <div class="col">
+      <h2>Section 179</h2>
+      <div class="big">$2,560,000</div><div class="cap">2026 limit · phase-out above $4,090,000</div>
+      <ul>
+        <li>Choose asset by asset, any amount up to cost</li>
+        <li>Can't exceed business taxable income (excess carries forward)</li>
+        <li>More than 50% business use required</li>
+        <li>Heavy SUVs (over 6,000 lbs.) capped at $32,000</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Bonus depreciation</h2>
+      <div class="big">100%</div><div class="cap">Permanent · acquired after Jan. 19, 2025</div>
+      <ul>
+        <li>No dollar cap</li>
+        <li>No business-income limit; can create a loss</li>
+        <li>New or used (if new to you)</li>
+        <li>Applies by asset class unless you elect out</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="box"><h3>Before Dec. 31 checklist</h3><ol>
+      <li><b>Place it in service</b>: set up and ready to use, not just ordered</li>
+      <li><b>Log business use</b> for vehicles from day one</li>
+      <li><b>Save</b> invoice, contract date and in-service date</li>
+      <li><b>Book it as a fixed asset</b>, not an expense</li>
+      <li><b>Items ≤ $2,500</b>: use the de minimis safe harbor</li>
+    </ol></div>
+    <div class="box"><h3>New Jersey is different</h3><table>
+      <tr><td>NJ Section 179 limit</td><td>$25,000</td></tr>
+      <tr><td>Federal 100% bonus</td><td>Not allowed</td></tr>
+      <tr><td>Unused NJ 179 carryover</td><td>None</td></tr>
+      <tr><td>Track NJ basis on</td><td>GIT-DEP</td></tr>
+    </table></div>
+  </div>
+
+  <div class="tip">A deduction saves tax at your marginal rate. It doesn't make the purchase free, so buy what the business needs.</div>
+
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com · info@mfa-advisory.com</b><br/>General information, not tax advice. Facts checked Oct. 9, 2026.</div>
+  </div>
+</div>
+</body></html>
