@@ -1,0 +1,78 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="_base.css"/>
+<style>
+:root{--w:1200px;--h:1330px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.wrap{position:absolute;inset:72px 80px 64px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;font-size:78px;line-height:1;margin:40px 0 12px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-size:19px;font-weight:300;color:rgba(255,255,255,.72)}
+.flow{margin-top:40px;display:grid;grid-template-columns:1fr 300px;gap:0 26px;align-items:stretch}
+.q{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 20px 16px 64px;margin-bottom:26px}
+.q .n{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:var(--gold-b);color:var(--navy);font-weight:700;font-size:15px;display:grid;place-items:center}
+.q b{display:block;font-size:18px;font-weight:600;line-height:1.3}
+.q span{display:block;font-size:13.5px;font-weight:300;color:rgba(255,255,255,.65);margin-top:4px;line-height:1.4}
+.q:after{content:"YES ↓";position:absolute;left:24px;bottom:-22px;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--gold-b)}
+.q.last:after{display:none}
+.no{display:flex;align-items:center;margin-bottom:26px;font-size:14px;line-height:1.35;color:rgba(255,255,255,.85);border-left:2px solid rgba(255,255,255,.25);padding-left:16px}
+.no i{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.14em;color:#E8A0A0;display:block;margin-bottom:3px}
+.result{background:var(--gold-b);color:var(--navy);border-radius:14px;padding:18px 22px;font-size:19px;font-weight:700;margin-top:-4px}
+.result span{display:block;font-size:13.5px;font-weight:500;margin-top:4px}
+.grid{display:grid;grid-template-columns:1.15fr 1fr;gap:20px;margin-top:34px}
+.box{background:var(--paper);color:var(--ink);border-radius:16px;padding:24px 26px}
+.box h2{font-size:12.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.box table{width:100%;border-collapse:collapse;font-size:14.5px}
+.box td{padding:7px 0;border-bottom:1px solid rgba(21,21,21,.08)}
+.box td:last-child{text-align:right;font-weight:700;color:var(--navy);white-space:nowrap}
+.box tr:last-child td{border-bottom:0}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+</style></head><body>
+<div class="frame"></div>
+<div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights · Keep-handy flowchart</span><span class="tag">2026 payments</span></div>
+  <h1>Do I need to issue<br/>a <em>Form 1099?</em></h1>
+  <p class="sub">Run every payee through these four questions before January.</p>
+
+  <div class="flow">
+    <div class="q"><div class="n">1</div><b>Paid by check, ACH, wire, cash, Zelle or a personal P2P transfer?</b><span>Card, PayPal Goods &amp; Services, Stripe, Square and business Venmo payments are excluded.</span></div>
+    <div class="no"><div><i>NO</i>The processor reports it on Form 1099-K. Don't issue a 1099-NEC/MISC.</div></div>
+
+    <div class="q"><div class="n">2</div><b>Payee is an individual, sole prop, partnership or LLC (not taxed as a corporation)?</b><span>Check the tax classification on their Form W-9.</span></div>
+    <div class="no"><div><i>NO</i>Corporations generally don't get one, except attorneys and medical providers.</div></div>
+
+    <div class="q"><div class="n">3</div><b>Paid for business services, rent, prizes or other income?</b><span>Not merchandise, freight, or personal payments.</span></div>
+    <div class="no"><div><i>NO</i>Goods and personal payments aren't reportable.</div></div>
+
+    <div class="q last"><div class="n">4</div><b>Total for the year is $2,000 or more?</b><span>Calendar-year total per payee, all accounts combined. ($600 for 2025 payments.)</span></div>
+    <div class="no"><div><i>NO</i>Below the threshold, unless tax was withheld.</div></div>
+
+    <div class="result">Issue a 1099-NEC or 1099-MISC<span>Collect the W-9 first, and file on time.</span></div>
+  </div>
+
+  <div class="grid">
+    <div class="box"><h2>Thresholds for 2026 payments</h2><table>
+      <tr><td>Contractor services (1099-NEC)</td><td>$2,000</td></tr>
+      <tr><td>Rent, other income, medical (1099-MISC)</td><td>$2,000</td></tr>
+      <tr><td>Royalties (1099-MISC)</td><td>$10</td></tr>
+      <tr><td>Gross proceeds to attorneys</td><td>$600</td></tr>
+      <tr><td>Payment apps (1099-K)</td><td>&gt;$20k &amp; &gt;200</td></tr>
+    </table></div>
+    <div class="box"><h2>Deadlines (2027)</h2><table>
+      <tr><td>1099-NEC: payees + IRS</td><td>Feb 1</td></tr>
+      <tr><td>1099-MISC: payee copies</td><td>Feb 1</td></tr>
+      <tr><td>1099-MISC: IRS paper</td><td>Mar 1</td></tr>
+      <tr><td>1099-MISC: IRS e-file</td><td>Mar 31</td></tr>
+      <tr><td>E-file required at</td><td>10+ returns</td></tr>
+    </table></div>
+  </div>
+
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com · info@mfa-advisory.com</b><br/>General information, not tax advice. Facts checked Oct. 9, 2026.</div>
+  </div>
+</div>
+</body></html>

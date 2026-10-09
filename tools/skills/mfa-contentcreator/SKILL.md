@@ -54,7 +54,7 @@ Log the chosen topic and why in the commit message.
 Timeline, key-numbers cards, checklist, decision flowchart ("Do I need to file…?"), comparison table (cash vs. accrual), flashcard set (term → plain-English meaning), and QuickBooks "where to click" step cards (described, never Intuit screenshots or logos). Every graphic: navy/white/gold, MFA lockup, mfa-advisory.com, and "General information, not tax advice. Facts checked <date>."
 
 ## Built-in page features (automatic, no action needed)
-Share bar (Post on LinkedIn, X, Facebook, email, copy link, native share on phones) at the top and bottom of each article, CTA block, sources, disclaimer, the home-page "Latest Insights" window (reads `/blog/latest.json`), the RSS feed, sitemap, FAQ schema and llms.txt.
+Author byline and "About the author" box (Zain Merchant, ACCA, linked to LinkedIn; set in AUTHOR at the top of tools/build_blog.py, override per post with an "author" meta field), share bar (Post on LinkedIn, X, Facebook, email, copy link, native share on phones) at the top and bottom of each article, CTA block, sources, disclaimer, the home-page "Latest Insights" window (reads `/blog/latest.json`), the RSS feed, sitemap, FAQ schema and llms.txt.
 
 ## SEO checklist
 - `title`: about 50–65 characters, with the primary keyword and the date or year. `seoTitle` can differ for the <title> tag.

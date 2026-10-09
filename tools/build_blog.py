@@ -40,6 +40,30 @@ TOPICS = ["Tax Filing & Deadlines", "Tax Planning", "Accrual Accounting", "Quick
           "Bookkeeping Best Practices", "Small & Mid-Sized Business Finance"]
 BLOG_DESC = ("Practical tax, accounting, and QuickBooks guidance for individuals and small and mid-sized businesses: "
              "filing deadlines and IRS updates, tax planning, accrual accounting, bookkeeping best practices, and QuickBooks tips.")
+# Default author for every post (override per post with "author" in the meta).
+# TODO: replace AUTHOR_LINKEDIN with Zain's personal profile URL when provided.
+AUTHOR_LINKEDIN = "https://www.linkedin.com/company/mfa-advisory"
+AUTHOR = {
+    "name": "Zain Merchant",
+    "credential": "ACCA",
+    "title": "Founder & Principal, Merchant Financial Advisory",
+    "url": AUTHOR_LINKEDIN,
+    "bio": ("Zain Merchant, ACCA, is the founder and principal of Merchant Financial Advisory. A QuickBooks ProAdvisor "
+            "with Big Four (PwC) audit and tax experience, he helps individuals and small and mid-sized businesses with "
+            "accrual accounting, clean books, and tax filing and preparation."),
+}
+LI_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.23 0z"/></svg>')
+
+
+def author_box(a):
+    initials = "".join(w[0] for w in a["name"].split()[:2])
+    return (f'<aside class="author" aria-label="About the author"><div class="av" aria-hidden="true">{initials}</div>'
+            f'<div><span class="author-k">About the author</span>'
+            f'<a class="author-n" href="{a["url"]}" target="_blank" rel="noopener author">{esc(a["name"])}, {esc(a["credential"])}</a>'
+            f'<span class="author-t">{esc(a["title"])}</span><p>{esc(a["bio"])}</p>'
+            f'<a class="author-li" href="{a["url"]}" target="_blank" rel="noopener">{LI_ICON}Connect on LinkedIn</a></div></aside>')
+
+
 DISCLAIMER = ("This article is general information, not tax, legal, or financial advice, and reading it does not "
               "create a client relationship. Tax rules change and every situation is different; confirm the details "
               "for your situation with a qualified professional before acting.")
@@ -169,13 +193,15 @@ def faq_schema(body):
 
 
 def build_post(p):
+    A = {**AUTHOR, **p.get("author", {})}
     url = f"{BASE}/blog/{p['slug']}/"
     img = url + p["og"]
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BlogPosting", "headline": p["title"], "description": p["description"],
          "datePublished": p["date"], "dateModified": p.get("updated", p["date"]),
          "image": img, "mainEntityOfPage": url, "keywords": ", ".join(p.get("keywords", [])),
-         "author": {"@type": "Organization", "name": "Merchant Financial Advisory LLC", "url": BASE},
+         "author": {"@type": "Person", "name": A["name"], "jobTitle": A["title"], "url": A["url"], "sameAs": [A["url"]],
+                    "worksFor": {"@type": "Organization", "name": "Merchant Financial Advisory LLC", "url": BASE}},
          "publisher": {"@type": "Organization", "name": "Merchant Financial Advisory LLC",
                        "logo": {"@type": "ImageObject", "url": BASE + "/apple-touch-icon.png"}}},
         {"@type": "BreadcrumbList", "itemListElement": [
@@ -198,12 +224,13 @@ def build_post(p):
   <span class="eyebrow">{esc(p["category"])}</span>
   <h1>{esc(p["title"])}</h1>
   <p class="dek">{esc(p["dek"])}</p>
-  <div class="ameta"><span><b>Merchant Financial Advisory</b></span><span>{nice}</span><span>{p["minutes"]} min read</span></div>
+  <div class="ameta"><span>By <a class="byline" href="{A["url"]}" target="_blank" rel="noopener author"><b>{esc(A["name"])}, {esc(A["credential"])}</b></a></span><span>{nice}</span><span>{p["minutes"]} min read</span></div>
   {share_bar(p, url, "share-dark")}
 </div></header>
 <main><article class="article">
 {p["body"]}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>
+{author_box(A)}
 <section class="sources"><h2>Sources</h2><ul>{sources}</ul>
 <p class="disclaimer">Facts checked against the sources above as of {asof}. {DISCLAIMER}</p></section>
 </article>
