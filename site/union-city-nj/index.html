@@ -188,6 +188,8 @@ footer .legal{font-size:12px;max-width:820px}
     var sel=document.getElementById('f-svc'); if(sel&&v.svc){sel.value=v.svc;}
     var c=document.getElementById('svc-'+s); if(c)c.classList.add('hl');
   }
+  var go=(new URLSearchParams(location.search).get('go')||'').toLowerCase();
+  if(go&&!location.hash){var t=document.getElementById(go);if(t)setTimeout(function(){t.scrollIntoView();},150);}
   function conv(kind){ if(window.gtag&&ADS.id&&ADS[kind]){ gtag('event','conversion',{send_to:ADS.id+'/'+ADS[kind]}); } }
   document.addEventListener('click',function(e){var a=e.target.closest('[data-conv]'); if(a)conv(a.getAttribute('data-conv'));});
   var f=document.getElementById('lf'), btn=document.getElementById('lbtn'), st=document.getElementById('lstat');

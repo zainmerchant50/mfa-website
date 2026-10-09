@@ -4,7 +4,8 @@
 Edit the CONFIG block below, then run:  python3 tools/build_landing.py
 (build_blog.py also adds this page to sitemap.xml and llms.txt.)
 
-Ad final URLs (one per ad group) — the ?s= value swaps the headline and pre-selects the form:
+Ad final URLs (one per ad group) — the ?s= value swaps the headline and pre-selects the form
+(?go=book|quote|reviews|services scrolls to that section, for sitelinks):
   https://mfa-advisory.com/union-city-nj/?s=bookkeeping
   https://mfa-advisory.com/union-city-nj/?s=tax
   https://mfa-advisory.com/union-city-nj/?s=accounting
@@ -215,6 +216,8 @@ JS = """
     var sel=document.getElementById('f-svc'); if(sel&&v.svc){sel.value=v.svc;}
     var c=document.getElementById('svc-'+s); if(c)c.classList.add('hl');
   }
+  var go=(new URLSearchParams(location.search).get('go')||'').toLowerCase();
+  if(go&&!location.hash){var t=document.getElementById(go);if(t)setTimeout(function(){t.scrollIntoView();},150);}
   function conv(kind){ if(window.gtag&&ADS.id&&ADS[kind]){ gtag('event','conversion',{send_to:ADS.id+'/'+ADS[kind]}); } }
   document.addEventListener('click',function(e){var a=e.target.closest('[data-conv]'); if(a)conv(a.getAttribute('data-conv'));});
   var f=document.getElementById('lf'), btn=document.getElementById('lbtn'), st=document.getElementById('lstat');
