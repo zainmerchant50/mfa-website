@@ -6,3 +6,4 @@ Source for Merchant Financial Advisory LLC's website, deployed by Netlify from `
 - `netlify.toml` – tells Netlify to publish `site/` (no build step).
 
 Every push to `main` goes live automatically. Roll back from the Netlify Deploys tab or with `git revert`.
+
