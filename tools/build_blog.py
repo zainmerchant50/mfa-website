@@ -151,7 +151,7 @@ def cta(p):
     return f'''<section class="cta-block" aria-label="Book a consultation"><div class="cta-card">
   <span class="eyebrow">Talk to MFA</span>
   <h2>{esc(p.get("ctaHeadline", "Want a second set of eyes before you act?"))}</h2>
-  <p>Book a free 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide tax and accounting solutions for individuals and small and mid-sized businesses in New Jersey, New York and nationwide.</p>
+  <p>Book a 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide tax and accounting solutions for individuals and small and mid-sized businesses in New Jersey, New York and nationwide.</p>
   <div class="cta-btns"><a class="btn btn-gold" href="{BOOK_URL}">Book a consultation</a><a class="btn btn-line" href="mailto:{EMAIL}?subject={esc(p['title'])}">Email info@mfa-advisory.com</a></div>
 </div></section>'''
 
@@ -374,7 +374,7 @@ def nl_form(kind="subscribe", variant=""):
     return f"""<form class="nl-f {variant}" data-kind="subscribe" novalidate>
   <div class="nl-row"><label>First name<input name="name" autocomplete="given-name"/></label><label>Email<input name="email" type="email" autocomplete="email" required/></label></div>
   <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
-  <button class="btn btn-gold" type="submit">Subscribe, it&#39;s free</button>
+  <button class="btn btn-gold" type="submit">Subscribe</button>
   <p class="nl-fine">Up to 3 short emails a week. Unsubscribe from any email in one click. We never sell or share your address. <a href="/privacy.html">Privacy Policy</a>.</p>
   <p class="nl-st" role="status" aria-live="polite"></p>
 </form>
@@ -383,7 +383,7 @@ def nl_form(kind="subscribe", variant=""):
 
 def nl_box():
     return f"""<section class="nl-box" aria-label="Subscribe to {NEWSLETTER_NAME}">
-  <span class="eyebrow">Free newsletter</span>
+  <span class="eyebrow">MFA Insights newsletter</span>
   <h2>Get key tax dates and new articles by email</h2>
   <p>Every new MFA Insights article, the IRS, New Jersey and New York deadlines that matter, and a calendar you can save. For individuals and small and mid-sized businesses.</p>
   {nl_form("subscribe", "nl-dark")}
@@ -401,7 +401,7 @@ def build_newsletter_pages(posts):
     up = "".join(f'<li><span class="kd-d">{datetime.fromisoformat(e["date"]):%a, %b %-d, %Y}</span><span class="kd-t"><b>{esc(e["title"])}</b></span>'
                  f'<a class="kd-g" href="{esc(e["url"])}">Read more</a></li>' for e in upcoming)
     recent = "".join(f'<li><a href="/blog/{p["slug"]}/"><b>{esc(p["title"])}</b></a> <span class="m">{p["dt"]:%b %-d, %Y}</span></li>' for p in posts[:5])
-    desc = ("Subscribe to MFA Insights: free emails with new tax, accounting and QuickBooks articles, key IRS and New Jersey "
+    desc = ("Subscribe to MFA Insights: emails with new tax, accounting and QuickBooks articles, key IRS and New Jersey "
             "deadlines, and a savable calendar for small businesses.")
     page = f"""{head("Subscribe to MFA Insights: Tax Dates, Accounting & QuickBooks Tips by Email", desc, BASE + "/newsletter/", BASE + "/apple-touch-icon.png")}
 <body>{nav("blog")}
@@ -618,14 +618,14 @@ def build_llms(posts):
         "> Accounting and tax solutions provider based in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide. MFA Insights covers IRS/federal, New Jersey and New York tax rules and deadlines, accounting, bookkeeping and QuickBooks.",
         "",
         "MFA provides tax preparation and filing, tax planning, bookkeeping, accrual-basis accounting and financial reporting, QuickBooks setup, cleanup and support, fractional CFO and business advisory, and audit support.",
-        "Contact: info@mfa-advisory.com, (347) 205-4468. Languages: English, Hindi, Urdu. Book a free 30-minute consultation: https://mfa-advisory.com/#book",
+        "Contact: info@mfa-advisory.com, (347) 205-4468. Languages: English, Hindi, Urdu. Book a 30-minute consultation: https://mfa-advisory.com/#book",
         "",
         "## Key pages",
         f"- [Home and services]({BASE}/): services, approach, client reviews, booking and contact",
         f"- [Union City, NJ bookkeeping, accounting and tax preparation]({BASE}/union-city-nj/): local services page for Union City and Hudson County, NJ",
         f"- [Princeton, NJ bookkeeping, accounting and tax preparation]({BASE}/princeton-nj/): local services page for Princeton and Mercer County, NJ",
         f"- [MFA Insights blog]({BASE}/blog/): tax deadlines, IRS updates, accounting best practices and QuickBooks tips",
-        f"- [MFA Insights newsletter]({BASE}/newsletter/): free email with new articles, key tax dates and a subscribable key-dates calendar",
+        f"- [MFA Insights newsletter]({BASE}/newsletter/): email with new articles, key tax dates and a subscribable key-dates calendar",
         f"- [Zain Merchant, ACCA]({AUTHOR['url']}): founder and principal of MFA, author of MFA Insights",
         f"- [Disclaimer]({BASE}/disclaimer.html): site content is general information, not tax, accounting, legal or financial advice",
         "",

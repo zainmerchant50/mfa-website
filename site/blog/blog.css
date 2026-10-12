@@ -230,3 +230,4 @@ img{max-width:100%;height:auto;display:block}
 .nl-page ul.nl-recent li{padding:10px 0;border-bottom:1px solid var(--hair)}
 .nl-page ul.nl-recent a{border:0;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--navy)}
 .nl-page ul.nl-recent .m{display:block;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.kd-t b{display:block;margin-bottom:2px}

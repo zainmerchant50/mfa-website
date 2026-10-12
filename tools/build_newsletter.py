@@ -162,7 +162,7 @@ def build(slug, to_email=None, mailerlite=False):
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{NAVY}"><tr><td style="padding:26px 26px 22px">
   <p style="margin:0 0 6px;font:700 11px/1 {SANS};letter-spacing:.28em;text-transform:uppercase;color:{GOLDB}">Talk to MFA</p>
   <p style="margin:0 0 10px;font:500 24px/1.2 {SERIF};color:#ffffff">{B.esc(p.get("ctaHeadline", "Want a second set of eyes before you act?"))}</p>
-  <p style="margin:0 0 16px;font:15px/1.6 {SANS};color:rgba(255,255,255,.8)">Book a free 30-minute consultation to talk through {B.esc(p.get("ctaTopic", "your situation"))}, or just reply to this email.</p>
+  <p style="margin:0 0 16px;font:15px/1.6 {SANS};color:rgba(255,255,255,.8)">Book a 30-minute consultation to talk through {B.esc(p.get("ctaTopic", "your situation"))}, or just reply to this email.</p>
   {btn(B.BOOK_URL.replace("/#book", "/" + track + "#book"), "Book a consultation", GOLDB, NAVY)}{btn("mailto:" + B.EMAIL + "?subject=" + quote(p["title"]), "Email us", NAVY2)}
   </td></tr></table>
   <p style="margin:22px 0 6px;font:14px/1.6 {SANS};color:{INK}">Read it on the web: <a href="{post_url}{track}" style="color:{NAVY}">{post_url}</a><br/>
@@ -172,7 +172,7 @@ def build(slug, to_email=None, mailerlite=False):
   <p style="margin:0;font:12px/1.6 {SANS};color:{MUTED}">Facts checked against the sources above as of {asof}. This email is general information, not tax, accounting, legal or financial advice, and reading it doesn't create a client relationship.</p>
 </td></tr>
 <tr><td class="pad" style="background:{PAPER2};padding:24px 40px;font:12px/1.7 {SANS};color:{MUTED}" align="center">
-  <b style="color:{NAVY}">Was this forwarded to you?</b> <a href="{B.BASE}/newsletter/{track}" style="color:{NAVY}">Subscribe to {B.esc(B.NEWSLETTER_NAME)}</a> for free: new articles, key tax dates and a savable calendar.<br/><br/>
+  <b style="color:{NAVY}">Was this forwarded to you?</b> <a href="{B.BASE}/newsletter/{track}" style="color:{NAVY}">Subscribe to {B.esc(B.NEWSLETTER_NAME)}</a> for new articles, key tax dates and a savable calendar.<br/><br/>
   You're receiving this because you subscribed to {B.esc(B.NEWSLETTER_NAME)} at mfa-advisory.com.<br/>
   <a href="{unsub}" style="color:{NAVY};font-weight:600">Unsubscribe</a> · <a href="{B.BASE}/privacy.html" style="color:{MUTED}">Privacy</a> · <a href="{B.BASE}/{track}" style="color:{MUTED}">mfa-advisory.com</a><br/>
   Merchant Financial Advisory LLC · {addr} · (347) 205-4468 · {B.EMAIL}
