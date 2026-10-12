@@ -8,9 +8,11 @@ description: Research, write, design and publish an SEO-optimized MFA Insights p
 Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **accounting and tax solutions provider** (never position it as only tax or only accounting) (mfa-advisory.com, info@mfa-advisory.com). The primary output is an MFA Insights blog post. The same research can be repurposed for LinkedIn, Instagram and the weekly newsletter.
 
 ## Standing requirements (from Zain)
-- **Audience:** individuals, and small and mid-sized businesses.
+- **Audience:** individuals, and small and mid-sized businesses, with a focus on **New Jersey and New York** (New York is the bigger market; Zain expanded coverage to NY on Oct 12, 2026), plus readers nationwide.
+- **Coverage (Zain, Oct 12 2026):** the whole tax and accounting world: IRS/federal tax (law changes, IR- releases, guidance, forms, inflation adjustments, deadlines, penalties, disaster relief), **state tax for New Jersey AND New York** (income, sales/use, payroll/withholding, business/franchise, PTE taxes, credits and programs, deadlines), accounting standards (FASB/AICPA), bookkeeping and QuickBooks. Whatever the post covers for New Jersey, cover the New York side too whenever it applies (and vice versa), including NYC where it differs (e.g. NYC resident income tax, NYC UBT, commercial rent tax). If one state has no counterpart, say so in a line.
 - **Topic mix (rotate so no area dominates):**
-  1. *Tax filing & deadlines:* IRS updates (Newsroom, IR- releases, tax tips, disaster relief), key dates, filing and preparation. Include NJ angles when they apply.
+  1. *Tax filing & deadlines:* IRS updates (Newsroom, IR- releases, tax tips, disaster relief), key dates, filing and preparation. Include the New Jersey and New York angles whenever they apply.
+  1b. *State tax (NJ & NY):* NJ Division of Taxation and NY Department of Taxation and Finance news, rate and threshold changes, state deadlines, ANCHOR/STAR-type programs, PTE elections, sales tax, payroll withholding, nexus and residency (NJ/NY commuters).
   2. *Tax planning:* individuals and business owners (entity choice, estimated taxes, retirement contributions, deductions).
   3. *Accrual accounting:* revenue recognition basics, accruals vs. cash, month-end close, why lenders and buyers want accrual books.
   4. *QuickBooks:* QuickBooks Online and Desktop product updates and release notes, practical tips, setup and cleanup.
@@ -25,7 +27,7 @@ Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **a
 - **Tone:** plain English, confident and helpful. No hype and no fearmongering. Write for individuals and small-business owners.
 
 ## Accuracy rules (non-negotiable)
-1. **Primary sources only for facts:** irs.gov (newsroom, forms, publications, payment and penalty pages), nj.gov/treasury/taxation, federal law and regulations, FASB/AICPA for accounting standards, and Intuit's official QuickBooks release notes, blog and support pages for QuickBooks features. Secondary sites may be used to find leads, never as the citation.
+1. **Primary sources only for facts:** irs.gov (newsroom, forms, publications, payment and penalty pages), treasury.gov, nj.gov/treasury/taxation, tax.ny.gov (NY Department of Taxation and Finance), nyc.gov/finance (NYC taxes), dol.ny.gov and nj.gov/labor (payroll/unemployment), federal law and regulations, FASB/AICPA for accounting standards, and Intuit's official QuickBooks release notes, blog and support pages for QuickBooks features. Secondary sites may be used to find leads, never as the citation.
 2. **Verify every number and date** on the primary page this session: deadlines, penalty rates, inflation-adjusted amounts, AGI limits, interest rates. Don't rely on memory. If a fact can't be verified, cut it.
 3. Watch for **year confusion.** Tax year ≠ filing year. Inflation-adjusted figures change every year.
 4. **Disaster relief is county-specific.** Name states only from IRS releases and always point to the IRS disaster-relief page.
@@ -42,6 +44,7 @@ Check these, then pick the most timely and useful topic that isn't already cover
 - **Accounting:** FASB news and ASU releases, AICPA & CIMA news, and small-business accounting changes (e.g. 1099/W-2 thresholds, BOI/FinCEN updates if relevant).
 - **QuickBooks:** Intuit's QuickBooks blog, "What's new in QuickBooks Online" release notes, and Intuit price and plan changes.
 - **NJ:** NJ Division of Taxation news (NJ-1040, sales tax, ANCHOR and other programs) for local relevance.
+- **NY:** NY Department of Taxation and Finance news and press releases (IT-201/IT-203, sales tax quarterly filings, PTET, STAR, withholding), NYC Department of Finance (NYC UBT, commercial rent tax), and NY DOL for payroll/unemployment items.
 - **Demand signals:** WebSearch for what people are asking right now ("<topic> 2026", "how do I…", "best way to…") and seasonal search interest. Prefer topics with clear search intent.
 Log the chosen topic and why in the commit message.
 
@@ -49,7 +52,7 @@ Log the chosen topic and why in the commit message.
 - Write to **search intent**. Use phrases people actually type or ask an AI: "best way to…", "best accounting software for small business", "best practices for month-end close", "how to…", "what is…", "do I need to…", "<deadline> 2026". Put the primary phrase in the title, first paragraph, one H2 and the meta description.
 - "Best" phrasing is for **topics** ("best practices", "best QuickBooks settings for…"). **Never claim MFA is "the best" or "top-rated"** or make other unverifiable superlatives about the firm. That risks FTC and false-advertising problems and hurts credibility. Let verifiable facts do the selling: 5.0 average rating on Fiverr and Upwork, QuickBooks ProAdvisor, ACCA (UK), 10+ years, PwC background.
 - **Answer-first structure** helps AI engines (ChatGPT, Perplexity, Google AI Overviews, Claude) quote you. Open with "The short version". Use clear H2 questions and a "Quick answers" FAQ (the build turns it into FAQPage schema automatically; keep the `<h2>Quick answers</h2>` + `<h3>question</h3><p>answer</p>` pattern). Use specific numbers, dates and named sources, and add a one-line definition when you introduce a term.
-- **Entity consistency:** always "Merchant Financial Advisory (MFA), an accounting and tax solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide". Phone (347) 205-4468, info@mfa-advisory.com. Never publish a street address. Don't mention languages on the site (Hindi/Urdu appears only in the Hindi-Urdu ad variant headline). Pricing wording: "flat monthly fee, project fee, or hourly", never "fixed fees" alone. Every post automatically gets a private "Have a question about this?" box. The build regenerates `/llms.txt` and `robots.txt` (AI crawlers allowed) on every run.
+- **Entity consistency:** always "Merchant Financial Advisory (MFA), an accounting and tax solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide". The non-CPA wording rules above apply in New York too: never call MFA a CPA firm or Zain a CPA. Phone (347) 205-4468, info@mfa-advisory.com. Never publish a street address. Don't mention languages on the site (Hindi/Urdu appears only in the Hindi-Urdu ad variant headline). Pricing wording: "flat monthly fee, project fee, or hourly", never "fixed fees" alone. Every post automatically gets a private "Have a question about this?" box. The build regenerates `/llms.txt` and `robots.txt` (AI crawlers allowed) on every run.
 - Link internally: 1–2 links to related MFA posts and one to the relevant service on the home page.
 
 ## Graphic formats (rotate)
@@ -63,7 +66,7 @@ Author byline and "About the author" box (Zain Merchant, ACCA, linked to LinkedI
 - `python3 tools/build_blog.py` runs an SEO check and prints `SEO [...]` warnings. **Fix every warning before committing.** The keywords also render as a visible "Topics covered" list at the end of each article.
 - `title`: about 50–65 characters, with the primary keyword and the date or year. `seoTitle` can differ for the <title> tag.
 - `description`: 140–160 characters. It should answer "what and when", with a hook.
-- 5–8 `keywords`: primary, secondary, long-tail and a local NJ variant where relevant.
+- 5–8 `keywords`: primary, secondary, long-tail, and local New Jersey and New York variants where relevant (e.g. "... New York 2026", "NYC ...", "NJ ...").
 - H2s phrased the way people search ("Who the October 15 deadline applies to", "If you can't pay the full balance").
 - A "The short version" box at the top (good for featured snippets) and a "Quick answers" FAQ near the end.
 - Descriptive slug: lowercase with hyphens, no stop-word padding. Include dates.
@@ -82,6 +85,8 @@ tools/render_graphics.js            renders graphics → PNG (Playwright)
 tools/build_landing.py              builds the Google Ads landing pages site/union-city-nj/ and site/princeton-nj/ (phone, conversion IDs in its CONFIG)
 site/                               published folder
 ```
+**Key dates and the calendar:** every federal, NJ and NY deadline in a post goes in `keyDates` (title should say whose deadline it is, e.g. "NY: ..."). The subscribable calendar `/newsletter/mfa-key-dates.ics` is rebuilt from all posts on every build, so a new post adds its dates, and fixing a date in a post moves that event for everyone subscribed (event IDs are stable by post and position; keep the order of existing keyDates when editing, or give an entry a fixed "uid"). If a deadline is postponed (e.g. disaster relief), update the post's keyDates and set `updated`.
+
 **Meta fields:** title, seoTitle, slug, date (YYYY-MM-DD), factsAsOf, category, description, dek, keywords[], cover ("cover.png"), coverAlt, og ("og.png"), ctaHeadline, ctaTopic, sources[{title,url}], keyDates[{date "YYYY-MM-DD", title, note}] (every deadline or start date in the post, verified like any other fact; the build turns them into a "Save the key dates" box, a per-post `key-dates.ics`, Google Calendar links, and the site-wide subscribable calendar `/newsletter/mfa-key-dates.ics`). Optional: updated, status ("draft" to exclude), time ("HH:MM", orders same-day posts; newest first).
 
 **Body building blocks** (styled by site/blog/blog.css): `<div class="tldr">`, `<figure class="figure"><img src="cover.png" ...>`, `<table class="tbl">`, `<h2>`, `<h3>`, `<ol>`, `<ul>`. The CTA, sources and disclaimer are added automatically.

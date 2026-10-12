@@ -8,8 +8,8 @@ X-WR-TIMEZONE:America/New_York
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
-UID:section-179-bonus-depreciation-2026-2026-12-31-0@mfa-advisory.com
-DTSTAMP:20261012T182128Z
+UID:section-179-bonus-depreciation-2026-0@mfa-advisory.com
+DTSTAMP:20261012T192638Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Last day to place equipment in service for 2026 Section 179 / bon
@@ -29,8 +29,8 @@ TRIGGER:-P7D
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:federal-scholarship-tax-credit-2027-2027-01-01-0@mfa-advisory.com
-DTSTAMP:20261012T182128Z
+UID:federal-scholarship-tax-credit-2027-0@mfa-advisory.com
+DTSTAMP:20261012T192638Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Federal scholarship tax credit (section 25F) starts
@@ -48,8 +48,8 @@ TRIGGER:-P7D
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:form-1099-preparation-guide-2026-2027-02-01-0@mfa-advisory.com
-DTSTAMP:20261012T182128Z
+UID:form-1099-preparation-guide-2026-0@mfa-advisory.com
+DTSTAMP:20261012T192638Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:Form 1099-NEC due to contractors and the IRS

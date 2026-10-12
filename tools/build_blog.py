@@ -24,6 +24,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
+import hashlib
+CSS_VER = hashlib.sha1((SITE / "blog" / "blog.css").read_bytes()).hexdigest()[:10]  # cache-buster: new CSS = new URL
 POSTS_DIR = ROOT / "content" / "posts"
 PAGES_DIR = ROOT / "content" / "pages"
 BASE = "https://mfa-advisory.com"
@@ -41,10 +43,10 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"/>'
 MAIL_ICON = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" '
              'stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/>'
              '<path d="m22 7-10 6L2 7"/></svg>')
-TOPICS = ["Tax Filing & Deadlines", "Tax Planning", "Accrual Accounting", "QuickBooks Tips & Updates",
+TOPICS = ["IRS & Federal Tax", "New Jersey Tax", "New York Tax", "Tax Filing & Deadlines", "Tax Planning", "Accrual Accounting", "QuickBooks Tips & Updates",
           "Bookkeeping Best Practices", "Small & Mid-Sized Business Finance"]
 BLOG_DESC = ("Practical tax, accounting, and QuickBooks guidance for individuals and small and mid-sized businesses: "
-             "filing deadlines and IRS updates, tax planning, accrual accounting, bookkeeping best practices, and QuickBooks tips.")
+             "IRS, New Jersey and New York filing deadlines and tax updates, tax planning, accrual accounting, bookkeeping best practices, and QuickBooks tips.")
 # Default author for every post (override per post with "author" in the meta).
 AUTHOR_LINKEDIN = "https://www.linkedin.com/in/zainmerchant50"
 AUTHOR_PATH = "/authors/zain-merchant/"
@@ -119,7 +121,7 @@ def nav(active):
 
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
-  <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468">(347) 205-4468</a> · Serving clients nationwide</span>
+  <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
   <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
 </div></footer>'''
@@ -138,7 +140,7 @@ def head(title, desc, url, image, extra="", keywords=None, og_type="website"):
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="{image}"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="alternate" type="application/rss+xml" title="MFA Insights" href="/blog/feed.xml"/>
-{FONTS}<link rel="stylesheet" href="/blog/blog.css"/>
+{FONTS}<link rel="stylesheet" href="/blog/blog.css?v={CSS_VER}"/>
 {extra}</head>'''
 
 
@@ -147,7 +149,7 @@ def cta(p):
     return f'''<section class="cta-block" aria-label="Book a consultation"><div class="cta-card">
   <span class="eyebrow">Talk to MFA</span>
   <h2>{esc(p.get("ctaHeadline", "Want a second set of eyes before you act?"))}</h2>
-  <p>Book a free 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide tax and accounting solutions for individuals and small and mid-sized businesses in New Jersey and nationwide.</p>
+  <p>Book a free 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide tax and accounting solutions for individuals and small and mid-sized businesses in New Jersey, New York and nationwide.</p>
   <div class="cta-btns"><a class="btn btn-gold" href="{BOOK_URL}">Book a consultation</a><a class="btn btn-line" href="mailto:{EMAIL}?subject={esc(p['title'])}">Email info@mfa-advisory.com</a></div>
 </div></section>'''
 
@@ -308,7 +310,7 @@ def ics_calendar(events, name):
 def post_events(p):
     url = f"{BASE}/blog/{p['slug']}/"
     return [{"date": k["date"], "title": k["title"], "note": k.get("note", ""), "url": url,
-             "uid": f"{p['slug']}-{k['date']}-{i}@mfa-advisory.com"} for i, k in enumerate(p.get("keyDates", []))]
+             "uid": k.get("uid") or f"{p['slug']}-{i}@mfa-advisory.com"} for i, k in enumerate(p.get("keyDates", []))]
 
 
 def gcal_link(e):
@@ -374,7 +376,7 @@ def nl_box():
     return f"""<section class="nl-box" aria-label="Subscribe to {NEWSLETTER_NAME}">
   <span class="eyebrow">Free newsletter</span>
   <h2>Get key tax dates and new articles by email</h2>
-  <p>Every new MFA Insights article, the deadlines that matter, and a calendar you can save. For individuals and small and mid-sized businesses.</p>
+  <p>Every new MFA Insights article, the IRS, New Jersey and New York deadlines that matter, and a calendar you can save. For individuals and small and mid-sized businesses.</p>
   {nl_form("subscribe", "nl-dark")}
 </section>"""
 
@@ -400,9 +402,9 @@ def build_newsletter_pages(posts):
 <main><article class="article nl-page">
 {nl_box()}
 <h2>What you'll get</h2>
-<ul><li><strong>Each new article</strong> on tax deadlines, tax planning, accrual accounting, bookkeeping and QuickBooks, delivered in full.</li>
+<ul><li><strong>Each new article</strong> on IRS and federal tax, New Jersey and New York tax, tax planning, accrual accounting, bookkeeping and QuickBooks, delivered in full.</li>
 <li><strong>Key dates</strong> with one-click "add to calendar" links.</li>
-<li><strong>A live MFA key-dates calendar</strong> you can subscribe to in Apple Calendar, Outlook or Google Calendar.</li></ul>
+<li><strong>A live MFA key-dates calendar</strong> you can subscribe to in Apple Calendar, Outlook or Google Calendar. It updates itself: new deadlines appear and changed dates move automatically.</li></ul>
 <h2>Upcoming key dates</h2>
 {f'<ul class="kd-list">{up}</ul>' if up else '<p>New dates are added with each article.</p>'}
 <div class="kd-btns"><a class="btn btn-ink" href="webcal://mfa-advisory.com/newsletter/mfa-key-dates.ics">Subscribe to the key-dates calendar</a><a class="btn btn-line-ink" href="/newsletter/mfa-key-dates.ics" download>Download .ics</a></div>
@@ -604,7 +606,7 @@ def build_llms(posts):
     lines = [
         "# Merchant Financial Advisory LLC (MFA)",
         "",
-        "> Accounting and tax solutions provider based in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide.",
+        "> Accounting and tax solutions provider based in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide. MFA Insights covers IRS/federal, New Jersey and New York tax rules and deadlines, accounting, bookkeeping and QuickBooks.",
         "",
         "MFA provides tax preparation and filing, tax planning, bookkeeping, accrual-basis accounting and financial reporting, QuickBooks setup, cleanup and support, fractional CFO and business advisory, and audit support.",
         "Contact: info@mfa-advisory.com, (347) 205-4468. Languages: English, Hindi, Urdu. Book a free 30-minute consultation: https://mfa-advisory.com/#book",
