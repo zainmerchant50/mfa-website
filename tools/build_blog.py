@@ -32,9 +32,11 @@ BASE = "https://mfa-advisory.com"
 BOOK_URL = BASE + "/#book"
 FORM_ENDPOINT = "https://formsubmit.co/ajax/info@mfa-advisory.com"   # same inbox as the site contact forms
 EMAIL = "info@mfa-advisory.com"
-# Newsletter signups/unsubscribes. Today they post to FormSubmit (they land in the info@ inbox).
-# When an email service (ESP) is chosen, point this at its form endpoint; the pages and boxes stay the same.
-NEWSLETTER_ENDPOINT = FORM_ENDPOINT
+# Newsletter signups go straight into MailerLite (account 2707043, embedded form "MFA Insights – website signup",
+# group "MFA Insights Newsletter", double opt-in ON). Unsubscribes from emails are handled by MailerLite's own
+# {$unsubscribe} link; the site's /newsletter/unsubscribe/ page is a backup that emails info@ via FormSubmit.
+NEWSLETTER_ENDPOINT = "https://assets.mailerlite.com/jsonp/2707043/forms/201153544226604130/subscribe"
+UNSUB_ENDPOINT = FORM_ENDPOINT
 NEWSLETTER_NAME = "MFA Insights"
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"/>'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>'
@@ -342,14 +344,21 @@ def keydates_block(p):
 # ---------- Newsletter signup / unsubscribe ----------
 NL_JS = """<script>
 (function(){document.querySelectorAll('form.nl-f').forEach(function(f){var st=f.querySelector('.nl-st');
+function done(){f.hidden=true;var ok=f.parentNode.querySelector('.nl-done');if(ok)ok.hidden=false;}
 f.addEventListener('submit',function(e){e.preventDefault();if(f._honey&&f._honey.value)return;if(!f.checkValidity()){f.reportValidity();return;}
-var b=f.querySelector('button'),l=b.textContent;b.disabled=true;b.textContent='Sending\\u2026';var d=new FormData(f);
-var unsub=f.dataset.kind==='unsubscribe';d.append('page',location.href);d.append('_captcha','false');d.append('_template','table');
-d.append('_subject',(unsub?'Newsletter UNSUBSCRIBE: ':'Newsletter signup: ')+(f.email.value||''));d.append('list','MFA Insights');d.append('action',unsub?'unsubscribe':'subscribe');
-fetch('%s',{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){if(!r.ok)throw 0;return r.json();})
-.then(function(j){if(j.success===false||j.success==='false')throw 0;f.hidden=true;var ok=f.parentNode.querySelector('.nl-done');if(ok)ok.hidden=false;})
-.catch(function(){st.textContent='Couldn\\u2019t send. Please email %s with the word '+(unsub?'UNSUBSCRIBE':'SUBSCRIBE')+'.';b.disabled=false;b.textContent=l;});});});})();
-</script>""" % (NEWSLETTER_ENDPOINT, EMAIL)
+var b=f.querySelector('button'),l=b.textContent;b.disabled=true;b.textContent='Sending\\u2026';
+var unsub=f.dataset.kind==='unsubscribe';
+function fail(){st.textContent='Couldn\\u2019t send. Please email %(email)s with the word '+(unsub?'UNSUBSCRIBE':'SUBSCRIBE')+'.';b.disabled=false;b.textContent=l;}
+if(unsub){var d=new FormData(f);d.append('page',location.href);d.append('_captcha','false');d.append('_template','table');
+ d.append('_subject','Newsletter UNSUBSCRIBE: '+(f.email.value||''));d.append('list','MFA Insights');
+ fetch('%(unsub)s',{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){if(!r.ok)throw 0;return r.json();})
+ .then(function(j){if(j.success===false||j.success==='false')throw 0;done();}).catch(fail);return;}
+var m=new URLSearchParams();m.append('fields[email]',f.email.value.trim());if(f.name&&f.name.value)m.append('fields[name]',f.name.value.trim());
+m.append('ml-submit','1');m.append('anticsrf','true');
+fetch('%(ml)s',{method:'POST',headers:{'Accept':'application/json'},body:m}).then(function(r){return r.json();})
+.then(function(j){if(j&&j.success===false)throw 0;done();})
+.catch(function(){fetch('%(ml)s',{method:'POST',mode:'no-cors',body:m}).then(done).catch(fail);});});});})();
+</script>""" % {"ml": NEWSLETTER_ENDPOINT, "unsub": UNSUB_ENDPOINT, "email": EMAIL}
 
 
 def nl_form(kind="subscribe", variant=""):
@@ -369,7 +378,7 @@ def nl_form(kind="subscribe", variant=""):
   <p class="nl-fine">Up to 3 short emails a week. Unsubscribe from any email in one click. We never sell or share your address. <a href="/privacy.html">Privacy Policy</a>.</p>
   <p class="nl-st" role="status" aria-live="polite"></p>
 </form>
-<p class="nl-done" hidden>You're on the list. Watch for the next {NEWSLETTER_NAME} email (the first one may land in Promotions or Spam, so mark it "not spam").</p>"""
+<p class="nl-done" hidden>Almost done: check your inbox and click the confirmation link to join {NEWSLETTER_NAME}. (If you don't see it in a minute, check Promotions or Spam.)</p>"""
 
 
 def nl_box():

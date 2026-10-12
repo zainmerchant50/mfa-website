@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build the MFA Insights newsletter email for one published post.
 
-    python3 tools/build_newsletter.py <slug> [--to someone@example.com]
+    python3 tools/build_newsletter.py <slug> [--to someone@example.com]   # Gmail copy to one person
+    python3 tools/build_newsletter.py <slug> --mailerlite                  # list send via MailerLite ({$unsubscribe})
 
 Writes:
     site/newsletter/issues/<slug>/index.html   "View in browser" copy (noindex), published with the site
@@ -110,7 +111,7 @@ def keydates_email(p, post_url):
 </td></tr></table>'''
 
 
-def build(slug, to_email=None):
+def build(slug, to_email=None, mailerlite=False):
     posts = B.load_posts()
     p = next((x for x in posts if x["slug"] == slug), None)
     if not p:
@@ -118,7 +119,10 @@ def build(slug, to_email=None):
     post_url = f"{B.BASE}/blog/{slug}/"
     track = f"?{UTM}{slug}"
     issue_url = f"{B.BASE}/newsletter/issues/{slug}/"
-    unsub = (f"{B.BASE}/newsletter/unsubscribe/?e={quote(to_email)}" if to_email else "{{UNSUBSCRIBE_URL}}")
+    if mailerlite:   # MailerLite swaps in each recipient's one-click unsubscribe link
+        unsub = "{$unsubscribe}"
+    else:
+        unsub = (f"{B.BASE}/newsletter/unsubscribe/?e={quote(to_email)}" if to_email else "{{UNSUBSCRIBE_URL}}")
     nice = p["dt"].strftime("%B %-d, %Y")
     asof = datetime.fromisoformat(p.get("factsAsOf", p["date"])).strftime("%B %-d, %Y")
     subject = p["title"]
@@ -215,4 +219,4 @@ if __name__ == "__main__":
     if not args:
         sys.exit(__doc__)
     to = args[args.index("--to") + 1] if "--to" in args else None
-    build(args[0], to)
+    build(args[0], to, mailerlite="--mailerlite" in args)
