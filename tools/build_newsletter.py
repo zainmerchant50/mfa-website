@@ -43,7 +43,8 @@ def absolutize(body, post_url, slug):
         else:
             full = post_url + url
         if full.startswith(B.BASE) and attr == "href" and not re.search(r"\.(png|ics|pdf)$", full):
-            full += ("&" if "?" in full else "?") + UTM + slug
+            base, _, frag = full.partition("#")
+            full = base + ("&" if "?" in base else "?") + UTM + slug + ("#" + frag if frag else "")
         return f'{attr}="{full}"'
     return re.sub(r'(href|src)="([^"]+)"', fix, body)
 
@@ -60,7 +61,7 @@ def style_body(body):
                s, flags=re.S)
     # Figure
     s = re.sub(r'<figure class="figure">\s*(<img[^>]*>)\s*<figcaption>(.*?)</figcaption>\s*</figure>',
-               lambda m: (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 26px"><tr><td>'
+               lambda m: (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 26px"><tr><td style="padding:0">'
                           + re.sub(r'\s(width|height)="\d+"', "", m.group(1)).replace(
                               "<img", f'<img width="552" style="display:block;width:100%;max-width:552px;height:auto;border:0;border-radius:10px"')
                           + f'<p style="margin:10px 0 0;font:13px/1.5 {SANS};color:{MUTED}">{m.group(2)}</p></td></tr></table>'),
