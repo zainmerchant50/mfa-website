@@ -1,0 +1,68 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:MFA Key Tax & Accounting Dates
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:section-179-bonus-depreciation-2026-2026-12-31-0@mfa-advisory.com
+DTSTAMP:20261012T182128Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day to place equipment in service for 2026 Section 179 / bon
+ us depreciation
+DESCRIPTION:The asset must be set up and ready to use by this date to cou
+ nt on a calendar-year 2026 return. Ordering it isn't enough.\n\nDetails: 
+ https://mfa-advisory.com/blog/section-179-bonus-depreciation-2026/\nGener
+ al information\, not tax advice. Merchant Financial Advisory\, mfa-adviso
+ ry.com
+URL:https://mfa-advisory.com/blog/section-179-bonus-depreciation-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to place equipment in service for 2026 Section 179 /
+  bonus depreciation
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:federal-scholarship-tax-credit-2027-2027-01-01-0@mfa-advisory.com
+DTSTAMP:20261012T182128Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Federal scholarship tax credit (section 25F) starts
+DESCRIPTION:Cash gifts to an approved scholarship granting organization m
+ ade on or after this date can qualify for up to $1\,700 per person ($3\,4
+ 00 married filing jointly).\n\nDetails: https://mfa-advisory.com/blog/fed
+ eral-scholarship-tax-credit-2027/\nGeneral information\, not tax advice. 
+ Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/federal-scholarship-tax-credit-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Federal scholarship tax credit (section 25F) starts
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:form-1099-preparation-guide-2026-2027-02-01-0@mfa-advisory.com
+DTSTAMP:20261012T182128Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form 1099-NEC due to contractors and the IRS
+DESCRIPTION:For 2026 payments of $2\,000 or more. No automatic extension.
+ \n\nDetails: https://mfa-advisory.com/blog/form-1099-preparation-guide-20
+ 26/\nGeneral information\, not tax advice. Merchant Financial Advisory\, 
+ mfa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1099-preparation-guide-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1099-NEC due to contractors and the IRS
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

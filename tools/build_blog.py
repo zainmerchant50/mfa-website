@@ -30,6 +30,10 @@ BASE = "https://mfa-advisory.com"
 BOOK_URL = BASE + "/#book"
 FORM_ENDPOINT = "https://formsubmit.co/ajax/info@mfa-advisory.com"   # same inbox as the site contact forms
 EMAIL = "info@mfa-advisory.com"
+# Newsletter signups/unsubscribes. Today they post to FormSubmit (they land in the info@ inbox).
+# When an email service (ESP) is chosen, point this at its form endpoint; the pages and boxes stay the same.
+NEWSLETTER_ENDPOINT = FORM_ENDPOINT
+NEWSLETTER_NAME = "MFA Insights"
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"/>'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>'
          '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400'
@@ -116,7 +120,7 @@ def nav(active):
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
   <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468">(347) 205-4468</a> · Serving clients nationwide</span>
-  <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+  <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
 </div></footer>'''
 
@@ -262,6 +266,163 @@ def tags_block(p):
             + "".join(f"<li>{esc(k)}</li>" for k in kws) + "</ul></div>")
 
 
+# ---------- Key dates (savable calendar) ----------
+def _ics_text(t):
+    return (t.replace("\\", "\\\\").replace(";", r"\;").replace(",", r"\,").replace("\n", r"\n"))
+
+
+def _ics_fold(line):
+    if len(line.encode("utf-8")) <= 74:
+        return line
+    out, cur = [], b""
+    for ch in line:
+        e = ch.encode("utf-8")
+        if len(cur) + len(e) > 73:
+            out.append(cur.decode("utf-8"))
+            cur = b""
+        cur += e
+    out.append(cur.decode("utf-8"))
+    return "\r\n ".join(out)
+
+
+def ics_calendar(events, name):
+    """events: [{date, title, note, url, uid}] -> RFC 5545 all-day events with a 7-day reminder."""
+    from datetime import timedelta
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    L = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Merchant Financial Advisory//MFA Insights//EN",
+         "CALSCALE:GREGORIAN", "METHOD:PUBLISH", f"X-WR-CALNAME:{_ics_text(name)}", "X-WR-TIMEZONE:America/New_York",
+         "REFRESH-INTERVAL;VALUE=DURATION:P1D", "X-PUBLISHED-TTL:P1D"]
+    for e in events:
+        d = datetime.fromisoformat(e["date"]).date()
+        desc = (e.get("note", "") + ("\n\n" if e.get("note") else "") + "Details: " + e["url"]
+                + "\nGeneral information, not tax advice. Merchant Financial Advisory, mfa-advisory.com")
+        L += ["BEGIN:VEVENT", f"UID:{e['uid']}", f"DTSTAMP:{stamp}",
+              f"DTSTART;VALUE=DATE:{d:%Y%m%d}", f"DTEND;VALUE=DATE:{d + timedelta(days=1):%Y%m%d}",
+              f"SUMMARY:{_ics_text(e['title'])}", f"DESCRIPTION:{_ics_text(desc)}", f"URL:{e['url']}",
+              "TRANSP:TRANSPARENT", "BEGIN:VALARM", "ACTION:DISPLAY", f"DESCRIPTION:{_ics_text(e['title'])}",
+              "TRIGGER:-P7D", "END:VALARM", "END:VEVENT"]
+    L.append("END:VCALENDAR")
+    return "\r\n".join(_ics_fold(x) for x in L) + "\r\n"
+
+
+def post_events(p):
+    url = f"{BASE}/blog/{p['slug']}/"
+    return [{"date": k["date"], "title": k["title"], "note": k.get("note", ""), "url": url,
+             "uid": f"{p['slug']}-{k['date']}-{i}@mfa-advisory.com"} for i, k in enumerate(p.get("keyDates", []))]
+
+
+def gcal_link(e):
+    from datetime import timedelta
+    from urllib.parse import urlencode
+    d = datetime.fromisoformat(e["date"]).date()
+    return "https://calendar.google.com/calendar/render?" + urlencode({
+        "action": "TEMPLATE", "text": e["title"], "dates": f"{d:%Y%m%d}/{d + timedelta(days=1):%Y%m%d}",
+        "details": (e.get("note", "") + "\n\nDetails: " + e["url"]).strip()})
+
+
+def keydates_block(p):
+    ev = post_events(p)
+    if not ev:
+        return ""
+    rows = "".join(
+        f'<li><span class="kd-d">{datetime.fromisoformat(e["date"]):%a, %b %-d, %Y}</span>'
+        f'<span class="kd-t"><b>{esc(e["title"])}</b>{(" " + esc(e["note"])) if e["note"] else ""}</span>'
+        f'<a class="kd-g" href="{esc(gcal_link(e))}" target="_blank" rel="noopener">+ Google Calendar</a></li>' for e in ev)
+    return f"""<section class="keydates" aria-label="Key dates">
+  <h2>Save the key dates</h2>
+  <ul class="kd-list">{rows}</ul>
+  <div class="kd-btns"><a class="btn btn-ink" href="key-dates.ics" download>Add to my calendar (.ics)</a>
+  <a class="btn btn-line-ink" href="webcal://mfa-advisory.com/newsletter/mfa-key-dates.ics">Subscribe to every MFA key date</a></div>
+  <p class="kd-note">The .ics file works with Apple Calendar, Outlook and Google Calendar. The subscription updates itself whenever we publish a new deadline.</p>
+</section>"""
+
+
+# ---------- Newsletter signup / unsubscribe ----------
+NL_JS = """<script>
+(function(){document.querySelectorAll('form.nl-f').forEach(function(f){var st=f.querySelector('.nl-st');
+f.addEventListener('submit',function(e){e.preventDefault();if(f._honey&&f._honey.value)return;if(!f.checkValidity()){f.reportValidity();return;}
+var b=f.querySelector('button'),l=b.textContent;b.disabled=true;b.textContent='Sending\\u2026';var d=new FormData(f);
+var unsub=f.dataset.kind==='unsubscribe';d.append('page',location.href);d.append('_captcha','false');d.append('_template','table');
+d.append('_subject',(unsub?'Newsletter UNSUBSCRIBE: ':'Newsletter signup: ')+(f.email.value||''));d.append('list','MFA Insights');d.append('action',unsub?'unsubscribe':'subscribe');
+fetch('%s',{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){if(!r.ok)throw 0;return r.json();})
+.then(function(j){if(j.success===false||j.success==='false')throw 0;f.hidden=true;var ok=f.parentNode.querySelector('.nl-done');if(ok)ok.hidden=false;})
+.catch(function(){st.textContent='Couldn\\u2019t send. Please email %s with the word '+(unsub?'UNSUBSCRIBE':'SUBSCRIBE')+'.';b.disabled=false;b.textContent=l;});});});})();
+</script>""" % (NEWSLETTER_ENDPOINT, EMAIL)
+
+
+def nl_form(kind="subscribe", variant=""):
+    if kind == "unsubscribe":
+        return f"""<form class="nl-f {variant}" data-kind="unsubscribe" novalidate>
+  <label>Email address<input name="email" type="email" autocomplete="email" required/></label>
+  <label>Anything we could do better? (optional)<input name="reason"/></label>
+  <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+  <button class="btn btn-ink" type="submit">Unsubscribe me</button>
+  <p class="nl-st" role="status" aria-live="polite"></p>
+</form>
+<p class="nl-done" hidden>You're unsubscribed and won't get any more {NEWSLETTER_NAME} emails. If you change your mind, you can sign up again any time.</p>"""
+    return f"""<form class="nl-f {variant}" data-kind="subscribe" novalidate>
+  <div class="nl-row"><label>First name<input name="name" autocomplete="given-name"/></label><label>Email<input name="email" type="email" autocomplete="email" required/></label></div>
+  <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+  <button class="btn btn-gold" type="submit">Subscribe, it&#39;s free</button>
+  <p class="nl-fine">Up to 3 short emails a week. Unsubscribe from any email in one click. We never sell or share your address. <a href="/privacy.html">Privacy Policy</a>.</p>
+  <p class="nl-st" role="status" aria-live="polite"></p>
+</form>
+<p class="nl-done" hidden>You're on the list. Watch for the next {NEWSLETTER_NAME} email (the first one may land in Promotions or Spam, so mark it "not spam").</p>"""
+
+
+def nl_box():
+    return f"""<section class="nl-box" aria-label="Subscribe to {NEWSLETTER_NAME}">
+  <span class="eyebrow">Free newsletter</span>
+  <h2>Get key tax dates and new articles by email</h2>
+  <p>Every new MFA Insights article, the deadlines that matter, and a calendar you can save. For individuals and small and mid-sized businesses.</p>
+  {nl_form("subscribe", "nl-dark")}
+</section>"""
+
+
+def build_newsletter_pages(posts):
+    nl = SITE / "newsletter"
+    (nl / "unsubscribe").mkdir(parents=True, exist_ok=True)
+    events = sorted((e for p in posts for e in post_events(p)), key=lambda e: e["date"])
+    with open(nl / "mfa-key-dates.ics", "w", encoding="utf-8", newline="") as fh:
+        fh.write(ics_calendar(events, "MFA Key Tax & Accounting Dates"))
+    today = datetime.now(timezone.utc).date().isoformat()
+    upcoming = [e for e in events if e["date"] >= today][:8]
+    up = "".join(f'<li><span class="kd-d">{datetime.fromisoformat(e["date"]):%a, %b %-d, %Y}</span><span class="kd-t"><b>{esc(e["title"])}</b></span>'
+                 f'<a class="kd-g" href="{esc(e["url"])}">Read more</a></li>' for e in upcoming)
+    recent = "".join(f'<li><a href="/blog/{p["slug"]}/"><b>{esc(p["title"])}</b></a> <span class="m">{p["dt"]:%b %-d, %Y}</span></li>' for p in posts[:5])
+    desc = ("Subscribe to MFA Insights: free emails with new tax, accounting and QuickBooks articles, key IRS and New Jersey "
+            "deadlines, and a savable calendar for small businesses.")
+    page = f"""{head("Subscribe to MFA Insights: Tax Dates, Accounting & QuickBooks Tips by Email", desc, BASE + "/newsletter/", BASE + "/apple-touch-icon.png")}
+<body>{nav("blog")}
+<header class="ahead"><div class="wrap"><div class="crumbs"><a href="/">Home</a> / <a href="/blog/">Insights</a> / Newsletter</div>
+<span class="eyebrow">Newsletter</span><h1>MFA Insights, in your inbox</h1>
+<p class="dek">New articles, the tax and accounting dates that matter, and a calendar you can save. Plain English, no hype, for individuals and small and mid-sized businesses.</p></div></header>
+<main><article class="article nl-page">
+{nl_box()}
+<h2>What you'll get</h2>
+<ul><li><strong>Each new article</strong> on tax deadlines, tax planning, accrual accounting, bookkeeping and QuickBooks, delivered in full.</li>
+<li><strong>Key dates</strong> with one-click "add to calendar" links.</li>
+<li><strong>A live MFA key-dates calendar</strong> you can subscribe to in Apple Calendar, Outlook or Google Calendar.</li></ul>
+<h2>Upcoming key dates</h2>
+{f'<ul class="kd-list">{up}</ul>' if up else '<p>New dates are added with each article.</p>'}
+<div class="kd-btns"><a class="btn btn-ink" href="webcal://mfa-advisory.com/newsletter/mfa-key-dates.ics">Subscribe to the key-dates calendar</a><a class="btn btn-line-ink" href="/newsletter/mfa-key-dates.ics" download>Download .ics</a></div>
+<h2>Latest articles</h2><ul class="nl-recent">{recent}</ul>
+<p class="disclaimer">Newsletter content is general information, not tax, accounting, legal or financial advice. Unsubscribe any time from the link in any email or at <a href="/newsletter/unsubscribe/">mfa-advisory.com/newsletter/unsubscribe</a>.</p>
+</article></main>
+{FOOT}{NL_JS}</body></html>"""
+    (nl / "index.html").write_text(page, encoding="utf-8")
+    un = f"""{head("Unsubscribe | MFA Insights", "Unsubscribe from the MFA Insights newsletter.", BASE + "/newsletter/unsubscribe/", BASE + "/apple-touch-icon.png", '<meta name="robots" content="noindex"/>')}
+<body>{nav("blog")}
+<header class="ahead"><div class="wrap"><span class="eyebrow">Newsletter</span><h1>Unsubscribe from MFA Insights</h1>
+<p class="dek">Sorry to see you go. Confirm your email below and we'll take you off the list.</p></div></header>
+<main><article class="article"><section class="ask">{nl_form("unsubscribe")}</section>
+<p>Prefer email? Write to <a href="mailto:{EMAIL}?subject=Unsubscribe">{EMAIL}</a> with the subject "Unsubscribe".</p></article></main>
+{FOOT}{NL_JS}
+<script>(function(){{var q=new URLSearchParams(location.search).get('e');if(q){{var i=document.querySelector('form.nl-f input[name=email]');if(i)i.value=q;}}}})();</script>
+</body></html>"""
+    (nl / "unsubscribe" / "index.html").write_text(un, encoding="utf-8")
+
+
 def build_post(p):
     A = {**AUTHOR, **p.get("author", {})}
     url = f"{BASE}/blog/{p['slug']}/"
@@ -298,18 +459,23 @@ def build_post(p):
 </div></header>
 <main><article class="article">
 {p["body"]}
+{keydates_block(p)}
 {tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>
+{nl_box()}
 {ask_box(p)}
 {author_box(A)}
 <section class="sources"><h2>Sources</h2><ul>{sources}</ul>
 <p class="disclaimer">Facts checked against the sources above as of {asof}. {DISCLAIMER}</p></section>
 </article>
 {cta(p)}</main>
-{FOOT}{SHARE_JS}</body></html>'''
+{FOOT}{SHARE_JS}{NL_JS}</body></html>'''
     out = SITE / "blog" / p["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
+    if p.get("keyDates"):
+        with open(out.parent / "key-dates.ics", "w", encoding="utf-8", newline="") as fh:
+            fh.write(ics_calendar(post_events(p), p["title"]))
 
 
 def build_index(posts):
@@ -326,8 +492,9 @@ def build_index(posts):
 <p>Practical guidance for individuals and small and mid-sized businesses, from filing deadlines and tax planning to accrual accounting, clean books and getting more out of QuickBooks.</p>
 <ul class="topics" aria-label="Topics we cover">{"".join(f"<li>{esc(t)}</li>" for t in TOPICS)}</ul></div></header>
 <main class="wrap plist">{cards}</main>
+<div class="wrap nl-wrap">{nl_box()}</div>
 {cta({"title": "Question from the MFA blog", "ctaHeadline": "Have a question about your taxes, books, or QuickBooks?", "ctaTopic": "your taxes, accounting, or QuickBooks setup"})}
-{FOOT}</body></html>'''
+{FOOT}{NL_JS}</body></html>'''
     (SITE / "blog" / "index.html").write_text(page, encoding="utf-8")
 
 
@@ -419,7 +586,7 @@ def build_sitemap(posts, pages=()):
     today = datetime.now(timezone.utc).date().isoformat()
     urls = [(BASE + "/", today), (BASE + "/blog/", posts[0]["date"] if posts else today)]
     urls += [(f'{BASE}/blog/{p["slug"]}/', p.get("updated", p["date"])) for p in posts]
-    urls += [(AUTHOR["url"], posts[0]["date"] if posts else today)]
+    urls += [(AUTHOR["url"], posts[0]["date"] if posts else today), (BASE + "/newsletter/", posts[0]["date"] if posts else today)]
     for lp in ("union-city-nj", "princeton-nj"):   # Google Ads landing pages (tools/build_landing.py)
         if (SITE / lp / "index.html").exists():
             urls += [(f"{BASE}/{lp}/", today)]
@@ -447,6 +614,7 @@ def build_llms(posts):
         f"- [Union City, NJ bookkeeping, accounting and tax preparation]({BASE}/union-city-nj/): local services page for Union City and Hudson County, NJ",
         f"- [Princeton, NJ bookkeeping, accounting and tax preparation]({BASE}/princeton-nj/): local services page for Princeton and Mercer County, NJ",
         f"- [MFA Insights blog]({BASE}/blog/): tax deadlines, IRS updates, accounting best practices and QuickBooks tips",
+        f"- [MFA Insights newsletter]({BASE}/newsletter/): free email with new articles, key tax dates and a subscribable key-dates calendar",
         f"- [Zain Merchant, ACCA]({AUTHOR['url']}): founder and principal of MFA, author of MFA Insights",
         f"- [Disclaimer]({BASE}/disclaimer.html): site content is general information, not tax, accounting, legal or financial advice",
         "",
@@ -467,4 +635,5 @@ if __name__ == "__main__":
     build_sitemap(posts, pages)
     build_author(posts)
     build_llms(posts)
+    build_newsletter_pages(posts)
     print(f"Built {len(posts)} post(s): " + ", ".join(p["slug"] for p in posts))

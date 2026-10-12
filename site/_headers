@@ -1,2 +1,9 @@
 /source.txt
   X-Robots-Tag: noindex
+
+/*.ics
+  Content-Type: text/calendar; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/newsletter/issues/*
+  X-Robots-Tag: noindex

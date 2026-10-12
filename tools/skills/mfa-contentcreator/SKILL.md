@@ -18,10 +18,10 @@ Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **a
   6. *Small & mid-sized business finance:* cash flow, KPIs, budgeting, fractional CFO topics.
   - Suggested rhythm: **Mon = tax**, **Wed = accounting/bookkeeping**, **Fri = QuickBooks or business finance**. Breaking IRS news can override any slot.
 - **Category labels** (meta `category`): Tax Deadlines, Tax Planning, Accrual Accounting, QuickBooks, Bookkeeping, Business Finance.
-- **Every post must have:** target keywords, key dates, current and accurate facts, practical tips, a keep-handy graphic, and an ending CTA. The CTA is "Book a consultation" (https://mfa-advisory.com/#book) or "email info@mfa-advisory.com".
+- **Every post must have:** target keywords, key dates (also as `keyDates` meta so readers can save them to a calendar), current and accurate facts, practical tips, a keep-handy graphic, and an ending CTA. The CTA is "Book a consultation" (https://mfa-advisory.com/#book) or "email info@mfa-advisory.com".
 - **Graphic:** use only the site's navy, white and gold theme. It must be *useful*, not decorative. Good formats are a timeline, key-numbers cards, a checklist, a "who this affects" chart or a decision tree: something a reader would save and keep handy. One main graphic per post, plus a 1200×630 social card.
 - **Cadence:** 3 posts a week (Mon, Wed, Fri), live at **7:30am ET**, plus a bonus post when the IRS releases major news.
-- **Approval:** draft the night before (around 8pm ET) and email Zain a preview link. Publish only after he replies "Approve". If no approval arrives, hold the post. (Trial posts Zain asks for directly can publish right away.)
+- **Publishing is automatic (Zain, Oct 12 2026):** no approval step. Each Mon/Wed/Fri run researches, writes, builds, verifies and publishes the post by 7:30am ET, then sends it as the MFA Insights newsletter email. Zain no longer approves drafts; the accuracy rules below are the safeguard, so a fact that can't be verified is cut, never guessed. If a run can't verify enough facts for a solid post, it publishes nothing and tells Zain why.
 - **Tone:** plain English, confident and helpful. No hype and no fearmongering. Write for individuals and small-business owners.
 
 ## Accuracy rules (non-negotiable)
@@ -82,7 +82,7 @@ tools/render_graphics.js            renders graphics → PNG (Playwright)
 tools/build_landing.py              builds the Google Ads landing pages site/union-city-nj/ and site/princeton-nj/ (phone, conversion IDs in its CONFIG)
 site/                               published folder
 ```
-**Meta fields:** title, seoTitle, slug, date (YYYY-MM-DD), factsAsOf, category, description, dek, keywords[], cover ("cover.png"), coverAlt, og ("og.png"), ctaHeadline, ctaTopic, sources[{title,url}]. Optional: updated, status ("draft" to exclude), time ("HH:MM", orders same-day posts; newest first).
+**Meta fields:** title, seoTitle, slug, date (YYYY-MM-DD), factsAsOf, category, description, dek, keywords[], cover ("cover.png"), coverAlt, og ("og.png"), ctaHeadline, ctaTopic, sources[{title,url}], keyDates[{date "YYYY-MM-DD", title, note}] (every deadline or start date in the post, verified like any other fact; the build turns them into a "Save the key dates" box, a per-post `key-dates.ics`, Google Calendar links, and the site-wide subscribable calendar `/newsletter/mfa-key-dates.ics`). Optional: updated, status ("draft" to exclude), time ("HH:MM", orders same-day posts; newest first).
 
 **Body building blocks** (styled by site/blog/blog.css): `<div class="tldr">`, `<figure class="figure"><img src="cover.png" ...>`, `<table class="tbl">`, `<h2>`, `<h3>`, `<ol>`, `<ul>`. The CTA, sources and disclaimer are added automatically.
 
@@ -95,11 +95,10 @@ site/                               published folder
    Look at both PNGs. Fix any overflow, empty space or wrong figures. Keep the cover height tight to its content.
 4. `python3 tools/build_blog.py`
 5. QA: screenshot the post at 1300px and 390px (no horizontal scroll, image not distorted). Re-read every number against its source.
-6. **Draft mode:** commit to branch `draft/<slug>`, push, and email Zain the branch preview link with a 3-line summary. Subject: "Approve? MFA post for <date>".
-   - **Preview URL (Cloudflare Pages):** get it from the pushed commit's GitHub check/status posted by Cloudflare Pages (its "details" link, like `https://<branch-alias>.mfa-website-83y.pages.dev/blog/<slug>/`). Don't hand-build it: Cloudflare shortens long branch names in the alias.
-   - Hosting is Cloudflare Pages (free, unlimited deploys); merging to `main` goes live in ~1 minute. Still publish at most one post per run.
-   **Publish:** merge to `main` (or commit directly for an approved or trial post) and push. Then verify the live URL and that `/blog/feed.xml` includes it.
-7. Commit messages end with the session attribution lines.
+6. **Publish (automatic):** commit to `main` and push (or open a PR from `post/<slug>` and squash-merge it yourself). Cloudflare Pages deploys `main` in about 1 minute. At most one post per run. Then confirm the Cloudflare Pages check on the commit is green and, where the network allows, that the live URL and `/blog/latest.json` show the post.
+7. **Newsletter email:** `python3 tools/build_newsletter.py <slug> --to zainmerchant50@gmail.com`, then send `newsletter/out/<slug>.email.html` as the HTML body (and `<slug>.txt` as the plain-text body) with the Gmail connector to zainmerchant50@gmail.com. Subject = post title. It contains the full article, key dates with calendar links, the CTA, subscribe and unsubscribe links. Commit the generated `site/newsletter/issues/<slug>/` "view in browser" page with the post. Until an email service (ESP) is connected, Zain is the only recipient; signups and unsubscribes from `/newsletter/` arrive at info@ via FormSubmit. Once an ESP is connected, send the same HTML to the list through it (swap `{{UNSUBSCRIBE_URL}}` for the ESP's merge tag) and set `MAILING_ADDRESS` in tools/build_newsletter.py first (CAN-SPAM needs a postal address; a PO box is fine).
+8. **Social (planned):** LinkedIn and Instagram (later Facebook) versions of each post, published from Zain's accounts, once those connectors are set up. See Repurposing below.
+9. Commit messages end with the session attribution lines.
 
 ## Repurposing (on request)
 - **LinkedIn:** 120–220 words. Lead with the date or number, give 3 bullet takeaways, end with the post link and "Book a consultation". 3–5 hashtags (#TaxDeadline #IRS #SmallBusiness #NewJersey).
