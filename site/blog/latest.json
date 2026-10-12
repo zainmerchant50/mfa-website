@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "2027 Tax Calendar: Key IRS, New Jersey and New York Tax Deadlines",
+   "url": "/blog/2027-tax-calendar/",
+   "date": "2026-10-12",
+   "category": "Tax Deadlines",
+   "thumb": "/blog/2027-tax-calendar/og.png",
+   "description": "The 2027 tax calendar: every key IRS deadline plus New Jersey and New York due dates, from 1099s and W-2s to April 15 and estimated taxes. Save it to your calendar."
+  },
+  {
    "title": "Year-End Tax Planning 2026: 4 Dates That Can Still Lower Your Tax Bill",
    "url": "/blog/year-end-tax-planning-2026-key-dates/",
    "date": "2026-10-12",
@@ -31,14 +39,6 @@
    "category": "Bookkeeping",
    "thumb": "/blog/form-1099-preparation-guide-2026/og.png",
    "description": "The 1099-NEC and 1099-MISC threshold jumps to $2,000 for 2026 payments. Who needs a 1099, the 2027 deadlines, and a step-by-step QuickBooks process to file right."
-  },
-  {
-   "title": "October 15, 2026 Tax Extension Deadline: What to Do Before It Hits",
-   "url": "/blog/october-15-2026-tax-extension-deadline/",
-   "date": "2026-10-09",
-   "category": "Tax Deadlines",
-   "thumb": "/blog/october-15-2026-tax-extension-deadline/og.png",
-   "description": "Filed an extension for your 2025 return? Your deadline is Thursday, Oct. 15, 2026. What to file, what waiting costs, and the NJ and disaster-area exceptions."
   }
  ]
 }

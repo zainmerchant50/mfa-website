@@ -30,7 +30,28 @@ SERIF = "Georgia,'Times New Roman',serif"
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
 # CAN-SPAM: every commercial email must show a valid physical postal address (a registered PO box or
 # private mailbox is acceptable). Set this before mailing anyone other than Zain.
-MAILING_ADDRESS = ""
+MAILING_ADDRESS = "28 Spring St #5114, Princeton, NJ 08542"   # CAN-SPAM postal address (email only; never shown on the website)
+SENDER_EMAIL = "insights@mfa-advisory.com"   # MailerLite sender (domain authenticated Oct 2026)
+BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z1XCM1FcZDRE6VnHyWPfqXcgkL1-kxgrTJaKaM-0VCun9u0cVIziW87B0XAQGVXE51SZ0LOo9"
+DEFAULT_INTRO = ("Here's this week's MFA Insights. The short version is right below, and the checklist and key dates "
+                 "you can save are further down. If any of it applies to you, just hit reply. I read every email.")
+
+
+def signature_html():
+    """Zain's sign-off, matching his Gmail signature."""
+    line = f"margin:0;font:14px/1.6 {SANS};color:{INK}"
+    a = f"color:{NAVY};text-decoration:underline"
+    return f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:26px 0 8px"><tr><td>
+<p style="margin:0 0 14px;font:16px/1.65 {SANS};color:{INK}">Talk soon,<br/>Zain</p>
+<p style="margin:0 0 2px;font:13px/1 {SANS};color:{MUTED}">--</p>
+<p style="{line}"><b>Zain Merchant</b> - Principal</p>
+<p style="{line}">Mobile: <a href="tel:+13472054468" style="{a}">+1 347 205 4468</a></p>
+<p style="{line}"><a href="mailto:zainmerchant@mfa-advisory.com" style="{a}">zainmerchant@mfa-advisory.com</a></p>
+<p style="{line}">{B.esc(MAILING_ADDRESS)}</p>
+<p style="{line}">Merchant Financial Advisory LLC</p>
+<p style="{line}"><a href="{B.BASE}/" style="{a}">https://www.mfa-advisory.com</a></p>
+<p style="margin:12px 0 0;font:italic 15px/1.6 Georgia,serif"><a href="{BOOKING_URL}" style="{a}">Book time with me!</a></p>
+</td></tr></table>'''
 UTM = "utm_source=newsletter&utm_medium=email&utm_campaign="
 
 
@@ -140,6 +161,9 @@ def build(slug, to_email=None, mailerlite=False):
     body = style_body(absolutize(p["body"], post_url, slug))
     sources = "".join(f'<li style="margin:0 0 6px"><a href="{B.esc(s["url"])}" style="color:{NAVY}">{B.esc(s["title"])}</a></li>' for s in p["sources"])
     addr = B.esc(MAILING_ADDRESS) if MAILING_ADDRESS else "Princeton, New Jersey"
+    # MailerLite merge tag with a fallback (https://www.mailerlite.com/help/how-to-use-variables-in-mailerlite)
+    greeting = "Hi {$name|default('there')}," if mailerlite else "Hi there,"
+    browser_url = "{$url}" if mailerlite else issue_url
     share_li = f"https://www.linkedin.com/sharing/share-offsite/?url={quote(post_url, safe='')}"
     fwd = f"mailto:?subject={quote(p['title'])}&body={quote(p['description'] + ' ' + post_url)}"
 
@@ -153,7 +177,7 @@ def build(slug, to_email=None, mailerlite=False):
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ECEAE3"><tr><td align="center" style="padding:20px 10px">
 <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#ffffff">
 <tr><td style="padding:10px 0 10px;background:#ECEAE3;font:12px/1.4 {SANS};color:{MUTED}" align="center">
-  {B.esc(B.NEWSLETTER_NAME)} · {nice} · <a href="{issue_url}" style="color:{MUTED}">View in browser</a></td></tr>
+  {B.esc(B.NEWSLETTER_NAME)} · {nice} · <a href="{browser_url}" style="color:{MUTED}">View in browser</a></td></tr>
 <tr><td class="pad" style="background:{NAVY};padding:26px 40px 30px">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
   <td width="52" valign="middle"><a href="{B.BASE}/{track}"><img src="{B.BASE}/apple-touch-icon.png" width="44" height="44" alt="MFA" style="display:block;border:0;border-radius:10px"/></a></td>
@@ -165,8 +189,11 @@ def build(slug, to_email=None, mailerlite=False):
   <p style="margin:0;font:13px/1.4 {SANS};color:rgba(255,255,255,.6)">By {B.esc(B.AUTHOR["name"])}, {B.esc(B.AUTHOR["credential"])} · {p["minutes"]} min read</p>
 </td></tr>
 <tr><td class="pad" style="padding:32px 40px 8px">
+<p style="margin:0 0 12px;font:17px/1.6 {SANS};color:{INK}">{greeting}</p>
+<p style="margin:0 0 24px;font:16px/1.65 {SANS};color:{INK}">{B.esc(p.get("emailIntro", DEFAULT_INTRO))}</p>
 {body}
 {keydates_email(p, post_url)}
+{signature_html()}
 </td></tr>
 <tr><td class="pad" style="padding:8px 40px 28px">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{NAVY}"><tr><td style="padding:26px 26px 22px">
@@ -213,7 +240,9 @@ def build(slug, to_email=None, mailerlite=False):
     web = B.SITE / "newsletter" / "issues" / slug
     web.mkdir(parents=True, exist_ok=True)
     (web / "index.html").write_text(
-        email.replace(unsub, f"{B.BASE}/newsletter/unsubscribe/").replace("<head>", '<head><meta name="robots" content="noindex"/>', 1),
+        email.replace(unsub, f"{B.BASE}/newsletter/unsubscribe/").replace("{$url}", issue_url)
+             .replace("Hi {$name|default('there')},", "Hi there,").replace(B.esc(MAILING_ADDRESS), "Princeton, New Jersey")
+             .replace("<head>", '<head><meta name="robots" content="noindex"/>', 1),
         encoding="utf-8")
     meta = {"slug": slug, "subject": subject, "preheader": preheader, "post_url": post_url, "issue_url": issue_url,
             "html": str(OUT / f"{slug}.email.html"), "text": str(OUT / f"{slug}.txt"),

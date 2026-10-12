@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:year-end-tax-planning-2026-key-dates-0@mfa-advisory.com
-DTSTAMP:20261012T205517Z
+DTSTAMP:20261012T233708Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:Extended 2025 returns due\; last day to fund a 2025 SEP-IRA (if o
@@ -30,7 +30,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:year-end-tax-planning-2026-key-dates-1@mfa-advisory.com
-DTSTAMP:20261012T205517Z
+DTSTAMP:20261012T233708Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Year-end deadline for most 2026 tax moves
@@ -49,7 +49,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:section-179-bonus-depreciation-2026-0@mfa-advisory.com
-DTSTAMP:20261012T205517Z
+DTSTAMP:20261012T233708Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Last day to place equipment in service for 2026 Section 179 / bon
@@ -70,7 +70,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:federal-scholarship-tax-credit-2027-0@mfa-advisory.com
-DTSTAMP:20261012T205517Z
+DTSTAMP:20261012T233708Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Federal scholarship tax credit (section 25F) starts
@@ -88,8 +88,26 @@ TRIGGER:-P7D
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:2027-tax-calendar-0@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Q4 2026 estimated tax due (IRS\, NJ\, NY)
+DESCRIPTION:Final 2026 estimated tax payment for individuals and farmers/
+ fishermen.\n\nDetails: https://mfa-advisory.com/blog/2027-tax-calendar/\n
+ General information\, not tax advice. Merchant Financial Advisory\, mfa-a
+ dvisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q4 2026 estimated tax due (IRS\, NJ\, NY)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:year-end-tax-planning-2026-key-dates-2@mfa-advisory.com
-DTSTAMP:20261012T205517Z
+DTSTAMP:20261012T233708Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Fourth-quarter 2026 estimated tax payment due
@@ -106,8 +124,27 @@ TRIGGER:-P7D
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:2027-tax-calendar-1@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:W-2s\, 1099-NEC and most 1099s due
+DESCRIPTION:Furnish 2026 Forms W-2 and most 1099s to recipients\; file W-
+ 2/W-3 and 1099-NEC with the government. Form 941 for Q4 2026 and Form 940
+  are also due.\n\nDetails: https://mfa-advisory.com/blog/2027-tax-calenda
+ r/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:W-2s\, 1099-NEC and most 1099s due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:form-1099-preparation-guide-2026-0@mfa-advisory.com
-DTSTAMP:20261012T205517Z
+DTSTAMP:20261012T233708Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:Form 1099-NEC due to contractors and the IRS
@@ -124,8 +161,108 @@ TRIGGER:-P7D
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:2027-tax-calendar-2@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+SUMMARY:Forms 1099-B\, 1099-S and certain 1099-MISC due to recipients
+DESCRIPTION:Consolidated brokerage statements (1099-B) and real estate (1
+ 099-S) recipient copies.\n\nDetails: https://mfa-advisory.com/blog/2027-t
+ ax-calendar/\nGeneral information\, not tax advice. Merchant Financial Ad
+ visory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Forms 1099-B\, 1099-S and certain 1099-MISC due to recipients
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-3@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:Paper 1099s due to the IRS\; farmers and fishermen file 2026 retu
+ rns
+DESCRIPTION:Paper information returns with Form 1096. Electronic filers h
+ ave until March 31. Farmers/fishermen who skipped the Jan. 15 estimate fi
+ le and pay by this date.\n\nDetails: https://mfa-advisory.com/blog/2027-t
+ ax-calendar/\nGeneral information\, not tax advice. Merchant Financial Ad
+ visory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Paper 1099s due to the IRS\; farmers and fishermen file 2026 
+ returns
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-4@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Partnership (1065) and S corporation (1120-S) returns due\; NY PT
+ ET election and return
+DESCRIPTION:Schedules K-1 due to partners/shareholders. Form 7004 extends
+  to Sept. 15. Last day to file Form 2553 for S status starting in 2027. N
+ Y pass-through entity tax: 2027 election deadline and 2026 annual PTET re
+ turn.\n\nDetails: https://mfa-advisory.com/blog/2027-tax-calendar/\nGener
+ al information\, not tax advice. Merchant Financial Advisory\, mfa-adviso
+ ry.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Partnership (1065) and S corporation (1120-S) returns due\; N
+ Y PTET election and return
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-5@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:Electronic 1099 filing deadline (most forms)
+DESCRIPTION:E-file Forms 1097\, 1098\, 1099 (except 1099-NEC and a few ot
+ hers)\, 3921\, 3922 and W-2G with the IRS.\n\nDetails: https://mfa-adviso
+ ry.com/blog/2027-tax-calendar/\nGeneral information\, not tax advice. Mer
+ chant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Electronic 1099 filing deadline (most forms)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-6@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Tax Day: 2026 individual and C corporation returns\; Q1 2027 esti
+ mates (IRS\, NJ\, NY)
+DESCRIPTION:Form 1040\, Form 1120\, NJ-1040 and NY IT-201 due. File an ex
+ tension (Form 4868\, NJ-630\, IT-370) by today if you need one\, and pay 
+ what you owe. First 2027 estimated payment due.\n\nDetails: https://mfa-a
+ dvisory.com/blog/2027-tax-calendar/\nGeneral information\, not tax advice
+ . Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Tax Day: 2026 individual and C corporation returns\; Q1 2027 
+ estimates (IRS\, NJ\, NY)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:year-end-tax-planning-2026-key-dates-3@mfa-advisory.com
-DTSTAMP:20261012T205517Z
+DTSTAMP:20261012T233708Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270416
 SUMMARY:Last day for 2026 IRA and HSA contributions\; new Solo 401(k) fir
@@ -142,6 +279,100 @@ BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Last day for 2026 IRA and HSA contributions\; new Solo 401(k)
   first-year deferrals
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-7@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:Q2 2027 estimated tax due (IRS\, NJ\, NY)\; U.S. taxpayers abroad
+  file
+DESCRIPTION:Second 2027 estimated payment. Americans living abroad file F
+ orm 1040 (automatic 2-month extension).\n\nDetails: https://mfa-advisory.
+ com/blog/2027-tax-calendar/\nGeneral information\, not tax advice. Mercha
+ nt Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q2 2027 estimated tax due (IRS\, NJ\, NY)\; U.S. taxpayers ab
+ road file
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-8@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:Q3 2027 estimated tax due\; extended 1065 and 1120-S returns due
+DESCRIPTION:Third 2027 estimated payment (IRS\, NJ\, NY). Extended partne
+ rship and S corporation returns and final K-1s due.\n\nDetails: https://m
+ fa-advisory.com/blog/2027-tax-calendar/\nGeneral information\, not tax ad
+ vice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q3 2027 estimated tax due\; extended 1065 and 1120-S returns 
+ due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-9@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271016
+SUMMARY:Extended 2026 individual and C corporation returns due (IRS\, NJ\
+ , NY)
+DESCRIPTION:Final deadline if you filed an extension in April.\n\nDetails
+ : https://mfa-advisory.com/blog/2027-tax-calendar/\nGeneral information\,
+  not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Extended 2026 individual and C corporation returns due (IRS\,
+  NJ\, NY)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-10@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20271215
+DTEND;VALUE=DATE:20271216
+SUMMARY:Q4 2027 corporate estimated tax due
+DESCRIPTION:Fourth installment of 2027 estimated tax for C corporations. 
+ NY PTET fourth 2027 estimated payment also due.\n\nDetails: https://mfa-a
+ dvisory.com/blog/2027-tax-calendar/\nGeneral information\, not tax advice
+ . Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q4 2027 corporate estimated tax due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-tax-calendar-11@mfa-advisory.com
+DTSTAMP:20261012T233708Z
+DTSTART;VALUE=DATE:20280118
+DTEND;VALUE=DATE:20280119
+SUMMARY:Q4 2027 estimated tax due (IRS\, NJ\, NY)
+DESCRIPTION:Jan. 15\, 2028 falls on a Saturday and Jan. 17 is Martin Luth
+ er King Jr. Day\, so the deadline moves to Tuesday\, Jan. 18.\n\nDetails:
+  https://mfa-advisory.com/blog/2027-tax-calendar/\nGeneral information\, 
+ not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q4 2027 estimated tax due (IRS\, NJ\, NY)
 TRIGGER:-P7D
 END:VALARM
 END:VEVENT
