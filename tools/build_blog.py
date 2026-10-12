@@ -414,7 +414,7 @@ def build_newsletter_pages(posts):
 <ul><li><strong>Each new article</strong> on IRS and federal tax, New Jersey and New York tax, tax planning, accrual accounting, bookkeeping and QuickBooks, delivered in full.</li>
 <li><strong>Key dates</strong> with one-click "add to calendar" links.</li>
 <li><strong>A live MFA key-dates calendar</strong> you can subscribe to in Apple Calendar, Outlook or Google Calendar. It updates itself: new deadlines appear and changed dates move automatically.</li></ul>
-<h2>Upcoming key dates</h2>
+<h2 id="calendar">Upcoming key dates</h2>
 {f'<ul class="kd-list">{up}</ul>' if up else '<p>New dates are added with each article.</p>'}
 <div class="kd-btns"><a class="btn btn-ink" href="webcal://mfa-advisory.com/newsletter/mfa-key-dates.ics">Subscribe to the key-dates calendar</a><a class="btn btn-line-ink" href="/newsletter/mfa-key-dates.ics" download>Download .ics</a></div>
 <h2>Latest articles</h2><ul class="nl-recent">{recent}</ul>

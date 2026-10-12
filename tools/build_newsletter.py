@@ -65,7 +65,8 @@ def style_body(body):
                lambda m: (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 26px"><tr><td style="padding:0">'
                           + re.sub(r'\s(width|height)="\d+"', "", m.group(1)).replace(
                               "<img", f'<img width="552" style="display:block;width:100%;max-width:552px;height:auto;border:0;border-radius:10px"')
-                          + f'<p style="margin:10px 0 0;font:13px/1.5 {SANS};color:{MUTED}">{m.group(2)}</p></td></tr></table>'),
+                          + f'<p style="margin:10px 0 12px;font:13px/1.5 {SANS};color:{MUTED}">{re.sub(r"<a[^>]*>.*?</a>", "", m.group(2)).strip()}</p>'
+                          + '%%DLBTN%%</td></tr></table>'),
                s, flags=re.S)
     # Tables
     s = s.replace('<table class="tbl">', f'<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:6px 0 24px;font:14px/1.5 {SANS}">')
@@ -84,12 +85,19 @@ def style_body(body):
     # The short-version heading inside the box is smaller
     s = s.replace(f'<td style="background:{PAPER2};border-left:3px solid {GOLD};padding:20px 22px">\n  <h2 style="margin:30px 0 12px;font:500 25px/1.2 {SERIF};color:{NAVY}">',
                   f'<td style="background:{PAPER2};border-left:3px solid {GOLD};padding:20px 22px">\n  <h2 style="margin:0 0 10px;font:500 21px/1.2 {SERIF};color:{NAVY}">')
+    s = s.replace("%%DLBTN%%", btn(DL_URL, "Download this checklist (PNG)", GOLDB, NAVY))
     return s
 
 
-def btn(href, label, bg=NAVY, fg="#ffffff"):
-    return (f'<a href="{href}" style="display:inline-block;background:{bg};color:{fg};text-decoration:none;'
-            f'font:700 12px/1 {SANS};letter-spacing:.12em;text-transform:uppercase;padding:14px 22px;border-radius:999px;margin:4px 6px 4px 0">{label}</a>')
+DL_URL = "#"   # set per issue in build(): the post's cover.png
+
+
+def btn(href, label, bg=NAVY, fg="#ffffff", border=None):
+    bd = f"border:1px solid {border};" if border else ""
+    return (f'<table role="presentation" cellpadding="0" cellspacing="0" style="display:inline-table;margin:4px 6px 4px 0"><tr>'
+            f'<td bgcolor="{bg}" style="background:{bg};{bd}border-radius:999px">'
+            f'<a href="{href}" style="display:inline-block;color:{fg};text-decoration:none;'
+            f'font:700 12px/1 {SANS};letter-spacing:.12em;text-transform:uppercase;padding:14px 22px">{label}</a></td></tr></table>')
 
 
 def keydates_email(p, post_url):
@@ -106,7 +114,7 @@ def keydates_email(p, post_url):
 <tr><td style="padding:20px 22px">
 <h2 style="margin:0 0 10px;font:500 23px/1.2 {SERIF};color:{NAVY}">Save the key dates</h2>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table>
-<p style="margin:16px 0 0">{btn(post_url + "key-dates.ics", "Add to my calendar (.ics)")}{btn("webcal://mfa-advisory.com/newsletter/mfa-key-dates.ics", "Subscribe to all MFA dates", "#ffffff", NAVY).replace("background:#ffffff", "background:#ffffff;border:1px solid " + NAVY)}</p>
+<p style="margin:16px 0 0">{btn(post_url + "key-dates.ics", "Add to my calendar (.ics)")}{btn(B.BASE + "/newsletter/?" + UTM + p["slug"] + "#calendar", "Subscribe to all MFA dates", "#ffffff", NAVY, NAVY)}</p>
 <p style="margin:10px 0 0;font:12px/1.5 {SANS};color:{MUTED}">The .ics file works with Apple Calendar, Outlook and Google Calendar. The subscription updates itself whenever we publish a new deadline.</p>
 </td></tr></table>'''
 
@@ -117,6 +125,8 @@ def build(slug, to_email=None, mailerlite=False):
     if not p:
         sys.exit(f"No published post with slug '{slug}'")
     post_url = f"{B.BASE}/blog/{slug}/"
+    global DL_URL
+    DL_URL = post_url + p["cover"]
     track = f"?{UTM}{slug}"
     issue_url = f"{B.BASE}/newsletter/issues/{slug}/"
     if mailerlite:   # MailerLite swaps in each recipient's one-click unsubscribe link
@@ -194,6 +204,9 @@ def build(slug, to_email=None, mailerlite=False):
              f"General information, not tax advice. Facts checked as of {asof}.\n"
              f"Unsubscribe: {unsub}\nMerchant Financial Advisory LLC · {MAILING_ADDRESS or 'Princeton, New Jersey'} · {B.EMAIL}\n")
 
+    # bgcolor attributes as a fallback for clients that drop CSS backgrounds (Outlook, some Gmail paths)
+    email = re.sub(r'<(td|table)((?:(?!bgcolor)[^>])*?)style="([^"]*?)background:(#[0-9A-Fa-f]{6})',
+                   lambda m: f'<{m.group(1)} bgcolor="{m.group(4)}"{m.group(2)}style="{m.group(3)}background:{m.group(4)}', email)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / f"{slug}.email.html").write_text(email, encoding="utf-8")
     (OUT / f"{slug}.txt").write_text(plain, encoding="utf-8")
