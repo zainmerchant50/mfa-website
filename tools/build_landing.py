@@ -29,10 +29,10 @@ BOOK_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z
 FORM_ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL
 # Google Ads conversion tracking. Paste values from Google Ads → Goals → Conversions → (action) → Tag setup.
 ADS = {
-    "id": "",          # e.g. "AW-123456789"  (blank = no tag loaded)
-    "form": "",        # conversion label for "Lead form submitted"
-    "call": "",        # conversion label for "Click to call"
-    "book": "",        # conversion label for "Opened booking calendar"
+    "id": "AW-18505873837",  # Google Ads account 402-577-1790
+    "form": "rNQJCK2_kJsdEK3zpPhE",        # conversion label for "Lead form submitted"
+    "call": "_Z6FCLjJk5sdEK3zpPhE",        # conversion label for "Click to call"
+    "book": "OUTYCLC_kJsdEK3zpPhE",        # conversion label for "Opened booking calendar"
 }
 # ---------------------------------------------------------------- /CONFIG
 
