@@ -70,6 +70,7 @@ img{max-width:100%;height:auto;display:block}
 .tldr{background:var(--paper-2);border-left:3px solid var(--gold);border-radius:0 14px 14px 0;padding:24px 28px;margin:0 0 34px}
 .tldr h2{margin:0 0 10px!important;font-size:1.3rem!important}
 .tldr ul{margin-bottom:0}
+.tldr .bottom-line{margin:16px 0 0;padding-top:14px;border-top:1px solid rgba(176,141,63,.35)}
 .figure{margin:36px -40px 40px}
 .figure img{width:100%;border-radius:16px;box-shadow:0 26px 60px rgba(16,35,63,.18)}
 .figure figcaption{font-size:.82rem;color:var(--muted);text-align:center;margin-top:14px}

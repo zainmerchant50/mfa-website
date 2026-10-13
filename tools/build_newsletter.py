@@ -117,13 +117,15 @@ def parts(p):
     body = p["body"]
     m = re.search(r'<div class="tldr">.*?<ul>(.*?)</ul>', body, re.S)
     glance = re.findall(r"<li>(.*?)</li>", m.group(1), re.S) if m else []
+    bl = re.search(r'<p class="bottom-line">(.*?)</p>', body, re.S)
+    bottom = bl.group(1) if bl else None
     heads = [re.sub(r"<[^>]+>", "", h).strip() for h in re.findall(r"<h2[^>]*>(.*?)</h2>", body, re.S)]
-    heads = [h for h in heads if h.lower() not in ("the short version", "quick answers", "sources")]
+    heads = [h for h in heads if h.lower() not in ("the short version", "executive summary", "quick answers", "sources")]
     faq = None
     q = re.search(r"<h2>Quick answers</h2>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>", body, re.S)
     if q:
         faq = (re.sub(r"<[^>]+>", "", q.group(1)).strip(), q.group(2))
-    return glance, heads, faq
+    return glance, heads, faq, bottom
 
 
 def upcoming_dates(p, limit=5):
@@ -211,7 +213,7 @@ def build(slug, to_email=None, mailerlite=False):
     asof = datetime.fromisoformat(p.get("factsAsOf", p["date"])).strftime("%B %-d, %Y")
     subject = p["title"]
     preheader = p["description"]
-    glance, heads, faq = parts(p)
+    glance, heads, faq, bottom = parts(p)
     share_li = f"https://www.linkedin.com/sharing/share-offsite/?url={quote(post_url, safe='')}"
     fwd = f"mailto:?subject={quote(p['title'])}&body={quote('Thought you might find this useful: ' + p['description'] + ' ' + post_url)}"
     # Keep Gmail/iOS from turning the postal address into a blue map link.
@@ -225,8 +227,9 @@ def build(slug, to_email=None, mailerlite=False):
         for i, li in enumerate(glance, 1))
     glance_block = (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>'
                     f'<td bgcolor="{PAPER2}" style="background:{PAPER2};border-radius:10px;border-left:4px solid {GOLD};padding:26px 26px 14px">'
-                    + eyebrow("At a glance")
+                    + eyebrow("Executive summary")
                     + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{glance_rows}</table>'
+                    + (f'<p style="margin:2px 0 12px;padding-top:14px;border-top:1px solid #E2D6B8;{f(16, 25)}">{inline_rich(bottom)}</p>' if bottom else "")
                     + "</td></tr></table>") if glance else ""
 
     cover = (f'<a href="{read_url}" style="text-decoration:none"><img src="{post_url}{p["cover"]}" width="504" alt="{B.esc(p.get("coverAlt", p["title"]))}" '
@@ -322,7 +325,7 @@ body{{margin:0;padding:0;-webkit-text-size-adjust:100%}} img{{border:0;outline:n
     plain = (f"{B.NEWSLETTER_NAME} | {nice}\n\n{p['title'].upper()}\n{p['dek']}\n\n"
              f"{greeting}\n\n"
              f"{strip(p.get('emailIntro', DEFAULT_INTRO))}\n\n"
-             + ("AT A GLANCE\n" + "".join(f" {i}. {strip(li)}\n" for i, li in enumerate(glance, 1)) + "\n" if glance else "")
+             + ("EXECUTIVE SUMMARY\n" + "".join(f" {i}. {strip(li)}\n" for i, li in enumerate(glance, 1)) + (strip(bottom) + "\n" if bottom else "") + "\n" if glance else "")
              + f"Read the full guide: {read_url}\n\n"
              + ("KEY DATES\n" + "".join(f" - {datetime.fromisoformat(e['date']):%a, %b %-d, %Y}: {e['title']}\n" for e in ev)
                 + f"Add them all: {post_url}key-dates.ics\n\n" if ev else "")
