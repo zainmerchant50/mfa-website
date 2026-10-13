@@ -313,7 +313,7 @@ def ics_calendar(events, name):
 def post_events(p):
     url = f"{BASE}/blog/{p['slug']}/"
     return [{"date": k["date"], "title": k["title"], "note": k.get("note", ""), "url": url,
-             "uid": k.get("uid") or f"{p['slug']}-{i}@mfa-advisory.com"} for i, k in enumerate(p.get("keyDates", []))]
+             "uid": k.get("uid") or f"{p['slug']}-{i}@mfa-advisory.com", "idx": i} for i, k in enumerate(p.get("keyDates", []))]
 
 
 def gcal_link(e):
@@ -325,6 +325,50 @@ def gcal_link(e):
         "details": (e.get("note", "") + "\n\nDetails: " + e["url"]).strip()})
 
 
+FEED_HTTPS = BASE + "/newsletter/mfa-key-dates.ics"
+FEED_WEBCAL = "webcal://mfa-advisory.com/newsletter/mfa-key-dates.ics"
+
+
+def outlook_link(e, work=False):
+    """Outlook.com (personal) or Outlook on the web / Microsoft 365 (work) 'add event' deeplink, all-day."""
+    from datetime import timedelta
+    from urllib.parse import urlencode
+    d = datetime.fromisoformat(e["date"]).date()
+    host = "https://outlook.office.com" if work else "https://outlook.live.com"
+    return host + "/calendar/0/deeplink/compose?" + urlencode({
+        "path": "/calendar/action/compose", "rru": "addevent", "subject": e["title"],
+        "body": (e.get("note", "") + "\n\nDetails: " + e["url"]).strip(),
+        "startdt": f"{d:%Y-%m-%d}", "enddt": f"{d + timedelta(days=1):%Y-%m-%d}", "allday": "true"})
+
+
+def event_ics_url(e):
+    """Single-event .ics (written by build_post) for Apple Calendar, Outlook desktop and anything else."""
+    return f'{e["url"]}dates/{e["idx"] + 1}.ics'
+
+
+ICO_CAL = '<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M12 13v5M9.5 15.5h5"/></g></svg>'
+
+
+def add_to_cal(e):
+    """'Add to calendar' menu (native <details>, works without JS)."""
+    items = [("Apple Calendar", event_ics_url(e), True), ("Google Calendar", gcal_link(e), False),
+             ("Outlook.com", outlook_link(e), False), ("Outlook / Microsoft 365", outlook_link(e, True), False),
+             ("Other calendar (.ics)", event_ics_url(e), True)]
+    links = "".join(f'<a href="{esc(h)}"{" download" if dl else " target=\"_blank\" rel=\"noopener\""}>{lbl}</a>' for lbl, h, dl in items)
+    return f'<details class="kd-add"><summary>{ICO_CAL}<span>Add to calendar</span></summary><div class="kd-menu" role="menu">{links}</div></details>'
+
+
+def subscribe_menu(label="Subscribe to every MFA key date", cls="btn btn-line-ink"):
+    from urllib.parse import quote
+    items = [("Apple Calendar (iPhone, Mac)", FEED_WEBCAL),
+             ("Google Calendar", "https://calendar.google.com/calendar/r?cid=" + quote(FEED_WEBCAL, safe="")),
+             ("Outlook.com", "https://outlook.live.com/calendar/0/addfromweb?url=" + quote(FEED_HTTPS, safe="") + "&name=" + quote("MFA key tax dates")),
+             ("Outlook / Microsoft 365", "https://outlook.office.com/calendar/0/addfromweb?url=" + quote(FEED_HTTPS, safe="") + "&name=" + quote("MFA key tax dates")),
+             ("Copy the calendar link", FEED_HTTPS)]
+    links = "".join(f'<a href="{esc(h)}" target="_blank" rel="noopener"{" data-copy" if "Copy" in l else ""}>{l}</a>' for l, h in items)
+    return f'<details class="kd-add kd-sub"><summary class="{cls}">{ICO_CAL}<span>{label}</span></summary><div class="kd-menu" role="menu">{links}</div></details>'
+
+
 def keydates_block(p):
     ev = post_events(p)
     if not ev:
@@ -332,13 +376,13 @@ def keydates_block(p):
     rows = "".join(
         f'<li><span class="kd-d">{datetime.fromisoformat(e["date"]):%a, %b %-d, %Y}</span>'
         f'<span class="kd-t"><b>{esc(e["title"])}</b>{(" " + esc(e["note"])) if e["note"] else ""}</span>'
-        f'<a class="kd-g" href="{esc(gcal_link(e))}" target="_blank" rel="noopener">+ Google Calendar</a></li>' for e in ev)
+        f'{add_to_cal(e)}</li>' for e in ev)
     return f"""<section class="keydates" aria-label="Key dates">
   <h2>Save the key dates</h2>
   <ul class="kd-list">{rows}</ul>
-  <div class="kd-btns"><a class="btn btn-ink" href="key-dates.ics" download>Add to my calendar (.ics)</a>
-  <a class="btn btn-line-ink" href="webcal://mfa-advisory.com/newsletter/mfa-key-dates.ics">Subscribe to every MFA key date</a></div>
-  <p class="kd-note">The .ics file works with Apple Calendar, Outlook and Google Calendar. The subscription updates itself whenever we publish a new deadline.</p>
+  <div class="kd-btns"><a class="btn btn-ink" href="key-dates.ics" download>Add all these dates</a>
+  {subscribe_menu()}</div>
+  <p class="kd-note">"Add all these dates" downloads one file that opens in Apple Calendar, Outlook or Google Calendar (in Google, use Settings, then Import). Subscribing works with Apple, Google and Outlook and updates itself whenever we publish a new deadline.</p>
 </section>"""
 
 
@@ -412,12 +456,12 @@ def build_newsletter_pages(posts):
 <main><article class="article nl-page">
 {nl_box()}
 <h2>What you'll get</h2>
-<ul><li><strong>Each new article</strong> on IRS and federal tax, New Jersey and New York tax, tax planning, accrual accounting, bookkeeping and QuickBooks, delivered in full.</li>
-<li><strong>Key dates</strong> with one-click "add to calendar" links.</li>
+<ul><li><strong>Each new article</strong> on IRS and federal tax, New Jersey and New York tax, tax planning, accrual accounting, bookkeeping and QuickBooks, with the key points in your inbox and the full article one click away.</li>
+<li><strong>Key dates</strong> you can add to Apple, Google or Outlook calendars in one click.</li>
 <li><strong>A live MFA key-dates calendar</strong> you can subscribe to in Apple Calendar, Outlook or Google Calendar. It updates itself: new deadlines appear and changed dates move automatically.</li></ul>
 <h2 id="calendar">Upcoming key dates</h2>
 {f'<ul class="kd-list">{up}</ul>' if up else '<p>New dates are added with each article.</p>'}
-<div class="kd-btns"><a class="btn btn-ink" href="webcal://mfa-advisory.com/newsletter/mfa-key-dates.ics">Subscribe to the key-dates calendar</a><a class="btn btn-line-ink" href="/newsletter/mfa-key-dates.ics" download>Download .ics</a></div>
+<div class="kd-btns">{subscribe_menu("Subscribe to the key-dates calendar", "btn btn-ink")}<a class="btn btn-line-ink" href="/newsletter/mfa-key-dates.ics" download>Download .ics</a></div>
 <h2>Latest articles</h2><ul class="nl-recent">{recent}</ul>
 <p class="disclaimer">Newsletter content is general information, not tax, accounting, legal or financial advice. Unsubscribe any time from the link in any email or at <a href="/newsletter/unsubscribe/">mfa-advisory.com/newsletter/unsubscribe</a>.</p>
 </article></main>
@@ -488,6 +532,11 @@ def build_post(p):
     if p.get("keyDates"):
         with open(out.parent / "key-dates.ics", "w", encoding="utf-8", newline="") as fh:
             fh.write(ics_calendar(post_events(p), p["title"]))
+        (out.parent / "dates").mkdir(exist_ok=True)
+        for e in post_events(p):
+            with open(out.parent / "dates" / f'{e["idx"] + 1}.ics', "w", encoding="utf-8", newline="") as fh:
+                one = ics_calendar([e], e["title"])   # a single event to import, not a subscription calendar
+                fh.write("\r\n".join(l for l in one.split("\r\n") if not l.startswith(("X-WR-CALNAME", "REFRESH-INTERVAL", "X-PUBLISHED-TTL", "X-WR-TIMEZONE"))))
 
 
 def build_index(posts):

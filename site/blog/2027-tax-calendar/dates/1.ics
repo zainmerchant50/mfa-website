@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-tax-calendar-0@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Q4 2026 estimated tax due (IRS\, NJ\, NY)
+DESCRIPTION:Final 2026 estimated tax payment for individuals and farmers/
+ fishermen.\n\nDetails: https://mfa-advisory.com/blog/2027-tax-calendar/\n
+ General information\, not tax advice. Merchant Financial Advisory\, mfa-a
+ dvisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q4 2026 estimated tax due (IRS\, NJ\, NY)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

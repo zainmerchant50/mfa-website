@@ -9,7 +9,7 @@
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="alternate" type="application/rss+xml" title="MFA Insights" href="/blog/feed.xml"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/blog/blog.css?v=13e7e8f5f1"/><link rel="stylesheet" href="/blog/ui.css?v=cc8c4f6aa5"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/blog/blog.css?v=13e7e8f5f1"/><link rel="stylesheet" href="/blog/ui.css?v=74631e78e6"/>
 </head>
 <body><header class="bnav"><div class="wrap bnav-in">
   <a href="/" class="brand" aria-label="Merchant Financial Advisory — home"><img src="/apple-touch-icon.png" alt="" width="44" height="44"/><span class="brand-txt"><b>Merchant</b><i>Financial Advisory</i></span></a>
@@ -101,6 +101,14 @@
     els.forEach(function(el){io.observe(el);});
     setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},4000);   /* safety net */
   }
+  /* Calendar menus: close on outside click / Esc, one open at a time, copy-link item */
+  var menus=[].slice.call(d.querySelectorAll('details.kd-add'));
+  menus.forEach(function(m){m.addEventListener('toggle',function(){if(m.open)menus.forEach(function(o){if(o!==m)o.open=false;});});});
+  d.addEventListener('click',function(e){menus.forEach(function(m){if(m.open&&!m.contains(e.target))m.open=false;});
+    var c=e.target.closest&&e.target.closest('a[data-copy]');
+    if(c&&navigator.clipboard){e.preventDefault();navigator.clipboard.writeText(c.href).then(function(){var t=c.textContent;c.textContent='Link copied';setTimeout(function(){c.textContent=t;},2000);});}
+  });
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')menus.forEach(function(m){m.open=false;});});
   /* Header shadow + reading progress */
   var hd=d.querySelector('.bnav,.top'), art=d.querySelector('.article'), bar=null;
   if(art&&d.querySelector('.ahead')){bar=d.createElement('div');bar.className='rprog';bar.setAttribute('aria-hidden','true');d.body.appendChild(bar);}

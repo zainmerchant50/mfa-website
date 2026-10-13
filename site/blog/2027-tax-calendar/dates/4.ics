@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+  returns
+BEGIN:VEVENT
+UID:2027-tax-calendar-3@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:Paper 1099s due to the IRS\; farmers and fishermen file 2026 retu
+ rns
+DESCRIPTION:Paper information returns with Form 1096. Electronic filers h
+ ave until March 31. Farmers/fishermen who skipped the Jan. 15 estimate fi
+ le and pay by this date.\n\nDetails: https://mfa-advisory.com/blog/2027-t
+ ax-calendar/\nGeneral information\, not tax advice. Merchant Financial Ad
+ visory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Paper 1099s due to the IRS\; farmers and fishermen file 2026 
+ returns
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

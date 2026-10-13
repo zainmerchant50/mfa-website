@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-tax-calendar-2@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+SUMMARY:Forms 1099-B\, 1099-S and certain 1099-MISC due to recipients
+DESCRIPTION:Consolidated brokerage statements (1099-B) and real estate (1
+ 099-S) recipient copies.\n\nDetails: https://mfa-advisory.com/blog/2027-t
+ ax-calendar/\nGeneral information\, not tax advice. Merchant Financial Ad
+ visory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Forms 1099-B\, 1099-S and certain 1099-MISC due to recipients
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -150,16 +150,19 @@ def keydates_block(p, post_url, slug):
                  f'<td valign="top" style="{top}padding:16px 0">'
                  f'<p style="margin:0 0 4px;{f(16, 22, 700, color=NAVY)}">{B.esc(e["title"])}</p>'
                  + (f'<p style="margin:0 0 6px;{f(14, 21, color=MUTED)}">{B.esc(e["note"])}</p>' if e["note"] else "")
-                 + f'<a href="{B.esc(B.gcal_link(e))}" style="{f(13, 18, 700, color=GOLD, extra="text-decoration:none;")}">Add to Google Calendar</a>'
+                 + f'<p style="margin:0;{f(13, 20, 400, color=MUTED)}">Add to: '
+                 + f'<a href="{B.esc(B.gcal_link(e))}" style="{f(13, 18, 700, color=GOLD, extra="text-decoration:none;")}">Google</a> &nbsp;&middot;&nbsp; '
+                 + f'<a href="{B.esc(B.outlook_link(e))}" style="{f(13, 18, 700, color=GOLD, extra="text-decoration:none;")}">Outlook</a> &nbsp;&middot;&nbsp; '
+                 + f'<a href="{B.esc(B.event_ics_url(e))}" style="{f(13, 18, 700, color=GOLD, extra="text-decoration:none;")}">Apple / other</a></p>'
                  f'</td></tr>')
     more = (para(f'Showing the next {len(ev)} of {total} dates. <a href="{track(post_url, slug)}" style="color:{NAVY};text-decoration:underline">See them all in the full guide</a>.', 16, 14, 21, MUTED)
             if total > len(ev) else "")
     return (eyebrow("Coming up") + h2("Key dates to save")
             + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 18px">{rows}</table>'
             + more
-            + button(post_url + "key-dates.ics", "Add all to my calendar", NAVY)
+            + button(post_url + "key-dates.ics", "Add all these dates", NAVY)
             + button(track(B.BASE + "/newsletter/#calendar", slug), "Subscribe to MFA tax dates", "#ffffff", NAVY, NAVY)
-            + para("Works with Apple Calendar, Outlook and Google Calendar. The subscription updates itself when we add new deadlines.", 0, 13, 20, MUTED))
+            + para("Works with Apple, Google and Outlook calendars. The subscription updates itself when we add new deadlines.", 0, 13, 20, MUTED))
 
 
 def services_block(p, slug):

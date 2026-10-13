@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+  due
+BEGIN:VEVENT
+UID:2027-tax-calendar-8@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:Q3 2027 estimated tax due\; extended 1065 and 1120-S returns due
+DESCRIPTION:Third 2027 estimated payment (IRS\, NJ\, NY). Extended partne
+ rship and S corporation returns and final K-1s due.\n\nDetails: https://m
+ fa-advisory.com/blog/2027-tax-calendar/\nGeneral information\, not tax ad
+ vice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q3 2027 estimated tax due\; extended 1065 and 1120-S returns 
+ due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

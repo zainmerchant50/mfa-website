@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:year-end-tax-planning-2026-key-dates-2@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth-quarter 2026 estimated tax payment due
+DESCRIPTION:Federal Q4 estimate for 2026. Most states\, including New Jer
+ sey and New York\, use the same date.\n\nDetails: https://mfa-advisory.co
+ m/blog/year-end-tax-planning-2026-key-dates/\nGeneral information\, not t
+ ax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/year-end-tax-planning-2026-key-dates/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth-quarter 2026 estimated tax payment due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

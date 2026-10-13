@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-tax-calendar-10@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20271215
+DTEND;VALUE=DATE:20271216
+SUMMARY:Q4 2027 corporate estimated tax due
+DESCRIPTION:Fourth installment of 2027 estimated tax for C corporations. 
+ NY PTET fourth 2027 estimated payment also due.\n\nDetails: https://mfa-a
+ dvisory.com/blog/2027-tax-calendar/\nGeneral information\, not tax advice
+ . Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q4 2027 corporate estimated tax due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ NY PTET election and return
+BEGIN:VEVENT
+UID:2027-tax-calendar-4@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Partnership (1065) and S corporation (1120-S) returns due\; NY PT
+ ET election and return
+DESCRIPTION:Schedules K-1 due to partners/shareholders. Form 7004 extends
+  to Sept. 15. Last day to file Form 2553 for S status starting in 2027. N
+ Y pass-through entity tax: 2027 election deadline and 2026 annual PTET re
+ turn.\n\nDetails: https://mfa-advisory.com/blog/2027-tax-calendar/\nGener
+ al information\, not tax advice. Merchant Financial Advisory\, mfa-adviso
+ ry.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Partnership (1065) and S corporation (1120-S) returns due\; N
+ Y PTET election and return
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

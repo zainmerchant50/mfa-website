@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ ) first-year deferrals
+BEGIN:VEVENT
+UID:year-end-tax-planning-2026-key-dates-3@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Last day for 2026 IRA and HSA contributions\; new Solo 401(k) fir
+ st-year deferrals
+DESCRIPTION:IRA up to $7\,500 ($8\,600 if 50+). HSA up to $4\,400 self-on
+ ly or $8\,750 family (+$1\,000 if 55+). Sole proprietors with no employee
+ s can open a new Solo 401(k) and make first-year 2026 deferrals until thi
+ s date.\n\nDetails: https://mfa-advisory.com/blog/year-end-tax-planning-2
+ 026-key-dates/\nGeneral information\, not tax advice. Merchant Financial 
+ Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/year-end-tax-planning-2026-key-dates/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day for 2026 IRA and HSA contributions\; new Solo 401(k)
+  first-year deferrals
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

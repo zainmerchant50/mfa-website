@@ -61,6 +61,20 @@ UI_CSS = r"""
 /* Reading progress (articles) */
 .rprog{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--gold-b));
   transform-origin:0 50%;transform:scaleX(0);z-index:100;pointer-events:none}
+/* Add-to-calendar menu */
+.kd-add{position:relative;display:inline-block}
+.kd-add>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.kd-add>summary::-webkit-details-marker{display:none}
+.kd-add:not(.kd-sub)>summary{font-size:.78rem;font-weight:600;color:var(--navy);padding:7px 12px;border:1px solid rgba(176,141,63,.45);border-radius:999px;transition:background .3s,border-color .3s,color .3s}
+.kd-add:not(.kd-sub)>summary:hover,.kd-add[open]:not(.kd-sub)>summary{background:var(--navy);border-color:var(--navy);color:#fff}
+.kd-add summary svg{width:14px;height:14px;flex:none}
+.kd-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;min-width:230px;background:#fff;border:1px solid var(--hair);border-radius:12px;
+  box-shadow:0 18px 44px rgba(16,35,63,.16);padding:6px;display:flex;flex-direction:column;animation:uiMenu .28s var(--ui-ease) both}
+.kd-sub .kd-menu{left:0;right:auto}
+.kd-menu a{display:block;padding:10px 14px;border-radius:8px;font-size:.88rem;font-weight:500;color:var(--ink)!important;border:0!important;text-decoration:none;white-space:nowrap}
+.kd-menu a:hover{background:var(--paper-2,#F5F4EF);color:var(--navy)!important}
+@keyframes uiMenu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (max-width:560px){.kd-menu{left:0;right:auto}.kd-sub{width:100%}.kd-sub>summary{width:100%;justify-content:center}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none}
@@ -100,6 +114,14 @@ UI_JS = r"""<script>
     els.forEach(function(el){io.observe(el);});
     setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},4000);   /* safety net */
   }
+  /* Calendar menus: close on outside click / Esc, one open at a time, copy-link item */
+  var menus=[].slice.call(d.querySelectorAll('details.kd-add'));
+  menus.forEach(function(m){m.addEventListener('toggle',function(){if(m.open)menus.forEach(function(o){if(o!==m)o.open=false;});});});
+  d.addEventListener('click',function(e){menus.forEach(function(m){if(m.open&&!m.contains(e.target))m.open=false;});
+    var c=e.target.closest&&e.target.closest('a[data-copy]');
+    if(c&&navigator.clipboard){e.preventDefault();navigator.clipboard.writeText(c.href).then(function(){var t=c.textContent;c.textContent='Link copied';setTimeout(function(){c.textContent=t;},2000);});}
+  });
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')menus.forEach(function(m){m.open=false;});});
   /* Header shadow + reading progress */
   var hd=d.querySelector('.bnav,.top'), art=d.querySelector('.article'), bar=null;
   if(art&&d.querySelector('.ahead')){bar=d.createElement('div');bar.className='rprog';bar.setAttribute('aria-hidden','true');d.body.appendChild(bar);}

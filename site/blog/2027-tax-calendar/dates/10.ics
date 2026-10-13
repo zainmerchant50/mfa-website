@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ , NJ\, NY)
+BEGIN:VEVENT
+UID:2027-tax-calendar-9@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271016
+SUMMARY:Extended 2026 individual and C corporation returns due (IRS\, NJ\
+ , NY)
+DESCRIPTION:Final deadline if you filed an extension in April.\n\nDetails
+ : https://mfa-advisory.com/blog/2027-tax-calendar/\nGeneral information\,
+  not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Extended 2026 individual and C corporation returns due (IRS\,
+  NJ\, NY)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

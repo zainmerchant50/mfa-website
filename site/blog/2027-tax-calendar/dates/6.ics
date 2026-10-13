@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-tax-calendar-5@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:Electronic 1099 filing deadline (most forms)
+DESCRIPTION:E-file Forms 1097\, 1098\, 1099 (except 1099-NEC and a few ot
+ hers)\, 3921\, 3922 and W-2G with the IRS.\n\nDetails: https://mfa-adviso
+ ry.com/blog/2027-tax-calendar/\nGeneral information\, not tax advice. Mer
+ chant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Electronic 1099 filing deadline (most forms)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

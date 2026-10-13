@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ (if on extension)
+BEGIN:VEVENT
+UID:year-end-tax-planning-2026-key-dates-0@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:Extended 2025 returns due\; last day to fund a 2025 SEP-IRA (if o
+ n extension)
+DESCRIPTION:Final deadline for 2025 individual returns on extension. Self
+ -employed filers on extension can still make 2025 SEP-IRA contributions u
+ ntil this date.\n\nDetails: https://mfa-advisory.com/blog/year-end-tax-pl
+ anning-2026-key-dates/\nGeneral information\, not tax advice. Merchant Fi
+ nancial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/year-end-tax-planning-2026-key-dates/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Extended 2025 returns due\; last day to fund a 2025 SEP-IRA (
+ if on extension)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

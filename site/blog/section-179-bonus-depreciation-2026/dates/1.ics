@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ / bonus depreciation
+BEGIN:VEVENT
+UID:section-179-bonus-depreciation-2026-0@mfa-advisory.com
+DTSTAMP:20261013T014134Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day to place equipment in service for 2026 Section 179 / bon
+ us depreciation
+DESCRIPTION:The asset must be set up and ready to use by this date to cou
+ nt on a calendar-year 2026 return. Ordering it isn't enough.\n\nDetails: 
+ https://mfa-advisory.com/blog/section-179-bonus-depreciation-2026/\nGener
+ al information\, not tax advice. Merchant Financial Advisory\, mfa-adviso
+ ry.com
+URL:https://mfa-advisory.com/blog/section-179-bonus-depreciation-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to place equipment in service for 2026 Section 179 /
+  bonus depreciation
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

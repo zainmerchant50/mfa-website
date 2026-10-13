@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ broad file
+BEGIN:VEVENT
+UID:2027-tax-calendar-7@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:Q2 2027 estimated tax due (IRS\, NJ\, NY)\; U.S. taxpayers abroad
+  file
+DESCRIPTION:Second 2027 estimated payment. Americans living abroad file F
+ orm 1040 (automatic 2-month extension).\n\nDetails: https://mfa-advisory.
+ com/blog/2027-tax-calendar/\nGeneral information\, not tax advice. Mercha
+ nt Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Q2 2027 estimated tax due (IRS\, NJ\, NY)\; U.S. taxpayers ab
+ road file
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

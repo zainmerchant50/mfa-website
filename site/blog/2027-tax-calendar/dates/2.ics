@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-tax-calendar-1@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:W-2s\, 1099-NEC and most 1099s due
+DESCRIPTION:Furnish 2026 Forms W-2 and most 1099s to recipients\; file W-
+ 2/W-3 and 1099-NEC with the government. Form 941 for Q4 2026 and Form 940
+  are also due.\n\nDetails: https://mfa-advisory.com/blog/2027-tax-calenda
+ r/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/2027-tax-calendar/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:W-2s\, 1099-NEC and most 1099s due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

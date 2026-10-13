@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:federal-scholarship-tax-credit-2027-0@mfa-advisory.com
+DTSTAMP:20261013T014133Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Federal scholarship tax credit (section 25F) starts
+DESCRIPTION:Cash gifts to an approved scholarship granting organization m
+ ade on or after this date can qualify for up to $1\,700 per person ($3\,4
+ 00 married filing jointly).\n\nDetails: https://mfa-advisory.com/blog/fed
+ eral-scholarship-tax-credit-2027/\nGeneral information\, not tax advice. 
+ Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/federal-scholarship-tax-credit-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Federal scholarship tax credit (section 25F) starts
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
