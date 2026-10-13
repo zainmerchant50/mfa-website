@@ -1,0 +1,55 @@
+/* ---------- MFA UI kit (tools/ui_kit.py) ---------- */
+:root{--ui-ease:cubic-bezier(.16,1,.3,1)}
+/* FAQ accordion */
+.faqs{margin:56px 0 8px}
+.faq-l{border-top:1px solid var(--hair);margin:8px 0 0}
+.faq-i{border-bottom:1px solid var(--hair)}
+.faq-h{margin:0!important;font:inherit!important}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:none;border:0;
+  text-align:left;cursor:pointer;padding:22px 4px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.32rem;
+  font-weight:500;line-height:1.3;color:var(--ink);transition:padding-left .45s var(--ui-ease),color .35s}
+.faq-q:hover,.faq-i.open .faq-q{color:var(--gold)}
+.faq-q:hover{padding-left:12px}
+.faq-q:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.faq-pm{position:relative;width:14px;height:14px;flex-shrink:0}
+.faq-pm::before,.faq-pm::after{content:"";position:absolute;background:var(--gold);transition:transform .45s var(--ui-ease)}
+.faq-pm::before{top:6.25px;left:0;width:14px;height:1.5px}
+.faq-pm::after{left:6.25px;top:0;width:1.5px;height:14px}
+.faq-i.open .faq-pm::after{transform:rotate(90deg) scaleX(0)}
+.faq-a-in{padding:0 40px 24px 4px}
+.faq-a-in p{margin:0!important;color:var(--muted);line-height:1.8}
+.js .faq-a{max-height:0;overflow:hidden;transition:max-height .55s var(--ui-ease)}
+.js .faq-a-in{opacity:0;transform:translateY(-6px);transition:opacity .45s var(--ui-ease),transform .45s var(--ui-ease)}
+.js .faq-i.open .faq-a-in{opacity:1;transform:none}
+/* Scroll reveal (only when JS is running) */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ui-ease),transform .9s var(--ui-ease)}
+.js .rv.in{opacity:1;transform:none}
+/* Hero entrance */
+@keyframes uiUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.ahead .wrap>*,.bhero .wrap>*,.hero-g>div:first-child>*,.hero-g>.hero-card{animation:uiUp .95s var(--ui-ease) both}
+.ahead .wrap>:nth-child(2),.bhero .wrap>:nth-child(2),.hero-g>div:first-child>:nth-child(2){animation-delay:.08s}
+.ahead .wrap>:nth-child(3),.bhero .wrap>:nth-child(3),.hero-g>div:first-child>:nth-child(3){animation-delay:.16s}
+.ahead .wrap>:nth-child(4),.bhero .wrap>:nth-child(4),.hero-g>div:first-child>:nth-child(4){animation-delay:.24s}
+.ahead .wrap>:nth-child(n+5),.bhero .wrap>:nth-child(n+5),.hero-g>div:first-child>:nth-child(n+5){animation-delay:.32s}
+.hero-g>.hero-card{animation-delay:.22s}
+/* Hover lift */
+.btn{transition:background .3s,color .3s,border-color .3s,transform .35s var(--ui-ease),box-shadow .35s var(--ui-ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,35,63,.16)}
+.btn:active{transform:translateY(0);box-shadow:none}
+.card,.rev,.step,.why>div{transition:transform .5s var(--ui-ease),box-shadow .5s var(--ui-ease),border-color .3s}
+.card:hover,.rev:hover,.step:hover,.why>div:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(16,35,63,.10)}
+.figure img{transition:transform 1.1s var(--ui-ease)}
+.figure:hover img{transform:scale(1.015)}
+.tbl tr{transition:background .25s}
+.tbl tbody tr:hover{background:rgba(216,183,105,.10)}
+/* Sticky header shadow */
+.bnav,.top{transition:box-shadow .4s var(--ui-ease),background .4s}
+.bnav.scrolled,.top.scrolled{box-shadow:0 8px 28px rgba(16,35,63,.08)}
+/* Reading progress (articles) */
+.rprog{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--gold-b));
+  transform-origin:0 50%;transform:scaleX(0);z-index:100;pointer-events:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv{opacity:1;transform:none}
+  .js .faq-a-in{opacity:1;transform:none}
+}

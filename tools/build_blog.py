@@ -26,6 +26,10 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 import hashlib
 CSS_VER = hashlib.sha1((SITE / "blog" / "blog.css").read_bytes()).hexdigest()[:10]  # cache-buster: new CSS = new URL
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ui_kit  # noqa: E402  shared FAQ accordion + animations (also used by build_landing.py)
+UI_VER = hashlib.sha1(ui_kit.UI_CSS.encode()).hexdigest()[:10]
+(SITE / "blog" / "ui.css").write_text(ui_kit.UI_CSS.strip() + "\n", encoding="utf-8")
 POSTS_DIR = ROOT / "content" / "posts"
 PAGES_DIR = ROOT / "content" / "pages"
 BASE = "https://mfa-advisory.com"
@@ -126,7 +130,7 @@ FOOT = f'''<footer class="bfoot"><div class="wrap">
   <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
   <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
-</div></footer>'''
+</div></footer>''' + ui_kit.UI_JS
 
 
 def head(title, desc, url, image, extra="", keywords=None, og_type="website"):
@@ -142,7 +146,7 @@ def head(title, desc, url, image, extra="", keywords=None, og_type="website"):
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="{image}"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="alternate" type="application/rss+xml" title="MFA Insights" href="/blog/feed.xml"/>
-{FONTS}<link rel="stylesheet" href="/blog/blog.css?v={CSS_VER}"/>
+{FONTS}<link rel="stylesheet" href="/blog/blog.css?v={CSS_VER}"/><link rel="stylesheet" href="/blog/ui.css?v={UI_VER}"/>
 {extra}</head>'''
 
 
@@ -226,10 +230,7 @@ SHARE_JS = """<script>
 
 
 def faq_schema(body):
-    m = re.search(r"<h2>Quick answers</h2>(.*)", body, re.S)
-    if not m:
-        return None
-    pairs = re.findall(r"<h3>(.*?)</h3>\s*<p>(.*?)</p>", m.group(1), re.S)
+    pairs = ui_kit.faq_pairs(body)
     strip = lambda h: html.unescape(re.sub(r"<[^>]+>", "", h)).strip()
     if not pairs:
         return None
@@ -469,7 +470,7 @@ def build_post(p):
   {share_bar(p, url, "share-dark")}
 </div></header>
 <main><article class="article">
-{p["body"]}
+{ui_kit.accordionize_faqs(p["body"])}
 {keydates_block(p)}
 {tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>

@@ -120,9 +120,9 @@ def parts(p):
     bl = re.search(r'<p class="bottom-line">(.*?)</p>', body, re.S)
     bottom = bl.group(1) if bl else None
     heads = [re.sub(r"<[^>]+>", "", h).strip() for h in re.findall(r"<h2[^>]*>(.*?)</h2>", body, re.S)]
-    heads = [h for h in heads if h.lower() not in ("the short version", "executive summary", "quick answers", "sources")]
+    heads = [h for h in heads if h.lower() not in ("the short version", "executive summary", "quick answers", "faqs", "frequently asked questions", "sources")]
     faq = None
-    q = re.search(r"<h2>Quick answers</h2>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>", body, re.S)
+    q = re.search(r"<h2>(?:Quick answers|FAQs|Frequently asked questions)</h2>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>", body, re.S)
     if q:
         faq = (re.sub(r"<[^>]+>", "", q.group(1)).strip(), q.group(2))
     return glance, heads, faq, bottom
@@ -248,7 +248,7 @@ def build(slug, to_email=None, mailerlite=False):
 
     faq_block = ""
     if faq:
-        faq_block = (eyebrow("Reader question")
+        faq_block = (eyebrow("FAQ")
                      + f'<p style="margin:0 0 12px;{f(21, 29, 400, SERIF, NAVY)}">&ldquo;{B.esc(faq[0])}&rdquo;</p>'
                      + para(inline_rich(faq[1]), 14))
 
@@ -273,7 +273,7 @@ def build(slug, to_email=None, mailerlite=False):
         section(cover, 32, 0, "#ffffff") if cover else "",
         section(divider(36, 36) + inside, 0, 0, "#ffffff") if inside else "",
         section(divider(40, 36) + keydates_block(p, post_url, slug), 0, 0, "#ffffff"),
-        section(divider(30, 36) + faq_block + para(f'<a href="{read_url}" style="color:{NAVY};text-decoration:underline;font-weight:700">More answers in the full guide</a>', 0, 15, 22), 0, 0, "#ffffff") if faq_block else "",
+        section(divider(30, 36) + faq_block + para(f'<a href="{read_url}#faqs" style="color:{NAVY};text-decoration:underline;font-weight:700">See all FAQs in the full guide</a>', 0, 15, 22), 0, 0, "#ffffff") if faq_block else "",
         section(divider(36, 0), 0, 0, "#ffffff"),
         section(services_block(p, slug), 36, 0, "#ffffff"),
         section(divider(40, 36) + more_articles(p, posts, slug), 0, 0, "#ffffff"),
@@ -329,7 +329,7 @@ body{{margin:0;padding:0;-webkit-text-size-adjust:100%}} img{{border:0;outline:n
              + f"Read the full guide: {read_url}\n\n"
              + ("KEY DATES\n" + "".join(f" - {datetime.fromisoformat(e['date']):%a, %b %-d, %Y}: {e['title']}\n" for e in ev)
                 + f"Add them all: {post_url}key-dates.ics\n\n" if ev else "")
-             + (f"READER QUESTION\n{faq[0]}\n{strip(faq[1])}\n\n" if faq else "")
+             + (f"FAQ\n{faq[0]}\n{strip(faq[1])}\n\n" if faq else "")
              + f"HOW MFA CAN HELP\n{p.get('ctaHeadline', '')}\nBook a 30-minute consultation: {track(B.BOOK_URL, slug)}\nOr email {B.EMAIL}\n\n"
              f"General information, not tax advice. Facts checked as of {asof}.\n"
              f"Unsubscribe: {unsub}\nMerchant Financial Advisory LLC | {MAILING_ADDRESS}\n")

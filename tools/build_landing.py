@@ -125,7 +125,9 @@ svc_html = "".join(
 rev_html = "".join(
     f'<figure class="rev"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“{q}”</blockquote><figcaption><b>{n}</b><span>{s}</span></figcaption></figure>'
     for q, n, s in REVIEWS)
-faq_html = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in FAQ)
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ui_kit  # noqa: E402  shared FAQ accordion + animations
+faq_html = ui_kit.faq_accordion(FAQ)
 opts = "".join(f"<option>{esc(o)}</option>" for o in ["Bookkeeping & Accounting", "Tax Preparation & Filing", "Tax Planning & Strategy", "QuickBooks Setup / Cleanup", "Fractional CFO", "Other"])
 
 ld = {
@@ -208,8 +210,6 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}form .btn{width:10
 .area{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.area span{font-size:13px;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--hair)}
 .book-frame{background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden}.book-frame iframe{width:100%;height:640px;border:0;display:block}
 .book-alt{font-size:14px;color:var(--muted);margin-top:12px}.book-alt a{color:var(--navy);font-weight:600;text-decoration:underline}
-details{border-bottom:1px solid var(--hair);padding:18px 0}summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:20px}
-summary:after{content:"+";color:var(--gold);font-size:22px;line-height:1}details[open] summary:after{content:"–"}details p{color:var(--muted);margin-top:10px;max-width:760px}
 .final{background:var(--navy);color:#fff;text-align:center;padding:72px 0}.final h2{font-size:clamp(32px,4vw,46px);margin-bottom:12px}.final p{color:rgba(255,255,255,.75);margin-bottom:26px}
 .final .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 footer{padding:34px 0 100px;font-size:13px;color:var(--muted)}footer nav{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}footer a{text-decoration:underline}
@@ -270,7 +270,7 @@ page = f'''<!doctype html><html lang="en"><head>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {gtag}
-<style>{CSS}</style></head><body>
+<style>{CSS}{ui_kit.UI_CSS}</style></head><body>
 
 <header class="top"><div class="wrap">
   <a href="/" class="brand" aria-label="Merchant Financial Advisory home"><img src="/apple-touch-icon.png" alt="" width="38" height="38"/><span><b>Merchant</b><i>Financial Advisory</i></span></a>
@@ -344,8 +344,8 @@ page = f'''<!doctype html><html lang="en"><head>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
-  <div class="sec-hd"><span class="eyebrow">Common questions</span><h2>Before you reach out</h2></div>
-  {faq_html}
+  <div class="sec-hd"><span class="eyebrow">FAQs</span><h2>Before you reach out</h2></div>
+  <div class="faqs-lp">{faq_html}</div>
 </div></section>
 
 <section class="final"><div class="wrap">
@@ -363,6 +363,7 @@ page = f'''<!doctype html><html lang="en"><head>
 
 <div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#book" class="btn btn-gold" data-conv="book">Book free call</a></div>
 <script>{JS % (json.dumps(variants_js, ensure_ascii=False), json.dumps(ADS), json.dumps(FORM_ENDPOINT), EMAIL)}</script>
+{ui_kit.UI_JS}
 </body></html>
 '''
 
