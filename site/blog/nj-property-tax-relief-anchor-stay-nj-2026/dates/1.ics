@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ 025 benefits)
+BEGIN:VEVENT
+UID:nj-property-tax-relief-anchor-stay-nj-2026-0@mfa-advisory.com
+DTSTAMP:20261013T062052Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:NJ: PAS-1 deadline for ANCHOR\, Stay NJ and Senior Freeze (2025 b
+ enefits)
+DESCRIPTION:Homeowners 65+ and Social Security or Railroad Retirement dis
+ ability recipients must file the PAS-1 themselves. Apply at propertytaxre
+ liefapp.nj.gov.\n\nDetails: https://mfa-advisory.com/blog/nj-property-tax
+ -relief-anchor-stay-nj-2026/\nGeneral information\, not tax advice. Merch
+ ant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/nj-property-tax-relief-anchor-stay-nj-2
+ 026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: PAS-1 deadline for ANCHOR\, Stay NJ and Senior Freeze (20
+ 25 benefits)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
