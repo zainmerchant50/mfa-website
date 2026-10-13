@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 """Build the MFA Insights newsletter email for one published post.
 
-    python3 tools/build_newsletter.py <slug> [--to someone@example.com]   # Gmail copy to one person
-    python3 tools/build_newsletter.py <slug> --mailerlite                  # list send via MailerLite ({$unsubscribe})
+    python3 tools/build_newsletter.py <slug> --mailerlite                  # list send via MailerLite (merge tags)
+    python3 tools/build_newsletter.py <slug> [--to someone@example.com]   # one-off copy
 
 Writes:
     site/newsletter/issues/<slug>/index.html   "View in browser" copy (noindex), published with the site
-    newsletter/out/<slug>.email.html           email-ready HTML (inline styles, 600px table layout)
+    newsletter/out/<slug>.email.html           email-ready HTML (inline longhand CSS, 600px table layout)
     newsletter/out/<slug>.txt                  plain-text alternative
     newsletter/out/<slug>.json                 subject, preheader, paths (used by the publish job)
 
-The email carries the full article (short version, cover graphic, tables, key dates with
-add-to-calendar links), a CTA, a subscribe link (for forwards) and an unsubscribe link.
-Placeholders an email service (ESP) can swap for its own merge tags:
-    {{UNSUBSCRIBE_URL}}  per-recipient unsubscribe link  (default: our /newsletter/unsubscribe/?e=<email>)
+Design (B2B services newsletter best practice): the email is a brand piece from MFA Insights, not a
+personal letter. It is a scannable teaser that drives readers to the full article on the site:
+  personal greeting -> short intro -> "At a glance" takeaways -> keep-handy graphic + download ->
+  what's inside the full guide + primary CTA -> upcoming key dates (add to calendar) ->
+  a reader question -> how MFA can help (services + booking) -> more articles -> share -> footer
+  (CAN-SPAM postal address, unsubscribe, disclaimer). One primary CTA (read the guide), one
+  secondary CTA (book a consultation). Longhand CSS + bgcolor so Gmail/Outlook/Apple Mail match.
 Standard library only.
 """
 import html, json, re, sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import quote
 
@@ -25,119 +28,172 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_blog as B  # noqa: E402
 
 OUT = B.ROOT / "newsletter" / "out"
-NAVY, NAVY2, GOLD, GOLDB, PAPER2, INK, MUTED = "#10233F", "#1B3557", "#B08D3F", "#D8B769", "#F5F4EF", "#151515", "#5b5b5b"
-SERIF = "Georgia,'Times New Roman',serif"
-SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
-# CAN-SPAM: every commercial email must show a valid physical postal address (a registered PO box or
-# private mailbox is acceptable). Set this before mailing anyone other than Zain.
-MAILING_ADDRESS = "28 Spring St #5114, Princeton, NJ 08542"   # CAN-SPAM postal address (email only; never shown on the website)
+NAVY, NAVY2, GOLD, GOLDB, PAPER, PAPER2, INK, BODY, MUTED, LINE = (
+    "#10233F", "#1B3557", "#B08D3F", "#D8B769", "#ECEAE3", "#F5F4EF", "#151515", "#2E2E2E", "#6B6B6B", "#E6E3DA")
+SERIF = "Georgia,'Times New Roman',Times,serif"
+SANS = "Helvetica,Arial,sans-serif"
+# CAN-SPAM: every commercial email must show a valid physical postal address. Email only; never on the website.
+MAILING_ADDRESS = "28 Spring St #5114, Princeton, NJ 08542"
 SENDER_EMAIL = "insights@mfa-advisory.com"   # MailerLite sender (domain authenticated Oct 2026)
-BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z1XCM1FcZDRE6VnHyWPfqXcgkL1-kxgrTJaKaM-0VCun9u0cVIziW87B0XAQGVXE51SZ0LOo9"
-DEFAULT_INTRO = ("Here's this week's MFA Insights. The short version is right below, and the checklist and key dates "
-                 "you can save are further down. If any of it applies to you, just hit reply. I read every email.")
-
-
-def signature_html():
-    """Zain's sign-off, matching his Gmail signature."""
-    line = f"margin:0;font:14px/1.6 {SANS};color:{INK}"
-    a = f"color:{NAVY};text-decoration:underline"
-    return f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:26px 0 8px"><tr><td>
-<p style="margin:0 0 14px;font:16px/1.65 {SANS};color:{INK}">Talk soon,<br/>Zain</p>
-<p style="margin:0 0 2px;font:13px/1 {SANS};color:{MUTED}">--</p>
-<p style="{line}"><b>Zain Merchant</b> - Principal</p>
-<p style="{line}">Mobile: <a href="tel:+13472054468" style="{a}">+1 347 205 4468</a></p>
-<p style="{line}"><a href="mailto:zainmerchant@mfa-advisory.com" style="{a}">zainmerchant@mfa-advisory.com</a></p>
-<p style="{line}">{B.esc(MAILING_ADDRESS)}</p>
-<p style="{line}">Merchant Financial Advisory LLC</p>
-<p style="{line}"><a href="{B.BASE}/" style="{a}">https://www.mfa-advisory.com</a></p>
-<p style="margin:12px 0 0;font:italic 15px/1.6 Georgia,serif"><a href="{BOOKING_URL}" style="{a}">Book time with me!</a></p>
-</td></tr></table>'''
+DEFAULT_INTRO = ("Here's what's new from MFA Insights. The key points are right below, "
+                 "and the full article is one click away when you want the details.")
 UTM = "utm_source=newsletter&utm_medium=email&utm_campaign="
 
-
-def absolutize(body, post_url, slug):
-    def fix(m):
-        attr, url = m.group(1), m.group(2)
-        if url.startswith(("http://", "https://", "mailto:", "tel:", "#")):
-            full = url
-        elif url.startswith("/"):
-            full = B.BASE + url
-        else:
-            full = post_url + url
-        if full.startswith(B.BASE) and attr == "href" and not re.search(r"\.(png|ics|pdf)$", full):
-            base, _, frag = full.partition("#")
-            full = base + ("&" if "?" in base else "?") + UTM + slug + ("#" + frag if frag else "")
-        return f'{attr}="{full}"'
-    return re.sub(r'(href|src)="([^"]+)"', fix, body)
+# Services shown in "How MFA can help", matched to the post's category (wording mirrors the site).
+SERVICES = {
+    "prep": ("Tax preparation and filing", "Federal, New Jersey, New York and multi-state returns for individuals and businesses, filed accurately and on time."),
+    "plan": ("Tax planning", "Year-round planning on your real numbers: estimated payments, entity elections, retirement accounts and deductions."),
+    "books": ("Bookkeeping and accounting", "Reconciliations, AP/AR and a clean monthly close, so your books are ready when a deadline arrives."),
+    "report": ("Financial reporting", "P&L, balance sheet and cash flow you can act on, with simple dashboards."),
+    "cfo": ("Fractional CFO", "Forecasting, budgeting and margin analysis without the cost of a full-time executive."),
+    "qb": ("QuickBooks setup and cleanup", "Set up right, cleaned up, and kept current, so your reports match reality."),
+    "gaap": ("Technical accounting", "US GAAP and IFRS guidance on revenue recognition, leases and other hard areas."),
+}
 
 
-def style_body(body):
-    """Inline the article's blog.css look so it renders in Gmail, Outlook and Apple Mail."""
-    s = body
-    s = re.sub(r'\s+download="[^"]*"', "", s)
-    s = re.sub(r'<a class="dl"', '<a', s)
-    # Short version box
-    s = re.sub(r'<div class="tldr">(.*?)</div>',
-               lambda m: (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 26px">'
-                          f'<tr><td style="background:{PAPER2};border-left:3px solid {GOLD};padding:20px 22px">{m.group(1)}</td></tr></table>'),
-               s, flags=re.S)
-    # Figure
-    s = re.sub(r'<figure class="figure">\s*(<img[^>]*>)\s*<figcaption>(.*?)</figcaption>\s*</figure>',
-               lambda m: (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 26px"><tr><td style="padding:0">'
-                          + re.sub(r'\s(width|height)="\d+"', "", m.group(1)).replace(
-                              "<img", f'<img width="552" style="display:block;width:100%;max-width:552px;height:auto;border:0;border-radius:10px"')
-                          + f'<p style="margin:10px 0 12px;font:13px/1.5 {SANS};color:{MUTED}">{re.sub(r"<a[^>]*>.*?</a>", "", m.group(2)).strip()}</p>'
-                          + '%%DLBTN%%</td></tr></table>'),
-               s, flags=re.S)
-    # Tables
-    s = s.replace('<table class="tbl">', f'<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:6px 0 24px;font:14px/1.5 {SANS}">')
-    s = re.sub(r"<th>", f'<th align="left" style="background:{NAVY};color:#fff;padding:10px 12px;font-weight:600;font-size:13px">', s)
-    s = re.sub(r"<td>", f'<td valign="top" style="padding:10px 12px;border-bottom:1px solid #e6e3da;color:{INK}">', s)
-    s = re.sub(r"</?(thead|tbody)>", "", s)
-    # Headings, text, lists
-    s = re.sub(r"<h2>", f'<h2 style="margin:30px 0 12px;font:500 25px/1.2 {SERIF};color:{NAVY}">', s)
-    s = re.sub(r"<h3>", f'<h3 style="margin:22px 0 6px;font:700 16px/1.4 {SANS};color:{NAVY}">', s)
-    s = re.sub(r"<p>", f'<p style="margin:0 0 16px;font:16px/1.65 {SANS};color:{INK}">', s)
-    s = re.sub(r"<ul>", f'<ul style="margin:0 0 18px;padding:0 0 0 22px;font:16px/1.6 {SANS};color:{INK}">', s)
-    s = re.sub(r"<ol>", f'<ol style="margin:0 0 18px;padding:0 0 0 22px;font:16px/1.6 {SANS};color:{INK}">', s)
-    s = re.sub(r"<li>", '<li style="margin:0 0 8px">', s)
-    s = re.sub(r"<strong>", f'<strong style="color:{INK}">', s)
-    s = re.sub(r'<a ([^>]*)href=', f'<a style="color:{NAVY};text-decoration:underline;text-decoration-color:{GOLDB}" \\1href=', s)
-    # The short-version heading inside the box is smaller
-    s = s.replace(f'<td style="background:{PAPER2};border-left:3px solid {GOLD};padding:20px 22px">\n  <h2 style="margin:30px 0 12px;font:500 25px/1.2 {SERIF};color:{NAVY}">',
-                  f'<td style="background:{PAPER2};border-left:3px solid {GOLD};padding:20px 22px">\n  <h2 style="margin:0 0 10px;font:500 21px/1.2 {SERIF};color:{NAVY}">')
-    s = s.replace("%%DLBTN%%", btn(DL_URL, "Download this checklist (PNG)", GOLDB, NAVY))
-    return s
+def services_for(category):
+    c = category.lower()
+    if "quickbooks" in c or "business" in c:
+        return ["qb", "books", "cfo"]
+    if "accounting" in c or "bookkeeping" in c:
+        return ["books", "report", "gaap"]
+    if "planning" in c:
+        return ["plan", "prep", "cfo"]
+    return ["prep", "plan", "books"]
 
 
-DL_URL = "#"   # set per issue in build(): the post's cover.png
+# ---------- style helpers (longhand CSS: Gmail and Outlook handle it more reliably than `font:` shorthand)
+def f(size, lh, weight=400, family=SANS, color=BODY, extra=""):
+    return f"font-family:{family};font-size:{size}px;line-height:{lh}px;font-weight:{weight};color:{color};{extra}"
 
 
-def btn(href, label, bg=NAVY, fg="#ffffff", border=None):
+def eyebrow(text, color=GOLD):
+    return f'<p style="margin:0 0 10px;{f(11, 16, 700, color=color, extra="letter-spacing:2.5px;text-transform:uppercase;")}">{text}</p>'
+
+
+def h2(text, mt=0):
+    return f'<h2 style="margin:{mt}px 0 14px;{f(24, 30, 400, SERIF, NAVY)}">{text}</h2>'
+
+
+def para(text, mb=18, size=16, lh=26, color=BODY):
+    return f'<p style="margin:0 0 {mb}px;{f(size, lh, color=color)}">{text}</p>'
+
+
+def button(href, label, bg=NAVY, fg="#ffffff", border=None, size=15):
     bd = f"border:1px solid {border};" if border else ""
-    return (f'<table role="presentation" cellpadding="0" cellspacing="0" style="display:inline-table;margin:4px 6px 4px 0"><tr>'
-            f'<td bgcolor="{bg}" style="background:{bg};{bd}border-radius:999px">'
-            f'<a href="{href}" style="display:inline-block;color:{fg};text-decoration:none;'
-            f'font:700 12px/1 {SANS};letter-spacing:.12em;text-transform:uppercase;padding:14px 22px">{label}</a></td></tr></table>')
+    return (f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;margin:0 8px 10px 0"><tr>'
+            f'<td bgcolor="{bg}" style="background:{bg};{bd}border-radius:6px;mso-padding-alt:15px 26px">'
+            f'<a href="{href}" style="display:inline-block;padding:15px 26px;{f(size, 18, 700, color=fg, extra="text-decoration:none;letter-spacing:.3px;")}">{label}</a>'
+            f'</td></tr></table>')
 
 
-def keydates_email(p, post_url):
-    ev = B.post_events(p)
+def divider(mt=36, mb=36):
+    return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:{mt}px 0 {mb}px">'
+            f'<tr><td style="border-top:1px solid {LINE};font-size:0;line-height:0;height:1px">&nbsp;</td></tr></table>')
+
+
+def section(inner, pad_top=0, pad_bottom=0, bg=None):
+    bgs = f'bgcolor="{bg}" ' if bg else ""
+    bgc = f"background:{bg};" if bg else ""
+    return f'<tr><td {bgs}class="pad" style="{bgc}padding:{pad_top}px 48px {pad_bottom}px">{inner}</td></tr>'
+
+
+def track(url, slug):
+    if not url.startswith(B.BASE) or re.search(r"\.(png|ics|pdf)$", url):
+        return url
+    base, _, frag = url.partition("#")
+    return base + ("&" if "?" in base else "?") + UTM + slug + ("#" + frag if frag else "")
+
+
+def inline_rich(s):
+    """Style the few inline tags allowed in short-version bullets and FAQ answers."""
+    s = re.sub(r"<strong>", f'<strong style="font-weight:700;color:{INK}">', s)
+    s = re.sub(r"<a [^>]*>(.*?)</a>", r"\1", s)
+    return s.strip()
+
+
+# ---------- pieces pulled from the article
+def parts(p):
+    body = p["body"]
+    m = re.search(r'<div class="tldr">.*?<ul>(.*?)</ul>', body, re.S)
+    glance = re.findall(r"<li>(.*?)</li>", m.group(1), re.S) if m else []
+    heads = [re.sub(r"<[^>]+>", "", h).strip() for h in re.findall(r"<h2[^>]*>(.*?)</h2>", body, re.S)]
+    heads = [h for h in heads if h.lower() not in ("the short version", "quick answers", "sources")]
+    faq = None
+    q = re.search(r"<h2>Quick answers</h2>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>", body, re.S)
+    if q:
+        faq = (re.sub(r"<[^>]+>", "", q.group(1)).strip(), q.group(2))
+    return glance, heads, faq
+
+
+def upcoming_dates(p, limit=5):
+    today = (datetime.now(timezone.utc) - timedelta(hours=5)).date().isoformat()
+    ev = [e for e in B.post_events(p) if e["date"] >= today]
+    return ev[:limit], len(ev)
+
+
+def keydates_block(p, post_url, slug):
+    ev, total = upcoming_dates(p)
     if not ev:
         return ""
-    rows = "".join(
-        f'<tr><td valign="top" style="padding:10px 12px 10px 0;border-bottom:1px solid #e6e3da;font:700 12px/1.5 {SANS};letter-spacing:.06em;text-transform:uppercase;color:{GOLD};white-space:nowrap">'
-        f'{datetime.fromisoformat(e["date"]):%a, %b %-d, %Y}</td>'
-        f'<td valign="top" style="padding:10px 0;border-bottom:1px solid #e6e3da;font:15px/1.5 {SANS};color:{INK}"><b style="color:{NAVY}">{B.esc(e["title"])}</b>'
-        f'{("<br/>" + B.esc(e["note"])) if e["note"] else ""}<br/>'
-        f'<a href="{B.esc(B.gcal_link(e))}" style="font-size:13px;color:{NAVY}">+ Add to Google Calendar</a></td></tr>' for e in ev)
-    return f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:26px 0 8px;border:1px solid #e6e3da;border-top:3px solid {GOLD}">
-<tr><td style="padding:20px 22px">
-<h2 style="margin:0 0 10px;font:500 23px/1.2 {SERIF};color:{NAVY}">Save the key dates</h2>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table>
-<p style="margin:16px 0 0">{btn(post_url + "key-dates.ics", "Add to my calendar (.ics)")}{btn(B.BASE + "/newsletter/?" + UTM + p["slug"] + "#calendar", "Subscribe to all MFA dates", "#ffffff", NAVY, NAVY)}</p>
-<p style="margin:10px 0 0;font:12px/1.5 {SANS};color:{MUTED}">The .ics file works with Apple Calendar, Outlook and Google Calendar. The subscription updates itself whenever we publish a new deadline.</p>
-</td></tr></table>'''
+    rows = ""
+    for i, e in enumerate(ev):
+        d = datetime.fromisoformat(e["date"])
+        top = "" if i == 0 else f"border-top:1px solid {LINE};"
+        rows += (f'<tr><td width="64" valign="top" style="{top}padding:16px 16px 16px 0">'
+                 f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="56"><tr><td bgcolor="{NAVY}" align="center" style="background:{NAVY};border-radius:6px;padding:7px 0 8px">'
+                 f'<div style="{f(10, 12, 700, color=GOLDB, extra="letter-spacing:1.5px;text-transform:uppercase;")}">{d:%b}</div>'
+                 f'<div style="{f(22, 26, 700, SERIF, "#ffffff")}">{d.day}</div>'
+                 f'<div style="{f(10, 12, 400, color="#C9D1DC")}">{d.year}</div></td></tr></table></td>'
+                 f'<td valign="top" style="{top}padding:16px 0">'
+                 f'<p style="margin:0 0 4px;{f(16, 22, 700, color=NAVY)}">{B.esc(e["title"])}</p>'
+                 + (f'<p style="margin:0 0 6px;{f(14, 21, color=MUTED)}">{B.esc(e["note"])}</p>' if e["note"] else "")
+                 + f'<a href="{B.esc(B.gcal_link(e))}" style="{f(13, 18, 700, color=GOLD, extra="text-decoration:none;")}">Add to Google Calendar</a>'
+                 f'</td></tr>')
+    more = (para(f'Showing the next {len(ev)} of {total} dates. <a href="{track(post_url, slug)}" style="color:{NAVY};text-decoration:underline">See them all in the full guide</a>.', 16, 14, 21, MUTED)
+            if total > len(ev) else "")
+    return (eyebrow("Coming up") + h2("Key dates to save")
+            + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 18px">{rows}</table>'
+            + more
+            + button(post_url + "key-dates.ics", "Add all to my calendar", NAVY)
+            + button(track(B.BASE + "/newsletter/#calendar", slug), "Subscribe to MFA tax dates", "#ffffff", NAVY, NAVY)
+            + para("Works with Apple Calendar, Outlook and Google Calendar. The subscription updates itself when we add new deadlines.", 0, 13, 20, MUTED))
+
+
+def services_block(p, slug):
+    picks = services_for(p.get("category", ""))
+    items = ""
+    for k in picks:
+        name, desc = SERVICES[k]
+        items += (f'<tr><td width="22" valign="top" style="padding:3px 0 14px"><div style="width:8px;height:8px;background:{GOLDB};border-radius:2px;margin-top:6px;font-size:0;line-height:0">&nbsp;</div></td>'
+                  f'<td valign="top" style="padding:0 0 14px"><p style="margin:0;{f(15, 23, color="#DCE2EA")}"><strong style="color:#ffffff;font-weight:700">{name}.</strong> {desc}</p></td></tr>')
+    book = track(B.BOOK_URL.replace("/#book", "/#book"), slug)
+    return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>'
+            f'<td bgcolor="{NAVY}" class="box" style="background:{NAVY};border-radius:10px;padding:36px 34px 28px">'
+            + eyebrow("How MFA can help", GOLDB)
+            + f'<h2 style="margin:0 0 14px;{f(25, 31, 400, SERIF, "#ffffff")}">{B.esc(p.get("ctaHeadline", "Want a second set of eyes before you act?"))}</h2>'
+            + f'<p style="margin:0 0 22px;{f(16, 25, color="#DCE2EA")}">Merchant Financial Advisory helps individuals and small and mid-sized businesses in New Jersey, New York and nationwide get this right. In a 30-minute consultation we can talk through {B.esc(p.get("ctaTopic", "your situation"))}.</p>'
+            + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 14px">{items}</table>'
+            + button(book, "Book a consultation", GOLDB, NAVY)
+            + button("mailto:" + B.EMAIL + "?subject=" + quote("Question: " + p["title"]), "Email our team", NAVY2, "#ffffff", "#3A5478")
+            + "</td></tr></table>")
+
+
+def more_articles(p, posts, slug):
+    others = [x for x in posts if x["slug"] != slug][:2]
+    if not others:
+        return ""
+    cells = ""
+    for i, x in enumerate(others):
+        u = track(f'{B.BASE}/blog/{x["slug"]}/', slug)
+        pad = "padding:0 10px 0 0" if i == 0 else "padding:0 0 0 10px"
+        cells += (f'<td class="stack" width="50%" valign="top" style="{pad}">'
+                  f'<a href="{u}" style="text-decoration:none"><img src="{B.BASE}/blog/{x["slug"]}/og.png" width="242" alt="" class="fluid" style="display:block;width:100%;max-width:242px;height:auto;border:0;border-radius:6px;margin:0 0 12px"/></a>'
+                  f'<p style="margin:0 0 6px;{f(11, 16, 700, color=GOLD, extra="letter-spacing:2px;text-transform:uppercase;")}">{B.esc(x["category"])}</p>'
+                  f'<p style="margin:0 0 6px;{f(17, 23, 400, SERIF, NAVY)}"><a href="{u}" style="color:{NAVY};text-decoration:none">{B.esc(x["title"])}</a></p>'
+                  f'<p style="margin:0 0 18px;{f(14, 21, color=MUTED)}">{B.esc(x["description"])}</p></td>')
+    return (eyebrow("Also on MFA Insights") + h2("More articles you might find useful")
+            + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>{cells}</tr></table>')
 
 
 def build(slug, to_email=None, mailerlite=False):
@@ -146,112 +202,152 @@ def build(slug, to_email=None, mailerlite=False):
     if not p:
         sys.exit(f"No published post with slug '{slug}'")
     post_url = f"{B.BASE}/blog/{slug}/"
-    global DL_URL
-    DL_URL = post_url + p["cover"]
-    track = f"?{UTM}{slug}"
+    read_url = track(post_url, slug)
     issue_url = f"{B.BASE}/newsletter/issues/{slug}/"
-    if mailerlite:   # MailerLite swaps in each recipient's one-click unsubscribe link
-        unsub = "{$unsubscribe}"
-    else:
-        unsub = (f"{B.BASE}/newsletter/unsubscribe/?e={quote(to_email)}" if to_email else "{{UNSUBSCRIBE_URL}}")
+    unsub = "{$unsubscribe}" if mailerlite else (f"{B.BASE}/newsletter/unsubscribe/?e={quote(to_email)}" if to_email else f"{B.BASE}/newsletter/unsubscribe/")
+    greeting = "Hi {$name|default('there')}," if mailerlite else "Hi there,"
+    browser_url = "{$url}" if mailerlite else issue_url
     nice = p["dt"].strftime("%B %-d, %Y")
     asof = datetime.fromisoformat(p.get("factsAsOf", p["date"])).strftime("%B %-d, %Y")
     subject = p["title"]
     preheader = p["description"]
-    body = style_body(absolutize(p["body"], post_url, slug))
-    sources = "".join(f'<li style="margin:0 0 6px"><a href="{B.esc(s["url"])}" style="color:{NAVY}">{B.esc(s["title"])}</a></li>' for s in p["sources"])
-    addr = B.esc(MAILING_ADDRESS) if MAILING_ADDRESS else "Princeton, New Jersey"
-    # MailerLite merge tag with a fallback (https://www.mailerlite.com/help/how-to-use-variables-in-mailerlite)
-    greeting = "Hi {$name|default('there')}," if mailerlite else "Hi there,"
-    browser_url = "{$url}" if mailerlite else issue_url
+    glance, heads, faq = parts(p)
     share_li = f"https://www.linkedin.com/sharing/share-offsite/?url={quote(post_url, safe='')}"
-    fwd = f"mailto:?subject={quote(p['title'])}&body={quote(p['description'] + ' ' + post_url)}"
+    fwd = f"mailto:?subject={quote(p['title'])}&body={quote('Thought you might find this useful: ' + p['description'] + ' ' + post_url)}"
+    # Keep Gmail/iOS from turning the postal address into a blue map link.
+    addr_html = (f'<a href="{B.BASE}/" style="color:{MUTED};text-decoration:none">'
+                 + B.esc(MAILING_ADDRESS).replace(" ", "&nbsp;", 1).replace(",", "&zwnj;,") + "</a>")
+
+    glance_rows = "".join(
+        f'<tr><td width="26" valign="top" style="padding:2px 0 14px">'
+        f'<div style="width:18px;height:18px;border-radius:9px;background:{GOLDB};text-align:center;{f(11, 18, 700, color=NAVY)}">{i}</div></td>'
+        f'<td valign="top" style="padding:0 0 14px 10px;{f(16, 25)}">{inline_rich(li)}</td></tr>'
+        for i, li in enumerate(glance, 1))
+    glance_block = (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>'
+                    f'<td bgcolor="{PAPER2}" style="background:{PAPER2};border-radius:10px;border-left:4px solid {GOLD};padding:26px 26px 14px">'
+                    + eyebrow("At a glance")
+                    + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{glance_rows}</table>'
+                    + "</td></tr></table>") if glance else ""
+
+    cover = (f'<a href="{read_url}" style="text-decoration:none"><img src="{post_url}{p["cover"]}" width="504" alt="{B.esc(p.get("coverAlt", p["title"]))}" '
+             f'style="display:block;width:100%;max-width:504px;height:auto;border:0;border-radius:8px;margin:0 0 16px"/></a>'
+             + button(post_url + p["cover"], "Download the checklist", GOLDB, NAVY, size=14)
+             + para("Save it to your phone or print it. It's yours to keep.", 0, 13, 20, MUTED)) if p.get("cover") else ""
+
+    inside = ""
+    if heads:
+        lis = "".join(f'<tr><td width="20" valign="top" style="padding:0 0 10px;{f(16, 24, 700, color=GOLD)}">&#8226;</td>'
+                      f'<td valign="top" style="padding:0 0 10px;{f(16, 24)}">{B.esc(h)}</td></tr>' for h in heads)
+        inside = (eyebrow("In the full guide") + h2(B.esc(p["title"]) if len(p["title"]) < 60 else "What's inside")
+                  + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 22px">{lis}</table>'
+                  + button(read_url, "Read the full guide", NAVY, size=16)
+                  + para(f'{p["minutes"]}-minute read on mfa-advisory.com, with every source linked.', 0, 13, 20, MUTED))
+
+    faq_block = ""
+    if faq:
+        faq_block = (eyebrow("Reader question")
+                     + f'<p style="margin:0 0 12px;{f(21, 29, 400, SERIF, NAVY)}">&ldquo;{B.esc(faq[0])}&rdquo;</p>'
+                     + para(inline_rich(faq[1]), 14))
+
+    rows = [
+        # top bar
+        f'<tr><td align="center" style="padding:0 0 14px;{f(12, 18, color=MUTED)}">{B.esc(B.NEWSLETTER_NAME)} &nbsp;|&nbsp; {nice} &nbsp;|&nbsp; <a href="{browser_url}" style="color:{MUTED};text-decoration:underline">View in browser</a></td></tr>',
+        # masthead + hero
+        f'''<tr><td bgcolor="{NAVY}" class="pad" style="background:{NAVY};border-radius:10px 10px 0 0;padding:30px 48px 40px">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+  <td width="54" valign="middle"><a href="{track(B.BASE + '/', slug)}"><img src="{B.BASE}/apple-touch-icon.png" width="42" height="42" alt="MFA" style="display:block;border:0;border-radius:9px"/></a></td>
+  <td valign="middle"><span style="{f(20, 22, 400, SERIF, '#ffffff')}">Merchant</span><br/><span style="{f(9, 16, 700, color='#AEB8C6', extra='letter-spacing:3px;text-transform:uppercase;')}">Financial Advisory</span></td>
+  <td align="right" valign="middle" style="{f(10, 14, 700, color=GOLDB, extra='letter-spacing:3px;text-transform:uppercase;')}">MFA Insights</td></tr></table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:34px 0 0"><tr><td>
+  {eyebrow(B.esc(p["category"]), GOLDB)}
+  <h1 class="h1" style="margin:0 0 16px;{f(32, 40, 400, SERIF, '#ffffff')}">{B.esc(p["title"])}</h1>
+  <p style="margin:0;{f(17, 27, color='#DCE2EA')}">{B.esc(p["dek"])}</p>
+  </td></tr></table>
+</td></tr>''',
+        # greeting + intro
+        section(f'<p style="margin:0 0 14px;{f(17, 26, 700, color=INK)}">{greeting}</p>' + para(B.esc(p.get("emailIntro", DEFAULT_INTRO)), 0, 17, 28), 40, 0, "#ffffff"),
+        section(glance_block, 30, 0, "#ffffff") if glance_block else "",
+        section(cover, 32, 0, "#ffffff") if cover else "",
+        section(divider(36, 36) + inside, 0, 0, "#ffffff") if inside else "",
+        section(divider(40, 36) + keydates_block(p, post_url, slug), 0, 0, "#ffffff"),
+        section(divider(30, 36) + faq_block + para(f'<a href="{read_url}" style="color:{NAVY};text-decoration:underline;font-weight:700">More answers in the full guide</a>', 0, 15, 22), 0, 0, "#ffffff") if faq_block else "",
+        section(divider(36, 0), 0, 0, "#ffffff"),
+        section(services_block(p, slug), 36, 0, "#ffffff"),
+        section(divider(40, 36) + more_articles(p, posts, slug), 0, 0, "#ffffff"),
+        # share
+        section(f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 0"><tr><td bgcolor="{PAPER2}" align="center" style="background:{PAPER2};border-radius:10px;padding:26px 24px">
+  <p style="margin:0 0 6px;{f(19, 26, 400, SERIF, NAVY)}">Know someone who'd find this useful?</p>
+  <p style="margin:0 0 16px;{f(15, 23, color=MUTED)}">Forward this email, or share the article with your network.</p>
+  {button(fwd, "Forward to a friend", "#ffffff", NAVY, NAVY, 14)}{button(share_li, "Share on LinkedIn", "#ffffff", NAVY, NAVY, 14)}
+  </td></tr></table>''', 0, 44, "#ffffff"),
+        # footer
+        f'''<tr><td class="pad" align="center" style="padding:30px 48px 10px;{f(12, 19, color=MUTED)}">
+  <p style="margin:0 0 4px;{f(15, 20, 400, SERIF, NAVY)}">Merchant Financial Advisory</p>
+  <p style="margin:0 0 14px;{f(12, 19, color=MUTED)}">Accounting, tax and advisory for individuals and growing businesses</p>
+  <p style="margin:0 0 14px;{f(12, 19, color=MUTED)}"><a href="{track(B.BASE + '/', slug)}" style="color:{NAVY};text-decoration:underline">mfa-advisory.com</a> &nbsp;|&nbsp; <a href="mailto:{B.EMAIL}" style="color:{NAVY};text-decoration:underline">{B.EMAIL}</a> &nbsp;|&nbsp; <a href="{track(B.BASE + '/newsletter/', slug)}" style="color:{NAVY};text-decoration:underline">Subscribe</a></p>
+  <p style="margin:0 0 14px;{f(12, 19, color=MUTED)}">Facts checked against IRS and state sources as of {asof}; every source is linked in the online article. This email is general information, not tax, accounting, legal or financial advice, and reading it doesn't create a client relationship.</p>
+  <p style="margin:0 0 6px;{f(12, 19, color=MUTED)}">You're receiving this because you subscribed to {B.esc(B.NEWSLETTER_NAME)} at mfa-advisory.com. <a href="{unsub}" style="color:{NAVY};text-decoration:underline;font-weight:700">Unsubscribe</a> &nbsp;|&nbsp; <a href="{B.BASE}/privacy.html" style="color:{MUTED};text-decoration:underline">Privacy</a></p>
+  <p style="margin:0 0 24px;{f(12, 19, color=MUTED)}">Merchant Financial Advisory LLC &nbsp;|&nbsp; {addr_html}</p>
+</td></tr>''',
+    ]
 
     email = f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="x-apple-disable-message-reformatting"/><title>{B.esc(subject)}</title>
-<style>@media (max-width:620px){{.wrap{{width:100%!important}}.pad{{padding-left:20px!important;padding-right:20px!important}}h1{{font-size:28px!important}}}}</style>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="x-apple-disable-message-reformatting"/><meta name="format-detection" content="telephone=no,address=no,email=no,date=no"/>
+<title>{B.esc(subject)}</title>
+<style>
+body{{margin:0;padding:0;-webkit-text-size-adjust:100%}} img{{border:0;outline:none;text-decoration:none}}
+@media (max-width:620px){{
+ .wrap{{width:100%!important}} .pad{{padding-left:24px!important;padding-right:24px!important}}
+ .h1{{font-size:27px!important;line-height:34px!important}}
+ .stack{{display:block!important;width:100%!important;padding:0 0 10px 0!important}}
+ .box{{padding:28px 22px 20px!important}} .fluid{{max-width:100%!important}}
+}}
+</style>
 </head>
-<body style="margin:0;padding:0;background:#ECEAE3">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">{B.esc(preheader)}&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ECEAE3"><tr><td align="center" style="padding:20px 10px">
-<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#ffffff">
-<tr><td style="padding:10px 0 10px;background:#ECEAE3;font:12px/1.4 {SANS};color:{MUTED}" align="center">
-  {B.esc(B.NEWSLETTER_NAME)} · {nice} · <a href="{browser_url}" style="color:{MUTED}">View in browser</a></td></tr>
-<tr><td class="pad" style="background:{NAVY};padding:26px 40px 30px">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-  <td width="52" valign="middle"><a href="{B.BASE}/{track}"><img src="{B.BASE}/apple-touch-icon.png" width="44" height="44" alt="MFA" style="display:block;border:0;border-radius:10px"/></a></td>
-  <td valign="middle" style="font:500 22px/1 {SERIF};color:#ffffff">Merchant<br/><span style="font:600 10px/1.8 {SANS};letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.65)">Financial Advisory</span></td>
-  <td align="right" valign="middle" style="font:700 10px/1 {SANS};letter-spacing:.3em;text-transform:uppercase;color:{GOLDB}">MFA Insights</td></tr></table>
-  <p style="margin:28px 0 8px;font:700 11px/1 {SANS};letter-spacing:.28em;text-transform:uppercase;color:{GOLDB}">{B.esc(p["category"])}</p>
-  <h1 style="margin:0 0 12px;font:500 32px/1.15 {SERIF};color:#ffffff">{B.esc(p["title"])}</h1>
-  <p style="margin:0 0 18px;font:300 16px/1.6 {SANS};color:rgba(255,255,255,.82)">{B.esc(p["dek"])}</p>
-  <p style="margin:0;font:13px/1.4 {SANS};color:rgba(255,255,255,.6)">By {B.esc(B.AUTHOR["name"])}, {B.esc(B.AUTHOR["credential"])} · {p["minutes"]} min read</p>
-</td></tr>
-<tr><td class="pad" style="padding:32px 40px 8px">
-<p style="margin:0 0 12px;font:17px/1.6 {SANS};color:{INK}">{greeting}</p>
-<p style="margin:0 0 24px;font:16px/1.65 {SANS};color:{INK}">{B.esc(p.get("emailIntro", DEFAULT_INTRO))}</p>
-{body}
-{keydates_email(p, post_url)}
-{signature_html()}
-</td></tr>
-<tr><td class="pad" style="padding:8px 40px 28px">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{NAVY}"><tr><td style="padding:26px 26px 22px">
-  <p style="margin:0 0 6px;font:700 11px/1 {SANS};letter-spacing:.28em;text-transform:uppercase;color:{GOLDB}">Talk to MFA</p>
-  <p style="margin:0 0 10px;font:500 24px/1.2 {SERIF};color:#ffffff">{B.esc(p.get("ctaHeadline", "Want a second set of eyes before you act?"))}</p>
-  <p style="margin:0 0 16px;font:15px/1.6 {SANS};color:rgba(255,255,255,.8)">Book a 30-minute consultation to talk through {B.esc(p.get("ctaTopic", "your situation"))}, or just reply to this email.</p>
-  {btn(B.BOOK_URL.replace("/#book", "/" + track + "#book"), "Book a consultation", GOLDB, NAVY)}{btn("mailto:" + B.EMAIL + "?subject=" + quote(p["title"]), "Email us", NAVY2)}
-  </td></tr></table>
-  <p style="margin:22px 0 6px;font:14px/1.6 {SANS};color:{INK}">Read it on the web: <a href="{post_url}{track}" style="color:{NAVY}">{post_url}</a><br/>
-  Know someone who needs this? <a href="{fwd}" style="color:{NAVY}">Forward it</a> or <a href="{share_li}" style="color:{NAVY}">share on LinkedIn</a>.</p>
-  <p style="margin:18px 0 6px;font:700 12px/1 {SANS};letter-spacing:.12em;text-transform:uppercase;color:{MUTED}">Sources</p>
-  <ul style="margin:0 0 12px;padding:0 0 0 18px;font:13px/1.5 {SANS};color:{MUTED}">{sources}</ul>
-  <p style="margin:0;font:12px/1.6 {SANS};color:{MUTED}">Facts checked against the sources above as of {asof}. This email is general information, not tax, accounting, legal or financial advice, and reading it doesn't create a client relationship.</p>
-</td></tr>
-<tr><td class="pad" style="background:{PAPER2};padding:24px 40px;font:12px/1.7 {SANS};color:{MUTED}" align="center">
-  <b style="color:{NAVY}">Was this forwarded to you?</b> <a href="{B.BASE}/newsletter/{track}" style="color:{NAVY}">Subscribe to {B.esc(B.NEWSLETTER_NAME)}</a> for new articles, key tax dates and a savable calendar.<br/><br/>
-  You're receiving this because you subscribed to {B.esc(B.NEWSLETTER_NAME)} at mfa-advisory.com.<br/>
-  <a href="{unsub}" style="color:{NAVY};font-weight:600">Unsubscribe</a> · <a href="{B.BASE}/privacy.html" style="color:{MUTED}">Privacy</a> · <a href="{B.BASE}/{track}" style="color:{MUTED}">mfa-advisory.com</a><br/>
-  Merchant Financial Advisory LLC · {addr} · (347) 205-4468 · {B.EMAIL}
-</td></tr>
+<body style="margin:0;padding:0;background:{PAPER}">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;mso-hide:all">{B.esc(preheader)}&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{PAPER}" style="background:{PAPER}"><tr><td align="center" style="padding:24px 12px 32px">
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px">
+{"".join(r for r in rows if r)}
 </table></td></tr></table></body></html>'''
+    # Round the bottom of the white card: the share section is its last white row.
+    email = email.replace(f'<tr><td bgcolor="#ffffff" class="pad" style="background:#ffffff;padding:0px 48px 44px">',
+                          f'<tr><td bgcolor="#ffffff" class="pad" style="background:#ffffff;border-radius:0 0 10px 10px;padding:0px 48px 44px">')
 
-    text = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", p["body"], flags=re.S)
-    text = re.sub(r"<li[^>]*>", "\n - ", text)
-    text = re.sub(r"<(h2|h3)[^>]*>(.*?)</\1>", lambda m: "\n\n" + m.group(2).upper() + "\n", text, flags=re.S)
-    text = re.sub(r"<tr[^>]*>", "\n", text)
-    text = re.sub(r"</t[dh]>", " | ", text)
-    text = re.sub(r"<p[^>]*>", "\n\n", text)
-    text = html.unescape(re.sub(r"<[^>]+>", "", text))
-    text = re.sub(r"\n{3,}", "\n\n", re.sub(r"[ \t]+", " ", text)).strip()
-    kd = "".join(f"\n - {datetime.fromisoformat(e['date']):%a, %b %-d, %Y}: {e['title']}" for e in B.post_events(p))
-    plain = (f"{B.NEWSLETTER_NAME} · {nice}\n\n{p['title'].upper()}\n{p['dek']}\n\n{text}\n"
-             + (f"\nKEY DATES{kd}\nAdd to calendar: {post_url}key-dates.ics\n" if kd else "")
-             + f"\nRead on the web: {post_url}\nBook a consultation: {B.BOOK_URL}\n\n"
+    # Plain-text alternative
+    def strip(s):
+        return html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
+    ev, total = upcoming_dates(p)
+    plain = (f"{B.NEWSLETTER_NAME} | {nice}\n\n{p['title'].upper()}\n{p['dek']}\n\n"
+             f"{greeting}\n\n"
+             f"{strip(p.get('emailIntro', DEFAULT_INTRO))}\n\n"
+             + ("AT A GLANCE\n" + "".join(f" {i}. {strip(li)}\n" for i, li in enumerate(glance, 1)) + "\n" if glance else "")
+             + f"Read the full guide: {read_url}\n\n"
+             + ("KEY DATES\n" + "".join(f" - {datetime.fromisoformat(e['date']):%a, %b %-d, %Y}: {e['title']}\n" for e in ev)
+                + f"Add them all: {post_url}key-dates.ics\n\n" if ev else "")
+             + (f"READER QUESTION\n{faq[0]}\n{strip(faq[1])}\n\n" if faq else "")
+             + f"HOW MFA CAN HELP\n{p.get('ctaHeadline', '')}\nBook a 30-minute consultation: {track(B.BOOK_URL, slug)}\nOr email {B.EMAIL}\n\n"
              f"General information, not tax advice. Facts checked as of {asof}.\n"
-             f"Unsubscribe: {unsub}\nMerchant Financial Advisory LLC · {MAILING_ADDRESS or 'Princeton, New Jersey'} · {B.EMAIL}\n")
+             f"Unsubscribe: {unsub}\nMerchant Financial Advisory LLC | {MAILING_ADDRESS}\n")
 
-    # bgcolor attributes as a fallback for clients that drop CSS backgrounds (Outlook, some Gmail paths)
-    email = re.sub(r'<(td|table)((?:(?!bgcolor)[^>])*?)style="([^"]*?)background:(#[0-9A-Fa-f]{6})',
-                   lambda m: f'<{m.group(1)} bgcolor="{m.group(4)}"{m.group(2)}style="{m.group(3)}background:{m.group(4)}', email)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / f"{slug}.email.html").write_text(email, encoding="utf-8")
     (OUT / f"{slug}.txt").write_text(plain, encoding="utf-8")
     web = B.SITE / "newsletter" / "issues" / slug
     web.mkdir(parents=True, exist_ok=True)
-    (web / "index.html").write_text(
-        email.replace(unsub, f"{B.BASE}/newsletter/unsubscribe/").replace("{$url}", issue_url)
-             .replace("Hi {$name|default('there')},", "Hi there,").replace(B.esc(MAILING_ADDRESS), "Princeton, New Jersey")
-             .replace("<head>", '<head><meta name="robots" content="noindex"/>', 1),
-        encoding="utf-8")
+    web_html = (email.replace(unsub, f"{B.BASE}/newsletter/unsubscribe/").replace("{$url}", issue_url)
+                .replace("Hi {$name|default('there')},", "Hi there,")
+                .replace(addr_html, "Princeton, New Jersey")
+                .replace("<head>", '<head><meta name="robots" content="noindex"/>', 1))
+    assert "Spring St" not in web_html, "street address must never appear on the website"
+    (web / "index.html").write_text(web_html, encoding="utf-8")
     meta = {"slug": slug, "subject": subject, "preheader": preheader, "post_url": post_url, "issue_url": issue_url,
             "html": str(OUT / f"{slug}.email.html"), "text": str(OUT / f"{slug}.txt"),
             "bytes": len(email.encode("utf-8")), "built": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     (OUT / f"{slug}.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")
     if meta["bytes"] > 100_000:
         print(f"  WARNING: email is {meta['bytes']} bytes; Gmail clips messages over ~102 KB")
-    if not MAILING_ADDRESS:
-        print("  NOTE: MAILING_ADDRESS is empty. Set a postal address (PO box is fine) before mailing real subscribers (CAN-SPAM).")
     print(json.dumps(meta, indent=1))
     return meta
 
