@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"/><link rel="stylesheet" href="_base.css"/><style>
+:root{--w:1080px;--h:1350px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;line-height:1;margin:30px 0 12px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-weight:300;color:rgba(255,255,255,.75)}
+.cols{display:grid;gap:16px}
+.card{border-radius:16px;overflow:hidden}
+.card.yes{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+.card.no{background:var(--paper);color:var(--navy)}
+.card .hd{font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:flex;justify-content:space-between}
+.card.yes .hd{background:var(--gold-b);color:var(--navy)}
+.card.no .hd{background:var(--navy-2);color:var(--gold-b);border-bottom:1px solid rgba(16,35,63,.1)}
+.card ul{list-style:none;display:grid;line-height:1.4}
+.card li{padding-left:28px;position:relative}
+.card li:before{position:absolute;left:0;top:0;font-weight:700}
+.card.yes li{color:rgba(255,255,255,.9)}.card.yes li b{color:#fff}
+.card.yes li:before{content:"\2713";color:var(--gold-b)}
+.card.no li:before{content:"!";color:#fff;background:var(--gold);width:18px;height:18px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;top:2px}
+.rules-hd{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-b);margin:24px 0 12px}
+.rules{display:grid;gap:12px}
+.rule{border:1px solid rgba(216,183,105,.45);border-radius:12px;color:rgba(255,255,255,.9);line-height:1.4}
+.rule b{display:block;color:#fff;font-weight:600;margin-bottom:4px}
+.rule span{color:var(--gold-b);font-size:12px;letter-spacing:.06em}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+.wrap{position:absolute;inset:70px 64px 60px}
+h1{font-size:76px}.sub{font-size:22px}
+.cols{grid-template-columns:1fr;margin-top:26px}
+.card .hd{font-size:14px;padding:13px 24px}.card ul{padding:22px 24px 24px;gap:13px;font-size:19.5px}
+.rules{grid-template-columns:1fr 1fr}.rule{padding:18px 20px;font-size:17px}.rule span{font-size:13px}.rules-hd{font-size:14px;margin:30px 0 14px}.cols{gap:20px!important}
+</style></head><body><div class="frame"></div><div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights · Save this</span><span class="tag">AI &amp; your taxes</span></div>
+  <h1>AI in accounting and tax:<br/><em>where it helps, where it stops</em></h1>
+  <p class="sub">Use AI for the busywork. Keep a person on anything that ends up on a return.</p>
+  <div class="cols">
+    <div class="card yes"><div class="hd"><span>Good uses of AI</span><span>Faster</span></div><ul>
+      <li><b>Sorting transactions</b> into categories for you to review</li>
+      <li><b>Flagging issues</b> like duplicates and reconciliation gaps</li>
+      <li><b>Chasing receipts</b> and missing details</li>
+      <li><b>Drafting</b> summaries, checklists and first-pass explanations</li></ul></div>
+    <div class="card no"><div class="hd"><span>Keep a human on</span><span>Your call</span></div><ul>
+      <li><b>Anything you sign.</b> You're responsible for your return, whoever prepares it</li>
+      <li><b>Complex tax questions.</b> Verify every AI answer and number</li>
+      <li><b>Tax positions and advice</b> that need judgment</li>
+      <li><b>Your data.</b> Keep SSNs, bank and tax details out of public chatbots</li></ul></div>
+  </div>
+  <p class="rules-hd">Rules that still apply in 2026</p>
+  <div class="rules">
+    <div class="rule"><b>Verify AI answers</b>The IRS says don't rely on AI for complex tax questions.<br/><span>IRS Dirty Dozen, IR-2026-30</span></div>
+    <div class="rule"><b>Watch for AI voice scams</b>AI-enabled IRS impersonation calls made the 2026 list.<br/><span>IRS Dirty Dozen, IR-2026-30</span></div>
+    <div class="rule"><b>Pros can't rely solely on AI</b>Review output; secure, approved tools only for client data.<br/><span>IRS OPR Issue 2026-19</span></div>
+    <div class="rule"><b>Security plan required</b>Tax and accounting pros must keep a written security plan.<br/><span>IRS IR-2026-92</span></div>
+  </div>
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com · info@mfa-advisory.com</b><br/>General information, not tax advice. Facts checked Oct. 15, 2026.</div>
+  </div>
+</div></body></html>

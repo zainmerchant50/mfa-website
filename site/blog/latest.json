@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "AI in Accounting and Tax: What the IRS Says in 2026",
+   "url": "/blog/ai-in-accounting-and-tax-2026/",
+   "date": "2026-10-15",
+   "category": "Bookkeeping",
+   "thumb": "/blog/ai-in-accounting-and-tax-2026/og.png",
+   "description": "AI in accounting and tax: what the IRS's new 2026 AI guidelines say, where AI tools help with bookkeeping, and why you should verify any AI answer before you file."
+  },
+  {
    "title": "SALT Cap 2026: The $40,400 Limit and the NJ and NY PTE Tax Fix",
    "url": "/blog/salt-cap-2026-nj-ny-pte-tax/",
    "date": "2026-10-15",
@@ -31,14 +39,6 @@
    "category": "Tax Planning",
    "thumb": "/blog/year-end-tax-planning-2026-key-dates/og.png",
    "description": "Year-end tax planning 2026 in four dates: Oct. 15, Dec. 31, Jan. 15 and April 15. What to do by each one, with 2026 IRA, HSA and 401(k) limits."
-  },
-  {
-   "title": "Federal Scholarship Tax Credit 2027: The New $1,700 Credit Explained",
-   "url": "/blog/federal-scholarship-tax-credit-2027/",
-   "date": "2026-10-12",
-   "category": "Tax Planning",
-   "thumb": "/blog/federal-scholarship-tax-credit-2027/og.png",
-   "description": "The federal scholarship tax credit starts Jan. 1, 2027: up to $1,700 per person for cash gifts to approved scholarship groups. Who qualifies, which states, and NJ."
   }
  ]
 }
