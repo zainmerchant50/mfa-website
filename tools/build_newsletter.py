@@ -275,7 +275,7 @@ def build(slug, to_email=None, mailerlite=False):
         section(glance_block, 30, 0, "#ffffff") if glance_block else "",
         section(cover, 32, 0, "#ffffff") if cover else "",
         section(divider(36, 36) + inside, 0, 0, "#ffffff") if inside else "",
-        section(divider(40, 36) + keydates_block(p, post_url, slug), 0, 0, "#ffffff"),
+        section(divider(40, 36) + kd, 0, 0, "#ffffff") if (kd := keydates_block(p, post_url, slug)) else "",
         section(divider(30, 36) + faq_block + para(f'<a href="{read_url}#faqs" style="color:{NAVY};text-decoration:underline;font-weight:700">See all FAQs in the full guide</a>', 0, 15, 22), 0, 0, "#ffffff") if faq_block else "",
         section(divider(36, 0), 0, 0, "#ffffff"),
         section(services_block(p, slug), 36, 0, "#ffffff"),
