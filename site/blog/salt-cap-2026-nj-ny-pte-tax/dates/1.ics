@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:salt-cap-2026-nj-ny-pte-tax-0@mfa-advisory.com
+DTSTAMP:20261015T050903Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day to pay state and local taxes that count for 2026
+DESCRIPTION:Taxes count in the year you pay them. Prepaid 2027 property t
+ axes count for 2026 only if they were assessed in 2026.\n\nDetails: https
+ ://mfa-advisory.com/blog/salt-cap-2026-nj-ny-pte-tax/\nGeneral informatio
+ n\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/salt-cap-2026-nj-ny-pte-tax/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to pay state and local taxes that count for 2026
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

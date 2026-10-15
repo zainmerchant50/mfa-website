@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:salt-cap-2026-nj-ny-pte-tax-2@mfa-advisory.com
+DTSTAMP:20261015T050903Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:NY: last day to elect PTET for 2027
+DESCRIPTION:No late elections. The same window applies to the New York Ci
+ ty PTET.\n\nDetails: https://mfa-advisory.com/blog/salt-cap-2026-nj-ny-pt
+ e-tax/\nGeneral information\, not tax advice. Merchant Financial Advisory
+ \, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/salt-cap-2026-nj-ny-pte-tax/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NY: last day to elect PTET for 2027
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

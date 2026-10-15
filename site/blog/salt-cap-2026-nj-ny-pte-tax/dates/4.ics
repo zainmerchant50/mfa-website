@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ ies)
+BEGIN:VEVENT
+UID:salt-cap-2026-nj-ny-pte-tax-3@mfa-advisory.com
+DTSTAMP:20261015T050903Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:NJ: BAIT election for tax year 2026 due (calendar-year entities)
+DESCRIPTION:Made electronically by the original due date of the 2026 PTE-
+ 100. Cannot be made retroactively for an earlier year.\n\nDetails: https:
+ //mfa-advisory.com/blog/salt-cap-2026-nj-ny-pte-tax/\nGeneral information
+ \, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/salt-cap-2026-nj-ny-pte-tax/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: BAIT election for tax year 2026 due (calendar-year entiti
+ es)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
