@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:adoption-tax-credit-refund-2026-1@mfa-advisory.com
+DTSTAMP:20261019T162008Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:2026 returns due: claim the 2026 adoption credit on Form 8839
+DESCRIPTION:Up to $17\,670 per child for 2026\, with up to $5\,120 refund
+ able. The credit phases out between $265\,080 and $305\,080 of modified A
+ GI.\n\nDetails: https://mfa-advisory.com/blog/adoption-tax-credit-refund-
+ 2026/\nGeneral information\, not tax advice. Merchant Financial Advisory\
+ , mfa-advisory.com
+URL:https://mfa-advisory.com/blog/adoption-tax-credit-refund-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:2026 returns due: claim the 2026 adoption credit on Form 8839
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

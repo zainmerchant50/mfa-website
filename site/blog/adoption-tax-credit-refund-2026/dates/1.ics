@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ ished
+BEGIN:VEVENT
+UID:adoption-tax-credit-refund-2026-0@mfa-advisory.com
+DTSTAMP:20261019T162008Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:IRS expects most automatic adoption credit refunds to be finished
+DESCRIPTION:Refunds for 2025 returns with 2020-2024 adoption credit carry
+ forwards began in late September. Extension filers and accounts with hold
+ s are reviewed later.\n\nDetails: https://mfa-advisory.com/blog/adoption-
+ tax-credit-refund-2026/\nGeneral information\, not tax advice. Merchant F
+ inancial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/adoption-tax-credit-refund-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IRS expects most automatic adoption credit refunds to be fini
+ shed
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
