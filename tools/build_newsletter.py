@@ -237,7 +237,7 @@ def build(slug, to_email=None, mailerlite=False):
 
     cover = (f'<a href="{read_url}" style="text-decoration:none"><img src="{post_url}{p["cover"]}" width="504" alt="{B.esc(p.get("coverAlt", p["title"]))}" '
              f'style="display:block;width:100%;max-width:504px;height:auto;border:0;border-radius:8px;margin:0 0 16px"/></a>'
-             + button(post_url + p["cover"], "Download the checklist", GOLDB, NAVY, size=14)
+             + button(post_url + p["cover"], "Download the one-page guide", GOLDB, NAVY, size=14)
              + para("Save it to your phone or print it. It's yours to keep.", 0, 13, 20, MUTED)) if p.get("cover") else ""
 
     inside = ""
