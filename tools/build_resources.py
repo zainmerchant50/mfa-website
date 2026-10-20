@@ -9,7 +9,7 @@ and its official sources. Tax figures live in the FACTS dict below, each with it
 Writes tools/site_pages.json so build_blog.py can list these URLs in sitemap.xml.
 """
 import hashlib, json, sys
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -28,7 +28,7 @@ NOTE = ("Educational information, not tax or legal advice. Results are estimates
 # Verified figures (re-check each season). Every number used by a tool lives here with its source.
 FACTS = {
     "1099": {
-        "checked": "2026-10-20T18:12-04:00",
+        "checked": "2026-10-20",
         "nec_threshold": 2000, "misc_threshold": 2000, "royalties": 10, "attorney_proceeds": 600,
         "sources": [
             ("IRS: Instructions for Forms 1099-MISC and 1099-NEC (12/2026)", "https://www.irs.gov/instructions/i1099mec"),
@@ -38,8 +38,8 @@ FACTS = {
             ("IRS: About Form W-9", "https://www.irs.gov/forms-pubs/about-form-w-9"),
         ],
     },
-    "w9": {"checked": "2026-10-20T18:12-04:00", "sources": [("IRS: About Form W-9 (Rev. March 2024)", "https://www.irs.gov/forms-pubs/about-form-w-9")]},
-    "breakeven": {"checked": "2026-10-20T18:12-04:00", "sources": [("U.S. Small Business Administration: Break-even point", "https://www.sba.gov/breakevenpointcalculator")]},
+    "w9": {"checked": "2026-10-20", "sources": [("IRS: About Form W-9 (Rev. March 2024)", "https://www.irs.gov/forms-pubs/about-form-w-9")]},
+    "breakeven": {"checked": "2026-10-20", "sources": [("U.S. Small Business Administration: Break-even point", "https://www.sba.gov/breakevenpointcalculator")]},
 }
 
 I = {  # simple line icons (stroke = currentColor)
@@ -108,24 +108,12 @@ def cta(headline, text):
 </div></section>"""
 
 
-AP_MON = {1: "Jan.", 2: "Feb.", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July",
-          8: "Aug.", 9: "Sept.", 10: "Oct.", 11: "Nov.", 12: "Dec."}
-
-
-def fmt_checked(ts):
-    """'2026-10-20T18:12-04:00' -> 'Oct. 20, 2026, 6:12 p.m. ET' (Zain: facts-checked timestamps, ET)."""
-    d = datetime.fromisoformat(ts)
-    h = d.hour % 12 or 12
-    ap = "a.m." if d.hour < 12 else "p.m."
-    return f"{AP_MON[d.month]} {d.day}, {d.year}, {h}:{d.minute:02d} {ap} ET"
-
-
 def sources_block(key, extra_note=""):
     f = FACTS[key]
-    checked = fmt_checked(f["checked"])
+    checked = date.fromisoformat(f["checked"]).strftime("%B %-d, %Y")
     lis = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(t)}</a></li>' for t, u in f["sources"])
     return (f'<section class="sources"><h2>Sources</h2><ul>{lis}</ul>'
-            f'<p class="disclaimer">Facts checked against the sources above: {checked}. {extra_note}{NOTE}</p></section>')
+            f'<p class="disclaimer">Facts checked against the sources above as of {checked}. {extra_note}{NOTE}</p></section>')
 
 
 def tool_header(eyebrow, h1, dek):
