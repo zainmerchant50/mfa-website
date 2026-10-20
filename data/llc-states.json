@@ -1,0 +1,161 @@
+{
+ "meta": {
+  "owner": "Blog session (verified data)",
+  "checked": "2026-10-20T18:46-04:00",
+  "format": "Every figure is {value, source_url, checked[, note]}. Fees in USD. null value = the state does not publish it; see note.",
+  "order": [
+   "NJ",
+   "NY"
+  ],
+  "coming_next": [
+   "PA",
+   "DE",
+   "FL",
+   "TX",
+   "CA",
+   "WY"
+  ],
+  "disclaimer": "General information, not legal or tax advice. State fees change; recheck before quoting."
+ },
+ "states": {
+  "NJ": {
+   "name": "New Jersey",
+   "formation_document": "Public Records Filing (Certificate of Formation)",
+   "office": {
+    "value": "NJ Division of Revenue and Enterprise Services (DORES)",
+    "source_url": "https://www.nj.gov/treasury/revenue/",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://www.nj.gov/treasury/revenue/fees.shtml",
+    "checked": "2026-10-20T18:46-04:00",
+    "note": "DORES fee page, last updated July 1, 2026. Some third-party sites still show $125."
+   },
+   "name_reservation_fee": {
+    "value": 50,
+    "source_url": "https://www.nj.gov/treasury/revenue/fees.shtml",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "amendment_fee": {
+    "value": 100,
+    "source_url": "https://www.nj.gov/treasury/revenue/fees.shtml",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "annual_report_fee": {
+    "value": 75,
+    "source_url": "https://www.nj.gov/treasury/revenue/fees.shtml",
+    "checked": "2026-10-20T18:46-04:00",
+    "note": "Plus a card or e-check convenience fee when paid online."
+   },
+   "annual_report_due": {
+    "value": "Last day of the month in which the LLC was originally formed, every year",
+    "source_url": "https://business.nj.gov/pages/filings-and-accounting",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "annual_report_penalty": {
+    "value": "Revocation after failing to file annual reports for two consecutive years; reinstatement needs tax clearance",
+    "source_url": "https://www.njportal.com/DOR/AnnualReports/Home/FAQ",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "processing_online": {
+    "source_url": "https://www.nj.gov/treasury/revenue/fees.shtml",
+    "checked": "2026-10-20T18:46-04:00",
+    "note": "The state does not publish an online processing time. Expedite fees apply only to over-the-counter filings: $25 per filing, $500 for 2-hour, $1,000 for 1-hour service."
+   },
+   "expedite": {
+    "value": {
+     "over_the_counter": 25,
+     "two_hour": 500,
+     "one_hour": 1000
+    },
+    "source_url": "https://www.nj.gov/treasury/revenue/fees.shtml",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "state_tax_registration": {
+    "value": "NJ-REG within 60 days of filing the new business entity; if you'll collect sales tax, at least 15 days before your first sale",
+    "source_url": "https://www.nj.gov/treasury/revenue/pdf/Legacy-Reg-Form-0825.pdf",
+    "checked": "2026-10-20T18:46-04:00",
+    "note": "NJ-REG instructions revised 08/2025. Formation and NJ-REG are two separate online filings."
+   },
+   "registered_agent": {
+    "value": "Required: one individual or a business entity in good standing with the State Treasurer, with a New Jersey street address for the registered office (a PO box only alongside a street address)",
+    "source_url": "https://www.nj.gov/treasury/revenue/pdf/NJ_Public_Records_Filing.pdf",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "special_rules": []
+  },
+  "NY": {
+   "name": "New York",
+   "formation_document": "Articles of Organization (DOS-1336)",
+   "office": {
+    "value": "NY Department of State, Division of Corporations",
+    "source_url": "https://dos.ny.gov/",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "filing_fee": {
+    "value": 200,
+    "source_url": "https://dos.ny.gov/fee-schedules",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "name_reservation_fee": {
+    "value": 20,
+    "source_url": "https://dos.ny.gov/fee-schedules",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "biennial_statement_fee": {
+    "value": 9,
+    "source_url": "https://dos.ny.gov/fee-schedules",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "annual_report_fee": {
+    "source_url": "https://dos.ny.gov/fee-schedules",
+    "checked": "2026-10-20T18:46-04:00",
+    "note": "New York has no annual report. It requires a $9 biennial statement instead."
+   },
+   "annual_report_due": {
+    "value": "Biennial statement every two years, in the calendar month the LLC was formed; can't be filed before that month",
+    "source_url": "https://dos.ny.gov/faqs-corporations-business-entities",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "processing_online": {
+    "source_url": "https://dos.ny.gov/forming-limited-liability-company-new-york",
+    "checked": "2026-10-20T18:46-04:00",
+    "note": "The Department of State does not publish an online processing time. Expedited handling, per document: $25 for 24-hour, $75 for same-day, $150 for 2-hour."
+   },
+   "expedite": {
+    "value": {
+     "24_hour": 25,
+     "same_day": 75,
+     "two_hour": 150
+    },
+    "source_url": "https://dos.ny.gov/fee-schedules",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "publication": {
+    "value": {
+     "deadline_days": 120,
+     "newspapers": 2,
+     "weeks": 6,
+     "certificate_of_publication_fee": 50
+    },
+    "source_url": "https://dos.ny.gov/forming-limited-liability-company-new-york",
+    "checked": "2026-10-20T18:46-04:00",
+    "note": "Publish once a week for six weeks in two newspapers (one daily, one weekly) designated by the county clerk, then file the Certificate of Publication. Missing the 120-day deadline suspends the LLC's authority to do business. Newspaper costs vary widely by county."
+   },
+   "state_tax_registration": {
+    "value": "No general state tax registration at formation. If you'll make taxable sales, register for a Sales Tax Certificate of Authority at least 20 days before beginning business",
+    "source_url": "https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/how_to_register_for_nys_sales_tax.htm",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "registered_agent": {
+    "value": "The LLC must designate the Secretary of State as its agent for service of process and give an address where the state can mail any process it receives",
+    "source_url": "https://dos.ny.gov/forming-limited-liability-company-new-york",
+    "checked": "2026-10-20T18:46-04:00"
+   },
+   "special_rules": [
+    "Publication requirement (see publication)."
+   ]
+  }
+ }
+}
