@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+  15)
+BEGIN:VEVENT
+UID:form-1065-guide-llc-2@mfa-advisory.com
+DTSTAMP:20261020T181054Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:Extended Form 1065 deadline (if Form 7004 was filed by March 15)
+DESCRIPTION:The extension is for filing only. Schedules K-1 are due to pa
+ rtners by the extended due date.\n\nDetails: https://mfa-advisory.com/blo
+ g/form-1065-guide-llc/\nGeneral information\, not tax advice. Merchant Fi
+ nancial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1065-guide-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Extended Form 1065 deadline (if Form 7004 was filed by March 
+ 15)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

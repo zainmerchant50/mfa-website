@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ 26)
+BEGIN:VEVENT
+UID:form-1065-guide-llc-1@mfa-advisory.com
+DTSTAMP:20261020T181054Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: NJ-1065 and partnership filing fee due (calendar-year 2026)
+DESCRIPTION:For partnerships with New Jersey income or NJ resident partne
+ rs. Partnerships with more than two owners pay $150 per owner (2025 NJ-10
+ 65 instructions).\n\nDetails: https://mfa-advisory.com/blog/form-1065-gui
+ de-llc/\nGeneral information\, not tax advice. Merchant Financial Advisor
+ y\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1065-guide-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: NJ-1065 and partnership filing fee due (calendar-year 202
+ 6)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

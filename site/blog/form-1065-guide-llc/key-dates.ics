@@ -1,0 +1,69 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Form 1065 for LLCs: Who Files\, Due Date\, K-1s\, Step by St
+ ep
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:form-1065-guide-llc-0@mfa-advisory.com
+DTSTAMP:20261020T181054Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Form 1065 due for calendar-year 2026 partnerships and LLCs
+DESCRIPTION:File Form 1065 or Form 7004 for an automatic 6-month extensio
+ n. Schedules K-1 go to each partner. Late penalty: $260 per partner per m
+ onth\, up to 12 months.\n\nDetails: https://mfa-advisory.com/blog/form-10
+ 65-guide-llc/\nGeneral information\, not tax advice. Merchant Financial A
+ dvisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1065-guide-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1065 due for calendar-year 2026 partnerships and LLCs
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:form-1065-guide-llc-1@mfa-advisory.com
+DTSTAMP:20261020T181054Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: NJ-1065 and partnership filing fee due (calendar-year 2026)
+DESCRIPTION:For partnerships with New Jersey income or NJ resident partne
+ rs. Partnerships with more than two owners pay $150 per owner (2025 NJ-10
+ 65 instructions).\n\nDetails: https://mfa-advisory.com/blog/form-1065-gui
+ de-llc/\nGeneral information\, not tax advice. Merchant Financial Advisor
+ y\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1065-guide-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: NJ-1065 and partnership filing fee due (calendar-year 202
+ 6)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:form-1065-guide-llc-2@mfa-advisory.com
+DTSTAMP:20261020T181054Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:Extended Form 1065 deadline (if Form 7004 was filed by March 15)
+DESCRIPTION:The extension is for filing only. Schedules K-1 are due to pa
+ rtners by the extended due date.\n\nDetails: https://mfa-advisory.com/blo
+ g/form-1065-guide-llc/\nGeneral information\, not tax advice. Merchant Fi
+ nancial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1065-guide-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Extended Form 1065 deadline (if Form 7004 was filed by March 
+ 15)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

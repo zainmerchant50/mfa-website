@@ -232,3 +232,9 @@ img{max-width:100%;height:auto;display:block}
 .nl-page ul.nl-recent a{border:0;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--navy)}
 .nl-page ul.nl-recent .m{display:block;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
 .kd-t b{display:block;margin-bottom:2px}
+.helpbox{background:var(--navy,#10233F);color:#fff;border-radius:14px;padding:22px 26px;margin:0 0 34px;box-shadow:0 10px 30px rgba(16,35,63,.12)}
+.helpbox .hb-h{font-family:var(--serif,Georgia,serif);font-size:1.35rem;line-height:1.25;margin:0 0 6px;color:#fff}
+.helpbox .hb-p{margin:0 0 14px;color:rgba(255,255,255,.82)}
+.helpbox .hb-btns{display:flex;flex-wrap:wrap;gap:10px}
+.helpbox .btn-line{color:#fff;border-color:rgba(255,255,255,.45)}
+.helpbox-end{margin:34px 0}

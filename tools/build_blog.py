@@ -36,6 +36,16 @@ BASE = "https://mfa-advisory.com"
 BOOK_URL = BASE + "/#book"
 FORM_ENDPOINT = "https://formsubmit.co/ajax/info@mfa-advisory.com"   # same inbox as the site contact forms
 EMAIL = "info@mfa-advisory.com"
+PHONE = "(347) 205-4468"
+TEL = "+13472054468"
+# Google booking calendar (same as tools/build_landing.py BOOK_URL)
+BOOK_CAL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z1XCM1FcZDRE6VnHyWPfqXcgkL1-kxgrTJaKaM-0VCun9u0cVIziW87B0XAQGVXE51SZ0LOo9"
+# Google Ads tag on every blog page (same account as tools/build_landing.py ADS).
+# Clicks on elements with data-conv="book"|"call" fire the matching conversion label.
+ADS = {"id": "AW-18505873837", "book": "OUTYCLC_kJsdEK3zpPhE", "call": "_Z6FCLjJk5sdEK3zpPhE"}
+GTAG = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={ADS["id"]}"></script>'
+        f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{ADS['id']}');"
+        f"(function(A){{document.addEventListener('click',function(e){{var a=e.target.closest&&e.target.closest('[data-conv]');if(a&&A[a.getAttribute('data-conv')])gtag('event','conversion',{{send_to:A.id+'/'+A[a.getAttribute('data-conv')]}});}});}})({json.dumps(ADS)});</script>")
 # Newsletter signups go straight into MailerLite (account 2707043, embedded form "MFA Insights – website signup",
 # group "MFA Insights Newsletter", double opt-in ON). Unsubscribes from emails are handled by MailerLite's own
 # {$unsubscribe} link; the site's /newsletter/unsubscribe/ page is a backup that emails info@ via FormSubmit.
@@ -127,7 +137,7 @@ def nav(active):
 
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
-  <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
+  <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
   <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
 </div></footer>''' + ui_kit.UI_JS
@@ -146,8 +156,35 @@ def head(title, desc, url, image, extra="", keywords=None, og_type="website"):
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="{image}"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="alternate" type="application/rss+xml" title="MFA Insights" href="/blog/feed.xml"/>
+{GTAG}
 {FONTS}<link rel="stylesheet" href="/blog/blog.css?v={CSS_VER}"/><link rel="stylesheet" href="/blog/ui.css?v={UI_VER}"/>
 {extra}</head>'''
+
+
+def help_box(p, where="top"):
+    """'Need help with this form? Book a call' box for tax-form guides (meta "formHelp": "Form 1065")."""
+    form = p.get("formHelp")
+    if not form:
+        return ""
+    lead = (f"Filing {esc(form)} yourself and want someone to check it, or to handle it for you?" if where == "top"
+            else f"If {esc(form)} still feels like a lot, we can prepare it with you or for you.")
+    return f'''<aside class="helpbox helpbox-{where}" aria-label="Book a call about {esc(form)}">
+  <p class="hb-h">Need help with this form? Book a call</p>
+  <p class="hb-p">{lead} Book a 30-minute call or call us at {PHONE}.</p>
+  <div class="hb-btns"><a class="btn btn-gold" href="{BOOK_CAL}" target="_blank" rel="noopener" data-conv="book">Book a call</a><a class="btn btn-line" href="tel:{TEL}" data-conv="call">Call {PHONE}</a></div>
+</aside>'''
+
+
+def with_help(p, body):
+    """Insert the top help box right after the Executive summary box."""
+    box = help_box(p, "top")
+    if not box:
+        return body
+    i = body.find('<p class="bottom-line">')
+    j = body.find("</div>", i) if i >= 0 else -1
+    if j < 0:
+        return box + body
+    return body[:j + 6] + "\n" + box + body[j + 6:]
 
 
 def cta(p):
@@ -156,7 +193,7 @@ def cta(p):
   <span class="eyebrow">Talk to MFA</span>
   <h2>{esc(p.get("ctaHeadline", "Want a second set of eyes before you act?"))}</h2>
   <p>Book a 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide tax and accounting solutions for individuals and small and mid-sized businesses in New Jersey, New York and nationwide.</p>
-  <div class="cta-btns"><a class="btn btn-gold" href="{BOOK_URL}">Book a consultation</a><a class="btn btn-line" href="mailto:{EMAIL}?subject={esc(p['title'])}">Email info@mfa-advisory.com</a></div>
+  <div class="cta-btns"><a class="btn btn-gold" href="{BOOK_URL}" data-conv="book">Book a consultation</a><a class="btn btn-line" href="mailto:{EMAIL}?subject={esc(p['title'])}">Email info@mfa-advisory.com</a></div>
 </div></section>'''
 
 
@@ -514,7 +551,8 @@ def build_post(p):
   {share_bar(p, url, "share-dark")}
 </div></header>
 <main><article class="article">
-{ui_kit.accordionize_faqs(p["body"])}
+{ui_kit.accordionize_faqs(with_help(p, p["body"]))}
+{help_box(p, "end")}
 {keydates_block(p)}
 {tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>

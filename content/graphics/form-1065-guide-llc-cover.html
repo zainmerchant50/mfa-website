@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset="utf-8"/><link rel="stylesheet" href="_base.css"/><style>
+:root{--w:1200px;--h:1075px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;line-height:1;margin:30px 0 12px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-weight:300;color:rgba(255,255,255,.75)}
+.cols{display:grid;gap:16px}
+.card{border-radius:16px;overflow:hidden}
+.card.yes{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+.card.no{background:var(--paper);color:var(--navy)}
+.card .hd{font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:flex;justify-content:space-between}
+.card.yes .hd{background:var(--gold-b);color:var(--navy)}
+.card.no .hd{background:var(--navy-2);color:var(--gold-b);border-bottom:1px solid rgba(16,35,63,.1)}
+.card ul{list-style:none;display:grid;line-height:1.4}
+.card li{padding-left:28px;position:relative}
+.card li:before{position:absolute;left:0;top:0;font-weight:700}
+.card.yes li{color:rgba(255,255,255,.9)}.card.yes li b{color:#fff}
+.card.yes li:before{content:"\2713";color:var(--gold-b)}
+.card.no li:before{content:"!";color:#fff;background:var(--gold);width:18px;height:18px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;top:2px}
+.rules-hd{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-b);margin:24px 0 12px}
+.rules{display:grid;gap:12px}
+.rule{border:1px solid rgba(216,183,105,.45);border-radius:12px;color:rgba(255,255,255,.9);line-height:1.4}
+.rule b{display:block;color:#fff;font-weight:600;margin-bottom:4px}
+.rule span{color:var(--gold-b);font-size:12px;letter-spacing:.06em}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+.wrap{position:absolute;inset:70px 80px 62px}
+h1{font-size:68px}.sub{font-size:19px}
+.cols{grid-template-columns:1fr 1fr;margin-top:28px}
+.card .hd{font-size:12px;padding:11px 20px}.card ul{padding:18px 20px 20px;gap:10px;font-size:15.5px}
+.rules{grid-template-columns:repeat(4,1fr)}.rule{padding:14px 16px;font-size:13.5px}
+
+.card .row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 20px;border-top:1px solid rgba(255,255,255,.12);font-size:15.5px}
+.card.no .row{border-top:1px solid rgba(16,35,63,.1)}
+.card .row:first-of-type{border-top:0}
+.card .row b{font-family:Cormorant,serif;font-size:34px;font-weight:500;line-height:1}
+.card.yes .row b{color:var(--gold-b)}.card.no .row b{color:var(--navy)}
+.card.yes .row span{color:rgba(255,255,255,.85)}
+.card .rows{padding:6px 0 8px}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.step{border:1px solid rgba(216,183,105,.45);border-radius:12px;padding:12px 14px;color:rgba(255,255,255,.88);font-size:13.5px;line-height:1.4}
+.step i{display:block;font-style:normal;font-family:Cormorant,serif;font-size:26px;line-height:1;color:var(--gold-b);margin-bottom:4px}
+.step b{color:#fff;font-weight:600;display:block;margin-bottom:2px}
+.card .row span small{display:block;font-size:12.5px;opacity:.7;margin-top:2px}
+.card .row{gap:16px}
+.card.yes .row b,.card.no .row b{font-size:27px;white-space:nowrap}
+</style></head><body><div class="frame"></div><div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights · Save this</span><span class="tag">Form 1065</span></div>
+  <h1>Form 1065 for LLCs:<br/><em>who files, when, and how</em></h1>
+  <p class="sub">The partnership return for multi-member LLCs. The LLC pays no federal income tax; each member gets a K-1.</p>
+  <div class="cols">
+    <div class="card yes"><div class="hd"><span>Who files what</span><span>Federal</span></div><div class="rows">
+      <div class="row"><span>2+ members, no election<small>Taxed as a partnership</small></span><b>Form 1065</b></div>
+      <div class="row"><span>1 member, no election<small>Disregarded entity</small></span><b>Schedule C</b></div>
+      <div class="row"><span>Elected S corporation<small>Form 2553</small></span><b>1120-S</b></div>
+      <div class="row"><span>Elected C corporation<small>Form 8832</small></span><b>1120</b></div></div></div>
+    <div class="card no"><div class="hd"><span>2026 returns: key dates</span><span>Calendar year</span></div><div class="rows">
+      <div class="row"><span>Form 1065 and K-1s due<small>Or file Form 7004 by this date</small></span><b>Mar. 15, 2027</b></div>
+      <div class="row"><span>NJ-1065 and NJ filing fee<small>$150 per owner if 3+ owners</small></span><b>Apr. 15, 2027</b></div>
+      <div class="row"><span>Extended Form 1065 due<small>Extension to file, not to pay</small></span><b>Sept. 15, 2027</b></div>
+      <div class="row"><span>Late penalty, per partner<small>Each month late, up to 12 months</small></span><b>$260/mo</b></div></div></div>
+  </div>
+  <p class="rules-hd">Step by step</p>
+  <div class="steps">
+    <div class="step"><i>1</i><b>Confirm classification</b>2+ members and no election means Form 1065.</div>
+    <div class="step"><i>2</i><b>Close the books</b>Reconcile accounts; year-end P&amp;L and balance sheet.</div>
+    <div class="step"><i>3</i><b>Page 1</b>Income and deductions. Line 23 is ordinary income.</div>
+    <div class="step"><i>4</i><b>Schedule B</b>Accounting method, ownership and other questions.</div>
+    <div class="step"><i>5</i><b>Schedule K</b>Partnership totals, including separately stated items.</div>
+    <div class="step"><i>6</i><b>A K-1 per member</b>Shares should match your operating agreement.</div>
+    <div class="step"><i>7</i><b>L, M-1, M-2</b>Skip only if you pass all four Schedule B, Q4 tests.</div>
+    <div class="step"><i>8</i><b>File and send K-1s</b>E-file if 10+ returns of any type. Then NJ-1065.</div>
+  </div>
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com · (347) 205-4468</b><br/>General information, not tax advice. Facts checked Oct. 20, 2026.</div>
+  </div>
+</div></body></html>

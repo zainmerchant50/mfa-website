@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "Form 1065 for LLCs: Who Files, Due Date, K-1s, Step by Step",
+   "url": "/blog/form-1065-guide-llc/",
+   "date": "2026-10-20",
+   "category": "Tax Deadlines",
+   "thumb": "/blog/form-1065-guide-llc/og.png",
+   "description": "Form 1065 for LLCs in plain English: which LLCs file it, the March 15, 2027 due date, K-1s for each member, the $260 late penalty and a step-by-step guide."
+  },
+  {
    "title": "Adoption Tax Credit Refund 2026: IRS Sending Automatic Refunds",
    "url": "/blog/adoption-tax-credit-refund-2026/",
    "date": "2026-10-19",
@@ -31,14 +39,6 @@
    "category": "Tax Deadlines",
    "thumb": "/blog/nj-property-tax-relief-anchor-stay-nj-2026/og.png",
    "description": "The ANCHOR deadline for 2026 is Nov. 2. One PAS-1 form covers ANCHOR, Stay NJ (up to $6,500) and Senior Freeze. Who qualifies, amounts and who must file."
-  },
-  {
-   "title": "2027 Tax Calendar: Key IRS, New Jersey and New York Tax Deadlines",
-   "url": "/blog/2027-tax-calendar/",
-   "date": "2026-10-12",
-   "category": "Tax Deadlines",
-   "thumb": "/blog/2027-tax-calendar/og.png",
-   "description": "The 2027 tax calendar: every key IRS deadline plus New Jersey and New York due dates, from 1099s and W-2s to April 15 and estimated taxes. Save it to your calendar."
   }
  ]
 }
