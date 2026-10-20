@@ -106,7 +106,7 @@ REVIEWS = [
 FAQ = [
     ("Where are you located?", f"We're based in Princeton, NJ and work with clients across §REGION§, including {', '.join(AREA[:-1])} and {AREA[-1]}. Most work happens by video call, phone and secure document upload, so you don't need to take time off to drop off paperwork."),
     ("Who will work on my account?", "A senior team of experienced accountants and tax professionals, led by founder Zain Merchant, a member of ACCA (the Association of Chartered Certified Accountants, UK) with Big Four audit and assurance experience. For engagements that require a licensed CPA, we partner with licensed CPAs. You get one point of contact who knows your file."),
-    ("How much do you charge?", "You choose how you pay. Ongoing bookkeeping and advisory are usually a flat monthly fee, so your cost is predictable. One-off projects like cleanups and catch-up work get a project quote, and we also work on hourly contracts if you prefer to pay as you go. Bookkeeping pricing depends mainly on how many transactions you have each month, the number of accounts, the complexity of your business, and whether your books are kept on a cash or accrual basis. Every engagement is quoted upfront after a free consultation."),
+    ("How much do you charge?", "You choose how you pay. Ongoing bookkeeping and advisory are usually a flat monthly fee, so your cost is predictable. One-off projects like cleanups and catch-up work get a project quote, and we also work on hourly contracts if you prefer to pay as you go. Bookkeeping pricing depends mainly on how many transactions you have each month, the number of accounts, the complexity of your business, and whether your books are kept on a cash or accrual basis. Every engagement is quoted upfront after an initial consultation."),
     ("I'm behind on my books or haven't filed. Can you help?", "Yes. Catch-up bookkeeping and prior-year returns are a regular part of our work. We rebuild the records, reconcile every account and get your filings current."),
     ("Do you work with QuickBooks?", "Yes. We're a QuickBooks ProAdvisor and handle QuickBooks Online setup, cleanup and ongoing bookkeeping. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
     ("What should I bring to the first call?", "For bookkeeping, tell us roughly how many accounts your business has, including bank accounts, credit cards and loans (an estimate is fine). That tells us your approximate monthly transaction volume, which, together with complexity, is what drives bookkeeping pricing. If you know whether your books are on a cash or accrual basis, mention that too; if not, we'll work it out together. For tax returns, have last year's return handy if you can."),
@@ -259,11 +259,11 @@ call_top = f'<a href="tel:{tel}" class="tel" data-conv="call">{phone_ico}<span>{
 page = f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ | MFA</title>
-<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in §CITY§, NJ. QuickBooks ProAdvisor, Big Four trained, flat-fee or hourly pricing quoted upfront. Book a free 30-minute consultation."/>
+<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in §CITY§, NJ. QuickBooks ProAdvisor, Big Four trained, flat-fee or hourly pricing quoted upfront. Book a 30-minute consultation."/>
 <link rel="canonical" href="{URL}"/>
 <meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/>
 <meta property="og:title" content="Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ"/>
-<meta property="og:description" content="Clean monthly books and accurate tax returns for §REGION§ small businesses and households. Free 30-minute consultation."/>
+<meta property="og:description" content="Clean monthly books and accurate tax returns for §REGION§ small businesses and households. 30-minute consultation, clear quote upfront."/>
 <meta property="og:url" content="{URL}"/><meta property="og:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -274,7 +274,7 @@ page = f'''<!doctype html><html lang="en"><head>
 
 <header class="top"><div class="wrap">
   <a href="/" class="brand" aria-label="Merchant Financial Advisory home"><img src="/apple-touch-icon.png" alt="" width="38" height="38"/><span><b>Merchant</b><i>Financial Advisory</i></span></a>
-  <div class="top-act">{call_top}<a href="#book" class="btn btn-ink" data-conv="book">{cal_ico}Free consultation</a></div>
+  <div class="top-act">{call_top}<a href="#book" class="btn btn-ink" data-conv="book">{cal_ico}Book a consultation</a></div>
 </div></header>
 
 <main>
@@ -283,11 +283,11 @@ page = f'''<!doctype html><html lang="en"><head>
     <span class="eyebrow">§CITY§ · §REGION§, NJ</span>
     <h1 id="h1">{d["h1"]}</h1>
     <p class="lead" id="lead">{d["lead"]}</p>
-    <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a free 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
+    <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
     <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}Big Four experience</span><span>{check}Flat-fee or hourly pricing</span></div>
   </div>
   <div class="hero-card" id="quote">
-    <h2>Get a free quote</h2>
+    <h2>Get a quote</h2>
     <p class="s">Tell us what you need. We reply within one to three business days.</p>
     <form id="lf" novalidate>
       <div class="row"><div class="f"><label for="f-n">Name *</label><input id="f-n" name="name" autocomplete="name" required/></div>
@@ -314,7 +314,7 @@ page = f'''<!doctype html><html lang="en"><head>
 <section class="sec alt"><div class="wrap">
   <div class="sec-hd"><span class="eyebrow">How it works</span><h2>Three steps to books and taxes you don't have to think about</h2></div>
   <div class="steps">
-    <div class="step"><h3>Free 30-minute call</h3><p>We look at where you are today: your books, your last return and what's coming up.</p></div>
+    <div class="step"><h3>30-minute call</h3><p>We look at where you are today: your books, your last return and what's coming up.</p></div>
     <div class="step"><h3>A clear quote</h3><p>You get the scope and price before any work starts: a flat monthly fee, a project fee, or hourly if you prefer.</p></div>
     <div class="step"><h3>We take it from there</h3><p>Secure document upload, monthly books, and returns filed on time, with one person you can call.</p></div>
   </div>
@@ -325,7 +325,7 @@ page = f'''<!doctype html><html lang="en"><head>
   <div class="why">
     <div><b>Senior team</b><span>experienced accountants and tax professionals with 10+ years in accounting, audit and tax, including at Big Four firms</span></div>
     <div><b>ProAdvisor</b><span>QuickBooks Online setup, cleanup and support</span></div>
-    <div><b>Flexible pricing</b><span>flat monthly, project or hourly, quoted upfront after a free consultation</span></div>
+    <div><b>Flexible pricing</b><span>flat monthly, project or hourly, quoted upfront after an initial consultation</span></div>
     <div><b>Direct access</b><span>you talk to your advisor, not a call center or a seasonal temp</span></div>
   </div>
 </div></section>
@@ -337,8 +337,8 @@ page = f'''<!doctype html><html lang="en"><head>
 
 <section class="sec" id="book"><div class="wrap">
   <div class="sec-hd"><span class="eyebrow">Book a call</span><h2>Thirty minutes. Your numbers, our full attention.</h2>
-  <p>Pick a time that works for you. It's free, it's on Google Meet, and you'll leave knowing what to fix first and what it will cost.</p></div>
-  <div class="book-frame"><iframe src="{BOOK_URL}?gv=true" title="Book a free consultation with Merchant Financial Advisory" loading="lazy"></iframe></div>
+  <p>Pick a time that works for you. It's 30 minutes on Google Meet, and you'll leave knowing what to fix first and what it will cost.</p></div>
+  <div class="book-frame"><iframe src="{BOOK_URL}?gv=true" title="Book a consultation with Merchant Financial Advisory" loading="lazy"></iframe></div>
   <p class="book-alt">Calendar not loading? <a href="{BOOK_URL}" target="_blank" rel="noopener" data-conv="book">Open the booking page</a> or email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
   <div class="area" aria-label="Areas served">{"".join(f"<span>{c}</span>" for c in AREA)}</div>
 </div></section>
@@ -350,18 +350,18 @@ page = f'''<!doctype html><html lang="en"><head>
 
 <section class="final"><div class="wrap">
   <h2>Let's get your books and taxes in order.</h2>
-  <p>Free consultation. Clear quote. No obligation.</p>
-  <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a free call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}<a href="#quote" class="btn btn-line">Get a quote</a></div>
+  <p>A 30-minute call. A clear quote. No obligation.</p>
+  <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}<a href="#quote" class="btn btn-line">Get a quote</a></div>
 </div></section>
 </main>
 
 <footer><div class="wrap">
-  <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Princeton, NJ · Serving §CITY§ &amp; §REGION§ · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
+  <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Accounting, tax and business solutions · Princeton, NJ · Serving §CITY§ &amp; §REGION§ · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
   <nav><a href="/">Main site</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
   <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc.; MFA is not affiliated with or endorsed by Intuit.</p>
 </div></footer>
 
-<div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#book" class="btn btn-gold" data-conv="book">Book free call</a></div>
+<div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#book" class="btn btn-gold" data-conv="book">Book a call</a></div>
 <script>{JS % (json.dumps(variants_js, ensure_ascii=False), json.dumps(ADS), json.dumps(FORM_ENDPOINT), EMAIL)}</script>
 {ui_kit.UI_JS}
 </body></html>
