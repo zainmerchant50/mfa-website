@@ -1,0 +1,530 @@
+{
+ "meta": {
+  "year": 2027,
+  "owner": "Blog session (verified data)",
+  "checked": "2026-10-20T18:18-04:00",
+  "scope": "Calendar-year filers. Fiscal-year entities have different dates. Federal dates checked against the IRS draft Publication 509 for 2027; state dates from MFA's 2027 tax calendar post (checked 2026-10-12) unless the entry's own checked stamp is newer.",
+  "format": "Each entry: {date (YYYY-MM-DD), form, what, jurisdiction (federal|NJ|NY), source_url, checked[, note]}",
+  "disclaimer": "Educational information, not tax advice. Dates move when the IRS or a state announces disaster relief or changes."
+ },
+ "entities": {
+  "sole_proprietor": [
+   {
+    "date": "2027-01-15",
+    "form": "NJ-1040-ES",
+    "what": "Fourth 2026 estimated tax payment",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-01-15",
+    "form": "IT-2105",
+    "what": "Fourth 2026 estimated tax payment",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pdf/current_forms/it/it2105i.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-01-15",
+    "form": "1040-ES",
+    "what": "Fourth 2026 estimated tax payment",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-02-01",
+    "form": "1099-NEC",
+    "what": "Send 1099-NECs to contractors and file them with the IRS (2026 payments of $2,000 or more)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00",
+    "note": "Only if you paid contractors"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "NJ-1040",
+    "what": "2026 New Jersey return due; NJ-630 extends to Oct. 15 if at least 80% of the tax is paid by April 15",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/njit20.shtml",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "NJ-1040-ES",
+    "what": "First 2027 estimated tax payment",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "IT-201 / IT-203",
+    "what": "2026 New York return due; IT-370 extends filing (not payment) six months",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/forms/current-forms/it/it370i.htm",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "IT-2105",
+    "what": "First 2027 estimated tax payment",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pdf/current_forms/it/it2105i.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "1040-ES",
+    "what": "First 2027 estimated tax payment",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "1040 + Schedule C + Schedule SE",
+    "what": "File the 2026 return and pay any balance; Form 4868 extends filing (not payment) to Oct. 15",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-06-15",
+    "form": "NJ-1040-ES",
+    "what": "Second 2027 estimated tax payment",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-06-15",
+    "form": "IT-2105",
+    "what": "Second 2027 estimated tax payment",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pdf/current_forms/it/it2105i.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-06-15",
+    "form": "1040-ES",
+    "what": "Second 2027 estimated tax payment",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-09-15",
+    "form": "NJ-1040-ES",
+    "what": "Third 2027 estimated tax payment",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-09-15",
+    "form": "IT-2105",
+    "what": "Third 2027 estimated tax payment",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pdf/current_forms/it/it2105i.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-09-15",
+    "form": "1040-ES",
+    "what": "Third 2027 estimated tax payment",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-10-15",
+    "form": "1040 (extended)",
+    "what": "Extended 2026 return due",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2028-01-18",
+    "form": "NJ-1040-ES",
+    "what": "Fourth 2027 estimated tax payment",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf",
+    "checked": "2026-10-20T18:18-04:00",
+    "note": "Jan. 15, 2028 is a Saturday and Jan. 17 is Martin Luther King Jr. Day; confirm when the 2027 estimated tax forms are released"
+   },
+   {
+    "date": "2028-01-18",
+    "form": "IT-2105",
+    "what": "Fourth 2027 estimated tax payment",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pdf/current_forms/it/it2105i.pdf",
+    "checked": "2026-10-20T18:18-04:00",
+    "note": "Jan. 15, 2028 is a Saturday and Jan. 17 is Martin Luther King Jr. Day; confirm when the 2027 estimated tax forms are released"
+   },
+   {
+    "date": "2028-01-18",
+    "form": "1040-ES",
+    "what": "Fourth 2027 estimated tax payment",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+    "checked": "2026-10-20T18:18-04:00",
+    "note": "Jan. 15, 2028 is a Saturday and Jan. 17 is Martin Luther King Jr. Day; confirm when the 2027 estimated tax forms are released"
+   }
+  ],
+  "partnership": [
+   {
+    "date": "2027-02-01",
+    "form": "1099-NEC",
+    "what": "Send 1099-NECs to contractors and file them with the IRS (2026 payments of $2,000 or more)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00",
+    "note": "Only if you paid contractors"
+   },
+   {
+    "date": "2027-03-01",
+    "form": "1099 (paper)",
+    "what": "Paper Forms 1099 (other than 1099-NEC) due to the IRS with Form 1096",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-03-15",
+    "form": "NY PTET",
+    "what": "Last day to opt in to New York PTET for 2027; 2026 PTET return and first 2027 PTET estimate due",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/bus/ptet/",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-03-15",
+    "form": "1065 + Schedules K-1",
+    "what": "Partnership return due; give each partner a K-1. Form 7004 extends to Sept. 15",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-03-31",
+    "form": "1099 (electronic)",
+    "what": "Electronic filing deadline for most Forms 1099 (not 1099-NEC)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "NJ-1065",
+    "what": "New Jersey partnership return and filing fee due (15th day of the 4th month)",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/part/1065i.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-09-15",
+    "form": "1065 (extended)",
+    "what": "Extended partnership return and final K-1s due",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   }
+  ],
+  "s_corporation": [
+   {
+    "date": "2027-02-01",
+    "form": "1099-NEC",
+    "what": "Send 1099-NECs to contractors and file them with the IRS (2026 payments of $2,000 or more)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00",
+    "note": "Only if you paid contractors"
+   },
+   {
+    "date": "2027-03-01",
+    "form": "1099 (paper)",
+    "what": "Paper Forms 1099 (other than 1099-NEC) due to the IRS with Form 1096",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-03-15",
+    "form": "NY PTET",
+    "what": "Last day to opt in to New York PTET for 2027; 2026 PTET return and first 2027 PTET estimate due",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/bus/ptet/",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-03-15",
+    "form": "1120-S + Schedules K-1",
+    "what": "S corporation return due; give each shareholder a K-1. Form 7004 extends to Sept. 15",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-03-15",
+    "form": "2553",
+    "what": "Last day to elect S corporation status starting with the 2027 tax year (calendar-year entities)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-03-31",
+    "form": "1099 (electronic)",
+    "what": "Electronic filing deadline for most Forms 1099 (not 1099-NEC)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-09-15",
+    "form": "1120-S (extended)",
+    "what": "Extended S corporation return and final K-1s due",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   }
+  ],
+  "c_corporation": [
+   {
+    "date": "2027-02-01",
+    "form": "1099-NEC",
+    "what": "Send 1099-NECs to contractors and file them with the IRS (2026 payments of $2,000 or more)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00",
+    "note": "Only if you paid contractors"
+   },
+   {
+    "date": "2027-03-01",
+    "form": "1099 (paper)",
+    "what": "Paper Forms 1099 (other than 1099-NEC) due to the IRS with Form 1096",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-03-31",
+    "form": "1099 (electronic)",
+    "what": "Electronic filing deadline for most Forms 1099 (not 1099-NEC)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "1120",
+    "what": "C corporation return due; Form 7004 extends to Oct. 15",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-04-15",
+    "form": "1120-W (estimates)",
+    "what": "First 2027 corporate estimated tax deposit",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-06-15",
+    "form": "1120-W (estimates)",
+    "what": "Second 2027 corporate estimated tax deposit",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-09-15",
+    "form": "1120-W (estimates)",
+    "what": "Third 2027 corporate estimated tax deposit",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-10-15",
+    "form": "1120 (extended)",
+    "what": "Extended C corporation return due",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-12-15",
+    "form": "1120-W (estimates)",
+    "what": "Fourth 2027 corporate estimated tax deposit",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   }
+  ],
+  "employer": [
+   {
+    "date": "2027-02-01",
+    "form": "NYS-45 (Q4 2026)",
+    "what": "New York quarterly withholding, wage reporting and unemployment insurance return",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/help/calendar/2026.htm",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-02-01",
+    "form": "W-2 / W-3",
+    "what": "Give employees 2026 W-2s and file W-2/W-3 with the Social Security Administration",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-02-01",
+    "form": "941 (Q4 2026) and 940",
+    "what": "Quarterly payroll return for Q4 2026 and annual FUTA return (Feb. 10 if all tax was deposited on time)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-04-30",
+    "form": "NYS-45 (Q1)",
+    "what": "New York quarterly return for Q1 2027",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/help/calendar/2026.htm",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-04-30",
+    "form": "941 (Q1)",
+    "what": "Quarterly payroll return for Q1 2027 (May 10 if deposited on time)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-08-02",
+    "form": "NYS-45 (Q2)",
+    "what": "New York quarterly return for Q2 2027",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/help/calendar/2026.htm",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-08-02",
+    "form": "941 (Q2)",
+    "what": "Quarterly payroll return for Q2 2027 (Aug. 10 if deposited on time)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   },
+   {
+    "date": "2027-11-01",
+    "form": "NYS-45 (Q3)",
+    "what": "New York quarterly return for Q3 2027",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/help/calendar/2026.htm",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-11-01",
+    "form": "941 (Q3)",
+    "what": "Quarterly payroll return for Q3 2027 (Nov. 10 if deposited on time)",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/pub/irs-dft/p509--dft.pdf",
+    "checked": "2026-10-20T18:18-04:00"
+   }
+  ],
+  "nonprofit": [
+   {
+    "date": "2027-05-17",
+    "form": "990 / 990-EZ / 990-PF / 990-N",
+    "what": "Annual return for calendar-year exempt organizations (15th day of the 5th month; May 15 is a Saturday). Form 8868 extends 990/990-EZ/990-PF by six months; 990-N can't be extended",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/charities-non-profits/annual-exempt-organization-return-due-date",
+    "checked": "2026-10-20T18:18-04:00",
+    "note": "If the organization has employees, the employer dates also apply"
+   },
+   {
+    "date": "2027-11-15",
+    "form": "990 (extended)",
+    "what": "Extended due date with Form 8868",
+    "jurisdiction": "federal",
+    "source_url": "https://www.irs.gov/charities-non-profits/annual-exempt-organization-return-due-date",
+    "checked": "2026-10-20T18:18-04:00"
+   }
+  ],
+  "sales_tax_seller": [
+   {
+    "date": "2027-01-20",
+    "form": "NJ ST-50",
+    "what": "Quarterly sales and use tax return, Oct.\u2013Dec. 2026",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/su_12.shtml",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-03-22",
+    "form": "NY quarterly sales tax",
+    "what": "Quarterly return, Dec. 2026\u2013Feb. 2027 (March 20 is a Saturday)",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/filing_requirements_for_sales_and_use_tax_returns.htm",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-04-20",
+    "form": "NJ ST-50",
+    "what": "Quarterly return, Jan.\u2013March 2027",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/su_12.shtml",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-06-21",
+    "form": "NY quarterly sales tax",
+    "what": "Quarterly return, March\u2013May 2027 (June 20 is a Sunday)",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/filing_requirements_for_sales_and_use_tax_returns.htm",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-07-20",
+    "form": "NJ ST-50",
+    "what": "Quarterly return, April\u2013June 2027",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/su_12.shtml",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-09-20",
+    "form": "NY quarterly sales tax",
+    "what": "Quarterly return, June\u2013Aug. 2027",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/filing_requirements_for_sales_and_use_tax_returns.htm",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-10-20",
+    "form": "NJ ST-50",
+    "what": "Quarterly return, July\u2013Sept. 2027",
+    "jurisdiction": "NJ",
+    "source_url": "https://www.nj.gov/treasury/taxation/su_12.shtml",
+    "checked": "2026-10-12"
+   },
+   {
+    "date": "2027-12-20",
+    "form": "NY quarterly sales tax",
+    "what": "Quarterly return, Sept.\u2013Nov. 2027",
+    "jurisdiction": "NY",
+    "source_url": "https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/filing_requirements_for_sales_and_use_tax_returns.htm",
+    "checked": "2026-10-12"
+   }
+  ]
+ }
+}
