@@ -68,6 +68,10 @@ ROWS = [  # (feature, formation, setup, launch)
 ICO_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
 
 
+def lc1(t):
+    return (t[:1].lower() + t[1:]) if t else ""
+
+
 def v(s, k):
     f = s.get(k)
     return f.get("value") if isinstance(f, dict) else None
@@ -243,7 +247,7 @@ def build_main():
              ("You're ready to operate", "Your documents, EIN and calendar, plus tax registration and QuickBooks if your package includes them.")]
     steps_html = "".join(f'<div class="st3 card"><span class="st3-n">{i}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></div>' for i, (a, b) in enumerate(steps, 1))
     first_year = [
-        ("Week 1", "LLC filed, EIN issued, operating agreement signed. Open your business bank account."),
+        ("Right after filing", "LLC filed, EIN issued, operating agreement signed. Open your business bank account."),
         ("Within 60 days (NJ)", "File NJ-REG for state tax registration, sooner if you'll collect sales tax. New York has no general registration, but sales tax sellers register at least 20 days before starting."),
         ("Within 120 days (NY)", "Finish the publication requirement and file the Certificate of Publication."),
         ("If an S corp fits", "File Form 2553 on time and set up payroll for a reasonable salary."),
@@ -301,11 +305,11 @@ def build_state(code):
             ("State filing fee", f"${fee}" if fee is not None else "Varies"),
             ("Name reservation (optional)", f"${v(s, 'name_reservation_fee')}" if v(s, "name_reservation_fee") is not None else "—")]
     if v(s, "annual_report_fee") is not None:
-        rows.append(("Annual report", f"${v(s, 'annual_report_fee')}; due {esc((v(s, 'annual_report_due') or '').lower())}"))
+        rows.append(("Annual report", f"${v(s, 'annual_report_fee')}; due {esc(lc1(v(s, 'annual_report_due') or ''))}"))
     else:
         note = (s.get("annual_report_fee") or {}).get("note", "")
         bi = v(s, "biennial_statement_fee")
-        rows.append(("Annual report", esc(note) + (f" Biennial statement: ${bi}; {esc((v(s, 'annual_report_due') or '').lower())}." if bi else "")))
+        rows.append(("Annual report", esc(note) + (f" Biennial statement: ${bi}; {esc(lc1(v(s, 'annual_report_due') or ''))}." if bi else "")))
     if pub:
         rows.append(("Publication", f"Publish once a week for {pub['weeks']} weeks in {pub['newspapers']} newspapers designated by the county clerk, "
                                     f"then file the Certificate of Publication (${pub['certificate_of_publication_fee']}) within {pub['deadline_days']} days of forming."))
