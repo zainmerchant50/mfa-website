@@ -89,7 +89,8 @@ TOOLS = [
     ("templates", "Mileage log & receipt log", "Simple logs that hold up if the IRS asks.", None, "doc", "mileage log receipt log", ""),
     ("templates", "Month-end close checklist", "The steps to close your books cleanly every month.", None, "list", "month end close checklist", ""),
     ("templates", "Chart of accounts samples", "Starter charts of accounts for service, retail and construction businesses.", None, "doc", "chart of accounts quickbooks", ""),
-    ("states", "LLC formation by state", "Filing fees, processing times, annual reports and official links for every state.", None, "map", "llc formation state fee annual report", ""),
+    ("states", "LLC formation: NJ & NY fees and first-year cost", "State filing fees, annual reports, tax registration and your first-year total, from the official state sources.",
+     "/llc-formation/", "map", "llc formation state fee annual report new jersey new york", "New"),
 ]
 
 
@@ -396,5 +397,7 @@ document.addEventListener('input',run);run();})();
 if __name__ == "__main__":
     posts = B.load_posts()
     urls = [build_hub(posts), build_1099(), build_w9(), build_breakeven(), build_margin()]
+    import build_llc  # noqa: E402  (LLC formation pages share this file's helpers)
+    urls += build_llc.build_all()
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))
