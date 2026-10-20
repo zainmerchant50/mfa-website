@@ -1,0 +1,774 @@
+{
+ "meta": {
+  "tax_year": 2026,
+  "owner": "Blog session (verified data)",
+  "checked": "2026-10-20T18:16-04:00",
+  "format": "Every figure is {value, source_url, checked[, note]}. Brackets: tax = base_tax + rate x (income - over), except NJ, where tax = income x rate - subtract (as on the NJ-1040-ES worksheet). not_over null = no upper limit.",
+  "disclaimer": "Educational estimates only, not tax advice. Figures reflect law in effect when checked; recheck before each tax season."
+ },
+ "federal": {
+  "self_employment_tax_rate": {
+   "value": 0.153,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "12.4% Social Security + 2.9% Medicare"
+  },
+  "social_security_rate_se": {
+   "value": 0.124,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "medicare_rate_se": {
+   "value": 0.029,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "net_earnings_factor": {
+   "value": 0.9235,
+   "source_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "SE tax applies to 92.35% of net profit"
+  },
+  "se_tax_minimum_net_earnings": {
+   "value": 400,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "SE tax applies when net earnings are $400 or more"
+  },
+  "se_tax_deduction_share": {
+   "value": 0.5,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Employer-equivalent portion (half) of SE tax is deductible in figuring AGI; it doesn't reduce SE tax itself"
+  },
+  "social_security_wage_base": {
+   "value": 184500,
+   "source_url": "https://www.ssa.gov/oact/cola/cbb.html",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Also stated in the 2026 Form 1040-ES instructions"
+  },
+  "additional_medicare_rate": {
+   "value": 0.009,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "additional_medicare_thresholds": {
+   "value": {
+    "single": 200000,
+    "head_of_household": 200000,
+    "qualifying_surviving_spouse": 200000,
+    "married_joint": 250000,
+    "married_separate": 125000
+   },
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Not indexed for inflation"
+  },
+  "brackets": {
+   "value": {
+    "single": [
+     {
+      "over": 0,
+      "not_over": 12400,
+      "rate": 0.1,
+      "base_tax": 0
+     },
+     {
+      "over": 12400,
+      "not_over": 50400,
+      "rate": 0.12,
+      "base_tax": 1240
+     },
+     {
+      "over": 50400,
+      "not_over": 105700,
+      "rate": 0.22,
+      "base_tax": 5800
+     },
+     {
+      "over": 105700,
+      "not_over": 201775,
+      "rate": 0.24,
+      "base_tax": 17966
+     },
+     {
+      "over": 201775,
+      "not_over": 256225,
+      "rate": 0.32,
+      "base_tax": 41024
+     },
+     {
+      "over": 256225,
+      "not_over": 640600,
+      "rate": 0.35,
+      "base_tax": 58448
+     },
+     {
+      "over": 640600,
+      "not_over": null,
+      "rate": 0.37,
+      "base_tax": 192979.25
+     }
+    ],
+    "married_joint": [
+     {
+      "over": 0,
+      "not_over": 24800,
+      "rate": 0.1,
+      "base_tax": 0
+     },
+     {
+      "over": 24800,
+      "not_over": 100800,
+      "rate": 0.12,
+      "base_tax": 2480
+     },
+     {
+      "over": 100800,
+      "not_over": 211400,
+      "rate": 0.22,
+      "base_tax": 11600
+     },
+     {
+      "over": 211400,
+      "not_over": 403550,
+      "rate": 0.24,
+      "base_tax": 35932
+     },
+     {
+      "over": 403550,
+      "not_over": 512450,
+      "rate": 0.32,
+      "base_tax": 82048
+     },
+     {
+      "over": 512450,
+      "not_over": 768700,
+      "rate": 0.35,
+      "base_tax": 116896
+     },
+     {
+      "over": 768700,
+      "not_over": null,
+      "rate": 0.37,
+      "base_tax": 206583.5
+     }
+    ],
+    "married_separate": [
+     {
+      "over": 0,
+      "not_over": 12400,
+      "rate": 0.1,
+      "base_tax": 0
+     },
+     {
+      "over": 12400,
+      "not_over": 50400,
+      "rate": 0.12,
+      "base_tax": 1240
+     },
+     {
+      "over": 50400,
+      "not_over": 105700,
+      "rate": 0.22,
+      "base_tax": 5800
+     },
+     {
+      "over": 105700,
+      "not_over": 201775,
+      "rate": 0.24,
+      "base_tax": 17966
+     },
+     {
+      "over": 201775,
+      "not_over": 256225,
+      "rate": 0.32,
+      "base_tax": 41024
+     },
+     {
+      "over": 256225,
+      "not_over": 384350,
+      "rate": 0.35,
+      "base_tax": 58448
+     },
+     {
+      "over": 384350,
+      "not_over": null,
+      "rate": 0.37,
+      "base_tax": 103291.75
+     }
+    ],
+    "head_of_household": [
+     {
+      "over": 0,
+      "not_over": 17700,
+      "rate": 0.1,
+      "base_tax": 0
+     },
+     {
+      "over": 17700,
+      "not_over": 67450,
+      "rate": 0.12,
+      "base_tax": 1770
+     },
+     {
+      "over": 67450,
+      "not_over": 105700,
+      "rate": 0.22,
+      "base_tax": 7740
+     },
+     {
+      "over": 105700,
+      "not_over": 201750,
+      "rate": 0.24,
+      "base_tax": 16155
+     },
+     {
+      "over": 201750,
+      "not_over": 256200,
+      "rate": 0.32,
+      "base_tax": 39207
+     },
+     {
+      "over": 256200,
+      "not_over": 640600,
+      "rate": 0.35,
+      "base_tax": 56631
+     },
+     {
+      "over": 640600,
+      "not_over": null,
+      "rate": 0.37,
+      "base_tax": 191171
+     }
+    ]
+   },
+   "source_url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Rev. Proc. 2025-32 section 4.01, taxable years beginning in 2026"
+  },
+  "standard_deduction": {
+   "value": {
+    "single": 16100,
+    "married_separate": 16100,
+    "married_joint": 32200,
+    "qualifying_surviving_spouse": 32200,
+    "head_of_household": 24150
+   },
+   "source_url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Rev. Proc. 2025-32 section 4.14"
+  },
+  "additional_standard_deduction_aged_blind": {
+   "value": {
+    "married": 1650,
+    "unmarried": 2050
+   },
+   "source_url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "estimated_tax_due_dates_2026": {
+   "value": [
+    "2026-04-15",
+    "2026-06-15",
+    "2026-09-15",
+    "2027-01-15"
+   ],
+   "source_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "estimated_tax_due_dates_2027": {
+   "value": [
+    "2027-04-15",
+    "2027-06-15",
+    "2027-09-15",
+    "2028-01-18"
+   ],
+   "source_url": "https://mfa-advisory.com/blog/2027-tax-calendar/",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "From MFA's 2027 tax calendar (IRS draft Pub 509 for 2027); Jan. 15, 2028 falls on a weekend and the next business day after the Jan. 17 holiday is Jan. 18. Recheck against the final 2027 Form 1040-ES."
+  },
+  "estimated_tax_threshold": {
+   "value": 1000,
+   "source_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Estimates generally required if you expect to owe $1,000 or more after withholding and refundable credits"
+  },
+  "estimated_tax_safe_harbor": {
+   "value": {
+    "current_year_pct": 0.9,
+    "prior_year_pct": 1.0,
+    "prior_year_pct_high_income": 1.1,
+    "high_income_agi_over": 150000,
+    "high_income_agi_over_mfs": 75000
+   },
+   "source_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+   "checked": "2026-10-20T18:16-04:00"
+  }
+ },
+ "mileage": {
+  "business_rate_2026_jan_jun": {
+   "value": 0.725,
+   "source_url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Jan. 1 \u2013 June 30, 2026 (Notice 2026-10)"
+  },
+  "business_rate_2026_jul_dec": {
+   "value": 0.76,
+   "source_url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "July 1 \u2013 Dec. 31, 2026 (Announcement 2026-11, IRB 2026-29)"
+  },
+  "medical_military_moving_rate_2026_jan_jun": {
+   "value": 0.205,
+   "source_url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "medical_military_moving_rate_2026_jul_dec": {
+   "value": 0.235,
+   "source_url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "charitable_rate_2026": {
+   "value": 0.14,
+   "source_url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Set by statute; unchanged all year"
+  }
+ },
+ "home_office_simplified": {
+  "rate_per_sq_ft": {
+   "value": 5,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "max_sq_ft": {
+   "value": 300,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "max_deduction": {
+   "value": 1500,
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "300 sq ft x $5"
+  },
+  "limit_note": {
+   "value": "Can't exceed gross income from the business use of the home minus business expenses; no carryover; space must be used regularly and exclusively for business",
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction",
+   "checked": "2026-10-20T18:16-04:00"
+  }
+ },
+ "new_jersey": {
+  "brackets": {
+   "value": {
+    "single_or_married_separate": [
+     {
+      "over": 0,
+      "not_over": 20000,
+      "rate": 0.014,
+      "subtract": 0
+     },
+     {
+      "over": 20000,
+      "not_over": 50000,
+      "rate": 0.0175,
+      "subtract": 70
+     },
+     {
+      "over": 50000,
+      "not_over": 70000,
+      "rate": 0.0245,
+      "subtract": 420
+     },
+     {
+      "over": 70000,
+      "not_over": 80000,
+      "rate": 0.035,
+      "subtract": 1154.5
+     },
+     {
+      "over": 80000,
+      "not_over": 150000,
+      "rate": 0.05525,
+      "subtract": 2775
+     },
+     {
+      "over": 150000,
+      "not_over": 500000,
+      "rate": 0.0637,
+      "subtract": 4042.5
+     },
+     {
+      "over": 500000,
+      "not_over": 1000000,
+      "rate": 0.0897,
+      "subtract": 17042.5
+     },
+     {
+      "over": 1000000,
+      "not_over": null,
+      "rate": 0.1075,
+      "subtract": 34842.5
+     }
+    ],
+    "married_joint_hoh_surviving_spouse": [
+     {
+      "over": 0,
+      "not_over": 20000,
+      "rate": 0.014,
+      "subtract": 0
+     },
+     {
+      "over": 20000,
+      "not_over": 35000,
+      "rate": 0.0175,
+      "subtract": 70
+     },
+     {
+      "over": 35000,
+      "not_over": 40000,
+      "rate": 0.035,
+      "subtract": 682.5
+     },
+     {
+      "over": 40000,
+      "not_over": 75000,
+      "rate": 0.05525,
+      "subtract": 1492.5
+     },
+     {
+      "over": 75000,
+      "not_over": 500000,
+      "rate": 0.0637,
+      "subtract": 2126.25
+     },
+     {
+      "over": 500000,
+      "not_over": 1000000,
+      "rate": 0.0897,
+      "subtract": 15126.25
+     },
+     {
+      "over": 1000000,
+      "not_over": null,
+      "rate": 0.1075,
+      "subtract": 32926.25
+     }
+    ]
+   },
+   "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "2026 NJ-1040-ES worksheet Tables A and B"
+  },
+  "estimated_tax_due_dates_2026": {
+   "value": [
+    "2026-04-15",
+    "2026-06-15",
+    "2026-09-15",
+    "2027-01-15"
+   ],
+   "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Jan. 15 payment not needed if the return is filed and paid in full by Feb. 15, 2027"
+  },
+  "estimated_tax_threshold": {
+   "value": 400,
+   "source_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "Estimates may be needed if you expect to owe more than $400"
+  }
+ },
+ "new_york_state": {
+  "brackets": {
+   "value": {
+    "married_joint": [
+     {
+      "over": 0,
+      "not_over": 17150,
+      "rate": 0.039,
+      "base_tax": 0
+     },
+     {
+      "over": 17150,
+      "not_over": 23600,
+      "rate": 0.044,
+      "base_tax": 669
+     },
+     {
+      "over": 23600,
+      "not_over": 27900,
+      "rate": 0.0515,
+      "base_tax": 953
+     },
+     {
+      "over": 27900,
+      "not_over": 161550,
+      "rate": 0.054,
+      "base_tax": 1174
+     },
+     {
+      "over": 161550,
+      "not_over": 323200,
+      "rate": 0.059,
+      "base_tax": 8391
+     },
+     {
+      "over": 323200,
+      "not_over": 2155350,
+      "rate": 0.0685,
+      "base_tax": 17928
+     },
+     {
+      "over": 2155350,
+      "not_over": 5000000,
+      "rate": 0.0965,
+      "base_tax": 143430
+     },
+     {
+      "over": 5000000,
+      "not_over": 25000000,
+      "rate": 0.103,
+      "base_tax": 417939
+     },
+     {
+      "over": 25000000,
+      "not_over": null,
+      "rate": 0.109,
+      "base_tax": 2477939
+     }
+    ],
+    "single_or_married_separate": [
+     {
+      "over": 0,
+      "not_over": 8500,
+      "rate": 0.039,
+      "base_tax": 0
+     },
+     {
+      "over": 8500,
+      "not_over": 11700,
+      "rate": 0.044,
+      "base_tax": 332
+     },
+     {
+      "over": 11700,
+      "not_over": 13900,
+      "rate": 0.0515,
+      "base_tax": 473
+     },
+     {
+      "over": 13900,
+      "not_over": 80650,
+      "rate": 0.054,
+      "base_tax": 586
+     },
+     {
+      "over": 80650,
+      "not_over": 215400,
+      "rate": 0.059,
+      "base_tax": 4191
+     },
+     {
+      "over": 215400,
+      "not_over": 1077550,
+      "rate": 0.0685,
+      "base_tax": 12141
+     },
+     {
+      "over": 1077550,
+      "not_over": 5000000,
+      "rate": 0.0965,
+      "base_tax": 71198
+     },
+     {
+      "over": 5000000,
+      "not_over": 25000000,
+      "rate": 0.103,
+      "base_tax": 449714
+     },
+     {
+      "over": 25000000,
+      "not_over": null,
+      "rate": 0.109,
+      "base_tax": 2509714
+     }
+    ],
+    "head_of_household": [
+     {
+      "over": 0,
+      "not_over": 12800,
+      "rate": 0.039,
+      "base_tax": 0
+     },
+     {
+      "over": 12800,
+      "not_over": 17650,
+      "rate": 0.044,
+      "base_tax": 499
+     },
+     {
+      "over": 17650,
+      "not_over": 20900,
+      "rate": 0.0515,
+      "base_tax": 712
+     },
+     {
+      "over": 20900,
+      "not_over": 107650,
+      "rate": 0.054,
+      "base_tax": 879
+     },
+     {
+      "over": 107650,
+      "not_over": 269300,
+      "rate": 0.059,
+      "base_tax": 5564
+     },
+     {
+      "over": 269300,
+      "not_over": 1616450,
+      "rate": 0.0685,
+      "base_tax": 15101
+     },
+     {
+      "over": 1616450,
+      "not_over": 5000000,
+      "rate": 0.0965,
+      "base_tax": 107381
+     },
+     {
+      "over": 5000000,
+      "not_over": 25000000,
+      "rate": 0.103,
+      "base_tax": 433894
+     },
+     {
+      "over": 25000000,
+      "not_over": null,
+      "rate": 0.109,
+      "base_tax": 2493894
+     }
+    ]
+   },
+   "source_url": "https://www.tax.ny.gov/pdf/2026/inc/it2105i_2026.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "2026 IT-2105 worksheet rate schedules (includes the 2026 rate cuts). Simplified estimating schedule: the full return also applies a tax-benefit recapture for higher incomes."
+  },
+  "standard_deduction": {
+   "value": {
+    "single": 8000,
+    "single_dependent": 3100,
+    "married_joint": 16050,
+    "married_separate": 8000,
+    "head_of_household": 11200,
+    "qualifying_surviving_spouse": 16050
+   },
+   "source_url": "https://www.tax.ny.gov/pdf/2026/inc/it2105i_2026.pdf",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "estimated_tax_due_dates_2026": {
+   "value": [
+    "2026-04-15",
+    "2026-06-15",
+    "2026-09-15",
+    "2027-01-15"
+   ],
+   "source_url": "https://www.tax.ny.gov/pdf/2026/inc/it2105i_2026.pdf",
+   "checked": "2026-10-20T18:16-04:00"
+  },
+  "estimated_tax_threshold": {
+   "value": 300,
+   "source_url": "https://www.tax.ny.gov/pdf/2026/inc/it2105i_2026.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "At least $300 of NYS, NYC or Yonkers tax after withholding and credits"
+  }
+ },
+ "new_york_city": {
+  "brackets": {
+   "value": {
+    "married_joint": [
+     {
+      "over": 0,
+      "not_over": 21600,
+      "rate": 0.03078,
+      "base_tax": 0
+     },
+     {
+      "over": 21600,
+      "not_over": 45000,
+      "rate": 0.03762,
+      "base_tax": 665
+     },
+     {
+      "over": 45000,
+      "not_over": 90000,
+      "rate": 0.03819,
+      "base_tax": 1545
+     },
+     {
+      "over": 90000,
+      "not_over": null,
+      "rate": 0.03876,
+      "base_tax": 3264
+     }
+    ],
+    "single_or_married_separate": [
+     {
+      "over": 0,
+      "not_over": 12000,
+      "rate": 0.03078,
+      "base_tax": 0
+     },
+     {
+      "over": 12000,
+      "not_over": 25000,
+      "rate": 0.03762,
+      "base_tax": 369
+     },
+     {
+      "over": 25000,
+      "not_over": 50000,
+      "rate": 0.03819,
+      "base_tax": 858
+     },
+     {
+      "over": 50000,
+      "not_over": null,
+      "rate": 0.03876,
+      "base_tax": 1813
+     }
+    ],
+    "head_of_household": [
+     {
+      "over": 0,
+      "not_over": 14400,
+      "rate": 0.03078,
+      "base_tax": 0
+     },
+     {
+      "over": 14400,
+      "not_over": 30000,
+      "rate": 0.03762,
+      "base_tax": 443
+     },
+     {
+      "over": 30000,
+      "not_over": 60000,
+      "rate": 0.03819,
+      "base_tax": 1030
+     },
+     {
+      "over": 60000,
+      "not_over": null,
+      "rate": 0.03876,
+      "base_tax": 2176
+     }
+    ]
+   },
+   "source_url": "https://www.tax.ny.gov/pdf/2026/inc/it2105i_2026.pdf",
+   "checked": "2026-10-20T18:16-04:00",
+   "note": "2026 NYC resident rates from the IT-2105 instructions; unchanged from prior years"
+  }
+ }
+}
