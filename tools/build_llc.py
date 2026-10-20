@@ -208,7 +208,7 @@ var b=f.querySelector('button'),l=b.textContent;b.disabled=true;b.textContent='S
 d.append('page',location.href);d.append('_subject','LLC formation request: '+f.package.value+' / '+f.state.value+' / '+f.llc_name.value);d.append('_captcha','false');d.append('_template','table');
 fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).then(function(r){{if(!r.ok)throw 0;return r.json();}})
 .then(function(j){{if(j.success===false||j.success==='false')throw 0;f.hidden=true;document.getElementById('ldone').hidden=false;
-if(window.gtag)gtag('event','generate_lead',{{form:'llc_formation',package:f.package.value,state:f.state.value}});}})
+if(window.gtag){{gtag('event','conversion',{{send_to:'{B.ADS['id']}/rNQJCK2_kJsdEK3zpPhE'}});gtag('event','generate_lead',{{form:'llc_formation',package:f.package.value,state:f.state.value}});}}}})
 .catch(function(){{st.textContent='Couldn’t send. Please email {B.EMAIL} directly.';b.disabled=false;b.textContent=l;}});}});}})();
 </script>'''
 
