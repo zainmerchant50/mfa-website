@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:form-1120s-s-corp-guide-3@mfa-advisory.com
+DTSTAMP:20261020T235834Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: CBT-100S due (calendar-year 2026)
+DESCRIPTION:Due the 15th day of the month after the federal due month. A 
+ six-month extension requires paying at least 90% of the tax and filing CB
+ T-200-T.\n\nDetails: https://mfa-advisory.com/blog/form-1120s-s-corp-guid
+ e/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1120s-s-corp-guide/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: CBT-100S due (calendar-year 2026)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

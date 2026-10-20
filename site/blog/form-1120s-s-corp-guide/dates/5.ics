@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ ch 15)
+BEGIN:VEVENT
+UID:form-1120s-s-corp-guide-4@mfa-advisory.com
+DTSTAMP:20261020T235834Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:Extended Form 1120-S deadline (if Form 7004 was filed by March 15)
+DESCRIPTION:The extension is for filing only. Form 7004 does not extend t
+ he time to pay any tax due.\n\nDetails: https://mfa-advisory.com/blog/for
+ m-1120s-s-corp-guide/\nGeneral information\, not tax advice. Merchant Fin
+ ancial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1120s-s-corp-guide/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Extended Form 1120-S deadline (if Form 7004 was filed by Marc
+ h 15)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

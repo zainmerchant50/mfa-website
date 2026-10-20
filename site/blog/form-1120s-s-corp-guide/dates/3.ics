@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:form-1120s-s-corp-guide-2@mfa-advisory.com
+DTSTAMP:20261020T235834Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:NY: Form CT-3-S due (calendar year)
+DESCRIPTION:Federal S corporations must have an approved Form CT-6 before
+  filing Form CT-3-S.\n\nDetails: https://mfa-advisory.com/blog/form-1120s
+ -s-corp-guide/\nGeneral information\, not tax advice. Merchant Financial 
+ Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/form-1120s-s-corp-guide/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NY: Form CT-3-S due (calendar year)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "Form 1120-S and S Corp Distributions: How They're Taxed",
+   "url": "/blog/form-1120s-s-corp-guide/",
+   "date": "2026-10-20",
+   "category": "Tax Planning",
+   "thumb": "/blog/form-1120s-s-corp-guide/og.png",
+   "description": "Form 1120-S in plain English: who files, the March 15, 2027 due date, how S corp distributions are taxed, reasonable pay and the $260 per shareholder late penalty."
+  },
+  {
    "title": "Form 1065 for LLCs: Who Files, Due Date, K-1s, Step by Step",
    "url": "/blog/form-1065-guide-llc/",
    "date": "2026-10-20",
@@ -31,14 +39,6 @@
    "category": "Tax Planning",
    "thumb": "/blog/salt-cap-2026-nj-ny-pte-tax/og.png",
    "description": "SALT cap 2026: you can deduct up to $40,400 in state and local taxes, less above $505,000 of income. Year-end moves plus the NJ BAIT and NY PTET workaround."
-  },
-  {
-   "title": "ANCHOR Deadline 2026: NJ Property Tax Relief Is Due Nov. 2",
-   "url": "/blog/nj-property-tax-relief-anchor-stay-nj-2026/",
-   "date": "2026-10-13",
-   "category": "Tax Deadlines",
-   "thumb": "/blog/nj-property-tax-relief-anchor-stay-nj-2026/og.png",
-   "description": "The ANCHOR deadline for 2026 is Nov. 2. One PAS-1 form covers ANCHOR, Stay NJ (up to $6,500) and Senior Freeze. Who qualifies, amounts and who must file."
   }
  ]
 }
