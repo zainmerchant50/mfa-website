@@ -192,7 +192,7 @@ def cta(p):
     return f'''<section class="cta-block" aria-label="Book a consultation"><div class="cta-card">
   <span class="eyebrow">Talk to MFA</span>
   <h2>{esc(p.get("ctaHeadline", "Want a second set of eyes before you act?"))}</h2>
-  <p>Book a 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide tax and accounting solutions for individuals and small and mid-sized businesses in New Jersey, New York and nationwide.</p>
+  <p>Book a 30-minute consultation to talk through {esc(topic)}, or email us at <a href="mailto:{EMAIL}" style="color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)">{EMAIL}</a>. We provide accounting, tax and business solutions for individuals and small and mid-sized businesses in New Jersey, New York and nationwide.</p>
   <div class="cta-btns"><a class="btn btn-gold" href="{BOOK_URL}" data-conv="book">Book a consultation</a><a class="btn btn-line" href="mailto:{EMAIL}?subject={esc(p['title'])}">Email info@mfa-advisory.com</a></div>
 </div></section>'''
 
@@ -661,7 +661,7 @@ def build_author(posts):
   <div class="ap-row"><div class="ap-av" aria-hidden="true">ZM</div><div>
   <span class="eyebrow">Author</span>
   <h1>{esc(a["name"])}, {esc(a["credential"])}</h1>
-  <p class="dek">Founder &amp; Principal of Merchant Financial Advisory, an accounting and tax solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide.</p>
+  <p class="dek">Founder &amp; Principal of Merchant Financial Advisory, an accounting, tax and business solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide.</p>
   <div class="cta-btns">{li_btn}<a class="btn btn-line" href="/#book">Book a consultation</a></div></div></div>
 </div></header>
 <main><article class="article">
@@ -703,7 +703,7 @@ def build_llms(posts):
     lines = [
         "# Merchant Financial Advisory LLC (MFA)",
         "",
-        "> Accounting and tax solutions provider based in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide. MFA Insights covers IRS/federal, New Jersey and New York tax rules and deadlines, accounting, bookkeeping and QuickBooks.",
+        "> Accounting, tax and business solutions provider based in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide. MFA Insights covers IRS/federal, New Jersey and New York tax rules and deadlines, accounting, bookkeeping and QuickBooks.",
         "",
         "MFA provides tax preparation and filing, tax planning, bookkeeping, accrual-basis accounting and financial reporting, QuickBooks setup, cleanup and support, fractional CFO and business advisory, and audit support.",
         "Contact: info@mfa-advisory.com, (347) 205-4468. Languages: English, Hindi, Urdu. Book a 30-minute consultation: https://mfa-advisory.com/#book",

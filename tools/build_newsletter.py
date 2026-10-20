@@ -289,7 +289,7 @@ def build(slug, to_email=None, mailerlite=False):
         # footer
         f'''<tr><td class="pad" align="center" style="padding:30px 48px 10px;{f(12, 19, color=MUTED)}">
   <p style="margin:0 0 4px;{f(15, 20, 400, SERIF, NAVY)}">Merchant Financial Advisory</p>
-  <p style="margin:0 0 14px;{f(12, 19, color=MUTED)}">Accounting, tax and advisory for individuals and growing businesses</p>
+  <p style="margin:0 0 14px;{f(12, 19, color=MUTED)}">Accounting, tax and business solutions for individuals and growing businesses</p>
   <p style="margin:0 0 14px;{f(12, 19, color=MUTED)}"><a href="{track(B.BASE + '/', slug)}" style="color:{NAVY};text-decoration:underline">mfa-advisory.com</a> &nbsp;|&nbsp; <a href="mailto:{B.EMAIL}" style="color:{NAVY};text-decoration:underline">{B.EMAIL}</a> &nbsp;|&nbsp; <a href="{track(B.BASE + '/newsletter/', slug)}" style="color:{NAVY};text-decoration:underline">Subscribe</a></p>
   <p style="margin:0 0 14px;{f(12, 19, color=MUTED)}">Facts checked against IRS and state sources as of {asof}; every source is linked in the online article. This email is general information, not tax, accounting, legal or financial advice, and reading it doesn't create a client relationship.</p>
   <p style="margin:0 0 6px;{f(12, 19, color=MUTED)}">You're receiving this because you subscribed to {B.esc(B.NEWSLETTER_NAME)} at mfa-advisory.com. <a href="{unsub}" style="color:{NAVY};text-decoration:underline;font-weight:700">Unsubscribe</a> &nbsp;|&nbsp; <a href="{B.BASE}/privacy.html" style="color:{MUTED};text-decoration:underline">Privacy</a></p>

@@ -5,7 +5,14 @@ description: Research, write, design and publish an SEO-optimized MFA Insights p
 
 # MFA Content Creator
 
-Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **accounting and tax solutions provider** (never position it as only tax or only accounting) (mfa-advisory.com, info@mfa-advisory.com). The primary output is an MFA Insights blog post. The same research can be repurposed for LinkedIn, Instagram and the weekly newsletter.
+Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **accounting, tax and business solutions provider** (never position it as only tax or only accounting) (mfa-advisory.com, info@mfa-advisory.com). The primary output is an MFA Insights blog post. The same research can be repurposed for LinkedIn, Instagram and the weekly newsletter.
+
+## Current operating rules (Zain, Oct 20 2026; these override anything below)
+- **Runs happen only when Zain asks in chat.** No scheduled tasks for the blog, ever (they kept failing). Don't create one.
+- **Topic:** read the project doc claude/ads-to-blog-brief.md first. Its Topic queue and guide rules win over the weekday rhythm. After publishing, append one line to its Blog log and touch nothing else there.
+- **Length and purpose:** posts carry *just enough* information (aim 600–900 words) to answer the search and then point the reader to an MFA product or service (Gumroad digital products, LLC formation, bookkeeping/tax services). Don't write exhaustive guides; the paid product is where the depth lives. Product links go in once the products are live (the site session does the site-wide product update).
+- **Wording:** describe MFA as an "accounting, tax and business solutions provider"; use "business solutions" wherever it fits naturally.
+- **Products and site:** see claude/digital-products-plan.md and claude/site-session-brief.md in the MFA project.
 
 ## Standing requirements (from Zain)
 - **Audience:** individuals, and small and mid-sized businesses, with a focus on **New Jersey and New York** (New York is the bigger market; Zain expanded coverage to NY on Oct 12, 2026), plus readers nationwide.
@@ -53,7 +60,7 @@ Log the chosen topic and why in the commit message.
 - Write to **search intent**. Use phrases people actually type or ask an AI: "best way to…", "best accounting software for small business", "best practices for month-end close", "how to…", "what is…", "do I need to…", "<deadline> 2026". Put the primary phrase in the title, first paragraph, one H2 and the meta description.
 - "Best" phrasing is for **topics** ("best practices", "best QuickBooks settings for…"). **Never claim MFA is "the best" or "top-rated"** or make other unverifiable superlatives about the firm. That risks FTC and false-advertising problems and hurts credibility. Let verifiable facts do the selling: 5.0 average rating on Fiverr and Upwork, QuickBooks ProAdvisor, ACCA (UK), 10+ years, PwC background.
 - **Answer-first structure** helps AI engines (ChatGPT, Perplexity, Google AI Overviews, Claude) quote you. Open with the "Executive summary" box. Use clear H2 questions and a "FAQs" section (the build turns it into FAQPage schema automatically; keep the `<h2>FAQs</h2>` + `<h3>question</h3><p>answer</p>` pattern). Use specific numbers, dates and named sources, and add a one-line definition when you introduce a term.
-- **Entity consistency:** always "Merchant Financial Advisory (MFA), an accounting and tax solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide". The non-CPA wording rules above apply in New York too: never call MFA a CPA firm or Zain a CPA. Phone (347) 205-4468, info@mfa-advisory.com. Never publish a street address. Don't mention languages on the site (Hindi/Urdu appears only in the Hindi-Urdu ad variant headline). Pricing wording: "flat monthly fee, project fee, or hourly", never "fixed fees" alone. Every post automatically gets a private "Have a question about this?" box. The build regenerates `/llms.txt` and `robots.txt` (AI crawlers allowed) on every run.
+- **Entity consistency:** always "Merchant Financial Advisory (MFA), an accounting, tax and business solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide". The non-CPA wording rules above apply in New York too: never call MFA a CPA firm or Zain a CPA. Phone (347) 205-4468, info@mfa-advisory.com. Never publish a street address. Don't mention languages on the site (Hindi/Urdu appears only in the Hindi-Urdu ad variant headline). Pricing wording: "flat monthly fee, project fee, or hourly", never "fixed fees" alone. Every post automatically gets a private "Have a question about this?" box. The build regenerates `/llms.txt` and `robots.txt` (AI crawlers allowed) on every run.
 - Link internally: 1–2 links to related MFA posts and one to the relevant service on the home page.
 
 ## Graphic formats (rotate)
@@ -72,7 +79,7 @@ Author byline and "About the author" box (Zain Merchant, ACCA, linked to LinkedI
 - An **Executive summary** at the top of every post (Zain, Oct 13 2026), good for busy readers, featured snippets and AI answers: `<div class="tldr"><h2>Executive summary</h2><ul>` 3–4 bullets, each leading with the bolded key fact (date, dollar amount, rule) `</ul><p class="bottom-line"><strong>Bottom line:</strong> one sentence saying what the reader should do.</p></div>`. Every fact in it must appear, sourced, in the body. Keep the primary keyword in the first 160 words. A "FAQs" section goes near the end: `<h2>FAQs</h2>` followed by `<h3>question</h3><p>answer</p>` pairs (3–6). The build turns them into click-to-open accordions with a plus icon and FAQPage schema; never hand-write accordion markup.
 - Descriptive slug: lowercase with hyphens, no stop-word padding. Include dates.
 - Alt text on the graphic describes what it teaches.
-- Length: 700–1,300 words. One idea per paragraph; tables for numbers.
+- Length: 600–900 words (just enough, then point to the product or service). One idea per paragraph; tables for numbers.
 - Avoid scaled-content patterns. Each post must add something specific (dates, numbers, steps). Don't rewrite the same topic every week; update the existing post instead (set `updated`).
 
 ## Repo and build (zainmerchant50/mfa-website; Cloudflare Pages auto-deploys `main`)
