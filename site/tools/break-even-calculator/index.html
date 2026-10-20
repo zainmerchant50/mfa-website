@@ -1,0 +1,114 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Break-Even Calculator for Small Businesses | MFA</title>
+<meta name="description" content="Find your break-even point in sales and units: enter monthly fixed costs, price and variable cost. Works for product and service businesses, with a profit-goal option."/>
+<link rel="canonical" href="https://mfa-advisory.com/tools/break-even-calculator/"/>
+<meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/>
+<meta property="og:title" content="Break-Even Calculator for Small Businesses | MFA"/><meta property="og:description" content="Find your break-even point in sales and units: enter monthly fixed costs, price and variable cost. Works for product and service businesses, with a profit-goal option."/>
+<meta property="og:url" content="https://mfa-advisory.com/tools/break-even-calculator/"/><meta property="og:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
+<link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="alternate" type="application/rss+xml" title="MFA Insights" href="/blog/feed.xml"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18505873837"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18505873837');(function(A){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-conv]');if(a&&A[a.getAttribute('data-conv')])gtag('event','conversion',{send_to:A.id+'/'+A[a.getAttribute('data-conv')]});});})({"id": "AW-18505873837", "book": "OUTYCLC_kJsdEK3zpPhE", "call": "_Z6FCLjJk5sdEK3zpPhE"});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/blog/blog.css?v=69ab8c731b"/><link rel="stylesheet" href="/blog/ui.css?v=74631e78e6"/>
+<link rel="stylesheet" href="/resources/resources.css?v=1b8c2056dd"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Break-even calculator", "url": "https://mfa-advisory.com/tools/break-even-calculator/", "description": "Find your break-even point in sales and units: enter monthly fixed costs, price and variable cost. Works for product and service businesses, with a profit-goal option.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "publisher": {"@type": "Organization", "name": "Merchant Financial Advisory LLC", "url": "https://mfa-advisory.com"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mfa-advisory.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://mfa-advisory.com/resources/"}, {"@type": "ListItem", "position": 3, "name": "Break-even calculator", "item": "https://mfa-advisory.com/tools/break-even-calculator/"}]}]}</script></head>
+<body><header class="bnav"><div class="wrap bnav-in">
+  <a href="/" class="brand" aria-label="Merchant Financial Advisory — home"><img src="/apple-touch-icon.png" alt="" width="44" height="44"/><span class="brand-txt"><b>Merchant</b><i>Financial Advisory</i></span></a>
+  <nav class="bnav-links" aria-label="Main navigation"><a href="/#services">Services</a><a href="/resources/" class=on>Resources</a><a href="/blog/">Insights</a><a href="/#book">Book</a><a href="/#contact" class="cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Contact Us</a></nav>
+</div></header>
+<header class="ahead"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / <a href="/resources/">Resources</a> / Break-even calculator</div>
+  <span class="eyebrow">Break-even calculator</span><h1>Break-even calculator</h1><p class="dek">How much you need to sell each month to cover your costs, and to reach the profit you want. For product and service businesses.</p>
+</div></header><main><div class="tool"><div class="tcard"><h2>Your numbers</h2><p class="sub">Use monthly figures. Fixed costs stay the same however much you sell; variable costs rise with each sale.</p>
+<div class="seg" role="group" aria-label="Business type"><button type="button" data-m="unit" aria-pressed="true">Per unit</button><button type="button" data-m="pct" aria-pressed="false">Service (% of sales)</button></div>
+<div class="fld"><label for="fc">Monthly fixed costs</label><div class="money"><input type="number" id="fc" min="0" step="1" inputmode="decimal" placeholder="8,000"/></div><span class="hint">Rent, salaries, software, insurance, loan payments, your own pay</span></div>
+<div class="fld u"><label for="pr">Price per unit or sale</label><div class="money"><input type="number" id="pr" min="0" step="0.01" inputmode="decimal" placeholder="120"/></div></div>
+<div class="fld u"><label for="vc">Variable cost per unit or sale</label><div class="money"><input type="number" id="vc" min="0" step="0.01" inputmode="decimal" placeholder="45"/></div><span class="hint">Materials, packaging, shipping, card fees, commissions</span></div>
+<div class="fld p" hidden><label for="vp">Variable costs as % of sales</label><input type="number" id="vp" min="0" max="99" step="0.1" inputmode="decimal" placeholder="30"/><span class="hint">Subcontractors, card fees, commissions, supplies</span></div>
+<div class="fld"><label for="tp">Monthly profit goal (optional)</label><div class="money"><input type="number" id="tp" min="0" step="1" inputmode="decimal" placeholder="5,000"/></div></div></div><div class="tcard tres" aria-live="polite"><h2>Break-even</h2><p class="sub" id="bsub">Enter your numbers to see the result.</p>
+<div class="kpis"><div class="kpi wide gold"><b id="k1">—</b><span id="k1l">Break-even sales per month</span></div>
+<div class="kpi"><b id="k2">—</b><span id="k2l">Units per month</span></div><div class="kpi"><b id="k3">—</b><span>Contribution margin</span></div>
+<div class="kpi wide"><b id="k4">—</b><span id="k4l">Sales needed for your profit goal</span></div></div>
+<p class="muted" id="bnote">Break-even point = fixed costs ÷ (price − variable cost per unit).</p>
+<div class="acts"><a class="btn btn-gold" href="/#book" data-conv="book">Get help with pricing &amp; budgets</a></div></div></div><div class="tinfo"><article class="article"><h2>How to read your break-even point</h2>
+<p>Your <strong>contribution margin</strong> is what each sale leaves over after its own costs. Divide your fixed costs by it and you get the number of sales that covers the month. Every sale after that is profit.</p>
+<ul><li><strong>Below break-even?</strong> The levers are price, variable cost per sale, and fixed costs, in that order of speed.</li>
+<li><strong>Include your own pay</strong> in fixed costs if you're a sole owner; otherwise "break-even" means working for free.</li>
+<li><strong>Use real numbers from your books.</strong> A month-end profit and loss statement shows your actual fixed and variable costs.</li></ul>
+<p>Next: check your pricing with the <a href="/tools/profit-margin-calculator/">profit margin &amp; markup calculator</a>.</p>
+<section class="sources"><h2>Sources</h2><ul><li><a href="https://www.sba.gov/breakevenpointcalculator" target="_blank" rel="noopener">U.S. Small Business Administration: Break-even point</a></li></ul><p class="disclaimer">Facts checked against the sources above as of October 20, 2026. Educational information, not tax or legal advice. Results are estimates based on the information you enter; your situation may differ. Using this tool doesn't create a client relationship.</p></section></article></div></main><script>
+(function(){var mode='unit',g=function(i){var v=parseFloat(document.getElementById(i).value);return isNaN(v)?null:v;};
+var $=function(i){return document.getElementById(i);},m0=function(n){return '$'+Math.ceil(n).toLocaleString('en-US');},n0=function(n){return Math.ceil(n).toLocaleString('en-US');};
+function set(a,b,c,d){$('k1').textContent=a;$('k2').textContent=b;$('k3').textContent=c;$('k4').textContent=d;}
+function run(){var fc=g('fc'),tp=g('tp')||0;if(fc===null){set('—','—','—','—');$('bsub').textContent='Enter your numbers to see the result.';return;}
+if(mode==='unit'){var pr=g('pr'),vc=g('vc');if(pr===null||vc===null){set('—','—','—','—');return;}var cm=pr-vc;
+if(cm<=0){set('Not reachable','—','$'+cm.toFixed(2),'—');$('bsub').textContent='Each sale costs more than it brings in. Raise the price or cut variable costs.';return;}
+var u=fc/cm,ut=(fc+tp)/cm;set(m0(u*pr),n0(u),'$'+cm.toFixed(2)+' ('+Math.round(cm/pr*100)+'%)',tp?m0(ut*pr)+' · '+n0(ut)+' units':'—');
+$('bsub').textContent='You cover your costs at about '+n0(u)+' sales a month.';}
+else{var vp=g('vp');if(vp===null){set('—','—','—','—');return;}var r=1-vp/100;if(r<=0){set('Not reachable','—','0%','—');return;}
+var s=fc/r;set(m0(s),'—',Math.round(r*100)+'% of sales',tp?m0((fc+tp)/r):'—');$('bsub').textContent='You cover your costs at about '+m0(s)+' in monthly sales.';}}
+[].slice.call(document.querySelectorAll('.seg button')).forEach(function(b){b.addEventListener('click',function(){mode=b.getAttribute('data-m');
+[].slice.call(document.querySelectorAll('.seg button')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+[].slice.call(document.querySelectorAll('.fld.u')).forEach(function(e){e.hidden=mode!=='unit';});[].slice.call(document.querySelectorAll('.fld.p')).forEach(function(e){e.hidden=mode==='unit';});
+$('k2l').textContent=mode==='unit'?'Units per month':'Units (n/a)';$('bnote').textContent=mode==='unit'?'Break-even point = fixed costs ÷ (price − variable cost per unit).':'Break-even sales = fixed costs ÷ (1 − variable cost %).';run();});});
+document.addEventListener('input',run);run();})();
+</script><section class="cta-block" aria-label="Book a consultation"><div class="cta-card">
+  <span class="eyebrow">Talk to MFA</span><h2>Want numbers you can trust?</h2><p>Accurate monthly books make every calculation better. Book a 30-minute consultation about bookkeeping, budgeting or pricing.</p>
+  <div class="cta-btns"><a class="btn btn-gold" href="/#book" data-conv="book">Book a 30-minute consultation</a><a class="btn btn-line" href="mailto:info@mfa-advisory.com">Email info@mfa-advisory.com</a></div>
+</div></section>
+<footer class="bfoot"><div class="wrap">
+  <span>© 2026 Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
+  <nav><a href="/">Home</a><a href="/resources/">Resources</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:info@mfa-advisory.com">info@mfa-advisory.com</a></nav>
+  <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
+</div></footer><script>
+(function(){
+  var d=document, root=d.documentElement; root.classList.add('js');
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* FAQ accordion */
+  d.querySelectorAll('.faq-i').forEach(function(it){
+    var q=it.querySelector('.faq-q'), a=it.querySelector('.faq-a'); if(!q||!a||q._ui)return; q._ui=1;
+    q.addEventListener('click',function(){
+      var open=!it.classList.contains('open');
+      it.classList.toggle('open',open); q.setAttribute('aria-expanded',open?'true':'false');
+      if(open){a.style.maxHeight=a.scrollHeight+'px';
+        a.addEventListener('transitionend',function f(e){if(e.propertyName==='max-height'&&it.classList.contains('open'))a.style.maxHeight='none';a.removeEventListener('transitionend',f);});
+        if(window.gtag)try{gtag('event','faq_open',{question:q.textContent.trim().slice(0,90)});}catch(e){}
+      }else{a.style.maxHeight=a.scrollHeight+'px';a.offsetHeight;a.style.maxHeight='0px';}
+    });
+  });
+  /* Open the FAQ a link points at (e.g. #faq-2) */
+  if(location.hash){var t=d.querySelector(location.hash);var it=t&&t.closest&&t.closest('.faq-i');if(it&&!it.classList.contains('open'))it.querySelector('.faq-q').click();}
+  /* Scroll reveal */
+  var sel=['.article>h2','.article>figure','.article>.tldr','.article>table','.article>section','.article>div:not(.share)',
+    '.pcard','.cta-card','.sec-hd','.card','.step','.why>div','.rev','.book-frame','.faq-l','.final .wrap','.nl-wrap','.alist li'];
+  var els=[].slice.call(d.querySelectorAll(sel.join(',')));
+  if(!still&&'IntersectionObserver' in window){
+    els.forEach(function(el){
+      el.classList.add('rv');
+      var p=el.parentElement, sib=p?[].slice.call(p.children).filter(function(c){return c.classList.contains('rv');}):[];
+      var i=sib.indexOf(el); if(sib.length>1&&i>0)el.style.transitionDelay=Math.min(i%4,3)*90+'ms';
+    });
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    els.forEach(function(el){io.observe(el);});
+    setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},4000);   /* safety net */
+  }
+  /* Calendar menus: close on outside click / Esc, one open at a time, copy-link item */
+  var menus=[].slice.call(d.querySelectorAll('details.kd-add'));
+  menus.forEach(function(m){m.addEventListener('toggle',function(){if(m.open)menus.forEach(function(o){if(o!==m)o.open=false;});});});
+  d.addEventListener('click',function(e){menus.forEach(function(m){if(m.open&&!m.contains(e.target))m.open=false;});
+    var c=e.target.closest&&e.target.closest('a[data-copy]');
+    if(c&&navigator.clipboard){e.preventDefault();navigator.clipboard.writeText(c.href).then(function(){var t=c.textContent;c.textContent='Link copied';setTimeout(function(){c.textContent=t;},2000);});}
+  });
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')menus.forEach(function(m){m.open=false;});});
+  /* Header shadow + reading progress */
+  var hd=d.querySelector('.bnav,.top'), art=d.querySelector('.article'), bar=null;
+  if(art&&d.querySelector('.ahead')){bar=d.createElement('div');bar.className='rprog';bar.setAttribute('aria-hidden','true');d.body.appendChild(bar);}
+  var tick=false;
+  function upd(){tick=false; var y=window.scrollY||root.scrollTop;
+    if(hd)hd.classList.toggle('scrolled',y>8);
+    if(bar){var r=art.getBoundingClientRect(), h=art.offsetHeight-window.innerHeight; var p=h>0?Math.min(1,Math.max(0,-r.top/h)):0; bar.style.transform='scaleX('+p+')';}
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+  upd();
+})();
+</script></body></html>

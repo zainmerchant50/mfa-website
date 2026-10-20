@@ -24,3 +24,7 @@
 # Evergreen short links (update yearly)
 /tax-calendar          /blog/2027-tax-calendar/   302
 /2027-tax-calendar     /blog/2027-tax-calendar/   301
+
+# Resources hub (site session)
+/tools                 /resources/                301
+/tools/                /resources/                301

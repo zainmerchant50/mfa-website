@@ -132,13 +132,13 @@ def nav(active):
         return f'<a href="{href}"{" class=on" if key == active else ""}>{label}</a>'
     return f'''<header class="bnav"><div class="wrap bnav-in">
   <a href="/" class="brand" aria-label="Merchant Financial Advisory — home"><img src="/apple-touch-icon.png" alt="" width="44" height="44"/><span class="brand-txt"><b>Merchant</b><i>Financial Advisory</i></span></a>
-  <nav class="bnav-links" aria-label="Main navigation">{a("/#services","Services","s")}{a("/blog/","Insights","blog")}{a("/#book","Book","b")}<a href="/#contact" class="cta">{MAIL_ICON}Contact Us</a></nav>
+  <nav class="bnav-links" aria-label="Main navigation">{a("/#services","Services","s")}{a("/resources/","Resources","res")}{a("/blog/","Insights","blog")}{a("/#book","Book","b")}<a href="/#contact" class="cta">{MAIL_ICON}Contact Us</a></nav>
 </div></header>'''
 
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
   <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
-  <nav><a href="/">Home</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+  <nav><a href="/">Home</a><a href="/resources/">Resources</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
 </div></footer>''' + ui_kit.UI_JS
 
@@ -690,6 +690,10 @@ def build_sitemap(posts, pages=()):
         if (SITE / lp / "index.html").exists():
             urls += [(f"{BASE}/{lp}/", today)]
     urls += [(f"{BASE}/{pg['slug']}.html", pg["updated"]) for pg in pages]
+    extra = ROOT / "tools" / "site_pages.json"   # /resources/ and /tools/* (tools/build_resources.py, site session)
+    if extra.exists():
+        sp = json.loads(extra.read_text(encoding="utf-8"))
+        urls += [(u, sp.get("updated", today)) for u in sp.get("urls", [])]
     body = "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (SITE / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>',
