@@ -5,3 +5,4 @@ __pycache__/
 # Paid digital products: never commit (repo is public)
 products/
 products-out/
+.projdocs/
