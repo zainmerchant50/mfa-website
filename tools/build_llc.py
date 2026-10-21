@@ -29,9 +29,11 @@ def d(ts):
 
 
 CHECKED = d(DATA["meta"]["checked"])
+import hashlib
+ORDER_JS_V = hashlib.md5((ROOT / "site" / "resources" / "llc-order.js").read_bytes()).hexdigest()[:10]
 
 PACKAGES = [
-    {"id": "formation", "name": "Formation", "price": 99, "tag": "File it right",
+    {"id": "formation", "name": "Formation", "price": 150, "tag": "File it right",
      "lead": "Your LLC filed, with the EIN and paperwork you need on day one.",
      "items": ["Review of your details and a name availability check",
                "State formation filing prepared and submitted",
@@ -77,6 +79,33 @@ MONTHLY = {"price": 199, "scope": "one bank account, one credit card, up to 100 
                      "Owner draws, loans and transfers kept separate from income and expenses",
                      "Year-end books handed to your tax preparer (or to us) ready to file",
                      "Questions by email between closes"]}
+
+
+# Add-ons sold in the LLC cart (Zain, 2026-10-20 23:3x). Bookkeeping: up to 4 accounts and 200 transactions/month
+# is priced here; anything bigger is quoted. Billed monthly by Stripe, first charge 30 days after checkout.
+ADDONS = {
+    # Price = base (covers 2 accounts, up to 100 txns) + per extra account + volume add-on. Over 4 accounts or 200 txns: quoted.
+    # Base $199 and the quote line (over 4 accounts / 200 txns) are Zain's (2026-10-20 23:28). The +$50/account and
+    # +$100 for 101-200 txns steps are the Hub's proposal, flagged to Zain for confirmation.
+    "bk": {"name": "Monthly bookkeeping", "base": 199, "incl_accounts": 2, "per_account": 50, "max_accounts": 4, "trial_days": 30,
+           "tiers": [{"id": "100", "max": 100, "label": "up to 100 transactions/mo", "add": 0},
+                     {"id": "200", "max": 200, "label": "101 to 200 transactions/mo", "add": 100}]},
+    "f1099": {"name": "1099 preparation and e-filing", "per": 25, "min": 75},
+    "salestax": {"name": "Sales tax registration", "price": 99, "included_in": ["launch"]},
+    "scorp": {"name": "S corp election (Form 2553)", "price": 149, "included_in": ["launch"]},
+    "quarterly": {"name": "Quarterly estimated tax service", "per_quarter": 49, "quarters": 4},
+}
+
+
+def pricing_obj():
+    data = {"packages": {p["id"]: {"name": p["name"], "price": p["price"]} for p in PACKAGES}, "states": {}, "addons": ADDONS}
+    for c in ORDER:
+        s = STATES[c]
+        pub = v(s, "publication")
+        data["states"][c] = {"code": c, "name": s["name"], "fee": v(s, "filing_fee"), "extra": v(s, "formation_extra") or 0,
+                             "pub_fee": pub.get("certificate_of_publication_fee") if isinstance(pub, dict) else None,
+                             "pub": bool(pub) and not (isinstance(pub, dict) and pub.get("required") is False)}
+    return data
 
 
 def monthly_html():
@@ -216,12 +245,75 @@ else if(s.annual===0)n.push('No state annual report fee.');
 if(s.biennial)n.push('Then '+m(s.biennial)+' every two years for the biennial statement.');
 if(s.reg)n.push('Tax registration: '+String(s.reg).replace(/\\.$/,'')+'.');n.push('Nothing from MFA renews. Bookkeeping after month one is optional.');
 $('c-notes').innerHTML=n.map(function(t){return '<li>'+t.replace(/</g,'&lt;')+'</li>';}).join('');$('c-link').href=s.url;
-$('c-link').textContent=s.name+' details';var f=document.getElementById('f-state');if(f)f.value=st.value;}
-st.addEventListener('change',run);document.addEventListener('change',function(e){if(e.target.name==='pk'){var f=document.getElementById('f-pk');if(f)f.value=e.target.value;run();}});
-[].slice.call(document.querySelectorAll('[data-mo]')).forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('f-mo');if(c)c.checked=true;});});
-[].slice.call(document.querySelectorAll('[data-pk]')).forEach(function(a){a.addEventListener('click',function(){var f=document.getElementById('f-pk');if(f)f.value=a.getAttribute('data-pk');});});
+$('c-link').textContent=s.name+' details';var f=document.getElementById('f-state');if(f&&f.value!==st.value){f.value=st.value;f.dispatchEvent(new Event('change',{bubbles:true}));}}
+st.addEventListener('change',run);document.addEventListener('change',function(e){if(e.target.name==='pk'){var f=document.getElementById('f-pk');if(f&&f.value!==e.target.value){f.value=e.target.value;f.dispatchEvent(new Event('change',{bubbles:true}));}run();}});
+[].slice.call(document.querySelectorAll('[data-mo]')).forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('f-mo');if(c&&!c.checked){c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}});});
+[].slice.call(document.querySelectorAll('[data-pk]')).forEach(function(a){a.addEventListener('click',function(){var f=document.getElementById('f-pk');if(f){f.value=a.getAttribute('data-pk');f.dispatchEvent(new Event('change',{bubbles:true}));}});});
 var q=new URLSearchParams(location.search).get('state');if(q&&S[q.toUpperCase()])st.value=q.toUpperCase();else if(S.NJ)st.value='NJ';run();})();
 </script>""" % data
+
+
+def addons_html():
+    A = ADDONS
+    t = A["bk"]["tiers"]
+    B = A["bk"]
+    vol = "".join(f'<option value="{x["id"]}">{"Up to " + str(x["max"]) if i == 0 else str(t[i-1]["max"] + 1) + " to " + str(x["max"])}{" (+$" + str(x["add"]) + "/mo)" if x["add"] else " (included)"}</option>' for i, x in enumerate(t))
+    acc = "".join(f'<option value="{i}">{i}{" (+$" + str((i - B["incl_accounts"]) * B["per_account"]) + "/mo)" if i > B["incl_accounts"] else " (included)"}</option>' for i in range(1, B["max_accounts"] + 1))
+    return f'''<div class="fld"><span class="lbl">Add-ons</span><div class="addons">
+<div class="addon"><label class="opt opt-wide"><input type="checkbox" id="f-mo" name="monthly_bookkeeping" value="yes"/><span><b>Monthly bookkeeping</b> <small>${B["base"]}/month for up to {B["incl_accounts"]} accounts and {t[0]["max"]} transactions · first charge {A["bk"]["trial_days"]} days after checkout · cancel anytime</small></span></label>
+<div class="addon-sub" id="bk-sub" hidden><div class="lgrid">
+<div class="fld"><label for="bk-acc">Bank and credit card accounts</label><select id="bk-acc" name="bk_accounts"><option value="">Choose</option>{acc}<option value="5+">{A["bk"]["max_accounts"] + 1} or more (quoted)</option></select></div>
+<div class="fld"><label for="bk-vol">Transactions a month, all accounts</label><select id="bk-vol" name="bk_volume"><option value="">Choose</option>{vol}<option value="over">More than {t[-1]["max"]} (quoted)</option></select></div></div>
+<p class="hint" id="bk-price">Choose your accounts and monthly transactions to see the price.</p></div></div>
+<div class="addon"><label class="opt opt-wide"><input type="checkbox" id="f-1099" name="addon_1099" value="yes"/><span><b>{A["f1099"]["name"]}</b> <small>${A["f1099"]["per"]} per form, ${A["f1099"]["min"]} minimum</small></span></label>
+<div class="addon-sub" id="f1099-sub" hidden><div class="fld fld-n"><label for="f1099-n">How many 1099s?</label><input type="number" id="f1099-n" name="f1099_forms" min="1" max="250" value="3" inputmode="numeric"/></div></div></div>
+<label class="opt opt-wide" id="ad-st"><input type="checkbox" id="f-st" name="addon_salestax" value="yes"/><span><b>{A["salestax"]["name"]}</b> <small class="ad-pr" data-price="${A["salestax"]["price"]}">${A["salestax"]["price"]}</small></span></label>
+<label class="opt opt-wide" id="ad-sc"><input type="checkbox" id="f-sc" name="addon_scorp" value="yes"/><span><b>{A["scorp"]["name"]}</b> <small class="ad-pr" data-price="${A["scorp"]["price"]}">${A["scorp"]["price"]}</small></span></label>
+<label class="opt opt-wide"><input type="checkbox" id="f-q" name="addon_quarterly" value="yes"/><span><b>{A["quarterly"]["name"]}</b> <small>${A["quarterly"]["per_quarter"]} a quarter; the next {A["quarterly"]["quarters"]} quarters are paid today (${A["quarterly"]["per_quarter"] * A["quarterly"]["quarters"]})</small></span></label>
+</div></div>'''
+
+
+def cart_html():
+    return '''<aside class="tcard lcart" id="lcart" aria-labelledby="cart-h"><h3 id="cart-h">Your order</h3>
+<ul class="cart-lines" id="cart-today" aria-live="polite"></ul>
+<div class="cart-tot"><span>Due today</span><b id="cart-total">—</b></div>
+<div class="cart-rec" id="cart-rec" hidden></div>
+<ul class="cart-notes" id="cart-notes"></ul>
+<button type="button" class="btn btn-gold cart-go" id="cart-go">Continue to secure checkout</button>
+<p class="cart-fine">Full refund if we can't file your LLC. State fees can't be refunded once the state accepts the filing.</p></aside>
+<div class="cart-bar" id="cartbar" hidden><span>Due today <b id="cartbar-t">—</b></span><a href="#lcart">Review order</a></div>'''
+
+
+def cart_js():
+    return ("<script type=\"module\">import {selectionFromForm, computeOrder} from '/resources/llc-order.js?v=" + ORDER_JS_V + "';"
+            "const P=" + json.dumps(pricing_obj()) + ";" + r'''
+const f=document.getElementById('lform'),$=id=>document.getElementById(id);
+const usd=c=>'$'+(c/100).toLocaleString('en-US',{minimumFractionDigits:c%100?2:0,maximumFractionDigits:2});
+const esc=t=>String(t).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+function fields(){const o={};new FormData(f).forEach((v,k)=>{if(k[0]!=='_')o[k]=v;});return o;}
+function render(){
+  const o=fields(),sel=selectionFromForm(o),r=computeOrder(P,sel),launch=sel.package==='launch';
+  $('bk-sub').hidden=!sel.bk.on;$('f1099-sub').hidden=!sel.f1099.on;
+  for(const [id,lab] of [['f-st','ad-st'],['f-sc','ad-sc']]){const c=$(id),s=$(lab).querySelector('.ad-pr');c.disabled=launch;if(launch)c.checked=false;
+    s.textContent=launch?'Included in Complete Launch':s.dataset.price;$(lab).classList.toggle('opt-inc',launch);}
+  const bp=$('bk-price');
+  if(sel.bk.on)bp.textContent=r.bk&&r.bk.price?('$'+r.bk.price+'/month, first charge 30 days after checkout. Cancel anytime.'):r.bk&&r.bk.quote?'Quoted after a short review: nothing is charged for bookkeeping today.':'Choose your accounts and monthly transactions to see the price.';
+  $('cart-today').innerHTML=r.today.map(l=>'<li><span>'+esc(l.name)+'</span><b>'+usd(l.amount)+'</b></li>').join('')+r.included.map(l=>'<li class="inc"><span>'+esc(l.name)+'</span><b>Included</b></li>').join('');
+  $('cart-total').textContent=r.ok?usd(r.total):'—';$('cartbar-t').textContent=r.ok?usd(r.total):'—';
+  const rec=$('cart-rec');rec.hidden=!r.recurring.length;rec.innerHTML=r.recurring.map(l=>'<div><span>Then '+esc(l.name)+'</span><b>'+usd(l.amount)+'/mo</b><small>First charge in '+l.trial_days+' days</small></div>').join('');
+  $('cart-notes').innerHTML=r.notes.map(n=>'<li>'+esc(n)+'</li>').join('');
+  window.MFA_ORDER=r;
+}
+f.addEventListener('input',render);f.addEventListener('change',e=>{
+  if(e.target.id==='f-state'){const s=$('st');if(s&&s.value!==e.target.value&&P.states[e.target.value]){s.value=e.target.value;s.dispatchEvent(new Event('change'));}}
+  if(e.target.id==='f-pk'){const r=document.querySelector('input[name=pk][value="'+e.target.value+'"]');if(r&&!r.checked){r.checked=true;}}
+  render();});
+document.addEventListener('change',e=>{if(e.target.id==='st'||e.target.name==='pk')setTimeout(render,0);});
+$('cart-go').addEventListener('click',()=>{if(f.requestSubmit)f.requestSubmit();else $('lsubmit').click();});
+const bar=$('cartbar'),sec=document.getElementById('start');
+if('IntersectionObserver' in window){new IntersectionObserver(es=>{bar.hidden=!es[0].isIntersecting;}).observe(sec);}
+render();
+</script>''')
 
 
 def intake_form():
@@ -236,6 +328,7 @@ def intake_form():
     return f'''<section class="wrap llc-sec" id="start" aria-labelledby="start-h">
 <div class="sec-hd"><span class="eyebrow eb-dark">Start my LLC</span><h2 id="start-h">Tell us about your business.</h2>
 <p>Fill in your details, then pay securely by card or bank account at checkout, right on this page (powered by Stripe). One total: your package plus your state's fee at cost. If we can't file your LLC (for example, the name isn't available), we refund you in full; state fees can't be refunded once the state accepts the filing.</p></div>
+<div class="lbuy">{cart_html()}
 <form class="tcard lform" id="lform" novalidate>
 <p class="req-note"><span class="req">*</span> Required</p>
 <div class="form-err" id="form-err" role="alert" tabindex="-1" hidden></div>
@@ -256,13 +349,12 @@ def intake_form():
 <label class="opt"><input type="checkbox" name="sells_taxable" value="yes"/><span>I'll sell products or taxable services</span></label>
 <label class="opt"><input type="checkbox" name="has_agent" value="yes"/><span>I already have a registered agent or in-state street address</span></label>
 <label class="opt"><input type="checkbox" name="s_corp_interest" value="yes"/><span>I want to know if an S corp makes sense</span></label></div></div>
-<div class="fld"><span class="lbl">Add-on</span><div class="opts">
-<label class="opt opt-wide"><input type="checkbox" id="f-mo" name="monthly_bookkeeping" value="yes"/><span>Continue with monthly bookkeeping after setup <small>(from $199/month, month to month)</small></span></label></div></div>
+{addons_html()}
 {fld("f-notes", "Anything else? (optional)", '<textarea id="f-notes" name="notes" rows="3" placeholder="Timing, partners, questions"></textarea>', False, "Please don't include Social Security or bank account numbers. We collect what the IRS needs securely after we've confirmed your order.")}
 <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 <div class="lsubmit"><button class="btn btn-ink" type="submit" id="lsubmit">Continue to secure checkout</button><p class="ask-st" role="status" aria-live="polite"></p></div>
 <p class="pay-note" id="paynote">Card or bank account via Stripe. You'll see the full total before you pay.</p>
-</form>
+</form></div>
 <div class="paymodal" id="paymodal" role="dialog" aria-modal="true" aria-labelledby="pay-h" hidden><div class="paybox">
 <div class="pay-hd"><div><h2 id="pay-h">Secure checkout</h2><p id="pay-sum" class="pay-sum"></p></div><button type="button" class="pay-x" id="payclose" aria-label="Close checkout">×</button></div>
 <div id="paymount"></div><p class="pay-foot">Payments are processed by Stripe. MFA never sees or stores your card number.</p></div></div>
@@ -306,7 +398,7 @@ fetch('/api/llc-checkout',{{method:'POST',headers:{{'Content-Type':'application/
 .then(function(j){{return stripeReady().then(function(S){{return S.initEmbeddedCheckout({{fetchClientSecret:function(){{return Promise.resolve(j.clientSecret);}}}});}}).then(function(co){{
 openPay(co,j);if(window.gtag)gtag('event','begin_checkout',{{value:j.total,currency:'USD',items:[{{item_name:'LLC formation '+f.package.value}}]}});b.disabled=false;b.textContent=l;}});}}).catch(fallback);}});
 var CO=null,modal=document.getElementById('paymodal');
-function openPay(co,j){{CO=co;document.getElementById('pay-sum').textContent='Total today: $'+Number(j.total).toLocaleString('en-US',{{minimumFractionDigits:2}})+(j.feeKnown?'':' (state fee confirmed and charged separately)');
+function openPay(co,j){{CO=co;document.getElementById('pay-sum').textContent='Total today: $'+Number(j.total).toLocaleString('en-US',{{minimumFractionDigits:2}})+(j.feeKnown?'':' (state fee confirmed and charged separately)')+((j.recurring||[]).map(function(x){{return ' · then $'+x.amount+'/mo bookkeeping from day 30';}}).join(''));
 modal.hidden=false;document.body.style.overflow='hidden';co.mount('#paymount');document.getElementById('payclose').focus();}}
 function closePay(){{if(CO){{try{{CO.destroy();}}catch(e){{}}CO=null;}}modal.hidden=true;document.body.style.overflow='';}}
 document.getElementById('payclose').addEventListener('click',closePay);document.addEventListener('keydown',function(e){{if(e.key==='Escape'&&!modal.hidden)closePay();}});
@@ -323,7 +415,7 @@ FAQ = [
     ("Is there anything that renews or bills me later?",
      "No. Each package is a one-time fee plus the state's filing fee at cost. Monthly bookkeeping is optional: it starts only if you ask for it, runs month to month, and you can stop anytime."),
     ("What happens after the first month of bookkeeping?",
-     "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $199 a month for one bank account, one credit card and up to 100 transactions a month; larger books are quoted up front. If not, you keep your QuickBooks file and everything we set up."),
+     "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $199 a month for up to two accounts (for example one bank account and one credit card) and up to 100 transactions a month. Each extra account adds $50 a month and 101 to 200 transactions add $100 a month. More than four accounts or 200 transactions a month is quoted up front. If not, you keep your QuickBooks file and everything we set up."),
     ("How do I pay?",
      "By card or bank account at checkout on this page, powered by Stripe. You pay one total: your package plus your state's filing fee at cost, shown as separate lines on your receipt. We check the name and file right after. If we can't file, we refund you in full; state fees can't be refunded once the state accepts the filing."),
     ("Which states do you form LLCs in?",
@@ -346,7 +438,7 @@ FAQ = [
 def build_main():
     url = BASE + "/llc-formation/"
     title = "LLC Formation in All 50 States by an Accountant: One Price, Paid Once | MFA"
-    desc = ("Form your LLC in any state with an accountant: state filing, EIN and operating agreement from $99 "
+    desc = ("Form your LLC in any state with an accountant: state filing, EIN and operating agreement from $150 "
             "plus the state fee, paid once. Tax and QuickBooks setup in Business Setup; monthly bookkeeping optional.")
     steps = [("Tell us about your business", "A short form: the name you want, owners, and what you'll do."),
              ("Pay securely at checkout", "Card or bank account through Stripe, right on this page: package + state fee, one total. We check the name and file."),
@@ -372,7 +464,7 @@ def build_main():
     directory = "".join(f'<li><a href="/llc-formation/{c.lower()}/"><span>{esc(STATES[c]["name"])}</span><b>{_fee(c)}</b></a></li>' for c in ORDER)
     body = f'''<header class="bhero rhero llc-hero"><div class="wrap"><span class="eyebrow">LLC formation</span>
 <h1>Form your LLC with an accountant, <em>not a call center.</em></h1>
-<p>Any state, one price. Your state filing, EIN, operating agreement and first-year calendar from <strong>$99 plus your state's fee, paid once.</strong> No renewals, and no add-on charges for the basics.</p>
+<p>Any state, one price. Your state filing, EIN, operating agreement and first-year calendar from <strong>$150 plus your state's fee, paid once.</strong> No renewals, and no add-on charges for the basics.</p>
 <div class="hero-btns"><a class="btn btn-gold" href="#start">Start my LLC</a><a class="btn btn-line" href="#cost">See my state's total</a></div>
 <p class="llc-trust">Big Four trained · Accounting, tax and business solutions · Princeton, NJ, serving clients nationwide</p></div></header>
 <main>
@@ -391,6 +483,7 @@ def build_main():
 <p>Our step-by-step LLC setup guide and new business checklist are coming to the MFA shop. Until then, our <a href="/resources/">resources</a> cover the basics.</p></div>
 <a class="btn btn-ink" href="/resources/">Browse resources</a></div></section>
 {intake_form()}
+{cart_js()}
 <section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><h2 id="faq-h">FAQs</h2>{ui_kit.faq_accordion(FAQ, prefix="llc")}</section>
 <section class="wrap llc-sec" id="states" aria-labelledby="dir-h"><div class="sec-hd"><span class="eyebrow eb-dark">LLC fees by state</span><h2 id="dir-h">State filing fees, all 50 states and DC.</h2>
 <p>The state's own formation fee for a domestic LLC filed online. Open a state for its annual report, tax registration, registered agent rules and official sources.</p></div>
@@ -451,7 +544,7 @@ def build_state(code):
     src_html = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(u.replace("https://", ""))}</a></li>' for u in srcs)
     title = f"How Much Does an LLC Cost in {name}? Fees, Rules & Formation Help | MFA"
     desc = (f"{name} LLC filing fee {fee_s}, annual requirements, tax registration and registered agent rules, checked {CHECKED}. "
-            f"Form your {name} LLC with an accountant from $99 plus the state fee, paid once.")
+            f"Form your {name} LLC with an accountant from $150 plus the state fee, paid once.")
     body = f'''<header class="ahead"><div class="wrap">
 <div class="crumbs"><a href="/">Home</a> / <a href="/llc-formation/">LLC formation</a> / {esc(name)}</div>
 <span class="eyebrow">{esc(name)} LLC</span><h1>Forming an LLC in {esc(name)}: fees, rules and timing</h1>
@@ -473,12 +566,7 @@ def build_state(code):
 
 def write_pricing():
     """Server-side price list for functions/api/llc-checkout.js (the browser's numbers are never trusted)."""
-    data = {"packages": {p["id"]: {"name": p["name"], "price": p["price"]} for p in PACKAGES}, "states": {}}
-    for c in ORDER:
-        s = STATES[c]
-        pub = v(s, "publication")
-        data["states"][c] = {"code": c, "name": s["name"], "fee": v(s, "filing_fee"), "extra": v(s, "formation_extra") or 0,
-                             "pub_fee": pub.get("certificate_of_publication_fee") if isinstance(pub, dict) else None}
+    data = pricing_obj()
     out = ROOT / "functions" / "_shared" / "llc-pricing.js"
     out.write_text("// Generated by tools/build_llc.py from data/llc-states.json and PACKAGES. Do not edit by hand.\nexport default "
                    + json.dumps(data, indent=1) + ";\n", encoding="utf-8")
@@ -499,10 +587,10 @@ if(!s||!s.paid)return fail(s&&s.status==='open'?'Checkout wasn\u2019t finished.'
 h.textContent='Thank you. Your LLC order is in.';dk.textContent='Paid $'+Number(s.amount).toLocaleString('en-US',{{minimumFractionDigits:2}})+'. A receipt is on its way to '+(s.email||'your email')+'.';
 b.innerHTML='<h2>What happens next</h2><ol><li>We check that <strong>'+esc(s.llc_name)+'</strong> is available in '+esc(s.state)+' (usually within one business day). If it isn\u2019t, we\u2019ll contact you about your backup name.</li><li>We file with the state and apply for your EIN.</li><li>You get your document pack by email: filed certificate, EIN letter, operating agreement and first-year calendar.</li></ol>'
 +(s.state_fee_confirmed&&s.state_fee_confirmed.indexOf('no')===0?'<p>Your state\u2019s filing fee wasn\u2019t included at checkout. We\u2019ll confirm it and collect it at cost before filing.</p>':'')
-+'<p>Questions: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p>';
++(s.subscription?'<p>Monthly bookkeeping: your first monthly charge is 30 days from today. You can cancel anytime by emailing us.</p>':'')+(s.monthly_bookkeeping==='quote'?'<p>Monthly bookkeeping: we\u2019ll send you a quote after reviewing your accounts. Nothing was charged for it today.</p>':'')+'<p>Questions: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p>';
 try{{if(!sessionStorage.getItem('llc-paid-'+id)){{sessionStorage.setItem('llc-paid-'+id,'1');var d=new FormData();d.append('_subject','PAID LLC order: '+s.package+' / '+s.state+' / '+s.llc_name+' ($'+s.amount+')');
 d.append('name',s.name||'');d.append('email',s.email||'');d.append('amount_paid','$'+s.amount);d.append('package',s.package);d.append('state',s.state);d.append('llc_name',s.llc_name);d.append('activity',s.activity||'');
-d.append('monthly_bookkeeping',s.monthly_bookkeeping||'');d.append('state_fee_confirmed',s.state_fee_confirmed||'');d.append('stripe_session',id);d.append('_captcha','false');d.append('_template','table');
+d.append('monthly_bookkeeping',s.monthly_bookkeeping||'');d.append('addons',s.addons||'');d.append('state_fee_confirmed',s.state_fee_confirmed||'');d.append('stripe_session',id);d.append('_captcha','false');d.append('_template','table');
 fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).catch(function(){{}});}}}}catch(e){{}}
 if(window.gtag)gtag('event','purchase',{{transaction_id:id,value:s.amount,currency:'USD',items:[{{item_name:'LLC formation '+s.package}}]}});
 }}).catch(function(){{fail('We couldn\u2019t reach the payment service.');}});}})();

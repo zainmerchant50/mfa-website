@@ -8,7 +8,7 @@ export async function onRequestGet({ request, env }) {
     const m = s.metadata || {};
     return Response.json({ status: s.status, paid: s.payment_status === "paid", amount: (s.amount_total || 0) / 100,
       email: s.customer_details && s.customer_details.email, name: m.name, state: m.state, package: m.package,
-      llc_name: m.llc_name, activity: m.activity, monthly_bookkeeping: m.monthly_bookkeeping, state_fee_confirmed: m.state_fee_confirmed },
+      llc_name: m.llc_name, activity: m.activity, monthly_bookkeeping: m.monthly_bookkeeping, addons: m.addons, subscription: s.mode === "subscription", state_fee_confirmed: m.state_fee_confirmed },
       { headers: { "Cache-Control": "no-store" } });
   } catch (e) { return Response.json({ error: "stripe" }, { status: 424 }); }
 }

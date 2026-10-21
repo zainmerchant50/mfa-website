@@ -6,3 +6,4 @@ __pycache__/
 products/
 products-out/
 .projdocs/
+.wrangler/

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Builds /services/ (Site session). Moved off the home page at Zain's request (2026-10-20 20:54).
 
-Only Zain-approved prices appear: LLC formation from $99 (+ state fee), Complete Launch $649,
+Only Zain-approved prices appear: LLC formation from $150 (+ state fee; raised from $99 by Zain 2026-10-20), Complete Launch $649,
 monthly bookkeeping from $199/month (Zain, 2026-10-20). Everything else says "quoted up front".
 Never "free", never "CPA", no street address. Customer-facing dates: date only.
 """
@@ -76,12 +76,12 @@ SERVICES = [
       "QuickBooks Online setup, migration and cleanup",
       "Accounting system and app selection",
       "Business plans and financial models for banks"],
-     "LLC formation <strong>from $99 plus the state fee</strong>, paid once. Other work quoted up front.",
+     "LLC formation <strong>from $150 plus the state fee</strong>, paid once. Other work quoted up front.",
      [("/llc-formation/", "LLC formation packages")]),
 ]
 
 OFFERS = [
-    ("LLC formation", "From $99", "+ state fee, paid once", "Formation $99, Business Setup $249, Complete Launch $649 with your first month of bookkeeping.", "/llc-formation/", "See packages"),
+    ("LLC formation", "From $150", "+ state fee, paid once", "Formation $150, Business Setup $249, Complete Launch $649 with your first month of bookkeeping.", "/llc-formation/", "See packages"),
     ("Monthly bookkeeping", "From $199", "/ month", "One bank, one card, up to 100 transactions a month. Month to month; bigger books quoted up front.", "/llc-formation/#monthly", "How it works"),
     ("Tax preparation", "Quoted", "up front", "Individual and business returns, federal and state. You see the price before we start.", "/#book", "Get a quote"),
 ]
@@ -91,7 +91,7 @@ def build():
     url = BASE + "/services/"
     title = "Services: Tax, Bookkeeping, CFO and Business Solutions | Merchant Financial Advisory"
     desc = ("Tax preparation and planning, monthly bookkeeping from $199/month, financial reporting, fractional CFO, audit support, "
-            "technical accounting and LLC formation from $99. Serving New Jersey, New York and clients nationwide.")
+            "technical accounting and LLC formation from $150. Serving New Jersey, New York and clients nationwide.")
     jump = "".join(f'<a href="#{sid}">{name}</a>' for sid, name, *_ in SERVICES)
     offers = "".join(f'''<div class="pkc card{" feat" if i == 1 else ""}"><span class="pk-tag">{esc(n)}</span>
 <p class="pk-price"><b>{p}</b><span>{s}</span></p><p class="pk-lead">{t}</p>

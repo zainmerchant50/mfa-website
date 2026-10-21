@@ -3,7 +3,7 @@ export default {
  "packages": {
   "formation": {
    "name": "Formation",
-   "price": 99
+   "price": 150
   },
   "setup": {
    "name": "Formation + Business Setup",
@@ -20,357 +20,456 @@ export default {
    "name": "Alabama",
    "fee": 200,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "AK": {
    "code": "AK",
    "name": "Alaska",
    "fee": 250,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "AZ": {
    "code": "AZ",
    "name": "Arizona",
    "fee": 85,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": true
   },
   "AR": {
    "code": "AR",
    "name": "Arkansas",
    "fee": 45,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "CA": {
    "code": "CA",
    "name": "California",
    "fee": 70,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "CO": {
    "code": "CO",
    "name": "Colorado",
    "fee": 50,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "CT": {
    "code": "CT",
    "name": "Connecticut",
    "fee": 120,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "DE": {
    "code": "DE",
    "name": "Delaware",
    "fee": 110,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "DC": {
    "code": "DC",
    "name": "District of Columbia",
    "fee": 99,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "FL": {
    "code": "FL",
    "name": "Florida",
    "fee": 125,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "GA": {
    "code": "GA",
    "name": "Georgia",
    "fee": 110,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "HI": {
    "code": "HI",
    "name": "Hawaii",
    "fee": 50,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "ID": {
    "code": "ID",
    "name": "Idaho",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "IL": {
    "code": "IL",
    "name": "Illinois",
    "fee": 150,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "IN": {
    "code": "IN",
    "name": "Indiana",
    "fee": 95,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "IA": {
    "code": "IA",
    "name": "Iowa",
    "fee": 50,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "KS": {
    "code": "KS",
    "name": "Kansas",
    "fee": 85,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "KY": {
    "code": "KY",
    "name": "Kentucky",
    "fee": 40,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "LA": {
    "code": "LA",
    "name": "Louisiana",
    "fee": 125,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "ME": {
    "code": "ME",
    "name": "Maine",
    "fee": 175,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "MD": {
    "code": "MD",
    "name": "Maryland",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "MA": {
    "code": "MA",
    "name": "Massachusetts",
    "fee": 500,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "MI": {
    "code": "MI",
    "name": "Michigan",
    "fee": 50,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "MN": {
    "code": "MN",
    "name": "Minnesota",
    "fee": 155,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "MS": {
    "code": "MS",
    "name": "Mississippi",
    "fee": 50,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "MO": {
    "code": "MO",
    "name": "Missouri",
    "fee": 50,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "MT": {
    "code": "MT",
    "name": "Montana",
    "fee": 35,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "NE": {
    "code": "NE",
    "name": "Nebraska",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": true
   },
   "NV": {
    "code": "NV",
    "name": "Nevada",
    "fee": 75,
    "extra": 350,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "NH": {
    "code": "NH",
    "name": "New Hampshire",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "NJ": {
    "code": "NJ",
    "name": "New Jersey",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "NM": {
    "code": "NM",
    "name": "New Mexico",
    "fee": null,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "NY": {
    "code": "NY",
    "name": "New York",
    "fee": 200,
    "extra": 0,
-   "pub_fee": 50
+   "pub_fee": 50,
+   "pub": true
   },
   "NC": {
    "code": "NC",
    "name": "North Carolina",
    "fee": 125,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "ND": {
    "code": "ND",
    "name": "North Dakota",
    "fee": 135,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "OH": {
    "code": "OH",
    "name": "Ohio",
    "fee": 99,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "OK": {
    "code": "OK",
    "name": "Oklahoma",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "OR": {
    "code": "OR",
    "name": "Oregon",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "PA": {
    "code": "PA",
    "name": "Pennsylvania",
    "fee": 125,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "RI": {
    "code": "RI",
    "name": "Rhode Island",
    "fee": 150,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "SC": {
    "code": "SC",
    "name": "South Carolina",
    "fee": 110,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "SD": {
    "code": "SD",
    "name": "South Dakota",
    "fee": 150,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "TN": {
    "code": "TN",
    "name": "Tennessee",
    "fee": 300,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "TX": {
    "code": "TX",
    "name": "Texas",
    "fee": 300,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "UT": {
    "code": "UT",
    "name": "Utah",
    "fee": 59,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "VT": {
    "code": "VT",
    "name": "Vermont",
    "fee": 155,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "VA": {
    "code": "VA",
    "name": "Virginia",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "WA": {
    "code": "WA",
    "name": "Washington",
    "fee": 180,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "WV": {
    "code": "WV",
    "name": "West Virginia",
    "fee": 101,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "WI": {
    "code": "WI",
    "name": "Wisconsin",
    "fee": 130,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
   },
   "WY": {
    "code": "WY",
    "name": "Wyoming",
    "fee": 100,
    "extra": 0,
-   "pub_fee": null
+   "pub_fee": null,
+   "pub": false
+  }
+ },
+ "addons": {
+  "bk": {
+   "name": "Monthly bookkeeping",
+   "base": 199,
+   "incl_accounts": 2,
+   "per_account": 50,
+   "max_accounts": 4,
+   "trial_days": 30,
+   "tiers": [
+    {
+     "id": "100",
+     "max": 100,
+     "label": "up to 100 transactions/mo",
+     "add": 0
+    },
+    {
+     "id": "200",
+     "max": 200,
+     "label": "101 to 200 transactions/mo",
+     "add": 100
+    }
+   ]
+  },
+  "f1099": {
+   "name": "1099 preparation and e-filing",
+   "per": 25,
+   "min": 75
+  },
+  "salestax": {
+   "name": "Sales tax registration",
+   "price": 99,
+   "included_in": [
+    "launch"
+   ]
+  },
+  "scorp": {
+   "name": "S corp election (Form 2553)",
+   "price": 149,
+   "included_in": [
+    "launch"
+   ]
+  },
+  "quarterly": {
+   "name": "Quarterly estimated tax service",
+   "per_quarter": 49,
+   "quarters": 4
   }
  }
 };
