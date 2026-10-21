@@ -47,12 +47,13 @@ PACKAGES = [
                "Bank-ready document checklist",
                "QuickBooks Online setup: chart of accounts, bank feeds, invoice template",
                "45-minute onboarding call"]},
-    {"id": "launch", "name": "Complete Launch", "price": 499, "tag": "Launch-ready",
+    {"id": "launch", "name": "Complete Launch", "price": 649, "tag": "Launch-ready",
      "lead": "Everything in Business Setup, plus your elections, sales tax and first month of books.",
      "items": ["Everything in Formation + Business Setup",
                "S corp election (Form 2553) filed if it fits, with salary guidance",
                "Sales tax registration and filing calendar, if you sell taxable goods or services",
                "First month of bookkeeping: one bank, one card, up to 100 transactions, first P&amp;L",
+               "Then continue monthly from $199/month, if you want (optional, month to month)",
                "Our DIY guides and checklists included",
                "30-day check-in call"]},
 ]
@@ -62,10 +63,37 @@ ROWS = [  # (feature, formation, setup, launch)
     ("First-year compliance calendar", 1, 1, 1), ("Tax classification review (LLC vs S corp)", 0, 1, 1),
     ("State tax registration", 0, 1, 1), ("QuickBooks Online setup", 0, 1, 1), ("Onboarding call", 0, 1, 1),
     ("S corp election (Form 2553), if it fits", 0, 0, 1), ("Sales tax registration", 0, 0, 1),
-    ("First month of bookkeeping", 0, 0, 1), ("DIY guides and checklists", 0, 0, 1), ("Renews every year?", "No", "No", "No"),
+    ("First month of bookkeeping", 0, 0, 1), ("DIY guides and checklists", 0, 0, 1),
+    ("Monthly bookkeeping after that", "Optional add-on", "Optional add-on", "Optional, from $199/mo"), ("Renews every year?", "No", "No", "No"),
 ]
 
 ICO_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
+
+
+MONTHLY = {"price": 199, "scope": "one bank account, one credit card, up to 100 transactions a month",
+           "items": ["Transactions categorized to your chart of accounts every month",
+                     "Bank and credit card accounts reconciled to the statements",
+                     "Monthly P&amp;L and balance sheet, with a short note on what changed",
+                     "Owner draws, loans and transfers kept separate from income and expenses",
+                     "Year-end books handed to your tax preparer (or to us) ready to file",
+                     "Questions by email between closes"]}
+
+
+def monthly_html():
+    lis = "".join(f"<li>{ICO_OK}<span>{i}</span></li>" for i in MONTHLY["items"])
+    return f'''<section class="wrap llc-sec" id="monthly" aria-labelledby="mo-h">
+<div class="sec-hd"><span class="eyebrow eb-dark">After month one</span><h2 id="mo-h">From your first month of books to every month.</h2>
+<p>Complete Launch includes your first month of bookkeeping. If you like how it works, keep going: same accountant, same file, no handoff.</p></div>
+<div class="pk pk-mo"><div class="pkc card feat"><span class="pk-tag">Optional · month to month</span><h3>Monthly Bookkeeping</h3>
+<p class="pk-price"><b>${MONTHLY["price"]}</b><span>/ month · starting price</span></p>
+<p class="pk-lead">For {MONTHLY["scope"]}. More accounts or volume? We quote it up front before you start.</p>
+<ul class="pk-list">{lis}</ul>
+<a class="btn btn-gold" href="#start" data-mo="1">Add monthly bookkeeping</a></div>
+<div class="pkc card"><span class="pk-tag">How the switch works</span><h3>No gap between month one and month two</h3>
+<ol class="mo-steps"><li><b>Month one</b><span>Included in Complete Launch: we set up QuickBooks and close your first month.</span></li>
+<li><b>Day 30 check-in</b><span>We review the first P&amp;L together and confirm your monthly scope and price.</span></li>
+<li><b>Month two onward</b><span>We close your books each month and invoice monthly through QuickBooks. Stop whenever you want.</span></li></ol>
+<p class="muted">On Formation or Business Setup? You can add monthly bookkeeping too; tick the box in the form below. Bookkeeping doesn't include tax returns, payroll or sales tax filings; we quote those separately.</p></div></div></section>'''
 
 
 def lc1(t):
@@ -167,6 +195,7 @@ if(s.reg)n.push('Tax registration: '+s.reg+'.');n.push('Nothing from MFA renews.
 $('c-notes').innerHTML=n.map(function(t){return '<li>'+t.replace(/</g,'&lt;')+'</li>';}).join('');$('c-link').href=s.url;
 $('c-link').textContent=s.name+' details';var f=document.getElementById('f-state');if(f)f.value=st.value;}
 st.addEventListener('change',run);document.addEventListener('change',function(e){if(e.target.name==='pk'){var f=document.getElementById('f-pk');if(f)f.value=e.target.value;run();}});
+[].slice.call(document.querySelectorAll('[data-mo]')).forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('f-mo');if(c)c.checked=true;});});
 [].slice.call(document.querySelectorAll('[data-pk]')).forEach(function(a){a.addEventListener('click',function(){var f=document.getElementById('f-pk');if(f)f.value=a.getAttribute('data-pk');});});
 var q=new URLSearchParams(location.search).get('state');if(q&&S[q.toUpperCase()])st.value=q.toUpperCase();run();})();
 </script>""" % data
@@ -195,7 +224,8 @@ def intake_form():
 <label class="opt"><input type="checkbox" name="will_hire" value="yes"/><span>I'll hire employees in the first year</span></label>
 <label class="opt"><input type="checkbox" name="sells_taxable" value="yes"/><span>I'll sell products or taxable services</span></label>
 <label class="opt"><input type="checkbox" name="has_agent" value="yes"/><span>I already have a registered agent or in-state street address</span></label>
-<label class="opt"><input type="checkbox" name="s_corp_interest" value="yes"/><span>I want to know if an S corp makes sense</span></label></div></div>
+<label class="opt"><input type="checkbox" name="s_corp_interest" value="yes"/><span>I want to know if an S corp makes sense</span></label>
+<label class="opt"><input type="checkbox" id="f-mo" name="monthly_bookkeeping" value="yes"/><span>Continue with monthly bookkeeping after setup (from $199/month)</span></label></div></div>
 <div class="fld"><label for="f-notes">Anything else? (optional)</label><textarea id="f-notes" name="notes" rows="3" placeholder="Timing, partners, questions"></textarea>
 <span class="hint">Please don't include Social Security or bank account numbers. We collect what the IRS needs securely after we've confirmed your order.</span></div>
 <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
@@ -221,7 +251,9 @@ FAQ = [
     ("Why form my LLC with an accountant?",
      "Filing the paperwork is the easy part. The decisions that cost money come right after: how the LLC is taxed, whether an S corp election makes sense, state tax registration, and setting up books that are ready for tax time. We handle those from day one."),
     ("Is there anything that renews or bills me later?",
-     "No. Each package is a one-time fee plus the state's filing fee at cost. Ongoing bookkeeping or tax work is optional and quoted separately."),
+     "No. Each package is a one-time fee plus the state's filing fee at cost. Monthly bookkeeping is optional: it starts only if you ask for it, runs month to month, and you can stop anytime."),
+    ("What happens after the first month of bookkeeping?",
+     "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $199 a month for one bank account, one credit card and up to 100 transactions a month; larger books are quoted up front. If not, you keep your QuickBooks file and everything we set up."),
     ("How do I pay?",
      "Send us your details with the form. We review them, confirm the name, and email you an invoice for your package plus the state fee as a separate line. We file once it's paid."),
     ("Do I need a registered agent?",
@@ -273,6 +305,7 @@ def build_main():
 <h2 id="pk-h">Three ways to start. One price each.</h2><p>Every package includes the filing, your EIN and an operating agreement template. State fees are added at cost.</p></div>
 {packages_html()}{table_html()}</section>
 {state_picker()}
+{monthly_html()}
 <section class="wrap llc-sec" aria-labelledby="how-h"><div class="sec-hd"><span class="eyebrow eb-dark">How it works</span><h2 id="how-h">Three steps, and a person on the other end.</h2></div>
 <div class="st3s">{steps_html}</div></section>
 <section class="wrap llc-sec" aria-labelledby="fy-h"><div class="sec-hd"><span class="eyebrow eb-dark">After you form</span><h2 id="fy-h">Your first year, in order.</h2>

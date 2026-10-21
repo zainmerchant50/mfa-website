@@ -113,6 +113,8 @@ a.rcard:hover .go i{transform:translateX(4px)}
 .pk-list li{display:flex;gap:10px;align-items:flex-start}
 .pk-list svg,.pk-tbl svg{width:17px;height:17px;flex-shrink:0;margin-top:2px;color:var(--gold)}
 .pkc.feat .pk-list svg{color:var(--gold-b)}
+.pk-mo{grid-template-columns:repeat(2,minmax(0,1fr))}@media (max-width:960px){.pk-mo{grid-template-columns:1fr}}
+.mo-steps{list-style:none;padding:0;margin:8px 0 18px;display:grid;gap:14px}.mo-steps li{display:grid;gap:2px;padding-left:14px;border-left:2px solid rgba(176,141,63,.45)}.mo-steps b{font-size:.92rem}.mo-steps span{font-size:.9rem;line-height:1.5;color:var(--muted)}.pk-mo .muted{font-size:.86rem;line-height:1.55;color:var(--muted)}
 .pkc .btn{margin-top:auto;justify-content:center;text-align:center}
 .pkc.feat .btn-gold{color:var(--navy)}
 .tbl-wrap{overflow-x:auto;margin-top:34px;-webkit-overflow-scrolling:touch}
