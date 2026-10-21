@@ -363,7 +363,7 @@ def build_scorp():
     f = Facts()
     fed = fed_bundle(f)
     notes = {
-        "NJ": "New Jersey has its own S corporation election and filing requirements, plus state-level fees. State income tax differences are not included here.",
+        "NJ": "New Jersey has separate S corporation rules, filings and state-level fees, so confirm your New Jersey S status when you elect federally. State income tax differences are not included here.",
         "NY": "New York has its own S corporation election and filing requirements, and New York City has business taxes that can apply to S corporations. State income tax differences are not included here.",
         "OTHER": "State rules for S corporations vary. Check your state's election, fees and tax treatment. State income tax differences are not included here.",
     }
