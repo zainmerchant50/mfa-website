@@ -114,10 +114,9 @@
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
-    "url": null,
-    "note": "Etsy price to confirm with Zain (product predates sale-style pricing)"
+    "list": 30.0,
+    "sale": 15.0,
+    "url": null
    },
    "shop": {
     "group": "kit",
@@ -166,10 +165,9 @@
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
-    "url": null,
-    "note": "Etsy price to confirm with Zain (product predates sale-style pricing)"
+    "list": 24.0,
+    "sale": 12.0,
+    "url": null
    },
    "shop": {
     "group": "kit",
@@ -191,10 +189,9 @@
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
-    "url": null,
-    "note": "Etsy price to confirm with Zain (product predates sale-style pricing)"
+    "list": 18.0,
+    "sale": 9.0,
+    "url": null
    },
    "shop": {
     "group": "kit",
@@ -281,17 +278,17 @@
    "id": "09",
    "slug": null,
    "name": "1099 Contractor Payment Tracker",
-   "status": "planned",
+   "status": "draft",
    "tier": "tracker",
    "gumroad": {
-    "price": null,
+    "price": "6.99",
     "url": null,
     "product_id": null
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
+    "list": 13.98,
+    "sale": 6.99,
     "url": null
    },
    "shop": {
@@ -300,23 +297,23 @@
     "format": null,
     "related": null
    },
-   "note": "Not built. Tracker price: $8.99 in the plan; Zain mentioned $6.99 (2026-10-21), not confirmed."
+   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
   },
   {
    "id": "10",
    "slug": null,
    "name": "1099 Income Tracker for Freelancers",
-   "status": "planned",
+   "status": "draft",
    "tier": "tracker",
    "gumroad": {
-    "price": null,
+    "price": "6.99",
     "url": null,
     "product_id": null
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
+    "list": 13.98,
+    "sale": 6.99,
     "url": null
    },
    "shop": {
@@ -325,23 +322,23 @@
     "format": null,
     "related": null
    },
-   "note": "Not built. Tracker price: $8.99 in the plan; Zain mentioned $6.99 (2026-10-21), not confirmed."
+   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
   },
   {
    "id": "11",
    "slug": null,
    "name": "Small Business Bookkeeping Spreadsheet",
-   "status": "planned",
+   "status": "draft",
    "tier": "tracker",
    "gumroad": {
-    "price": null,
+    "price": "6.99",
     "url": null,
     "product_id": null
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
+    "list": 13.98,
+    "sale": 6.99,
     "url": null
    },
    "shop": {
@@ -350,23 +347,23 @@
     "format": null,
     "related": null
    },
-   "note": "Not built. Tracker price: $8.99 in the plan; Zain mentioned $6.99 (2026-10-21), not confirmed."
+   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
   },
   {
    "id": "12",
    "slug": null,
    "name": "Expense Categorization Guide & Tracker",
-   "status": "planned",
+   "status": "draft",
    "tier": "tracker",
    "gumroad": {
-    "price": null,
+    "price": "6.99",
     "url": null,
     "product_id": null
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
+    "list": 13.98,
+    "sale": 6.99,
     "url": null
    },
    "shop": {
@@ -375,23 +372,23 @@
     "format": null,
     "related": null
    },
-   "note": "Not built. Tracker price: $8.99 in the plan; Zain mentioned $6.99 (2026-10-21), not confirmed."
+   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
   },
   {
    "id": "13",
    "slug": null,
    "name": "Self-Employed Tax Deduction Tracker",
-   "status": "planned",
+   "status": "draft",
    "tier": "tracker",
    "gumroad": {
-    "price": null,
+    "price": "6.99",
     "url": null,
     "product_id": null
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
+    "list": 13.98,
+    "sale": 6.99,
     "url": null
    },
    "shop": {
@@ -400,23 +397,23 @@
     "format": null,
     "related": null
    },
-   "note": "Not built. Tracker price: $8.99 in the plan; Zain mentioned $6.99 (2026-10-21), not confirmed."
+   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
   },
   {
    "id": "14",
    "slug": null,
    "name": "IRS Mileage Log 2026",
-   "status": "planned",
+   "status": "draft",
    "tier": "tracker",
    "gumroad": {
-    "price": null,
+    "price": "6.99",
     "url": null,
     "product_id": null
    },
    "etsy": {
     "allowed": true,
-    "list": null,
-    "sale": null,
+    "list": 13.98,
+    "sale": 6.99,
     "url": null
    },
    "shop": {
@@ -425,7 +422,7 @@
     "format": null,
     "related": null
    },
-   "note": "Not built. Tracker price: $8.99 in the plan; Zain mentioned $6.99 (2026-10-21), not confirmed."
+   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
   },
   {
    "id": "20",
