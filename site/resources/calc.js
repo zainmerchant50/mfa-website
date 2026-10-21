@@ -385,9 +385,9 @@
       var fedTax = bracketTax(F.brackets[status], fedTI);
       var stTax = 0, stNote = 'No state income tax included';
       if (state === 'NJ') {
-        var njInc = Math.max(0, gross - s125);
+        var njInc = Math.max(0, gross - k401 - s125);
         stTax = subtractTax(njTable(status), njInc);
-        stNote = 'NJ rate schedule on ' + money(njInc) + ' (NJ taxes 401(k) deferrals and has no standard deduction)';
+        stNote = 'NJ rate schedule on ' + money(njInc) + ' (401(k) deferrals excluded; NJ has no standard deduction; 403(b)/457 deferrals are taxable in NJ)';
       } else if (state === 'NY' || state === 'NYC') {
         var nyTI = Math.max(0, gross - k401 - s125 - D.ny.std[status]);
         var nys = bracketTax(D.ny.brackets[nyKey(status)], nyTI), nyc = state === 'NYC' ? bracketTax(D.nyc.brackets[nyKey(status)], nyTI) : 0;
@@ -401,7 +401,7 @@
       setText('rsub', 'Estimated take-home of ' + money(net / n, true) + ' per paycheck (' + n + ' paychecks a year).');
       var rows = [
         ['Gross pay', c(gross), a(gross), 'Annual salary \u00f7 ' + n + ' paychecks', ''],
-        ['Pre-tax retirement (401(k))', c(-k401), a(-k401), 'Lowers federal and NY income tax, not Social Security or Medicare', ''],
+        ['Pre-tax retirement (401(k))', c(-k401), a(-k401), 'Lowers federal, NJ and NY income tax, not Social Security or Medicare', ''],
         ['Pre-tax health (Section 125)', c(-s125), a(-s125), 'Lowers income tax and payroll taxes', ''],
         ['Federal income tax', c(-fedTax), a(-fedTax), 'On ' + money(fedTI) + ' of taxable income after the ' + money(F.std[status]) + ' standard deduction', ''],
         ['Social Security (' + pct(ssRate, 1) + ')', c(-ss), a(-ss), 'On wages up to the ' + money(F.wage_base) + ' wage base', ''],

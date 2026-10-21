@@ -421,7 +421,7 @@ def build_paycheck():
     info = f"""<h2>How take-home pay is figured</h2>
 <ul><li><strong>Federal income tax.</strong> Salary minus pre-tax retirement and Section 125 deductions and the {usd(fed["std"]["single"])} single ({usd(fed["std"]["married_joint"])} joint) standard deduction, then the 2026 brackets.</li>
 <li><strong>Social Security and Medicare (FICA).</strong> {pc(fed["ss_rate"] / 2)} Social Security on wages up to {usd(fed["wage_base"])}, and {pc(fed["med_rate"] / 2)} Medicare on all wages, plus {pc(fed["addl_rate"])} Additional Medicare on wages over {usd(fed["addl_thr"]["single"])}. Your employer pays a matching amount that is not shown here.</li>
-<li><strong>New Jersey.</strong> Rate schedule on wages less Section 125 deductions. New Jersey taxes 401(k) deferrals and has no standard deduction, so the retirement deduction does not reduce NJ tax.</li>
+<li><strong>New Jersey.</strong> Rate schedule on wages less 401(k) and Section 125 health deductions, with no standard deduction. New Jersey excludes 401(k) deferrals but taxes 403(b) and 457 deferrals (<a href="https://www.nj.gov/treasury/taxation/njit5.shtml" target="_blank" rel="noopener">NJ Division of Taxation</a>). This estimate treats the amount entered as a 401(k).</li>
 <li><strong>New York.</strong> Rate schedule on income after the NY standard deduction, with New York City tax added for city residents. {esc(nyd["note"])}</li></ul>
 <h2>What this estimate leaves out</h2>
 <ul><li>State payroll deductions such as NJ and NY disability and family leave contributions, and local taxes other than New York City.</li>
