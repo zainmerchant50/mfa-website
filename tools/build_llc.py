@@ -358,7 +358,7 @@ def intake_form():
 <div class="paymodal" id="paymodal" role="dialog" aria-modal="true" aria-labelledby="pay-h" hidden><div class="paybox">
 <div class="pay-hd"><div><h2 id="pay-h">Secure checkout</h2><p id="pay-sum" class="pay-sum"></p></div><button type="button" class="pay-x" id="payclose" aria-label="Close checkout">×</button></div>
 <div id="paymount"></div><p class="pay-foot">Payments are processed by Stripe. MFA never sees or stores your card number.</p></div></div>
-<div class="tcard ldone" id="ldone" tabindex="-1" hidden><h2>Thanks, we have your details.</h2><p>We'll check the name and email you a secure checkout link for your package plus the state fee, usually within one business day. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
+<div class="tcard ldone" id="ldone" tabindex="-1" hidden><h2>Thanks, we have your details.</h2><p>We'll check the name and email you a secure checkout link for your package plus the state fee, usually within one to three business days. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
 </section>
 <script>
 (function(){{var f=document.getElementById('lform'),st=f.querySelector('.ask-st'),box=document.getElementById('form-err');
@@ -585,7 +585,7 @@ if(!id)return fail('No order reference was found.');
 fetch('/api/llc-session?session_id='+encodeURIComponent(id)).then(function(r){{return r.json();}}).then(function(s){{
 if(!s||!s.paid)return fail(s&&s.status==='open'?'Checkout wasn\u2019t finished.':'Payment is not complete.');
 h.textContent='Thank you. Your LLC order is in.';dk.textContent='Paid $'+Number(s.amount).toLocaleString('en-US',{{minimumFractionDigits:2}})+'. A receipt is on its way to '+(s.email||'your email')+'.';
-b.innerHTML='<h2>What happens next</h2><ol><li>We check that <strong>'+esc(s.llc_name)+'</strong> is available in '+esc(s.state)+' (usually within one business day). If it isn\u2019t, we\u2019ll contact you about your backup name.</li><li>We file with the state and apply for your EIN.</li><li>You get your document pack by email: filed certificate, EIN letter, operating agreement and first-year calendar.</li></ol>'
+b.innerHTML='<h2>What happens next</h2><ol><li>We check that <strong>'+esc(s.llc_name)+'</strong> is available in '+esc(s.state)+' (usually within one to three business days). If it isn\u2019t, we\u2019ll contact you about your backup name.</li><li>We file with the state and apply for your EIN.</li><li>You get your document pack by email: filed certificate, EIN letter, operating agreement and first-year calendar.</li></ol>'
 +(s.state_fee_confirmed&&s.state_fee_confirmed.indexOf('no')===0?'<p>Your state\u2019s filing fee wasn\u2019t included at checkout. We\u2019ll confirm it and collect it at cost before filing.</p>':'')
 +(s.subscription?'<p>Monthly bookkeeping: your first monthly charge is 30 days from today. You can cancel anytime by emailing us.</p>':'')+(s.monthly_bookkeeping==='quote'?'<p>Monthly bookkeeping: we\u2019ll send you a quote after reviewing your accounts. Nothing was charged for it today.</p>':'')+'<p>Questions: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p>';
 try{{if(!sessionStorage.getItem('llc-paid-'+id)){{sessionStorage.setItem('llc-paid-'+id,'1');var d=new FormData();d.append('_subject','PAID LLC order: '+s.package+' / '+s.state+' / '+s.llc_name+' ($'+s.amount+')');

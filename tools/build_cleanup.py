@@ -113,9 +113,9 @@ def form_html():
 {fld("c-notes", "Anything else? (optional)", '<textarea id="c-notes" name="notes" rows="4" placeholder="What happened, what you need the books for (tax return, lender, a sale), any deadline"></textarea>', False, "Please don't include Social Security or bank account numbers. We'll ask for access securely after you accept a quote.")}
 <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 <div class="lsubmit"><button class="btn btn-ink" type="submit" id="csubmit">Request my quote</button><p class="ask-st" role="status" aria-live="polite"></p></div>
-<p class="pay-note">No payment on this page. We reply by email, usually within one business day.</p>
+<p class="pay-note">No payment on this page. We reply by email, usually within one to three business days.</p>
 </form>
-<div class="tcard ldone" id="cdone" tabindex="-1" hidden><h2>Thanks, we have your request.</h2><p>We'll look over what you sent and email you next steps, usually within one business day. You'll get a fixed quote before any work starts. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
+<div class="tcard ldone" id="cdone" tabindex="-1" hidden><h2>Thanks, we have your request.</h2><p>We'll look over what you sent and email you next steps, usually within one to three business days. You'll get a fixed quote before any work starts. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
 </section>
 <script>{JS.replace("__ENDPOINT__", ENDPOINT).replace("__CONV__", CONV).replace("__EMAIL__", B.EMAIL)}</script>'''
 
