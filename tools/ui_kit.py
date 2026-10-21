@@ -61,6 +61,12 @@ UI_CSS = r"""
 /* Reading progress (articles) */
 .rprog{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--gold-b));
   transform-origin:0 50%;transform:scaleX(0);z-index:100;pointer-events:none}
+/* Related links strip above the footer (tool pages; tools/seo.py related_html) */
+.relnav{border-top:1px solid var(--hair);background:var(--paper-2,#F5F4EF);padding:18px 0}
+.relnav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.relnav span{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-right:6px}
+.relnav a{font-size:.86rem;line-height:1.3;padding:7px 13px;border:1px solid var(--hair);border-radius:999px;background:var(--paper);color:var(--ink);text-decoration:none;transition:border-color .3s}
+.relnav a:hover{border-color:var(--gold)}
 /* Add-to-calendar menu */
 .kd-add{position:relative;display:inline-block}
 .kd-add>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}

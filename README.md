@@ -3,8 +3,9 @@
 Source for Merchant Financial Advisory LLC's website. Static site: everything published lives in `site/` (no build step on the host).
 
 - `site/` – published folder (index.html, blog/, union-city-nj/ landing page, icons, `_headers`, `_redirects`).
-- `tools/build_blog.py` – builds the blog, feed, sitemap, robots.txt and llms.txt.
-- `tools/build_landing.py` – builds the Google Ads landing page (`/union-city-nj/`).
+- `tools/build_blog.py` – builds the blog and feed; its last step calls `tools/seo.py` for sitemap, robots.txt, llms.txt, llms-full.txt and catalog.json.
+- `tools/build_landing.py` – builds the local landing pages (`/union-city-nj/`, `/princeton-nj/`, `/new-york-ny/`).
+- `tools/seo.py` – shared JSON-LD building blocks and the machine-readable root files (sitemap.xml, robots.txt, llms.txt, llms-full.txt, catalog.json); run by `build_blog.py` as its last step. `tools/check_seo.py` checks the built site, `tools/indexnow.py` pings Bing after a deploy. See `docs/seo-ai-report.md`.
 - Hosting: **Cloudflare Pages** (project `mfa-website`, output dir `site`, no build command), live since Oct 9, 2026. Netlify is retired.
 
 Forms post to FormSubmit (emails info@mfa-advisory.com), so they work on any host.

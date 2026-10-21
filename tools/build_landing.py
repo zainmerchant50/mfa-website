@@ -135,22 +135,19 @@ rev_html = "".join(
     for q, n, s in REVIEWS)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ui_kit  # noqa: E402  shared FAQ accordion + animations
+import seo  # noqa: E402  JSON-LD building blocks (tools/seo.py)
 faq_html = ui_kit.faq_accordion(FAQ)
 opts = "".join(f"<option>{esc(o)}</option>" for o in ["Bookkeeping & Accounting", "Tax Preparation & Filing", "Tax Planning & Strategy", "QuickBooks Setup / Cleanup", "Fractional CFO", "Other"])
 
-ld = {
-    "@context": "https://schema.org",
-    "@graph": [
-        {"@type": "AccountingService", "@id": "https://mfa-advisory.com/#org", "name": "Merchant Financial Advisory LLC",
-         "url": URL, "email": EMAIL, **({"telephone": tel} if tel else {}),
-         "logo": "https://mfa-advisory.com/apple-touch-icon.png",
-         "address": {"@type": "PostalAddress", "addressLocality": "Princeton", "addressRegion": "NJ", "addressCountry": "US"},
-         "knowsLanguage": ["English", "Hindi", "Urdu"],
-         "areaServed": [{"@type": "City", "name": f"{c}, {ST}"} for c in AREA],
-         "serviceType": ["Bookkeeping", "Accounting", "Tax Preparation", "QuickBooks Setup and Cleanup"]},
-        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
-    ],
-}
+if ST == "NY":   # New York City: the five boroughs
+    LOCAL_AREAS = [{"@type": "AdministrativeArea", "name": f"{c}, New York City", "containedInPlace": {"@type": "City", "name": "New York"}} for c in AREA]
+else:
+    LOCAL_AREAS = [{"@type": "City", "name": c, "containedInPlace": {"@type": "State", "name": STATE}} for c in AREA]
+LOCAL_AREAS.append({"@type": "State", "name": STATE})
+LOCAL_DESC = "Bookkeeping, accounting and tax preparation in §CITY§, §ST§. QuickBooks ProAdvisor, Big Four trained, quoted upfront. Book a 30-minute consultation."
+ld = seo.graph(URL, "Bookkeeping & Tax Preparation in §CITY§, §ST§", LOCAL_DESC,
+               {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
+               kind="WebPage", full_org=True, areas=LOCAL_AREAS, crumb=[("Home", "https://mfa-advisory.com/"), ("§CITY§, §ST§", URL)])
 
 gtag = ""
 if ADS["id"]:
@@ -262,21 +259,24 @@ JS = """
 
 variants_js = {k: {"h1": v["h1"], "lead": v["lead"], "svc": v["svc"]} for k, v in VARIANTS.items() if k != "default"}
 d = VARIANTS["default"]
+other_locs = "".join(f'<a href="/{o["slug"]}/">{"Bookkeeping in " + o["city"] + ", " + o.get("st", "NJ")}</a>' for k, o in LOCATIONS.items() if o["slug"] != L["slug"])
 call_top = f'<a href="tel:{tel}" class="tel" data-conv="call">{phone_ico}<span>{esc(PHONE)}</span></a>' if tel else ""
 
 page = f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, §ST§ | MFA</title>
-<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in §CITY§, §ST§. QuickBooks ProAdvisor, Big Four trained, flat-fee or hourly pricing quoted upfront. Book a 30-minute consultation."/>
+<title>Bookkeeping &amp; Tax Preparation in §CITY§, §ST§ | MFA</title>
+<meta name="description" content="{LOCAL_DESC}"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/>
 <link rel="canonical" href="{URL}"/>
-<meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/>
-<meta property="og:title" content="Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, §ST§"/>
+<meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/><meta property="og:locale" content="en_US"/>
+<meta property="og:title" content="Bookkeeping &amp; Tax Preparation in §CITY§, §ST§"/>
 <meta property="og:description" content="Clean monthly books and accurate tax returns for §REGION§ small businesses and households. 30-minute consultation, clear quote upfront."/>
 <meta property="og:url" content="{URL}"/><meta property="og:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Bookkeeping &amp; Tax Preparation in §CITY§, §ST§"/><meta name="twitter:description" content="{LOCAL_DESC}"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<script type="application/ld+json">{seo.dumps(ld, ascii_only=False)}</script>
 {gtag}
 <style>{CSS}{ui_kit.UI_CSS}</style></head><body>
 
@@ -365,7 +365,7 @@ page = f'''<!doctype html><html lang="en"><head>
 
 <footer><div class="wrap">
   <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Accounting, tax and business solutions · Princeton, NJ · Serving §CITY§ &amp; §REGION§ · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
-  <nav><a href="/">Main site</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
+  <nav><a href="/">Main site</a><a href="/services/">Services</a><a href="/llc-formation/">LLC formation</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a>{other_locs}<a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
   <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc.; MFA is not affiliated with or endorsed by Intuit.</p>
 </div></footer>
 

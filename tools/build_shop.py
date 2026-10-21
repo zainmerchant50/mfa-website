@@ -10,6 +10,7 @@ Products, prices and links come from catalog/products.json. Change them there (i
 import json
 from pathlib import Path
 
+import seo
 from build_resources import page, write, esc, BASE, cta
 
 CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "products.json"
@@ -57,9 +58,9 @@ def price_txt(p):
 def build():
     PRODUCTS, GROUPS = load()
     url = BASE + "/shop/"
-    title = "Shop: Tax Calculators, Bookkeeping Checklists & Kits | Merchant Financial Advisory"
-    desc = ("Spreadsheets, checklists and kits from MFA: 1099 and paycheck tax calculators, S corp savings, month-end close, "
-            "bookkeeping cleanup, new business setup and AI prompt packs. Instant download.")
+    title = "Tax Calculators, Bookkeeping Checklists & Kits | MFA Shop"
+    desc = ("Spreadsheets, checklists and kits from MFA: 1099 and paycheck calculators, S corp savings, month-end close "
+            "and AI prompt packs. Instant download.")
     secs = []
     for gid, gname, glead in GROUPS:
         cards = []
@@ -67,7 +68,7 @@ def build():
             if g != gid:
                 continue
             rl = f'<p class="shp-rel"><a href="{rel[0]}">{esc(rel[1])} →</a></p>' if rel else ""
-            cards.append(f'''<article class="shp card"><img src="/shop/img/{slug}.webp" alt="" width="400" height="400" loading="lazy"/>
+            cards.append(f'''<article class="shp card"><img src="/shop/img/{slug}.webp" alt="{esc(name)} ({esc(fmt)})" width="400" height="400" loading="lazy"/>
 <div class="shp-bd"><h3>{esc(name)}</h3><p>{esc(blurb)}</p>{rl}
 <div class="shp-meta"><span class="shp-price">{price_txt(price)}</span><span class="shp-fmt">{esc(fmt)}</span></div>
 <a class="btn btn-gold" href="{gurl}" data-shop="{slug}">Buy now</a></div></article>''')
@@ -94,16 +95,11 @@ def build():
 <section class="wrap llc-sec"><p class="disclaimer">Products are general information, not tax, legal or accounting advice, and don't create a client relationship. MFA is not affiliated with the IRS, Intuit, QuickBooks or Xero.</p></section>
 </main>
 <script src="https://gumroad.com/js/gumroad.js"></script>'''
-    ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "ItemList", "name": "MFA shop", "url": url, "itemListElement": [
-            {"@type": "ListItem", "position": i, "item": {"@type": "Product", "name": name, "description": blurb,
-             "image": f"{BASE}/shop/img/{slug}.webp", "brand": {"@type": "Brand", "name": "Merchant Financial Advisory"},
-             "offers": {"@type": "Offer", "price": price, "priceCurrency": "USD", "availability": "https://schema.org/InStock",
-                        "url": gurl}}}
-            for i, (g, slug, name, price, blurb, fmt, rel, gurl) in enumerate(PRODUCTS, 1)]},
-        {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Shop", "item": url}]}]}
+    prods = seo.live_products()
+    ld = seo.graph(url, "MFA shop", desc,
+                   {"@type": "ItemList", "@id": url + "#list", "name": "MFA shop", "url": url, "numberOfItems": len(prods),
+                    "itemListElement": [{"@type": "ListItem", "position": i, "item": seo.product_node(p)} for i, p in enumerate(prods, 1)]},
+                   kind="CollectionPage", crumb=[("Home", BASE + "/"), ("Shop", url)], extra={"mainEntity": {"@id": url + "#list"}})
     return write("shop", page(title, desc, url, body, ld, active="shop"))
 
 

@@ -8,12 +8,13 @@ Every tool shows: an "educational information, not tax or legal advice" note, a 
 and its official sources. Tax figures live in the FACTS dict below, each with its source URL.
 Writes tools/site_pages.json so build_blog.py can list these URLs in sitemap.xml.
 """
-import hashlib, json, sys
+import hashlib, json, re, sys
 from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_blog as B  # noqa: E402
+import seo  # noqa: E402  JSON-LD building blocks and root files (tools/seo.py)
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
@@ -95,7 +96,7 @@ TOOLS = [
 
 
 def page(title, desc, url, body, ld=None, active="res"):
-    extra = EXTRA_CSS + (f'<script type="application/ld+json">{json.dumps(ld)}</script>' if ld else "")
+    extra = EXTRA_CSS + (seo.script(ld) if ld else "")
     return f"""{B.head(title, desc, url, OG, extra)}
 <body>{B.nav(active)}
 {body}
@@ -125,14 +126,12 @@ def tool_header(eyebrow, h1, dek):
 
 
 def tool_ld(name, url, desc, cat="BusinessApplication"):
-    return {"@context": "https://schema.org", "@graph": [
-        {"@type": "WebApplication", "name": name, "url": url, "description": desc, "applicationCategory": cat,
-         "operatingSystem": "Any",
-         "publisher": {"@type": "Organization", "name": "Merchant Financial Advisory LLC", "url": BASE}},
-        {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Resources", "item": BASE + "/resources/"},
-            {"@type": "ListItem", "position": 3, "name": name, "item": url}]}]}
+    app = {"@type": "WebApplication", "@id": url + "#app", "name": name, "url": url, "description": desc, "applicationCategory": cat,
+           "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en-US",
+           "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+           "publisher": {"@id": seo.ORG_ID}}
+    return seo.graph(url, name, desc, app, crumb=[("Home", BASE + "/"), ("Resources", BASE + "/resources/"), (name, url)],
+                     extra={"mainEntity": {"@id": url + "#app"}})
 
 
 def clean_ld(ld):
@@ -142,6 +141,9 @@ def clean_ld(ld):
 
 
 def write(rel, html):
+    if rel.startswith("tools/"):   # internal links: tool -> service, shop product, guide (placed just above the site footer)
+        rel_html = seo.related_html(rel.split("/", 1)[1])
+        html = re.sub(r"<footer\b", lambda m: rel_html + m.group(0), html, count=1) if rel_html else html
     out = SITE / rel / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
@@ -170,8 +172,8 @@ def build_hub(posts):
         f'<div class="rgrid">{"".join(cards[gid])}</div></section>' for gid, name, sub in GROUPS if cards[gid])
     chips = '<button class="chip" type="button" data-f="all" aria-pressed="true">All</button>' + "".join(
         f'<button class="chip" type="button" data-f="{gid}" aria-pressed="false">{esc(name)}</button>' for gid, name, _ in GROUPS if cards[gid])
-    desc = ("Calculators, checkers, tax calendars, templates and guides for individuals and small and mid-sized businesses, "
-            "from Merchant Financial Advisory: accounting, tax and business solutions.")
+    desc = ("Calculators, checkers, tax calendars, templates and guides for small businesses and individuals, "
+            "from Merchant Financial Advisory in Princeton, NJ.")
     url = BASE + "/resources/"
     body = f"""<header class="bhero rhero"><div class="wrap"><span class="eyebrow">MFA Resources</span>
 <h1>Tools for your taxes, books <em>and business.</em></h1>
@@ -190,9 +192,11 @@ g.style.display=n?'':'none';if(n)any=true;}});empty.style.display=any?'none':'bl
 q.addEventListener('input',run);chips.forEach(function(c){{c.addEventListener('click',function(){{f=c.getAttribute('data-f');chips.forEach(function(x){{x.setAttribute('aria-pressed',x===c?'true':'false');}});run();}});}});
 var h=location.hash.replace('#','');if(h&&document.querySelector('.chip[data-f="'+h+'"]'))document.querySelector('.chip[data-f="'+h+'"]').click();}})();
 </script>"""
-    ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "MFA Resources", "url": url, "description": desc,
-          "publisher": {"@type": "Organization", "name": "Merchant Financial Advisory LLC", "url": BASE}}
-    return write("resources", page("Resources: Tax Calculators, 1099 Checker & Templates | Merchant Financial Advisory", desc, url, body, ld))
+    items = list(dict.fromkeys([t[3] for t in TOOLS if t[3]] + [f"/blog/{p['slug']}/" for p in posts]))
+    ld = seo.graph(url, "MFA Resources", desc, {"@type": "ItemList", "@id": url + "#list", "name": "MFA tools, templates and guides",
+                                                "itemListElement": [{"@type": "ListItem", "position": n, "url": BASE + u} for n, u in enumerate(items, 1)]},
+                   kind="CollectionPage", crumb=[("Home", BASE + "/"), ("Resources", url)], extra={"mainEntity": {"@id": url + "#list"}})
+    return write("resources", page("Tax Calculators, 1099 Checker & Templates | MFA Resources", desc, url, body, ld))
 
 
 # ------------------------------------------------------------------ tool: 1099 checker
@@ -200,7 +204,7 @@ def build_1099():
     F = FACTS["1099"]
     url = BASE + "/tools/do-i-need-to-send-a-1099/"
     title = "Do I Need to Send a 1099? 2026 Payments Checker"
-    desc = "Answer four questions to see if a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, payment-card and corporation exceptions, and the 2027 deadlines."
+    desc = "Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines."
     def radios(name, opts):
         return '<div class="opts">' + "".join(
             f'<label class="opt"><input type="radio" name="{name}" value="{v}"/><span>{t}{f"<small>{s}</small>" if s else ""}</span></label>' for v, t, s in opts) + "</div>"
@@ -268,7 +272,7 @@ document.addEventListener('change',run);amt.addEventListener('input',run);run();
 # ------------------------------------------------------------------ tool: W-9 email templates
 def build_w9():
     url = BASE + "/tools/w-9-request-email-template/"
-    title = "W-9 Request Email Templates (New Vendor, Year-End, Reminder)"
+    title = "W-9 Request Email Templates for Vendors"
     desc = "Copy-ready W-9 request emails for new vendors, year-end 1099 prep and reminders. Personalize the names and deadline, then copy with one click."
     T = [
         ("new", "1. New vendor: before the first payment", "Subject: Quick request before we send your first payment\n\nHi {vendor},\n\nThanks for working with {biz}. Before we send your first payment, we need a completed and signed IRS Form W-9 for our records. It confirms your legal name, business type and taxpayer identification number so we can report payments correctly at year-end.\n\nYou can download the current form here: https://www.irs.gov/pub/irs-pdf/fw9.pdf\n\nPlease upload the completed form using {upload}. For your security, please don't email your Social Security number or EIN in the body of an email.\n\nCould you send it by {due}? Thank you!\n\nBest regards,\n{you}\n{biz}"),
@@ -309,7 +313,7 @@ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).
 def build_breakeven():
     url = BASE + "/tools/break-even-calculator/"
     title = "Break-Even Calculator for Small Businesses"
-    desc = "Find your break-even point in sales and units: enter monthly fixed costs, price and variable cost. Works for product and service businesses, with a profit-goal option."
+    desc = "Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal."
     form = """<div class="tcard"><h2>Your numbers</h2><p class="sub">Use monthly figures. Fixed costs stay the same however much you sell; variable costs rise with each sale.</p>
 <div class="seg" role="group" aria-label="Business type"><button type="button" data-m="unit" aria-pressed="true">Per unit</button><button type="button" data-m="pct" aria-pressed="false">Service (% of sales)</button></div>
 <div class="fld"><label for="fc">Monthly fixed costs</label><div class="money"><input type="number" id="fc" min="0" step="1" inputmode="decimal" placeholder="8,000"/></div><span class="hint">Rent, salaries, software, insurance, loan payments, your own pay</span></div>
@@ -356,7 +360,7 @@ document.addEventListener('input',run);run();})();
 def build_margin():
     url = BASE + "/tools/profit-margin-calculator/"
     title = "Profit Margin & Markup Calculator"
-    desc = "Calculate gross profit margin and markup from cost and price, or find the selling price for a target margin or markup. Includes a margin vs. markup explainer."
+    desc = "Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide."
     form = """<div class="tcard"><h2>Your numbers</h2><p class="sub">Pick what you know.</p>
 <div class="seg" role="group" aria-label="Mode"><button type="button" data-m="cp" aria-pressed="true">Cost + price</button><button type="button" data-m="cm" aria-pressed="false">Target margin</button><button type="button" data-m="ck" aria-pressed="false">Target markup</button></div>
 <div class="fld"><label for="c">Cost per unit</label><div class="money"><input type="number" id="c" min="0" step="0.01" inputmode="decimal" placeholder="40"/></div></div>

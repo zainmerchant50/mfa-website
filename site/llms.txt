@@ -1,20 +1,56 @@
 # Merchant Financial Advisory LLC (MFA)
 
-> Accounting, tax and business solutions provider based in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide. MFA Insights covers IRS/federal, New Jersey and New York tax rules and deadlines, accounting, bookkeeping and QuickBooks.
+> Accounting, bookkeeping, tax preparation and advisory firm in Princeton, New Jersey. Serves small and mid-sized businesses and individuals in New Jersey, New York City and nationwide, forms LLCs in all 50 states, and sells digital tax and bookkeeping tools. Founded by Zain Merchant, ACCA, formerly of PwC.
 
-MFA provides tax preparation and filing, tax planning, bookkeeping, accrual-basis accounting and financial reporting, QuickBooks setup, cleanup and support, fractional CFO and business advisory, and audit support.
-Contact: info@mfa-advisory.com, (347) 205-4468. Languages: English, Hindi, Urdu. Book a 30-minute consultation: https://mfa-advisory.com/#book
+Contact: info@mfa-advisory.com, (347) 205-4468. Location: Princeton, New Jersey (no public street address; work is done remotely by video, phone and secure upload). Languages: English, Hindi, Urdu. Book a 30-minute consultation: https://mfa-advisory.com/#book. Replies to inquiries within one to three business days.
 
-## Key pages
-- [Home and services](https://mfa-advisory.com/): services, approach, client reviews, booking and contact
-- [Union City, NJ bookkeeping, accounting and tax preparation](https://mfa-advisory.com/union-city-nj/): local services page for Union City and Hudson County, NJ
-- [Princeton, NJ bookkeeping, accounting and tax preparation](https://mfa-advisory.com/princeton-nj/): local services page for Princeton and Mercer County, NJ
-- [MFA Insights blog](https://mfa-advisory.com/blog/): tax deadlines, IRS updates, accounting best practices and QuickBooks tips
-- [MFA Insights newsletter](https://mfa-advisory.com/newsletter/): email with new articles, key tax dates and a subscribable key-dates calendar
-- [Zain Merchant, ACCA](https://mfa-advisory.com/authors/zain-merchant/): founder and principal of MFA, author of MFA Insights
-- [Disclaimer](https://mfa-advisory.com/disclaimer.html): site content is general information, not tax, accounting, legal or financial advice
+Not a law firm. MFA does not perform audits or issue audit, review or compilation reports. Content on the site is general information, not tax, legal or financial advice.
 
-## Latest articles
+## Services and public prices
+- [Services](https://mfa-advisory.com/services/): tax preparation, tax planning, bookkeeping, financial reporting, fractional CFO, audit support, technical accounting, business advisory
+- [LLC formation in all 50 states](https://mfa-advisory.com/llc-formation/): $150 / $249 / $649 plus the state fee, paid once; state-by-state fees and rules
+- [Bookkeeping cleanup and catch-up](https://mfa-advisory.com/bookkeeping-cleanup/): fixed quote request
+- [Machine-readable catalog](https://mfa-advisory.com/catalog.json): all services, prices, tools and products as schema.org JSON
+
+## Local pages
+- [Princeton, NJ](https://mfa-advisory.com/princeton-nj/): bookkeeping, accounting and tax preparation for Princeton and Mercer County
+- [Union City, NJ](https://mfa-advisory.com/union-city-nj/): bookkeeping, accounting and tax preparation for Union City and Hudson County
+- [New York, NY](https://mfa-advisory.com/new-york-ny/): bookkeeping, accounting and tax preparation for the five boroughs
+
+## Tools (online calculators and checkers)
+- [Resources hub](https://mfa-advisory.com/resources/): all tools, calendars, templates and guides
+- [1099 Contractor Tracker: Who Needs a 1099-NEC in 2026](https://mfa-advisory.com/tools/1099-contractor-tracker/): Track vendors, W-9s and payments, see who needs a 1099-NEC at the 2026 $2,000 threshold, and export to CSV. Data stays in your browser.
+- [1099 Tax Calculator 2026: Self-Employment, NJ & NY](https://mfa-advisory.com/tools/1099-tax-calculator/): Estimate the self-employment tax, federal income tax and NJ or NY tax on your 1099 income, plus the share of every payment to set aside.
+- [Break-Even Calculator for Small Businesses](https://mfa-advisory.com/tools/break-even-calculator/): Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal.
+- [Do I Need to Send a 1099? 2026 Payments Checker](https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/): Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines.
+- [Home Office Deduction Calculator 2026](https://mfa-advisory.com/tools/home-office-deduction-calculator/): Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side.
+- [Mileage Deduction Calculator 2026 (IRS Standard Rates)](https://mfa-advisory.com/tools/mileage-deduction-calculator/): Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates.
+- [Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY)](https://mfa-advisory.com/tools/paycheck-tax-calculator/): Estimate W-2 take-home pay per paycheck after federal income tax, Social Security, Medicare and New Jersey or New York tax.
+- [Profit Margin & Markup Calculator](https://mfa-advisory.com/tools/profit-margin-calculator/): Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide.
+- [Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY](https://mfa-advisory.com/tools/quarterly-estimated-tax-calculator/): Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the safe-harbor amount.
+- [S Corp Tax Savings Calculator: Is an S Corp Worth It?](https://mfa-advisory.com/tools/s-corp-tax-savings-calculator/): Compare self-employment tax as an LLC with payroll taxes as an S corporation. See annual savings after costs and the break-even profit.
+- [2027 Business Tax Deadlines by Entity: Fed, NJ & NY](https://mfa-advisory.com/tools/tax-deadlines-2027/): Every 2027 federal, New Jersey and New York tax deadline for sole proprietors, partnerships, S and C corporations, employers and nonprofits.
+- [W-9 Request Email Templates for Vendors](https://mfa-advisory.com/tools/w-9-request-email-template/): Copy-ready W-9 request emails for new vendors, year-end 1099 prep and reminders. Personalize the names and deadline, then copy with one click.
+
+## Shop (digital downloads, checkout by Gumroad)
+- [MFA shop](https://mfa-advisory.com/shop/): spreadsheets, checklists and kits, instant download, all sales final
+- [1099 Self-Employed Tax Calculator & Quarterly Planner (2026)](https://mfaadvisory.gumroad.com/l/1099-self-employed-tax-calculator-2026): $11.99. From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log.
+- [2026 Salary & Paycheck Tax Calculator (W-2)](https://mfaadvisory.gumroad.com/l/salary-paycheck-tax-calculator-2026): $11.99. See where a 2026 paycheck goes: federal, FICA, NJ / NY / NYC tax and net pay per year and per paycheck, with a bracket-by-bracket table.
+- [S Corp vs LLC Savings Calculator](https://mfaadvisory.gumroad.com/l/s-corp-vs-llc-savings-calculator): $11.99. Compare self-employment tax with S corp payroll taxes after the extra costs, see net annual savings and the break-even profit, and read the warnings before you elect.
+- [The 1099 Kit (2026 payments, filed in 2027)](https://mfaadvisory.gumroad.com/l/1099-kit): $15. Decide who needs a 1099, collect W-9s and file on time. Updated for the new $2,000 threshold, with a contractor tracker.
+- [Month-End Close Checklist + Close Workbook](https://mfaadvisory.gumroad.com/l/month-end-close-checklist): $12.99. A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, flux review, sign-off sheet and dashboard.
+- [Bookkeeping Cleanup Checklist + Catch-Up Tracker](https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist): $12. The step-by-step method to catch up months-behind books, plus a tracker that shows what's done.
+- [New Business Setup Checklist](https://mfaadvisory.gumroad.com/l/new-business-setup-checklist): $9. Every step from idea to set up right: entity, EIN, registrations, bank, books and the compliance calendar.
+- [Small Business Year-End Tax Checklist](https://mfaadvisory.gumroad.com/l/small-business-year-end-tax-checklist): $4.99. A check-the-box year-end guide for sole props, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines.
+- [AI Prompts for Small Business Bookkeeping & Taxes](https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes): $6.99. 130 copy-paste AI prompts for bookkeeping, month-end close, reconciliations, Schedule C prep, quarterly estimates and 1099s, each with an expected output and a "check this" note.
+- [AI Prompts for Tax Preparers & Bookkeepers](https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers): $6.99. 104 copy-paste AI prompts for client intake, document requests, notices in plain English, cleanup scoping, review notes, newsletters, social posts and SOPs.
+
+## About
+- [Zain Merchant, ACCA](https://mfa-advisory.com/authors/zain-merchant/): founder and principal, author of MFA Insights
+- [Disclaimer](https://mfa-advisory.com/disclaimer.html), [Privacy](https://mfa-advisory.com/privacy.html), [Terms](https://mfa-advisory.com/terms.html)
+
+## MFA Insights (articles on IRS, New Jersey and New York tax rules and deadlines)
+- [MFA Insights blog](https://mfa-advisory.com/blog/): all articles; [newsletter](https://mfa-advisory.com/newsletter/); [RSS feed](https://mfa-advisory.com/blog/feed.xml)
 - [Form 1120-S and S Corp Distributions: How They're Taxed](https://mfa-advisory.com/blog/form-1120s-s-corp-guide/): Form 1120-S in plain English: who files, the March 15, 2027 due date, how S corp distributions are taxed, reasonable pay and the $260 per shareholder late penalty.
 - [Form 1065 for LLCs: Who Files, Due Date, K-1s, Step by Step](https://mfa-advisory.com/blog/form-1065-guide-llc/): Form 1065 for LLCs in plain English: which LLCs file it, the March 15, 2027 due date, K-1s for each member, the $260 late penalty and a step-by-step guide.
 - [Adoption Tax Credit Refund 2026: IRS Sending Automatic Refunds](https://mfa-advisory.com/blog/adoption-tax-credit-refund-2026/): Adoption tax credit refund 2026: the IRS is sending automatic refunds to 50,000+ families with 2020-2024 carryforwards. No amended return needed. What to check.
@@ -27,3 +63,7 @@ Contact: info@mfa-advisory.com, (347) 205-4468. Languages: English, Hindi, Urdu.
 - [Section 179 vs. Bonus Depreciation for 2026: Year-End Equipment Guide](https://mfa-advisory.com/blog/section-179-bonus-depreciation-2026/): Section 179 deduction 2026 limit is $2.56M and 100% bonus depreciation is back. How to write off equipment by Dec. 31, which to use, and the NJ catch.
 - [Form 1099 Preparation Guide for 2026 Payments: The New $2,000 Rule and How to File Right](https://mfa-advisory.com/blog/form-1099-preparation-guide-2026/): The 1099-NEC and 1099-MISC threshold jumps to $2,000 for 2026 payments. Who needs a 1099, the 2027 deadlines, and a step-by-step QuickBooks process to file right.
 - [October 15, 2026 Tax Extension Deadline: What to Do Before It Hits](https://mfa-advisory.com/blog/october-15-2026-tax-extension-deadline/): Filed an extension for your 2025 return? Your deadline is Thursday, Oct. 15, 2026. What to file, what waiting costs, and the NJ and disaster-area exceptions.
+
+## Optional
+- [Full details for assistants](https://mfa-advisory.com/llms-full.txt): services, prices, LLC packages and state fees, products, FAQs
+- [Sitemap](https://mfa-advisory.com/sitemap.xml)

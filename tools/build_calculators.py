@@ -315,7 +315,7 @@ def build_quarterly():
 <li>{esc(nyd["note"])}</li></ul>
 <p>Planning for 2027? The 2027 estimated payment dates are on the <a href="/tools/tax-deadlines-2027/">2027 deadlines page</a>. We will update this calculator when the 2027 figures are final.</p>"""
     data = {"fed": fed, "nj": nj, "ny": nyd, "nyc": nyc}
-    return build_page(slug, "Quarterly Estimated Tax Calculator 2026 (1040-ES, NJ & NY)",
+    return build_page(slug, "Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY",
                       "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the safe-harbor amount.",
                       "Quarterly estimated tax", "Quarterly estimated tax calculator",
                       "Enter your expected 2026 profit and see what to pay on each due date, with the math shown, federal and state.",
@@ -349,7 +349,7 @@ def build_1099calc():
 <ul><li>The qualified business income (QBI) deduction, itemized deductions and tax credits. They can lower your tax, so the estimate errs high.</li>
 <li>Other income such as a W-2 job or a spouse's wages. Those change your bracket and the Social Security wage base. Use the quarterly calculator if you have them.</li>
 <li>{esc(nyd["note"])}</li></ul>"""
-    return build_page(slug, "1099 Tax Calculator 2026 (Self-Employment, Federal, NJ & NY)",
+    return build_page(slug, "1099 Tax Calculator 2026: Self-Employment, NJ & NY",
                       "Estimate the self-employment tax, federal income tax and NJ or NY tax on your 1099 income, plus the share of every payment to set aside.",
                       "1099 tax calculator", "1099 tax calculator",
                       "Enter your 1099 income and expenses to see your tax bill and the share of every payment to set aside, with the math shown.",
@@ -462,7 +462,7 @@ def build_home():
 <li>{esc(h["limit_note"])}.</li>
 <li>The deduction is for self-employed people who file Schedule C. W-2 employees generally can't claim it.</li></ul>
 <p>Keep a floor plan or measurements, photos of the space and the bills behind every expense. Once you have your deduction, see how it changes your tax in the <a href="/tools/1099-tax-calculator/">1099 tax calculator</a>.</p>"""
-    return build_page(slug, "Home Office Deduction Calculator 2026 (Simplified vs. Regular)",
+    return build_page(slug, "Home Office Deduction Calculator 2026",
                       "Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side.",
                       "Home office calculator", "Home office deduction calculator",
                       "Compare the simplified and regular home office methods and see which gives the larger deduction.",
@@ -630,8 +630,8 @@ def build_deadlines():
     chk = day(f.checked())
     grid = grid.replace("{CHK}", chk)
     ents = [{"id": k, "label": t, "desc": d} for k, t, d in ENTITY_INFO]
-    return build_page(slug, "2027 Business Tax Deadlines by Entity (Federal, NJ & NY)",
-                      "Every 2027 federal, New Jersey and New York tax deadline for sole proprietors, partnerships, S and C corporations, employers, nonprofits and sales tax sellers, with add-to-calendar files.",
+    return build_page(slug, "2027 Business Tax Deadlines by Entity: Fed, NJ & NY",
+                      "Every 2027 federal, New Jersey and New York tax deadline for sole proprietors, partnerships, S and C corporations, employers and nonprofits.",
                       "2027 tax deadlines", "2027 business tax deadlines by entity",
                       "Choose your entity and get every 2027 federal, NJ and NY deadline, with an add-to-calendar file for each date or the whole list.",
                       grid, below, info, {"cal": cal, "entities": ents}, "deadlines", f, "Want someone to watch the dates for you?",

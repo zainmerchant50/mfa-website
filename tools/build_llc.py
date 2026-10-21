@@ -11,6 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 import build_blog as B
+import seo
 import ui_kit
 from build_resources import page, write, esc, BASE, svg
 
@@ -170,16 +171,11 @@ def picker_data():
     return out
 
 
-def ld_service(url):
-    return {"@context": "https://schema.org", "@graph": [
-        {"@type": "Service", "name": "LLC formation", "serviceType": "LLC formation and business setup", "url": url,
-         "provider": {"@type": "AccountingService", "name": "Merchant Financial Advisory LLC", "url": BASE},
-         "areaServed": [STATES[c]["name"] for c in ORDER],
-         "offers": [{"@type": "Offer", "name": p["name"], "price": p["price"], "priceCurrency": "USD",
-                     "description": "Plus the state filing fee, paid at cost. One-time; does not renew."} for p in PACKAGES]},
-        {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "LLC formation", "item": url}]}]}
+def ld_service(url, title="LLC formation", desc=""):
+    """Page graph for /llc-formation/: the firm, the LLC formation Service with its three public prices, the FAQ and the breadcrumb."""
+    faq = {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": faq_ld(FAQ)["mainEntity"]}
+    return seo.graph(url, title, desc, seo.llc_service(url), faq, *seo.llc_addon_catalog(), kind="WebPage", full_org=True,
+                     crumb=[("Home", BASE + "/"), ("LLC formation", url)], extra={"mainEntity": {"@id": url + "#service"}})
 
 
 def faq_ld(pairs):
@@ -437,9 +433,9 @@ FAQ = [
 
 def build_main():
     url = BASE + "/llc-formation/"
-    title = "LLC Formation in All 50 States by an Accountant: One Price, Paid Once | MFA"
-    desc = ("Form your LLC in any state with an accountant: state filing, EIN and operating agreement from $150 "
-            "plus the state fee, paid once. Tax and QuickBooks setup in Business Setup; monthly bookkeeping optional.")
+    title = "LLC Formation in All 50 States, From $150 | MFA"
+    desc = ("Form your LLC in any state with an accountant: filing, EIN and operating agreement from $150 plus the state fee, "
+            "paid once. Tax and QuickBooks setup.")
     steps = [("Tell us about your business", "A short form: the name you want, owners, and what you'll do."),
              ("Pay securely at checkout", "Card or bank account through Stripe, right on this page: package + state fee, one total. We check the name and file."),
              ("You're ready to operate", "Your documents, EIN and calendar, plus tax registration and QuickBooks if your package includes them.")]
@@ -490,10 +486,8 @@ def build_main():
 <ul class="st-dir">{directory}</ul>
 <p class="disclaimer">State facts checked against each state's official sources as of {CHECKED}. State fees change; we confirm the current fee before invoicing. {esc(LEGAL)} Educational information, not tax or legal advice.</p></section>
 </main>{picker_js()}'''
-    ld = ld_service(url)
-    page_html = page(title, desc, url, body, ld, active="llc")
-    page_html = page_html.replace("</head>", f'<script type="application/ld+json">{json.dumps(faq_ld(FAQ))}</script></head>', 1)
-    return write("llc-formation", page_html)
+    ld = ld_service(url, "LLC formation in all 50 states", desc)
+    return write("llc-formation", page(title, desc, url, body, ld, active="llc"))
 
 
 def build_state(code):
@@ -542,9 +536,10 @@ def build_state(code):
     tot = "".join(f'<tr><td>{esc(p["name"])}</td><td>${p["price"]}</td><td>{fee_s}</td><td><strong>${p["price"] + (fee or 0) + fx + extra:,}{news}{" + state fee" if fee is None else ""}</strong></td></tr>' for p in PACKAGES)
     srcs = sorted({u["source_url"] for u in s.values() if isinstance(u, dict) and u.get("source_url")})
     src_html = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(u.replace("https://", ""))}</a></li>' for u in srcs)
-    title = f"How Much Does an LLC Cost in {name}? Fees, Rules & Formation Help | MFA"
-    desc = (f"{name} LLC filing fee {fee_s}, annual requirements, tax registration and registered agent rules, checked {CHECKED}. "
-            f"Form your {name} LLC with an accountant from $150 plus the state fee, paid once.")
+    title = f"How Much Does an LLC Cost in {name}? | MFA"
+    desc = next(c for c in (f"{name} LLC filing fee {fee_s}, annual report, tax registration and agent rules, checked {CHECKED}. MFA forms it from $150 plus the state fee.",
+                            f"{name} LLC filing fee {fee_s}, annual report and tax registration rules. MFA forms it from $150 plus the state fee.",
+                            f"{name} LLC fees and rules. MFA forms it from $150 plus the state fee.") if len(c) <= 155)
     body = f'''<header class="ahead"><div class="wrap">
 <div class="crumbs"><a href="/">Home</a> / <a href="/llc-formation/">LLC formation</a> / {esc(name)}</div>
 <span class="eyebrow">{esc(name)} LLC</span><h1>Forming an LLC in {esc(name)}: fees, rules and timing</h1>
@@ -557,10 +552,8 @@ def build_state(code):
 <section class="sources"><h2>Sources</h2><ul>{src_html}</ul>
 <p class="disclaimer">Facts checked against the official sources above as of {CHECKED}. State fees change; we confirm the current fee before invoicing. {esc(LEGAL)} Educational information, not tax or legal advice.</p></section>
 </article></div></main>'''
-    ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-        {"@type": "ListItem", "position": 2, "name": "LLC formation", "item": BASE + "/llc-formation/"},
-        {"@type": "ListItem", "position": 3, "name": name, "item": url}]}
+    ld = seo.graph(url, f"LLC formation in {name}", desc, seo.llc_service(url, name), kind="WebPage",
+                   crumb=[("Home", BASE + "/"), ("LLC formation", BASE + "/llc-formation/"), (name, url)], extra={"mainEntity": {"@id": url + "#service"}})
     return write(f"llc-formation/{code.lower()}", page(title, desc, url, body, ld, active="llc"))
 
 
@@ -596,7 +589,7 @@ if(window.gtag)gtag('event','purchase',{{transaction_id:id,value:s.amount,curren
 }}).catch(function(){{fail('We couldn\u2019t reach the payment service.');}});}})();
 </script>'''
     html = page("LLC Order Confirmation | MFA", "Your LLC formation order with Merchant Financial Advisory.", url, body, None, active="llc")
-    html = html.replace("</head>", '<meta name="robots" content="noindex"/></head>', 1)
+    html = html.replace('<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/>', '<meta name="robots" content="noindex"/>', 1)
     write("llc-formation/thanks", html)
 
 

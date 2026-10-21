@@ -14,6 +14,7 @@ Run via tools/build_resources.py (it calls build()).
 import json
 
 import build_blog as B
+import seo
 from build_resources import page, write, esc, BASE, cta
 
 ENDPOINT = "https://formsubmit.co/ajax/" + B.EMAIL
@@ -123,8 +124,8 @@ def form_html():
 def build():
     url = BASE + "/bookkeeping-cleanup/"
     title = "Bookkeeping Cleanup and Catch-Up: Get a Fixed Quote | MFA"
-    desc = ("Books months behind? Catch-up categorization, bank and card reconciliations, payables and receivables tidy-up "
-            "and opening balances, with a written summary. Send a few details and get a fixed quote before any work starts.")
+    desc = ("Books behind? Catch-up bookkeeping, bank and card reconciliations and a written summary. "
+            "Send a few details for a fixed quote before work starts.")
     cov = "".join(f'<div class="card"><h3 class="cu-ok">{ICO}<span>{esc(a)}</span></h3><p>{esc(b)}</p></div>' for a, b in COVERS)
     steps = "".join(f'<div class="st3 card"><span class="st3-n">{i}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></div>' for i, (a, b) in enumerate(STEPS, 1))
     body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Bookkeeping cleanup</span>
@@ -142,14 +143,12 @@ def build():
 {cta("Prefer to talk it through?", "Book a 30-minute call and tell us where the books stand. We'll suggest the smallest cleanup that gets you current.")}
 <section class="wrap llc-sec"><p class="disclaimer">Bookkeeping cleanup is bookkeeping work prepared for your own use. It is general accounting support, not tax or legal advice, and sending this form doesn't create a client relationship until you accept a written quote.</p></section>
 </main>'''
-    ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "Service", "name": "Bookkeeping cleanup and catch-up", "url": url, "serviceType": "Bookkeeping",
-         "description": desc, "provider": {"@type": "AccountingService", "name": "Merchant Financial Advisory LLC", "url": BASE},
-         "areaServed": ["New Jersey", "New York", "United States"]},
-        {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Services", "item": BASE + "/services/"},
-            {"@type": "ListItem", "position": 3, "name": "Bookkeeping cleanup", "item": url}]}]}
+    svc = {"@type": "Service", "@id": url + "#service", "name": "Bookkeeping cleanup and catch-up", "url": url, "serviceType": "Bookkeeping",
+           "description": desc, "provider": {"@id": seo.ORG_ID}, "areaServed": seo.area_served(),
+           "offers": {"@type": "Offer", "description": "Fixed quote after a review of a sample of your accounts, before any work starts.",
+                      "availability": "https://schema.org/InStock"}}
+    ld = seo.graph(url, "Bookkeeping cleanup and catch-up", desc, svc, crumb=[("Home", BASE + "/"), ("Services", BASE + "/services/"), ("Bookkeeping cleanup", url)],
+                   extra={"mainEntity": {"@id": url + "#service"}})
     return write("bookkeeping-cleanup", page(title, desc, url, body, ld, active="s"))
 
 

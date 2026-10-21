@@ -28,6 +28,7 @@ import hashlib
 CSS_VER = hashlib.sha1((SITE / "blog" / "blog.css").read_bytes()).hexdigest()[:10]  # cache-buster: new CSS = new URL
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ui_kit  # noqa: E402  shared FAQ accordion + animations (also used by build_landing.py)
+import seo  # noqa: E402  JSON-LD building blocks, sitemap/robots/llms/catalog (tools/seo.py)
 UI_VER = hashlib.sha1(ui_kit.UI_CSS.encode()).hexdigest()[:10]
 (SITE / "blog" / "ui.css").write_text(ui_kit.UI_CSS.strip() + "\n", encoding="utf-8")
 POSTS_DIR = ROOT / "content" / "posts"
@@ -61,8 +62,12 @@ MAIL_ICON = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
              '<path d="m22 7-10 6L2 7"/></svg>')
 TOPICS = ["IRS & Federal Tax", "New Jersey Tax", "New York Tax", "Tax Filing & Deadlines", "Tax Planning", "Accrual Accounting", "QuickBooks Tips & Updates",
           "Bookkeeping Best Practices", "Small & Mid-Sized Business Finance"]
+INDEX_DESC = ("Plain-English tax, accounting and QuickBooks guides: IRS, New Jersey and New York deadlines, "
+              "tax planning, bookkeeping and accrual accounting.")
 BLOG_DESC = ("Practical tax, accounting, and QuickBooks guidance for individuals and small and mid-sized businesses: "
              "IRS, New Jersey and New York filing deadlines and tax updates, tax planning, accrual accounting, bookkeeping best practices, and QuickBooks tips.")
+BLOG_NODE = {"@type": "Blog", "@id": BASE + "/blog/#blog", "name": "MFA Insights", "url": BASE + "/blog/",
+             "description": BLOG_DESC, "inLanguage": "en-US", "publisher": {"@id": seo.ORG_ID}}
 # Default author for every post (override per post with "author" in the meta).
 AUTHOR_LINKEDIN = "https://www.linkedin.com/in/zainmerchant50"
 AUTHOR_PATH = "/authors/zain-merchant/"
@@ -80,9 +85,12 @@ AUTHOR = {
 
 
 def person_ld(a):
-    return {"@type": "Person", "@id": a["url"] + "#person", "name": a["name"], "url": a["url"], "jobTitle": a["title"],
-            "honorificSuffix": a["credential"], "sameAs": a["sameAs"],
-            "worksFor": {"@type": "Organization", "name": "Merchant Financial Advisory LLC", "url": BASE}}
+    p = {"@type": "Person", "@id": a["url"] + "#person", "name": a["name"], "url": a["url"], "jobTitle": a["title"],
+         "honorificSuffix": a["credential"], "sameAs": a["sameAs"],
+         "worksFor": {"@id": seo.ORG_ID}}
+    if a["credential"] == "ACCA":
+        p["memberOf"] = {"@type": "Organization", "name": "ACCA", "url": "https://www.accaglobal.com/"}
+    return p
 
 
 LI_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.23 0z"/></svg>')
@@ -103,6 +111,14 @@ DISCLAIMER = ("This article is general information, not tax, legal, or financial
               "for your situation with a qualified professional before acting.")
 
 esc = lambda s: html.escape(str(s), quote=True)
+
+# Search-engine title tag and meta description per post (tools/seo_overrides.json) where the post's own are too long.
+SEO_OVR = json.loads((Path(__file__).resolve().parent / "seo_overrides.json").read_text(encoding="utf-8"))
+
+
+def post_tags(p):
+    o = SEO_OVR.get(p["slug"], {})
+    return o.get("title") or p.get("seoTitle", p["title"]) + " | MFA Insights", o.get("desc") or p["description"]
 
 
 def load_posts():
@@ -145,15 +161,17 @@ FOOT = f'''<footer class="bfoot"><div class="wrap">
 
 def head(title, desc, url, image, extra="", keywords=None, og_type="website"):
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords))}"/>' if keywords else ""
+    # Pages that pass their own robots tag (noindex) keep it; every other page gets the default that allows large previews.
+    robots = "" if 'name="robots"' in extra else '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/>'
     return f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>{esc(title)}</title>
-<meta name="description" content="{esc(desc)}"/>{kw}
+<meta name="description" content="{esc(desc)}"/>{kw}{robots}
 <link rel="canonical" href="{url}"/>
-<meta property="og:type" content="{og_type}"/><meta property="og:site_name" content="Merchant Financial Advisory"/>
+<meta property="og:type" content="{og_type}"/><meta property="og:site_name" content="Merchant Financial Advisory"/><meta property="og:locale" content="en_US"/>
 <meta property="og:title" content="{esc(title)}"/><meta property="og:description" content="{esc(desc)}"/>
 <meta property="og:url" content="{url}"/><meta property="og:image" content="{image}"/>
-<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="{image}"/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="{esc(title)}"/><meta name="twitter:description" content="{esc(desc)}"/><meta name="twitter:image" content="{image}"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="alternate" type="application/rss+xml" title="MFA Insights" href="/blog/feed.xml"/>
 {GTAG}
@@ -293,8 +311,11 @@ def seo_lint(p):
     for k in kws:
         if norm(k) not in body and norm(k) not in title:
             warn.append(f"keyword '{k}' never appears in the article text")
-    if not 120 <= len(p["description"]) <= 165:
-        warn.append(f"description is {len(p['description'])} chars (aim 140-160)")
+    ttl, mdesc = post_tags(p)
+    if len(ttl) > 60:
+        warn.append(f"title tag is {len(ttl)} chars (max 60): add a shorter one to tools/seo_overrides.json")
+    if not 110 <= len(mdesc) <= 155:
+        warn.append(f"meta description is {len(mdesc)} chars (aim 120-155): add one to tools/seo_overrides.json")
     for w in warn:
         print(f"  SEO [{p['slug']}]: {w}")
     return warn
@@ -483,9 +504,11 @@ def build_newsletter_pages(posts):
     up = "".join(f'<li><span class="kd-d">{datetime.fromisoformat(e["date"]):%a, %b %-d, %Y}</span><span class="kd-t"><b>{esc(e["title"])}</b></span>'
                  f'<a class="kd-g" href="{esc(e["url"])}">Read more</a></li>' for e in upcoming)
     recent = "".join(f'<li><a href="/blog/{p["slug"]}/"><b>{esc(p["title"])}</b></a> <span class="m">{p["dt"]:%b %-d, %Y}</span></li>' for p in posts[:5])
-    desc = ("Subscribe to MFA Insights: emails with new tax, accounting and QuickBooks articles, key IRS and New Jersey "
-            "deadlines, and a savable calendar for small businesses.")
-    page = f"""{head("Subscribe to MFA Insights: Tax Dates, Accounting & QuickBooks Tips by Email", desc, BASE + "/newsletter/", BASE + "/apple-touch-icon.png")}
+    desc = ("MFA Insights by email: new tax, accounting and QuickBooks articles, key IRS and New Jersey deadlines, "
+            "and a savable key-dates calendar.")
+    ldn = seo.graph(BASE + "/newsletter/", "MFA Insights newsletter", desc, crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/"), ("Newsletter", BASE + "/newsletter/")],
+                    modified=posts[0]["date"] if posts else None)
+    page = f"""{head("MFA Insights Newsletter: Tax Dates & QuickBooks Tips", desc, BASE + "/newsletter/", BASE + "/apple-touch-icon.png", seo.script(ldn))}
 <body>{nav("blog")}
 <header class="ahead"><div class="wrap"><div class="crumbs"><a href="/">Home</a> / <a href="/blog/">Insights</a> / Newsletter</div>
 <span class="eyebrow">Newsletter</span><h1>MFA Insights, in your inbox</h1>
@@ -520,27 +543,27 @@ def build_post(p):
     A = {**AUTHOR, **p.get("author", {})}
     url = f"{BASE}/blog/{p['slug']}/"
     img = url + p["og"]
-    ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "BlogPosting", "headline": p["title"], "description": p["description"],
-         "datePublished": p["date"], "dateModified": p.get("updated", p["date"]),
-         "image": img, "mainEntityOfPage": url, "keywords": ", ".join(p.get("keywords", [])),
-         "author": person_ld(A),
-         "publisher": {"@type": "Organization", "name": "Merchant Financial Advisory LLC",
-                       "logo": {"@type": "ImageObject", "url": BASE + "/apple-touch-icon.png"}}},
-        {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Insights", "item": BASE + "/blog/"},
-            {"@type": "ListItem", "position": 3, "name": p["title"], "item": url}]}]}
-    faq = faq_schema(p["body"])
-    if faq:
-        ld["@graph"].append(faq)
+    ttl, mdesc = post_tags(p)
+    words = len(re.sub(r"<[^>]+>", " ", p["body"]).split())
+    post_node = {"@type": "BlogPosting", "@id": url + "#article", "headline": p["title"], "description": p["description"],
+                 "datePublished": p["date"], "dateModified": p.get("updated", p["date"]),
+                 "image": {"@type": "ImageObject", "url": img, "width": 1200, "height": 630},
+                 "mainEntityOfPage": {"@id": url + "#webpage"}, "isPartOf": {"@id": BASE + "/blog/#blog"}, "inLanguage": "en-US",
+                 "articleSection": p["category"], "wordCount": words, "keywords": ", ".join(p.get("keywords", [])),
+                 "author": person_ld(A), "publisher": {"@id": seo.ORG_ID},
+                 "citation": [{"@type": "CreativeWork", "name": s["title"], "url": s["url"]} for s in p["sources"]]}
+    ld = seo.graph(url, p["title"], mdesc, post_node, BLOG_NODE, faq_schema(p["body"]), kind="WebPage",
+                   crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/"), (p["title"], url)], modified=p.get("updated", p["date"]),
+                   extra={"mainEntity": {"@id": url + "#article"}, "primaryImageOfPage": {"@type": "ImageObject", "url": img}})
     extra = (f'<meta property="article:published_time" content="{p["date"]}"/>'
-             f'<script type="application/ld+json">{json.dumps(ld)}</script>')
+             f'<meta property="article:modified_time" content="{p.get("updated", p["date"])}"/>'
+             f'<meta property="article:section" content="{esc(p["category"])}"/>'
+             f'{seo.script(ld)}')
     sources = "".join(f'<li><a href="{esc(s["url"])}" target="_blank" rel="noopener">{esc(s["title"])}</a></li>'
                       for s in p["sources"])
     nice = p["dt"].strftime("%B %-d, %Y")
     asof = datetime.fromisoformat(p.get("factsAsOf", p["date"])).strftime("%B %-d, %Y")
-    page = f'''{head(p.get("seoTitle", p["title"]) + " | MFA Insights", p["description"], url, img, extra, p.get("keywords"), "article")}
+    page = f'''{head(ttl, mdesc, url, img, extra, p.get("keywords"), "article")}
 <body>{nav("blog")}
 <header class="ahead"><div class="wrap">
   <div class="crumbs"><a href="/">Home</a> / <a href="/blog/">Insights</a> / {esc(p["category"])}</div>
@@ -584,7 +607,13 @@ def build_index(posts):
   <h2>{esc(p["title"])}</h2><p>{esc(p["description"])}</p><span class="more">Read the article →</span></div></a>''' for p in posts)
     desc = BLOG_DESC
     og = f'{BASE}/blog/{posts[0]["slug"]}/{posts[0]["og"]}' if posts else BASE + "/apple-touch-icon.png"
-    page = f'''{head("MFA Insights: Tax, Accounting & QuickBooks Tips for Individuals and Small Businesses", desc, BASE + "/blog/", og)}
+    ldx = seo.graph(BASE + "/blog/", "MFA Insights: Tax, Accounting & QuickBooks Tips", INDEX_DESC,
+                    {**BLOG_NODE, "blogPost": [{"@type": "BlogPosting", "@id": f'{BASE}/blog/{p["slug"]}/#article', "headline": p["title"],
+                                                "url": f'{BASE}/blog/{p["slug"]}/', "datePublished": p["date"],
+                                                "image": f'{BASE}/blog/{p["slug"]}/{p["og"]}'} for p in posts]},
+                    kind="CollectionPage", crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/")],
+                    modified=posts[0].get("updated", posts[0]["date"]) if posts else None)
+    page = f'''{head("MFA Insights: Tax, Accounting & QuickBooks Tips", INDEX_DESC, BASE + "/blog/", og, seo.script(ldx))}
 <body>{nav("blog")}
 <header class="bhero"><div class="wrap"><span class="eyebrow">MFA Insights</span>
 <h1>Tax, accounting &amp; QuickBooks, <em>made usable.</em></h1>
@@ -618,7 +647,8 @@ def build_pages():
         meta, body = json.loads(m.group(1)), m.group(2).strip()
         url = f"{BASE}/{meta['slug']}.html"
         upd = datetime.fromisoformat(meta["updated"]).strftime("%B %-d, %Y")
-        page = f'''{head(meta["title"] + " | Merchant Financial Advisory", meta["description"], url, BASE + "/apple-touch-icon.png")}
+        ldp = seo.graph(url, meta["title"], meta["description"], crumb=[("Home", BASE + "/"), (meta["title"], url)], modified=meta["updated"])
+        page = f'''{head(meta["title"] + " | Merchant Financial Advisory", meta["description"], url, BASE + "/apple-touch-icon.png", seo.script(ldp))}
 <body>{nav("")}
 <header class="ahead"><div class="wrap"><div class="crumbs"><a href="/">Home</a> / {esc(meta["title"])}</div>
 <span class="eyebrow">Legal</span><h1>{esc(meta["title"])}</h1><div class="ameta"><span>Last updated {upd}</span></div></div></header>
@@ -642,19 +672,19 @@ def build_author(posts):
     items = "".join(f'<li><a href="/blog/{p["slug"]}/"><span class="m">{esc(p["category"])} · {p["dt"].strftime("%b %-d, %Y")}</span>'
                     f'<b>{esc(p["title"])}</b><span class="d">{esc(p["description"])}</span></a></li>' for p in mine)
     person = person_ld(a)
-    person.update({"description": a["bio"], "image": BASE + "/apple-touch-icon.png",
-                   "address": {"@type": "PostalAddress", "addressLocality": "Princeton", "addressRegion": "NJ", "addressCountry": "US"},
+    person.update({"description": ("Zain Merchant, ACCA, is the founder and principal of Merchant Financial Advisory, a Princeton, New Jersey "
+                                    "accounting, tax and advisory firm. He previously worked on audit and internal-controls engagements at Big Four firms."),
+                   "image": BASE + "/apple-touch-icon.png", "address": seo.address(), "mainEntityOfPage": {"@id": url + "#webpage"},
                    "knowsAbout": ["Tax preparation", "Tax planning", "Accrual accounting", "Bookkeeping", "QuickBooks Online",
                                   "Form 1099 reporting", "Financial reporting", "Internal controls", "SOX compliance", "Audit"]})
-    ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "ProfilePage", "@id": url, "url": url, "name": f'{a["name"]}, {a["credential"]}', "mainEntity": {"@id": url + "#person"},
-         "hasPart": [{"@type": "BlogPosting", "headline": p["title"], "url": f'{BASE}/blog/{p["slug"]}/'} for p in mine]},
-        person]}
-    desc = (f'{a["name"]}, ACCA, is a Princeton, NJ accountant and founder of Merchant Financial Advisory, writing on tax deadlines, '
-            f'1099s, accrual accounting and QuickBooks for individuals and small businesses.')
+    desc = ("Zain Merchant, ACCA, is the Princeton, NJ founder of Merchant Financial Advisory, writing on tax deadlines, 1099s, "
+            "accrual accounting and QuickBooks.")
+    ld = seo.graph(url, f'{a["name"]}, {a["credential"]}', desc, person, crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/"), (a["name"], url)],
+                   kind="ProfilePage", extra={"mainEntity": {"@id": url + "#person"}, "about": {"@id": url + "#person"},
+                                              "hasPart": [{"@type": "BlogPosting", "headline": p["title"], "url": f'{BASE}/blog/{p["slug"]}/'} for p in mine]})
     li_btn = f'<a class="btn btn-gold" href="{a["linkedin"]}" target="_blank" rel="noopener me">{LI_ICON}Connect on LinkedIn</a>'
-    page = f"""{head(f'{a["name"]}, ACCA | Accountant & Tax Advisor, Princeton NJ | Merchant Financial Advisory', desc, url,
-                 BASE + "/apple-touch-icon.png", f'<script type="application/ld+json">{json.dumps(ld)}</script>', None, "profile")}
+    page = f"""{head(f'{a["name"]}, ACCA | Accountant in Princeton, NJ | MFA', desc, url,
+                 BASE + "/apple-touch-icon.png", seo.script(ld), None, "profile")}
 <body>{nav("blog")}
 <header class="ahead aprofile"><div class="wrap">
   <div class="crumbs"><a href="/">Home</a> / <a href="/blog/">Insights</a> / Authors</div>
@@ -682,48 +712,8 @@ def build_author(posts):
 
 
 def build_sitemap(posts, pages=()):
-    today = datetime.now(timezone.utc).date().isoformat()
-    urls = [(BASE + "/", today), (BASE + "/blog/", posts[0]["date"] if posts else today)]
-    urls += [(f'{BASE}/blog/{p["slug"]}/', p.get("updated", p["date"])) for p in posts]
-    urls += [(AUTHOR["url"], posts[0]["date"] if posts else today), (BASE + "/newsletter/", posts[0]["date"] if posts else today)]
-    for lp in ("union-city-nj", "princeton-nj"):   # Google Ads landing pages (tools/build_landing.py)
-        if (SITE / lp / "index.html").exists():
-            urls += [(f"{BASE}/{lp}/", today)]
-    urls += [(f"{BASE}/{pg['slug']}.html", pg["updated"]) for pg in pages]
-    extra = ROOT / "tools" / "site_pages.json"   # /resources/ and /tools/* (tools/build_resources.py, site session)
-    if extra.exists():
-        sp = json.loads(extra.read_text(encoding="utf-8"))
-        urls += [(u, sp.get("updated", today)) for u in sp.get("urls", [])]
-    body = "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
-    (SITE / "sitemap.xml").write_text(
-        f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>',
-        encoding="utf-8")
-    bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"]
-    robots = "User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {BASE}/sitemap.xml\n"
-    (SITE / "robots.txt").write_text(robots, encoding="utf-8")
-
-
-def build_llms(posts):
-    lines = [
-        "# Merchant Financial Advisory LLC (MFA)",
-        "",
-        "> Accounting, tax and business solutions provider based in Princeton, New Jersey, serving individuals and small and mid-sized businesses in New Jersey, New York and nationwide. MFA Insights covers IRS/federal, New Jersey and New York tax rules and deadlines, accounting, bookkeeping and QuickBooks.",
-        "",
-        "MFA provides tax preparation and filing, tax planning, bookkeeping, accrual-basis accounting and financial reporting, QuickBooks setup, cleanup and support, fractional CFO and business advisory, and audit support.",
-        "Contact: info@mfa-advisory.com, (347) 205-4468. Languages: English, Hindi, Urdu. Book a 30-minute consultation: https://mfa-advisory.com/#book",
-        "",
-        "## Key pages",
-        f"- [Home and services]({BASE}/): services, approach, client reviews, booking and contact",
-        f"- [Union City, NJ bookkeeping, accounting and tax preparation]({BASE}/union-city-nj/): local services page for Union City and Hudson County, NJ",
-        f"- [Princeton, NJ bookkeeping, accounting and tax preparation]({BASE}/princeton-nj/): local services page for Princeton and Mercer County, NJ",
-        f"- [MFA Insights blog]({BASE}/blog/): tax deadlines, IRS updates, accounting best practices and QuickBooks tips",
-        f"- [MFA Insights newsletter]({BASE}/newsletter/): email with new articles, key tax dates and a subscribable key-dates calendar",
-        f"- [Zain Merchant, ACCA]({AUTHOR['url']}): founder and principal of MFA, author of MFA Insights",
-        f"- [Disclaimer]({BASE}/disclaimer.html): site content is general information, not tax, accounting, legal or financial advice",
-        "",
-        "## Latest articles",
-    ] + [f"- [{p['title']}]({BASE}/blog/{p['slug']}/): {p['description']}" for p in posts[:30]]
-    (SITE / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    """sitemap.xml, robots.txt, llms.txt, llms-full.txt, catalog.json and the home page's JSON-LD: all in tools/seo.py."""
+    return seo.build_all(posts)
 
 
 if __name__ == "__main__":
@@ -735,8 +725,7 @@ if __name__ == "__main__":
     build_feed(posts)
     build_latest(posts)
     pages = build_pages()
-    build_sitemap(posts, pages)
     build_author(posts)
-    build_llms(posts)
     build_newsletter_pages(posts)
+    build_sitemap(posts, pages)   # last: reads the finished pages
     print(f"Built {len(posts)} post(s): " + ", ".join(p["slug"] for p in posts))

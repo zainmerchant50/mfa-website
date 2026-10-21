@@ -1,0 +1,47 @@
+{
+ "_about": "Search-engine title tags (<=60 chars) and meta descriptions (<=155 chars) for blog posts whose own title/description are longer. Used only for <title>, og:/twitter: tags and the meta description; the page headline and the card text on /blog/ are unchanged. New posts: add an entry here when tools/build_blog.py prints an SEO length warning.",
+ "2027-tax-calendar": {
+  "title": "2027 Tax Calendar: IRS, NJ & NY Deadlines | MFA",
+  "desc": "2027 tax calendar: every key IRS, New Jersey and New York deadline, from 1099s and W-2s to April 15 and estimated taxes. Save it to your calendar."
+ },
+ "adoption-tax-credit-refund-2026": {
+  "title": "Adoption Tax Credit Refund 2026: What to Do | MFA",
+  "desc": "Adoption tax credit refund 2026: the IRS is sending automatic refunds to 50,000+ families with 2020-2024 carryforwards. No amended return needed."
+ },
+ "ai-in-accounting-and-tax-2026": {
+  "title": "AI in Accounting and Tax 2026: IRS Guidance | MFA",
+  "desc": "What the IRS's new 2026 AI guidelines say, where AI tools help with bookkeeping, and why you should verify any AI answer before you file."
+ },
+ "federal-scholarship-tax-credit-2027": {
+  "title": "Federal Scholarship Tax Credit 2027: $1,700 | MFA",
+  "desc": "The federal scholarship tax credit starts Jan. 1, 2027: up to $1,700 per person for gifts to approved scholarship groups. Who qualifies, which states, NJ."
+ },
+ "form-1065-guide-llc": {
+  "title": "Form 1065 for LLCs: Who Files, Due Date, K-1s | MFA"
+ },
+ "form-1099-preparation-guide-2026": {
+  "title": "Form 1099 Guide 2026: $2,000 Threshold, Deadlines | MFA",
+  "desc": "The 1099-NEC and 1099-MISC threshold is $2,000 for 2026 payments. Who needs a 1099, the 2027 deadlines, and a step-by-step QuickBooks process."
+ },
+ "form-1120s-s-corp-guide": {
+  "title": "Form 1120-S Guide: S Corp Distributions, Due Date | MFA",
+  "desc": "Form 1120-S: who files, the March 15, 2027 due date, how S corp distributions are taxed, reasonable pay and the $260 per shareholder late penalty."
+ },
+ "nj-property-tax-relief-anchor-stay-nj-2026": {
+  "title": "ANCHOR Deadline 2026: NJ Property Tax Relief | MFA"
+ },
+ "october-15-2026-tax-extension-deadline": {
+  "title": "October 15, 2026 Tax Extension Deadline Checklist | MFA",
+  "desc": "Filed an extension for your 2025 return? Your deadline is Thursday, Oct. 15, 2026. What to file, what waiting costs, and the NJ and disaster exceptions."
+ },
+ "salt-cap-2026-nj-ny-pte-tax": {
+  "title": "SALT Cap 2026: $40,400 Limit, NJ BAIT & NY PTET | MFA",
+  "desc": "SALT cap 2026: deduct up to $40,400 in state and local taxes, less above $505,000 of income. Year-end moves plus the NJ BAIT and NY PTET workaround."
+ },
+ "section-179-bonus-depreciation-2026": {
+  "title": "Section 179 vs. Bonus Depreciation for 2026 | MFA"
+ },
+ "year-end-tax-planning-2026-key-dates": {
+  "title": "Year-End Tax Planning 2026: Key Dates and Limits | MFA"
+ }
+}

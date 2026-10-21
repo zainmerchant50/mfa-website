@@ -8,6 +8,7 @@ Never "free", never "CPA", no street address. Customer-facing dates: date only.
 import json
 
 import build_blog as B
+import seo
 from build_resources import page, write, esc, BASE, cta
 
 ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
@@ -89,9 +90,9 @@ OFFERS = [
 
 def build():
     url = BASE + "/services/"
-    title = "Services: Tax, Bookkeeping, CFO and Business Solutions | Merchant Financial Advisory"
-    desc = ("Tax preparation and planning, monthly bookkeeping from $199/month, financial reporting, fractional CFO, audit support, "
-            "technical accounting and LLC formation from $150. Serving New Jersey, New York and clients nationwide.")
+    title = "Tax, Bookkeeping & CFO Services in NJ and NYC | MFA"
+    desc = ("Tax preparation, bookkeeping from $199/month, fractional CFO, audit support and LLC formation from $150. "
+            "Princeton, NJ; New York City; clients nationwide.")
     jump = "".join(f'<a href="#{sid}">{name}</a>' for sid, name, *_ in SERVICES)
     offers = "".join(f'''<div class="pkc card{" feat" if i == 1 else ""}"><span class="pk-tag">{esc(n)}</span>
 <p class="pk-price"><b>{p}</b><span>{s}</span></p><p class="pk-lead">{t}</p>
@@ -116,18 +117,15 @@ def build():
 <section class="wrap llc-sec"><div class="diy card"><div><span class="eyebrow eb-dark">Prefer to do it yourself?</span><h3>Calculators, trackers and guides</h3>
 <p>Quarterly estimates, 1099 tax, S corp savings, paycheck, home office and mileage calculators, a 1099 contractor tracker and the 2027 deadline calendar.</p></div>
 <a class="btn btn-ink" href="/resources/">Browse resources</a></div></section>
+<section class="wrap llc-sec" aria-labelledby="more-h"><div class="sec-hd"><span class="eyebrow eb-dark">Where we work, and more</span><h2 id="more-h">Local pages and related pages.</h2></div>
+<nav class="sv-jump" aria-label="Local pages and related pages"><a href="/princeton-nj/">Princeton, NJ</a><a href="/union-city-nj/">Union City, NJ</a><a href="/new-york-ny/">New York City</a><a href="/llc-formation/">LLC formation in all 50 states</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup quote</a><a href="/shop/">Shop</a><a href="/resources/">Resources</a><a href="/blog/">MFA Insights</a><a href="/authors/zain-merchant/">About Zain Merchant, ACCA</a></nav></section>
 {cta("Not sure where to start?", "Tell us what's going on in a 30-minute call and we'll suggest the smallest engagement that fixes it, with a price before any work begins.")}
 <section class="wrap llc-sec"><p class="disclaimer">Merchant Financial Advisory provides accounting, bookkeeping, tax preparation and advisory services. We do not perform audits or issue audit, review or compilation reports, and we are not a law firm. Languages: English, Hindi and Urdu.</p></section>
 </main>'''
-    ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "AccountingService", "name": "Merchant Financial Advisory LLC", "url": BASE, "telephone": "+1-347-205-4468",
-         "areaServed": ["New Jersey", "New York", "United States"],
-         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services", "itemListElement": [
-             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n.replace("&amp;", "&"),
-                                                 "url": f"{url}#{sid}"}} for sid, n, *_ in SERVICES]}},
-        {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Services", "item": url}]}]}
+    ld = seo.graph(url, "Services", desc, {"@type": "OfferCatalog", "@id": url + "#catalog", "name": "MFA services", "url": url,
+                                            "itemListElement": [{"@id": f"{url}#{sid}"} for sid, *_ in SERVICES]},
+                   *seo.service_nodes(), kind="CollectionPage", full_org=True,
+                   crumb=[("Home", BASE + "/"), ("Services", url)])
     return write("services", page(title, desc, url, body, ld, active="s"))
 
 

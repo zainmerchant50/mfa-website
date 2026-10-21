@@ -1,0 +1,1787 @@
+{
+ "@context": "https://schema.org",
+ "@type": "DataFeed",
+ "@id": "https://mfa-advisory.com/catalog.json",
+ "name": "Merchant Financial Advisory: services, public prices, tools and products",
+ "description": "Machine-readable list of what MFA offers and what is publicly priced. Services marked 'quoted up front' have no public price.",
+ "url": "https://mfa-advisory.com/catalog.json",
+ "dateModified": "2026-10-21",
+ "inLanguage": "en-US",
+ "provider": {
+  "@type": "AccountingService",
+  "@id": "https://mfa-advisory.com/#organization",
+  "name": "Merchant Financial Advisory LLC",
+  "legalName": "Merchant Financial Advisory LLC",
+  "alternateName": [
+   "MFA",
+   "Merchant Financial Advisory"
+  ],
+  "url": "https://mfa-advisory.com/",
+  "logo": {
+   "@type": "ImageObject",
+   "url": "https://mfa-advisory.com/apple-touch-icon.png",
+   "width": 180,
+   "height": 180
+  },
+  "image": "https://mfa-advisory.com/apple-touch-icon.png",
+  "email": "info@mfa-advisory.com",
+  "telephone": "+13472054468",
+  "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "Princeton",
+   "addressRegion": "NJ",
+   "addressCountry": "US"
+  },
+  "areaServed": [
+   {
+    "@type": "State",
+    "name": "New Jersey"
+   },
+   {
+    "@type": "State",
+    "name": "New York"
+   },
+   {
+    "@type": "City",
+    "name": "New York",
+    "containedInPlace": {
+     "@type": "State",
+     "name": "New York"
+    }
+   },
+   {
+    "@type": "Country",
+    "name": "United States"
+   }
+  ],
+  "sameAs": [
+   "https://www.linkedin.com/company/mfa-advisory",
+   "https://www.instagram.com/mfa_advisory/",
+   "https://www.upwork.com/freelancers/zainmerchant50",
+   "https://www.fiverr.com/zainmerchant50",
+   "https://mfaadvisory.gumroad.com/"
+  ],
+  "founder": {
+   "@id": "https://mfa-advisory.com/authors/zain-merchant/#person"
+  },
+  "description": "Accounting, bookkeeping, tax preparation and advisory firm in Princeton, New Jersey for small and mid-sized businesses and individuals in New Jersey, New York City and nationwide, with LLC formation in all 50 states and a shop of digital tax and bookkeeping tools. Founded by Zain Merchant, ACCA, formerly of PwC.",
+  "knowsAbout": [
+   "Tax preparation",
+   "Tax planning",
+   "Bookkeeping",
+   "Accrual accounting",
+   "Financial reporting",
+   "QuickBooks Online",
+   "Fractional CFO services",
+   "LLC formation",
+   "S corporation elections",
+   "Form 1099 reporting",
+   "IRS filing deadlines",
+   "New Jersey taxes",
+   "New York taxes",
+   "Small business accounting"
+  ],
+  "knowsLanguage": [
+   "en",
+   "hi",
+   "ur"
+  ],
+  "priceRange": "From $150",
+  "currenciesAccepted": "USD",
+  "contactPoint": [
+   {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+13472054468",
+    "email": "info@mfa-advisory.com",
+    "availableLanguage": [
+     "English",
+     "Hindi",
+     "Urdu"
+    ],
+    "areaServed": "US"
+   }
+  ],
+  "potentialAction": {
+   "@type": "ReserveAction",
+   "name": "Book a 30-minute consultation",
+   "target": {
+    "@type": "EntryPoint",
+    "urlTemplate": "https://mfa-advisory.com/#book",
+    "actionPlatform": "https://schema.org/DesktopWebPlatform"
+   }
+  },
+  "hasOfferCatalog": {
+   "@type": "OfferCatalog",
+   "name": "MFA services and public prices",
+   "itemListElement": [
+    {
+     "@type": "Offer",
+     "name": "LLC formation: Formation",
+     "priceCurrency": "USD",
+     "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Your LLC filed, with the EIN and paperwork you need on day one.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "LLC formation: Formation",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     },
+     "price": "150",
+     "url": "https://mfa-advisory.com/llc-formation/#packages"
+    },
+    {
+     "@type": "Offer",
+     "name": "LLC formation: Formation + Business Setup",
+     "priceCurrency": "USD",
+     "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Everything in Formation, plus the tax and books setup most new owners miss.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "LLC formation: Formation + Business Setup",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     },
+     "price": "249",
+     "url": "https://mfa-advisory.com/llc-formation/#packages"
+    },
+    {
+     "@type": "Offer",
+     "name": "LLC formation: Complete Launch",
+     "priceCurrency": "USD",
+     "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Everything in Business Setup, plus your elections, sales tax and first month of books.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "LLC formation: Complete Launch",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     },
+     "price": "649",
+     "url": "https://mfa-advisory.com/llc-formation/#packages"
+    },
+    {
+     "@type": "Offer",
+     "name": "Monthly bookkeeping",
+     "priceCurrency": "USD",
+     "description": "Starting price per month for one bank account, one credit card, up to 100 transactions a month. Month to month; larger books are quoted up front.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Monthly bookkeeping",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/llc-formation/#monthly"
+     },
+     "price": "199",
+     "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "199",
+      "priceCurrency": "USD",
+      "unitCode": "MON",
+      "unitText": "month"
+     },
+     "url": "https://mfa-advisory.com/llc-formation/#monthly"
+    },
+    {
+     "@type": "Offer",
+     "name": "Quarterly estimated tax service",
+     "priceCurrency": "USD",
+     "description": "Price for the year: four federal and state estimate calculations with due dates.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Quarterly estimated tax service",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/services/#tax-planning"
+     },
+     "price": "250",
+     "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "250",
+      "priceCurrency": "USD",
+      "unitCode": "ANN",
+      "unitText": "year"
+     },
+     "url": "https://mfa-advisory.com/services/#tax-planning"
+    },
+    {
+     "@type": "Offer",
+     "name": "1099 preparation and e-filing",
+     "priceCurrency": "USD",
+     "description": "$25 per form, $75 minimum.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "1099 preparation and e-filing",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/llc-formation/#start"
+     },
+     "price": "25",
+     "url": "https://mfa-advisory.com/llc-formation/#start"
+    },
+    {
+     "@type": "Offer",
+     "name": "Sales tax registration",
+     "priceCurrency": "USD",
+     "description": "Included in the Complete Launch package.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Sales tax registration",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/llc-formation/#start"
+     },
+     "price": "99",
+     "url": "https://mfa-advisory.com/llc-formation/#start"
+    },
+    {
+     "@type": "Offer",
+     "name": "S corp election (Form 2553)",
+     "priceCurrency": "USD",
+     "description": "S corporation election (Form 2553). Included in the Complete Launch package.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "S corp election (Form 2553)",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/llc-formation/#start"
+     },
+     "price": "149",
+     "url": "https://mfa-advisory.com/llc-formation/#start"
+    },
+    {
+     "@type": "Offer",
+     "name": "Tax preparation and filing",
+     "priceCurrency": "USD",
+     "description": "Quoted up front before any work starts. Individual and business returns, federal and state.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Tax preparation and filing",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/services/#tax-preparation"
+     },
+     "url": "https://mfa-advisory.com/services/#tax-preparation"
+    },
+    {
+     "@type": "Offer",
+     "name": "Bookkeeping cleanup and catch-up",
+     "priceCurrency": "USD",
+     "description": "Quoted up front before any work starts. Fixed quote after a review of a sample of your accounts.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Bookkeeping cleanup and catch-up",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/bookkeeping-cleanup/"
+     },
+     "url": "https://mfa-advisory.com/bookkeeping-cleanup/"
+    },
+    {
+     "@type": "Offer",
+     "name": "Fractional CFO",
+     "priceCurrency": "USD",
+     "description": "Monthly retainer, quoted up front.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Fractional CFO",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/services/#fractional-cfo"
+     },
+     "url": "https://mfa-advisory.com/services/#fractional-cfo"
+    }
+   ]
+  }
+ },
+ "creator": {
+  "@type": "Person",
+  "@id": "https://mfa-advisory.com/authors/zain-merchant/#person",
+  "name": "Zain Merchant",
+  "honorificSuffix": "ACCA",
+  "jobTitle": "Founder & Principal",
+  "url": "https://mfa-advisory.com/authors/zain-merchant/",
+  "image": "https://mfa-advisory.com/apple-touch-icon.png",
+  "sameAs": [
+   "https://www.linkedin.com/in/zainmerchant50",
+   "https://www.upwork.com/freelancers/zainmerchant50",
+   "https://www.fiverr.com/zainmerchant50"
+  ],
+  "worksFor": {
+   "@id": "https://mfa-advisory.com/#organization"
+  },
+  "memberOf": {
+   "@type": "Organization",
+   "name": "ACCA",
+   "url": "https://www.accaglobal.com/"
+  },
+  "knowsAbout": [
+   "Tax preparation",
+   "Tax planning",
+   "Accrual accounting",
+   "Bookkeeping",
+   "QuickBooks Online",
+   "Form 1099 reporting",
+   "Financial reporting",
+   "Internal controls",
+   "Audit support"
+  ],
+  "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "Princeton",
+   "addressRegion": "NJ",
+   "addressCountry": "US"
+  }
+ },
+ "dataFeedElement": [
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/services/#tax-preparation",
+    "name": "Tax Preparation & Filing",
+    "url": "https://mfa-advisory.com/services/#tax-preparation",
+    "serviceType": "Tax Preparation & Filing",
+    "description": "Federal and multi-state returns for individuals and businesses: accurate, on time, and positioned to minimize what you legitimately owe. Quoted up front by return type and complexity.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "City",
+      "name": "New York",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New York"
+      }
+     },
+     {
+      "@type": "Country",
+      "name": "United States"
+     }
+    ],
+    "termsOfService": "https://mfa-advisory.com/terms.html",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Tax Preparation & Filing",
+      "priceCurrency": "USD",
+      "description": "Quoted up front by return type and complexity.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Tax Preparation & Filing",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/services/#tax-planning",
+    "name": "Tax Planning & Strategy",
+    "url": "https://mfa-advisory.com/services/#tax-planning",
+    "serviceType": "Tax Planning & Strategy",
+    "description": "Year-round planning tied to live numbers: entity elections, estimated payments, retirement vehicles and deductions. Quoted up front; often bundled with monthly bookkeeping.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "City",
+      "name": "New York",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New York"
+      }
+     },
+     {
+      "@type": "Country",
+      "name": "United States"
+     }
+    ],
+    "termsOfService": "https://mfa-advisory.com/terms.html",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Tax Planning & Strategy",
+      "priceCurrency": "USD",
+      "description": "Quoted up front; often bundled with monthly bookkeeping.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Tax Planning & Strategy",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/services/#bookkeeping",
+    "name": "Bookkeeping & Accounting",
+    "url": "https://mfa-advisory.com/services/#bookkeeping",
+    "serviceType": "Bookkeeping & Accounting",
+    "description": "Transactions, reconciliations, AP/AR and a disciplined monthly close, so your books stay decision-ready all year, not just at year-end. Monthly bookkeeping from $199/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "City",
+      "name": "New York",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New York"
+      }
+     },
+     {
+      "@type": "Country",
+      "name": "United States"
+     }
+    ],
+    "termsOfService": "https://mfa-advisory.com/terms.html",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Monthly bookkeeping",
+      "priceCurrency": "USD",
+      "description": "Starting price per month for one bank account, one card and up to 100 transactions a month.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Monthly bookkeeping",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       }
+      },
+      "price": "199",
+      "priceSpecification": {
+       "@type": "UnitPriceSpecification",
+       "price": "199",
+       "priceCurrency": "USD",
+       "unitCode": "MON",
+       "unitText": "month"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/services/#financial-reporting",
+    "name": "Financial Reporting",
+    "url": "https://mfa-advisory.com/services/#financial-reporting",
+    "serviceType": "Financial Reporting",
+    "description": "P&L, balance sheet and cash flow prepared for management use, plus the dashboards that turn them into decisions. Quoted up front; included in many monthly plans.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "City",
+      "name": "New York",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New York"
+      }
+     },
+     {
+      "@type": "Country",
+      "name": "United States"
+     }
+    ],
+    "termsOfService": "https://mfa-advisory.com/terms.html",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Financial Reporting",
+      "priceCurrency": "USD",
+      "description": "Quoted up front; included in many monthly plans.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Financial Reporting",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/services/#fractional-cfo",
+    "name": "Fractional CFO",
+    "url": "https://mfa-advisory.com/services/#fractional-cfo",
+    "serviceType": "Fractional CFO",
+    "description": "Forecasting, budgeting, margin analysis and board-ready reporting: financial leadership without an executive salary. Monthly retainer, quoted up front.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "City",
+      "name": "New York",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New York"
+      }
+     },
+     {
+      "@type": "Country",
+      "name": "United States"
+     }
+    ],
+    "termsOfService": "https://mfa-advisory.com/terms.html",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Fractional CFO",
+      "priceCurrency": "USD",
+      "description": "Monthly retainer, quoted up front.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Fractional CFO",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/services/#audit-support",
+    "name": "Audit Support & Controls",
+    "url": "https://mfa-advisory.com/services/#audit-support",
+    "serviceType": "Audit Support & Controls",
+    "description": "Help getting ready for your auditor: PBC lists, internal-controls assessment and remediation, drawn from Big Four audit experience. Project fee, quoted up front.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "City",
+      "name": "New York",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New York"
+      }
+     },
+     {
+      "@type": "Country",
+      "name": "United States"
+     }
+    ],
+    "termsOfService": "https://mfa-advisory.com/terms.html",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Audit Support & Controls",
+      "priceCurrency": "USD",
+      "description": "Project fee, quoted up front.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Audit Support & Controls",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/services/#technical-accounting",
+    "name": "Technical Accounting Advisory",
+    "url": "https://mfa-advisory.com/services/#technical-accounting",
+    "serviceType": "Technical Accounting Advisory",
+    "description": "US GAAP and IFRS guidance on the hard parts: revenue recognition, leases, financial instruments and consolidations. Hourly or project fee, quoted up front.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "City",
+      "name": "New York",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New York"
+      }
+     },
+     {
+      "@type": "Country",
+      "name": "United States"
+     }
+    ],
+    "termsOfService": "https://mfa-advisory.com/terms.html",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Technical Accounting Advisory",
+      "priceCurrency": "USD",
+      "description": "Hourly or project fee, quoted up front.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Technical Accounting Advisory",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/services/#business-advisory",
+    "name": "Systems & Business Advisory",
+    "url": "https://mfa-advisory.com/services/#business-advisory",
+    "serviceType": "Systems & Business Advisory",
+    "description": "Entity formation, QuickBooks setup and cleanup, system selection, and financially grounded guidance for the decisions that matter. LLC formation from $150 plus the state fee , paid once. Other work quoted up front.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "City",
+      "name": "New York",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New York"
+      }
+     },
+     {
+      "@type": "Country",
+      "name": "United States"
+     }
+    ],
+    "termsOfService": "https://mfa-advisory.com/terms.html",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "LLC formation: Formation",
+      "priceCurrency": "USD",
+      "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Your LLC filed, with the EIN and paperwork you need on day one.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "LLC formation: Formation",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/llc-formation/#packages"
+      },
+      "price": "150",
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     },
+     {
+      "@type": "Offer",
+      "name": "LLC formation: Formation + Business Setup",
+      "priceCurrency": "USD",
+      "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Everything in Formation, plus the tax and books setup most new owners miss.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "LLC formation: Formation + Business Setup",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/llc-formation/#packages"
+      },
+      "price": "249",
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     },
+     {
+      "@type": "Offer",
+      "name": "LLC formation: Complete Launch",
+      "priceCurrency": "USD",
+      "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Everything in Business Setup, plus your elections, sales tax and first month of books.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "LLC formation: Complete Launch",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/llc-formation/#packages"
+      },
+      "price": "649",
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/llc-formation/#service",
+    "name": "LLC formation",
+    "serviceType": "LLC formation and business setup",
+    "url": "https://mfa-advisory.com/llc-formation/",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": [
+     {
+      "@type": "State",
+      "name": "Alabama"
+     },
+     {
+      "@type": "State",
+      "name": "Alaska"
+     },
+     {
+      "@type": "State",
+      "name": "Arizona"
+     },
+     {
+      "@type": "State",
+      "name": "Arkansas"
+     },
+     {
+      "@type": "State",
+      "name": "California"
+     },
+     {
+      "@type": "State",
+      "name": "Colorado"
+     },
+     {
+      "@type": "State",
+      "name": "Connecticut"
+     },
+     {
+      "@type": "State",
+      "name": "Delaware"
+     },
+     {
+      "@type": "State",
+      "name": "District of Columbia"
+     },
+     {
+      "@type": "State",
+      "name": "Florida"
+     },
+     {
+      "@type": "State",
+      "name": "Georgia"
+     },
+     {
+      "@type": "State",
+      "name": "Hawaii"
+     },
+     {
+      "@type": "State",
+      "name": "Idaho"
+     },
+     {
+      "@type": "State",
+      "name": "Illinois"
+     },
+     {
+      "@type": "State",
+      "name": "Indiana"
+     },
+     {
+      "@type": "State",
+      "name": "Iowa"
+     },
+     {
+      "@type": "State",
+      "name": "Kansas"
+     },
+     {
+      "@type": "State",
+      "name": "Kentucky"
+     },
+     {
+      "@type": "State",
+      "name": "Louisiana"
+     },
+     {
+      "@type": "State",
+      "name": "Maine"
+     },
+     {
+      "@type": "State",
+      "name": "Maryland"
+     },
+     {
+      "@type": "State",
+      "name": "Massachusetts"
+     },
+     {
+      "@type": "State",
+      "name": "Michigan"
+     },
+     {
+      "@type": "State",
+      "name": "Minnesota"
+     },
+     {
+      "@type": "State",
+      "name": "Mississippi"
+     },
+     {
+      "@type": "State",
+      "name": "Missouri"
+     },
+     {
+      "@type": "State",
+      "name": "Montana"
+     },
+     {
+      "@type": "State",
+      "name": "Nebraska"
+     },
+     {
+      "@type": "State",
+      "name": "Nevada"
+     },
+     {
+      "@type": "State",
+      "name": "New Hampshire"
+     },
+     {
+      "@type": "State",
+      "name": "New Jersey"
+     },
+     {
+      "@type": "State",
+      "name": "New Mexico"
+     },
+     {
+      "@type": "State",
+      "name": "New York"
+     },
+     {
+      "@type": "State",
+      "name": "North Carolina"
+     },
+     {
+      "@type": "State",
+      "name": "North Dakota"
+     },
+     {
+      "@type": "State",
+      "name": "Ohio"
+     },
+     {
+      "@type": "State",
+      "name": "Oklahoma"
+     },
+     {
+      "@type": "State",
+      "name": "Oregon"
+     },
+     {
+      "@type": "State",
+      "name": "Pennsylvania"
+     },
+     {
+      "@type": "State",
+      "name": "Rhode Island"
+     },
+     {
+      "@type": "State",
+      "name": "South Carolina"
+     },
+     {
+      "@type": "State",
+      "name": "South Dakota"
+     },
+     {
+      "@type": "State",
+      "name": "Tennessee"
+     },
+     {
+      "@type": "State",
+      "name": "Texas"
+     },
+     {
+      "@type": "State",
+      "name": "Utah"
+     },
+     {
+      "@type": "State",
+      "name": "Vermont"
+     },
+     {
+      "@type": "State",
+      "name": "Virginia"
+     },
+     {
+      "@type": "State",
+      "name": "Washington"
+     },
+     {
+      "@type": "State",
+      "name": "West Virginia"
+     },
+     {
+      "@type": "State",
+      "name": "Wisconsin"
+     },
+     {
+      "@type": "State",
+      "name": "Wyoming"
+     }
+    ],
+    "description": "State filing, EIN and operating agreement template from $150 plus the state fee, paid once; tax classification review, state tax registration and QuickBooks setup in Business Setup.",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "LLC formation: Formation",
+      "priceCurrency": "USD",
+      "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Your LLC filed, with the EIN and paperwork you need on day one.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "LLC formation: Formation",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/llc-formation/#packages"
+      },
+      "price": "150",
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     },
+     {
+      "@type": "Offer",
+      "name": "LLC formation: Formation + Business Setup",
+      "priceCurrency": "USD",
+      "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Everything in Formation, plus the tax and books setup most new owners miss.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "LLC formation: Formation + Business Setup",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/llc-formation/#packages"
+      },
+      "price": "249",
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     },
+     {
+      "@type": "Offer",
+      "name": "LLC formation: Complete Launch",
+      "priceCurrency": "USD",
+      "description": "Plus the state filing fee at cost, paid once. One-time price; it does not renew. Everything in Business Setup, plus your elections, sales tax and first month of books.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "LLC formation: Complete Launch",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/llc-formation/#packages"
+      },
+      "price": "649",
+      "url": "https://mfa-advisory.com/llc-formation/#packages"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/1099-self-employed-tax-calculator-2026#product",
+    "name": "1099 Self-Employed Tax Calculator & Quarterly Planner (2026)",
+    "description": "From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log.",
+    "sku": "1099-self-employed-tax-calculator-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/1099-self-employed-tax-calculator-2026",
+    "image": "https://mfa-advisory.com/shop/img/1099-self-employed-tax-calculator-2026.webp",
+    "category": "Tax calculators",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel / Google Sheets"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "11.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/1099-self-employed-tax-calculator-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/salary-paycheck-tax-calculator-2026#product",
+    "name": "2026 Salary & Paycheck Tax Calculator (W-2)",
+    "description": "See where a 2026 paycheck goes: federal, FICA, NJ / NY / NYC tax and net pay per year and per paycheck, with a bracket-by-bracket table.",
+    "sku": "salary-paycheck-tax-calculator-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/salary-paycheck-tax-calculator-2026",
+    "image": "https://mfa-advisory.com/shop/img/salary-paycheck-tax-calculator-2026.webp",
+    "category": "Tax calculators",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel / Google Sheets"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "11.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/salary-paycheck-tax-calculator-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/s-corp-vs-llc-savings-calculator#product",
+    "name": "S Corp vs LLC Savings Calculator",
+    "description": "Compare self-employment tax with S corp payroll taxes after the extra costs, see net annual savings and the break-even profit, and read the warnings before you elect.",
+    "sku": "s-corp-vs-llc-savings-calculator",
+    "url": "https://mfaadvisory.gumroad.com/l/s-corp-vs-llc-savings-calculator",
+    "image": "https://mfa-advisory.com/shop/img/s-corp-vs-llc-savings-calculator.webp",
+    "category": "Tax calculators",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel / Google Sheets"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "11.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/s-corp-vs-llc-savings-calculator",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/1099-kit#product",
+    "name": "The 1099 Kit (2026 payments, filed in 2027)",
+    "description": "Decide who needs a 1099, collect W-9s and file on time. Updated for the new $2,000 threshold, with a contractor tracker.",
+    "sku": "1099-kit",
+    "url": "https://mfaadvisory.gumroad.com/l/1099-kit",
+    "image": "https://mfa-advisory.com/shop/img/1099-kit.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF + Excel"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "15",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/1099-kit",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/month-end-close-checklist#product",
+    "name": "Month-End Close Checklist + Close Workbook",
+    "description": "A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, flux review, sign-off sheet and dashboard.",
+    "sku": "month-end-close-checklist",
+    "url": "https://mfaadvisory.gumroad.com/l/month-end-close-checklist",
+    "image": "https://mfa-advisory.com/shop/img/month-end-close-checklist.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF + Excel"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "12.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/month-end-close-checklist",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist#product",
+    "name": "Bookkeeping Cleanup Checklist + Catch-Up Tracker",
+    "description": "The step-by-step method to catch up months-behind books, plus a tracker that shows what's done.",
+    "sku": "bookkeeping-cleanup-checklist",
+    "url": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist",
+    "image": "https://mfa-advisory.com/shop/img/bookkeeping-cleanup-checklist.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF + Excel"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "12",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist#product",
+    "name": "New Business Setup Checklist",
+    "description": "Every step from idea to set up right: entity, EIN, registrations, bank, books and the compliance calendar.",
+    "sku": "new-business-setup-checklist",
+    "url": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist",
+    "image": "https://mfa-advisory.com/shop/img/new-business-setup-checklist.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "9",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/small-business-year-end-tax-checklist#product",
+    "name": "Small Business Year-End Tax Checklist",
+    "description": "A check-the-box year-end guide for sole props, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines.",
+    "sku": "small-business-year-end-tax-checklist",
+    "url": "https://mfaadvisory.gumroad.com/l/small-business-year-end-tax-checklist",
+    "image": "https://mfa-advisory.com/shop/img/small-business-year-end-tax-checklist.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "4.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/small-business-year-end-tax-checklist",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes#product",
+    "name": "AI Prompts for Small Business Bookkeeping & Taxes",
+    "description": "130 copy-paste AI prompts for bookkeeping, month-end close, reconciliations, Schedule C prep, quarterly estimates and 1099s, each with an expected output and a \"check this\" note.",
+    "sku": "ai-prompts-small-business-bookkeeping-taxes",
+    "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes",
+    "image": "https://mfa-advisory.com/shop/img/ai-prompts-small-business-bookkeeping-taxes.webp",
+    "category": "AI prompt packs",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers#product",
+    "name": "AI Prompts for Tax Preparers & Bookkeepers",
+    "description": "104 copy-paste AI prompts for client intake, document requests, notices in plain English, cleanup scoping, review notes, newsletters, social posts and SOPs.",
+    "sku": "ai-prompts-tax-preparers-bookkeepers",
+    "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers",
+    "image": "https://mfa-advisory.com/shop/img/ai-prompts-tax-preparers-bookkeepers.webp",
+    "category": "AI prompt packs",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "1099 Contractor Tracker: Who Needs a 1099-NEC in 2026",
+    "url": "https://mfa-advisory.com/tools/1099-contractor-tracker/",
+    "description": "Track vendors, W-9s and payments, see who needs a 1099-NEC at the 2026 $2,000 threshold, and export to CSV. Data stays in your browser.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "1099 Tax Calculator 2026: Self-Employment, NJ & NY",
+    "url": "https://mfa-advisory.com/tools/1099-tax-calculator/",
+    "description": "Estimate the self-employment tax, federal income tax and NJ or NY tax on your 1099 income, plus the share of every payment to set aside.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "Break-Even Calculator for Small Businesses",
+    "url": "https://mfa-advisory.com/tools/break-even-calculator/",
+    "description": "Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "Do I Need to Send a 1099? 2026 Payments Checker",
+    "url": "https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/",
+    "description": "Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "Home Office Deduction Calculator 2026",
+    "url": "https://mfa-advisory.com/tools/home-office-deduction-calculator/",
+    "description": "Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "Mileage Deduction Calculator 2026 (IRS Standard Rates)",
+    "url": "https://mfa-advisory.com/tools/mileage-deduction-calculator/",
+    "description": "Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY)",
+    "url": "https://mfa-advisory.com/tools/paycheck-tax-calculator/",
+    "description": "Estimate W-2 take-home pay per paycheck after federal income tax, Social Security, Medicare and New Jersey or New York tax.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "Profit Margin & Markup Calculator",
+    "url": "https://mfa-advisory.com/tools/profit-margin-calculator/",
+    "description": "Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY",
+    "url": "https://mfa-advisory.com/tools/quarterly-estimated-tax-calculator/",
+    "description": "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the safe-harbor amount.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "S Corp Tax Savings Calculator: Is an S Corp Worth It?",
+    "url": "https://mfa-advisory.com/tools/s-corp-tax-savings-calculator/",
+    "description": "Compare self-employment tax as an LLC with payroll taxes as an S corporation. See annual savings after costs and the break-even profit.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "2027 Business Tax Deadlines by Entity: Fed, NJ & NY",
+    "url": "https://mfa-advisory.com/tools/tax-deadlines-2027/",
+    "description": "Every 2027 federal, New Jersey and New York tax deadline for sole proprietors, partnerships, S and C corporations, employers and nonprofits.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-21",
+   "item": {
+    "@type": "WebApplication",
+    "name": "W-9 Request Email Templates for Vendors",
+    "url": "https://mfa-advisory.com/tools/w-9-request-email-template/",
+    "description": "Copy-ready W-9 request emails for new vendors, year-end 1099 prep and reminders. Personalize the names and deadline, then copy with one click.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "USD"
+    },
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  }
+ ]
+}
