@@ -225,50 +225,77 @@ var q=new URLSearchParams(location.search).get('state');if(q&&S[q.toUpperCase()]
 
 
 def intake_form():
-    st_opts = "".join(f'<option value="{c}"{" selected" if c == "NJ" else ""}>{esc(STATES[c]["name"])}</option>' for c in ORDER) + '<option value="Unsure">Not sure yet</option>'
+    st_opts = '<option value="">Choose a state</option>' + "".join(f'<option value="{c}"{" selected" if c == "NJ" else ""}>{esc(STATES[c]["name"])}</option>' for c in ORDER) + '<option value="Unsure">Not sure yet</option>'
     pk_opts = "".join(f'<option value="{p["id"]}"{" selected" if p.get("feat") else ""}>{esc(p["name"])} (${p["price"]})</option>' for p in PACKAGES)
+    R = '<span class="req" aria-hidden="true">*</span>'
+
+    def fld(fid, label, ctrl, req=False, hint=""):
+        return (f'<div class="fld" id="w-{fid}"><label for="{fid}">{label}{R if req else ""}</label>{ctrl}'
+                f'{f"<span class=hint>{hint}</span>" if hint else ""}<span class="err-msg" id="e-{fid}" role="alert"></span></div>')
+    req = ' required aria-required="true"'
     return f'''<section class="wrap llc-sec" id="start" aria-labelledby="start-h">
 <div class="sec-hd"><span class="eyebrow eb-dark">Start my LLC</span><h2 id="start-h">Tell us about your business.</h2>
 <p>No payment is taken on this page. We review your details, confirm the name is available, and email you an invoice for your package plus the state fee. We file once it's paid.</p></div>
 <form class="tcard lform" id="lform" novalidate>
+<p class="req-note"><span class="req">*</span> Required</p>
+<div class="form-err" id="form-err" role="alert" tabindex="-1" hidden></div>
 <div class="lgrid">
-<div class="fld"><label for="f-name">Your name</label><input type="text" id="f-name" name="name" autocomplete="name" required/></div>
-<div class="fld"><label for="f-email">Email</label><input type="text" inputmode="email" id="f-email" name="email" autocomplete="email" required/></div>
-<div class="fld"><label for="f-phone">Phone (optional)</label><input type="text" inputmode="tel" id="f-phone" name="phone" autocomplete="tel"/></div>
-<div class="fld"><label for="f-state">State to form in</label><select id="f-state" name="state">{st_opts}</select></div>
-<div class="fld"><label for="f-pk">Package</label><select id="f-pk" name="package">{pk_opts}</select></div>
-<div class="fld"><label for="f-llc">LLC name you want</label><input type="text" id="f-llc" name="llc_name" required placeholder="e.g. Brightline Studio LLC"/></div>
-<div class="fld"><label for="f-alt">Backup name (optional)</label><input type="text" id="f-alt" name="backup_name"/></div>
-<div class="fld"><label for="f-own">Number of owners</label><select id="f-own" name="owners"><option>1 (single-member)</option><option>2</option><option>3–5</option><option>6 or more</option></select></div>
-<div class="fld"><label for="f-mgmt">Managed by</label><select id="f-mgmt" name="managed_by"><option>The owners (member-managed)</option><option>Appointed managers (manager-managed)</option><option>Not sure, help me decide</option></select></div>
-<div class="fld"><label for="f-act">What will the business do?</label><input type="text" id="f-act" name="activity" required placeholder="e.g. graphic design services"/></div>
+{fld("f-name", "Your name", f'<input type="text" id="f-name" name="name" autocomplete="name"{req}/>', True)}
+{fld("f-email", "Email", f'<input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false"{req}/>', True)}
+{fld("f-phone", "Phone (optional)", '<input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel"/>')}
+{fld("f-state", "State to form in", f'<select id="f-state" name="state"{req}>{st_opts}</select>', True)}
+{fld("f-pk", "Package", f'<select id="f-pk" name="package"{req}>{pk_opts}</select>', True)}
+{fld("f-llc", "LLC name you want", f'<input type="text" id="f-llc" name="llc_name"{req} placeholder="e.g. Brightline Studio LLC"/>', True)}
+{fld("f-alt", "Backup name (optional)", '<input type="text" id="f-alt" name="backup_name"/>')}
+{fld("f-own", "Number of owners", '<select id="f-own" name="owners"><option>1 (single-member)</option><option>2</option><option>3–5</option><option>6 or more</option></select>')}
+{fld("f-mgmt", "Managed by", '<select id="f-mgmt" name="managed_by"><option>The owners (member-managed)</option><option>Appointed managers (manager-managed)</option><option>Not sure, help me decide</option></select>')}
+{fld("f-act", "What will the business do?", f'<input type="text" id="f-act" name="activity"{req} placeholder="e.g. graphic design services"/>', True)}
 </div>
-<div class="fld"><span class="lbl">Check any that apply</span><div class="opts opts-2">
+<div class="fld"><span class="lbl">Check any that apply</span><div class="opts opts-2 opts-eq">
 <label class="opt"><input type="checkbox" name="will_hire" value="yes"/><span>I'll hire employees in the first year</span></label>
 <label class="opt"><input type="checkbox" name="sells_taxable" value="yes"/><span>I'll sell products or taxable services</span></label>
 <label class="opt"><input type="checkbox" name="has_agent" value="yes"/><span>I already have a registered agent or in-state street address</span></label>
-<label class="opt"><input type="checkbox" name="s_corp_interest" value="yes"/><span>I want to know if an S corp makes sense</span></label>
-<label class="opt"><input type="checkbox" id="f-mo" name="monthly_bookkeeping" value="yes"/><span>Continue with monthly bookkeeping after setup (from $199/month)</span></label></div></div>
-<div class="fld"><label for="f-notes">Anything else? (optional)</label><textarea id="f-notes" name="notes" rows="3" placeholder="Timing, partners, questions"></textarea>
-<span class="hint">Please don't include Social Security or bank account numbers. We collect what the IRS needs securely after we've confirmed your order.</span></div>
+<label class="opt"><input type="checkbox" name="s_corp_interest" value="yes"/><span>I want to know if an S corp makes sense</span></label></div></div>
+<div class="fld"><span class="lbl">Add-on</span><div class="opts">
+<label class="opt opt-wide"><input type="checkbox" id="f-mo" name="monthly_bookkeeping" value="yes"/><span>Continue with monthly bookkeeping after setup <small>(from $199/month, month to month)</small></span></label></div></div>
+{fld("f-notes", "Anything else? (optional)", '<textarea id="f-notes" name="notes" rows="3" placeholder="Timing, partners, questions"></textarea>', False, "Please don't include Social Security or bank account numbers. We collect what the IRS needs securely after we've confirmed your order.")}
 <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
-<button class="btn btn-ink" type="submit">Send my details</button><p class="ask-st" role="status" aria-live="polite"></p>
+<div class="lsubmit"><button class="btn btn-ink" type="submit">Send my details</button><p class="ask-st" role="status" aria-live="polite"></p></div>
 </form>
-<div class="tcard ldone" id="ldone" hidden><h2>Thanks, we have your details.</h2><p>We'll review them, check the name and email you an invoice for your package plus the state fee. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
+<div class="tcard ldone" id="ldone" tabindex="-1" hidden><h2>Thanks, we have your details.</h2><p>We'll review them, check the name and email you an invoice for your package plus the state fee, usually within one business day. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
 </section>
 <script>
-(function(){{var f=document.getElementById('lform'),st=f.querySelector('.ask-st');
-f.addEventListener('submit',function(e){{e.preventDefault();if(f._honey.value)return;
-var ok=['name','email','llc_name','activity'].every(function(n){{return f[n].value.trim();}})&&/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(f.email.value.trim());
-if(!ok){{st.textContent='Please fill in your name, a valid email, the LLC name and what the business will do.';return;}}
-var b=f.querySelector('button'),l=b.textContent;b.disabled=true;b.textContent='Sending…';var d=new FormData(f);
-d.append('page',location.href);d.append('_subject','LLC formation request: '+f.package.value+' / '+f.state.value+' / '+f.llc_name.value);d.append('_captcha','false');d.append('_template','table');
-fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).then(function(r){{if(!r.ok)throw 0;return r.json();}})
-.then(function(j){{if(j.success===false||j.success==='false')throw 0;f.hidden=true;document.getElementById('ldone').hidden=false;
+(function(){{var f=document.getElementById('lform'),st=f.querySelector('.ask-st'),box=document.getElementById('form-err');
+var EM=/^[^@\\s]+@[^@\\s]+\\.[A-Za-z]{{2,}}$/;
+var RULES=[['f-name','Please enter your name.',function(v){{return v.length>1;}}],
+['f-email','Please enter a valid email address, like name@example.com.',function(v){{return EM.test(v);}}],
+['f-state','Please choose a state.',function(v){{return !!v;}}],
+['f-pk','Please choose a package.',function(v){{return !!v;}}],
+['f-llc','Please enter the LLC name you want.',function(v){{return v.length>1;}}],
+['f-act','Please tell us what the business will do.',function(v){{return v.length>1;}}]];
+function mark(id,msg){{var el=document.getElementById(id),w=document.getElementById('w-'+id),e=document.getElementById('e-'+id);
+if(msg){{w.classList.add('has-err');el.setAttribute('aria-invalid','true');el.setAttribute('aria-describedby','e-'+id);e.textContent=msg;}}
+else{{w.classList.remove('has-err');el.removeAttribute('aria-invalid');e.textContent='';}}}}
+function check(id){{for(var i=0;i<RULES.length;i++)if(RULES[i][0]===id){{var v=document.getElementById(id).value.trim(),ok=RULES[i][2](v);mark(id,ok?'':RULES[i][1]);return ok;}}return true;}}
+RULES.forEach(function(r){{var el=document.getElementById(r[0]);
+el.addEventListener('blur',function(){{if(el.value.trim()||el.getAttribute('aria-invalid'))check(r[0]);}});
+el.addEventListener('input',function(){{if(el.getAttribute('aria-invalid'))check(r[0]);}});
+el.addEventListener('change',function(){{if(el.getAttribute('aria-invalid'))check(r[0]);}});}});
+function showErr(html){{box.innerHTML=html;box.hidden=false;box.focus();box.scrollIntoView({{block:'center',behavior:'smooth'}});}}
+f.addEventListener('submit',function(e){{e.preventDefault();if(f._honey.value)return;st.textContent='';
+var bad=RULES.filter(function(r){{return !check(r[0]);}});
+if(bad.length){{showErr('<strong>Please fix '+(bad.length===1?'1 field':bad.length+' fields')+':</strong><ul>'+bad.map(function(r){{return '<li><a href="#'+r[0]+'">'+r[1]+'</a></li>';}}).join('')+'</ul>');
+[].slice.call(box.querySelectorAll('a')).forEach(function(a){{a.addEventListener('click',function(ev){{ev.preventDefault();var t=document.getElementById(a.getAttribute('href').slice(1));t.focus();t.scrollIntoView({{block:'center'}});}});}});return;}}
+box.hidden=true;var b=f.querySelector('button[type=submit]'),l=b.textContent;b.disabled=true;b.textContent='Sending…';
+f.email.value=f.email.value.trim();var d=new FormData(f);d.append('page',location.href);d.append('_replyto',f.email.value);
+d.append('_subject','LLC formation request: '+f.package.value+' / '+f.state.value+' / '+f.llc_name.value);d.append('_captcha','false');d.append('_template','table');
+fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).then(function(r){{return r.json().catch(function(){{return {{success:r.ok}};}});}})
+.then(function(j){{if(!j||j.success===false||j.success==='false')throw new Error((j&&j.message)||'Send failed');f.hidden=true;var dn=document.getElementById('ldone');dn.hidden=false;dn.focus();dn.scrollIntoView({{block:'center'}});
 if(window.gtag){{gtag('event','conversion',{{send_to:'{B.ADS['id']}/rNQJCK2_kJsdEK3zpPhE'}});gtag('event','generate_lead',{{form:'llc_formation',package:f.package.value,state:f.state.value}});}}}})
-.catch(function(){{st.textContent='Couldn’t send. Please email {B.EMAIL} directly.';b.disabled=false;b.textContent=l;}});}});}})();
+.catch(function(err){{var body=encodeURIComponent('Name: '+f.name.value+'\\nEmail: '+f.email.value+'\\nPhone: '+f.phone.value+'\\nState: '+f.state.value+'\\nPackage: '+f.package.value+'\\nLLC name: '+f.llc_name.value+'\\nBusiness: '+f.activity.value+'\\nNotes: '+f.notes.value);
+showErr('<strong>We couldn’t send your details just now.</strong> Please <a href="mailto:{B.EMAIL}?subject='+encodeURIComponent('LLC formation request')+'&body='+body+'">email them to {B.EMAIL}</a> (we’ve filled in the email for you) or call (347) 205-4468.');
+b.disabled=false;b.textContent=l;if(window.console)console.warn('LLC form:',err&&err.message);}});}});}})();
 </script>'''
-
 
 FAQ = [
     ("Why form my LLC with an accountant?",
