@@ -725,7 +725,7 @@ body.scrolled .burger{color:var(--ink)}
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#approach">Approach</a>
-      <a href="#services">Services</a>
+      <a href="/services/">Services</a>
       <a href="#reviews">Reviews</a>
       <a href="/resources/">Resources</a>
       <a href="/blog/">Insights</a>
@@ -743,7 +743,7 @@ body.scrolled .burger{color:var(--ink)}
 
 <div class="msheet" id="msheet">
   <a href="#approach">Approach</a>
-  <a href="#services">Services</a>
+  <a href="/services/">Services</a>
   <a href="#reviews">Reviews</a>
   <a href="/resources/">Resources</a>
   <a href="/blog/">Insights</a>
@@ -786,7 +786,7 @@ body.scrolled .burger{color:var(--ink)}
             Schedule a Financial Review
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#services" class="btn btn-line">Explore Services</a>
+          <a href="/services/" class="btn btn-line">Explore Services</a>
         </div>
         <div class="creds">
           <span>ACCA Member</span>
@@ -908,58 +908,29 @@ body.scrolled .burger{color:var(--ink)}
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES (summary; full detail lives on /services/ since 2026-10-20) -->
 <section class="svcs sec" id="services">
   <div class="wrap">
     <div class="svc-hd reveal">
       <span class="eyebrow">Accounting, Tax &amp; Business Solutions</span>
       <h2>A coordinated finance stack — not a menu of disconnected vendors.</h2>
-      <p>Each service is designed to strengthen the others, so reporting, planning, and compliance improve together rather than competing for attention.</p>
+      <p>Eight services designed to strengthen each other. Monthly bookkeeping from $199/month; LLC formation from $99 plus the state fee; everything else quoted before we start.</p>
     </div>
-    <div class="svc-list">
-      <article class="svc-row reveal">
-        <span class="svc-n">01</span>
-        <h3>Tax Preparation &amp; Filing</h3>
-        <p>Federal and multi-state returns for individuals and businesses — accurate, on time, and positioned to minimize what you legitimately owe.</p>
-      </article>
-      <article class="svc-row reveal">
-        <span class="svc-n">02</span>
-        <h3>Tax Planning &amp; Strategy</h3>
-        <p>Year-round planning tied to live numbers: entity elections, estimated payments, retirement vehicles, and deduction optimization.</p>
-      </article>
-      <article class="svc-row reveal">
-        <span class="svc-n">03</span>
-        <h3>Bookkeeping &amp; Accounting</h3>
-        <p>Transactions, reconciliations, AP/AR, and a disciplined monthly close — books that stay decision-ready all year, not just at year-end.</p>
-      </article>
-      <article class="svc-row reveal">
-        <span class="svc-n">04</span>
-        <h3>Financial Reporting</h3>
-        <p>P&amp;L, balance sheet, and cash flow prepared to acceptable standards, plus the dashboards that turn them into decisions.</p>
-      </article>
-      <article class="svc-row reveal">
-        <span class="svc-n">05</span>
-        <h3>Fractional CFO</h3>
-        <p>Forecasting, budgeting, margin analysis, and board-ready reporting — executive financial leadership without an executive salary.</p>
-      </article>
-      <article class="svc-row reveal">
-        <span class="svc-n">06</span>
-        <h3>Audit Support &amp; Controls</h3>
-        <p>PBC preparation, internal-controls assessment, and deficiency remediation, drawn from Big 4 audit floors.</p>
-      </article>
-      <article class="svc-row reveal">
-        <span class="svc-n">07</span>
-        <h3>Technical Accounting Advisory</h3>
-        <p>US GAAP and IFRS guidance on the hard parts: revenue recognition, leases, financial instruments, consolidations.</p>
-      </article>
-      <article class="svc-row reveal">
-        <span class="svc-n">08</span>
-        <h3>Systems &amp; Business Advisory</h3>
-        <p>Entity formation, QuickBooks setup and cleanup, system selection, and financially grounded guidance for the decisions that matter.</p>
-      </article>
+    <div class="svc-chips reveal">
+      <a class="svc-chip" href="/services/#tax-preparation"><span class="svc-n">01</span>Tax Preparation &amp; Filing</a>
+      <a class="svc-chip" href="/services/#tax-planning"><span class="svc-n">02</span>Tax Planning &amp; Strategy</a>
+      <a class="svc-chip" href="/services/#bookkeeping"><span class="svc-n">03</span>Bookkeeping &amp; Accounting</a>
+      <a class="svc-chip" href="/services/#financial-reporting"><span class="svc-n">04</span>Financial Reporting</a>
+      <a class="svc-chip" href="/services/#fractional-cfo"><span class="svc-n">05</span>Fractional CFO</a>
+      <a class="svc-chip" href="/services/#audit-support"><span class="svc-n">06</span>Audit Support &amp; Controls</a>
+      <a class="svc-chip" href="/services/#technical-accounting"><span class="svc-n">07</span>Technical Accounting Advisory</a>
+      <a class="svc-chip" href="/services/#business-advisory"><span class="svc-n">08</span>Systems &amp; Business Advisory</a>
     </div>
+    <p class="svc-more reveal"><a href="/services/" class="btn btn-line">See all services and pricing</a></p>
   </div>
 </section>
+<style>.svc-chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}@media (max-width:900px){.svc-chips{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:480px){.svc-chips{grid-template-columns:1fr}}
+.svc-chip{display:flex;gap:12px;align-items:baseline;padding:16px 18px;border:1px solid var(--hair);border-radius:12px;text-decoration:none;color:var(--ink);font-size:.95rem;background:var(--paper);transition:border-color .2s}.svc-chip:hover{border-color:var(--gold)}.svc-chip .svc-n{font-size:.74rem;color:var(--gold);letter-spacing:.12em}.svc-more{margin-top:26px}</style>
 
 <!-- PULL QUOTE -->
 <section class="pq" aria-label="Our principle">
@@ -1340,7 +1311,7 @@ body.scrolled .burger{color:var(--ink)}
     <div class="foot-col">
       <h4>Firm</h4>
       <a href="#approach">Approach</a>
-      <a href="#services">Services</a>
+      <a href="/services/">Services</a>
       <a href="#reviews">Reviews</a>
       <a href="#book">Book a Call</a>
       <a href="/resources/">Resources &amp; Tools</a>
@@ -1352,12 +1323,12 @@ body.scrolled .burger{color:var(--ink)}
     </div>
     <div class="foot-col">
       <h4>Services</h4>
-      <a href="#services">Tax Preparation</a>
-      <a href="#services">Tax Planning</a>
-      <a href="#services">Bookkeeping</a>
-      <a href="#services">Financial Reporting</a>
-      <a href="#services">Fractional CFO</a>
-      <a href="#services">Audit Support</a>
+      <a href="/services/#tax-preparation">Tax Preparation</a>
+      <a href="/services/#tax-planning">Tax Planning</a>
+      <a href="/services/#bookkeeping">Bookkeeping</a>
+      <a href="/services/#financial-reporting">Financial Reporting</a>
+      <a href="/services/#fractional-cfo">Fractional CFO</a>
+      <a href="/services/#audit-support">Audit Support</a>
     </div>
     <div class="foot-col">
       <h4>Get in Touch</h4>

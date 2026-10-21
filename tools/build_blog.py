@@ -132,7 +132,7 @@ def nav(active):
         return f'<a href="{href}"{" class=on" if key == active else ""}>{label}</a>'
     return f'''<header class="bnav"><div class="wrap bnav-in">
   <a href="/" class="brand" aria-label="Merchant Financial Advisory — home"><img src="/apple-touch-icon.png" alt="" width="44" height="44"/><span class="brand-txt"><b>Merchant</b><i>Financial Advisory</i></span></a>
-  <nav class="bnav-links" aria-label="Main navigation">{a("/#services","Services","s")}{a("/resources/","Resources","res")}{a("/blog/","Insights","blog")}{a("/#book","Book","b")}<a href="/#contact" class="cta">{MAIL_ICON}Contact Us</a></nav>
+  <nav class="bnav-links" aria-label="Main navigation">{a("/services/","Services","s")}{a("/resources/","Resources","res")}{a("/blog/","Insights","blog")}{a("/#book","Book","b")}<a href="/#contact" class="cta">{MAIL_ICON}Contact Us</a></nav>
 </div></header>'''
 
 

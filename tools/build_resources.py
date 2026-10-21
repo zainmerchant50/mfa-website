@@ -402,6 +402,8 @@ if __name__ == "__main__":
     import build_llc  # noqa: E402  (LLC formation pages share this file's helpers)
     urls += build_llc.build_all()
     urls += build_calculators.build_all()
+    import build_services  # noqa: E402  (/services/, moved off the home page 2026-10-20)
+    urls.append(build_services.build())
     urls.append(BASE + "/new-york-ny/")  # Site-owned landing page (build_landing.py); NJ pages are listed by build_blog.py
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))
