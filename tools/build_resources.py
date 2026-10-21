@@ -343,7 +343,7 @@ document.addEventListener('input',run);run();})();
     info = f"""<div class="tinfo"><article class="article"><h2>How to read your break-even point</h2>
 <p>Your <strong>contribution margin</strong> is what each sale leaves over after its own costs. Divide your fixed costs by it and you get the number of sales that covers the month. Every sale after that is profit.</p>
 <ul><li><strong>Below break-even?</strong> The levers are price, variable cost per sale, and fixed costs, in that order of speed.</li>
-<li><strong>Include your own pay</strong> in fixed costs if you're a sole owner; otherwise "break-even" means working for free.</li>
+<li><strong>Include your own pay</strong> in fixed costs if you're a sole owner; otherwise "break-even" means working without pay.</li>
 <li><strong>Use real numbers from your books.</strong> A month-end profit and loss statement shows your actual fixed and variable costs.</li></ul>
 <p>Next: check your pricing with the <a href="/tools/profit-margin-calculator/">profit margin &amp; markup calculator</a>.</p>
 {sources_block("breakeven")}</article></div>"""
@@ -396,9 +396,12 @@ document.addEventListener('input',run);run();})();
 
 if __name__ == "__main__":
     posts = B.load_posts()
+    import build_calculators  # noqa: E402  (tax calculators + trackers; adds the "Tax calculators" hub group)
+    build_calculators.register(GROUPS, TOOLS)
     urls = [build_hub(posts), build_1099(), build_w9(), build_breakeven(), build_margin()]
     import build_llc  # noqa: E402  (LLC formation pages share this file's helpers)
     urls += build_llc.build_all()
+    urls += build_calculators.build_all()
     urls.append(BASE + "/new-york-ny/")  # Site-owned landing page (build_landing.py); NJ pages are listed by build_blog.py
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))
