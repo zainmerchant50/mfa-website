@@ -93,7 +93,7 @@ ADDONS = {
     "f1099": {"name": "1099 preparation and e-filing", "per": 25, "min": 75},
     "salestax": {"name": "Sales tax registration", "price": 99, "included_in": ["launch"]},
     "scorp": {"name": "S corp election (Form 2553)", "price": 149, "included_in": ["launch"]},
-    "quarterly": {"name": "Quarterly estimated tax service", "per_quarter": 49, "quarters": 4},
+    "quarterly": {"name": "Quarterly estimated tax service", "price": 250},  # Zain 2026-10-21 01:57: $250 for the year (was $49/quarter)
 }
 
 
@@ -269,7 +269,7 @@ def addons_html():
 <div class="addon-sub" id="f1099-sub" hidden><div class="fld fld-n"><label for="f1099-n">How many 1099s?</label><input type="number" id="f1099-n" name="f1099_forms" min="1" max="250" value="3" inputmode="numeric"/></div></div></div>
 <label class="opt opt-wide" id="ad-st"><input type="checkbox" id="f-st" name="addon_salestax" value="yes"/><span><b>{A["salestax"]["name"]}</b> <small class="ad-pr" data-price="${A["salestax"]["price"]}">${A["salestax"]["price"]}</small></span></label>
 <label class="opt opt-wide" id="ad-sc"><input type="checkbox" id="f-sc" name="addon_scorp" value="yes"/><span><b>{A["scorp"]["name"]}</b> <small class="ad-pr" data-price="${A["scorp"]["price"]}">${A["scorp"]["price"]}</small></span></label>
-<label class="opt opt-wide"><input type="checkbox" id="f-q" name="addon_quarterly" value="yes"/><span><b>{A["quarterly"]["name"]}</b> <small>${A["quarterly"]["per_quarter"]} a quarter; the next {A["quarterly"]["quarters"]} quarters are paid today (${A["quarterly"]["per_quarter"] * A["quarterly"]["quarters"]})</small></span></label>
+<label class="opt opt-wide"><input type="checkbox" id="f-q" name="addon_quarterly" value="yes"/><span><b>{A["quarterly"]["name"]}</b> <small>${A["quarterly"]["price"]} for the year: four federal and state estimate calculations with due dates. Based on books reconciled through each quarter-end (automatic if we keep your books); if they aren't current, we use the prior-year safe harbor.</small></span></label>
 </div></div>'''
 
 

@@ -39,7 +39,7 @@ export function computeOrder(P, sel) {
     today.push({ key: "f1099", name: `${A.f1099.name} (${n} form${n > 1 ? "s" : ""}, $${A.f1099.per} each, $${A.f1099.min} minimum)`, amount: money(Math.max(A.f1099.min, A.f1099.per * n)) });
   }
   if (sel.quarterly) {
-    today.push({ key: "quarterly", name: `${A.quarterly.name} (next ${A.quarterly.quarters} quarters at $${A.quarterly.per_quarter} each)`, amount: money(A.quarterly.per_quarter * A.quarterly.quarters) });
+    today.push({ key: "quarterly", name: `${A.quarterly.name} (4 quarters, one year)`, amount: money(A.quarterly.price) });
   }
   let bk = null;
   if (sel.bk && sel.bk.on) {

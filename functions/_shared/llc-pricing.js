@@ -468,8 +468,7 @@ export default {
   },
   "quarterly": {
    "name": "Quarterly estimated tax service",
-   "per_quarter": 49,
-   "quarters": 4
+   "price": 250
   }
  }
 };
