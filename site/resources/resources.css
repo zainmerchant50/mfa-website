@@ -167,3 +167,9 @@ a.rcard:hover .go i{transform:translateX(4px)}
 .opt input[type=checkbox]{width:18px;height:18px;flex-shrink:0;accent-color:var(--navy);margin:0}
 .lsubmit{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:6px}.lsubmit .ask-st{margin:0}
 .form-err,.lform .fld,.lform input,.lform select{scroll-margin-top:110px}
+.pay-note{font-size:.82rem;color:var(--muted);margin:10px 0 0}
+.paymodal{position:fixed;inset:0;z-index:1000;background:rgba(12,12,12,.55);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px 12px}
+.paymodal[hidden]{display:none}.paybox{background:#fff;border-radius:18px;width:100%;max-width:560px;padding:22px 20px 16px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.pay-hd{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}.pay-hd h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.6rem;color:var(--navy);margin:0}
+.pay-sum{margin:4px 0 0;font-size:.9rem;color:var(--muted)}.pay-x{border:0;background:var(--paper-2);width:36px;height:36px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;color:var(--ink)}
+.pay-foot{font-size:.78rem;color:var(--muted);margin:12px 0 0;text-align:center}

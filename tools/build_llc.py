@@ -92,7 +92,7 @@ def monthly_html():
 <div class="pkc card"><span class="pk-tag">How the switch works</span><h3>No gap between month one and month two</h3>
 <ol class="mo-steps"><li><b>Month one</b><span>Included in Complete Launch: we set up QuickBooks and close your first month.</span></li>
 <li><b>Day 30 check-in</b><span>We review the first P&amp;L together and confirm your monthly scope and price.</span></li>
-<li><b>Month two onward</b><span>We close your books each month and invoice monthly through QuickBooks. Stop whenever you want.</span></li></ol>
+<li><b>Month two onward</b><span>We close your books each month and bill you monthly. Stop whenever you want.</span></li></ol>
 <p class="muted">On Formation or Business Setup? You can add monthly bookkeeping too; tick the box in the form below. Bookkeeping doesn't include tax returns, payroll or sales tax filings; we quote those separately.</p></div></div></section>'''
 
 
@@ -235,7 +235,7 @@ def intake_form():
     req = ' required aria-required="true"'
     return f'''<section class="wrap llc-sec" id="start" aria-labelledby="start-h">
 <div class="sec-hd"><span class="eyebrow eb-dark">Start my LLC</span><h2 id="start-h">Tell us about your business.</h2>
-<p>No payment is taken on this page. We review your details, confirm the name is available, and email you an invoice for your package plus the state fee. We file once it's paid.</p></div>
+<p>Fill in your details, then pay securely by card or bank account at checkout, right on this page (powered by Stripe). One total: your package plus your state's fee at cost. If we can't file your LLC (for example, the name isn't available), we refund you in full; state fees can't be refunded once the state accepts the filing.</p></div>
 <form class="tcard lform" id="lform" novalidate>
 <p class="req-note"><span class="req">*</span> Required</p>
 <div class="form-err" id="form-err" role="alert" tabindex="-1" hidden></div>
@@ -260,9 +260,13 @@ def intake_form():
 <label class="opt opt-wide"><input type="checkbox" id="f-mo" name="monthly_bookkeeping" value="yes"/><span>Continue with monthly bookkeeping after setup <small>(from $199/month, month to month)</small></span></label></div></div>
 {fld("f-notes", "Anything else? (optional)", '<textarea id="f-notes" name="notes" rows="3" placeholder="Timing, partners, questions"></textarea>', False, "Please don't include Social Security or bank account numbers. We collect what the IRS needs securely after we've confirmed your order.")}
 <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
-<div class="lsubmit"><button class="btn btn-ink" type="submit">Send my details</button><p class="ask-st" role="status" aria-live="polite"></p></div>
+<div class="lsubmit"><button class="btn btn-ink" type="submit" id="lsubmit">Continue to secure checkout</button><p class="ask-st" role="status" aria-live="polite"></p></div>
+<p class="pay-note" id="paynote">Card or bank account via Stripe. You'll see the full total before you pay.</p>
 </form>
-<div class="tcard ldone" id="ldone" tabindex="-1" hidden><h2>Thanks, we have your details.</h2><p>We'll review them, check the name and email you an invoice for your package plus the state fee, usually within one business day. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
+<div class="paymodal" id="paymodal" role="dialog" aria-modal="true" aria-labelledby="pay-h" hidden><div class="paybox">
+<div class="pay-hd"><div><h2 id="pay-h">Secure checkout</h2><p id="pay-sum" class="pay-sum"></p></div><button type="button" class="pay-x" id="payclose" aria-label="Close checkout">×</button></div>
+<div id="paymount"></div><p class="pay-foot">Payments are processed by Stripe. MFA never sees or stores your card number.</p></div></div>
+<div class="tcard ldone" id="ldone" tabindex="-1" hidden><h2>Thanks, we have your details.</h2><p>We'll check the name and email you a secure checkout link for your package plus the state fee, usually within one business day. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
 </section>
 <script>
 (function(){{var f=document.getElementById('lform'),st=f.querySelector('.ask-st'),box=document.getElementById('form-err');
@@ -286,15 +290,31 @@ f.addEventListener('submit',function(e){{e.preventDefault();if(f._honey.value)re
 var bad=RULES.filter(function(r){{return !check(r[0]);}});
 if(bad.length){{showErr('<strong>Please fix '+(bad.length===1?'1 field':bad.length+' fields')+':</strong><ul>'+bad.map(function(r){{return '<li><a href="#'+r[0]+'">'+r[1]+'</a></li>';}}).join('')+'</ul>');
 [].slice.call(box.querySelectorAll('a')).forEach(function(a){{a.addEventListener('click',function(ev){{ev.preventDefault();var t=document.getElementById(a.getAttribute('href').slice(1));t.focus();t.scrollIntoView({{block:'center'}});}});}});return;}}
-box.hidden=true;var b=f.querySelector('button[type=submit]'),l=b.textContent;b.disabled=true;b.textContent='Sending…';
+box.hidden=true;var b=document.getElementById('lsubmit'),l=b.textContent;b.disabled=true;b.textContent=PAY.enabled?'Opening checkout…':'Sending…';
 f.email.value=f.email.value.trim();var d=new FormData(f);d.append('page',location.href);d.append('_replyto',f.email.value);
-d.append('_subject','LLC formation request: '+f.package.value+' / '+f.state.value+' / '+f.llc_name.value);d.append('_captcha','false');d.append('_template','table');
-fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).then(function(r){{return r.json().catch(function(){{return {{success:r.ok}};}});}})
-.then(function(j){{if(!j||j.success===false||j.success==='false')throw new Error((j&&j.message)||'Send failed');f.hidden=true;var dn=document.getElementById('ldone');dn.hidden=false;dn.focus();dn.scrollIntoView({{block:'center'}});
-if(window.gtag){{gtag('event','conversion',{{send_to:'{B.ADS['id']}/rNQJCK2_kJsdEK3zpPhE'}});gtag('event','generate_lead',{{form:'llc_formation',package:f.package.value,state:f.state.value}});}}}})
-.catch(function(err){{var body=encodeURIComponent('Name: '+f.name.value+'\\nEmail: '+f.email.value+'\\nPhone: '+f.phone.value+'\\nState: '+f.state.value+'\\nPackage: '+f.package.value+'\\nLLC name: '+f.llc_name.value+'\\nBusiness: '+f.activity.value+'\\nNotes: '+f.notes.value);
-showErr('<strong>We couldn’t send your details just now.</strong> Please <a href="mailto:{B.EMAIL}?subject='+encodeURIComponent('LLC formation request')+'&body='+body+'">email them to {B.EMAIL}</a> (we’ve filled in the email for you) or call (347) 205-4468.');
-b.disabled=false;b.textContent=l;if(window.console)console.warn('LLC form:',err&&err.message);}});}});}})();
+d.append('_subject',(PAY.enabled?'LLC order started (awaiting payment): ':'LLC formation request: ')+f.package.value+' / '+f.state.value+' / '+f.llc_name.value);d.append('_captcha','false');d.append('_template','table');
+var lead=fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).then(function(r){{return r.json().catch(function(){{return {{success:r.ok}};}});}})
+.then(function(j){{if(!j||j.success===false||j.success==='false')throw new Error((j&&j.message)||'Send failed');
+if(window.gtag){{gtag('event','conversion',{{send_to:'{B.ADS['id']}/rNQJCK2_kJsdEK3zpPhE'}});gtag('event','generate_lead',{{form:'llc_formation',package:f.package.value,state:f.state.value}});}}return true;}});
+function fallback(err){{var body=encodeURIComponent('Name: '+f.name.value+'\\nEmail: '+f.email.value+'\\nPhone: '+f.phone.value+'\\nState: '+f.state.value+'\\nPackage: '+f.package.value+'\\nLLC name: '+f.llc_name.value+'\\nBusiness: '+f.activity.value+'\\nNotes: '+f.notes.value);
+showErr('<strong>We couldn’t '+(PAY.enabled?'open checkout':'send your details')+' just now.</strong> Please <a href="mailto:{B.EMAIL}?subject='+encodeURIComponent('LLC formation request')+'&body='+body+'">email your details to {B.EMAIL}</a> (we’ve filled in the email for you) or call (347) 205-4468.');
+b.disabled=false;b.textContent=l;if(window.console)console.warn('LLC form:',err&&err.message);}}
+if(!PAY.enabled){{lead.then(function(){{f.hidden=true;var dn=document.getElementById('ldone');dn.hidden=false;dn.focus();dn.scrollIntoView({{block:'center'}});}}).catch(fallback);return;}}
+lead.catch(function(e){{if(window.console)console.warn('LLC lead email:',e&&e.message);}});
+var data={{}};new FormData(f).forEach(function(v,k){{if(k.charAt(0)!=='_')data[k]=v;}});
+fetch('/api/llc-checkout',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify(data)}}).then(function(r){{return r.json().then(function(j){{if(!r.ok||!j.clientSecret)throw new Error(j.message||j.error||('HTTP '+r.status));return j;}});}})
+.then(function(j){{return stripeReady().then(function(S){{return S.initEmbeddedCheckout({{fetchClientSecret:function(){{return Promise.resolve(j.clientSecret);}}}});}}).then(function(co){{
+openPay(co,j);if(window.gtag)gtag('event','begin_checkout',{{value:j.total,currency:'USD',items:[{{item_name:'LLC formation '+f.package.value}}]}});b.disabled=false;b.textContent=l;}});}}).catch(fallback);}});
+var CO=null,modal=document.getElementById('paymodal');
+function openPay(co,j){{CO=co;document.getElementById('pay-sum').textContent='Total today: $'+Number(j.total).toLocaleString('en-US',{{minimumFractionDigits:2}})+(j.feeKnown?'':' (state fee confirmed and charged separately)');
+modal.hidden=false;document.body.style.overflow='hidden';co.mount('#paymount');document.getElementById('payclose').focus();}}
+function closePay(){{if(CO){{try{{CO.destroy();}}catch(e){{}}CO=null;}}modal.hidden=true;document.body.style.overflow='';}}
+document.getElementById('payclose').addEventListener('click',closePay);document.addEventListener('keydown',function(e){{if(e.key==='Escape'&&!modal.hidden)closePay();}});
+var PAY={{enabled:false}},SP=null;function stripeReady(){{if(SP)return SP;SP=new Promise(function(res,rej){{var s=document.createElement('script');s.src='https://js.stripe.com/v3/';s.onload=function(){{res(window.Stripe(PAY.pk));}};s.onerror=function(){{SP=null;rej(new Error('Stripe.js failed to load'));}};document.head.appendChild(s);}});return SP;}}
+fetch('/api/llc-config').then(function(r){{return r.ok?r.json():{{enabled:false}};}}).then(function(c){{PAY=c||{{enabled:false}};if(!PAY.enabled){{document.getElementById('lsubmit').textContent='Send my details';var n=document.getElementById('paynote');if(n)n.textContent='Card checkout is being set up. Send your details and we’ll email you a secure checkout link.';}}
+else if(PAY.mode==='test'){{var n2=document.getElementById('paynote');if(n2)n2.textContent='Test mode: no real charges.';}}}}).catch(function(){{document.getElementById('lsubmit').textContent='Send my details';}});
+}})();
+</script>
 </script>'''
 
 FAQ = [
@@ -305,7 +325,7 @@ FAQ = [
     ("What happens after the first month of bookkeeping?",
      "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $199 a month for one bank account, one credit card and up to 100 transactions a month; larger books are quoted up front. If not, you keep your QuickBooks file and everything we set up."),
     ("How do I pay?",
-     "Send us your details with the form. We review them, confirm the name, and email you an invoice for your package plus the state fee as a separate line. We file once it's paid."),
+     "By card or bank account at checkout on this page, powered by Stripe. You pay one total: your package plus your state's filing fee at cost, shown as separate lines on your receipt. We check the name and file right after. If we can't file, we refund you in full; state fees can't be refunded once the state accepts the filing."),
     ("Which states do you form LLCs in?",
      "All 50 states and Washington, DC. Our package price is the same everywhere; only the state's own fee changes. Pick your state above to see the total, or open your state's page for its fees, annual report and tax registration rules."),
     ("Which state should I form in?",
@@ -328,8 +348,8 @@ def build_main():
     title = "LLC Formation in All 50 States by an Accountant: One Price, Paid Once | MFA"
     desc = ("Form your LLC in any state with an accountant: state filing, EIN and operating agreement from $99 "
             "plus the state fee, paid once. Tax and QuickBooks setup in Business Setup; monthly bookkeeping optional.")
-    steps = [("Tell us about your business", "A short form: the name you want, owners, what you'll do. No payment yet."),
-             ("We review, invoice and file", "We check the name, email your invoice (package + state fee), and file once it's paid."),
+    steps = [("Tell us about your business", "A short form: the name you want, owners, and what you'll do."),
+             ("Pay securely at checkout", "Card or bank account through Stripe, right on this page: package + state fee, one total. We check the name and file."),
              ("You're ready to operate", "Your documents, EIN and calendar, plus tax registration and QuickBooks if your package includes them.")]
     steps_html = "".join(f'<div class="st3 card"><span class="st3-n">{i}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></div>' for i, (a, b) in enumerate(steps, 1))
     first_year = [
@@ -341,7 +361,7 @@ def build_main():
         ("Every year (or two)", "Your state's annual or biennial report and any franchise tax. Your state's page shows the fee and due date."),
     ]
     fy = "".join(f'<li><span class="ft-k">{esc(k)}</span><p>{t}</p></li>' for k, t in first_year)
-    why = [("Tax setup from day one", "Your classification, state registration and S corp question answered before the first invoice goes out."),
+    why = [("Tax setup from day one", "Your classification, state registration and S corp question answered before your first sale."),
            ("Books ready for tax time", "QuickBooks set up with a chart of accounts that fits your business, not a blank file."),
            ("A real reviewer, not a script", "A Big Four trained accountant checks every filing before it goes to the state."),
            ("No surprise renewals", "One fee, paid once. If you want ongoing help, we'll quote it, and you decide.")]
@@ -451,7 +471,50 @@ def build_state(code):
     return write(f"llc-formation/{code.lower()}", page(title, desc, url, body, ld, active="llc"))
 
 
+def write_pricing():
+    """Server-side price list for functions/api/llc-checkout.js (the browser's numbers are never trusted)."""
+    data = {"packages": {p["id"]: {"name": p["name"], "price": p["price"]} for p in PACKAGES}, "states": {}}
+    for c in ORDER:
+        s = STATES[c]
+        pub = v(s, "publication")
+        data["states"][c] = {"code": c, "name": s["name"], "fee": v(s, "filing_fee"), "extra": v(s, "formation_extra") or 0,
+                             "pub_fee": pub.get("certificate_of_publication_fee") if isinstance(pub, dict) else None}
+    out = ROOT / "functions" / "_shared" / "llc-pricing.js"
+    out.write_text("// Generated by tools/build_llc.py from data/llc-states.json and PACKAGES. Do not edit by hand.\nexport default "
+                   + json.dumps(data, indent=1) + ";\n", encoding="utf-8")
+
+
+def build_thanks():
+    url = BASE + "/llc-formation/thanks/"
+    body = f'''<header class="ahead"><div class="wrap"><div class="crumbs"><a href="/">Home</a> / <a href="/llc-formation/">LLC formation</a> / Order</div>
+<span class="eyebrow">LLC formation</span><h1 id="t-h">Checking your payment…</h1><p class="dek" id="t-dek">One moment.</p></div></header>
+<main><div class="tinfo"><article class="article" id="t-body" aria-live="polite"></article></div></main>
+<script>
+(function(){{var id=new URLSearchParams(location.search).get('session_id'),b=document.getElementById('t-body'),h=document.getElementById('t-h'),dk=document.getElementById('t-dek');
+var esc=function(t){{return String(t==null?'':t).replace(/[&<>"]/g,function(c){{return {{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}}[c];}});}};
+function fail(msg){{h.textContent='We couldn\u2019t confirm your payment';dk.textContent=msg;b.innerHTML='<p>If you completed checkout, you\u2019ll get a Stripe receipt by email and we\u2019ll be in touch. Otherwise, <a href="/llc-formation/#start">return to the form</a> or contact <a href="mailto:{B.EMAIL}">{B.EMAIL}</a>, (347) 205-4468.</p>';}}
+if(!id)return fail('No order reference was found.');
+fetch('/api/llc-session?session_id='+encodeURIComponent(id)).then(function(r){{return r.json();}}).then(function(s){{
+if(!s||!s.paid)return fail(s&&s.status==='open'?'Checkout wasn\u2019t finished.':'Payment is not complete.');
+h.textContent='Thank you. Your LLC order is in.';dk.textContent='Paid $'+Number(s.amount).toLocaleString('en-US',{{minimumFractionDigits:2}})+'. A receipt is on its way to '+(s.email||'your email')+'.';
+b.innerHTML='<h2>What happens next</h2><ol><li>We check that <strong>'+esc(s.llc_name)+'</strong> is available in '+esc(s.state)+' (usually within one business day). If it isn\u2019t, we\u2019ll contact you about your backup name.</li><li>We file with the state and apply for your EIN.</li><li>You get your document pack by email: filed certificate, EIN letter, operating agreement and first-year calendar.</li></ol>'
++(s.state_fee_confirmed&&s.state_fee_confirmed.indexOf('no')===0?'<p>Your state\u2019s filing fee wasn\u2019t included at checkout. We\u2019ll confirm it and collect it at cost before filing.</p>':'')
++'<p>Questions: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p>';
+try{{if(!sessionStorage.getItem('llc-paid-'+id)){{sessionStorage.setItem('llc-paid-'+id,'1');var d=new FormData();d.append('_subject','PAID LLC order: '+s.package+' / '+s.state+' / '+s.llc_name+' ($'+s.amount+')');
+d.append('name',s.name||'');d.append('email',s.email||'');d.append('amount_paid','$'+s.amount);d.append('package',s.package);d.append('state',s.state);d.append('llc_name',s.llc_name);d.append('activity',s.activity||'');
+d.append('monthly_bookkeeping',s.monthly_bookkeeping||'');d.append('state_fee_confirmed',s.state_fee_confirmed||'');d.append('stripe_session',id);d.append('_captcha','false');d.append('_template','table');
+fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).catch(function(){{}});}}}}catch(e){{}}
+if(window.gtag)gtag('event','purchase',{{transaction_id:id,value:s.amount,currency:'USD',items:[{{item_name:'LLC formation '+s.package}}]}});
+}}).catch(function(){{fail('We couldn\u2019t reach the payment service.');}});}})();
+</script>'''
+    html = page("LLC Order Confirmation | MFA", "Your LLC formation order with Merchant Financial Advisory.", url, body, None, active="llc")
+    html = html.replace("</head>", '<meta name="robots" content="noindex"/></head>', 1)
+    write("llc-formation/thanks", html)
+
+
 def build_all():
+    write_pricing()
+    build_thanks()
     return [build_main()] + [build_state(c) for c in ORDER]
 
 
