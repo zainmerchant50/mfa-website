@@ -10,5 +10,5 @@ export async function onRequestGet({ request, env }) {
       email: s.customer_details && s.customer_details.email, name: m.name, state: m.state, package: m.package,
       llc_name: m.llc_name, activity: m.activity, monthly_bookkeeping: m.monthly_bookkeeping, state_fee_confirmed: m.state_fee_confirmed },
       { headers: { "Cache-Control": "no-store" } });
-  } catch (e) { return Response.json({ error: "stripe" }, { status: 502 }); }
+  } catch (e) { return Response.json({ error: "stripe" }, { status: 424 }); }
 }

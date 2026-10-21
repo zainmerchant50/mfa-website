@@ -26,7 +26,7 @@ export function buildOrder(body) {
 }
 
 export async function onRequestPost({ request, env }) {
-  if (!env.STRIPE_SECRET_KEY) return Response.json({ error: "payments_off" }, { status: 503 });
+  if (!env.STRIPE_SECRET_KEY) return Response.json({ error: "payments_off" }, { status: 424 });
   let body;
   try { body = await request.json(); } catch { return Response.json({ error: "bad_json" }, { status: 400 }); }
   const o = buildOrder(body);
@@ -55,6 +55,6 @@ export async function onRequestPost({ request, env }) {
     const s = await stripe(env, "POST", "checkout/sessions", params);
     return Response.json({ clientSecret: s.client_secret, total: o.total / 100, lines: o.lines, feeKnown: o.feeKnown });
   } catch (e) {
-    return Response.json({ error: "stripe", message: String(e.message || e) }, { status: 502 });
+    return Response.json({ error: "stripe", message: String(e.message || e) }, { status: 424 });
   }
 }
