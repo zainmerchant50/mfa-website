@@ -22,7 +22,12 @@ LOCATIONS = {
                        area=["Union City", "West New York", "North Bergen", "Weehawken", "Hoboken", "Jersey City", "Guttenberg", "Secaucus"]),
     "princeton": dict(slug="princeton-nj", city="Princeton", region="Mercer County",
                       area=["Princeton", "West Windsor", "Plainsboro", "Lawrenceville", "Montgomery", "Hopewell", "Kingston"]),
+    # NYC (Zain, 2026-10-20: Google Ads now also targets New York City's five boroughs)
+    "new-york": dict(slug="new-york-ny", city="New York", region="the five boroughs", st="NY", state="New York",
+                     eyebrow="New York City · All five boroughs",
+                     area=["Manhattan", "Brooklyn", "Queens", "The Bronx", "Staten Island"]),
 }
+# NJ pages default to st="NJ", state="New Jersey", eyebrow="<city> · <region>, NJ".
 BOOK_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z1XCM1FcZDRE6VnHyWPfqXcgkL1-kxgrTJaKaM-0VCun9u0cVIziW87B0XAQGVXE51SZ0LOo9"
 # Form delivery (works on any host, incl. Cloudflare Pages). First submission sends a one-time
 # activation email to EMAIL from FormSubmit; click it and every later lead arrives in the inbox.
@@ -42,6 +47,9 @@ if len(sys.argv) < 2:   # build every location page
     sys.exit(0)
 L = LOCATIONS[sys.argv[1]]
 AREA = L["area"]
+ST = L.get("st", "NJ")
+STATE = L.get("state", "New Jersey")
+EYEBROW = L.get("eyebrow", L["city"] + " · " + L["region"] + ", " + ST)
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "site" / L["slug"] / "index.html"
 URL = f"https://mfa-advisory.com/{L['slug']}/"
@@ -50,18 +58,18 @@ tel = "+1" + "".join(c for c in PHONE if c.isdigit())[-10:] if PHONE else ""
 
 VARIANTS = {
     "default": {
-        "h1": "Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ",
+        "h1": "Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, §ST§",
         "lead": "One team for your books and your taxes. Small businesses, self-employed professionals and households in §REGION§ get clean monthly books, accurate returns and a clear quote before we start: a flat monthly fee or hourly, whichever suits you.",
         "svc": "",
     },
     "bookkeeping": {
-        "h1": "Bookkeeping Services in §CITY§, NJ",
+        "h1": "Bookkeeping Services in §CITY§, §ST§",
         "lead": "Monthly bookkeeping, catch-up work and QuickBooks cleanup for small businesses. Reconciled every month, ready for tax time and for your lender, at a flat monthly fee or hourly.",
         "svc": "Bookkeeping & Accounting",
     },
     "tax": {
-        "h1": "Tax Preparation in §CITY§, NJ",
-        "lead": "Individual, self-employed and small-business returns, federal and New Jersey, prepared accurately and filed on time. Behind on filings? We can help you catch up.",
+        "h1": "Tax Preparation in §CITY§, §ST§",
+        "lead": "Individual, self-employed and small-business returns, federal and §STATE§, prepared accurately and filed on time. Behind on filings? We can help you catch up.",
         "svc": "Tax Preparation & Filing",
     },
     "hindi-urdu": {
@@ -70,7 +78,7 @@ VARIANTS = {
         "svc": "",
     },
     "accounting": {
-        "h1": "Small Business Accounting in §CITY§, NJ",
+        "h1": "Small Business Accounting in §CITY§, §ST§",
         "lead": "Monthly close, financial statements and accrual-basis accounting that you, your bank and your tax return can rely on. Big Four training, small-firm attention.",
         "svc": "Bookkeeping & Accounting",
     },
@@ -92,7 +100,7 @@ SERVICES = [
     ("Tax preparation", "tax", [
         "Individual returns (1040), including self-employed and 1099 income",
         "Business returns for LLCs, S corps, partnerships and C corps",
-        "New Jersey and multi-state returns",
+        "§STATE§ and multi-state returns",
         "Extensions, prior-year and late filings, IRS notice help",
     ]),
 ]
@@ -138,7 +146,7 @@ ld = {
          "logo": "https://mfa-advisory.com/apple-touch-icon.png",
          "address": {"@type": "PostalAddress", "addressLocality": "Princeton", "addressRegion": "NJ", "addressCountry": "US"},
          "knowsLanguage": ["English", "Hindi", "Urdu"],
-         "areaServed": [{"@type": "City", "name": f"{c}, NJ"} for c in AREA],
+         "areaServed": [{"@type": "City", "name": f"{c}, {ST}"} for c in AREA],
          "serviceType": ["Bookkeeping", "Accounting", "Tax Preparation", "QuickBooks Setup and Cleanup"]},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
     ],
@@ -258,11 +266,11 @@ call_top = f'<a href="tel:{tel}" class="tel" data-conv="call">{phone_ico}<span>{
 
 page = f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ | MFA</title>
-<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in §CITY§, NJ. QuickBooks ProAdvisor, Big Four trained, flat-fee or hourly pricing quoted upfront. Book a 30-minute consultation."/>
+<title>Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, §ST§ | MFA</title>
+<meta name="description" content="Bookkeeping, small-business accounting and tax preparation in §CITY§, §ST§. QuickBooks ProAdvisor, Big Four trained, flat-fee or hourly pricing quoted upfront. Book a 30-minute consultation."/>
 <link rel="canonical" href="{URL}"/>
 <meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/>
-<meta property="og:title" content="Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, NJ"/>
+<meta property="og:title" content="Bookkeeping, Accounting &amp; Tax Preparation in §CITY§, §ST§"/>
 <meta property="og:description" content="Clean monthly books and accurate tax returns for §REGION§ small businesses and households. 30-minute consultation, clear quote upfront."/>
 <meta property="og:url" content="{URL}"/><meta property="og:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
@@ -280,7 +288,7 @@ page = f'''<!doctype html><html lang="en"><head>
 <main>
 <section class="hero"><div class="wrap hero-g">
   <div>
-    <span class="eyebrow">§CITY§ · §REGION§, NJ</span>
+    <span class="eyebrow">§EYEBROW§</span>
     <h1 id="h1">{d["h1"]}</h1>
     <p class="lead" id="lead">{d["lead"]}</p>
     <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
@@ -367,7 +375,7 @@ page = f'''<!doctype html><html lang="en"><head>
 </body></html>
 '''
 
-page = page.replace("§CITY§", L["city"]).replace("§REGION§", L["region"]).replace("§SLUG§", L["slug"])
+page = page.replace("§EYEBROW§", EYEBROW).replace("§ST§", ST).replace("§STATE§", STATE).replace("§CITY§", L["city"]).replace("§REGION§", L["region"]).replace("§SLUG§", L["slug"])
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(page, encoding="utf-8")
 print(f"Wrote {OUT.relative_to(ROOT)}  (phone {'ON' if tel else 'OFF'}, ads tag {'ON' if ADS['id'] else 'OFF'})")

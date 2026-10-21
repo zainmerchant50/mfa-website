@@ -399,5 +399,6 @@ if __name__ == "__main__":
     urls = [build_hub(posts), build_1099(), build_w9(), build_breakeven(), build_margin()]
     import build_llc  # noqa: E402  (LLC formation pages share this file's helpers)
     urls += build_llc.build_all()
+    urls.append(BASE + "/new-york-ny/")  # Site-owned landing page (build_landing.py); NJ pages are listed by build_blog.py
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))
