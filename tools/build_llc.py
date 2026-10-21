@@ -17,8 +17,8 @@ from build_resources import page, write, esc, BASE, svg
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / "data" / "llc-states.json").read_text(encoding="utf-8"))
 STATES = DATA["states"]
-ORDER = [s for s in DATA["meta"]["order"] if s in STATES]
-COMING = DATA["meta"].get("coming_next", [])
+ORDER = sorted(STATES, key=lambda c: STATES[c]["name"])  # every state in the data file, A–Z by name
+COMING = [c for c in DATA["meta"].get("coming_next", []) if c not in STATES]
 FORM_ENDPOINT = "https://formsubmit.co/ajax/" + B.EMAIL
 LEGAL = ("MFA is not a law firm and does not provide legal advice. We prepare and file formation documents "
          "based on the information you provide.")
@@ -110,13 +110,17 @@ def picker_data():
     for code in ORDER:
         s = STATES[code]
         pub = v(s, "publication")
+        pubf = s.get("publication") if isinstance(s.get("publication"), dict) else {}
         out[code] = {
             "name": s["name"], "fee": v(s, "filing_fee"),
             "annual": v(s, "annual_report_fee"), "annual_due": v(s, "annual_report_due"),
             "annual_note": (s.get("annual_report_fee") or {}).get("note", ""),
             "biennial": v(s, "biennial_statement_fee"),
             "reg": v(s, "state_tax_registration"),
-            "pub_fee": pub.get("certificate_of_publication_fee") if pub else None,
+            "pub_fee": pub.get("certificate_of_publication_fee") if isinstance(pub, dict) else None,
+            "pub_note": (pubf.get("note") or (pub if isinstance(pub, str) else "")) if pub else "",
+            "freq": v(s, "annual_report_frequency"),
+            "special": [x if isinstance(x, str) else (x.get("value") or "") for x in (s.get("special_rules") or [])][:3],
             "url": f"/llc-formation/{code.lower()}/",
         }
     return out
@@ -170,9 +174,9 @@ def state_picker():
 <p>Our fee plus the state's fee, before you commit. State fees are passed through at cost.</p></div>
 <div class="tool tool-llc"><div class="tcard"><h2>Your LLC</h2><p class="sub">Choose a state and a package.</p>
 <div class="fld"><label for="st">State</label><select id="st">{opts}</select>
-<span class="hint">More states coming: {esc(soon)}. Forming somewhere else? <a href="#start">Ask us</a>.</span></div>
+<span class="hint">{("More states coming: " + esc(soon) + ". ") if soon else ""}All 50 states and Washington, DC. Already formed and need tax setup? <a href="#start">Ask us</a>.</span></div>
 <div class="fld"><span class="lbl">Package</span><div class="opts">{pk}</div></div></div>
-<div class="tcard tres" aria-live="polite"><h2 id="c-h">New Jersey LLC</h2><p class="sub" id="c-sub">First-year cost with MFA</p>
+<div class="tcard tres" aria-live="polite"><h2 id="c-h">Your LLC</h2><p class="sub" id="c-sub">First-year cost with MFA</p>
 <div class="kpis"><div class="kpi gold wide"><b id="c-tot">—</b><span>Due at formation</span></div>
 <div class="kpi"><b id="c-pk">—</b><span>MFA package</span></div><div class="kpi"><b id="c-fee">—</b><span>State filing fee</span></div></div>
 <ul class="steps-out" id="c-notes"></ul>
@@ -189,20 +193,24 @@ function run(){var s=S[st.value],r=document.querySelector('input[name=pk]:checke
 $('c-h').textContent=s.name+' LLC';$('c-pk').textContent=m(p);$('c-fee').textContent=s.fee!=null?m(s.fee):'Varies';
 var tot=p+(s.fee||0)+(s.pub_fee||0);$('c-tot').textContent=m(tot)+(s.pub_fee?' +':'');
 var n=[];if(s.pub_fee)n.push('Includes the '+m(s.pub_fee)+' Certificate of Publication fee. Newspaper publication costs vary by county and are quoted at cost.');
-if(s.annual)n.push('Then '+m(s.annual)+' a year for the annual report, due '+s.annual_due.charAt(0).toLowerCase()+s.annual_due.slice(1)+'.');
+else if(s.pub_note)n.push('Publication required: '+s.pub_note);
+if(s.annual){var fq=String(s.freq||'').toLowerCase();var per=/bienn|two|2/.test(fq)?' every two years':(fq&&!/annual|year/.test(fq)?' ('+s.freq+')':' a year');
+n.push('Then '+m(s.annual)+per+' for the state report'+(s.annual_due?', due '+s.annual_due.charAt(0).toLowerCase()+s.annual_due.slice(1):'')+'.');}
+else if(s.annual===0)n.push('No state annual report fee.');
+(s.special||[]).forEach(function(t){if(t)n.push(t);});
 if(s.biennial)n.push('Then '+m(s.biennial)+' every two years for the biennial statement.');
-if(s.reg)n.push('Tax registration: '+s.reg+'.');n.push('Nothing from MFA renews. Bookkeeping after month one is optional.');
+if(s.reg)n.push('Tax registration: '+String(s.reg).replace(/\\.$/,'')+'.');n.push('Nothing from MFA renews. Bookkeeping after month one is optional.');
 $('c-notes').innerHTML=n.map(function(t){return '<li>'+t.replace(/</g,'&lt;')+'</li>';}).join('');$('c-link').href=s.url;
 $('c-link').textContent=s.name+' details';var f=document.getElementById('f-state');if(f)f.value=st.value;}
 st.addEventListener('change',run);document.addEventListener('change',function(e){if(e.target.name==='pk'){var f=document.getElementById('f-pk');if(f)f.value=e.target.value;run();}});
 [].slice.call(document.querySelectorAll('[data-mo]')).forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('f-mo');if(c)c.checked=true;});});
 [].slice.call(document.querySelectorAll('[data-pk]')).forEach(function(a){a.addEventListener('click',function(){var f=document.getElementById('f-pk');if(f)f.value=a.getAttribute('data-pk');});});
-var q=new URLSearchParams(location.search).get('state');if(q&&S[q.toUpperCase()])st.value=q.toUpperCase();run();})();
+var q=new URLSearchParams(location.search).get('state');if(q&&S[q.toUpperCase()])st.value=q.toUpperCase();else if(S.NJ)st.value='NJ';run();})();
 </script>""" % data
 
 
 def intake_form():
-    st_opts = "".join(f'<option value="{c}">{esc(STATES[c]["name"])}</option>' for c in ORDER) + '<option value="Other">Another state</option>'
+    st_opts = "".join(f'<option value="{c}"{" selected" if c == "NJ" else ""}>{esc(STATES[c]["name"])}</option>' for c in ORDER) + '<option value="Unsure">Not sure yet</option>'
     pk_opts = "".join(f'<option value="{p["id"]}"{" selected" if p.get("feat") else ""}>{esc(p["name"])} (${p["price"]})</option>' for p in PACKAGES)
     return f'''<section class="wrap llc-sec" id="start" aria-labelledby="start-h">
 <div class="sec-hd"><span class="eyebrow eb-dark">Start my LLC</span><h2 id="start-h">Tell us about your business.</h2>
@@ -256,35 +264,39 @@ FAQ = [
      "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $199 a month for one bank account, one credit card and up to 100 transactions a month; larger books are quoted up front. If not, you keep your QuickBooks file and everything we set up."),
     ("How do I pay?",
      "Send us your details with the form. We review them, confirm the name, and email you an invoice for your package plus the state fee as a separate line. We file once it's paid."),
+    ("Which states do you form LLCs in?",
+     "All 50 states and Washington, DC. Our package price is the same everywhere; only the state's own fee changes. Pick your state above to see the total, or open your state's page for its fees, annual report and tax registration rules."),
+    ("Which state should I form in?",
+     "Usually the state where you live and do business. Forming in Delaware, Wyoming or Nevada and operating somewhere else normally means registering in your home state too, so you pay two sets of fees. We'll tell you if another state makes sense for you."),
     ("Do I need a registered agent?",
-     "New Jersey requires a registered agent with a New Jersey street address. That can be you, if you have one, or a commercial agent. New York names the Secretary of State as your agent for service of process. We don't sell registered agent service; we'll tell you what your state requires."),
-    ("What does New York's publication requirement involve?",
-     "Within 120 days of forming, a New York LLC must publish a notice once a week for six weeks in two newspapers chosen by the county clerk, then file a Certificate of Publication ($50). Newspaper costs vary by county, so we quote them at cost."),
+     "Almost every state requires a registered agent with a street address in the state where the LLC is formed. If you live there, that can be you. If you form somewhere you don't have an address, you'll need a commercial registered agent. We don't sell registered agent service; each state page lists what that state requires."),
+    ("Do any states require newspaper publication?",
+     "A few do. New York requires publication in two newspapers for six weeks, then a $50 Certificate of Publication. Some other states have their own publication rules; your state's page lists them. Newspaper costs vary by county, so we quote them at cost."),
     ("Is the operating agreement a legal document?",
      "Yes. We provide a template filled in with your owners, percentages and management, for you to review and sign. MFA is not a law firm and doesn't give legal advice; for complex ownership or investor terms, have an attorney review it."),
     ("What if the state rejects the filing?",
      "We correct the filing and resubmit it. State fees are non-refundable once a filing is submitted, so we confirm every detail with you before we file."),
-    ("Can you form my LLC in another state?",
-     "We're adding more states. Send us your details with the form and we'll confirm the state fee and timeline before you pay anything."),
+    ("What does the state charge after formation?",
+     "Most states charge an annual or biennial report fee, and a few charge an annual franchise or privilege tax (California, for example). We show each state's figure on its page and in the cost picker, and your first-year compliance calendar lists the due dates."),
 ]
 
 
 def build_main():
     url = BASE + "/llc-formation/"
-    title = "LLC Formation by an Accountant: NJ & NY, One Price, Paid Once | MFA"
-    desc = ("Form your New Jersey or New York LLC with an accountant: state filing, EIN and operating agreement from $99 "
-            "plus the state fee, paid once. Tax and QuickBooks setup included in our Business Setup package.")
+    title = "LLC Formation in All 50 States by an Accountant: One Price, Paid Once | MFA"
+    desc = ("Form your LLC in any state with an accountant: state filing, EIN and operating agreement from $99 "
+            "plus the state fee, paid once. Tax and QuickBooks setup in Business Setup; monthly bookkeeping optional.")
     steps = [("Tell us about your business", "A short form: the name you want, owners, what you'll do. No payment yet."),
              ("We review, invoice and file", "We check the name, email your invoice (package + state fee), and file once it's paid."),
              ("You're ready to operate", "Your documents, EIN and calendar, plus tax registration and QuickBooks if your package includes them.")]
     steps_html = "".join(f'<div class="st3 card"><span class="st3-n">{i}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></div>' for i, (a, b) in enumerate(steps, 1))
     first_year = [
         ("Right after filing", "LLC filed, EIN issued, operating agreement signed. Open your business bank account."),
-        ("Within 60 days (NJ)", "File NJ-REG for state tax registration, sooner if you'll collect sales tax. New York has no general registration, but sales tax sellers register at least 20 days before starting."),
-        ("Within 120 days (NY)", "Finish the publication requirement and file the Certificate of Publication."),
+        ("In the first weeks", "Register with your state's tax agency if your state or business needs it, for example NJ-REG in New Jersey within 60 days, and a sales tax permit before your first taxable sale."),
+        ("If your state requires it", "Finish any publication requirement (New York: within 120 days) and file the proof with the state."),
         ("If an S corp fits", "File Form 2553 on time and set up payroll for a reasonable salary."),
         ("Each January", "Send 1099s to contractors you paid last year. Our <a href=\"/tools/do-i-need-to-send-a-1099/\">1099 checker</a> tells you who needs one."),
-        ("Each anniversary month", "New Jersey annual report ($75). New York biennial statement every two years ($9)."),
+        ("Every year (or two)", "Your state's annual or biennial report and any franchise tax. Your state's page shows the fee and due date."),
     ]
     fy = "".join(f'<li><span class="ft-k">{esc(k)}</span><p>{t}</p></li>' for k, t in first_year)
     why = [("Tax setup from day one", "Your classification, state registration and S corp question answered before the first invoice goes out."),
@@ -292,12 +304,13 @@ def build_main():
            ("A real reviewer, not a script", "A Big Four trained accountant checks every filing before it goes to the state."),
            ("No surprise renewals", "One fee, paid once. If you want ongoing help, we'll quote it, and you decide.")]
     why_html = "".join(f'<div class="wy card"><h3>{esc(a)}</h3><p>{esc(b)}</p></div>' for a, b in why)
-    srcs = sorted({(STATES[c]["name"] + ": " + k.replace("_", " "), STATES[c][k]["source_url"]) for c in ORDER for k in ("filing_fee", "annual_report_due", "state_tax_registration") if isinstance(STATES[c].get(k), dict)})
-    src_html = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(t)}</a></li>' for t, u in srcs)
-    state_links = " · ".join(f'<a href="/llc-formation/{c.lower()}/">{esc(STATES[c]["name"])} LLC fees and rules</a>' for c in ORDER)
+    def _fee(c):
+        f = v(STATES[c], "filing_fee")
+        return f"${f:,}" if isinstance(f, (int, float)) else "See page"
+    directory = "".join(f'<li><a href="/llc-formation/{c.lower()}/"><span>{esc(STATES[c]["name"])}</span><b>{_fee(c)}</b></a></li>' for c in ORDER)
     body = f'''<header class="bhero rhero llc-hero"><div class="wrap"><span class="eyebrow">LLC formation</span>
 <h1>Form your LLC with an accountant, <em>not a call center.</em></h1>
-<p>Your state filing, EIN, operating agreement and first-year calendar from <strong>$99 plus your state's fee, paid once.</strong> No renewals, and no add-on charges for the basics.</p>
+<p>Any state, one price. Your state filing, EIN, operating agreement and first-year calendar from <strong>$99 plus your state's fee, paid once.</strong> No renewals, and no add-on charges for the basics.</p>
 <div class="hero-btns"><a class="btn btn-gold" href="#start">Start my LLC</a><a class="btn btn-line" href="#cost">See my state's total</a></div>
 <p class="llc-trust">Big Four trained · Accounting, tax and business solutions · Princeton, NJ, serving clients nationwide</p></div></header>
 <main>
@@ -317,9 +330,10 @@ def build_main():
 <a class="btn btn-ink" href="/resources/">Browse resources</a></div></section>
 {intake_form()}
 <section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><h2 id="faq-h">FAQs</h2>{ui_kit.faq_accordion(FAQ, prefix="llc")}</section>
-<section class="wrap llc-sec"><section class="sources"><h2>Sources</h2><ul>{src_html}</ul>
-<p class="disclaimer">State facts checked against the official sources above as of {CHECKED}. State fees change; we confirm the current fee before invoicing. {esc(LEGAL)} Educational information, not tax or legal advice.</p>
-<p class="disclaimer">{state_links}</p></section></section>
+<section class="wrap llc-sec" id="states" aria-labelledby="dir-h"><div class="sec-hd"><span class="eyebrow eb-dark">LLC fees by state</span><h2 id="dir-h">State filing fees, all 50 states and DC.</h2>
+<p>The state's own formation fee for a domestic LLC filed online. Open a state for its annual report, tax registration, registered agent rules and official sources.</p></div>
+<ul class="st-dir">{directory}</ul>
+<p class="disclaimer">State facts checked against each state's official sources as of {CHECKED}. State fees change; we confirm the current fee before invoicing. {esc(LEGAL)} Educational information, not tax or legal advice.</p></section>
 </main>{picker_js()}'''
     ld = ld_service(url)
     page_html = page(title, desc, url, body, ld, active="llc")
@@ -337,36 +351,49 @@ def build_state(code):
             ("Filing office", esc(v(s, "office") or "")),
             ("State filing fee", f"${fee}" if fee is not None else "Varies"),
             ("Name reservation (optional)", f"${v(s, 'name_reservation_fee')}" if v(s, "name_reservation_fee") is not None else "—")]
-    if v(s, "annual_report_fee") is not None:
-        rows.append(("Annual report", f"${v(s, 'annual_report_fee')}; due {esc(lc1(v(s, 'annual_report_due') or ''))}"))
+    arf = v(s, "annual_report_fee")
+    arnote = (s.get("annual_report_fee") or {}).get("note", "") if isinstance(s.get("annual_report_fee"), dict) else ""
+    freq = v(s, "annual_report_frequency")
+    due = v(s, "annual_report_due")
+    if isinstance(arf, (int, float)):
+        txt = f"${arf:,}" + (f" ({esc(str(freq))})" if freq else "") + (f"; due {esc(lc1(str(due)))}" if due else "")
+        rows.append(("Annual report", txt + (f". {esc(arnote)}" if arnote else "")))
     else:
-        note = (s.get("annual_report_fee") or {}).get("note", "")
         bi = v(s, "biennial_statement_fee")
-        rows.append(("Annual report", esc(note) + (f" Biennial statement: ${bi}; {esc(lc1(v(s, 'annual_report_due') or ''))}." if bi else "")))
-    if pub:
+        rows.append(("Annual report", esc(arnote or "See the state's official page.") + (f" Biennial statement: ${bi}; {esc(lc1(str(due or '')))}." if bi else "")))
+    if isinstance(pub, dict) and pub.get("weeks"):
         rows.append(("Publication", f"Publish once a week for {pub['weeks']} weeks in {pub['newspapers']} newspapers designated by the county clerk, "
                                     f"then file the Certificate of Publication (${pub['certificate_of_publication_fee']}) within {pub['deadline_days']} days of forming."))
-    rows.append(("State tax registration", esc(v(s, "state_tax_registration") or "")))
+    elif pub:
+        pn = (s.get("publication") or {}).get("note", "") if isinstance(s.get("publication"), dict) else ""
+        rows.append(("Publication", esc(pub if isinstance(pub, str) else pn)))
+    sr = [x if isinstance(x, str) else (x.get("value") or "") for x in (s.get("special_rules") or [])]
+    if sr:
+        rows.append(("Also know", "<br>".join(esc(x) for x in sr if x)))
+    if v(s, "state_tax_registration"):
+        rows.append(("State tax registration", esc(v(s, "state_tax_registration"))))
     rows.append(("Registered agent", esc(v(s, "registered_agent") or "")))
     pnote = (s.get("processing_online") or {}).get("note", "")
     if pnote:
         rows.append(("Processing time", esc(pnote)))
     tbl = "".join(f"<tr><td>{a}</td><td>{b}</td></tr>" for a, b in rows)
-    extra = pub["certificate_of_publication_fee"] if pub else 0
-    tot = "".join(f'<tr><td>{esc(p["name"])}</td><td>${p["price"]}</td><td>${fee}</td><td><strong>${p["price"] + (fee or 0) + extra}{" + newspapers" if pub else ""}</strong></td></tr>' for p in PACKAGES)
+    extra = pub.get("certificate_of_publication_fee", 0) if isinstance(pub, dict) else 0
+    news = " + newspapers" if (isinstance(pub, dict) and pub.get("newspapers")) else (" + publication" if pub else "")
+    fee_s = f"${fee:,}" if isinstance(fee, (int, float)) else "Varies"
+    tot = "".join(f'<tr><td>{esc(p["name"])}</td><td>${p["price"]}</td><td>{fee_s}</td><td><strong>${p["price"] + (fee or 0) + (extra or 0):,}{news}</strong></td></tr>' for p in PACKAGES)
     srcs = sorted({u["source_url"] for u in s.values() if isinstance(u, dict) and u.get("source_url")})
     src_html = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(u.replace("https://", ""))}</a></li>' for u in srcs)
     title = f"How Much Does an LLC Cost in {name}? Fees, Rules & Formation Help | MFA"
-    desc = (f"{name} LLC filing fee ${fee}, annual requirements, tax registration and registered agent rules, checked {CHECKED}. "
+    desc = (f"{name} LLC filing fee {fee_s}, annual requirements, tax registration and registered agent rules, checked {CHECKED}. "
             f"Form your {name} LLC with an accountant from $99 plus the state fee, paid once.")
     body = f'''<header class="ahead"><div class="wrap">
 <div class="crumbs"><a href="/">Home</a> / <a href="/llc-formation/">LLC formation</a> / {esc(name)}</div>
 <span class="eyebrow">{esc(name)} LLC</span><h1>Forming an LLC in {esc(name)}: fees, rules and timing</h1>
-<p class="dek">The state's own numbers, checked {CHECKED}, and what your first-year total looks like with MFA.</p></div></header>
+<p class="dek">The state's own numbers, checked {d(s["filing_fee"]["checked"]) if isinstance(s.get("filing_fee"), dict) and s["filing_fee"].get("checked") else CHECKED}, and what your first-year total looks like with MFA.</p></div></header>
 <main><div class="tinfo"><article class="article">
 <h2>{esc(name)} LLC at a glance</h2><table class="tbl"><tbody>{tbl}</tbody></table>
 <h2>Your total with MFA</h2><div class="tbl-wrap tw-s"><table class="tbl"><thead><tr><th>Package</th><th>MFA fee</th><th>State fee</th><th>Due at formation</th></tr></thead><tbody>{tot}</tbody></table></div>
-<p>MFA fees are one-time and never renew. {"Newspaper publication costs vary by county and are quoted at cost. " if pub else ""}See <a href="/llc-formation/#packages">what each package includes</a>.</p>
+<p>MFA fees are one-time and never renew. {"Publication costs vary and are quoted at cost. " if pub else ""}See <a href="/llc-formation/#packages">what each package includes</a>, or add <a href="/llc-formation/#monthly">monthly bookkeeping from $199/month</a>.</p>
 <p><a class="btn btn-ink" href="/llc-formation/?state={code}#start">Start my {esc(name)} LLC</a></p>
 <section class="sources"><h2>Sources</h2><ul>{src_html}</ul>
 <p class="disclaimer">Facts checked against the official sources above as of {CHECKED}. State fees change; we confirm the current fee before invoicing. {esc(LEGAL)} Educational information, not tax or legal advice.</p></section>

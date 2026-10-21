@@ -115,6 +115,7 @@ a.rcard:hover .go i{transform:translateX(4px)}
 .pkc.feat .pk-list svg{color:var(--gold-b)}
 .pk-mo{grid-template-columns:repeat(2,minmax(0,1fr))}@media (max-width:960px){.pk-mo{grid-template-columns:1fr}}
 .mo-steps{list-style:none;padding:0;margin:8px 0 18px;display:grid;gap:14px}.mo-steps li{display:grid;gap:2px;padding-left:14px;border-left:2px solid rgba(176,141,63,.45)}.mo-steps b{font-size:.92rem}.mo-steps span{font-size:.9rem;line-height:1.5;color:var(--muted)}.pk-mo .muted{font-size:.86rem;line-height:1.55;color:var(--muted)}
+.st-dir{list-style:none;padding:0;margin:0 0 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}.st-dir a{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border:1px solid var(--hair);border-radius:10px;text-decoration:none;color:var(--ink);font-size:.9rem;background:#fff}.st-dir a:hover{border-color:var(--gold)}.st-dir b{font-weight:600;color:var(--navy)}
 .pkc .btn{margin-top:auto;justify-content:center;text-align:center}
 .pkc.feat .btn-gold{color:var(--navy)}
 .tbl-wrap{overflow-x:auto;margin-top:34px;-webkit-overflow-scrolling:touch}
