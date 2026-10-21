@@ -1,21 +1,66 @@
 {
  "meta": {
   "owner": "Blog session (verified data)",
-  "checked": "2026-10-20T18:46-04:00",
+  "checked": "2026-10-20T21:10-04:00",
   "format": "Every figure is {value, source_url, checked[, note]}. Fees in USD. null value = the state does not publish it; see note.",
   "order": [
-   "NJ",
-   "NY"
-  ],
-  "coming_next": [
-   "PA",
-   "DE",
-   "FL",
-   "TX",
+   "AL",
+   "AK",
+   "AZ",
+   "AR",
    "CA",
+   "CO",
+   "CT",
+   "DE",
+   "DC",
+   "FL",
+   "GA",
+   "HI",
+   "ID",
+   "IL",
+   "IN",
+   "IA",
+   "KS",
+   "KY",
+   "LA",
+   "ME",
+   "MD",
+   "MA",
+   "MI",
+   "MN",
+   "MS",
+   "MO",
+   "MT",
+   "NE",
+   "NV",
+   "NH",
+   "NJ",
+   "NM",
+   "NY",
+   "NC",
+   "ND",
+   "OH",
+   "OK",
+   "OR",
+   "PA",
+   "RI",
+   "SC",
+   "SD",
+   "TN",
+   "TX",
+   "UT",
+   "VT",
+   "VA",
+   "WA",
+   "WV",
+   "WI",
    "WY"
   ],
-  "disclaimer": "General information, not legal or tax advice. State fees change; recheck before quoting."
+  "coming_next": [],
+  "disclaimer": "General information, not legal or tax advice. State fees change; recheck before quoting.",
+  "history": [
+   "2026-10-20 21:10 ET | Hub (Blog sub-agents, official state sources only) | Added 48 states + DC; OK fees confirmed on sos.ok.gov fees page by the Hub; NV formation_extra added. Unconfirmed figures are null with notes."
+  ]
  },
  "states": {
   "NJ": {
@@ -155,6 +200,3106 @@
    },
    "special_rules": [
     "Publication requirement (see publication)."
+   ]
+  },
+  "AL": {
+   "name": "Alabama",
+   "formation_document": "Certificate of Formation",
+   "office": {
+    "value": "Alabama Secretary of State, Business Entities Division",
+    "source_url": "https://www.sos.alabama.gov/business-entities/llcs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 200,
+    "source_url": "https://www.sos.alabama.gov/sites/default/files/2026-03/DomesticLLCFormation.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "SOS form states a $200.00 processing fee and says the Secretary of State sends $100.00 of it to the county treasurer for the county of the registered agent's office. The form says it may be filed online; the SOS pages checked list one fee and do not state a different online amount."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://www.sos.alabama.gov/sites/default/files/2022-01/2021FeeSchedule.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "From the SOS fee schedule PDF dated 2021 (the schedule the SOS site still links). It also lists $28.00 for online reservation with immediate print. A Name Reservation Certificate must be attached to the Certificate of Formation. Recheck before quoting."
+   },
+   "annual_report_fee": {
+    "value": null,
+    "source_url": "https://www.revenue.alabama.gov/individual-corporate/alabama-business-privilege-tax-and-corporate-share-tax/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Not confirmed on an official page. No stand-alone Secretary of State annual report fee for LLCs was found. The recurring state filing is the Alabama Business Privilege Tax return (Form PPT) with the Department of Revenue; for tax years beginning after 12/31/2023 the page states a full exemption from the tax when tax due is $100 or less, with those entities not required to file. Tax rate is .00025 of Alabama net worth (BPT-IN instructions). Older Form PPT instructions also mention a $10 Secretary of State fee for some LLEs; not confirmed as current."
+   },
+   "annual_report_due": {
+    "value": "Business privilege tax return (Form PPT) for LLEs is due 2.5 months after the start of the taxable year (March 15 for a calendar-year LLE); initial return (Form BPT-IN) is due within 2.5 months after the LLC is organized, with no extension",
+    "source_url": "https://www.revenue.alabama.gov/faqs/when-is-the-alabama-business-privilege-tax-return-due/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Another ADOR page says Forms PPT and CPT are due on the same date as the corresponding federal return. Initial-return timing is from the ADOR business privilege tax page."
+   },
+   "registered_agent": {
+    "value": "Required: one registered agent, with a street address (no PO boxes) for the registered office located in Alabama",
+    "source_url": "https://www.sos.alabama.gov/sites/default/files/2026-03/DomesticLLCFormation.pdf",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sos.alabama.gov/business-entities",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The state does not publish a processing time on the pages checked, and does not say which LLC filings can be made online on the Business Entities page. The Certificate of Formation form says it may be filed online."
+   },
+   "state_tax_registration": {
+    "value": "All entities must register with the Alabama Department of Revenue through My Alabama Taxes; the initial business privilege tax return (BPT-IN) is due within 2.5 months of formation",
+    "source_url": "https://www.revenue.alabama.gov/division/entity-registration/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The page says all entities are required to register for My Alabama Taxes. Sales tax and local licensing are separate; the ADOR licensing page says state and county licenses are issued by the county Probate Judge or License Commissioner, and city licenses are handled by each city."
+   },
+   "special_rules": [
+    "Name Reservation Certificate must be attached to the Certificate of Formation.",
+    "$100 of the $200 filing fee goes to the county treasurer where the registered office is located.",
+    "No stand-alone SOS annual report found; recurring filing is the business privilege tax return with the Department of Revenue (tax due of $100 or less is exempt for tax years after 2023).",
+    "County and city business licenses are separate from state formation."
+   ]
+  },
+  "AK": {
+   "name": "Alaska",
+   "formation_document": "Articles of Organization (Form 08-0484)",
+   "office": {
+    "value": "Alaska Division of Corporations, Business, and Professional Licensing (DCCED)",
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/corporations/formingalimitedliabilitycompany.aspx",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 250,
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorporationFormsFees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Articles of Organization, filed online or by PDF. The fee page shows a single $250 fee; online gives immediate processing."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorporationFormsFees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Business name reservation, 120 days (Form 08-559), online or PDF."
+   },
+   "annual_report_fee": {
+    "value": 100,
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorporationFormsFees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Alaska calls this the Biennial Report; filed online. A report filed on or after February 2 costs $137.50 ($37.50 late fee), per the Biennial Report FAQs."
+   },
+   "annual_report_frequency": {
+    "value": "biennial",
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/Corporations/BiennialReportsFAQs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "annual_report_due": {
+    "value": "January 2 of each odd- or even-numbered year, depending on the year the LLC was created; filing opens October 2 of the prior year",
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/Corporations/BiennialReportsFAQs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "registered_agent": {
+    "value": "Required, maintained continuously: an Alaska resident individual or a corporation authorized in Alaska, with a physical Alaska address where the agent is present; virtual or mail-forwarding addresses do not qualify; the LLC cannot be its own agent",
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/Corporations/RegisteredAgentsFAQs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": "Immediate for online filings",
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorporationFormsFees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Per the fee page, online filing gives immediate processing; paper normally takes 10-15 business days."
+   },
+   "state_tax_registration": {
+    "value": "Alaska business license (Form 08-4181, online or PDF): fee listed as $50 per year for a new application and for renewal",
+    "source_url": "https://www.commerce.alaska.gov/web/cbpl/BusinessLicensing/BusinessLicensingFormsFees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The forms and fees page does not state the license term, who must hold one, or a deadline; confirm with DCCED."
+   },
+   "special_rules": [
+    "Biennial report, not annual: $100 due January 2 (late after February 1: $137.50).",
+    "Registered agent must have a physical Alaska address; virtual or mail-forwarding addresses do not qualify.",
+    "Separate Alaska business license application (listed at $50 per year)."
+   ]
+  },
+  "AZ": {
+   "name": "Arizona",
+   "formation_document": "Articles of Organization (Form L010)",
+   "office": {
+    "value": "Arizona Corporation Commission, Corporations Division",
+    "source_url": "https://azcc.gov/faqs/BusinessServicesFAQs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 85,
+    "source_url": "https://azcc.gov/faqs/BusinessServicesFAQs",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "ACC FAQ: Articles of Organization can be filed online for $85. The ACC LLC fee schedule lists $50.00 regular and $85.00 expedited processing (the filing instructions describe $50 plus a $35 expedite). Whether a $50 online filing with regular processing is offered was not confirmed."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://azcc.gov/docs/default-source/corps-files/fee-schedules/fee-schedule-llcs.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Regular processing; $45 expedited."
+   },
+   "annual_report_fee": {
+    "value": 0,
+    "source_url": "https://azcc.gov/faqs/BusinessServicesFAQs",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "ACC FAQ: LLCs are not required to file annual reports (only corporations must)."
+   },
+   "annual_report_due": {
+    "value": "None: LLCs are not required to file annual reports",
+    "source_url": "https://azcc.gov/faqs/BusinessServicesFAQs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "registered_agent": {
+    "value": "Required: a statutory agent, either a permanent full-time Arizona resident individual with an Arizona street address or an entity authorized in Arizona; the LLC cannot be its own statutory agent; the agent must accept in writing (Form M002)",
+    "source_url": "https://azcc.gov/docs/default-source/corps-files/instructions/l010i-instructions-articles-of-organization.pdf",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": "Regular review typically 14-16 days with no added fee; the $35 expedite typically 3-5 days",
+    "source_url": "https://azcc.gov/faqs/BusinessServicesFAQs",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The ACC posts updated processing times weekly at ecorp.azcc.gov."
+   },
+   "expedite": {
+    "value": {
+     "expedited": 35,
+     "next_day": 100,
+     "same_day": 200,
+     "two_hour": 400
+    },
+    "source_url": "https://azcc.gov/docs/default-source/corps-files/instructions/l010i-instructions-articles-of-organization.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Amounts are added to the $50 base fee per the filing instructions. Next day: received before 5pm, done by 5pm next business day. Same day: received before 10am, done by 5pm. Two-hour: 8am-3pm window."
+   },
+   "publication": {
+    "value": {
+     "required": true,
+     "maricopa_pima": "posted automatically on the Commission website",
+     "other_counties": "newspaper publication; the approval letter explains how"
+    },
+    "source_url": "https://azcc.gov/docs/default-source/corps-files/instructions/l010i-instructions-articles-of-organization.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Do not publish until the Commission approves the Articles. The instructions do not state a deadline. The ACC FAQ says filing the affidavit of publication is optional, but keep it with business records."
+   },
+   "state_tax_registration": {
+    "value": "Transaction Privilege Tax (TPT) license from the Arizona Department of Revenue if selling products or services subject to TPT: $12 per location, via AZTaxes.gov or Joint Tax Application JT-1; register as soon as operations begin in Arizona",
+    "source_url": "https://azdor.gov/business/transaction-privilege-tax/tpt-license",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "A city TPT or business license is typically required separately."
+   },
+   "special_rules": [
+    "Publication of the filing is required; Maricopa and Pima County filings are posted on the ACC website automatically, other counties require newspaper publication.",
+    "No annual report for LLCs.",
+    "Transaction Privilege Tax (a form of sales/gross receipts tax) license, $12 per location, plus separate city licenses."
+   ]
+  },
+  "AR": {
+   "name": "Arkansas",
+   "formation_document": "Certificate of Organization (Form LL-01)",
+   "office": {
+    "value": "Arkansas Secretary of State, Business & Commercial Services Division",
+    "source_url": "https://www.sos.arkansas.gov/business-commercial-services-bcs/forms-fees/llc/",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 45,
+    "source_url": "https://www.sos.arkansas.gov/business-commercial-services-bcs/forms-fees/llc/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Online fee $45.00; paper fee $50.00 (the paper Form LL-01 also states $50.00)."
+   },
+   "name_reservation_fee": {
+    "value": 22.5,
+    "source_url": "https://www.sos.arkansas.gov/business-commercial-services-bcs/forms-fees/llc/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Application for Reservation of LLC Name (RN-06): $22.50 online, $25.00 paper."
+   },
+   "annual_report_fee": {
+    "value": 150,
+    "source_url": "https://www.sos.arkansas.gov/uploads/bcs/LLC1_FT_2026.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Arkansas calls this the Annual LLC Franchise Tax Report; every LLC pays $150 and the report is completed online at sos.arkansas.gov."
+   },
+   "annual_report_due": {
+    "value": "May 1 each year; extensions are not available",
+    "source_url": "https://www.sos.arkansas.gov/uploads/bcs/LLC1_FT_2026.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Reports filed after May 1 add a $25.00 late penalty plus interest."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent with a physical street address in Arkansas; a post office box or mail drop may not be used",
+    "source_url": "https://www.sos.arkansas.gov/business-commercial-services-bcs/frequently-asked-questions-faqs/business-services-faq",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Quoted from the Secretary of State's corporations FAQ; the LL-01 form asks for the agent's name and a physical street address."
+   },
+   "processing_online": {
+    "value": "3-5 business days (due to heavy volume)",
+    "source_url": "https://www.sos.arkansas.gov/business-commercial-services-bcs/for-new-business",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "A Business Services FAQ page says most online filings are completed within two business days of receipt; the new-business page's longer estimate is shown here."
+   },
+   "special_rules": [
+    "Annual LLC franchise tax of $150 due May 1 with no extensions ($25 late penalty plus interest).",
+    "The Certificate of Organization must list at least one officer's name and title for franchise tax purposes."
+   ]
+  },
+  "CA": {
+   "name": "California",
+   "formation_document": "Articles of Organization (Form LLC-1)",
+   "office": {
+    "value": "California Secretary of State, Business Programs Division",
+    "source_url": "https://www.sos.ca.gov/business-programs/business-entities",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 70,
+    "source_url": "https://www.sos.ca.gov/business-programs/cannabizfile/cannabis-forms-and-fees/limited-liability-companies-llc-california",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Articles of Organization (LLC-1) $70.00. The SOS fee schedule (Rev. 06/2018) also lists $70.00. The SOS Business Entities pages checked did not repeat the amount; recheck before quoting."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://bpd.cdn.sos.ca.gov/corp/pdf/name-reservation-request-form.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Per reserved name, 60-day reservation; $10 special handling applies if submitted in person."
+   },
+   "annual_report_fee": {
+    "value": 20,
+    "source_url": "https://www.sos.ca.gov/business-programs/cannabizfile/cannabis-forms-and-fees/limited-liability-companies-llc-california",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "California calls this the Statement of Information (LLC-12), $20.00; the SOS FAQ says the fee is \"$20 or $25\". Separate from the $800 annual franchise tax paid to the Franchise Tax Board."
+   },
+   "annual_report_frequency": {
+    "value": "biennial",
+    "source_url": "https://www.sos.ca.gov/business-programs/business-entities/faqs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "annual_report_due": {
+    "value": "Every two years, in the month of registration (even or odd years depending on the registration year); SOS sends a reminder about three months before; missed filings get a delinquency notice and 60 more days",
+    "source_url": "https://www.sos.ca.gov/business-programs/business-entities/faqs",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "FTB page: SOS imposes a $250 penalty for not filing the Statement of Information."
+   },
+   "registered_agent": {
+    "value": "Required: an agent for service of process who is a California-resident individual or a registered corporate agent; the LLC cannot be its own agent",
+    "source_url": "https://www.sos.ca.gov/business-programs/business-entities/faqs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": "SOS was reviewing online LLC formation requests received 10/16/2026 as of 10/20/2026 (mail: 10/13/2026)",
+    "source_url": "https://www.sos.ca.gov/business-programs/business-entities/processing-dates",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The SOS updates its Current Processing Dates page; the figure shown is the published review date, not a guaranteed turnaround."
+   },
+   "expedite": {
+    "value": {
+     "24_hour": 350,
+     "same_day": 750,
+     "four_hour": 500
+    },
+    "source_url": "https://www.sos.ca.gov/business-programs/business-entities/service-options",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "24-hour and same-day (document by 9:30 a.m.) are available online; 4-hour service is Sacramento drop-off only and requires preclearance. Fees are in addition to the filing fee."
+   },
+   "special_rules": [
+    "$800 annual LLC franchise tax (Franchise Tax Board), due the 15th day of the 4th month after the SOS filing date, then annually (Form FTB 3522).",
+    "First-year $800 exemption applied only to tax years beginning 2021 through 2023 per the FTB page.",
+    "Additional LLC fee based on California income over $250,000: $900 ($250,000-$499,999), $2,500 ($500,000-$999,999), $6,000 ($1,000,000-$4,999,999), $11,790 ($5,000,000+); estimate due the 15th day of the 6th month (Form FTB 3536).",
+    "$250 penalty for not filing the Statement of Information."
+   ]
+  },
+  "CO": {
+   "name": "Colorado",
+   "formation_document": "Articles of Organization (filed online)",
+   "office": {
+    "value": "Colorado Secretary of State",
+    "source_url": "https://www.sos.state.co.us/pubs/info_center/fees/business.html",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 50,
+    "source_url": "https://www.sos.state.co.us/pubs/info_center/fees/business.html",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Articles of Organization filed online, per the Business Organizations Fee Schedule revised July 1, 2024; the schedule says fees are subject to change without notice."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://www.sos.state.co.us/pubs/info_center/fees/business.html",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Reservation of name, filed online."
+   },
+   "annual_report_fee": {
+    "value": 25,
+    "source_url": "https://www.sos.state.co.us/pubs/info_center/fees/business.html",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Colorado calls this the Periodic Report, filed online each year; late filing penalty is $50."
+   },
+   "annual_report_due": {
+    "value": "Annually, in the entity's periodic report month shown on its Summary page; it can be filed two months before or two months after that month without penalty",
+    "source_url": "https://www.sos.state.co.us/pubs/business/FAQs/reports.html",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "If not filed the entity's status becomes Delinquent."
+   },
+   "registered_agent": {
+    "value": "Required: an agent who resides in Colorado (individual 18 or older, or an entity), with a Colorado street address; the LLC can act as its own agent; a mailing address may be a Colorado PO box",
+    "source_url": "https://www.coloradosos.gov/pubs/business/helpFiles/LLCChecklist.pdf",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": "Effective immediately after payment when no delayed effective date is chosen",
+    "source_url": "https://www.coloradosos.gov/pubs/business/helpFiles/LLCChecklist.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The checklist says a delayed effective date can push the start back up to 90 days."
+   },
+   "expedite": {
+    "value": null,
+    "source_url": "https://www.sos.state.co.us/pubs/info_center/fees/business.html",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The fee schedule lists a $150 expedited service (3 business days) under paper filings; it is marked n/a for online filings."
+   },
+   "special_rules": []
+  },
+  "CT": {
+   "name": "Connecticut",
+   "formation_document": "Certificate of Organization",
+   "office": {
+    "value": "Connecticut Secretary of the State, Business Services Division",
+    "source_url": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 120,
+    "source_url": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The page lists no separate paper fee; the form is also $120 and can be filed online at business.ct.gov."
+   },
+   "name_reservation_fee": {
+    "value": 60,
+    "source_url": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Application for Reservation of Name, filed online."
+   },
+   "annual_report_fee": {
+    "value": 80,
+    "source_url": "https://business.ct.gov/knowledge-base/articles/domestic-annual-report-forms-and-fees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Annual Report, $80; all annual reports must be filed online."
+   },
+   "annual_report_due": {
+    "value": "Each year between January 1 and March 31; the first is due in the year after formation",
+    "source_url": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The Certificate of Organization instructions say the annual report is due yearly between January 1 and March 31 of the year after formation or registration."
+   },
+   "registered_agent": {
+    "value": "Required: a statutory agent who can accept legal process, either a Connecticut resident individual (a member or manager may serve) or a business on record with the Secretary of the State with a Connecticut address; the LLC may not be its own agent",
+    "source_url": "https://business.ct.gov/-/media/BusinessOneStop/BSD_Forms/LLC---20211221/CERTIFICATE_OF_ORGANIZATION-fillable.pdf",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The state does not publish an online processing time on the pages checked. Expedited service is available only for online filings."
+   },
+   "expedite": {
+    "value": {
+     "per_transaction": 50
+    },
+    "source_url": "https://business.ct.gov/knowledge-base/articles/expedited-services?language=en_US",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Expedited service is $50 per transaction, offered at the end of the online filing process; turnaround times are not stated and it is not available for mailed filings."
+   },
+   "special_rules": []
+  },
+  "DE": {
+   "name": "Delaware",
+   "formation_document": "Certificate of Formation",
+   "office": {
+    "value": "Delaware Department of State, Division of Corporations",
+    "source_url": "https://corp.delaware.gov/howtoform/",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 110,
+    "source_url": "https://corpfiles.delaware.gov/Fee_Schedule/AugustFee2026.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Fee schedule revised August 1, 2026: the domestic LLC formation fee includes the filing fee plus the municipality fee. Filed through the Division's Document Filing and Certificate Request Service or by mail with a cover sheet."
+   },
+   "name_reservation_fee": {
+    "value": 75,
+    "source_url": "https://corpfiles.delaware.gov/Fee_Schedule/AugustFee2026.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "120-day reservation (also stated on the Division's How to Form page)."
+   },
+   "annual_report_fee": {
+    "value": 400,
+    "source_url": "https://corp.delaware.gov/alt-entitytaxinstructions/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Delaware LLCs file no annual report; the recurring state charge is the annual LLC tax. This page says $400.00. Several other Division pages (the How to Form page, the FAQs, and the Division of Revenue franchise tax page) still show $300.00, and the FAQ itself notes it lists $400 elsewhere. Confirm the current amount before quoting."
+   },
+   "annual_report_due": {
+    "value": "June 1 each year (tax for the prior year); a late or unpaid tax carries a $200 penalty plus 1.5% interest per month on the tax and penalty",
+    "source_url": "https://corp.delaware.gov/alt-entitytaxinstructions/",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent with a physical street address in Delaware (an individual resident, or a domestic or foreign entity authorized in Delaware); a business located in Delaware may act as its own agent",
+    "source_url": "https://corp.delaware.gov/howtoform/",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://corp.delaware.gov/expserv/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The state does not publish a regular processing time; it says processing times vary with volume. Expedited options are listed under expedite."
+   },
+   "expedite": {
+    "value": {
+     "next_day_24_hour": 50,
+     "same_day": 100,
+     "two_hour": 500,
+     "one_hour": 1000
+    },
+    "source_url": "https://corpfiles.delaware.gov/Fee_Schedule/AugustFee2026.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Per-document fees for a domestic LLC formation, in addition to the filing fee (24-hour $50, same day $100 for formation; the Priority 2-hour service is $500 and 1-hour $1,000)."
+   },
+   "special_rules": [
+    "Annual LLC tax due June 1; $200 late penalty plus 1.5% monthly interest. No annual report.",
+    "Amount discrepancy: official pages show both $300 and $400 for the annual tax; the LLC/LP/GP tax instructions page and fee-related pages show $400."
+   ]
+  },
+  "DC": {
+   "name": "District of Columbia",
+   "formation_document": "Articles of Organization (Form DLC-1)",
+   "office": {
+    "value": "DC Department of Licensing and Consumer Protection (DLCP), Corporations Division",
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-business-registration-faqs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 99,
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-fees-limited-liability-company",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Listed as \"Certificate of organization\" on the DLCP LLC fee page; the DLCP filing fees page also shows $99 for initial registration of a domestic for-profit entity. Filed online through BOSS (boss.dc.gov); the pages checked do not list a separate online or paper fee."
+   },
+   "name_reservation_fee": {
+    "value": 50,
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-fees-limited-liability-company",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Listed as \"Reservation or transfer of name.\""
+   },
+   "annual_report_fee": {
+    "value": 300,
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-fees-limited-liability-company",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "DC calls this the Biennial Report (BRA-25); $300 plus a $100 late fee."
+   },
+   "annual_report_frequency": {
+    "value": "biennial",
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-business-registration-faqs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "annual_report_due": {
+    "value": "April 1 of the year after registration, then every two years on April 1",
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-business-registration-faqs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "annual_report_penalty": {
+    "value": "$100 late fee",
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-fees-limited-liability-company",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "registered_agent": {
+    "value": "Required: an appointed and maintained registered agent with a physical street address in D.C. (no PO box, third-party mailbox, or address outside D.C.); an individual within the organization may serve; revocation possible if no agent is maintained for more than 60 days",
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-business-registration-faqs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": "Within 5 business days of submission for non-expedited online filings",
+    "source_url": "https://dlcp.dc.gov/page/corporations-division-business-registration-faqs",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "expedite": {
+    "value": {
+     "three_day": 50,
+     "one_day_or_same_day": 100
+    },
+    "source_url": "https://dlcp.dc.gov/node/1621901",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Fees are in addition to the filing fee. The DLCP fees page calls the $100 option \"same-day\"; the registration FAQ describes it as 1-day service (by end of the next business day). Available for certain web filings."
+   },
+   "state_tax_registration": {
+    "value": "Register with the D.C. Office of Tax and Revenue on Form FR-500 (franchise tax, employer withholding, sales and use tax); no single deadline is stated on the form",
+    "source_url": "https://oag.dc.gov/sites/default/files/2018-02/Form-FR-500.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Unincorporated businesses file Form D-30 when gross income exceeds $12,000. The Corporations Division does not issue Certificates of Clean Hands; OTR administers that requirement."
+   },
+   "special_rules": [
+    "Biennial report $300 due April 1 every two years (late fee $100).",
+    "Unincorporated business franchise tax: 8.25% (tax years 2018-2025), applies once gross receipts exceed $12,000; minimum tax $250 (DC gross receipts $1 million or less) or $1,000 (over $1 million). Whether a given LLC is taxed this way depends on its tax classification; confirm with OTR."
+   ]
+  },
+  "FL": {
+   "name": "Florida",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Florida Department of State, Division of Corporations (Sunbiz)",
+    "source_url": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc/",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 125,
+    "source_url": "https://dos.fl.gov/sunbiz/forms/fees/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "$100.00 filing fee plus the required $25.00 registered agent designation fee. Optional extras: certified copy $30, certificate of status $5 (the page's $160 total includes them)."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://dos.fl.gov/sunbiz/forms/fees/",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "annual_report_fee": {
+    "value": 138.75,
+    "source_url": "https://dos.fl.gov/sunbiz/manage-business/efile/annual-report/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Annual Report for an LLC, $138.75 (includes the supplemental fee)."
+   },
+   "annual_report_due": {
+    "value": "By May 1 each year; $400 late fee after May 1 (total $538.75); reports must be filed by the third Friday in September to avoid administrative dissolution",
+    "source_url": "https://dos.fl.gov/sunbiz/manage-business/efile/annual-report/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The page does not state when a new entity's first annual report is due."
+   },
+   "registered_agent": {
+    "value": "Required: each LLC designates a registered agent when filing (a $25 Registered Agent Designation fee applies); an individual within the business can serve, but an entity cannot serve as its own registered agent",
+    "source_url": "https://dos.fl.gov/sunbiz/about-us/faqs/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The pages checked do not state a Florida street address requirement."
+   },
+   "processing_online": {
+    "value": "Online new-entity filings received 10/14/2026 were being processed as of 10/20/2026 (mail: received 10/13/2026); filings are processed in the order received",
+    "source_url": "https://dos.fl.gov/sunbiz/document-processing-dates/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Published processing date, not a guaranteed turnaround."
+   },
+   "expedite": {
+    "value": null,
+    "source_url": "https://dos.fl.gov/sunbiz/about-us/faqs/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The Division states it does not offer expedited services; walk-in requests at the Tallahassee office can usually be completed while you wait."
+   },
+   "state_tax_registration": {
+    "value": "Sales and use tax dealers must register with the Florida Department of Revenue before conducting business in Florida (online Florida Business Tax Application, or paper Form DR-1)",
+    "source_url": "https://floridarevenue.com/taxes/eservices/Pages/registration.aspx",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "No registration fee is listed on the page."
+   },
+   "special_rules": [
+    "Annual report due by May 1 every year, with a $400 late fee afterward and administrative dissolution if not filed by the third Friday in September."
+   ]
+  },
+  "GA": {
+   "name": "Georgia",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Georgia Secretary of State, Corporations Division",
+    "source_url": "https://sos.ga.gov/how-to-guide/how-guide-register-domestic-entity",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 110,
+    "source_url": "https://sos.ga.gov/sites/default/files/forms/Reference%20-%20Filing%20Fees_0.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "$100.00 fee plus a $10.00 service charge; online and paper amounts are the same on the fee schedule effective September 6, 2025. An older SOS LLC procedure document (July 2025) shows a $5 online service charge ($105); the newer schedule and the How-To Guide show $110."
+   },
+   "name_reservation_fee": {
+    "value": 35,
+    "source_url": "https://sos.ga.gov/sites/default/files/forms/Reference%20-%20Filing%20Fees_0.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "30-day reservation: $25.00 fee plus $10.00 service charge."
+   },
+   "annual_report_fee": {
+    "value": 60,
+    "source_url": "https://sos.ga.gov/sites/default/files/forms/Reference%20-%20Filing%20Fees_0.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Georgia calls this the Annual Registration: $50.00 plus a $10.00 service charge."
+   },
+   "annual_report_due": {
+    "value": "Between January 1 and April 1 each year; the first is due in the year after formation",
+    "source_url": "https://sos.ga.gov/how-to-guide/how-guide-register-domestic-entity",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Failure to file can lead to administrative dissolution; reinstatement within 5 years costs $260 ($250 plus service charge)."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent located in Georgia",
+    "source_url": "https://sos.ga.gov/how-to-guide/how-guide-register-domestic-entity",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "processing_online": {
+    "value": "About 7 business days online (varies with office workload); about 10-14 business days for uploaded paper articles; about 15 business days by mail",
+    "source_url": "https://sos.ga.gov/how-to-guide/how-guide-register-domestic-entity",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "expedite": {
+    "value": {
+     "two_business_days": 120,
+     "same_day": 275,
+     "one_hour": 1200
+    },
+    "source_url": "https://sos.ga.gov/sites/default/files/forms/Reference%20-%20Filing%20Fees_0.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "In addition to the filing fee. Same day: submitted before noon. The One Hour service is available for mail filings only per the How-To Guide."
+   },
+   "state_tax_registration": {
+    "value": "Register through the Georgia Tax Center (gtc.dor.ga.gov) and select the accounts you need, such as Sales & Use Tax; no registration deadline or fee is stated on the pages checked",
+    "source_url": "https://dor.georgia.gov/how-register-sales-and-use-tax-account",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "special_rules": []
+  },
+  "HI": {
+   "name": "Hawaii",
+   "formation_document": "Articles of Organization (Form LLC-1)",
+   "office": {
+    "value": "Hawaii Department of Commerce and Consumer Affairs (DCCA), Business Registration Division",
+    "source_url": "https://cca.hawaii.gov/breg/registration/dllc/",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "filing_fee": {
+    "value": 50,
+    "source_url": "https://cca.hawaii.gov/breg/registration/dllc/fees/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Articles of Organization $50.00; the DCCA LLC page also lists a $1.00 State Archives fee and does not say how it is applied. Filed online at Hawaii Business Express (hbe.ehawaii.gov) or by mail, fax, email or in person."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://cca.hawaii.gov/breg/registration/dllc/fees/",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "annual_report_fee": {
+    "value": 15,
+    "source_url": "https://cca.hawaii.gov/breg/registration/dllc/fees/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Annual Report $15.00 on the DCCA fee page. The Business Registration Division's LLC information sheet (3/2023) lists $12.50 for an online annual report and a $10 late fee per year delinquent; the current online amount was not confirmed."
+   },
+   "annual_report_due": {
+    "value": "By the end of the calendar quarter in which the LLC was organized or registered (March 31, June 30, September 30 or December 31); no report is due for the year of registration",
+    "source_url": "https://cca.hawaii.gov/breg/files/2023/03/LLC-INFO_3-2023.pdf",
+    "checked": "2026-10-20T20:49-04:00"
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent with a business address in Hawaii, either an individual residing in Hawaii or an entity authorized to do business in Hawaii, physically present in the State",
+    "source_url": "https://cca.hawaii.gov/breg/files/2023/03/LLC-INFO_3-2023.pdf",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "Hawaii Business Express FAQ also says the agent must be physically present in the State."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://cca.hawaii.gov/breg/registration/dllc/faqs/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "The state does not publish an online processing time; it says online filing can result in quicker review times."
+   },
+   "expedite": {
+    "value": {
+     "expedited_review": 25
+    },
+    "source_url": "https://cca.hawaii.gov/breg/registration/dllc/fees/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "$25 added to the filing fee. The BREG home page currently says expedited handling is not available during its transition to a new online portal (effective July 6, 2026)."
+   },
+   "state_tax_registration": {
+    "value": "General Excise Tax (GET) license from the Hawaii Department of Taxation for anyone receiving income from business activities in Hawaii: $20 one-time fee; register on Hawaii Tax Online or with Form BB-1",
+    "source_url": "https://tax.hawaii.gov/geninfo/licensing/",
+    "checked": "2026-10-20T20:49-04:00",
+    "note": "No specific deadline is stated on the page."
+   },
+   "special_rules": [
+    "General Excise Tax (GET) applies to business income in Hawaii; a GET license is required ($20 one-time).",
+    "Annual report is due by the end of the quarter in which the LLC was organized, not on a fixed calendar date."
+   ]
+  },
+  "ID": {
+   "name": "Idaho",
+   "formation_document": "Certificate of Organization",
+   "office": {
+    "value": "Idaho Secretary of State, Business Services (filed through SOSBiz)",
+    "source_url": "https://sos.idaho.gov/business-resources/",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://sos.idaho.gov/business-forms/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Online filing through SOSBiz is the $100 base fee. Paper filings add a $20 manual processing fee ($120 total); the state says online filing avoids it."
+   },
+   "name_reservation_fee": {
+    "value": 20,
+    "source_url": "https://sos.idaho.gov/business-forms/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Four-month reservation. $20 base fee online; paper adds the $20 manual processing fee ($40 total)."
+   },
+   "annual_report_fee": {
+    "value": null,
+    "source_url": "https://sos.idaho.gov/business-forms/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Not confirmed on an official page. Idaho's fee page lists no annual report fee line and says annual reports are filed online through SOSBiz."
+   },
+   "annual_report_due": {
+    "value": "Annual report due by the last day of the month in which the LLC was formed, starting one year after formation, then every year",
+    "source_url": "https://legislature.idaho.gov/statutesrules/idstat/title30/t30ch21/sect30-21-213/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Idaho Code 30-21-213. The section is written for 'domestic filing entities'."
+   },
+   "registered_agent": {
+    "value": "Required: an Idaho-resident individual or a business entity registered with the Secretary of State, with a physical Idaho street address (no PO boxes or private mailboxes)",
+    "source_url": "https://archive.sos.idaho.gov/CORP/forms/LLC/LLC%20Cert%20Org.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Form revised 04/2026."
+   },
+   "processing_online": {
+    "value": "Approximately 7-10 days",
+    "source_url": "https://sos.idaho.gov/business-resources/business-faq/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "A banner on the SOS FAQ page gives this as a recent estimate; the state says processing times vary with filing volume."
+   },
+   "expedite": {
+    "value": {
+     "expedited": 40,
+     "same_day": 100
+    },
+    "source_url": "https://archive.sos.idaho.gov/CORP/forms/LLC/LLC%20Cert%20Org.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Added to the filing fee. The FAQ says expedited service is typically processed within 8 business hours; same-day requests must arrive by 1 p.m. Mountain."
+   },
+   "state_tax_registration": {
+    "value": "Idaho business registration (IBR) through the State Tax Commission for a seller's permit (sales/use tax) and, if you have employees, a withholding account. Register the business with the State of Idaho first. No fixed deadline is published",
+    "source_url": "https://tax.idaho.gov/online-services/business-registration/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state says online applications take 10-15 business days; the page lists no fee."
+   },
+   "special_rules": [
+    "Paper filings carry a $20 manual processing fee; online filing avoids it.",
+    "Annual report is due by the last day of the LLC's anniversary month, every year.",
+    "The annual report fee could not be confirmed on an official page."
+   ],
+   "special_rules_sources": [
+    "https://sos.idaho.gov/business-forms/",
+    "https://legislature.idaho.gov/statutesrules/idstat/title30/t30ch21/sect30-21-213/"
+   ]
+  },
+  "IL": {
+   "name": "Illinois",
+   "formation_document": "Articles of Organization (Form LLC-5.5)",
+   "office": {
+    "value": "Illinois Secretary of State, Department of Business Services",
+    "source_url": "https://www.ilsos.gov/departments/business-services.html",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 150,
+    "source_url": "https://www.ilsos.gov/departments/business-services/organization/llc-instructions.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Online filing, 10 business days. A payment processor fee is added to card payments. An LLC able to establish a series is $400."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://www.ilsos.gov/publications/business-services/llc.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Application to Reserve a Name (Form LLC-1.15)."
+   },
+   "annual_report_fee": {
+    "value": 75,
+    "source_url": "https://www.ilsos.gov/publications/business-services/llc.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "LLC Annual Report (Form LLC-50.1). The statute adds $50 per series with a certificate of designation and a penalty if delinquent (805 ILCS 180/50-10)."
+   },
+   "annual_report_due": {
+    "value": "Filed within the 60 days immediately preceding the first day of the LLC's anniversary month, every year",
+    "source_url": "https://ilga.gov/Documents/legislation/ilcs/documents/080501800K50-1.htm",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "805 ILCS 180/50-1."
+   },
+   "registered_agent": {
+    "value": "Required: an individual who lives in Illinois or an entity authorized to transact business in Illinois; the registered office must be in Illinois with a street or rural route address (a PO box alone is not acceptable)",
+    "source_url": "https://www.ilsos.gov/departments/business-services/organization/llc-instructions.html",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": "10 business days (standard); 24-hour service available",
+    "source_url": "https://www.ilsos.gov/departments/business-services/organization/llc-instructions.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The 24-hour service total is $250."
+   },
+   "expedite": {
+    "value": {
+     "online_24_hour_total_fee": 250
+    },
+    "source_url": "https://www.ilsos.gov/departments/business-services/organization/llc-instructions.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Total online fee with 24-hour service ($150 standard). Expedited service at the counter is a separate $100 add-on per the SOS forms and fees table."
+   },
+   "state_tax_registration": {
+    "value": "Register with the Illinois Department of Revenue (Form REG-1 / MyTax Illinois) before making any purchases or sales or hiring an employee. No fixed day count is published",
+    "source_url": "https://tax.illinois.gov/businesses/registration.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no registration fee. Electronic registration processing is about one to two business days."
+   },
+   "special_rules": [
+    "Annual report is $75 and is due in the 60 days before the first day of the anniversary month.",
+    "A payment processor fee is added to online card payments.",
+    "An LLC that can establish series pays $400 to form and $50 per series on the annual report."
+   ],
+   "special_rules_sources": [
+    "https://ilga.gov/Documents/legislation/ilcs/documents/080501800K50-1.htm",
+    "https://ilga.gov/Documents/legislation/ilcs/documents/080501800K50-10.htm",
+    "https://www.ilsos.gov/departments/business-services/organization/llc-instructions.html"
+   ]
+  },
+  "IN": {
+   "name": "Indiana",
+   "formation_document": "Articles of Organization (State Form 49459)",
+   "office": {
+    "value": "Indiana Secretary of State, Business Services Division (INBiz)",
+    "source_url": "https://www.in.gov/sos/business/",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 95,
+    "source_url": "https://inbiz.in.gov/Inbiz/FeeCalculator/Index",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Total shown by the INBiz Fee Calculator for an online domestic LLC formation (the statute sets $75 for electronic filing, IC 23-0.5-9-19, plus a $20 enhanced access fee per the Secretary of State's rule analysis). A card or e-check processing fee (minimum $1, up to 2.15%) is added at checkout. Paper filing is $100 on State Form 49459."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://inbiz.in.gov/Inbiz/FeeCalculator/Index",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Name Reservation filing total per the INBiz Fee Calculator."
+   },
+   "annual_report_fee": {
+    "value": 32,
+    "source_url": "https://inbiz.in.gov/business-filings/business-entityreport",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Indiana calls it the Business Entity Report. $32 on INBiz, $50 by paper (for-profit entities). Processing fee added at checkout."
+   },
+   "annual_report_frequency": "biennial",
+   "annual_report_due": {
+    "value": "Every two years, in the month the LLC was formed (the first report is due two years after registering)",
+    "source_url": "https://inbiz.in.gov/business-filings/business-entityreport",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state's paper form says reports are due every other year in the month the business was formed."
+   },
+   "registered_agent": {
+    "value": "Required: a commercial or noncommercial registered agent who has consented to serve; a noncommercial agent needs an Indiana street address",
+    "source_url": "https://forms.in.gov/Download.aspx?id=16989",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "State Form 49459 (R12 / 01-26)."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://inbiz.in.gov/business-filings/business-entityreport",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state does not publish an online processing time. INBiz says it provides faster processing than paper."
+   },
+   "state_tax_registration": {
+    "value": "Register through INBiz with the Department of Revenue for a Registered Retail Merchant Certificate if you will sell taxable goods (7% sales tax). No deadline or fee is stated on the page",
+    "source_url": "https://www.in.gov/dor/i-am-a/business-corp/sales-tax/",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Indiana LLCs file a Business Entity Report every two years, not every year.",
+    "Online formation is $95 versus $100 on paper.",
+    "Online payments add a processing fee (minimum $1, up to 2.15%)."
+   ],
+   "special_rules_sources": [
+    "https://inbiz.in.gov/Inbiz/FeeCalculator/Index",
+    "https://inbiz.in.gov/business-filings/business-entityreport",
+    "https://forms.in.gov/Download.aspx?id=16989"
+   ]
+  },
+  "IA": {
+   "name": "Iowa",
+   "formation_document": "Certificate of Organization",
+   "office": {
+    "value": "Iowa Secretary of State, Business Services Division",
+    "source_url": "https://sos.iowa.gov/businesses/business-entity-forms-and-fees",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 50,
+    "source_url": "https://sos.iowa.gov/businesses/business-entity-forms-and-fees",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Marked as available online; the page lists one fee and no separate paper rate."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://sos.iowa.gov/businesses/business-entity-forms-and-fees",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_fee": {
+    "value": 30,
+    "source_url": "https://sos.iowa.gov/businesses/business-entity-forms-and-fees",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Iowa calls it the Biennial Report. $30 online (Fast Track Filing), $45 by paper."
+   },
+   "annual_report_frequency": "biennial",
+   "annual_report_due": {
+    "value": "Biennial report filed between January 1 and April 1 of odd-numbered years; the first is due in the first odd-numbered year after the year the LLC was formed",
+    "source_url": "https://www.legis.iowa.gov/docs/code/2026/489.212.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Iowa Code 489.212. The SOS help page also says LLC reports are due in odd-numbered years."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent with a place of business in Iowa",
+    "source_url": "https://www.legis.iowa.gov/docs/code/489.115.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Iowa Code 489.115."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://sos.iowa.gov/businesses/preclearance-and-expedited-services",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state does not publish a standard processing time. Paid expedite tiers are listed."
+   },
+   "expedite": {
+    "value": {
+     "five_business_days": 15,
+     "two_business_days": 50,
+     "same_business_day": 125,
+     "one_hour": 200
+    },
+    "source_url": "https://sos.iowa.gov/businesses/preclearance-and-expedited-services",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Per-document surcharge on top of the filing fee. Separate preclearance surcharges also exist."
+   },
+   "state_tax_registration": {
+    "value": "Register with the Iowa Department of Revenue (GovConnectIowa) for a sales and use tax permit and, if you have employees, withholding. No fixed deadline is published; the state says you may begin collecting tax immediately",
+    "source_url": "https://revenue.iowa.gov/permits-licensing/business-permit-registration",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no registration fee."
+   },
+   "special_rules": [
+    "Iowa LLCs file a biennial report (odd-numbered years, by April 1), not an annual report.",
+    "The biennial report is cheaper online ($30) than on paper ($45)."
+   ],
+   "special_rules_sources": [
+    "https://sos.iowa.gov/businesses/business-entity-forms-and-fees",
+    "https://help.sos.iowa.gov/how-do-i-file-biennial-report"
+   ]
+  },
+  "KS": {
+   "name": "Kansas",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Kansas Secretary of State, Business Services Division",
+    "source_url": "https://sos.ks.gov/businesses/businesses.html",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 85,
+    "source_url": "https://www.sos.ks.gov/forms/business_services/dl.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Online $85; paper $90 (instructions revised 2/27/26). Credit and debit cards accepted."
+   },
+   "annual_report_fee": {
+    "value": 90,
+    "source_url": "https://sos.ks.gov/forms/business_services/ILC.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Kansas calls it the Information Report and it is filed every two years. $90 online, $110 by paper (form revised 1/23/26). The statute sets $80 plus amounts in SOS rules (K.S.A. 17-76,139)."
+   },
+   "annual_report_frequency": "biennial",
+   "annual_report_due": {
+    "value": "April 15 of every other year: LLCs formed in an even year file in each following even year, and odd-year LLCs in each following odd year",
+    "source_url": "https://www.sos.ks.gov/businesses/information-reports.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "K.S.A. 17-76,139 also says April 15. There is a three-month delinquency period, then forfeiture."
+   },
+   "registered_agent": {
+    "value": "Required: a resident agent that is an individual, a business registered in Kansas, or the LLC itself",
+    "source_url": "https://www.sos.ks.gov/forms/business_services/dl.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sos.ks.gov/forms/business_services/dl.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Not confirmed on an official page; the state does not publish an online processing time in its filing instructions."
+   },
+   "state_tax_registration": {
+    "value": "Register with the Kansas Department of Revenue through the Customer Service Center questionnaire or Form CR-16 (Business Tax Application). No fixed deadline is published",
+    "source_url": "https://www.ksrevenue.gov/faqs-taxbusreg.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state says there is no business tax registration fee."
+   },
+   "special_rules": [
+    "Kansas LLCs file an Information Report every two years (April 15), not every year.",
+    "Missing the report leads to a three-month delinquency period and then forfeiture.",
+    "Kansas lowered some business fees in 2026; the formation and report amounts above come from forms revised in early 2026."
+   ],
+   "special_rules_sources": [
+    "https://www.sos.ks.gov/businesses/information-reports.html",
+    "https://sos.ks.gov/forms/business_services/ILC.pdf",
+    "https://sos.ks.gov/media/press-releases/2026/05-26-26-secretary-of-state-reduces-fees-for-kansans.html"
+   ]
+  },
+  "KY": {
+   "name": "Kentucky",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Kentucky Secretary of State, Business Filings Division",
+    "source_url": "https://www.sos.ky.gov/bus/business-filings/Pages/default.aspx",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 40,
+    "source_url": "https://www.sos.ky.gov/bus/business-filings/Pages/Fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The fee page lists one rate for online and paper. The fee is waived for qualifying veteran-owned businesses."
+   },
+   "name_reservation_fee": {
+    "value": 15,
+    "source_url": "https://www.sos.ky.gov/bus/business-filings/Pages/Fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Reservation of a name (120 days)."
+   },
+   "annual_report_fee": {
+    "value": 15,
+    "source_url": "https://www.sos.ky.gov/bus/business-filings/Pages/Annual-Reports.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Kentucky calls it the Annual Report."
+   },
+   "annual_report_due": {
+    "value": "By June 30 of each year (can be filed January 1 through June 30)",
+    "source_url": "https://www.sos.ky.gov/bus/business-filings/Pages/Annual-Reports.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Missing the deadline leads to administrative dissolution; reinstatement requires good-standing letters from the Department of Revenue plus delinquent fees."
+   },
+   "registered_agent": {
+    "value": "Required: a Kentucky-resident individual, a Kentucky entity, or a foreign entity authorized to transact business in Kentucky; the registered office is the agent's Kentucky street address (no PO boxes)",
+    "source_url": "https://web.sos.ky.gov/forms/corp/KLC-Articles%20of%20Organization-Profit%20Limited%20Liability%20Company.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://web.sos.ky.gov/forms/corp/KLC-Articles%20of%20Organization-Profit%20Limited%20Liability%20Company.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state does not publish an online processing time. The form says the filing takes effect on the date and time it is filed."
+   },
+   "state_tax_registration": {
+    "value": "Kentucky Tax Registration Application through the Department of Revenue / Kentucky Business One Stop (sales and use tax, employer withholding, and the Limited Liability Entity Tax among the accounts). No deadline or fee is published",
+    "source_url": "https://revenue.ky.gov/Business/Pages/Additional-Tax-Registration-Information.aspx",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Limited Liability Entity Tax (LLET): LLCs with Kentucky gross receipts or gross profits of $3 million or less pay a $175 minimum.",
+    "Annual report is due June 30; missing it leads to administrative dissolution."
+   ],
+   "special_rules_sources": [
+    "https://revenue.ky.gov/Business/Corporation-Income-and-Limited-Liability-Entity-Tax/Pages/default.aspx",
+    "https://www.sos.ky.gov/bus/business-filings/Pages/Annual-Reports.aspx"
+   ]
+  },
+  "LA": {
+   "name": "Louisiana",
+   "formation_document": "Articles of Organization (Form 365)",
+   "office": {
+    "value": "Louisiana Secretary of State, Commercial Division (filed through geauxBIZ)",
+    "source_url": "https://www.sos.la.gov/business-services/frequently-asked-questions",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 125,
+    "source_url": "https://www.sos.la.gov/business-services/forms-fee-schedule",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Fee schedule effective October 1, 2026 (Act 921 of the 2026 Regular Session, per the SOS fee-change notice). The schedule does not list separate online and paper rates; a $5 credit card convenience fee applies."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://www.sos.la.gov/business-services/forms-fee-schedule",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Name reservation holds a name for 120 days."
+   },
+   "annual_report_fee": {
+    "value": 35,
+    "source_url": "https://www.sos.la.gov/business-services/forms-fee-schedule",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Louisiana calls it the Annual Report."
+   },
+   "annual_report_due": {
+    "value": "On or before the anniversary date of the LLC's organization, every year",
+    "source_url": "https://legis.la.gov/legis/Law.aspx?d=76256",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "La. R.S. 12:1308.1."
+   },
+   "registered_agent": {
+    "value": "Required: an agent with a physical Louisiana address; can be almost anyone of legal age and a legal resident of Louisiana (for example an organizer, member, employee, attorney or accountant)",
+    "source_url": "https://www.sos.la.gov/business-services/frequently-asked-questions",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://static.sos.la.gov/shared/fee_changes_2026.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state does not publish a standard online processing time. Paid expedite options are listed."
+   },
+   "expedite": {
+    "value": {
+     "expedite_24_hour": 35,
+     "priority_while_you_wait": 60
+    },
+    "source_url": "https://static.sos.la.gov/shared/fee_changes_2026.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Per filing, in addition to the filing fee. 24-hour documents are available for pick-up or mail; priority documents are processed while you wait."
+   },
+   "state_tax_registration": {
+    "value": "Register for tax accounts (sales, withholding, etc.) with the Louisiana Department of Revenue through LaTAP before you begin operating. No day count is published",
+    "source_url": "https://revenue.louisiana.gov/businesses/general-resources/business-registration/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no registration fee. It says not to register for sales tax unless the business must collect it, and not for withholding until you have employees."
+   },
+   "special_rules": [
+    "Formation fee rose to $125 effective October 1, 2026 (Act 921 of 2026).",
+    "Annual report is $35 and due on the anniversary of organization; a missed report triggers a Notice of Intent to Revoke with 30 days to file.",
+    "A $5 credit card convenience fee applies."
+   ],
+   "special_rules_sources": [
+    "https://static.sos.la.gov/shared/fee_changes_2026.pdf",
+    "https://www.sos.la.gov/business-services/frequently-asked-questions"
+   ]
+  },
+  "ME": {
+   "name": "Maine",
+   "formation_document": "Certificate of Formation (Form MLLC-6)",
+   "office": {
+    "value": "Maine Secretary of State, Division of Corporations",
+    "source_url": "https://www.maine.gov/sos/corporations-commissions/i-need-a-business-form/limited-liability-company-forms",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 175,
+    "source_url": "https://www.maine.gov/sos/corporations-commissions/i-need-a-business-form/limited-liability-company-forms",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Maine's published LLC formation is a fillable PDF that is printed and mailed with the fee (a credit card payment voucher is available). No separate online formation fee is published. The state's online Interactive Corporate Services system is described for annual reports."
+   },
+   "name_reservation_fee": {
+    "value": 20,
+    "source_url": "https://www.maine.gov/sos/corporations-commissions/i-need-a-business-form/limited-liability-company-forms",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Application for Reservation of Name (Form MLLC-1)."
+   },
+   "annual_report_fee": {
+    "value": 85,
+    "source_url": "https://www.maine.gov/sos/corporations-commissions/i-need-a-business-form/limited-liability-company-forms",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Domestic LLC annual report (Form MLLC-13). Foreign LLCs pay $150."
+   },
+   "annual_report_due": {
+    "value": "June 1 each year (the state's June 1 deadline notice covers entities on file as of December 31 of the prior year)",
+    "source_url": "https://www.maine.gov/sos/news/annual-reports-business-and-nonprofit-entities-are-due-june-1-1",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Reports received after June 1 incur a late-filing penalty that the state says cannot be waived."
+   },
+   "registered_agent": {
+    "value": "Required: a commercial registered agent (with a CRA public number) or a noncommercial agent with a physical Maine location (no PO box) who has consented to serve",
+    "source_url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc6.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Form revised 6/26/2024."
+   },
+   "processing_online": {
+    "value": "40 - 55 business days",
+    "source_url": "https://www.maine.gov/sos/corporations-commissions/i-need-a-business-form/limited-liability-company-forms",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "This is the corporate filings processing time posted on the LLC forms page; formation is a mailed paper filing."
+   },
+   "expedite": {
+    "value": {
+     "24_hour": 50,
+     "same_day": 100
+    },
+    "source_url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc6.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Additional fee per entity; only one expedite fee is needed when filing several documents for the same entity together."
+   },
+   "state_tax_registration": {
+    "value": "Register with Maine Revenue Services (central registration application, online at revenue.maine.gov) for sales and use tax and income tax withholding. No fixed deadline is published",
+    "source_url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_Central_reg_app_booklet%20.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Booklet revised February 2026. It lists no registration fee. Unemployment and Paid Family and Medical Leave register separately with the Department of Labor."
+   },
+   "special_rules": [
+    "Annual report ($85) is due every June 1 regardless of formation date; late reports carry a penalty that cannot be waived.",
+    "Maine posts a 40-55 business day processing time for corporate filings."
+   ],
+   "special_rules_sources": [
+    "https://www.maine.gov/sos/news/annual-reports-business-and-nonprofit-entities-are-due-june-1-1",
+    "https://legislature.maine.gov/statutes/31/title31sec1680.html"
+   ]
+  },
+  "MD": {
+   "name": "Maryland",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Maryland State Department of Assessments and Taxation (SDAT), Charter Division",
+    "source_url": "https://dat.maryland.gov/businesses/documents/fees.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://dat.maryland.gov/Documents/Accessible%20Documents/Charter%20-%20Create%20or%20Start%20a%20Business/Articles%20of%20Organization%20for%20a%20Limited%20Liability%20Company_0526-A.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Standard filing, filed online through Maryland Business Express. Payments made through the portal carry a 3% service/convenience fee (SDAT fee schedule revised May 2024)."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://dat.maryland.gov/businesses/documents/fees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "SDAT fee schedule revised May 2024; expedited handling is an extra $20."
+   },
+   "annual_report_fee": {
+    "value": 300,
+    "source_url": "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026_Form1%20Final%20(6).pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Filed as the Annual Report together with the Business Personal Property Return (Form 1). SDAT's 2026 Form 1 lists $300 for LLCs; some entities pay less (for example a MarylandSaves waiver). A 2022 proposal to drop the fee for online filers is not reflected on the 2026 form."
+   },
+   "annual_report_due": {
+    "value": "April 15 each year (online extension requests move it to mid-June)",
+    "source_url": "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026_Form1%20Final%20(6).pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "SDAT's 2025 notice gives June 16, 2025 as the extended date. Late filers may face penalties and loss of good standing / forfeiture."
+   },
+   "registered_agent": {
+    "value": "Required: a resident agent that is an individual or a business with a physical Maryland address (no PO boxes); the agent must consent in the articles",
+    "source_url": "https://dat.maryland.gov/Documents/Accessible%20Documents/Charter%20-%20Create%20or%20Start%20a%20Business/Articles%20of%20Organization%20for%20a%20Limited%20Liability%20Company_0526-A.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": "6 to 8 weeks (standard, online)",
+    "source_url": "https://dat.maryland.gov/businesses/documents/fees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "SDAT fee schedule revised May 2024. The newer articles form also lists 6 to 8 weeks standard."
+   },
+   "expedite": {
+    "value": {
+     "expedited_additional": 50,
+     "same_day_online_additional": 325,
+     "same_day_paper_additional": 425
+    },
+    "source_url": "https://dat.maryland.gov/businesses/documents/fees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Additional fees on top of the $100 filing fee. The newer articles form shows these as totals: $150 expedited (7 to 14 business days), $425 same-day online, $525 same-day paper. Expedited online filings are reviewed in 7-10 business days per the fee schedule."
+   },
+   "state_tax_registration": {
+    "value": "Combined Registration Application with the Comptroller (sales and use tax license if you will make sales; employer withholding account if you pay wages). Unemployment insurance registration is due when you establish the business",
+    "source_url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/legal-publications/tips/business/bustip13.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no registration fee."
+   },
+   "special_rules": [
+    "Annual Report is $300 and is filed with the Business Personal Property Return by April 15 every year.",
+    "Businesses with under $20,000 total original cost of Maryland personal property can attest to that instead of filing a return.",
+    "Missing the annual report can lead to forfeiture of the right to do business in Maryland.",
+    "Online portal payments add a 3% convenience fee."
+   ],
+   "special_rules_sources": [
+    "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026_Form1%20Final%20(6).pdf",
+    "https://dat.maryland.gov/SDAT%20Forms/PPR_Forms/2025_Form1_Instructions.pdf",
+    "https://dat.maryland.gov/businesses/documents/fees.pdf"
+   ]
+  },
+  "MA": {
+   "name": "Massachusetts",
+   "formation_document": "Certificate of Organization",
+   "office": {
+    "value": "Massachusetts Secretary of the Commonwealth, Corporations Division",
+    "source_url": "https://www.sec.state.ma.us/divisions/corporations/general-information/corporations-filing-fees.htm",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 500,
+    "source_url": "https://www.sec.state.ma.us/divisions/corporations/general-information/corporations-filing-fees.htm",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The Corporations Division fee table lists this as the LLC 'Certificate of Registration' fee; Mass.gov calls it the Certificate of Organization fee. Online and fax filings carry an additional tiered service fee (see expedite): $20 on a $500 order."
+   },
+   "name_reservation_fee": {
+    "value": 30,
+    "source_url": "https://www.sec.state.ma.us/divisions/corporations/general-information/corporations-filing-fees.htm",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Reserves a name for 60 days; a 60-day extension is another $30."
+   },
+   "annual_report_fee": {
+    "value": 500,
+    "source_url": "https://www.sec.state.ma.us/divisions/corporations/general-information/corporations-filing-fees.htm",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Massachusetts calls it the Annual Report. The fee table shows no electronic discount for LLCs."
+   },
+   "annual_report_due": {
+    "value": "By the anniversary of the LLC's original filing, every year",
+    "source_url": "https://www.mass.gov/info-details/starting-a-limited-liability-company-llc-in-massachusetts",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "registered_agent": {
+    "value": "Required: a resident agent with a street address in Massachusetts (a post office address is not sufficient)",
+    "source_url": "https://www.sec.state.ma.us/divisions/corporations/download/950_cmr_112_limited_liability_companies.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "950 CMR 112.00."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sec.state.ma.us/divisions/corporations/general-information/corporations-filing-fees.htm",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state does not publish an online processing time."
+   },
+   "expedite": {
+    "value": {
+     "online_or_fax_service_fee_at_500_subtotal": 20
+    },
+    "source_url": "https://www.sec.state.ma.us/divisions/corporations/general-information/corporations-filing-fees.htm",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The Division's 'Expedited Cost Associated with Fax and Electronic Filings' table adds $3 to $15 by order size, $20 at exactly $500, and 4.5% of the subtotal above $500. It does not describe same-day or 24-hour turnaround."
+   },
+   "state_tax_registration": {
+    "value": "Register with the Department of Revenue through MassTaxConnect (sales and use, meals, withholding and others as applicable). The state says to register before the business actually opens; no day count is published",
+    "source_url": "https://www.mass.gov/administrative-procedure/ap-616-registration-information-sales-tax-meals-tax-room-occupancy-excise-withholding-tax-and-other-miscellaneous-excises",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no registration fee."
+   },
+   "special_rules": [
+    "Massachusetts charges $500 both to form the LLC and for the annual report every year.",
+    "Online and fax filings add a service fee ($20 on a $500 order)."
+   ],
+   "special_rules_sources": [
+    "https://www.sec.state.ma.us/divisions/corporations/general-information/corporations-filing-fees.htm",
+    "https://www.mass.gov/info-details/starting-a-limited-liability-company-llc-in-massachusetts"
+   ]
+  },
+  "MI": {
+   "name": "Michigan",
+   "formation_document": "Articles of Organization (Form CSCL/CD-700)",
+   "office": {
+    "value": "Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations Division",
+    "source_url": "https://www.michigan.gov/lara/bureau-list/cscl/corps/frequently-asked-questions",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 50,
+    "source_url": "https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/NonImages_new/Corps/forms/llc/700-0725.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Nonrefundable. The form (rev. 07/25) says to file online at michigan.gov/corpfileonline and does not list a separate online rate; online payment is by credit card. Veterans may qualify for a fee waiver."
+   },
+   "annual_report_fee": {
+    "value": 25,
+    "source_url": "https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Michigan calls it the Annual Statement. Professional LLCs pay $75."
+   },
+   "annual_report_due": {
+    "value": "February 15 each year, starting the year after formation (an LLC formed after September 30 does not file the following February 15)",
+    "source_url": "https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "registered_agent": {
+    "value": "Required: a resident agent at a registered office with a Michigan street address",
+    "source_url": "https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/NonImages_new/Corps/forms/llc/700-0725.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Form revised 07/25."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.michigan.gov/lara/bureau-list/cscl/corps/frequently-asked-questions",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state does not publish a standard processing time on its FAQ or form instructions."
+   },
+   "expedite": {
+    "value": {
+     "24_hour": 50,
+     "same_day": 100,
+     "two_hour": 500,
+     "one_hour": 1000
+    },
+    "source_url": "https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/NonImages_new/Corps/forms/272_08-15.pdf?rev=222fc0153eee4073b4c223eb82522735&hash=9658783CA241B88A114AD0C03D91C42E",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Formation documents, added to the filing fee, nonrefundable (Expedited Service Request CSCL/CD-272, revised 09/21). Same-day requests must be in by 1 p.m., 2-hour by 3 p.m., 1-hour by 4 p.m. Eastern."
+   },
+   "state_tax_registration": {
+    "value": "Register through Michigan Treasury Online (MTO) for a sales tax license and, with employees, withholding. The state says you do not have to wait for the license to arrive before selling at retail",
+    "source_url": "https://www.michigan.gov/taxes/business-taxes/sales-use-tax/information/sales-tax-license-faq",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "There is no fee for a sales tax license. Electronic registration is authenticated within 10-15 minutes; mailed Form 518 takes 4-6 weeks."
+   },
+   "special_rules": [
+    "Annual Statement is $25 and due every February 15 (first one the year after formation).",
+    "Online filings are paid by credit card only."
+   ],
+   "special_rules_sources": [
+    "https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements",
+    "https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements"
+   ]
+  },
+  "MN": {
+   "name": "Minnesota",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Minnesota Secretary of State, Business Services",
+    "source_url": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 155,
+    "source_url": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Online or in person. By mail the fee is $135."
+   },
+   "name_reservation_fee": {
+    "value": 55,
+    "source_url": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Online or in person; $35 by mail."
+   },
+   "annual_report_fee": {
+    "value": 0,
+    "source_url": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Minnesota calls it the Annual Renewal. There is no fee for an active entity in good standing; reinstatement after dissolution is $85 online ($65 by mail)."
+   },
+   "annual_report_due": {
+    "value": "December 31 each year (can be filed any time during the calendar year; the exact date appears on the Business Records Details page)",
+    "source_url": "https://www.sos.mn.gov/business-liens/renewals/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Missing the renewal leads to administrative dissolution."
+   },
+   "registered_agent": {
+    "value": "A Minnesota registered office address is required (street address or rural route; a PO box alone is not acceptable). Naming a registered agent is optional, but an agent named must be located at the registered office",
+    "source_url": "https://www.sos.mn.gov/media/1824/llcarticlesoforganization.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "SOS forms page: a registered agent must be a Minnesota resident, a Minnesota entity, or a foreign entity authorized to do business in Minnesota."
+   },
+   "processing_online": {
+    "value": "Typically 2-5 business days for eligible online filings; documents are delivered by email",
+    "source_url": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state says eligible online filings are expedited by default. In-person filings (by appointment) are processed while you wait; mail is first-come, first-served and not expedited."
+   },
+   "state_tax_registration": {
+    "value": "Register with the Minnesota Department of Revenue for a Minnesota Tax ID Number and a Sales and Use Tax account before you make any taxable sales in Minnesota",
+    "source_url": "https://www.revenue.state.mn.us/guide/registering-your-business",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no registration fee."
+   },
+   "special_rules": [
+    "No state fee for the annual renewal; it is due December 31.",
+    "Online and in-person filings cost $20 more than mail ($155 vs $135).",
+    "A Minnesota registered office address is required; naming a registered agent is optional."
+   ],
+   "special_rules_sources": [
+    "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
+    "https://www.sos.mn.gov/business-liens/renewals/"
+   ]
+  },
+  "MS": {
+   "name": "Mississippi",
+   "formation_document": "Certificate of Formation",
+   "office": {
+    "value": "Mississippi Secretary of State, Business Services",
+    "source_url": "https://www.sos.ms.gov/business-services",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 50,
+    "source_url": "https://www.sos.ms.gov/content/documents/Business/Services%20&%20Fees%20Document.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "SOS Services & Fees schedule, revised October 2024: 'Certificate of Formation of MS LLC $50'. The schedule does not list a different online or mail fee for LLCs."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://www.sos.ms.gov/content/documents/Business/Services%20&%20Fees%20Document.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Application for Name Reservation $25'."
+   },
+   "annual_report_fee": {
+    "value": 0,
+    "source_url": "https://www.sos.ms.gov/business-services/annual-reports",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Mississippi domestic LLCs file an annual report at no cost (fee schedule: 'Annual Report of MS LLC ... No fee'; SOS notice: domestic LLC owners can file annual reports 'at no cost'). A foreign LLC pays $250."
+   },
+   "annual_report_due": {
+    "value": "April 15 each year (filing opens January 1); must be filed online",
+    "source_url": "https://www.sos.ms.gov/business-services/annual-reports",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "SOS warns that failure to file may result in administrative dissolution."
+   },
+   "processing_online": {
+    "value": "Some online filings need staff review, which SOS says should occur within 24 hours of submission",
+    "source_url": "https://www.sos.ms.gov/business-services/business-faqs",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "No guaranteed processing time or expedite fee is published for LLC formation."
+   },
+   "state_tax_registration": {
+    "value": "Most entity types must register with the Mississippi Department of Revenue; registration is available online at www.DOR.ms.gov",
+    "source_url": "https://www.sos.ms.gov/content/documents/Business/Business%20Entities%20(Clean).pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "No registration deadline is stated on the SOS startup guide."
+   },
+   "registered_agent": {
+    "value": "Required: any individual, corporation or LLC may serve, provided the agent has a physical address in Mississippi; a non-commercial agent must consent before being listed",
+    "source_url": "https://www.sos.ms.gov/business-services-external-affairs/registered-agents",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "special_rules": [
+    "No annual report fee for a domestic LLC, but the annual report is still required every year by April 15.",
+    "An operating agreement is recommended but not required by law (SOS startup guide)."
+   ]
+  },
+  "MO": {
+   "name": "Missouri",
+   "formation_document": "Articles of Organization (Form LLC-1)",
+   "office": {
+    "value": "Missouri Secretary of State, Business Services Division",
+    "source_url": "https://www.sos.mo.gov/business/corporations",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 50,
+    "source_url": "https://www.sos.mo.gov/CMSImages/Business/fees.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Online fee. Paper filing is $105 ('Certificates of Limited Liability Company (domestic)(online) $50.00'; paper $105.00). The SOS FAQ confirms online saves $55. The schedule also notes a convenience fee on electronic payments and a $5 technology fund charge where applicable."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://www.sos.mo.gov/CMSImages/Business/fees.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Reservation of Name' $25.00 under the 'all others' category."
+   },
+   "annual_report_fee": {
+    "value": null,
+    "source_url": "https://www.sos.mo.gov/business/faqs",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Not applicable: the SOS FAQ answers 'Do limited liability companies have to file an annual report?' with 'No.'"
+   },
+   "annual_report_due": {
+    "value": "None. Missouri LLCs do not file annual reports",
+    "source_url": "https://www.sos.mo.gov/business/faqs",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sos.mo.gov/business/faqs",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Processing time not confirmed on an official page. The SOS FAQ says a filing's effective date is the day of the Secretary of State's endorsement, in most cases the day the office receives and first reviews the document."
+   },
+   "state_tax_registration": {
+    "value": null,
+    "source_url": "https://dor.mo.gov/business/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page (the Department of Revenue business page links to online registration but states no lead time or fee)."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent with a Missouri address. The agent may be an individual who is a Missouri resident or a Missouri-authorized corporation whose business office matches the registered office",
+    "source_url": "https://www.sos.mo.gov/business/faqs",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Also stated at https://www.sos.mo.gov/business/corporations/generalinfo: LLCs must keep a registered agent, and failure to do so can lead to cancellation of the entity's registration."
+   },
+   "special_rules": [
+    "No annual report for LLCs (SOS FAQ).",
+    "Filing online ($50) is $55 cheaper than filing on paper ($105)."
+   ]
+  },
+  "MT": {
+   "name": "Montana",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Montana Secretary of State, Business Services",
+    "source_url": "https://sosmt.gov/business",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 35,
+    "source_url": "https://sosmt.gov/business/fees/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Articles Of Organization $35.00 plus $50.00 for each series member named in the series LLC.' Fee page last modified Sept 16, 2025. The page does not list a separate paper-filing fee."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://sosmt.gov/business/fees/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Name Reservation $10.00'."
+   },
+   "annual_report_fee": {
+    "value": 0,
+    "source_url": "https://help.sosmt.gov/en-us/article/how-do-i-file-my-annual-report-ywawrv/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "SOS waives the annual report fee for reports filed January 1 through April 15; after April 15 the fee is $35 (fee sheet: 'Annual Report Prior To April 15th WAIVED / After April 15th $35.00'). SOS announced the waiver for 2026 and again for 2027 (Dec 29, 2025 release). One general-corporation row on the same fee sheet still shows $20 before April 15, which conflicts with the LLC row; the LLC row is used here."
+   },
+   "annual_report_due": {
+    "value": "April 15 each year (reports can be filed starting January 1); annual reports are required for all LLCs",
+    "source_url": "https://sosmt.gov/business",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Fee page nav and SOS releases state 'Annual Report Due April 15th'. The Help Center article for the same topic words its deadline text differently for domestic vs. foreign entities, so confirm the date on the portal at biz.sosmt.gov."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://sosmt.gov/business/fees/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page. Expedite options are listed below."
+   },
+   "expedite": {
+    "value": {
+     "24_hour": 20,
+     "1_hour": 100
+    },
+    "source_url": "https://sosmt.gov/business/fees/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Listed as '24 Hour Processing Fee $20.00' and '1 Hour Processing Fee $100.00' under Miscellaneous Business Charges (not LLC-specific)."
+   },
+   "state_tax_registration": {
+    "value": null,
+    "source_url": "https://sosmt.gov/business",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "registered_agent": {
+    "value": "Required: an individual or business with a physical Montana address (not a P.O. box), available during business hours to accept documents",
+    "source_url": "https://help.sosmt.gov/en-us/article/what-is-a-registered-agent-3z3you/",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "special_rules": [
+    "Annual report is required for every LLC; the fee is waived if filed by April 15 (waiver announced through 2027) and $35 after that.",
+    "Reinstatement of a domestic LLC: $35 plus $35 for each year of delinquent annual reports."
+   ]
+  },
+  "NE": {
+   "name": "Nebraska",
+   "formation_document": "Certificate of Organization",
+   "office": {
+    "value": "Nebraska Secretary of State, Business Services Division",
+    "source_url": "https://sos.nebraska.gov/business-services/forms-and-fee-information",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://sos.nebraska.gov/business-services/forms-and-fee-information",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'$110 (In-Office) / $100 (Online)'; same split in Neb. Rev. Stat. 21-192 and on the Certificate of Organization form (revised 7/12/2022). Online filing through Nebraska.gov adds a surcharge of at least $2 per transaction."
+   },
+   "name_reservation_fee": {
+    "value": 30,
+    "source_url": "https://sos.nebraska.gov/business-services/forms-and-fee-information",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Application for Reserved Name $30'. Neb. Rev. Stat. 21-192(1) sets the general filing fee at $30 written / $25 electronic."
+   },
+   "annual_report_fee": {
+    "value": null,
+    "source_url": "https://sos.nebraska.gov/business-services/annualbiennial-reporting",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page: the SOS biennial reporting page gives the due date but no dollar amount, and the fee page lists only the $30 'Amendment or Correction to Biennial Report'. Neb. Rev. Stat. 21-192(1) sets a general LLC Act filing fee of $30 written / $25 electronic, which is likely what applies, but confirm in the Nebraska.gov portal before quoting. An older SOS news release cited $28 to file online."
+   },
+   "annual_report_frequency": "biennial",
+   "annual_report_due": {
+    "value": "Biennial report, due in odd-numbered years by April 1 (filing window January 1 to April 1; delinquent after the June 16 cutoff, after which the LLC is administratively dissolved). The first report is due in the odd-numbered year following the year of formation",
+    "source_url": "https://sos.nebraska.gov/business-services/annualbiennial-reporting",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Window and first-report timing from Neb. Rev. Stat. 21-125 (https://nebraskalegislature.gov/laws/statutes.php?statute=21-125)."
+   },
+   "processing_online": {
+    "value": "Approximately one week (staff review; email sent when complete)",
+    "source_url": "https://www.nebraska.gov/apps-sos-edocs/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Stated as current on the Nebraska.gov document eDelivery page 'because of high submission volume'. The same page says a new business filing system is expected before the end of 2026."
+   },
+   "publication": {
+    "value": {
+     "weeks": 3,
+     "newspaper": "legal newspaper of general circulation",
+     "proof_filed_with": "Secretary of State"
+    },
+    "source_url": "https://nebraskalegislature.gov/laws/statutes.php?statute=21-193&print=true",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Neb. Rev. Stat. 21-193: notice of organization must be published for three successive weeks in a legal newspaper of general circulation, and proof of publication filed with the Secretary of State. Newspaper cost is not published by the state."
+   },
+   "state_tax_registration": {
+    "value": null,
+    "source_url": "https://sos.nebraska.gov/business-services/forms-and-fee-information",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "registered_agent": {
+    "value": "Required: the Certificate of Organization must name an initial agent for service of process and give the agent's street, mailing address and P.O. box (if any)",
+    "source_url": "https://sos.nebraska.gov/sites/default/files/doc/business-services/Corporations/Forms/CertificateOfOrganization.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Eligibility rules (Neb. Rev. Stat. 21-113) were not readable on an official page."
+   },
+   "special_rules": [
+    "Publication of notice of organization for three successive weeks in a legal newspaper, with proof filed with the Secretary of State (see publication).",
+    "Biennial report (odd-numbered years) instead of an annual report."
+   ]
+  },
+  "NV": {
+   "name": "Nevada",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Nevada Secretary of State, Commercial Recordings (Biz Hub)",
+    "source_url": "https://bizhub.nv.gov/",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 75,
+    "source_url": "https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/LLC_Formation_V4_1_9e5c396592.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Articles of Organization: $75.00' (formation instructions revised 7/1/2026; fee schedule dated 7/22/2025). Nevada also requires the Initial List of Managers or Members ($150) and the State Business License ($200) with the filing, so $425 is due at formation ($75 + $150 + $200); $225 if exempt from the business license. The instructions list no separate online fee."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/LLC_Formation_V4_1_9e5c396592.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Name Reservation $25.00'."
+   },
+   "initial_list_fee": {
+    "value": 150,
+    "source_url": "https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/LLC_Formation_V4_1_9e5c396592.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Initial List of Managers or Members, filed with the Articles. NRS 86.263 sets the same $150 fee."
+   },
+   "state_business_license_fee": {
+    "value": 200,
+    "source_url": "https://www.leg.state.nv.us/nrs/nrs-076.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "NRS 76.100(2)(c): $200 for an LLC. Paid with the initial list and then with each annual list. Late fee is $100 ('Business License Late Fee')."
+   },
+   "annual_report_fee": {
+    "value": 150,
+    "source_url": "https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/Annual_List_and_State_Business_License_Non_Corps_Final_6904713d13.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Annual List of Managers or Members ($150), plus the $200 State Business License renewed at the same time, so $350 per year. Late fee for the list: $75."
+   },
+   "annual_report_due": {
+    "value": "Last day of the month in which the LLC's formation anniversary falls, every year; the initial list is filed with the Articles",
+    "source_url": "https://www.leg.state.nv.us/nrs/nrs-086.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "NRS 86.263. A company that fails to file is in default; the charter is revoked after the next anniversary month passes (NRS 86.272, 86.274); reinstatement fee $300 (NRS 86.276)."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://bizhub.nv.gov/filing-processing-fees",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page: the Secretary of State's processing-dates page could not be read. Instructions say filing online 'may reduce processing time'."
+   },
+   "expedite": {
+    "value": {
+     "24_hour": 125,
+     "2_hour": 500,
+     "1_hour": 1000
+    },
+    "source_url": "https://bizhub.nv.gov/filing-processing-fees",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Per item and in addition to the standard filing fee; the 24-hour fee is $125 for most filings and lower ($25 to $75) for some filing types. A 2.5% non-refundable card processing fee is added to card payments."
+   },
+   "state_tax_registration": {
+    "value": "Commerce Tax: businesses with Nevada gross revenue over $4,000,000 in a fiscal year should register for and file the Commerce Tax; the return is generally due August 14 (45 days after the June 30 year-end)",
+    "source_url": "https://tax.nv.gov/faqs/commerce-tax-faqs/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Nevada also has a separate State Business License through the Secretary of State (see special_rules)."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent with a physical street address in Nevada, available during normal business hours; a P.O. box can be used for mail but not in place of the street address. The agent signs a Certificate of Acceptance",
+    "source_url": "https://www.leg.state.nv.us/nrs/nrs-086.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Details from the formation instructions at https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/LLC_Formation_V4_1_9e5c396592.pdf; NRS 86.231."
+   },
+   "special_rules": [
+    "State Business License: $200 at formation and every year with the annual list (exemptions for qualifying nonprofits and government entities only).",
+    "Initial List of Managers or Members ($150) must accompany the Articles of Organization.",
+    "Commerce Tax applies only to businesses with Nevada gross revenue above $4,000,000 per fiscal year."
+   ],
+   "formation_extra": {
+    "value": 350,
+    "source_url": "https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/LLC_Formation_V4_1_9e5c396592.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Nevada collects the $150 Initial List and the $200 State Business License with the Articles, so $425 is due at formation."
+   }
+  },
+  "NH": {
+   "name": "New Hampshire",
+   "formation_document": "Certificate of Formation (Form LLC-1)",
+   "office": {
+    "value": "New Hampshire Secretary of State, Corporation Division",
+    "source_url": "https://www.sos.nh.gov/corporations-0/forms-and-fees/limited-liability-companies",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://quickstart.sos.nh.gov/online/Home/FillingFee",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "QuickStart fee table: Domestic LLC formation $100.00 + $2 handling charge = $102.00 online. RSA 304-C:191, II(c) sets the $100 fee; Form LLC-1 says 'The total filing fee to register is $100.00' for paper filings."
+   },
+   "name_reservation_fee": {
+    "value": 15,
+    "source_url": "https://gc.nh.gov/rsa/html/XXVIII/304-C/304-C-191.htm",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "RSA 304-C:191, II(a). The SOS forms page says the Form 1 name reservation fee is 'variable; please refer to the form'."
+   },
+   "annual_report_fee": {
+    "value": 100,
+    "source_url": "https://quickstart.sos.nh.gov/online/Home/FillingFee",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Domestic LLC annual report $100 + $2 online handling charge; late fee $50 if not filed by April 1 (RSA 304-C:191, II(f))."
+   },
+   "annual_report_due": {
+    "value": "April 1 each year (filing window January 1 to April 1). The first report is due the calendar year after formation; LLCs formed between December 1 and April 1 skip the current year's report",
+    "source_url": "https://gc.nh.gov/rsa/html/XXVIII/304-C/304-C-194.htm",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "RSA 304-C:194."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://quickstart.sos.nh.gov/online/Home/FillingFee",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page for online filings. Form LLC-1 (paper) says a filed-stamped copy is returned 'within 30 days' of acceptance."
+   },
+   "state_tax_registration": {
+    "value": null,
+    "source_url": "https://www.revenue.nh.gov/taxes-glance/business-taxes",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page: the Department of Revenue Administration business-tax page describes filing thresholds but no registration step or deadline."
+   },
+   "registered_agent": {
+    "value": "Required: the registered agent must reside in New Hampshire and a street/physical address must be provided; an application without an agent or with an out-of-state address will not be processed",
+    "source_url": "https://www.sos.nh.gov/sites/g/files/ehbemt561/files/documents/2023-12/form_llc-1_-10-2018.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Form LLC-1 (10/2018) instructions."
+   },
+   "special_rules": [
+    "All fees paid electronically carry an extra $2.00 handling charge.",
+    "Business Profits Tax: must file if gross business income is over $109,000 (taxable periods beginning on or after Jan 1, 2025; adjusted biennially).",
+    "Business Enterprise Tax: must file if gross receipts or enterprise value tax base exceed $298,000 (taxable periods beginning on or after Jan 1, 2025; adjusted biennially)."
+   ],
+   "special_rules_source": "https://www.revenue.nh.gov/taxes-glance/business-taxes"
+  },
+  "NM": {
+   "name": "New Mexico",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "New Mexico Secretary of State, Business Services Division",
+    "source_url": "https://www.sos.nm.gov/business-services/",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": null,
+    "source_url": "https://www.srca.nm.gov/parts/title12/12.003.0004.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page. 12.3.4.11 NMAC says the fee is set by NMSA 1978 Section 53-19-63 but states no amount, and the Secretary of State's pages say fees are shown on each form in the online portal (enterprise.sos.nm.gov)."
+   },
+   "name_reservation_fee": {
+    "value": null,
+    "source_url": "https://www.srca.nm.gov/parts/title12/12.003.0001.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page. 12.3.1.15 NMAC says a reservation lasts 120 days but states no fee."
+   },
+   "annual_report_fee": {
+    "value": null,
+    "source_url": "https://www.srca.nm.gov/parts/title12/12.003.0004.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page. 12.3.4.11 NMAC (domestic LLC rule) contains no annual, biennial or supplemental report requirement for LLCs, and the SOS corporation-report page covers corporations only, but no page expressly states that LLCs are exempt."
+   },
+   "annual_report_due": {
+    "value": null,
+    "source_url": "https://www.srca.nm.gov/parts/title12/12.003.0004.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page; see annual_report_fee note. No LLC report requirement appears in 12.3.4.11 NMAC."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sos.nm.gov/business-services/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page. SOS states that all business filings are now online-only and paper filings are no longer accepted."
+   },
+   "expedite": {
+    "value": {
+     "same_day": 150,
+     "two_business_days": 100
+    },
+    "source_url": "https://www.srca.nm.gov/parts/title12/12.003.0001.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "12.3.1.9(G)(3) NMAC (written for the former Public Regulation Commission corporations bureau): $150 same business day if received before 2:00 p.m., $100 within two business days; nonrefundable and paid separately. Business filings have since moved to the Secretary of State, so confirm these amounts in the SOS portal before quoting."
+   },
+   "state_tax_registration": {
+    "value": null,
+    "source_url": "https://biz.nm.gov/business-navigator/register-legal-business-structure/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "registered_agent": {
+    "value": "Required: a domestic LLC must have and continuously maintain a registered agent and registered office on file (NMSA 53-19-5)",
+    "source_url": "https://www.srca.nm.gov/parts/title12/12.003.0004.html",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "special_rules": [
+    "All business filings are online-only; the Secretary of State no longer accepts paper filings.",
+    "Filing fee amount is set by NMSA 53-19-63 and shown on the portal form; not confirmed on an official page during this check."
+   ]
+  },
+  "NC": {
+   "name": "North Carolina",
+   "formation_document": "Articles of Organization (Form L-01)",
+   "office": {
+    "value": "North Carolina Department of the Secretary of State, Business Registration Division",
+    "source_url": "https://www.sosnc.gov/divisions/business_registration",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 125,
+    "source_url": "https://www.sosnc.gov/fees/by_title/_Business_Registration_limited_liability_companies",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Also G.S. 57D-1-22(a)(1) and Form L-01 ('Filing fee is $125'). The SOS fee page does not list a different online fee."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://www.sosnc.gov/fees/by_title/_Business_Registration_limited_liability_companies",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Application for Reserved Name $10.00'."
+   },
+   "annual_report_fee": {
+    "value": 200,
+    "source_url": "https://www.sosnc.gov/manual/launching_a_business/maintaining_registration",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'The annual report fee for a limited liability company is $200.00.' Online filing adds $3.00 for credit cards or $2.00 for ACH. Also G.S. 57D-1-22(a)(28)."
+   },
+   "annual_report_due": {
+    "value": "April 15 each year; the first annual report is due April 15 of the year following the year the LLC was created",
+    "source_url": "https://www.sosnc.gov/manual/launching_a_business/maintaining_registration",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Failure to comply 'may be grounds for administrative dissolution.'"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sosnc.gov/manual/register_a_foreign_business/expedited",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page. Expedited review is available at the fees shown below."
+   },
+   "expedite": {
+    "value": {
+     "24_hour": 100,
+     "same_day": 200
+    },
+    "source_url": "https://www.sosnc.gov/manual/register_a_foreign_business/expedited",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "24-hour service $100 (request received 8:00 a.m. to 5:00 p.m.); same-day service $200 (must be received before 12 noon). Must be requested at the time of submission; nonrefundable once processed. This expedite page sits in the SOS filing manual's foreign-business section but describes SOS expedited service generally."
+   },
+   "state_tax_registration": {
+    "value": "Register with the NC Department of Revenue using Form NC-BR for sales and use tax and/or income tax withholding accounts; no fee is charged for the sales tax Certificate of Registration",
+    "source_url": "https://www.ncdor.gov/taxes-forms/sales-and-use-tax/sales-and-use-tax-frequently-asked-questions",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "NCDOR's Prepare to Register page (https://www.ncdor.gov/taxes-forms/business-registration/prepare-register-your-business) asks for the date wages will first be paid or sales will begin but states no filing deadline."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent who is a North Carolina resident individual or a qualifying business entity, with a registered office street address and county stated in the Articles",
+    "source_url": "https://www.sosnc.gov/webfiles/documents/forms/Business_Registration/limited_liability_companies/articles_of_organization.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Form L-01 (revised 8/2017); G.S. 57D-2-21(a)(3)."
+   },
+   "special_rules": [
+    "Annual report fee is $200 per year, due April 15.",
+    "Online annual report payments add a $3 card fee or $2 ACH fee."
+   ]
+  },
+  "ND": {
+   "name": "North Dakota",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "North Dakota Secretary of State, Business Services (FirstStop Portal)",
+    "source_url": "https://www.sos.nd.gov/business/business-services/register-business",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 135,
+    "source_url": "https://www.sos.nd.gov/business/business-services/business-structures/limited-liability-company-llc",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Registration (domestic and foreign) - $135' for a business LLC (farm, ranch and assisted-living LLC types have different fees). Filed through the FirstStop Portal; no separate online fee is listed."
+   },
+   "name_reservation_fee": {
+    "value": null,
+    "source_url": "https://www.sos.nd.gov/business/business-services/business-structures/limited-liability-company-llc",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "annual_report_fee": {
+    "value": 50,
+    "source_url": "https://www.sos.nd.gov/news/secretary-state-warns-misleading-annual-report-letters-third-parties",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'$50 for limited liability companies (LLCs)'; also listed on the LLC structure page. A late filing fee applies (amount not stated on the pages checked)."
+   },
+   "annual_report_due": {
+    "value": "November 15 each year; reports must be received on or before the deadline",
+    "source_url": "https://www.sos.nd.gov/business/business-services/maintain-registration",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "A past-due report not filed within one year leads to involuntary dissolution."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sos.nd.gov/business/business-services/register-business",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "state_tax_registration": {
+    "value": null,
+    "source_url": "https://www.sos.nd.gov/business/business-services/register-business",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "registered_agent": {
+    "value": "Required: a North Dakota registered agent with a physical address in North Dakota. May be a North Dakota resident individual, or a corporation or LLC registered with the Secretary of State with a North Dakota office; the LLC cannot be its own agent",
+    "source_url": "https://www.sos.nd.gov/business/business-services/registered-agents",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "special_rules": [
+    "Annual report is due November 15 and is filed through the FirstStop Portal."
+   ]
+  },
+  "OH": {
+   "name": "Ohio",
+   "formation_document": "Articles of Organization (Form 610)",
+   "office": {
+    "value": "Ohio Secretary of State (filed through Ohio Business Central)",
+    "source_url": "https://www.ohiosos.gov/businesses/filing-forms--fee-schedule/",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 99,
+    "source_url": "https://www.ohiosos.gov/businesses/filing-forms--fee-schedule/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Form 610, revised 09/25 (replaces Form 533A). The fee table shows one fee and does not list a separate online fee."
+   },
+   "name_reservation_fee": {
+    "value": null,
+    "source_url": "https://www.ohiosos.gov/businesses/filing-forms--fee-schedule/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "The fee table lists Form 534B (revised 06/25) as '$39.00/$25.00' without explaining the two amounts, so a single figure is not confirmed."
+   },
+   "annual_report_fee": {
+    "value": null,
+    "source_url": "https://www.ohiosos.gov/business/ohio-business-roadmap/frequently-asked-questions",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Not applicable: SOS FAQ says 'Regular reporting requirements exist only for certain entities' (professional associations and LLPs, nonprofits, trade names); LLCs are not listed."
+   },
+   "annual_report_due": {
+    "value": "None. Ohio LLCs have no annual or biennial report",
+    "source_url": "https://www.ohiosos.gov/business/ohio-business-roadmap/frequently-asked-questions",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.ohiosos.gov/business/ohio-business-roadmap/frequently-asked-questions",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "No timeframe published. SOS says regular filings are processed in the order received; expedited filings carry a guaranteed processing time and an additional fee (amounts not listed on the pages checked)."
+   },
+   "state_tax_registration": {
+    "value": "Register with the Ohio Department of Taxation: sales and use tax and employer withholding through OH|TAX eServices; Commercial Activity Tax through the Ohio Business Gateway",
+    "source_url": "https://tax.ohio.gov/business/register-for-taxes/business-registration",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "The registration page is dated March 31, 2020 and states no deadline or fee; paper applications may take up to six weeks."
+   },
+   "registered_agent": {
+    "value": "Required: every business entity must appoint and maintain a statutory agent with an Ohio street address (no P.O. box and no private mailbox/CMRA address)",
+    "source_url": "https://www.ohiosos.gov/business/ohio-business-roadmap/frequently-asked-questions",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "special_rules": [
+    "No annual report for LLCs.",
+    "Commercial Activity Tax (CAT): businesses with more than $6 million in Ohio taxable gross receipts owe the CAT (exclusion is $6 million for tax years 2025 and forward); register within 30 days of exceeding the threshold; returns are quarterly; the annual minimum tax no longer applies starting in 2024."
+   ],
+   "special_rules_source": "https://tax.ohio.gov/business/commercial-activity-tax"
+  },
+  "OK": {
+   "name": "Oklahoma",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Oklahoma Secretary of State",
+    "source_url": "https://www.sos.ok.gov/business/fees.aspx",
+    "checked": "2026-10-20T21:10-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://www.sos.ok.gov/business/fees.aspx",
+    "checked": "2026-10-20T21:10-04:00",
+    "note": "Articles of Organization - Oklahoma LLC, 18 OS 2055. Card payments add a fee."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://www.sos.ok.gov/business/fees.aspx",
+    "checked": "2026-10-20T21:10-04:00"
+   },
+   "annual_report_fee": {
+    "value": 25,
+    "source_url": "https://www.sos.ok.gov/business/fees.aspx",
+    "checked": "2026-10-20T21:10-04:00",
+    "note": "Annual Certificate - Oklahoma/Foreign LLC, 18 OS 2055.2."
+   },
+   "annual_report_due": {
+    "value": null,
+    "source_url": "https://www.sos.ok.gov/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sos.ok.gov/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "state_tax_registration": {
+    "value": "Register with the Oklahoma Tax Commission by completing its business registration application in OkTAP for the permits and accounts you need (for example sales tax permit or withholding)",
+    "source_url": "https://oklahoma.gov/tax/businesses/new-business-center.html",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "The page states no deadline or fee."
+   },
+   "registered_agent": {
+    "value": null,
+    "source_url": "https://www.sos.ok.gov/",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "not confirmed on an official page."
+   },
+   "special_rules": []
+  },
+  "OR": {
+   "name": "Oregon",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Oregon Secretary of State, Corporation Division (Business Registry)",
+    "source_url": "https://sos.oregon.gov/business/register/Pages/default.aspx",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://sos.oregon.gov/business/Documents/business-registry-forms/br-fee-schedule.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "'Articles of Organization $100.00' on the Business Registry Fee Schedule. The schedule carries the version line '(07/13)' and does not list a separate online fee; fees must be paid in advance and are nonrefundable."
+   },
+   "name_reservation_fee": {
+    "value": null,
+    "source_url": "https://sos.oregon.gov/business/Documents/business-registry-forms/br-fee-schedule.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "The fee schedule's text layout is jumbled and the pairing of the name reservation fee is not clear, so a figure is not confirmed."
+   },
+   "annual_report_fee": {
+    "value": 100,
+    "source_url": "https://sos.oregon.gov/business/Documents/business-registry-forms/br-fee-schedule.pdf",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Listed as 'Renewal (Annually) $100.00' under Domestic LLC. Amendment to an annual report is $0.00."
+   },
+   "annual_report_due": {
+    "value": "Annually by the renewal due date shown for each LLC; SOS mails renewal notices about 45 days before the due date",
+    "source_url": "https://sos.oregon.gov/business/register/Pages/renewal-help.aspx",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "The SOS renewal pages do not state the date itself (ORS ties it to the anniversary of the LLC's registration). Failure to deliver the annual report when due is a ground for administrative dissolution (ORS 63.647)."
+   },
+   "processing_online": {
+    "value": "1-3 business days (online business registry filings, as posted Oct 19-20, 2026)",
+    "source_url": "https://sos.oregon.gov/business/register/Pages/default.aspx",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "Mail/fax filings were being processed as of 10/13/2026 on the same page."
+   },
+   "state_tax_registration": {
+    "value": "Register with the Oregon Department of Revenue ('Register my business with Oregon tax programs'); payroll account registration is separate",
+    "source_url": "https://www.oregon.gov/dor/programs/businesses/pages/default.aspx",
+    "checked": "2026-10-20T20:54-04:00",
+    "note": "The page states no deadline or fee."
+   },
+   "registered_agent": {
+    "value": "Required: all business entities must appoint and maintain a registered agent with a physical street address in Oregon",
+    "source_url": "https://sos.oregon.gov/business/register/Pages/domestic-limited-liability-companies-forms.aspx",
+    "checked": "2026-10-20T20:54-04:00"
+   },
+   "special_rules": [
+    "Corporate Activity Tax (CAT): applies to Oregon commercial activity over $1 million; a business must register within 30 days of reaching $750,000 in Oregon commercial activity for the year; tax is $250 plus 0.57% of commercial activity over $1 million.",
+    "Online and renewal filing is through the Oregon Business Registry."
+   ],
+   "special_rules_source": "https://www.oregon.gov/dor/programs/businesses/pages/corporate-activity-tax.aspx"
+  },
+  "PA": {
+   "name": "Pennsylvania",
+   "formation_document": "Certificate of Organization (Domestic Limited Liability Company, DSCB:15-8821) with a Docketing Statement (DSCB:15-134A)",
+   "office": {
+    "value": "Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations",
+    "source_url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/programs/business/forms/offsite-forms/15-8821-Cert-of-Org-Dom-LLC.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 125,
+    "source_url": "https://www.pa.gov/agencies/dos/programs/business/fees-and-payments",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The fee page lists one Certificate of Organization fee and does not split online from mail; the form says it may be filed online at corporations.pa.gov. The Docketing Statement has no fee. Veteran- and reservist-owned small businesses can request an exemption."
+   },
+   "name_reservation_fee": {
+    "value": 70,
+    "source_url": "https://www.pa.gov/agencies/dos/programs/business/fees-and-payments",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Listed as 'Name Reservation/Registration'. A 3-name availability check is $15."
+   },
+   "annual_report_fee": {
+    "value": 7,
+    "source_url": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Pennsylvania annual report (new since 2025). $7 for for-profit LLCs; $0 if the LLC has a not-for-profit purpose."
+   },
+   "annual_report_due": {
+    "value": "Every year from January 1 through September 30; a new LLC's first report is due the year after it forms",
+    "source_url": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_penalty": {
+    "value": "Administrative dissolution and loss of name protection if not filed; for reports due in 2027 and later, dissolution occurs six months after the due date. Reinstatement is $35 online plus $15 per missing report",
+    "source_url": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": "The state says to allow 15 business days; it does not give a separate online or mail time",
+    "source_url": "https://www.pa.gov/agencies/dos/resources/business-resources/frequently-asked-questions",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Current processing times are posted at file.dos.pa.gov. Filings are handled in the order received."
+   },
+   "expedite": {
+    "value": {
+     "same_day_before_10am": 100,
+     "three_hour_before_2pm": 300,
+     "one_hour_before_4pm": 1000
+    },
+    "source_url": "https://www.pa.gov/agencies/dos/programs/business/fees-and-payments",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "In addition to the filing fee. Expedited requests are accepted online only, not by mail."
+   },
+   "state_tax_registration": {
+    "value": "Register for state business taxes (sales, use and hotel occupancy tax license; employer withholding) through myPATH using Pennsylvania Online Business Tax Registration",
+    "source_url": "https://www.pa.gov/services/revenue/register-my-business-for-taxes",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no fee and no general registration deadline."
+   },
+   "registered_agent": {
+    "value": "Pennsylvania has no registered agent. The LLC must list a registered office with a Pennsylvania street address (a P.O. box alone is not acceptable) or use a Commercial Registered Office Provider",
+    "source_url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/programs/business/forms/offsite-forms/15-8821-Cert-of-Org-Dom-LLC.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Annual report requirement began January 1, 2025; $7 a year",
+    "Registered office (or a commercial registered office provider) instead of a registered agent",
+    "Docketing Statement must accompany the Certificate of Organization"
+   ],
+   "special_rules_sources": [
+    "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
+    "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/programs/business/forms/offsite-forms/15-8821-Cert-of-Org-Dom-LLC.pdf",
+    "https://www.pa.gov/agencies/dos/resources/business-resources/frequently-asked-questions"
+   ]
+  },
+  "RI": {
+   "name": "Rhode Island",
+   "formation_document": "Articles of Organization (Domestic Limited Liability Company)",
+   "office": {
+    "value": "Rhode Island Department of State, Business Services Division",
+    "source_url": "https://docs.sos.ri.gov/documents/BusinessServices/LLCArticlesOfOrganizationFilingGuide.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 150,
+    "source_url": "https://www.sos.ri.gov/divisions/business-services/business-basics/costs-and-fees",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "State lists $150 for LLC articles of organization; the start-your-business page says $150 for online or paper."
+   },
+   "name_reservation_fee": {
+    "value": 50,
+    "source_url": "https://docs.sos.ri.gov/documents/BusinessServices/LLCArticlesOfOrganizationFilingGuide.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Reservation of Entity Name holds the name for 120 days."
+   },
+   "annual_report_fee": {
+    "value": 50,
+    "source_url": "https://docs.sos.ri.gov/documents/BusinessServices/LLCArticlesOfOrganizationFilingGuide.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Rhode Island LLC annual report, $50 filed with the Department of State. Separate from the $400 minimum annual tax owed to the Division of Taxation."
+   },
+   "annual_report_due": {
+    "value": "Every year between February 1 and May 1",
+    "source_url": "https://docs.sos.ri.gov/documents/BusinessServices/LLCArticlesOfOrganizationFilingGuide.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": "1 to 3 business days",
+    "source_url": "https://www.sos.ri.gov/divisions/business-services/ri-business/start-your-rhode-island-business",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The LLC filing guide says the Department processes all filings within two business days."
+   },
+   "state_tax_registration": {
+    "value": "Register with the RI Division of Taxation. With employees or retail sales, complete the Business Application and Registration (BAR) form online for sales permit, withholding and unemployment accounts",
+    "source_url": "https://www.ri.gov/taxation/BAR/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "BAR covers a permit to make sales at retail, income tax withholding, and unemployment insurance. The pages list no registration deadline and no fee (except cigarette dealer licenses)."
+   },
+   "registered_agent": {
+    "value": "Required (called a Resident Agent): a Rhode Island resident or an entity qualified to do business in Rhode Island, with a Rhode Island street address (Resident Office) staffed 9:00 a.m. to 5:00 p.m.; P.O. boxes, shipping/postal addresses and virtual business addresses are not allowed",
+    "source_url": "https://www.sos.ri.gov/divisions/business-services/ri-business/start-your-rhode-island-business",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Updating the agent's name costs $20; updating the Resident Office address is free (LLC filing guide)."
+   },
+   "special_rules": [
+    "Minimum annual tax of $400 owed to the RI Division of Taxation each year, not pro-rated, even if no business is done or no profit is made",
+    "Resident Office cannot be a P.O. box or virtual address"
+   ],
+   "special_rules_sources": [
+    "https://www.sos.ri.gov/divisions/business-services/business-basics/costs-and-fees",
+    "https://www.sos.ri.gov/divisions/business-services/ri-business/start-your-rhode-island-business",
+    "https://docs.sos.ri.gov/documents/BusinessServices/LLCArticlesOfOrganizationFilingGuide.pdf"
+   ]
+  },
+  "SC": {
+   "name": "South Carolina",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "South Carolina Secretary of State (Business Entities Online)",
+    "source_url": "https://sos.sc.gov/online-filings/business-entities",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 110,
+    "source_url": "https://businessfilings.sc.gov/BusinessFiling/Home/DownloadForms?pdfCategoryId=1&category=Starting+a+Business+in+South+Carolina",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Fee shown beside Articles of Organization on the state's forms page, which lists no separate paper surcharge. A 2020 receipt on the same portal showed an extra $15 'Electronic Records Access' line on a filing, so confirm the checkout total."
+   },
+   "annual_report_fee": {
+    "value": null,
+    "source_url": "https://dor.sc.gov/business-income-taxes/corporate/corporate-faqs",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "South Carolina has no Secretary of State annual report for an LLC. SCDOR says an LLC not taxed as a corporation is not subject to the annual report or License Fee. An LLC taxed as a corporation files a CL-1 annual report with SCDOR (License Fee: 0.1% of capital stock and paid-in surplus plus $15, minimum $25)."
+   },
+   "annual_report_due": {
+    "value": "None for an LLC not taxed as a corporation. An LLC taxed as a corporation files its first CL-1 within 60 days of commencing business in South Carolina",
+    "source_url": "https://dor.sc.gov/business-income-taxes/corporate/corporate-faqs",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://businessfilings.sc.gov/BusinessFiling/Home/DownloadForms?pdfCategoryId=1&category=Starting+a+Business+in+South+Carolina",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state says online filing provides faster processing but does not publish a processing time."
+   },
+   "state_tax_registration": {
+    "value": "Retail License ($50 non-refundable fee) before making taxable retail sales; Withholding account if you have employees working in SC; apply through the MyDORWAY Business Tax Application",
+    "source_url": "https://dor.sc.gov/businesses/apply-business-tax-account/licensing-retail-license",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "SCDOR asks that you allow up to 5 business days for processing. Entity registration with the Secretary of State is a separate step. No registration deadline is published."
+   },
+   "registered_agent": {
+    "value": "Required: the articles must name an initial agent for service of process, who signs the form, with a street address in South Carolina",
+    "source_url": "https://businessfilings.sc.gov/BusinessFiling/Entity/DownloadForm?formName=F0006&entityType=2&filingType=Articles+of+Organization",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "No annual report for an LLC not taxed as a corporation",
+    "LLC taxed as a corporation files SC1120 or SC1120S and a CL-1 annual report with SCDOR",
+    "Business Personal Property account may be needed depending on location and NAICS code"
+   ],
+   "special_rules_sources": [
+    "https://dor.sc.gov/business-income-taxes/corporate/corporate-faqs",
+    "https://dor.sc.gov/businesses/apply-business-tax-account"
+   ]
+  },
+  "SD": {
+   "name": "South Dakota",
+   "formation_document": "Articles of Organization (Domestic LLC)",
+   "office": {
+    "value": "South Dakota Secretary of State, Business Services",
+    "source_url": "https://sdsos.gov/general-information/filing-fees.aspx",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 150,
+    "source_url": "https://sdsos.gov/general-information/filing-fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Online fee. Paper filing is $165 (includes a $15 paper filing fee), confirmed on the paper Articles form. The fee page header reads 'effective July 1, 2016'."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://sdsos.gov/general-information/filing-fees.aspx",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_fee": {
+    "value": 55,
+    "source_url": "https://sdsos.gov/general-information/filing-fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "South Dakota LLC annual report: $55 online, $70 on paper (the 2025 paper form shows $70)."
+   },
+   "annual_report_due": {
+    "value": "Every year on the 1st day of the anniversary month of the initial filing",
+    "source_url": "https://sdsos.gov/Division%20of%20Business%20Services/FAQs/default.aspx",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_penalty": {
+    "value": "$55 late fee for reports filed after the delinquency date, which is two months after the due date",
+    "source_url": "https://sdsos.gov/Division%20of%20Business%20Services/FAQs/default.aspx",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": "Online filings are processed immediately",
+    "source_url": "https://sdsos.gov/Division%20of%20Business%20Services/FAQs/default.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Paper filings average 1 to 3 business days."
+   },
+   "expedite": {
+    "value": 50,
+    "source_url": "https://sdsos.gov/general-information/filing-fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Flat $50 for 'completion sooner than the normal course of business upon request'."
+   },
+   "state_tax_registration": {
+    "value": "Sales tax license from the SD Department of Revenue for any business with a physical presence in South Dakota, or remote sellers with more than $100,000 of gross sales into the state in the current or prior calendar year; apply with the online Tax License Application",
+    "source_url": "https://dor.sd.gov/businesses/taxes/sales-use-tax/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no license fee and no deadline."
+   },
+   "registered_agent": {
+    "value": "Required: a South Dakota resident with both a physical and a mailing address in South Dakota, either a noncommercial agent (can be an individual) or a commercial registered agent (list its CRA number)",
+    "source_url": "https://sdsos.gov/Division%20of%20Business%20Services/FAQs/default.aspx",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Paper filings cost $15 more than online for both the Articles and the annual report",
+    "Annual report is required of LLCs and goes delinquent two months after the due date"
+   ],
+   "special_rules_sources": [
+    "https://sdsos.gov/general-information/filing-fees.aspx",
+    "https://sdsos.gov/Division%20of%20Business%20Services/FAQs/default.aspx",
+    "https://sdsos.gov/docs/business/llc-domestic-articlesoforganization.pdf",
+    "https://sdsos.gov/docs/business/domesticllcannualreport20250701.pdf"
+   ]
+  },
+  "TN": {
+   "name": "Tennessee",
+   "formation_document": "Articles of Organization (Form SS-4270)",
+   "office": {
+    "value": "Tennessee Secretary of State, Division of Business Services",
+    "source_url": "https://sos.tn.gov/businesses/faqs",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 300,
+    "source_url": "https://sos-tn-gov-files.tnsosfiles.com/forms/ss-4270.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Formula: $50 per member in existence on the filing date, minimum $300 and maximum $3,000 (so $300 for 1 to 6 members). Flat $300 if the articles prohibit doing business in Tennessee. The form shown is revision 07/14 and the fee page was not readable, so recheck the online total. Online card payments add a convenience fee."
+   },
+   "annual_report_fee": {
+    "value": 300,
+    "source_url": "https://sos.tn.gov/businesses/faqs",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Tennessee LLC annual report minimum. The fee is $300 minimum, plus $50 per member over 6 members, up to a maximum of $3,000."
+   },
+   "annual_report_due": {
+    "value": "On or before the first day of the fourth month after the close of the LLC's fiscal year (April 1 for a calendar-year LLC)",
+    "source_url": "https://sos-tn-gov-files.tnsosfiles.com/forms/ss-4270.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The form cites T.C.A. § 48-249-1017."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://sos.tn.gov/charities/pages/how-to-use-the-charity-business-filing-system",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Not confirmed on an official page. The state says filed documents are delivered the same day they are processed but gives no processing time."
+   },
+   "state_tax_registration": {
+    "value": "LLCs chartered, qualified or registered in Tennessee must register with the Department of Revenue for franchise and excise tax",
+    "source_url": "https://www.tn.gov/revenue/taxes/franchise---excise-tax.html",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "No registration deadline or fee is stated on the page."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent and office in Tennessee must be maintained at all times; the address must be a Tennessee street address (no P.O. box) that the Postal Service recognizes as deliverable",
+    "source_url": "https://sos-tn-gov-files.tnsosfiles.com/forms/ss-4270.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The Secretary of State FAQ also states the always-maintained agent requirement."
+   },
+   "special_rules": [
+    "Franchise and excise tax applies to LLCs: excise tax 6.5% of Tennessee taxable income",
+    "Franchise tax 0.25% of Tennessee net worth; minimum franchise tax $100 even if inactive",
+    "Annual tax return due the 15th day of the fourth month after year-end (April 15 for calendar-year filers)",
+    "Formation fee scales with members: $50 per member, $300 minimum, $3,000 maximum"
+   ],
+   "special_rules_sources": [
+    "https://www.tn.gov/revenue/taxes/franchise---excise-tax.html",
+    "https://www.tn.gov/revenue/taxes/franchise---excise-tax/due-dates-and-tax-rates.html",
+    "https://sos-tn-gov-files.tnsosfiles.com/forms/ss-4270.pdf"
+   ]
+  },
+  "TX": {
+   "name": "Texas",
+   "formation_document": "Certificate of Formation, Limited Liability Company (Form 205)",
+   "office": {
+    "value": "Texas Secretary of State",
+    "source_url": "https://www.sos.texas.gov/corp/forms_boc.shtml",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 300,
+    "source_url": "https://www.sos.texas.gov/corp/forms/806_boc.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Form 806 fee schedule (revised 09/26) and the Form 205 instructions both list $300. File through SOSPortal (card payments add $0.25 plus 2.25% of the fees; ACH has no convenience fee). Mail and in-person filings pay by check or money order."
+   },
+   "name_reservation_fee": {
+    "value": 40,
+    "source_url": "https://www.sos.texas.gov/corp/forms/806_boc.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Name reservation (120 days) or renewal, Form 501."
+   },
+   "amendment_fee": {
+    "value": 150,
+    "source_url": "https://www.sos.texas.gov/corp/forms/806_boc.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Certificate of amendment, Form 424."
+   },
+   "annual_report_fee": {
+    "value": null,
+    "source_url": "https://comptroller.texas.gov/taxes/franchise/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Texas has no Secretary of State annual report fee for an LLC and no filing fee for the Comptroller's franchise tax report. Annual obligation is the franchise tax report plus the Public Information Report (PIR) filed with the Comptroller; tax is owed only above the no-tax-due threshold."
+   },
+   "annual_report_due": {
+    "value": "Franchise tax report and Public Information Report due May 15 each year (next business day if it falls on a weekend or holiday); a new entity's first report is due May 15 of the year after it became subject to the tax",
+    "source_url": "https://comptroller.texas.gov/taxes/franchise/faq/reports-payments.php",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Due-date rule from the Comptroller franchise tax page; first-report rule from the Comptroller franchise tax FAQ."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sos.texas.gov/corp/instructions/205.shtml",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state does not publish a standard processing time. It says to submit through SOSPortal for faster processing; see expedite for paid options."
+   },
+   "expedite": {
+    "value": {
+     "standard_expedite": 50,
+     "next_business_day": 500,
+     "same_day": 750
+    },
+    "source_url": "https://www.sos.texas.gov/corp/forms/806_boc.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Per document, in addition to the filing fee. Same-day and next-day filings must be received by 12:00 p.m. (Texas Express page); standard expedite is typically 2 to 3 business days."
+   },
+   "state_tax_registration": {
+    "value": "Sales and use tax permit from the Comptroller if you sell or lease taxable goods or services in Texas (the Comptroller says to allow 2 to 3 weeks); franchise tax reporting is separate",
+    "source_url": "https://comptroller.texas.gov/taxes/permit/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page lists no fee and does not say whether to apply before making sales."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent with written or electronic consent and a registered office at a street address where service can be personally served; the LLC cannot be its own agent and the office cannot be solely a mailbox or telephone answering service",
+    "source_url": "https://www.sos.texas.gov/corp/instructions/205.shtml",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Franchise tax: no-tax-due threshold is $2,650,000 of annualized total revenue for the 2026 and 2027 report years",
+    "Franchise tax rates: 0.75%, or 0.375% for retail or wholesale",
+    "Entities at or below the threshold file no No Tax Due Report but must file a Public Information Report (05-102) or Ownership Information Report (05-167)",
+    "Annual report/PIR goes to the Comptroller, not the Secretary of State"
+   ],
+   "special_rules_sources": [
+    "https://comptroller.texas.gov/taxes/franchise/",
+    "https://comptroller.texas.gov/taxes/franchise/ntd-rpt-updates-2024.php",
+    "https://comptroller.texas.gov/taxes/franchise/faq/reports-payments.php"
+   ]
+  },
+  "UT": {
+   "name": "Utah",
+   "formation_document": "Certificate of Organization",
+   "office": {
+    "value": "Utah Department of Commerce, Division of Corporations and Commercial Code",
+    "source_url": "https://commerce.utah.gov/corporations/business-entities/considerations-in-forming-a-limited-liability-company/",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 59,
+    "source_url": "https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Domestic LLC certificate of organization. The published schedule is Fiscal Year 2026, effective July 1, 2025; the Commerce LLC page also shows $59. A FY2027 fee hearing was held July 27, 2026 and a FY2027 schedule was not found, so recheck. File online at businessregistration.utah.gov with a UtahID."
+   },
+   "name_reservation_fee": {
+    "value": 22,
+    "source_url": "https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "FY2026 schedule."
+   },
+   "amendment_fee": {
+    "value": 17,
+    "source_url": "https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "FY2026 schedule, domestic and foreign entities."
+   },
+   "annual_report_fee": {
+    "value": 18,
+    "source_url": "https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Utah calls it the annual renewal. The $18 includes a $5 charge for the state's single sign-on portal (FY2026 schedule)."
+   },
+   "annual_report_due": {
+    "value": "One year from the date of registration, and annually thereafter",
+    "source_url": "https://commerce.utah.gov/corporations/faqs/how-to-renew-a-business/",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://commerce.utah.gov/corporations/business-entities/considerations-in-forming-a-limited-liability-company/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Not confirmed on an official page; the state does not publish a processing time."
+   },
+   "expedite": {
+    "value": 75,
+    "source_url": "https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Expedited processing fee per filing (FY2026 schedule)."
+   },
+   "state_tax_registration": {
+    "value": "Utah Sales Tax License from the State Tax Commission for sellers with physical or economic presence in Utah; apply online at tap.utah.gov (Apply for a tax account, TC-69)",
+    "source_url": "https://tax.utah.gov/forms-pubs/pub-25/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The page states no license fee and no deadline relative to starting business."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent with a Utah street address",
+    "source_url": "https://commerce.utah.gov/corporations/business-entities/considerations-in-forming-a-limited-liability-company/",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Annual renewal must list at least one manager, member or other governing person",
+    "Fees are set by fiscal year and can change each July 1"
+   ],
+   "special_rules_sources": [
+    "https://commerce.utah.gov/corporations/business-entities/considerations-in-forming-a-limited-liability-company/",
+    "https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf"
+   ]
+  },
+  "VT": {
+   "name": "Vermont",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Vermont Secretary of State, Business Services Division",
+    "source_url": "https://sos.vermont.gov/business-services/business-filings/domestic-formation/llc",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 155,
+    "source_url": "https://sos.vermont.gov/business-services/fees-statutes",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Domestic LLC articles of organization. The state says there is no extra fee for online filing."
+   },
+   "name_reservation_fee": {
+    "value": 25,
+    "source_url": "https://sos.vermont.gov/business-services/fees-statutes",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Application for Reserved Name; renewal is also $25."
+   },
+   "amendment_fee": {
+    "value": 35,
+    "source_url": "https://sos.vermont.gov/business-services/fees-statutes",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Articles of Amendment."
+   },
+   "annual_report_fee": {
+    "value": 45,
+    "source_url": "https://sos.vermont.gov/business-services/fees-statutes",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Vermont LLC annual report. LLCs file annually to maintain legal existence."
+   },
+   "annual_report_due": {
+    "value": "Within three months after the end of the LLC's fiscal year on record",
+    "source_url": "http://legislature.vermont.gov/statutes/section/11/025/04033",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Statute 11 V.S.A. § 4033(c); the Secretary of State annual report page says the same."
+   },
+   "processing_online": {
+    "value": "Normally less than 1 business day",
+    "source_url": "https://sos.vermont.gov/business-services/business-filings/domestic-formation/llc",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Mailed filings take 7 to 10 business days."
+   },
+   "state_tax_registration": {
+    "value": null,
+    "source_url": "https://tax.vermont.gov/business",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Not confirmed on an official page."
+   },
+   "registered_agent": {
+    "value": "Required: the LLC must designate and continuously maintain a designated office (it need not be in Vermont) and an agent for service of process under 11 V.S.A. § 1655",
+    "source_url": "http://legislature.vermont.gov/statutes/section/11/025/04007",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Agent qualifications and address rules are in § 1655, which was not read, so they are not stated here."
+   },
+   "special_rules": [
+    "Annual report required every year; fee $45",
+    "Online filing is the state's preferred method with no extra fee"
+   ],
+   "special_rules_sources": [
+    "https://sos.vermont.gov/business-services/business-filings/domestic-formation/llc",
+    "https://sos.vermont.gov/business-services/fees-statutes"
+   ]
+  },
+  "VA": {
+   "name": "Virginia",
+   "formation_document": "Articles of Organization (Form LLC-1011)",
+   "office": {
+    "value": "Virginia State Corporation Commission, Clerk's Office",
+    "source_url": "https://scc.virginia.gov/pages/New-Virginia-Entity-Fees",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://scc.virginia.gov/pages/New-Virginia-Entity-Fees",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Same fee to file online or on Form LLC-1011. Statutory fee under Va. Code § 13.1-1005."
+   },
+   "name_reservation_fee": {
+    "value": 10,
+    "source_url": "https://law.lis.virginia.gov/vacode/title13.1/chapter12/section13.1-1005/",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Va. Code § 13.1-1005: application to reserve or renew a name."
+   },
+   "annual_report_fee": {
+    "value": 50,
+    "source_url": "https://scc.virginia.gov/pages/Annual-Registration-Fees",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Virginia LLC annual registration fee (the SCC does not call it an annual report fee). Paid to the SCC."
+   },
+   "annual_report_due": {
+    "value": "By the last day of the month in which the LLC was organized or registered, every year",
+    "source_url": "https://scc.virginia.gov/pages/Annual-Registration-Fees",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_penalty": {
+    "value": "$25 penalty if the registration fee is late for an LLC",
+    "source_url": "https://scc.virginia.gov/pages/Annual-Registration-Fees",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://scc.virginia.gov/pages/LLC-FAQs",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Not confirmed on an official page. The SCC says an online filing with no attachment gets a receipt and an acceptance email after checkout; filings with restricted words or attachments get a staff review first."
+   },
+   "state_tax_registration": {
+    "value": "All new businesses register with Virginia Tax online (required since July 1, 2024); register for Retail Sales and Use Tax as an in-state dealer and Employer Withholding as needed",
+    "source_url": "https://www.tax.virginia.gov/online-registration-faqs",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Form R-1 by mail only if you cannot register online. The pages list no fee and no deadline."
+   },
+   "registered_agent": {
+    "value": "Required: a registered office in Virginia (may be a place of business) and a registered agent, who is a Virginia-resident individual (such as a member, manager, officer or Virginia State Bar member) or a business entity authorized in Virginia, with a business office identical to the registered office",
+    "source_url": "https://law.lis.virginia.gov/vacode/title13.1/chapter12/section13.1-1015/",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Annual registration fee of $50 is due every year by the last day of the formation month; $25 late penalty",
+    "Name with restricted words, or an attachment, triggers SCC review before acceptance"
+   ],
+   "special_rules_sources": [
+    "https://scc.virginia.gov/pages/Annual-Registration-Fees",
+    "https://scc.virginia.gov/pages/LLC-FAQs"
+   ]
+  },
+  "WA": {
+   "name": "Washington",
+   "formation_document": "Certificate of Formation (LLC)",
+   "office": {
+    "value": "Washington Secretary of State, Corporations and Charities Filing System",
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 180,
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "State filing fee. Online filing adds an online processing fee whose amount the state page does not state."
+   },
+   "name_reservation_fee": {
+    "value": 30,
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Reserves the name for 180 days."
+   },
+   "amendment_fee": {
+    "value": 30,
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_fee": {
+    "value": 70,
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/online-filing-instructions/file-annual-report-multiple-entity-types-online",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Washington annual report; the fee shown includes the online processing fee. Washington also requires a business license through the Department of Revenue."
+   },
+   "annual_report_due": {
+    "value": "By the LLC's expiration date, the last day of the month it was formed; can be filed up to 180 days early",
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/online-filing-instructions/file-annual-report-multiple-entity-types-online",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_penalty": {
+    "value": "$25 delinquency fee when status is Delinquent; reinstating a dissolved domestic LLC costs a $140 penalty plus annual report fees for each missed year",
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/online-filing-instructions/start-domestic-wa-limited-liability-company-llc-online",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The state publishes no standard processing time. Expedited filings are generally processed within three working days."
+   },
+   "expedite": {
+    "value": {
+     "expedited": 100,
+     "same_day_front_counter": 150
+    },
+    "source_url": "https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/fee-schedules-priority-services",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Per business entity, in addition to regular fees. Expediting by mail costs an additional $100 per entity."
+   },
+   "state_tax_registration": {
+    "value": "Business license through the Department of Revenue's Business Licensing Service is required if you hire employees within 90 days, collect sales tax, or have gross income of $12,000 a year or more; online applications take about 10 business days",
+    "source_url": "https://dor.wa.gov/open-business/apply-business-license",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The license application fee varies; see the Department of Revenue instructions. Certain structures must file with the Secretary of State first."
+   },
+   "registered_agent": {
+    "value": "Required: all businesses must designate a registered agent in Washington (commercial or noncommercial) and give the agent's email address, per RCW 23.95.415",
+    "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/online-filing-instructions/start-domestic-wa-limited-liability-company-llc-online",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Business and Occupation (B&O) tax: a gross receipts tax with no deduction for expenses; rates vary by activity",
+    "B&O small business and multiple activities credits may reduce the tax",
+    "Initial Report (principal office and governors) due within 120 days of formation; no fee if filed with the Certificate of Formation, an added fee if filed later",
+    "Late annual report carries a $25 delinquency fee"
+   ],
+   "special_rules_sources": [
+    "https://dor.wa.gov/taxes-rates/business-occupation-tax",
+    "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
+    "https://www.sos.wa.gov/corporations-charities/business-entities/online-filing-instructions/file-annual-report-multiple-entity-types-online"
+   ]
+  },
+  "WV": {
+   "name": "West Virginia",
+   "formation_document": "Articles of Organization of Limited Liability Company (Form LLD-1)",
+   "office": {
+    "value": "West Virginia Secretary of State (filed through the One Stop Business Portal)",
+    "source_url": "https://sos.wv.gov/register-new-wv-business",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 101,
+    "source_url": "https://sos.wv.gov/register-new-wv-business",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "$100 registration fee plus a $1.00 online processing fee that applies to all online filings. Fee is waived for veteran-owned entities (LLD-1) and may be waived for WV-resident young entrepreneurs ages 18 to 29."
+   },
+   "name_reservation_fee": {
+    "value": 15,
+    "source_url": "https://sos.wv.gov/media/335/download?inline=",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "120-day name reservation. This fee schedule is dated 'Effective November 18, 2019'; no newer schedule found."
+   },
+   "amendment_fee": {
+    "value": 25,
+    "source_url": "https://sos.wv.gov/media/335/download?inline=",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Same 2019 fee schedule."
+   },
+   "annual_report_fee": {
+    "value": 26,
+    "source_url": "https://sos.wv.gov/limited-liability-companies",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "West Virginia annual report: $25 plus the $1.00 online processing fee. Waived for veteran-owned entities for four years after formation (Form LLD-1)."
+   },
+   "annual_report_due": {
+    "value": "Every year between January 1 and June 30, starting the year after the year the LLC was registered",
+    "source_url": "https://sos.wv.gov/business/updates-and-changes/annual-reports",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_penalty": {
+    "value": "Late annual report: $75 if received after June 30 (includes a $50 late fee); also risk of administrative dissolution or revocation",
+    "source_url": "https://sos.wv.gov/limited-liability-companies",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://business4.wv.gov/startmybusiness/pages/register-your-business.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Not confirmed on an official page; the state publishes no standard processing time."
+   },
+   "expedite": {
+    "value": {
+     "24_hour": 25,
+     "2_hour": 250,
+     "1_hour": 500
+    },
+    "source_url": "https://sos.wv.gov/media/335/download?inline=",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Additional to the filing fee, business filings only. From the fee schedule dated Nov 18, 2019; the One Stop portal page confirms 1-hour, 2-hour and 24-hour options for a fee but not the amounts."
+   },
+   "state_tax_registration": {
+    "value": "Business registration with the WV State Tax Department is required before commencing business activities, after Secretary of State approval; $30 business registration tax, and the Business Registration Certificate does not expire",
+    "source_url": "https://tax.wv.gov/Documents/Business/BusinessRegistrationInformationAndInstructions.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Operating without a required registration can bring penalties of up to $50 a month."
+   },
+   "registered_agent": {
+    "value": "Optional on the Articles ('if any'): the form says you may maintain an agent for service of process in West Virginia, who may be an individual resident, a corporation or another LLC",
+    "source_url": "https://sos.wv.gov/sites/default/files/2026-07/lld-1_0.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Separate WV State Tax Department business registration ($30) in addition to Secretary of State filing",
+    "Online filings carry a $1.00 processing fee",
+    "Veteran-owned entities: registration fee waived and annual report fee waived for four years"
+   ],
+   "special_rules_sources": [
+    "https://tax.wv.gov/Documents/Business/BusinessRegistrationInformationAndInstructions.pdf",
+    "https://sos.wv.gov/register-new-wv-business",
+    "https://sos.wv.gov/sites/default/files/2026-07/lld-1_0.pdf"
+   ]
+  },
+  "WI": {
+   "name": "Wisconsin",
+   "formation_document": "Articles of Organization (Form 502)",
+   "office": {
+    "value": "Wisconsin Department of Financial Institutions (DFI)",
+    "source_url": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/Fees.aspx",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 130,
+    "source_url": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/Fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Online filing. Paper filing is $170."
+   },
+   "amendment_fee": {
+    "value": 40,
+    "source_url": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/Fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Amendment or restatement."
+   },
+   "annual_report_fee": {
+    "value": 25,
+    "source_url": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/Fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Wisconsin LLC annual report: $25 online, $40 on paper."
+   },
+   "annual_report_due": {
+    "value": "During the calendar quarter of the LLC's registration anniversary: March 31, June 30, September 30 or December 31",
+    "source_url": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/FAQ.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Due-date table also on the DFI annual report instructions (CORP5i)."
+   },
+   "annual_report_penalty": {
+    "value": "Failure to file may result in administrative dissolution",
+    "source_url": "https://dfi.wi.gov/Documents/BusinessServices/BusinessEntities/Forms/CORP5i.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "The instructions state no late fee."
+   },
+   "processing_online": {
+    "value": null,
+    "source_url": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/FAQ.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Not confirmed on an official page; DFI gives no processing time. Online filers get an emailed confirmation."
+   },
+   "expedite": {
+    "value": {
+     "next_business_day": 100,
+     "in_person_within_4_hours": 250,
+     "in_person_within_1_hour": 500
+    },
+    "source_url": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/Fees.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Fees listed on the DFI fee page. The DFI FAQ says expedited requests are acted on by close of business the following business day."
+   },
+   "state_tax_registration": {
+    "value": "Business Tax Registration (BTR) with the Department of Revenue for seller's permits, employer withholding and similar accounts; initial BTR fee is $20 (covers two years), renewal $10",
+    "source_url": "https://www.revenue.wi.gov/Pages/FAQS/pcs-btr.aspx",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "No registration deadline is stated on the page. The online BTR application gives account numbers by email the same day."
+   },
+   "registered_agent": {
+    "value": "Required: a registered agent at a registered office in Wisconsin; the agent must be a Wisconsin resident, the LLC cannot be its own agent, and the office must be an actual street address (no mailbox, P.O. box or answering service)",
+    "source_url": "https://dfi.wi.gov/Documents/BusinessServices/BusinessEntities/Forms/CORP502.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Online formation costs $40 less than paper ($130 vs $170); annual report $15 less online ($25 vs $40)",
+    "Name must include 'limited liability company', 'limited company' or an abbreviation such as LLC"
+   ],
+   "special_rules_sources": [
+    "https://dfi.wi.gov/Documents/BusinessServices/BusinessEntities/Forms/CORP502.pdf",
+    "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/Fees.aspx",
+    "https://dfi.wi.gov/Documents/BusinessServices/BusinessEntities/Forms/CORP5i.pdf"
+   ]
+  },
+  "WY": {
+   "name": "Wyoming",
+   "formation_document": "Articles of Organization",
+   "office": {
+    "value": "Wyoming Secretary of State, Business Division",
+    "source_url": "https://sos.wyo.gov/business/docs/businessfees.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "filing_fee": {
+    "value": 100,
+    "source_url": "https://sos.wyo.gov/business/docs/businessfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Fee schedule effective July 1, 2026; the schedule shows one fee for articles of organization, marked as fileable electronically. Online filing adds a credit card processing fee of 2.4% of the filing fee, minimum $1 (about $2.40), per WyoBiz."
+   },
+   "amendment_fee": {
+    "value": 60,
+    "source_url": "https://sos.wyo.gov/business/docs/businessfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "'Amendment/Dissolution/Any Other Filing' for LLCs."
+   },
+   "annual_report_fee": {
+    "value": 60,
+    "source_url": "https://sos.wyo.gov/business/docs/businessfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Wyoming annual report license tax: the greater of $60 or two-tenths of one mill ($0.0002) per dollar of assets located and employed in Wyoming. $60 is the minimum; no separate LLC report fee or online fee is listed."
+   },
+   "annual_report_due": {
+    "value": "Every year on the 1st day of the LLC's anniversary month of formation (an LLC formed January 15 is due January 1)",
+    "source_url": "https://sos.wyo.gov/faqs.aspx?root=BUS",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "annual_report_penalty": {
+    "value": "No late fee is listed for LLCs on the fee schedule; reinstatement for tax is $100",
+    "source_url": "https://sos.wyo.gov/business/docs/businessfees.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "processing_online": {
+    "value": "Active immediately when filed online",
+    "source_url": "https://sos.wyo.gov/faqs.aspx?root=BUS",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Names beginning with the letter 'A' must be filed on paper for manual review (WyoBiz). Mailed out-of-state filings can take up to 15 business days."
+   },
+   "expedite": {
+    "value": {
+     "same_business_day": 1400,
+     "next_business_day": 700
+    },
+    "source_url": "https://sos.wyo.gov/business/docs/businessfees.pdf",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Expedited filing review; not all documents qualify."
+   },
+   "state_tax_registration": {
+    "value": "Sales tax license from the Excise Tax Division only if you sell taxable items and have physical presence or economic nexus in Wyoming; apply online through WYIFS (about two weeks)",
+    "source_url": "https://excise-tax-div.wyo.gov/general-administrative/excise-tax-faqs",
+    "checked": "2026-10-20T20:50-04:00",
+    "note": "Forming an LLC alone does not trigger the requirement. The page states no license fee and no deadline."
+   },
+   "registered_agent": {
+    "value": "Required: a Wyoming resident individual (18 or older) or a business entity authorized in Wyoming, with a physical Wyoming address (no P.O. box, drop box or mail forwarding); the agent signs a Consent to Appointment",
+    "source_url": "https://sos.wyo.gov/Business/Docs/HowToFindOrBecomeARegisteredAgent.pdf",
+    "checked": "2026-10-20T20:50-04:00"
+   },
+   "special_rules": [
+    "Annual report license tax is the greater of $60 or $0.0002 per dollar of Wyoming assets",
+    "Names beginning with 'A' must be filed on paper for manual review",
+    "Annual report due on the 1st day of the anniversary month, not a fixed calendar date"
+   ],
+   "special_rules_sources": [
+    "https://sos.wyo.gov/faqs.aspx?root=BUS",
+    "https://wyobiz.wyo.gov/Business/RegistrationInstr.aspx",
+    "https://sos.wyo.gov/business/docs/businessfees.pdf"
    ]
   }
  }

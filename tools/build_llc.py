@@ -96,8 +96,22 @@ def monthly_html():
 <p class="muted">On Formation or Business Setup? You can add monthly bookkeeping too; tick the box in the form below. Bookkeeping doesn't include tax returns, payroll or sales tax filings; we quote those separately.</p></div></div></section>'''
 
 
+import re as _re
+_INTERNAL = _re.compile(r"confirm|likely|this page|I used|older|could not|couldn't|blocked|third-party|unclear|conflict|not stated|page says|pages? (?:still|disagree)|from memory|fetch|portal before|quot", _re.I)
+
+
+def pubnote(t):
+    """Research notes in the data file are for us; show a note publicly only if it reads as a plain fact."""
+    return "" if (not t or _INTERNAL.search(t)) else t
+
+
+_MONTHS = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+
+
 def lc1(t):
-    return (t[:1].lower() + t[1:]) if t else ""
+    if not t or t.startswith(_MONTHS):
+        return t or ""
+    return t[:1].lower() + t[1:]
 
 
 def v(s, k):
@@ -112,15 +126,16 @@ def picker_data():
         pub = v(s, "publication")
         pubf = s.get("publication") if isinstance(s.get("publication"), dict) else {}
         out[code] = {
-            "name": s["name"], "fee": v(s, "filing_fee"),
+            "name": s["name"], "fee": v(s, "filing_fee"), "extra": v(s, "formation_extra") or 0,
+            "extra_note": (s.get("formation_extra") or {}).get("note", ""),
             "annual": v(s, "annual_report_fee"), "annual_due": v(s, "annual_report_due"),
             "annual_note": (s.get("annual_report_fee") or {}).get("note", ""),
             "biennial": v(s, "biennial_statement_fee"),
             "reg": v(s, "state_tax_registration"),
             "pub_fee": pub.get("certificate_of_publication_fee") if isinstance(pub, dict) else None,
-            "pub_note": (pubf.get("note") or (pub if isinstance(pub, str) else "")) if pub else "",
+            "pub_note": (pubnote(pubf.get("note") or (pub if isinstance(pub, str) else "")) or "see the state page for the steps.") if pub else "",
             "freq": v(s, "annual_report_frequency"),
-            "special": [x if isinstance(x, str) else (x.get("value") or "") for x in (s.get("special_rules") or [])][:3],
+            "special": [x for x in (x if isinstance(x, str) else (x.get("value") or "") for x in (s.get("special_rules") or [])) if x and not _INTERNAL.search(x)][:3],
             "url": f"/llc-formation/{code.lower()}/",
         }
     return out
@@ -190,12 +205,12 @@ def picker_js():
 (function(){var S=%s,st=document.getElementById('st'),$=function(i){return document.getElementById(i);};
 var m=function(n){return '$'+Number(n).toLocaleString('en-US');};
 function run(){var s=S[st.value],r=document.querySelector('input[name=pk]:checked'),p=r?+r.getAttribute('data-price'):0;
-$('c-h').textContent=s.name+' LLC';$('c-pk').textContent=m(p);$('c-fee').textContent=s.fee!=null?m(s.fee):'Varies';
-var tot=p+(s.fee||0)+(s.pub_fee||0);$('c-tot').textContent=m(tot)+(s.pub_fee?' +':'');
-var n=[];if(s.pub_fee)n.push('Includes the '+m(s.pub_fee)+' Certificate of Publication fee. Newspaper publication costs vary by county and are quoted at cost.');
+$('c-h').textContent=s.name+' LLC';$('c-pk').textContent=m(p);$('c-fee').textContent=s.fee!=null?m(s.fee+s.extra):'Confirmed at quote';
+var tot=p+(s.fee||0)+(s.extra||0)+(s.pub_fee||0);$('c-tot').textContent=m(tot)+(s.pub_fee||s.fee==null?' +':'');
+var n=[];if(s.fee==null)n.push('We confirm the current state filing fee before invoicing and add it at cost.');if(s.extra_note)n.push(s.extra_note);if(s.pub_fee)n.push('Includes the '+m(s.pub_fee)+' Certificate of Publication fee. Newspaper publication costs vary by county and are quoted at cost.');
 else if(s.pub_note)n.push('Publication required: '+s.pub_note);
 if(s.annual){var fq=String(s.freq||'').toLowerCase();var per=/bienn|two|2/.test(fq)?' every two years':(fq&&!/annual|year/.test(fq)?' ('+s.freq+')':' a year');
-n.push('Then '+m(s.annual)+per+' for the state report'+(s.annual_due?', due '+s.annual_due.charAt(0).toLowerCase()+s.annual_due.slice(1):'')+'.');}
+n.push('Then '+m(s.annual)+per+' to the state (annual report or tax)'+(s.annual_due?', due '+(/^(January|February|March|April|May|June|July|August|September|October|November|December)/.test(s.annual_due)?s.annual_due:s.annual_due.charAt(0).toLowerCase()+s.annual_due.slice(1)):'')+'.');}
 else if(s.annual===0)n.push('No state annual report fee.');
 (s.special||[]).forEach(function(t){if(t)n.push(t);});
 if(s.biennial)n.push('Then '+m(s.biennial)+' every two years for the biennial statement.');
@@ -349,10 +364,10 @@ def build_state(code):
     pub = v(s, "publication")
     rows = [("Formation document", esc(s.get("formation_document", ""))),
             ("Filing office", esc(v(s, "office") or "")),
-            ("State filing fee", f"${fee}" if fee is not None else "Varies"),
+            ("State filing fee", (f"${fee:,}" + (f" (plus ${v(s, 'formation_extra'):,} also due at formation: {esc((s.get('formation_extra') or {}).get('note', ''))})" if v(s, "formation_extra") else "")) if fee is not None else "Confirmed when we quote; the state fee is added at cost"),
             ("Name reservation (optional)", f"${v(s, 'name_reservation_fee')}" if v(s, "name_reservation_fee") is not None else "—")]
     arf = v(s, "annual_report_fee")
-    arnote = (s.get("annual_report_fee") or {}).get("note", "") if isinstance(s.get("annual_report_fee"), dict) else ""
+    arnote = pubnote((s.get("annual_report_fee") or {}).get("note", "") if isinstance(s.get("annual_report_fee"), dict) else "")
     freq = v(s, "annual_report_frequency")
     due = v(s, "annual_report_due")
     if isinstance(arf, (int, float)):
@@ -360,27 +375,31 @@ def build_state(code):
         rows.append(("Annual report", txt + (f". {esc(arnote)}" if arnote else "")))
     else:
         bi = v(s, "biennial_statement_fee")
-        rows.append(("Annual report", esc(arnote or "See the state's official page.") + (f" Biennial statement: ${bi}; {esc(lc1(str(due or '')))}." if bi else "")))
-    if isinstance(pub, dict) and pub.get("weeks"):
+        rows.append(("Annual report", esc(arnote or ("None required." if (due and str(due).lower().startswith("none")) else "See the state's official page in the sources below; we confirm current state fees before invoicing.")) + (f" Biennial statement: ${bi}; {esc(lc1(str(due or '')))}." if bi else "")))
+    if isinstance(pub, dict) and pub.get("newspapers") and pub.get("certificate_of_publication_fee"):
         rows.append(("Publication", f"Publish once a week for {pub['weeks']} weeks in {pub['newspapers']} newspapers designated by the county clerk, "
                                     f"then file the Certificate of Publication (${pub['certificate_of_publication_fee']}) within {pub['deadline_days']} days of forming."))
     elif pub:
         pn = (s.get("publication") or {}).get("note", "") if isinstance(s.get("publication"), dict) else ""
-        rows.append(("Publication", esc(pub if isinstance(pub, str) else pn)))
+        rows.append(("Publication", esc(pubnote(pub if isinstance(pub, str) else pn) or "Required. See the state's instructions in the sources below; publication costs are quoted at cost.")))
     sr = [x if isinstance(x, str) else (x.get("value") or "") for x in (s.get("special_rules") or [])]
     if sr:
-        rows.append(("Also know", "<br>".join(esc(x) for x in sr if x)))
+        sr = [x for x in sr if x and not _INTERNAL.search(x)]
+        if sr:
+            rows.append(("Also know", "<br>".join(esc(x) for x in sr)))
     if v(s, "state_tax_registration"):
         rows.append(("State tax registration", esc(v(s, "state_tax_registration"))))
-    rows.append(("Registered agent", esc(v(s, "registered_agent") or "")))
-    pnote = (s.get("processing_online") or {}).get("note", "")
+    if v(s, "registered_agent"):
+        rows.append(("Registered agent", esc(v(s, "registered_agent"))))
+    pnote = pubnote((s.get("processing_online") or {}).get("note", ""))
     if pnote:
         rows.append(("Processing time", esc(pnote)))
     tbl = "".join(f"<tr><td>{a}</td><td>{b}</td></tr>" for a, b in rows)
-    extra = pub.get("certificate_of_publication_fee", 0) if isinstance(pub, dict) else 0
+    extra = (pub.get("certificate_of_publication_fee", 0) if isinstance(pub, dict) else 0) or 0
+    fx = v(s, "formation_extra") or 0
     news = " + newspapers" if (isinstance(pub, dict) and pub.get("newspapers")) else (" + publication" if pub else "")
-    fee_s = f"${fee:,}" if isinstance(fee, (int, float)) else "Varies"
-    tot = "".join(f'<tr><td>{esc(p["name"])}</td><td>${p["price"]}</td><td>{fee_s}</td><td><strong>${p["price"] + (fee or 0) + (extra or 0):,}{news}</strong></td></tr>' for p in PACKAGES)
+    fee_s = (f"${fee + fx:,}" if isinstance(fee, (int, float)) else "Confirmed at quote")
+    tot = "".join(f'<tr><td>{esc(p["name"])}</td><td>${p["price"]}</td><td>{fee_s}</td><td><strong>${p["price"] + (fee or 0) + fx + extra:,}{news}{" + state fee" if fee is None else ""}</strong></td></tr>' for p in PACKAGES)
     srcs = sorted({u["source_url"] for u in s.values() if isinstance(u, dict) and u.get("source_url")})
     src_html = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(u.replace("https://", ""))}</a></li>' for u in srcs)
     title = f"How Much Does an LLC Cost in {name}? Fees, Rules & Formation Help | MFA"
