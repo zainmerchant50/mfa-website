@@ -41,6 +41,9 @@ CSS = """<style>
 .shp-fmt{font-size:.78rem;color:#6b6b6b}
 .shp .btn{width:100%;justify-content:center;text-align:center}
 .shp-rel{font-size:.85rem}
+.shop-svc{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:22px 24px}
+.shop-svc h3{font-size:1.2rem;margin:0 0 6px}.shop-svc p{margin:0;font-size:.92rem;line-height:1.55;max-width:640px}
+.shop-svc .btn{flex-shrink:0}
 .shop-note{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:6px}
 .shop-note div{font-size:.9rem;line-height:1.5}
 @media (prefers-color-scheme:dark){.shp-price{color:inherit}}
@@ -76,6 +79,10 @@ def build():
 <div class="hero-btns"><a class="btn btn-gold" href="#calc">Browse the shop</a><a class="btn btn-line" href="/services/">See our services</a></div></div></header>
 <main>
 {"".join(secs)}
+<section class="wrap llc-sec" id="services" aria-labelledby="svc-h"><div class="sec-hd"><span class="eyebrow eb-dark">Services</span>
+<h2 id="svc-h">Need it done for you?</h2></div>
+<div class="shop-svc card"><div><h3>Bookkeeping cleanup</h3><p>Months behind on your books? We catch up the categorization, reconcile your bank and card accounts, tidy payables and receivables, and send a written summary. We review a sample of your accounts and give you a fixed quote before any work starts.</p></div>
+<a class="btn btn-ink" href="/bookkeeping-cleanup/">Request a quote</a></div></section>
 <section class="wrap llc-sec" aria-label="How buying works"><div class="card" style="padding:22px 24px">
 <h2 style="margin-top:0;font-size:1.4rem">How buying works</h2>
 <div class="shop-note">
