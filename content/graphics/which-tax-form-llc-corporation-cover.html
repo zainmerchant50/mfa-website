@@ -1,0 +1,51 @@
+<!doctype html><html><head><meta charset="utf-8"/><link rel="stylesheet" href="_base.css"/><style>
+:root{--w:1200px;--h:945px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.wrap{position:absolute;inset:70px 80px 62px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;line-height:1;margin:28px 0 10px;font-size:64px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-weight:300;color:rgba(255,255,255,.75);font-size:18px}
+.tbl{margin-top:24px;border-radius:16px;overflow:hidden;background:var(--paper);color:var(--navy)}
+.hd,.r{display:grid;grid-template-columns:1.55fr 1.05fr 1.2fr 1.25fr;gap:14px;align-items:center;padding:0 22px}
+.hd{background:var(--navy-2);color:var(--gold-b);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding-top:12px;padding-bottom:12px}
+.r{padding-top:13px;padding-bottom:13px;border-top:1px solid rgba(16,35,63,.1);font-size:15px;line-height:1.35}
+.r:nth-child(2){border-top:0}
+.r .who b{display:block;font-weight:600}
+.r .who small{display:block;font-size:12.5px;opacity:.7;margin-top:2px}
+.r .form{font-family:Cormorant,serif;font-size:31px;font-weight:500;line-height:1;white-space:nowrap}
+.r .due b{display:block;font-weight:700;font-size:16px}
+.r .due small{display:block;font-size:12.5px;opacity:.7;margin-top:2px}
+.r .pay{font-size:14px}
+.rules-hd{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-b);margin:22px 0 12px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.step{border:1px solid rgba(216,183,105,.45);border-radius:12px;padding:12px 14px;color:rgba(255,255,255,.88);font-size:13.5px;line-height:1.4}
+.step i{display:block;font-style:normal;font-family:Cormorant,serif;font-size:24px;line-height:1;color:var(--gold-b);margin-bottom:4px}
+.step b{color:#fff;font-weight:600;display:block;margin-bottom:2px}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r2{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r2 b{color:#fff;font-weight:600;font-size:15px}
+</style></head><body><div class="frame"></div><div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights &middot; Save this</span><span class="tag">Tax form guide</span></div>
+  <h1>Which tax form does <em>my business file?</em></h1>
+  <p class="sub">The IRS classification decides the form, not the name on your state paperwork. Calendar-year 2026 returns.</p>
+  <div class="tbl">
+    <div class="hd"><span>Your business</span><span>Federal form</span><span>Due date</span><span>Who pays the tax</span></div>
+    <div class="r"><span class="who"><b>Single-member LLC or sole proprietor</b><small>Individual owner, no election</small></span><span class="form">Schedule C</span><span class="due"><b>Apr. 15, 2027</b><small>With Form 1040. Oct. 15 with Form 4868</small></span><span class="pay">The owner: income tax plus self-employment tax</span></div>
+    <div class="r"><span class="who"><b>LLC with 2+ members</b><small>Or a partnership</small></span><span class="form">Form 1065</span><span class="due"><b>Mar. 15, 2027</b><small>Sept. 15 with Form 7004</small></span><span class="pay">Each member, through a Schedule K-1</span></div>
+    <div class="r"><span class="who"><b>S corporation</b><small>Or an LLC that filed Form 2553</small></span><span class="form">Form 1120-S</span><span class="due"><b>Mar. 15, 2027</b><small>Sept. 15 with Form 7004</small></span><span class="pay">Each shareholder, through a Schedule K-1</span></div>
+    <div class="r"><span class="who"><b>C corporation</b><small>Or an LLC that filed Form 8832</small></span><span class="form">Form 1120</span><span class="due"><b>Apr. 15, 2027</b><small>Oct. 15 with Form 7004</small></span><span class="pay">The corporation, at 21%. Dividends taxed again</span></div>
+  </div>
+  <p class="rules-hd">Good to know</p>
+  <div class="steps">
+    <div class="step"><i>2553</i><b>S election</b>For S status from Jan. 1, 2027, file by Mar. 15, 2027. No Form 8832 needed.</div>
+    <div class="step"><i>8832</i><b>C election</b>Effective up to 75 days before or 12 months after filing. 60-month wait to change again.</div>
+    <div class="step"><i>$260</i><b>Late 1065 or 1120-S</b>Per partner or shareholder, per month, up to 12 months.</div>
+    <div class="step"><i>7004</i><b>Extensions</b>More time to file, not to pay. Tax is still due on the original date.</div>
+  </div>
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r2"><b>mfa-advisory.com &middot; (347) 205-4468</b><br/>General information, not tax advice. Facts checked Oct. 21, 2026.</div>
+  </div>
+</div></body></html>

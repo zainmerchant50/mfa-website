@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ ietors) due
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-2@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Form 1040 with Schedule C (single-member LLCs and sole proprietor
+ s) due
+DESCRIPTION:Form 4868 extends filing\, not payment\, to October 15\, 2027
+ .\n\nDetails: https://mfa-advisory.com/blog/which-tax-form-llc-corporatio
+ n/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1040 with Schedule C (single-member LLCs and sole propri
+ etors) due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

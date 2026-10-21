@@ -51,6 +51,7 @@ Not a law firm. MFA does not perform audits or issue audit, review or compilatio
 
 ## MFA Insights (articles on IRS, New Jersey and New York tax rules and deadlines)
 - [MFA Insights blog](https://mfa-advisory.com/blog/): all articles; [newsletter](https://mfa-advisory.com/newsletter/); [RSS feed](https://mfa-advisory.com/blog/feed.xml)
+- [What Tax Form Does My LLC or Corporation File? Schedule C, 1065, 1120 or 1120-S](https://mfa-advisory.com/blog/which-tax-form-llc-corporation/): What tax form does a corporation or LLC file? Schedule C, Form 1065, 1120 or 1120-S, the 2027 due date for each, and who pays the tax.
 - [Form 1120-S and S Corp Distributions: How They're Taxed](https://mfa-advisory.com/blog/form-1120s-s-corp-guide/): Form 1120-S in plain English: who files, the March 15, 2027 due date, how S corp distributions are taxed, reasonable pay and the $260 per shareholder late penalty.
 - [Form 1065 for LLCs: Who Files, Due Date, K-1s, Step by Step](https://mfa-advisory.com/blog/form-1065-guide-llc/): Form 1065 for LLCs in plain English: which LLCs file it, the March 15, 2027 due date, K-1s for each member, the $260 late penalty and a step-by-step guide.
 - [Adoption Tax Credit Refund 2026: IRS Sending Automatic Refunds](https://mfa-advisory.com/blog/adoption-tax-credit-refund-2026/): Adoption tax credit refund 2026: the IRS is sending automatic refunds to 50,000+ families with 2020-2024 carryforwards. No amended return needed. What to check.

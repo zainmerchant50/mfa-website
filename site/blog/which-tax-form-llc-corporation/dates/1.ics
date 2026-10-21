@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ s) due for calendar-year 2026
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-0@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Form 1065 (multi-member LLCs) and Form 1120-S (S corporations) du
+ e for calendar-year 2026
+DESCRIPTION:File the return or Form 7004 for a 6-month extension to Septe
+ mber 15\, 2027. Late penalty: $260 per partner or shareholder per month\,
+  up to 12 months.\n\nDetails: https://mfa-advisory.com/blog/which-tax-for
+ m-llc-corporation/\nGeneral information\, not tax advice. Merchant Financ
+ ial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1065 (multi-member LLCs) and Form 1120-S (S corporations
+ ) due for calendar-year 2026
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

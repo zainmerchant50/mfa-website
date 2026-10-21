@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-4@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: NJ-1065 and CBT-100S due (calendar-year 2026)
+DESCRIPTION:NJ-1065 for partnerships with New Jersey income or NJ residen
+ t partners\; CBT-100S for New Jersey S corporations.\n\nDetails: https://
+ mfa-advisory.com/blog/which-tax-form-llc-corporation/\nGeneral informatio
+ n\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: NJ-1065 and CBT-100S due (calendar-year 2026)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

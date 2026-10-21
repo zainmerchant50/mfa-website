@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+  January 1\, 2027
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-1@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Last day to file Form 2553 for S corporation status starting Janu
+ ary 1\, 2027
+DESCRIPTION:An LLC electing S status files Form 2553 only\; it doesn't ne
+ ed Form 8832 first.\n\nDetails: https://mfa-advisory.com/blog/which-tax-f
+ orm-llc-corporation/\nGeneral information\, not tax advice. Merchant Fina
+ ncial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to file Form 2553 for S corporation status starting 
+ January 1\, 2027
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

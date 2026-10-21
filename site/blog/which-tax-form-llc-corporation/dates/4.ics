@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-3@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Form 1120 due for calendar-year 2026 C corporations
+DESCRIPTION:Form 7004 extends filing\, not payment\, to October 15\, 2027
+ .\n\nDetails: https://mfa-advisory.com/blog/which-tax-form-llc-corporatio
+ n/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1120 due for calendar-year 2026 C corporations
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

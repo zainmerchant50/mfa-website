@@ -1,0 +1,108 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:What Tax Form Does My LLC or Corporation File? Schedule C\, 
+ 1065\, 1120 or 1120-S
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-0@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Form 1065 (multi-member LLCs) and Form 1120-S (S corporations) du
+ e for calendar-year 2026
+DESCRIPTION:File the return or Form 7004 for a 6-month extension to Septe
+ mber 15\, 2027. Late penalty: $260 per partner or shareholder per month\,
+  up to 12 months.\n\nDetails: https://mfa-advisory.com/blog/which-tax-for
+ m-llc-corporation/\nGeneral information\, not tax advice. Merchant Financ
+ ial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1065 (multi-member LLCs) and Form 1120-S (S corporations
+ ) due for calendar-year 2026
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-1@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Last day to file Form 2553 for S corporation status starting Janu
+ ary 1\, 2027
+DESCRIPTION:An LLC electing S status files Form 2553 only\; it doesn't ne
+ ed Form 8832 first.\n\nDetails: https://mfa-advisory.com/blog/which-tax-f
+ orm-llc-corporation/\nGeneral information\, not tax advice. Merchant Fina
+ ncial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to file Form 2553 for S corporation status starting 
+ January 1\, 2027
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-2@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Form 1040 with Schedule C (single-member LLCs and sole proprietor
+ s) due
+DESCRIPTION:Form 4868 extends filing\, not payment\, to October 15\, 2027
+ .\n\nDetails: https://mfa-advisory.com/blog/which-tax-form-llc-corporatio
+ n/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1040 with Schedule C (single-member LLCs and sole propri
+ etors) due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-3@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Form 1120 due for calendar-year 2026 C corporations
+DESCRIPTION:Form 7004 extends filing\, not payment\, to October 15\, 2027
+ .\n\nDetails: https://mfa-advisory.com/blog/which-tax-form-llc-corporatio
+ n/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1120 due for calendar-year 2026 C corporations
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:which-tax-form-llc-corporation-4@mfa-advisory.com
+DTSTAMP:20261021T220024Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: NJ-1065 and CBT-100S due (calendar-year 2026)
+DESCRIPTION:NJ-1065 for partnerships with New Jersey income or NJ residen
+ t partners\; CBT-100S for New Jersey S corporations.\n\nDetails: https://
+ mfa-advisory.com/blog/which-tax-form-llc-corporation/\nGeneral informatio
+ n\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/which-tax-form-llc-corporation/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: NJ-1065 and CBT-100S due (calendar-year 2026)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

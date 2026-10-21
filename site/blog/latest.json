@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "What Tax Form Does My LLC or Corporation File? Schedule C, 1065, 1120 or 1120-S",
+   "url": "/blog/which-tax-form-llc-corporation/",
+   "date": "2026-10-21",
+   "category": "Tax Deadlines",
+   "thumb": "/blog/which-tax-form-llc-corporation/og.png",
+   "description": "What tax form does a corporation or LLC file? Schedule C, Form 1065, 1120 or 1120-S, the 2027 due date for each, and who pays the tax."
+  },
+  {
    "title": "Form 1120-S and S Corp Distributions: How They're Taxed",
    "url": "/blog/form-1120s-s-corp-guide/",
    "date": "2026-10-20",
@@ -31,14 +39,6 @@
    "category": "Bookkeeping",
    "thumb": "/blog/ai-in-accounting-and-tax-2026/og.png",
    "description": "AI in accounting and tax: what the IRS's new 2026 AI guidelines say, where AI tools help with bookkeeping, and why you should verify any AI answer before you file."
-  },
-  {
-   "title": "SALT Cap 2026: The $40,400 Limit and the NJ and NY PTE Tax Fix",
-   "url": "/blog/salt-cap-2026-nj-ny-pte-tax/",
-   "date": "2026-10-15",
-   "category": "Tax Planning",
-   "thumb": "/blog/salt-cap-2026-nj-ny-pte-tax/og.png",
-   "description": "SALT cap 2026: you can deduct up to $40,400 in state and local taxes, less above $505,000 of income. Year-end moves plus the NJ BAIT and NY PTET workaround."
   }
  ]
 }
