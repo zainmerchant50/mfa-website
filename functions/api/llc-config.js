@@ -6,3 +6,4 @@ export async function onRequestGet({ env }) {
   return Response.json({ enabled: on, pk: on ? pk : null, mode: pk.startsWith("pk_test") ? "test" : "live" },
     { headers: { "Cache-Control": "no-store" } });
 }
+
