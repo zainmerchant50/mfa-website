@@ -12,6 +12,7 @@
     showAll = d.getElementById('dd-all'), catBtns = [].slice.call(d.querySelectorAll('.dd-cat')),
     cards = {}, cat = '';
   [].slice.call(list.querySelectorAll('.dd-item')).forEach(function (a) { cards[a.getAttribute('data-slug')] = a; });
+  if (window.matchMedia && matchMedia('(max-width: 480px)').matches) q.setAttribute('placeholder', 'Try meals, laptop, phone');
 
   /* ---------- search: name + aliases ---------- */
   function words(s) { return s.toLowerCase().replace(/[^a-z0-9%$&]+/g, ' ').trim().split(' ').filter(Boolean); }
@@ -128,9 +129,9 @@
     root.classList.add('dd-lock');
     requestAnimationFrame(function () { requestAnimationFrame(function () {
       modal.classList.add('open');
+      closeBtn.focus({ preventScroll: true });
       var v = body.querySelector('.dd-ring .val'); if (v) v.setAttribute('stroke-dashoffset', v.getAttribute('data-off'));
     }); });
-    closeBtn.focus({ preventScroll: true });
     if (location.hash !== '#' + slug) history.replaceState(null, '', '#' + slug);
     var cp = d.getElementById('dd-copy');
     cp.addEventListener('click', function () {
