@@ -41,12 +41,11 @@ PHONE = "(347) 205-4468"
 TEL = "+13472054468"
 # Google booking calendar (same as tools/build_landing.py BOOK_URL)
 BOOK_CAL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z1XCM1FcZDRE6VnHyWPfqXcgkL1-kxgrTJaKaM-0VCun9u0cVIziW87B0XAQGVXE51SZ0LOo9"
-# Google Ads tag on every blog page (same account as tools/build_landing.py ADS).
-# Clicks on elements with data-conv="book"|"call" fire the matching conversion label.
-ADS = {"id": "AW-18505873837", "book": "OUTYCLC_kJsdEK3zpPhE", "call": "_Z6FCLjJk5sdEK3zpPhE"}
-GTAG = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={ADS["id"]}"></script>'
-        f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{ADS['id']}');"
-        f"(function(A){{document.addEventListener('click',function(e){{var a=e.target.closest&&e.target.closest('[data-conv]');if(a&&A[a.getAttribute('data-conv')])gtag('event','conversion',{{send_to:A.id+'/'+A[a.getAttribute('data-conv')]}});}});}})({json.dumps(ADS)});</script>")
+# Google Ads tag + conversions on every page: one shared helper, see tools/ads.py (writes site/assets/ads.js).
+import ads  # noqa: E402
+ADS = ads.ADS
+GTAG = ads.TAG
+ads.write_assets()
 # Newsletter signups go straight into MailerLite (account 2707043, embedded form "MFA Insights – website signup",
 # group "MFA Insights Newsletter", double opt-in ON). Unsubscribes from emails are handled by MailerLite's own
 # {$unsubscribe} link; the site's /newsletter/unsubscribe/ page is a backup that emails info@ via FormSubmit.

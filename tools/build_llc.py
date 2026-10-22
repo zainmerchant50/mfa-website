@@ -383,7 +383,7 @@ f.email.value=f.email.value.trim();var d=new FormData(f);d.append('page',locatio
 d.append('_subject',(PAY.enabled?'LLC order started (awaiting payment): ':'LLC formation request: ')+f.package.value+' / '+f.state.value+' / '+f.llc_name.value);d.append('_captcha','false');d.append('_template','table');
 var lead=fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).then(function(r){{return r.json().catch(function(){{return {{success:r.ok}};}});}})
 .then(function(j){{if(!j||j.success===false||j.success==='false')throw new Error((j&&j.message)||'Send failed');
-if(window.gtag){{gtag('event','conversion',{{send_to:'{B.ADS['id']}/rNQJCK2_kJsdEK3zpPhE'}});gtag('event','generate_lead',{{form:'llc_formation',package:f.package.value,state:f.state.value}});}}return true;}});
+if(window.mfaLead)mfaLead('llc_formation',{{package:f.package.value,state:f.state.value}});return true;}});
 function fallback(err){{var body=encodeURIComponent('Name: '+f.name.value+'\\nEmail: '+f.email.value+'\\nPhone: '+f.phone.value+'\\nState: '+f.state.value+'\\nPackage: '+f.package.value+'\\nLLC name: '+f.llc_name.value+'\\nBusiness: '+f.activity.value+'\\nNotes: '+f.notes.value);
 showErr('<strong>We couldn’t '+(PAY.enabled?'open checkout':'send your details')+' just now.</strong> Please <a href="mailto:{B.EMAIL}?subject='+encodeURIComponent('LLC formation request')+'&body='+body+'">email your details to {B.EMAIL}</a> (we’ve filled in the email for you) or call (347) 205-4468.');
 b.disabled=false;b.textContent=l;if(window.console)console.warn('LLC form:',err&&err.message);}}

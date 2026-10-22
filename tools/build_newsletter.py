@@ -345,7 +345,7 @@ body{{margin:0;padding:0;-webkit-text-size-adjust:100%}} img{{border:0;outline:n
     web_html = (email.replace(unsub, f"{B.BASE}/newsletter/unsubscribe/").replace("{$url}", issue_url)
                 .replace("Hi {$name|default('there')},", "Hi there,")
                 .replace(addr_html, "Princeton, New Jersey")
-                .replace("<head>", '<head><meta name="robots" content="noindex"/>', 1))
+                .replace("<head>", '<head><meta name="robots" content="noindex"/>' + B.GTAG, 1))
     assert "Spring St" not in web_html, "street address must never appear on the website"
     (web / "index.html").write_text(web_html, encoding="utf-8")
     meta = {"slug": slug, "subject": subject, "preheader": preheader, "post_url": post_url, "issue_url": issue_url,

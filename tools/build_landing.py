@@ -32,13 +32,7 @@ BOOK_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2z
 # Form delivery (works on any host, incl. Cloudflare Pages). First submission sends a one-time
 # activation email to EMAIL from FormSubmit; click it and every later lead arrives in the inbox.
 FORM_ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL
-# Google Ads conversion tracking. Paste values from Google Ads → Goals → Conversions → (action) → Tag setup.
-ADS = {
-    "id": "AW-18505873837",  # Google Ads account 402-577-1790
-    "form": "rNQJCK2_kJsdEK3zpPhE",        # conversion label for "Lead form submitted"
-    "call": "_Z6FCLjJk5sdEK3zpPhE",        # conversion label for "Click to call"
-    "book": "OUTYCLC_kJsdEK3zpPhE",        # conversion label for "Opened booking calendar"
-}
+# Google Ads tag + conversion labels live in tools/ads.py (shared site-wide via /assets/ads.js).
 # ---------------------------------------------------------------- /CONFIG
 
 if len(sys.argv) < 2:   # build every location page
@@ -136,6 +130,7 @@ rev_html = "".join(
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ui_kit  # noqa: E402  shared FAQ accordion + animations
 import seo  # noqa: E402  JSON-LD building blocks (tools/seo.py)
+import ads  # noqa: E402  Google Ads tag + conversions (tools/ads.py)
 faq_html = ui_kit.faq_accordion(FAQ)
 opts = "".join(f"<option>{esc(o)}</option>" for o in ["Bookkeeping & Accounting", "Tax Preparation & Filing", "Tax Planning & Strategy", "QuickBooks Setup / Cleanup", "Fractional CFO", "Other"])
 
@@ -149,10 +144,7 @@ ld = seo.graph(URL, "Bookkeeping & Tax Preparation in §CITY§, §ST§", LOCAL_D
                {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
                kind="WebPage", full_org=True, areas=LOCAL_AREAS, crumb=[("Home", "https://mfa-advisory.com/"), ("§CITY§, §ST§", URL)])
 
-gtag = ""
-if ADS["id"]:
-    gtag = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={ADS["id"]}"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{ADS["id"]}');</script>'''
+gtag = ads.TAG   # tel: clicks, booking links and window.mfaLead() handled by /assets/ads.js
 
 CSS = """
 :root{--paper:#FDFDFC;--paper-2:#F5F4EF;--ink:#151515;--navy:#10233F;--navy-2:#1B3557;--gold:#B08D3F;--gold-b:#D8B769;--muted:rgba(21,21,21,.62);--hair:rgba(21,21,21,.1)}
@@ -231,7 +223,7 @@ footer .legal{font-size:12px;max-width:820px}
 
 JS = """
 (function(){
-  var V=%s, ADS=%s, ENDPOINT=%s;
+  var V=%s, ENDPOINT=%s;
   var s=(new URLSearchParams(location.search).get('s')||'').toLowerCase();
   var v=V[s]; if(v){
     document.getElementById('h1').innerHTML=v.h1; document.getElementById('lead').textContent=v.lead;
@@ -240,8 +232,6 @@ JS = """
   }
   var go=(new URLSearchParams(location.search).get('go')||'').toLowerCase();
   if(go&&!location.hash){var t=document.getElementById(go);if(t)setTimeout(function(){t.scrollIntoView();},150);}
-  function conv(kind){ if(window.gtag&&ADS.id&&ADS[kind]){ gtag('event','conversion',{send_to:ADS.id+'/'+ADS[kind]}); } }
-  document.addEventListener('click',function(e){var a=e.target.closest('[data-conv]'); if(a)conv(a.getAttribute('data-conv'));});
   var f=document.getElementById('lf'), btn=document.getElementById('lbtn'), st=document.getElementById('lstat');
   f.addEventListener('submit',function(e){
     e.preventDefault(); if(f._honey.value)return; if(!f.checkValidity()){f.reportValidity();return;}
@@ -250,7 +240,7 @@ JS = """
     d.append('source', '§SLUG§' + (s ? ' / ' + s : '') + (location.search.indexOf('gclid')>-1?' / Google Ads':''));
     fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:d})
       .then(function(r){if(!r.ok)throw 0;return r.json();})
-      .then(function(j){ if(j.success===false||j.success==='false')throw 0; f.style.display='none'; document.getElementById('ldone').classList.add('show'); conv('form'); })
+      .then(function(j){ if(j.success===false||j.success==='false')throw 0; f.style.display='none'; document.getElementById('ldone').classList.add('show'); if(window.mfaLead)mfaLead('landing_§SLUG§',{service:d.get('service')||''}); })
       .catch(function(){ st.textContent='Couldn\\'t send. Please email %s directly.'; btn.disabled=false; btn.innerHTML=label; });
   });
   document.getElementById('yr').textContent=new Date().getFullYear();
@@ -370,7 +360,7 @@ page = f'''<!doctype html><html lang="en"><head>
 </div></footer>
 
 <div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#book" class="btn btn-gold" data-conv="book">Book a call</a></div>
-<script>{JS % (json.dumps(variants_js, ensure_ascii=False), json.dumps(ADS), json.dumps(FORM_ENDPOINT), EMAIL)}</script>
+<script>{JS % (json.dumps(variants_js, ensure_ascii=False), json.dumps(FORM_ENDPOINT), EMAIL)}</script>
 {ui_kit.UI_JS}
 </body></html>
 '''
@@ -378,4 +368,4 @@ page = f'''<!doctype html><html lang="en"><head>
 page = page.replace("§EYEBROW§", EYEBROW).replace("§ST§", ST).replace("§STATE§", STATE).replace("§CITY§", L["city"]).replace("§REGION§", L["region"]).replace("§SLUG§", L["slug"])
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(page, encoding="utf-8")
-print(f"Wrote {OUT.relative_to(ROOT)}  (phone {'ON' if tel else 'OFF'}, ads tag {'ON' if ADS['id'] else 'OFF'})")
+print(f"Wrote {OUT.relative_to(ROOT)}  (phone {'ON' if tel else 'OFF'}, ads tag {ads.ADS['id']})")

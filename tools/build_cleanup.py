@@ -18,7 +18,6 @@ import seo
 from build_resources import page, write, esc, BASE, cta
 
 ENDPOINT = "https://formsubmit.co/ajax/" + B.EMAIL
-CONV = B.ADS["id"] + "/rNQJCK2_kJsdEK3zpPhE"
 ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
 
 COVERS = [
@@ -72,7 +71,7 @@ f.email.value=f.email.value.trim();var d=new FormData(f);d.append('page',locatio
 d.append('_subject','Bookkeeping cleanup quote request: '+f.name.value.trim()+' / '+f.months_behind.value);d.append('_captcha','false');d.append('_template','table');
 fetch('__ENDPOINT__',{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){return r.json().catch(function(){return {success:r.ok};});})
 .then(function(j){if(!j||j.success===false||j.success==='false')throw new Error((j&&j.message)||'Send failed');
-if(window.gtag){gtag('event','conversion',{send_to:'__CONV__'});gtag('event','generate_lead',{form:'bookkeeping_cleanup',months_behind:f.months_behind.value});}
+if(window.mfaLead)mfaLead('bookkeeping_cleanup',{months_behind:f.months_behind.value});
 f.hidden=true;var dn=document.getElementById('cdone');dn.hidden=false;dn.focus();dn.scrollIntoView({block:'center'});})
 .catch(function(err){var body=encodeURIComponent('Name: '+f.name.value+'\nEmail: '+f.email.value+'\nPhone: '+f.phone.value+'\nBusiness type: '+f.business_type.value+'\nSoftware: '+f.accounting_software.value+'\nMonths behind: '+f.months_behind.value+'\nBank + card accounts: '+f.accounts.value+'\nTransactions a month: '+f.transactions_per_month.value+'\nPayroll: '+f.payroll.value+'\nSales tax: '+f.sales_tax.value+'\nNotes: '+f.notes.value);
 showErr('<strong>We couldn’t send your request just now.</strong> Please <a href="mailto:__EMAIL__?subject='+encodeURIComponent('Bookkeeping cleanup quote request')+'&body='+body+'">email your details to __EMAIL__</a> (we’ve filled in the email for you) or call (347) 205-4468.');
@@ -118,7 +117,7 @@ def form_html():
 </form>
 <div class="tcard ldone" id="cdone" tabindex="-1" hidden><h2>Thanks, we have your request.</h2><p>We'll look over what you sent and email you next steps, usually within one to three business days. You'll get a fixed quote before any work starts. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
 </section>
-<script>{JS.replace("__ENDPOINT__", ENDPOINT).replace("__CONV__", CONV).replace("__EMAIL__", B.EMAIL)}</script>'''
+<script>{JS.replace("__ENDPOINT__", ENDPOINT).replace("__EMAIL__", B.EMAIL)}</script>'''
 
 
 def build():
