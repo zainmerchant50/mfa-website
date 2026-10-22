@@ -53,6 +53,7 @@ GTAG = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={ADS["i
 NEWSLETTER_ENDPOINT = "https://assets.mailerlite.com/jsonp/2707043/forms/201153544226604130/subscribe"
 UNSUB_ENDPOINT = FORM_ENDPOINT
 NEWSLETTER_NAME = "MFA Insights"
+GUMROAD_JS = '<script src="https://gumroad.com/js/gumroad.js"></script>'   # overlay checkout for the products box (same as /shop/)
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"/>'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>'
          '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400'
@@ -191,6 +192,41 @@ def help_box(p, where="top"):
   <p class="hb-p">{lead} Book a 30-minute call or call us at {PHONE}.</p>
   <div class="hb-btns"><a class="btn btn-gold" href="{BOOK_CAL}" target="_blank" rel="noopener" data-conv="book">Book a call</a><a class="btn btn-line" href="tel:{TEL}" data-conv="call">Call {PHONE}</a></div>
 </aside>'''
+
+
+def post_products(p):
+    """Live shop products for a post's meta "products": ["19", "17"] (catalog ids). Drafts/missing ids are skipped."""
+    ids = p.get("products") or []
+    if not ids:
+        return []
+    cat = json.loads((ROOT / "catalog" / "products.json").read_text(encoding="utf-8"))
+    slug_by_id = {c["id"]: c["slug"] for c in cat["products"]}
+    live = {x["slug"]: x for x in seo.live_products()}   # status "live" with a Gumroad URL
+    out = []
+    for i in ids:
+        x = live.get(slug_by_id.get(str(i)))
+        if x and x not in out:
+            out.append(x)
+    return out
+
+
+def products_box(p):
+    """'Do it yourself with our tools' cards (catalog name, price, blurb, format, Gumroad overlay Buy now)."""
+    items = post_products(p)
+    if not items:
+        return ""
+    cards = "".join(f'''<li class="pb-card">
+    <span class="pb-fmt">{esc(x["format"])}</span>
+    <p class="pb-n">{esc(x["name"])}</p>
+    <p class="pb-b">{esc(x["blurb"])}</p>
+    <div class="pb-foot"><span class="pb-price">${esc(x["price"])}</span><a class="btn btn-gold pb-buy" href="{esc(x["url"])}" data-shop="{esc(x["slug"])}">Buy now</a></div>
+  </li>''' for x in items)
+    return f'''<aside class="prodbox" aria-label="Tools for doing this yourself">
+  <p class="pb-h">Do it yourself with our tools</p>
+  <ul class="pb-list">{cards}</ul>
+  <a class="pb-all" href="/shop/">See all tools in the shop &rarr;</a>
+</aside>
+'''
 
 
 def with_help(p, body):
@@ -552,7 +588,8 @@ def build_post(p):
                  "articleSection": p["category"], "wordCount": words, "keywords": ", ".join(p.get("keywords", [])),
                  "author": person_ld(A), "publisher": {"@id": seo.ORG_ID},
                  "citation": [{"@type": "CreativeWork", "name": s["title"], "url": s["url"]} for s in p["sources"]]}
-    ld = seo.graph(url, p["title"], mdesc, post_node, BLOG_NODE, faq_schema(p["body"]), kind="WebPage",
+    prods = post_products(p)
+    ld = seo.graph(url, p["title"], mdesc, post_node, BLOG_NODE, faq_schema(p["body"]), *[seo.product_node(x) for x in prods], kind="WebPage",
                    crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/"), (p["title"], url)], modified=p.get("updated", p["date"]),
                    extra={"mainEntity": {"@id": url + "#article"}, "primaryImageOfPage": {"@type": "ImageObject", "url": img}})
     extra = (f'<meta property="article:published_time" content="{p["date"]}"/>'
@@ -575,7 +612,7 @@ def build_post(p):
 </div></header>
 <main><article class="article">
 {ui_kit.accordionize_faqs(with_help(p, p["body"]))}
-{help_box(p, "end")}
+{products_box(p)}{help_box(p, "end")}
 {keydates_block(p)}
 {tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>
@@ -586,7 +623,7 @@ def build_post(p):
 <p class="disclaimer">Facts checked against the sources above as of {asof}. {DISCLAIMER}</p></section>
 </article>
 {cta(p)}</main>
-{FOOT}{SHARE_JS}{NL_JS}</body></html>'''
+{FOOT}{SHARE_JS}{NL_JS}{GUMROAD_JS if prods else ""}</body></html>'''
     out = SITE / "blog" / p["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")

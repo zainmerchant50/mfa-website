@@ -238,3 +238,18 @@ img{max-width:100%;height:auto;display:block}
 .helpbox .hb-btns{display:flex;flex-wrap:wrap;gap:10px}
 .helpbox .btn-line{color:#fff;border-color:rgba(255,255,255,.45)}
 .helpbox-end{margin:34px 0}
+.prodbox{background:var(--paper-2,#F5F4EF);color:var(--ink,#151515);border:1px solid var(--hair,rgba(21,21,21,.1));border-top:3px solid var(--gold,#B08D3F);border-radius:14px;padding:22px 18px 18px;margin:34px 0 0}
+.prodbox .pb-h{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:500;line-height:1.2;margin:0 0 14px;color:var(--navy,#10233F)}
+.article .prodbox ul.pb-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:12px}
+.article .prodbox li.pb-card{margin:0;padding:18px;background:#fff;color:var(--ink,#151515);border:1px solid var(--hair,rgba(21,21,21,.1));border-radius:12px;display:flex;flex-direction:column;min-width:0}
+.prodbox .pb-fmt{font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#B08D3F)}
+.article .prodbox p.pb-n{margin:6px 0 6px;font-size:1.02rem;font-weight:600;line-height:1.35;color:var(--navy,#10233F)}
+.article .prodbox p.pb-b{margin:0 0 14px;font-size:.9rem;line-height:1.6;color:#4a4a4a;flex:1}
+.prodbox .pb-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.prodbox .pb-price{font-size:1.15rem;font-weight:700;color:var(--navy,#10233F)}
+.article .prodbox a.pb-buy{border-bottom:0;padding:12px 22px;background:var(--gold-b,#D8B769);color:var(--navy,#10233F)}
+.article .prodbox a.pb-buy:hover,.article .prodbox a.pb-buy:focus-visible{background:var(--navy,#10233F);color:#fff}
+.article .prodbox a.pb-all{display:inline-block;margin-top:14px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-2,#1B3557);border-bottom:1px solid var(--gold,#B08D3F)}
+.article .prodbox a.pb-all:hover{color:var(--gold,#B08D3F)}
+.prodbox + .helpbox-end{margin-top:18px}
+@media (min-width:640px){.prodbox{padding:26px 26px 22px}.article .prodbox ul.pb-list{grid-template-columns:1fr 1fr;gap:14px}}
