@@ -49,6 +49,8 @@ CSS = """<style>
 .shop-svc .btn{flex-shrink:0}
 .shop-note{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:6px}
 .shop-note div{font-size:.9rem;line-height:1.5}
+.shop-code{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;border:1px dashed #B08D3F}
+.shop-code p{margin:4px 0 0;font-size:1rem}.shop-code-c{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;background:#F5F4EF;color:#10233F;padding:2px 8px;border-radius:6px}
 @media (prefers-color-scheme:dark){.shp-price{color:inherit}}
 </style>"""
 
@@ -90,6 +92,8 @@ def build():
 <p>The same calculators, checklists and trackers we use with clients, ready to download. Prefer to hand it off? We'll do the work for a price quoted up front.</p>
 <div class="hero-btns"><a class="btn btn-gold" href="#calc">Browse the shop</a><a class="btn btn-line" href="/services/">See our services</a></div></div></header>
 <main>
+<section class="wrap llc-sec" aria-label="Site discount"><div class="card shop-code" id="code"><div><span class="eyebrow eb-dark">For mfa-advisory.com visitors</span>
+<p><strong>10% off with code <span class="shop-code-c">MFASITE10</span></strong> at checkout on Etsy or Gumroad.</p></div></div></section>
 {"".join(secs)}
 <section class="wrap llc-sec" id="services" aria-labelledby="svc-h"><div class="sec-hd"><span class="eyebrow eb-dark">Services</span>
 <h2 id="svc-h">Need it done for you?</h2></div>

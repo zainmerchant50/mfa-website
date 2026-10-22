@@ -193,8 +193,8 @@ Page: https://mfa-advisory.com/services/#business-advisory
 ## Shop products (checkout by Gumroad; instant download; all sales final)
 
 ### Tax calculators
-- 1099 Self-Employed Tax Calculator & Quarterly Planner (2026): $11.99, Excel / Google Sheets. From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log. Buy: https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026
-- 2026 Salary & Paycheck Tax Calculator (W-2): $11.99, Excel / Google Sheets. See where a 2026 paycheck goes: federal, FICA, NJ / NY / NYC tax and net pay per year and per paycheck, with a bracket-by-bracket table. Buy: https://www.etsy.com/listing/4601160748/2026-paycheck-calculator-excel-google
+- 1099 Self-Employed Tax Calculator & Quarterly Planner (2026): $7.99, Excel / Google Sheets. From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log. Buy: https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026
+- 2026 Salary & Paycheck Tax Calculator (W-2): $7.99, Excel / Google Sheets. See where a 2026 paycheck goes: federal, FICA, NJ / NY / NYC tax and net pay per year and per paycheck, with a bracket-by-bracket table. Buy: https://www.etsy.com/listing/4601160748/2026-paycheck-calculator-excel-google
 - S Corp vs LLC Savings Calculator: $11.99, Excel / Google Sheets. Compare self-employment tax with S corp payroll taxes after the extra costs, see net annual savings and the break-even profit, and read the warnings before you elect. Buy: https://www.etsy.com/listing/4601163974/s-corp-vs-llc-calculator-is-an-s-corp
 
 ### Checklists & kits
