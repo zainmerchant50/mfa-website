@@ -41,7 +41,8 @@ LINKEDIN_ZAIN = "https://www.linkedin.com/in/zainmerchant50"
 UPWORK = "https://www.upwork.com/freelancers/zainmerchant50"
 FIVERR = "https://www.fiverr.com/zainmerchant50"
 INSTAGRAM = "https://www.instagram.com/mfa_advisory/"
-SAME_AS = [LINKEDIN_CO, INSTAGRAM, UPWORK, FIVERR, GUMROAD_STORE]
+GBP = "https://maps.google.com/?cid=17671016441974338457"  # Google Business Profile (verified Oct 2026)
+SAME_AS = [GBP, LINKEDIN_CO, INSTAGRAM, UPWORK, FIVERR, GUMROAD_STORE]
 TOPICS = ["Tax preparation", "Tax planning", "Bookkeeping", "Accrual accounting", "Financial reporting", "QuickBooks Online",
           "Fractional CFO services", "LLC formation", "S corporation elections", "Form 1099 reporting", "IRS filing deadlines",
           "New Jersey taxes", "New York taxes", "Small business accounting"]
@@ -103,6 +104,11 @@ def org(full=False, areas=None, offers=None):
         o.update({
             "description": ORG_DESC, "knowsAbout": TOPICS, "knowsLanguage": ["en", "hi", "ur"],
             "priceRange": "From $150",
+            "foundingDate": "2025-07",
+            # Same hours as the Google Business Profile. Change both together.
+            "openingHoursSpecification": [
+                {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"},
+                {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "13:00"}],
             "currenciesAccepted": "USD",
             "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "telephone": PHONE_E164, "email": EMAIL,
                               "availableLanguage": ["English", "Hindi", "Urdu"], "areaServed": "US"}],
