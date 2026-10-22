@@ -3,6 +3,7 @@
 
 /*.ics
   Content-Type: text/calendar; charset=utf-8
+  X-Robots-Tag: noindex
   Cache-Control: public, max-age=3600
 
 /newsletter/issues/*
