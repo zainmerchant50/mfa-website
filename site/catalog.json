@@ -1839,6 +1839,736 @@
    "@type": "DataFeedItem",
    "dateModified": "2026-10-22",
    "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/1099-contractor-payment-tracker-2026#product",
+    "name": "1099 Contractor Payment Tracker",
+    "description": "Log every contractor and vendor payment in 2026, see who needs a Form 1099-NEC or 1099-MISC at the $2,000 threshold, and work a year-end filing checklist with the 2027 deadlines.",
+    "sku": "1099-contractor-payment-tracker-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/1099-contractor-payment-tracker-2026",
+    "image": "https://mfa-advisory.com/shop/img/1099-contractor-payment-tracker-2026.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel / Google Sheets"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/1099-contractor-payment-tracker-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/1099-income-tracker-freelancers-2026#product",
+    "name": "1099 Income Tracker for Freelancers",
+    "description": "Track who paid you, which 1099 to expect from each client or platform, reconcile the forms you receive to your books, and set money aside for each 2026 Form 1040-ES period.",
+    "sku": "1099-income-tracker-freelancers-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/1099-income-tracker-freelancers-2026",
+    "image": "https://mfa-advisory.com/shop/img/1099-income-tracker-freelancers-2026.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel / Google Sheets"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/1099-income-tracker-freelancers-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/small-business-bookkeeping-spreadsheet#product",
+    "name": "Small Business Bookkeeping Spreadsheet",
+    "description": "A complete cash-basis set of books for a sole proprietor or single-member LLC: chart of accounts, ledger, monthly P&L, dashboard, bank reconciliation and a Schedule C summary.",
+    "sku": "small-business-bookkeeping-spreadsheet",
+    "url": "https://mfaadvisory.gumroad.com/l/small-business-bookkeeping-spreadsheet",
+    "image": "https://mfa-advisory.com/shop/img/small-business-bookkeeping-spreadsheet.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel / Google Sheets"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/small-business-bookkeeping-spreadsheet",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/expense-categorization-guide-tracker#product",
+    "name": "Expense Categorization Guide & Tracker",
+    "description": "Look up where 129 common business expenses go on Schedule C, track your own expenses with automatic line mapping, and keep a 2-page Schedule C cheat sheet next to your receipts.",
+    "sku": "expense-categorization-guide-tracker",
+    "url": "https://mfaadvisory.gumroad.com/l/expense-categorization-guide-tracker",
+    "image": "https://mfa-advisory.com/shop/img/expense-categorization-guide-tracker.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF + Excel"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/expense-categorization-guide-tracker",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/self-employed-tax-deduction-tracker-2026#product",
+    "name": "Self-Employed Tax Deduction Tracker",
+    "description": "Receipts, mileage, home office, health insurance and retirement contributions in one workbook, ending in a one-page year-end summary for your tax preparer.",
+    "sku": "self-employed-tax-deduction-tracker-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/self-employed-tax-deduction-tracker-2026",
+    "image": "https://mfa-advisory.com/shop/img/self-employed-tax-deduction-tracker-2026.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel / Google Sheets"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/self-employed-tax-deduction-tracker-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/irs-mileage-log-2026#product",
+    "name": "IRS Mileage Log 2026",
+    "description": "A trip-by-trip mileage log with odometer readings, automatic miles, the 2026 standard mileage rates by trip date (including the July 1 change) and a monthly summary.",
+    "sku": "irs-mileage-log-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/irs-mileage-log-2026",
+    "image": "https://mfa-advisory.com/shop/img/irs-mileage-log-2026.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel / Google Sheets"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/irs-mileage-log-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/online-seller-bookkeeping-sheet#product",
+    "name": "Online Seller Bookkeeping Sheet",
+    "description": "Order-level bookkeeping for Etsy, Shopify, Amazon and eBay sellers: platform fees, COGS, a Form 1099-K reconciliation, a sales tax log by state and a Schedule C summary.",
+    "sku": "online-seller-bookkeeping-sheet",
+    "url": "https://mfaadvisory.gumroad.com/l/online-seller-bookkeeping-sheet",
+    "image": "https://mfa-advisory.com/shop/img/online-seller-bookkeeping-sheet.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "PDF + Excel"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/online-seller-bookkeeping-sheet",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-pack#product",
+    "name": "QuickBooks Online Chart of Accounts Pack: All 8 Industry Editions",
+    "description": "All eight industry charts of accounts for QuickBooks Online in one download: 8 annotated workbooks, 16 import-ready CSVs and the PDF import guide.",
+    "sku": "quickbooks-online-chart-of-accounts-pack",
+    "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-pack",
+    "image": "https://mfa-advisory.com/shop/img/quickbooks-online-chart-of-accounts-pack.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "CSV + Excel + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "14.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-pack",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-e-commerce-seller#product",
+    "name": "QuickBooks Chart of Accounts: E-commerce Seller",
+    "description": "An import-ready QuickBooks Online chart of accounts (112 accounts) built for Etsy, Amazon, Shopify, eBay, TikTok Shop and Walmart sellers, print-on-demand shops, dropshippers and craft sellers: channel sales, marketplace and processor clearing accounts, marketplace fees, COGS, payouts and 1099-K reconciliation.",
+    "sku": "quickbooks-online-chart-of-accounts-e-commerce-seller",
+    "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-e-commerce-seller",
+    "image": "https://mfa-advisory.com/shop/img/quickbooks-online-chart-of-accounts-e-commerce-seller.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "CSV + Excel + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "4.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-e-commerce-seller",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-freelancer-service-business#product",
+    "name": "QuickBooks Chart of Accounts: Freelancer & Service Business",
+    "description": "An import-ready QuickBooks Online chart of accounts (92 accounts) built for freelancers, consultants, coaches, designers, writers, developers, agencies and virtual assistants: service revenue, retainers and client deposits, contractor costs and Schedule C mapping.",
+    "sku": "quickbooks-online-chart-of-accounts-freelancer-service-business",
+    "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-freelancer-service-business",
+    "image": "https://mfa-advisory.com/shop/img/quickbooks-online-chart-of-accounts-freelancer-service-business.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "CSV + Excel + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "4.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-freelancer-service-business",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-22",
+   "item": {
     "@type": "WebApplication",
     "name": "1099 Contractor Tracker: Who Needs a 1099-NEC in 2026",
     "url": "https://mfa-advisory.com/tools/1099-contractor-tracker/",
