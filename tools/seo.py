@@ -270,7 +270,14 @@ def product_node(p):
             "offers": {"@type": "Offer", "price": p["price"], "priceCurrency": "USD", "availability": "https://schema.org/InStock",
                        "url": p["url"], "seller": seller, "itemCondition": "https://schema.org/NewCondition",
                        "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "US",
-                                                   "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}}}
+                                                   "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"},
+                       # Digital download: no physical shipping; delivered by email/download right after checkout.
+                       "shippingDetails": {"@type": "OfferShippingDetails",
+                                           "shippingRate": {"@type": "MonetaryAmount", "value": 0, "currency": "USD"},
+                                           "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+                                           "deliveryTime": {"@type": "ShippingDeliveryTime",
+                                                            "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"},
+                                                            "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}}}}}
 
 
 # ----------------------------------------------------------------------------------------------- related links (internal linking)
