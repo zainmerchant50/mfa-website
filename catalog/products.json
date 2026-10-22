@@ -1,478 +1,553 @@
 {
- "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
- "updated": "2026-10-21",
- "store": "https://mfaadvisory.gumroad.com/",
- "groups": [
-  {
-   "id": "calc",
-   "name": "Tax calculators",
-   "lead": "Spreadsheets that do the math with 2026 federal and NJ / NY figures."
-  },
-  {
-   "id": "kit",
-   "name": "Checklists & kits",
-   "lead": "The routines a bookkeeper runs, written so you can run them yourself."
-  },
-  {
-   "id": "ai",
-   "name": "AI prompt packs",
-   "lead": "Copy-paste prompts with a \"check this\" note, so AI speeds you up without guessing."
-  }
- ],
- "products": [
-  {
-   "id": "08",
-   "slug": "1099-self-employed-tax-calculator-2026",
-   "name": "1099 Self-Employed Tax Calculator & Quarterly Planner (2026)",
-   "status": "live",
-   "tier": "calculator",
-   "gumroad": {
-    "price": "11.99",
-    "url": "https://mfaadvisory.gumroad.com/l/1099-self-employed-tax-calculator-2026",
-    "product_id": "yyqrs"
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 23.99,
-    "sale": 11.99,
-    "url": null
-   },
-   "shop": {
-    "group": "calc",
-    "blurb": "From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log.",
-    "format": "Excel / Google Sheets",
-    "related": {
-     "url": "/tools/1099-tax-calculator/",
-     "label": "Try the quick online version"
+  "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
+  "updated": "2026-10-21",
+  "store": "https://mfaadvisory.gumroad.com/",
+  "groups": [
+    {
+      "id": "calc",
+      "name": "Tax calculators",
+      "lead": "Spreadsheets that do the math with 2026 federal and NJ / NY figures."
+    },
+    {
+      "id": "kit",
+      "name": "Checklists & kits",
+      "lead": "The routines a bookkeeper runs, written so you can run them yourself."
+    },
+    {
+      "id": "ai",
+      "name": "AI prompt packs",
+      "lead": "Copy-paste prompts with a \"check this\" note, so AI speeds you up without guessing."
     }
-   }
-  },
-  {
-   "id": "07",
-   "slug": "salary-paycheck-tax-calculator-2026",
-   "name": "2026 Salary & Paycheck Tax Calculator (W-2)",
-   "status": "live",
-   "tier": "calculator",
-   "gumroad": {
-    "price": "11.99",
-    "url": "https://mfaadvisory.gumroad.com/l/salary-paycheck-tax-calculator-2026",
-    "product_id": "kagpzb"
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 23.99,
-    "sale": 11.99,
-    "url": null
-   },
-   "shop": {
-    "group": "calc",
-    "blurb": "See where a 2026 paycheck goes: federal, FICA, NJ / NY / NYC tax and net pay per year and per paycheck, with a bracket-by-bracket table.",
-    "format": "Excel / Google Sheets",
-    "related": {
-     "url": "/tools/paycheck-tax-calculator/",
-     "label": "Try the quick online version"
+  ],
+  "products": [
+    {
+      "id": "08",
+      "slug": "1099-self-employed-tax-calculator-2026",
+      "name": "1099 Self-Employed Tax Calculator & Quarterly Planner (2026)",
+      "status": "live",
+      "tier": "calculator",
+      "gumroad": {
+        "price": "11.99",
+        "url": "https://mfaadvisory.gumroad.com/l/1099-self-employed-tax-calculator-2026",
+        "product_id": "yyqrs"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 23.99,
+        "sale": 11.99,
+        "url": null
+      },
+      "shop": {
+        "group": "calc",
+        "blurb": "From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log.",
+        "format": "Excel / Google Sheets",
+        "related": {
+          "url": "/tools/1099-tax-calculator/",
+          "label": "Try the quick online version"
+        }
+      }
+    },
+    {
+      "id": "07",
+      "slug": "salary-paycheck-tax-calculator-2026",
+      "name": "2026 Salary & Paycheck Tax Calculator (W-2)",
+      "status": "live",
+      "tier": "calculator",
+      "gumroad": {
+        "price": "11.99",
+        "url": "https://mfaadvisory.gumroad.com/l/salary-paycheck-tax-calculator-2026",
+        "product_id": "kagpzb"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 23.99,
+        "sale": 11.99,
+        "url": null
+      },
+      "shop": {
+        "group": "calc",
+        "blurb": "See where a 2026 paycheck goes: federal, FICA, NJ / NY / NYC tax and net pay per year and per paycheck, with a bracket-by-bracket table.",
+        "format": "Excel / Google Sheets",
+        "related": {
+          "url": "/tools/paycheck-tax-calculator/",
+          "label": "Try the quick online version"
+        }
+      }
+    },
+    {
+      "id": "19",
+      "slug": "s-corp-vs-llc-savings-calculator",
+      "name": "S Corp vs LLC Savings Calculator",
+      "status": "live",
+      "tier": "calculator",
+      "gumroad": {
+        "price": "11.99",
+        "url": "https://mfaadvisory.gumroad.com/l/s-corp-vs-llc-savings-calculator",
+        "product_id": "xhhnd"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 23.99,
+        "sale": 11.99,
+        "url": null
+      },
+      "shop": {
+        "group": "calc",
+        "blurb": "Compare self-employment tax with S corp payroll taxes after the extra costs, see net annual savings and the break-even profit, and read the warnings before you elect.",
+        "format": "Excel / Google Sheets",
+        "related": {
+          "url": "/tools/s-corp-tax-savings-calculator/",
+          "label": "Try the quick online version"
+        }
+      }
+    },
+    {
+      "id": "01",
+      "slug": "1099-kit",
+      "name": "The 1099 Kit (2026 payments, filed in 2027)",
+      "status": "live",
+      "tier": "kit",
+      "gumroad": {
+        "price": "15",
+        "url": "https://mfaadvisory.gumroad.com/l/1099-kit",
+        "product_id": "giens"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 30.0,
+        "sale": 15.0,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Decide who needs a 1099, collect W-9s and file on time. Updated for the new $2,000 threshold, with a contractor tracker.",
+        "format": "PDF + Excel",
+        "related": {
+          "url": "/tools/do-i-need-to-send-a-1099/",
+          "label": "Do I need to send a 1099?"
+        }
+      }
+    },
+    {
+      "id": "18",
+      "slug": "month-end-close-checklist",
+      "name": "Month-End Close Checklist + Close Workbook",
+      "status": "live",
+      "tier": "checklist+workbook",
+      "gumroad": {
+        "price": "12.99",
+        "url": "https://mfaadvisory.gumroad.com/l/month-end-close-checklist",
+        "product_id": "jzjim"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 25.98,
+        "sale": 12.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, flux review, sign-off sheet and dashboard.",
+        "format": "PDF + Excel",
+        "related": null
+      }
+    },
+    {
+      "id": "03",
+      "slug": "bookkeeping-cleanup-checklist",
+      "name": "Bookkeeping Cleanup Checklist + Catch-Up Tracker",
+      "status": "live",
+      "tier": "checklist+tracker",
+      "gumroad": {
+        "price": "12",
+        "url": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist",
+        "product_id": "gpgxj"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 24.0,
+        "sale": 12.0,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "The step-by-step method to catch up months-behind books, plus a tracker that shows what's done.",
+        "format": "PDF + Excel",
+        "related": null
+      }
+    },
+    {
+      "id": "02",
+      "slug": "new-business-setup-checklist",
+      "name": "New Business Setup Checklist",
+      "status": "live",
+      "tier": "checklist",
+      "gumroad": {
+        "price": "9",
+        "url": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist",
+        "product_id": "efonxz"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 18.0,
+        "sale": 9.0,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Every step from idea to set up right: entity, EIN, registrations, bank, books and the compliance calendar.",
+        "format": "PDF",
+        "related": {
+          "url": "/llc-formation/",
+          "label": "Or have MFA form your LLC"
+        }
+      }
+    },
+    {
+      "id": "17",
+      "slug": "small-business-year-end-tax-checklist",
+      "name": "Small Business Year-End Tax Checklist",
+      "status": "live",
+      "tier": "checklist",
+      "gumroad": {
+        "price": "4.99",
+        "url": "https://mfaadvisory.gumroad.com/l/small-business-year-end-tax-checklist",
+        "product_id": "ccksxu"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.99,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "A check-the-box year-end guide for sole props, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines.",
+        "format": "PDF",
+        "related": {
+          "url": "/tools/tax-deadlines-2027/",
+          "label": "2027 tax deadlines"
+        }
+      }
+    },
+    {
+      "id": "15",
+      "slug": "ai-prompts-small-business-bookkeeping-taxes",
+      "name": "AI Prompts for Small Business Bookkeeping & Taxes",
+      "status": "live",
+      "tier": "prompts",
+      "gumroad": {
+        "price": "6.99",
+        "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes",
+        "product_id": "jtthiq"
+      },
+      "etsy": {
+        "allowed": false,
+        "note": "Etsy doesn't allow AI prompt bundles; Gumroad only"
+      },
+      "shop": {
+        "group": "ai",
+        "blurb": "130 copy-paste AI prompts for bookkeeping, month-end close, reconciliations, Schedule C prep, quarterly estimates and 1099s, each with an expected output and a \"check this\" note.",
+        "format": "PDF",
+        "related": null
+      }
+    },
+    {
+      "id": "16",
+      "slug": "ai-prompts-tax-preparers-bookkeepers",
+      "name": "AI Prompts for Tax Preparers & Bookkeepers",
+      "status": "live",
+      "tier": "prompts",
+      "gumroad": {
+        "price": "6.99",
+        "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers",
+        "product_id": "goxalq"
+      },
+      "etsy": {
+        "allowed": false,
+        "note": "Etsy doesn't allow AI prompt bundles; Gumroad only"
+      },
+      "shop": {
+        "group": "ai",
+        "blurb": "104 copy-paste AI prompts for client intake, document requests, notices in plain English, cleanup scoping, review notes, newsletters, social posts and SOPs.",
+        "format": "PDF",
+        "related": null
+      }
+    },
+    {
+      "id": "09",
+      "slug": null,
+      "name": "1099 Contractor Payment Tracker",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "10",
+      "slug": null,
+      "name": "1099 Income Tracker for Freelancers",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "11",
+      "slug": null,
+      "name": "Small Business Bookkeeping Spreadsheet",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "12",
+      "slug": null,
+      "name": "Expense Categorization Guide & Tracker",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "13",
+      "slug": null,
+      "name": "Self-Employed Tax Deduction Tracker",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "14",
+      "slug": null,
+      "name": "IRS Mileage Log 2026",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "20",
+      "slug": null,
+      "name": "Self-Employed Tax Toolkit",
+      "status": "planned",
+      "tier": "bundle",
+      "gumroad": {
+        "price": "24.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 49.99,
+        "sale": 24.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built but not QA'd; needs trackers 09-14."
+    },
+    {
+      "id": "21",
+      "slug": null,
+      "name": "Small Business Bookkeeping & Tax Bundle",
+      "status": "planned",
+      "tier": "bundle",
+      "gumroad": {
+        "price": "24.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 49.99,
+        "sale": 24.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built but not QA'd; needs trackers 09-14."
+    },
+    {
+      "id": "22",
+      "slug": null,
+      "name": "Online Seller Bookkeeping Sheet",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built 2026-10-21; price approved by Zain 2026-10-21 23:45 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "27",
+      "slug": null,
+      "name": "Rental Property Tracker (Schedule E)",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "5.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 11.98,
+        "sale": 5.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built 2026-10-21; price approved by Zain 2026-10-21 23:45 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "28",
+      "slug": null,
+      "name": "Rideshare & Delivery Driver Tax Tracker",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "5.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 11.98,
+        "sale": 5.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built 2026-10-21; price approved by Zain 2026-10-21 23:45 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
     }
-   }
-  },
-  {
-   "id": "19",
-   "slug": "s-corp-vs-llc-savings-calculator",
-   "name": "S Corp vs LLC Savings Calculator",
-   "status": "live",
-   "tier": "calculator",
-   "gumroad": {
-    "price": "11.99",
-    "url": "https://mfaadvisory.gumroad.com/l/s-corp-vs-llc-savings-calculator",
-    "product_id": "xhhnd"
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 23.99,
-    "sale": 11.99,
-    "url": null
-   },
-   "shop": {
-    "group": "calc",
-    "blurb": "Compare self-employment tax with S corp payroll taxes after the extra costs, see net annual savings and the break-even profit, and read the warnings before you elect.",
-    "format": "Excel / Google Sheets",
-    "related": {
-     "url": "/tools/s-corp-tax-savings-calculator/",
-     "label": "Try the quick online version"
-    }
-   }
-  },
-  {
-   "id": "01",
-   "slug": "1099-kit",
-   "name": "The 1099 Kit (2026 payments, filed in 2027)",
-   "status": "live",
-   "tier": "kit",
-   "gumroad": {
-    "price": "15",
-    "url": "https://mfaadvisory.gumroad.com/l/1099-kit",
-    "product_id": "giens"
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 30.0,
-    "sale": 15.0,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": "Decide who needs a 1099, collect W-9s and file on time. Updated for the new $2,000 threshold, with a contractor tracker.",
-    "format": "PDF + Excel",
-    "related": {
-     "url": "/tools/do-i-need-to-send-a-1099/",
-     "label": "Do I need to send a 1099?"
-    }
-   }
-  },
-  {
-   "id": "18",
-   "slug": "month-end-close-checklist",
-   "name": "Month-End Close Checklist + Close Workbook",
-   "status": "live",
-   "tier": "checklist+workbook",
-   "gumroad": {
-    "price": "12.99",
-    "url": "https://mfaadvisory.gumroad.com/l/month-end-close-checklist",
-    "product_id": "jzjim"
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 25.98,
-    "sale": 12.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": "A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, flux review, sign-off sheet and dashboard.",
-    "format": "PDF + Excel",
-    "related": null
-   }
-  },
-  {
-   "id": "03",
-   "slug": "bookkeeping-cleanup-checklist",
-   "name": "Bookkeeping Cleanup Checklist + Catch-Up Tracker",
-   "status": "live",
-   "tier": "checklist+tracker",
-   "gumroad": {
-    "price": "12",
-    "url": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist",
-    "product_id": "gpgxj"
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 24.0,
-    "sale": 12.0,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": "The step-by-step method to catch up months-behind books, plus a tracker that shows what's done.",
-    "format": "PDF + Excel",
-    "related": null
-   }
-  },
-  {
-   "id": "02",
-   "slug": "new-business-setup-checklist",
-   "name": "New Business Setup Checklist",
-   "status": "live",
-   "tier": "checklist",
-   "gumroad": {
-    "price": "9",
-    "url": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist",
-    "product_id": "efonxz"
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 18.0,
-    "sale": 9.0,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": "Every step from idea to set up right: entity, EIN, registrations, bank, books and the compliance calendar.",
-    "format": "PDF",
-    "related": {
-     "url": "/llc-formation/",
-     "label": "Or have MFA form your LLC"
-    }
-   }
-  },
-  {
-   "id": "17",
-   "slug": "small-business-year-end-tax-checklist",
-   "name": "Small Business Year-End Tax Checklist",
-   "status": "live",
-   "tier": "checklist",
-   "gumroad": {
-    "price": "4.99",
-    "url": "https://mfaadvisory.gumroad.com/l/small-business-year-end-tax-checklist",
-    "product_id": "ccksxu"
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 9.99,
-    "sale": 4.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": "A check-the-box year-end guide for sole props, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines.",
-    "format": "PDF",
-    "related": {
-     "url": "/tools/tax-deadlines-2027/",
-     "label": "2027 tax deadlines"
-    }
-   }
-  },
-  {
-   "id": "15",
-   "slug": "ai-prompts-small-business-bookkeeping-taxes",
-   "name": "AI Prompts for Small Business Bookkeeping & Taxes",
-   "status": "live",
-   "tier": "prompts",
-   "gumroad": {
-    "price": "6.99",
-    "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes",
-    "product_id": "jtthiq"
-   },
-   "etsy": {
-    "allowed": false,
-    "note": "Etsy doesn't allow AI prompt bundles; Gumroad only"
-   },
-   "shop": {
-    "group": "ai",
-    "blurb": "130 copy-paste AI prompts for bookkeeping, month-end close, reconciliations, Schedule C prep, quarterly estimates and 1099s, each with an expected output and a \"check this\" note.",
-    "format": "PDF",
-    "related": null
-   }
-  },
-  {
-   "id": "16",
-   "slug": "ai-prompts-tax-preparers-bookkeepers",
-   "name": "AI Prompts for Tax Preparers & Bookkeepers",
-   "status": "live",
-   "tier": "prompts",
-   "gumroad": {
-    "price": "6.99",
-    "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers",
-    "product_id": "goxalq"
-   },
-   "etsy": {
-    "allowed": false,
-    "note": "Etsy doesn't allow AI prompt bundles; Gumroad only"
-   },
-   "shop": {
-    "group": "ai",
-    "blurb": "104 copy-paste AI prompts for client intake, document requests, notices in plain English, cleanup scoping, review notes, newsletters, social posts and SOPs.",
-    "format": "PDF",
-    "related": null
-   }
-  },
-  {
-   "id": "09",
-   "slug": null,
-   "name": "1099 Contractor Payment Tracker",
-   "status": "draft",
-   "tier": "tracker",
-   "gumroad": {
-    "price": "6.99",
-    "url": null,
-    "product_id": null
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 13.98,
-    "sale": 6.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": null,
-    "format": null,
-    "related": null
-   },
-   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
-  },
-  {
-   "id": "10",
-   "slug": null,
-   "name": "1099 Income Tracker for Freelancers",
-   "status": "draft",
-   "tier": "tracker",
-   "gumroad": {
-    "price": "6.99",
-    "url": null,
-    "product_id": null
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 13.98,
-    "sale": 6.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": null,
-    "format": null,
-    "related": null
-   },
-   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
-  },
-  {
-   "id": "11",
-   "slug": null,
-   "name": "Small Business Bookkeeping Spreadsheet",
-   "status": "draft",
-   "tier": "tracker",
-   "gumroad": {
-    "price": "6.99",
-    "url": null,
-    "product_id": null
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 13.98,
-    "sale": 6.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": null,
-    "format": null,
-    "related": null
-   },
-   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
-  },
-  {
-   "id": "12",
-   "slug": null,
-   "name": "Expense Categorization Guide & Tracker",
-   "status": "draft",
-   "tier": "tracker",
-   "gumroad": {
-    "price": "6.99",
-    "url": null,
-    "product_id": null
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 13.98,
-    "sale": 6.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": null,
-    "format": null,
-    "related": null
-   },
-   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
-  },
-  {
-   "id": "13",
-   "slug": null,
-   "name": "Self-Employed Tax Deduction Tracker",
-   "status": "draft",
-   "tier": "tracker",
-   "gumroad": {
-    "price": "6.99",
-    "url": null,
-    "product_id": null
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 13.98,
-    "sale": 6.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": null,
-    "format": null,
-    "related": null
-   },
-   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
-  },
-  {
-   "id": "14",
-   "slug": null,
-   "name": "IRS Mileage Log 2026",
-   "status": "draft",
-   "tier": "tracker",
-   "gumroad": {
-    "price": "6.99",
-    "url": null,
-    "product_id": null
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 13.98,
-    "sale": 6.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": null,
-    "format": null,
-    "related": null
-   },
-   "note": "Being built 2026-10-21 (Zain: tracker tier $6.99). Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
-  },
-  {
-   "id": "20",
-   "slug": null,
-   "name": "Self-Employed Tax Toolkit",
-   "status": "planned",
-   "tier": "bundle",
-   "gumroad": {
-    "price": "24.99",
-    "url": null,
-    "product_id": null
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 49.99,
-    "sale": 24.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": null,
-    "format": null,
-    "related": null
-   },
-   "note": "Built but not QA'd; needs trackers 09-14."
-  },
-  {
-   "id": "21",
-   "slug": null,
-   "name": "Small Business Bookkeeping & Tax Bundle",
-   "status": "planned",
-   "tier": "bundle",
-   "gumroad": {
-    "price": "24.99",
-    "url": null,
-    "product_id": null
-   },
-   "etsy": {
-    "allowed": true,
-    "list": 49.99,
-    "sale": 24.99,
-    "url": null
-   },
-   "shop": {
-    "group": "kit",
-    "blurb": null,
-    "format": null,
-    "related": null
-   },
-   "note": "Built but not QA'd; needs trackers 09-14."
-  }
- ]
+  ]
 }
