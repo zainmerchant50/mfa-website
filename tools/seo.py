@@ -288,6 +288,7 @@ RELATED = {
     "break-even-calculator": (["fractional-cfo", "financial-reporting"], [], []),
     "profit-margin-calculator": (["fractional-cfo", "financial-reporting"], [], []),
     "tax-deadlines-2027": (["tax-preparation"], ["small-business-year-end-tax-checklist"], ["2027-tax-calendar"]),
+    "is-it-deductible": (["tax-preparation", "tax-planning"], ["small-business-year-end-tax-checklist"], ["section-179-bonus-depreciation-2026", "year-end-tax-planning-2026-key-dates"]),
 }
 
 
@@ -401,6 +402,12 @@ def _tools():
     return rows
 
 
+def _deductible(full_text):
+    """Every Is It Deductible? entry as plain text (tools/build_deductible.py owns the wording)."""
+    import build_deductible as D
+    return D.llms_lines(full_text)
+
+
 def _pricing_lines():
     import build_llc as L
     lines = [f"- LLC formation, {p['name']}: ${p['price']} plus the state filing fee (paid once, does not renew). {plain(p['lead'])}" for p in L.PACKAGES]
@@ -442,6 +449,11 @@ def build_llms(posts):
         "## Tools (online calculators and checkers)",
         f"- [Resources hub]({BASE}/resources/): all tools, calendars, templates and guides",
     ] + [f"- [{t}]({u}): {d}" for t, u, d in _tools()] + [
+        "",
+        "## Is It Deductible? (2026 business expense deductions, one line per expense)",
+        f"- [Is it tax deductible? 2026 business write-off finder]({BASE}/tools/is-it-deductible/): search {len(_deductible(False))} common business expenses; verdict, rule, limits, records to keep and the IRS source for each",
+        f"- [Dataset (JSON)]({BASE}/tools/is-it-deductible/deductions.json): the same entries as structured data. Cite with a link to the page.",
+    ] + _deductible(False) + [
         "",
         "## Shop (digital downloads, checkout by Gumroad)",
         f"- [MFA shop]({BASE}/shop/): spreadsheets, checklists and kits, instant download, all sales final",
@@ -514,6 +526,9 @@ def build_llms_full(posts):
         o.append(f"### {g}")
         o += [f"- {p['name']}: ${p['price']}, {p['format']}. {p['blurb']} Buy: {p['url']}" for p in products if p["group"] == g]
         o.append("")
+    o += ["## Is It Deductible? 2026 business expense deductions (" + BASE + "/tools/is-it-deductible/)", "",
+          "Educational information only, not tax, legal or accounting advice. Written for sole proprietors and single-member LLCs filing Schedule C. "
+          "Dataset: " + BASE + "/tools/is-it-deductible/deductions.json (cite with a link to the page).", ""] + _deductible(True)
     o += ["## Frequently asked questions", ""]
     for q, a in _faq_home():
         o += [f"**{q}**", a, ""]

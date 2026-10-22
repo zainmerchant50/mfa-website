@@ -72,7 +72,8 @@ GROUPS = [
 TOOLS = [
     ("checkers", "Do I need to send a 1099?", "Four questions to see whether a payment needs a 1099-NEC or 1099-MISC for 2026, and what to do next.",
      "/tools/do-i-need-to-send-a-1099/", "check", "1099 nec misc contractor w-9 threshold 2000", "New"),
-    ("checkers", "Is It Deductible?", "Search an expense and see whether it's deductible, the limits and the records to keep.", None, "list", "deduction write off expense", ""),
+    ("checkers", "Is It Deductible?", "Search an expense and see whether it's deductible, the limits and the records to keep.",
+     "/tools/is-it-deductible/", "list", "deduction deductible write off expense business expenses schedule c", "New"),
     ("calculators", "Break-even calculator", "How many sales you need each month to cover your costs, and to hit a profit goal.",
      "/tools/break-even-calculator/", "chart", "break even pricing fixed costs contribution margin", "New"),
     ("calculators", "Profit margin & markup calculator", "Turn cost and price into margin and markup, or find the price for the margin you want.",
@@ -405,6 +406,8 @@ if __name__ == "__main__":
     import build_llc  # noqa: E402  (LLC formation pages share this file's helpers)
     urls += build_llc.build_all()
     urls += build_calculators.build_all()
+    import build_deductible  # noqa: E402  (/tools/is-it-deductible/, data/deductions.json; Zain 2026-10-21)
+    urls.append(build_deductible.build())
     import build_services  # noqa: E402  (/services/, moved off the home page 2026-10-20)
     urls.append(build_services.build())
     import build_shop  # noqa: E402  (/shop/, Gumroad overlay; Zain 2026-10-21)

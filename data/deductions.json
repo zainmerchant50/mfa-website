@@ -1,0 +1,1989 @@
+{
+ "meta": {
+  "tax_year": 2026,
+  "title": "Is It Deductible?",
+  "owner": "Site session (verified data)",
+  "checked": "2026-10-21T23:55-04:00",
+  "reviewed_by": "Zain Merchant, ACCA",
+  "last_reviewed": "2026-10-21",
+  "format": "Each entry: verdict deductible|partly|depends|not; percent is set only when one clear percentage applies, else null. source_url is irs.gov or the Code/Regs (law.cornell.edu). 'also' lists further official sources; 'tools' lists related MFA pages.",
+  "disclaimer": "Educational information only, not tax, legal or accounting advice. Tax rules change and depend on your facts. Do your own research using the IRS sources linked, and talk to a qualified tax professional before you file.",
+  "note": "IRS Publication 535 (Business Expenses) has been discontinued; its topics now live in Publication 334 and the Schedule C instructions. Where a 2026 edition isn't published yet, the latest edition is cited with its year.",
+  "order": [
+   "home",
+   "vehicle",
+   "meals",
+   "tech",
+   "equip",
+   "people",
+   "insurance",
+   "retire",
+   "pro",
+   "marketing",
+   "education",
+   "banking",
+   "startup",
+   "inventory",
+   "taxes",
+   "not"
+  ],
+  "categories": [
+   {
+    "id": "home",
+    "name": "Home & office",
+    "icon": "home",
+    "count": 6
+   },
+   {
+    "id": "vehicle",
+    "name": "Vehicle & travel",
+    "icon": "car",
+    "count": 5
+   },
+   {
+    "id": "meals",
+    "name": "Meals & entertainment",
+    "icon": "meal",
+    "count": 4
+   },
+   {
+    "id": "tech",
+    "name": "Tech & software",
+    "icon": "laptop",
+    "count": 4
+   },
+   {
+    "id": "equip",
+    "name": "Equipment & depreciation",
+    "icon": "tool",
+    "count": 5
+   },
+   {
+    "id": "people",
+    "name": "People & contractors",
+    "icon": "people",
+    "count": 5
+   },
+   {
+    "id": "insurance",
+    "name": "Insurance & health",
+    "icon": "shield",
+    "count": 3
+   },
+   {
+    "id": "retire",
+    "name": "Retirement",
+    "icon": "piggy",
+    "count": 3
+   },
+   {
+    "id": "pro",
+    "name": "Professional & legal",
+    "icon": "scale",
+    "count": 3
+   },
+   {
+    "id": "marketing",
+    "name": "Marketing & gifts",
+    "icon": "megaphone",
+    "count": 3
+   },
+   {
+    "id": "education",
+    "name": "Education",
+    "icon": "cap",
+    "count": 1
+   },
+   {
+    "id": "banking",
+    "name": "Banking & interest",
+    "icon": "bank",
+    "count": 3
+   },
+   {
+    "id": "startup",
+    "name": "Startup costs",
+    "icon": "rocket",
+    "count": 2
+   },
+   {
+    "id": "inventory",
+    "name": "Inventory & shipping",
+    "icon": "box",
+    "count": 2
+   },
+   {
+    "id": "taxes",
+    "name": "Taxes & licenses",
+    "icon": "receipt",
+    "count": 3
+   },
+   {
+    "id": "not",
+    "name": "Not deductible",
+    "icon": "ban",
+    "count": 6
+   }
+  ]
+ },
+ "entries": [
+  {
+   "slug": "home-office",
+   "name": "Home office",
+   "category": "home",
+   "aliases": [
+    "home office",
+    "office at home",
+    "work from home",
+    "wfh",
+    "form 8829",
+    "simplified method",
+    "home business"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "You can deduct part of your home costs if a specific area is used regularly and exclusively for your business and is your principal place of business (or where you meet clients). Use the simplified method ($5 per square foot) or the regular method (your business-use percentage of actual home costs, on Form 8829).",
+   "limits": "Simplified method: $5 per square foot, up to 300 square feet, so $1,500 at most. Either method can't exceed the gross income from the business use of your home minus your other business expenses; under the regular method the excess carries over to the next year, under the simplified method it doesn't.",
+   "records": "Measurements or a floor plan of the office and the whole home, photos showing exclusive use, and the bills, receipts and canceled checks for every home expense you deduct (and your home's basis if you claim depreciation).",
+   "applies_to": "Self-employed people. W-2 employees can't claim a home office deduction.",
+   "source_url": "https://www.irs.gov/publications/p587",
+   "source_title": "IRS Publication 587 (2025), Business Use of Your Home",
+   "also": [
+    {
+     "title": "IRS: Simplified option for home office deduction",
+     "url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction"
+    }
+   ],
+   "tools": [
+    "/tools/home-office-deduction-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "office-rent",
+   "name": "Office rent",
+   "category": "home",
+   "aliases": [
+    "rent",
+    "office space",
+    "lease",
+    "storefront",
+    "warehouse rent",
+    "studio rent"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Rent you pay for office, retail or other business space is deductible in the year it applies to. Rent for vehicles, machinery and equipment is deductible too, for the business share of use.",
+   "limits": "No dollar limit. For rented vehicles, machinery and equipment, only the business share of use counts.",
+   "records": "The signed lease, monthly invoices or statements, and proof of payment.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "26 CFR § 1.162-1, Business expenses",
+     "url": "https://www.law.cornell.edu/cfr/text/26/1.162-1"
+    }
+   ],
+   "tools": [
+    "/tools/do-i-need-to-send-a-1099/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "coworking",
+   "name": "Coworking space or shared desk",
+   "category": "home",
+   "aliases": [
+    "coworking",
+    "co-working",
+    "wework",
+    "shared office",
+    "hot desk",
+    "day pass",
+    "meeting room"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "A coworking membership, desk rental or meeting-room booking used for your business is rent for business space and is deductible.",
+   "limits": "Only the business share counts if part of the membership is for personal use (for example, a gym or social perks bundled in).",
+   "records": "Membership agreement, monthly invoices and proof of payment. A short note of what the space is used for helps.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "26 CFR § 1.162-1, Business expenses",
+     "url": "https://www.law.cornell.edu/cfr/text/26/1.162-1"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "utilities",
+   "name": "Utilities (electric, gas, water)",
+   "category": "home",
+   "aliases": [
+    "utilities",
+    "electric",
+    "electricity",
+    "gas bill",
+    "water",
+    "heat",
+    "power bill"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "Utilities for a business location (an office, shop or studio) are deductible. Utilities for your home are deductible only through a home office deduction, as part of your business-use percentage under the regular method.",
+   "limits": "No dollar limit for a business location. At home, only the business-use share counts, and the home office income limit applies.",
+   "records": "Utility bills and proof of payment; for a home office, your square-footage calculation.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS Publication 587 (2025), Business Use of Your Home",
+     "url": "https://www.irs.gov/publications/p587"
+    }
+   ],
+   "tools": [
+    "/tools/home-office-deduction-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "office-supplies",
+   "name": "Office supplies and postage",
+   "category": "home",
+   "aliases": [
+    "office supplies",
+    "supplies",
+    "paper",
+    "printer ink",
+    "toner",
+    "stationery",
+    "pens",
+    "stamps"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Office supplies and postage used in your business are deductible. Materials and supplies are generally deducted as you use them, and items you normally use up within a year can be deducted when bought.",
+   "limits": "Items that last substantially longer than a year are generally depreciated instead (or expensed under the de minimis safe harbor or Section 179).",
+   "records": "Receipts or invoices showing what you bought and when.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "uniforms",
+   "name": "Work clothes and uniforms",
+   "category": "home",
+   "aliases": [
+    "clothing",
+    "clothes",
+    "uniform",
+    "work clothes",
+    "wardrobe",
+    "protective gear",
+    "safety boots",
+    "scrubs",
+    "costume",
+    "suit"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "Clothing is deductible only if your work requires it and it isn't suitable for ordinary street wear, such as protective gear or a uniform you wouldn't wear outside work. Everyday clothes are personal, even if you only wear them for work.",
+   "limits": "No dollar limit. The test is objective: if the item could be worn as ordinary street clothing, it doesn't qualify, however you actually use it.",
+   "records": "Receipts, plus a note of why the item is required for your work and not suitable for everyday wear (photos help).",
+   "applies_to": "Self-employed people.",
+   "source_url": "https://www.irs.gov/pub/irs-tege/FSLG_Directive_Tax_Treatment_of_Uniforms.pdf",
+   "source_title": "IRS Federal, State and Local Governments directive: Tax treatment of uniforms (2015)",
+   "also": [
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    },
+    {
+     "title": "26 U.S.C. § 162, Trade or business expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "mileage",
+   "name": "Car mileage (standard rate)",
+   "category": "vehicle",
+   "aliases": [
+    "car",
+    "mileage",
+    "miles",
+    "driving",
+    "auto",
+    "vehicle",
+    "uber driver",
+    "standard mileage rate",
+    "truck"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Deduct your business miles times the IRS standard mileage rate instead of tracking actual car costs. Business miles are trips to clients, between work locations and for business errands, never the commute.",
+   "limits": "2026 business rate: 72.5 cents a mile for Jan. 1 to June 30 and 76 cents a mile for July 1 to Dec. 31 (2025: 70 cents). You must choose the standard rate in the first year you use a car you own for business; with five or more cars used at the same time you can't use it. Business parking and tolls are deductible on top.",
+   "records": "A mileage log kept as you go: date, destination, business purpose and miles for each trip, plus total miles for the year and odometer readings.",
+   "applies_to": "Self-employed people who own or lease the car. W-2 employees generally can't deduct unreimbursed car costs.",
+   "source_url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "source_title": "IRS: Standard mileage rates",
+   "also": [
+    {
+     "title": "IRS Topic no. 510, Business use of car",
+     "url": "https://www.irs.gov/taxtopics/tc510"
+    },
+    {
+     "title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+     "url": "https://www.irs.gov/publications/p463"
+    }
+   ],
+   "tools": [
+    "/tools/mileage-deduction-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "vehicle-actual-expenses",
+   "name": "Car expenses (actual costs)",
+   "category": "vehicle",
+   "aliases": [
+    "car",
+    "gas",
+    "fuel",
+    "car insurance",
+    "car repairs",
+    "oil change",
+    "tires",
+    "car lease",
+    "car payment",
+    "depreciation car",
+    "registration"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Instead of the standard rate, you can deduct the business share of what the car actually costs: gas, oil, repairs, tires, insurance, registration, licenses and depreciation or lease payments. If you also drive it personally, only the business-use percentage counts.",
+   "limits": "Business-use percentage = business miles divided by total miles. Depreciation is subject to the yearly limits for passenger cars; a heavy SUV's Section 179 deduction is capped at $32,000 for tax years beginning in 2026 ($31,300 in 2025).",
+   "records": "Every receipt for car costs, the purchase or lease papers, and a mileage log showing business and total miles.",
+   "applies_to": "Self-employed people. W-2 employees generally can't deduct unreimbursed car costs.",
+   "source_url": "https://www.irs.gov/taxtopics/tc510",
+   "source_title": "IRS Topic no. 510, Business use of car",
+   "also": [
+    {
+     "title": "IRS Publication 946 (2025), How To Depreciate Property",
+     "url": "https://www.irs.gov/publications/p946"
+    },
+    {
+     "title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+     "url": "https://www.irs.gov/publications/p463"
+    }
+   ],
+   "tools": [
+    "/tools/mileage-deduction-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "parking-tolls",
+   "name": "Parking and tolls",
+   "category": "vehicle",
+   "aliases": [
+    "parking",
+    "tolls",
+    "ez pass",
+    "e-zpass",
+    "parking meter",
+    "garage"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Parking fees and tolls for business trips are deductible on top of either the standard mileage rate or actual expenses.",
+   "limits": "Parking at your own regular place of business is a commuting cost and isn't deductible.",
+   "records": "Receipts or toll statements, matched to trips in your mileage log.",
+   "applies_to": "Self-employed people; employees only in limited cases.",
+   "source_url": "https://www.irs.gov/taxtopics/tc510",
+   "source_title": "IRS Topic no. 510, Business use of car",
+   "also": [
+    {
+     "title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+     "url": "https://www.irs.gov/publications/p463"
+    }
+   ],
+   "tools": [
+    "/tools/mileage-deduction-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "business-travel",
+   "name": "Business travel (flights, hotels)",
+   "category": "vehicle",
+   "aliases": [
+    "travel",
+    "flight",
+    "airfare",
+    "hotel",
+    "lodging",
+    "airbnb",
+    "train",
+    "trip",
+    "conference travel",
+    "rental car",
+    "uber",
+    "taxi"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Ordinary and necessary costs of traveling away from your tax home overnight for business are deductible: transportation, lodging, taxis or rideshare at the destination, baggage, laundry and business calls. Meals on the trip are 50% deductible.",
+   "limits": "The trip has to take you away from your tax home (the general area of your main place of business) longer than a normal workday, needing sleep or rest. A trip that is mainly personal is a personal expense.",
+   "records": "Receipts for lodging and anything $75 or more, plus the dates, destination and business purpose of the trip.",
+   "applies_to": "Self-employed people. W-2 employees generally can't deduct unreimbursed travel.",
+   "source_url": "https://www.irs.gov/taxtopics/tc511",
+   "source_title": "IRS Topic no. 511, Business travel expenses",
+   "also": [
+    {
+     "title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+     "url": "https://www.irs.gov/publications/p463"
+    },
+    {
+     "title": "26 CFR § 1.274-5, Substantiation requirements",
+     "url": "https://www.law.cornell.edu/cfr/text/26/1.274-5"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "travel-meals",
+   "name": "Meals while traveling",
+   "category": "vehicle",
+   "aliases": [
+    "travel meals",
+    "per diem",
+    "meals on trip",
+    "food on business trip",
+    "standard meal allowance"
+   ],
+   "verdict": "partly",
+   "percent": 50,
+   "rule": "Meals while you're traveling away from home on business are generally 50% deductible. You can deduct actual costs or use the standard meal allowance for the area instead of keeping meal receipts.",
+   "limits": "50% of the cost (80% for workers subject to Department of Transportation hours-of-service limits, such as long-haul truck drivers).",
+   "records": "Receipts if you deduct actual costs; with the standard meal allowance, records of the time, place and business purpose of the trip.",
+   "applies_to": "Self-employed people traveling overnight for business.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    },
+    {
+     "title": "26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/274"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "meals",
+   "name": "Business meals",
+   "category": "meals",
+   "aliases": [
+    "meals",
+    "meal",
+    "lunch",
+    "dinner",
+    "coffee",
+    "client lunch",
+    "restaurant",
+    "food",
+    "business lunch",
+    "takeout"
+   ],
+   "verdict": "partly",
+   "percent": 50,
+   "rule": "A meal with a client, customer or business contact is generally 50% deductible if it isn't lavish, you (or an employee) are there, and it has a business purpose.",
+   "limits": "50% of the cost, including tax and tip. Food and drinks at an entertainment event count only if bought separately or listed separately on the bill.",
+   "records": "Receipt (required for $75 or more), plus a note of the date, place, who attended, their business relationship to you and what you discussed. Write it down at or near the time.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [
+    {
+     "title": "26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/274"
+    },
+    {
+     "title": "26 CFR § 1.274-5, Substantiation requirements",
+     "url": "https://www.law.cornell.edu/cfr/text/26/1.274-5"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "entertainment",
+   "name": "Entertainment (tickets, golf, shows)",
+   "category": "meals",
+   "aliases": [
+    "entertainment",
+    "tickets",
+    "sports tickets",
+    "concert",
+    "golf",
+    "game",
+    "show",
+    "client entertainment",
+    "box seats"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "Entertainment is not deductible, even with a clear business purpose. That covers tickets to games and shows, golf, and similar outings with clients or prospects.",
+   "limits": "0%. Food and drinks bought separately at an entertainment event, or listed separately on the bill, can still be a 50% business meal.",
+   "records": "Keep records anyway if a separately billed meal was involved.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [
+    {
+     "title": "26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/274"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "employee-parties",
+   "name": "Staff parties and team events",
+   "category": "meals",
+   "aliases": [
+    "holiday party",
+    "office party",
+    "team outing",
+    "company picnic",
+    "staff party",
+    "team building",
+    "christmas party"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Recreational and social events mainly for your employees, such as a holiday party or summer picnic, are an exception to the entertainment and 50% meal limits.",
+   "limits": "100%, as long as the event is mainly for employees in general rather than for highly compensated employees only.",
+   "records": "Invoices and receipts, the date, and a guest list showing it was for staff.",
+   "applies_to": "Businesses with employees.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [
+    {
+     "title": "26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/274"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "employee-meals",
+   "name": "Snacks and meals for employees at work",
+   "category": "meals",
+   "aliases": [
+    "office snacks",
+    "employee meals",
+    "cafeteria",
+    "break room",
+    "staff lunch",
+    "catered lunch",
+    "coffee for office"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "Starting in 2026, an employer can no longer deduct the cost of food and drinks provided to employees through an on-site eating facility, as de minimis fringe benefits, or for the employer's convenience. There are narrow exceptions in the law.",
+   "limits": "0% for amounts paid or incurred after Dec. 31, 2025. Staff parties and other recreational events mainly for employees follow a different rule.",
+   "records": "Invoices, plus what the food was for, so the right rule can be applied.",
+   "applies_to": "Businesses with employees.",
+   "source_url": "https://www.irs.gov/publications/p15b",
+   "source_title": "IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits",
+   "also": [
+    {
+     "title": "26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/274"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "cell-phone",
+   "name": "Cell phone and phone service",
+   "category": "tech",
+   "aliases": [
+    "phone",
+    "cell phone",
+    "mobile",
+    "iphone",
+    "phone bill",
+    "landline",
+    "smartphone",
+    "verizon",
+    "t-mobile",
+    "at&t"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "The business share of your cell phone plan is deductible. For a home landline, the basic charge for the first line into your home is personal, but business long-distance calls and a second line used only for business are deductible.",
+   "limits": "Only the business-use percentage of a mixed-use phone. The phone itself is equipment: deduct it under the de minimis safe harbor, Section 179 or depreciation.",
+   "records": "Phone bills, plus a reasonable basis for your business-use percentage (for example, a sample month of itemized usage).",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/publications/p587",
+   "source_title": "IRS Publication 587 (2025), Business Use of Your Home",
+   "also": [
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "internet",
+   "name": "Internet service",
+   "category": "tech",
+   "aliases": [
+    "internet",
+    "wifi",
+    "wi-fi",
+    "broadband",
+    "isp",
+    "comcast",
+    "fios",
+    "hotspot"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Internet service for a business location is deductible. At home, only the business share counts, either as part of your home office expenses or based on your business use.",
+   "limits": "Only the business-use percentage when you also use it personally.",
+   "records": "Monthly bills and how you worked out the business percentage.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS Publication 587 (2025), Business Use of Your Home",
+     "url": "https://www.irs.gov/publications/p587"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "software-subscriptions",
+   "name": "Software and subscriptions",
+   "category": "tech",
+   "aliases": [
+    "software",
+    "subscription",
+    "saas",
+    "quickbooks",
+    "adobe",
+    "microsoft 365",
+    "google workspace",
+    "zoom",
+    "canva",
+    "apps",
+    "cloud storage",
+    "chatgpt"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Monthly or annual subscriptions to software and online services you use for your business are ordinary business expenses. Software you buy outright and use for more than a year is generally depreciated, though off-the-shelf software can qualify for Section 179 expensing.",
+   "limits": "Only the business share if you also use the subscription personally.",
+   "records": "Invoices or receipts, and the account showing it's used for the business.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "26 U.S.C. § 179, Election to expense certain depreciable business assets",
+     "url": "https://www.law.cornell.edu/uscode/text/26/179"
+    },
+    {
+     "title": "26 U.S.C. § 162, Trade or business expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "computer",
+   "name": "Laptop or computer",
+   "category": "tech",
+   "aliases": [
+    "laptop",
+    "computer",
+    "macbook",
+    "pc",
+    "desktop",
+    "ipad",
+    "tablet",
+    "monitor",
+    "printer",
+    "hardware"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "A computer used in your business is a business asset. You can deduct it all at once using the de minimis safe harbor (if $2,500 or less per item or invoice), Section 179 or 100% bonus depreciation, or depreciate it over several years. If you also use it personally, only the business share counts.",
+   "limits": "Since 2018 computers are no longer \"listed property,\" but personal use still reduces the deduction. If business use later falls so it's no longer mainly for business, part of a Section 179 deduction can be recaptured.",
+   "records": "The receipt or invoice, the date you started using it for business, and a record of business versus personal use.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/publications/p946",
+   "source_title": "IRS Publication 946 (2025), How To Depreciate Property",
+   "also": [
+    {
+     "title": "26 U.S.C. § 280F, Limitation on depreciation for luxury automobiles; listed property",
+     "url": "https://www.law.cornell.edu/uscode/text/26/280F"
+    },
+    {
+     "title": "IRS: Tangible property final regulations (FAQs)",
+     "url": "https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations"
+    },
+    {
+     "title": "26 U.S.C. § 179, Election to expense certain depreciable business assets",
+     "url": "https://www.law.cornell.edu/uscode/text/26/179"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "section-179",
+   "name": "Equipment and machinery (Section 179)",
+   "category": "equip",
+   "aliases": [
+    "section 179",
+    "equipment",
+    "machinery",
+    "furniture",
+    "office furniture",
+    "desk",
+    "chair",
+    "expensing",
+    "179"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Section 179 lets you deduct the cost of qualifying business equipment, furniture and off-the-shelf software in the year you start using it, instead of depreciating it over several years.",
+   "limits": "Tax years beginning in 2026: up to $2,560,000, reduced dollar for dollar once qualifying purchases exceed $4,090,000 (2025: $2,500,000 and $4,000,000). Heavy SUVs are capped at $32,000. The deduction can't exceed your taxable income from active business; the excess carries forward.",
+   "records": "Invoices, the placed-in-service date, business-use percentage, and Form 4562.",
+   "applies_to": "Businesses of any type that buy qualifying property for active business use.",
+   "source_url": "https://www.irs.gov/publications/p946",
+   "source_title": "IRS Publication 946 (2025), How To Depreciate Property",
+   "also": [
+    {
+     "title": "IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures",
+     "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+    },
+    {
+     "title": "26 U.S.C. § 179, Election to expense certain depreciable business assets",
+     "url": "https://www.law.cornell.edu/uscode/text/26/179"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "bonus-depreciation",
+   "name": "Bonus depreciation",
+   "category": "equip",
+   "aliases": [
+    "bonus depreciation",
+    "special depreciation",
+    "first year depreciation",
+    "100% depreciation",
+    "depreciation"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Qualified property acquired and placed in service after Jan. 19, 2025 can be written off 100% in the first year through the special depreciation allowance, now permanent under the 2025 tax law (P.L. 119-21). You can elect out, or elect a smaller 40% allowance for the first tax year ending after Jan. 19, 2025.",
+   "limits": "100% for property acquired after Jan. 19, 2025. Property acquired before Jan. 20, 2025 and placed in service in 2025 is limited to 40% (60% for certain long-production property and aircraft).",
+   "records": "Purchase contracts showing the acquisition date, invoices, placed-in-service date and Form 4562.",
+   "applies_to": "Businesses of any type.",
+   "source_url": "https://www.irs.gov/newsroom/treasury-irs-issue-guidance-on-the-additional-first-year-depreciation-deduction-amended-as-part-of-the-one-big-beautiful-bill",
+   "source_title": "IRS IR-2026-06: Guidance on the 100% additional first-year depreciation deduction (Notice 2026-11)",
+   "also": [
+    {
+     "title": "IRS Publication 946 (2025), How To Depreciate Property",
+     "url": "https://www.irs.gov/publications/p946"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "de-minimis-safe-harbor",
+   "name": "Small equipment purchases ($2,500 or less)",
+   "category": "equip",
+   "aliases": [
+    "de minimis",
+    "safe harbor",
+    "small purchases",
+    "under 2500",
+    "cheap equipment",
+    "small tools",
+    "2,500"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "With the de minimis safe harbor election you can deduct, rather than depreciate, tangible items that cost $2,500 or less per invoice or item. You make the election each year with a statement attached to your timely filed return.",
+   "limits": "$2,500 per invoice or item ($5,000 if you have an applicable financial statement). Items above the limit are depreciated or expensed under Section 179 or bonus depreciation.",
+   "records": "Invoices and the election statement filed with your return.",
+   "applies_to": "Businesses of any type, including sole proprietors.",
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations",
+   "source_title": "IRS: Tangible property final regulations (FAQs)",
+   "also": [
+    {
+     "title": "IRS Publication 946 (2025), How To Depreciate Property",
+     "url": "https://www.irs.gov/publications/p946"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "tools-equipment",
+   "name": "Tools and small equipment",
+   "category": "equip",
+   "aliases": [
+    "tools",
+    "power tools",
+    "camera",
+    "equipment",
+    "instruments",
+    "supplies"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Tools and professional instruments you normally use up within a year can be deducted when bought. Longer-lasting tools are depreciated, unless you expense them under the de minimis safe harbor or Section 179.",
+   "limits": "Only the business share if you also use them personally.",
+   "records": "Receipts or invoices and, for larger items, the date you started using them.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS: Tangible property final regulations (FAQs)",
+     "url": "https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "repairs-vs-improvements",
+   "name": "Repairs vs. improvements",
+   "category": "equip",
+   "aliases": [
+    "repairs",
+    "maintenance",
+    "improvements",
+    "renovation",
+    "remodel",
+    "fix",
+    "roof",
+    "hvac",
+    "capital improvement"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "Incidental repairs and routine maintenance that keep property in normal working order are deductible. Work that betters, restores or adapts the property to a new use is an improvement: it's capitalized and depreciated.",
+   "limits": "Small taxpayer safe harbor: buildings with an unadjusted basis of $1 million or less, if your average gross receipts are $10 million or less, can deduct repairs, maintenance and improvements up to the lesser of $10,000 or 2% of the building's basis.",
+   "records": "Contractor invoices describing the work done, before-and-after photos, and any safe harbor election statements.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations",
+   "source_title": "IRS: Tangible property final regulations (FAQs)",
+   "also": [
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "contractors",
+   "name": "Contractor and freelancer payments",
+   "category": "people",
+   "aliases": [
+    "contractor",
+    "freelancer",
+    "1099",
+    "1099-nec",
+    "subcontractor",
+    "consultant",
+    "virtual assistant",
+    "contract labor",
+    "upwork",
+    "fiverr"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Payments to independent contractors for work done for your business are deductible as contract labor.",
+   "limits": "No deduction limit. For payments made in 2026, you generally must file Form 1099-NEC for anyone you paid $2,000 or more for services (it was $600 for 2025 payments).",
+   "records": "A signed Form W-9 from each contractor, invoices, proof of payment and copies of the 1099s you filed.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS Instructions for Forms 1099-MISC and 1099-NEC",
+     "url": "https://www.irs.gov/instructions/i1099mec"
+    }
+   ],
+   "tools": [
+    "/tools/do-i-need-to-send-a-1099/",
+    "/tools/1099-contractor-tracker/",
+    "/tools/w-9-request-email-template/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "wages",
+   "name": "Employee wages",
+   "category": "people",
+   "aliases": [
+    "wages",
+    "salary",
+    "payroll",
+    "employees",
+    "staff",
+    "bonus",
+    "w-2",
+    "pay"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Reasonable wages, salaries and bonuses you pay employees for work actually done are deductible. As a sole proprietor, what you pay yourself (owner's draws) is not a deduction.",
+   "limits": "Pay must be reasonable for the services. Reduce the deduction by certain employment credits you claim, such as the work opportunity credit.",
+   "records": "Payroll records, Forms W-2 and W-4, timesheets and payroll tax filings. Keep employment tax records at least 4 years.",
+   "applies_to": "Businesses with employees.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "26 U.S.C. § 162, Trade or business expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    },
+    {
+     "title": "IRS Topic no. 305, Recordkeeping",
+     "url": "https://www.irs.gov/taxtopics/tc305"
+    }
+   ],
+   "tools": [
+    "/tools/paycheck-tax-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "payroll-taxes",
+   "name": "Employer payroll taxes",
+   "category": "people",
+   "aliases": [
+    "payroll taxes",
+    "fica",
+    "employer social security",
+    "futa",
+    "suta",
+    "unemployment tax",
+    "medicare tax employer"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "The employer's share of Social Security and Medicare taxes, federal unemployment tax (FUTA) and state unemployment contributions are deductible business taxes.",
+   "limits": "Only your share as the employer. Taxes you withhold from employees' pay are part of their wages, not a separate deduction.",
+   "records": "Forms 941 and 940, state payroll filings and deposit confirmations.",
+   "applies_to": "Businesses with employees.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS Topic no. 305, Recordkeeping",
+     "url": "https://www.irs.gov/taxtopics/tc305"
+    }
+   ],
+   "tools": [
+    "/tools/paycheck-tax-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "employee-benefits",
+   "name": "Employee benefit programs",
+   "category": "people",
+   "aliases": [
+    "benefits",
+    "health insurance employees",
+    "group health",
+    "group-term life",
+    "dependent care",
+    "employee benefits",
+    "educational assistance"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Contributions to employee benefit programs, such as accident and health plans, group-term life insurance and dependent care assistance, are deductible.",
+   "limits": "Reduce the deduction by any small employer health insurance credit. Benefits for yourself as a self-employed person don't go here. Employer-paid education assistance is excludable for employees up to $5,250 a year.",
+   "records": "Plan documents, invoices and payment records, and who was covered.",
+   "applies_to": "Businesses with employees.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits",
+     "url": "https://www.irs.gov/publications/p15b"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "achievement-awards",
+   "name": "Employee awards and holiday gifts",
+   "category": "people",
+   "aliases": [
+    "employee gift",
+    "employee award",
+    "length of service",
+    "safety award",
+    "holiday gift employees",
+    "gift cards employees"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Tangible awards for length of service or safety, given as part of a meaningful presentation, are deductible within limits. Occasional low-value holiday gifts (not cash) can be a de minimis fringe benefit.",
+   "limits": "Achievement awards: up to $400 per employee a year, or $1,600 under a qualified plan. Cash, gift cards and similar items never count as achievement awards or de minimis gifts; they are taxable wages.",
+   "records": "What was given, to whom, its cost, the reason for the award and the presentation date.",
+   "applies_to": "Businesses with employees.",
+   "source_url": "https://www.irs.gov/publications/p15b",
+   "source_title": "IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits",
+   "also": [],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "business-insurance",
+   "name": "Business insurance",
+   "category": "insurance",
+   "aliases": [
+    "insurance",
+    "liability insurance",
+    "general liability",
+    "professional liability",
+    "e&o",
+    "malpractice",
+    "workers comp",
+    "property insurance",
+    "cyber insurance",
+    "business owners policy"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Premiums for business insurance, such as general or professional liability, property and workers' compensation coverage, are deductible.",
+   "limits": "Employee health coverage is an employee benefit program, and your own health insurance follows the self-employed health insurance rules.",
+   "records": "Policy declarations pages, invoices and proof of payment.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "26 CFR § 1.162-1, Business expenses",
+     "url": "https://www.law.cornell.edu/cfr/text/26/1.162-1"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "self-employed-health-insurance",
+   "name": "Health insurance (self-employed)",
+   "category": "insurance",
+   "aliases": [
+    "health insurance",
+    "medical insurance",
+    "dental insurance",
+    "vision insurance",
+    "long-term care insurance",
+    "medicare premiums",
+    "form 7206"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "If you're self-employed with a profit, you can deduct medical, dental, vision and qualified long-term care premiums for yourself, your spouse and dependents (and a child under 27). It's an adjustment on Schedule 1, not a Schedule C expense, and the plan must be established under your business.",
+   "limits": "Can't exceed your net earnings from the business. No deduction for any month you (or your spouse) were eligible for a subsidized employer health plan, even if you didn't enroll. Figured on Form 7206.",
+   "records": "Premium statements, proof of payment and which months you had coverage and employer-plan eligibility.",
+   "applies_to": "Sole proprietors, partners with self-employment earnings and more-than-2% S corporation shareholders (through their W-2 wages).",
+   "source_url": "https://www.irs.gov/instructions/i7206",
+   "source_title": "IRS Instructions for Form 7206 (2025), Self-Employed Health Insurance Deduction",
+   "also": [
+    {
+     "title": "26 U.S.C. § 162, Trade or business expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    }
+   ],
+   "tools": [
+    "/tools/1099-tax-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "life-insurance",
+   "name": "Life insurance premiums",
+   "category": "insurance",
+   "aliases": [
+    "life insurance",
+    "term life",
+    "key person insurance",
+    "whole life"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "You can't deduct premiums on a life insurance policy when you or your business is directly or indirectly a beneficiary. Premiums on your own personal life insurance are personal.",
+   "limits": "Group-term life insurance for employees can be deductible as an employee benefit, but not coverage for yourself as a self-employed person.",
+   "records": "The policy, showing the owner and beneficiaries.",
+   "applies_to": "All taxpayers.",
+   "source_url": "https://www.law.cornell.edu/uscode/text/26/264",
+   "source_title": "26 U.S.C. § 264, Certain amounts paid in connection with insurance contracts",
+   "also": [
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    },
+    {
+     "title": "IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions",
+     "url": "https://www.irs.gov/publications/p529"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "sep-ira",
+   "name": "SEP-IRA contributions",
+   "category": "retire",
+   "aliases": [
+    "sep",
+    "sep ira",
+    "sep-ira",
+    "retirement",
+    "simplified employee pension"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Contributions to a SEP-IRA for yourself are deductible on Schedule 1, not Schedule C; contributions for employees go on Schedule C. You can set up the plan and contribute as late as your return's due date, including extensions.",
+   "limits": "2026: the lesser of 25% of compensation or $72,000 per person (2025: $70,000), with compensation counted up to $360,000 (2025: $350,000). For your own contribution, compensation is net self-employment earnings minus half of SE tax and minus the contribution itself, so the effective rate is lower than 25%.",
+   "records": "Plan document (for example, Form 5305-SEP), contribution confirmations and your calculation of the limit.",
+   "applies_to": "Self-employed people and businesses of any size.",
+   "source_url": "https://www.irs.gov/publications/p560",
+   "source_title": "IRS Publication 560 (2025), Retirement Plans for Small Business",
+   "also": [
+    {
+     "title": "IRS: 401(k) and profit-sharing plan contribution limits",
+     "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits"
+    }
+   ],
+   "tools": [
+    "/tools/1099-tax-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "solo-401k",
+   "name": "Solo 401(k) contributions",
+   "category": "retire",
+   "aliases": [
+    "solo 401k",
+    "solo 401(k)",
+    "one-participant 401k",
+    "individual 401k",
+    "self-employed 401k",
+    "401k",
+    "retirement"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "In a one-participant 401(k) you can contribute as both employee (elective deferrals) and employer (profit-sharing). Contributions for yourself are deducted on Schedule 1, not Schedule C.",
+   "limits": "2026: elective deferrals up to $24,500, plus $8,000 catch-up at 50 or older ($11,250 instead at ages 60 to 63). Total employee and employer additions up to $72,000 (more with catch-up). Compensation counted up to $360,000.",
+   "records": "Plan document, deferral elections, contribution confirmations and your limit calculation.",
+   "applies_to": "Self-employed people and owner-only businesses.",
+   "source_url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits",
+   "source_title": "IRS: 401(k) and profit-sharing plan contribution limits",
+   "also": [
+    {
+     "title": "IRS IR-2025-111: 401(k) limit increases to $24,500 for 2026",
+     "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"
+    },
+    {
+     "title": "IRS Publication 560 (2025), Retirement Plans for Small Business",
+     "url": "https://www.irs.gov/publications/p560"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "employee-retirement",
+   "name": "Retirement contributions for employees",
+   "category": "retire",
+   "aliases": [
+    "401k match",
+    "employer match",
+    "profit sharing",
+    "pension",
+    "simple ira",
+    "employee retirement"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Contributions you make to a retirement plan for the benefit of your employees are deductible on Schedule C. Contributions for yourself go on Schedule 1 instead.",
+   "limits": "Plan limits apply. For 2026, SIMPLE IRA deferrals are up to $17,000 and 401(k) deferrals up to $24,500.",
+   "records": "Plan documents, contribution records and annual plan filings.",
+   "applies_to": "Businesses with employees.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS IR-2025-111: 401(k) limit increases to $24,500 for 2026",
+     "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"
+    },
+    {
+     "title": "IRS Publication 560 (2025), Retirement Plans for Small Business",
+     "url": "https://www.irs.gov/publications/p560"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "legal-professional-fees",
+   "name": "Legal and accounting fees",
+   "category": "pro",
+   "aliases": [
+    "legal fees",
+    "lawyer",
+    "attorney",
+    "accountant",
+    "bookkeeper",
+    "bookkeeping",
+    "consultant fees",
+    "professional fees",
+    "accounting fees",
+    "tax advisor"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Fees for accountants, bookkeepers, attorneys and other professionals that are ordinary and necessary for your business are deductible.",
+   "limits": "Personal legal fees (a will, a divorce) aren't deductible.",
+   "records": "Engagement letters, invoices and proof of payment.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions",
+     "url": "https://www.irs.gov/publications/p529"
+    }
+   ],
+   "tools": [
+    "/tools/do-i-need-to-send-a-1099/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "tax-prep-fees",
+   "name": "Tax preparation fees",
+   "category": "pro",
+   "aliases": [
+    "tax prep",
+    "tax preparation",
+    "tax return fees",
+    "turbotax",
+    "tax software",
+    "tax advice"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Tax preparation and tax advice fees related to your business are deductible on Schedule C. The part of the fee for the rest of your personal return isn't a business expense.",
+   "limits": "Ask your preparer to split the invoice between business schedules and the personal return.",
+   "records": "The preparer's invoice showing the business portion, and proof of payment.",
+   "applies_to": "Sole proprietors and single-member LLCs; businesses deduct the cost of their own returns.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "professional-dues",
+   "name": "Professional and trade association dues",
+   "category": "pro",
+   "aliases": [
+    "dues",
+    "membership",
+    "trade association",
+    "professional association",
+    "chamber of commerce",
+    "bar dues",
+    "license renewal",
+    "professional body"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Dues to professional organizations, trade associations, business leagues, chambers of commerce, real estate boards and civic or public service groups are deductible, as long as the group's main purpose isn't entertainment.",
+   "limits": "The part of dues a tax-exempt group tells you goes to lobbying or political activity isn't deductible. Social, athletic and similar clubs are never deductible.",
+   "records": "Membership invoices and any statement from the group showing the nondeductible lobbying share.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.law.cornell.edu/cfr/text/26/1.274-2",
+   "source_title": "26 CFR § 1.274-2, Entertainment expenses (club dues)",
+   "also": [
+    {
+     "title": "26 U.S.C. § 162, Trade or business expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "advertising",
+   "name": "Advertising and marketing",
+   "category": "marketing",
+   "aliases": [
+    "advertising",
+    "ads",
+    "marketing",
+    "google ads",
+    "facebook ads",
+    "instagram ads",
+    "business cards",
+    "flyers",
+    "sponsorship",
+    "seo",
+    "promotion",
+    "website ads"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Advertising and other selling expenses, such as online ads, print ads, business cards, flyers and promotional campaigns, are ordinary business expenses.",
+   "limits": "No dollar limit. Political advertising and lobbying are not deductible.",
+   "records": "Invoices, ad platform receipts and statements.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.law.cornell.edu/cfr/text/26/1.162-1",
+   "source_title": "26 CFR § 1.162-1, Business expenses",
+   "also": [
+    {
+     "title": "26 U.S.C. § 162, Trade or business expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "client-gifts",
+   "name": "Gifts to clients",
+   "category": "marketing",
+   "aliases": [
+    "gifts",
+    "client gifts",
+    "holiday gifts",
+    "gift basket",
+    "thank you gift",
+    "customer gifts"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Business gifts to clients, customers and referral partners are deductible, but only up to $25 per person per year.",
+   "limits": "$25 per recipient per year. Incidental costs such as engraving, packaging, gift wrapping, insuring and mailing don't count toward the $25.",
+   "records": "Receipts, the date, a description and cost of each gift, the recipient's name and their business relationship to you.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [
+    {
+     "title": "26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/274"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "promotional-items",
+   "name": "Branded promotional items",
+   "category": "marketing",
+   "aliases": [
+    "swag",
+    "promotional items",
+    "branded pens",
+    "logo items",
+    "giveaways",
+    "merch",
+    "tote bags"
+   ],
+   "verdict": "deductible",
+   "percent": null,
+   "rule": "Low-cost items with your business name clearly and permanently imprinted, handed out widely (pens, keychains, desk sets and the like), don't count as gifts, so the $25 limit doesn't apply.",
+   "limits": "Items must cost $4 or less each and be one of a number of identical items you distribute widely. Pricier items given to a person count toward the $25 gift limit.",
+   "records": "Invoices showing the unit cost and quantity.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [
+    {
+     "title": "26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/274"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "business-education",
+   "name": "Courses, training and conferences",
+   "category": "education",
+   "aliases": [
+    "education",
+    "course",
+    "training",
+    "seminar",
+    "conference",
+    "workshop",
+    "certification",
+    "cpe",
+    "webinar",
+    "coaching",
+    "books"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "Education that maintains or improves skills you need in your current business, or is required by law to keep your status, is deductible. Education that qualifies you for a new trade or business, or meets the minimum requirements to enter your field, isn't.",
+   "limits": "No dollar limit for qualifying education. Books and materials you normally use within a year can be deducted when bought. Travel to a qualifying course follows the travel rules, and meals are 50%.",
+   "records": "Receipts, course descriptions or agendas, and a note of how the course relates to your current work.",
+   "applies_to": "Self-employed people. Employers can also provide employees up to $5,250 a year of excludable educational assistance.",
+   "source_url": "https://www.law.cornell.edu/cfr/text/26/1.162-5",
+   "source_title": "26 CFR § 1.162-5, Expenses for education",
+   "also": [
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    },
+    {
+     "title": "IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits",
+     "url": "https://www.irs.gov/publications/p15b"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "bank-card-fees",
+   "name": "Bank and card processing fees",
+   "category": "banking",
+   "aliases": [
+    "bank fees",
+    "merchant fees",
+    "credit card processing",
+    "stripe fees",
+    "paypal fees",
+    "square fees",
+    "wire fees",
+    "account fees",
+    "transaction fees"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Monthly fees on a business bank account, wire fees and the fees payment processors take from your sales are ordinary and necessary business expenses.",
+   "limits": "Only fees on business accounts and transactions. Fees on personal accounts are personal.",
+   "records": "Bank and processor statements (they show the fees taken).",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.law.cornell.edu/uscode/text/26/162",
+   "source_title": "26 U.S.C. § 162, Trade or business expenses",
+   "also": [],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "business-interest",
+   "name": "Interest on business loans and credit cards",
+   "category": "banking",
+   "aliases": [
+    "interest",
+    "loan interest",
+    "business loan",
+    "line of credit",
+    "credit card interest",
+    "sba loan",
+    "mortgage on business property",
+    "car loan interest"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Interest on money borrowed for your business is deductible. Interest is allocated by how the borrowed money was used, so on a card or loan used for both, only the business share counts. Personal interest isn't deductible.",
+   "limits": "Small businesses that meet the gross receipts test ($32 million average for tax years beginning in 2026; $31 million in 2025) are exempt from the business interest limit. Larger businesses may be limited.",
+   "records": "Loan agreements, Forms 1098 and statements, and records tracing how loan proceeds were spent.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "26 U.S.C. § 163, Interest",
+     "url": "https://www.law.cornell.edu/uscode/text/26/163"
+    },
+    {
+     "title": "IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures",
+     "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "bad-debts",
+   "name": "Unpaid invoices (bad debts)",
+   "category": "banking",
+   "aliases": [
+    "bad debt",
+    "unpaid invoice",
+    "uncollectible",
+    "client didn't pay",
+    "write off receivable",
+    "unpaid client"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "A business bad debt is deductible only if the amount was already included in your income. Most small businesses use the cash method, so an unpaid invoice was never income and can't be deducted.",
+   "limits": "Deduct it only in the year it becomes wholly or partly worthless, after reasonable collection efforts. Refund claims for bad debts have a 7-year window.",
+   "records": "The invoice, proof it was included in income, collection attempts and why it became worthless.",
+   "applies_to": "Mostly accrual-method businesses, and loans or credit sales made in the business.",
+   "source_url": "https://www.irs.gov/taxtopics/tc453",
+   "source_title": "IRS Topic no. 453, Bad debt deduction",
+   "also": [
+    {
+     "title": "IRS Publication 334 (2025), Tax Guide for Small Business",
+     "url": "https://www.irs.gov/publications/p334"
+    },
+    {
+     "title": "IRS Topic no. 305, Recordkeeping",
+     "url": "https://www.irs.gov/taxtopics/tc305"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "startup-costs",
+   "name": "Startup costs",
+   "category": "startup",
+   "aliases": [
+    "startup costs",
+    "start-up",
+    "before opening",
+    "market research",
+    "pre-opening",
+    "launch costs",
+    "new business costs"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Costs of investigating or setting up a business before it opens (market research, pre-opening advertising, training, consultants) can be deducted up to $5,000 in the year you start, with the rest amortized over 180 months.",
+   "limits": "$5,000 deduction, reduced dollar for dollar once total startup costs exceed $50,000 (none at $55,000 or more). The remainder is deducted evenly over 180 months from the month the business starts.",
+   "records": "Receipts and invoices dated before opening, and the date the business began.",
+   "applies_to": "Any new active trade or business.",
+   "source_url": "https://www.law.cornell.edu/uscode/text/26/195",
+   "source_title": "26 U.S.C. § 195, Start-up expenditures",
+   "also": [
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    }
+   ],
+   "tools": [
+    "/llc-formation/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "organizational-costs",
+   "name": "Business formation costs",
+   "category": "startup",
+   "aliases": [
+    "llc fees",
+    "formation",
+    "incorporation",
+    "articles of organization",
+    "state filing fee",
+    "legal fees to form",
+    "organizational costs"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Costs to form a corporation or partnership (including a multi-member LLC), such as state filing fees and legal fees for the organizing documents, can be deducted up to $5,000 in the first year, with the rest amortized over 180 months.",
+   "limits": "$5,000, reduced dollar for dollar once these costs exceed $50,000; the remainder over 180 months. Partnership costs to sell ownership interests (syndication costs) aren't deductible.",
+   "records": "State filing receipts, attorney invoices and the date the business began.",
+   "applies_to": "Corporations and partnerships, including multi-member LLCs taxed as partnerships.",
+   "source_url": "https://www.law.cornell.edu/uscode/text/26/248",
+   "source_title": "26 U.S.C. § 248, Organizational expenditures (corporations)",
+   "also": [
+    {
+     "title": "26 U.S.C. § 709, Organization and syndication fees (partnerships)",
+     "url": "https://www.law.cornell.edu/uscode/text/26/709"
+    },
+    {
+     "title": "26 U.S.C. § 195, Start-up expenditures",
+     "url": "https://www.law.cornell.edu/uscode/text/26/195"
+    }
+   ],
+   "tools": [
+    "/llc-formation/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "inventory-cogs",
+   "name": "Inventory and cost of goods sold",
+   "category": "inventory",
+   "aliases": [
+    "inventory",
+    "cost of goods sold",
+    "cogs",
+    "products",
+    "merchandise",
+    "stock",
+    "materials",
+    "resale"
+   ],
+   "verdict": "depends",
+   "percent": null,
+   "rule": "Products you buy or make to sell aren't deducted when bought. Their cost is deducted as cost of goods sold (Schedule C, Part III) when they are sold. Small businesses that meet the gross receipts test can choose not to keep inventories, under the method in the Schedule C instructions.",
+   "limits": "The small business option is available if average annual gross receipts for the prior 3 years are $32 million or less for tax years beginning in 2026 ($31 million for 2025).",
+   "records": "Purchase invoices, beginning and ending inventory counts, and your inventory method.",
+   "applies_to": "Businesses that sell products.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures",
+     "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "shipping-postage",
+   "name": "Shipping and postage",
+   "category": "inventory",
+   "aliases": [
+    "shipping",
+    "postage",
+    "usps",
+    "ups",
+    "fedex",
+    "mailing",
+    "courier",
+    "packaging"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Postage and the cost of shipping orders to customers are deductible business expenses.",
+   "limits": "Only shipments for the business. Postage is reported with office expenses.",
+   "records": "Carrier receipts or account statements.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "26 U.S.C. § 162, Trade or business expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "self-employment-tax",
+   "name": "Self-employment tax",
+   "category": "taxes",
+   "aliases": [
+    "self-employment tax",
+    "se tax",
+    "social security self employed",
+    "medicare self employed",
+    "schedule se"
+   ],
+   "verdict": "partly",
+   "percent": 50,
+   "rule": "Half of your self-employment tax (the employer-equivalent part) is deductible in figuring adjusted gross income, on Schedule 1. It isn't a Schedule C expense and doesn't reduce the SE tax itself.",
+   "limits": "50% of SE tax. SE tax is 15.3% on 92.35% of net self-employment earnings, with the Social Security part stopping at the $184,500 wage base for 2026.",
+   "records": "Schedule SE and your Schedule C.",
+   "applies_to": "Self-employed people who owe SE tax (net earnings of $400 or more).",
+   "source_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+   "source_title": "IRS Form 1040-ES (2026), Estimated Tax for Individuals",
+   "also": [
+    {
+     "title": "IRS: Self-employment tax (Social Security and Medicare taxes)",
+     "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    },
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    }
+   ],
+   "tools": [
+    "/tools/1099-tax-calculator/",
+    "/tools/quarterly-estimated-tax-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "business-taxes",
+   "name": "Business taxes",
+   "category": "taxes",
+   "aliases": [
+    "taxes",
+    "property tax",
+    "real estate tax business",
+    "sales tax",
+    "state taxes",
+    "federal income tax",
+    "excise tax",
+    "highway use tax"
+   ],
+   "verdict": "partly",
+   "percent": null,
+   "rule": "Deductible: sales taxes imposed on you as the seller, real estate and personal property taxes on business assets, and federal highway use tax. Not deductible: federal income tax (including SE tax), estate and gift taxes, and taxes on personal property.",
+   "limits": "Sales tax you pay on property bought for the business is added to its cost. Sales tax imposed on your customers that you collect and pay over isn't deductible.",
+   "records": "Tax bills, returns and proof of payment.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "licenses-permits",
+   "name": "Business licenses and permits",
+   "category": "taxes",
+   "aliases": [
+    "license",
+    "permit",
+    "business license",
+    "registration fee",
+    "annual report fee",
+    "regulatory fee",
+    "professional license"
+   ],
+   "verdict": "deductible",
+   "percent": 100,
+   "rule": "Licenses and regulatory fees you pay each year to state or local governments for your business are deductible.",
+   "limits": "Fees to form an entity follow the startup or organizational cost rules instead.",
+   "records": "Receipts and renewal notices.",
+   "applies_to": "Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "commuting",
+   "name": "Commuting",
+   "category": "not",
+   "aliases": [
+    "commute",
+    "commuting",
+    "drive to work",
+    "train to office",
+    "subway",
+    "metro card",
+    "home to office"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "Getting between your home and your regular place of work is commuting, a personal expense, however far it is and even if you work during the trip. That includes parking at your regular workplace.",
+   "limits": "0%. Exceptions: trips from a home office that is your principal place of business to other work sites, between two workplaces, and to a temporary work location can be business miles.",
+   "records": "If you claim trips as business, a mileage log showing they weren't commutes.",
+   "applies_to": "All taxpayers.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [],
+   "tools": [
+    "/tools/mileage-deduction-calculator/"
+   ],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "fines-penalties",
+   "name": "Fines and penalties",
+   "category": "not",
+   "aliases": [
+    "fines",
+    "penalties",
+    "parking ticket",
+    "speeding ticket",
+    "irs penalty",
+    "late fee government",
+    "violation"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "Fines and penalties paid to a government for breaking a law aren't deductible, including traffic and parking tickets and tax penalties.",
+   "limits": "0%. A narrow exception covers amounts a court order or settlement specifically identifies as restitution or as costs to come into compliance with the law.",
+   "records": "The order or settlement, if you rely on the restitution exception.",
+   "applies_to": "All taxpayers.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "26 U.S.C. § 162, Trade or business expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "political-lobbying",
+   "name": "Political contributions and lobbying",
+   "category": "not",
+   "aliases": [
+    "political",
+    "campaign",
+    "donation to candidate",
+    "pac",
+    "lobbying",
+    "political party"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "Contributions to candidates, campaigns and political parties aren't deductible, and neither are most costs of lobbying or trying to influence legislation or elections.",
+   "limits": "0%. Part of your trade association dues may also be nondeductible if the group lobbies.",
+   "records": "Nothing to keep for a deduction.",
+   "applies_to": "All taxpayers.",
+   "source_url": "https://www.law.cornell.edu/uscode/text/26/162",
+   "source_title": "26 U.S.C. § 162, Trade or business expenses",
+   "also": [
+    {
+     "title": "IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions",
+     "url": "https://www.irs.gov/publications/p529"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "club-dues",
+   "name": "Club memberships",
+   "category": "not",
+   "aliases": [
+    "country club",
+    "golf club",
+    "social club",
+    "gym membership business",
+    "airline club",
+    "athletic club",
+    "club dues"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "Dues for clubs organized for business, pleasure, recreation or other social purposes, such as country clubs, golf and athletic clubs, airline and hotel clubs, aren't deductible.",
+   "limits": "0%. Professional and trade associations, chambers of commerce and civic groups are different, and are generally deductible.",
+   "records": "Nothing to keep for a deduction.",
+   "applies_to": "All taxpayers.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [
+    {
+     "title": "26 CFR § 1.274-2, Entertainment expenses (club dues)",
+     "url": "https://www.law.cornell.edu/cfr/text/26/1.274-2"
+    },
+    {
+     "title": "26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses",
+     "url": "https://www.law.cornell.edu/uscode/text/26/274"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "personal-expenses",
+   "name": "Personal expenses",
+   "category": "not",
+   "aliases": [
+    "personal",
+    "groceries",
+    "gym",
+    "haircut",
+    "vacation",
+    "family",
+    "rent at home",
+    "personal phone",
+    "netflix",
+    "childcare"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "Personal, living and family expenses aren't business deductions, even if paid from a business account. When something is used for both, deduct only the business share.",
+   "limits": "0% for the personal part. Paying a personal bill from the business account doesn't make it deductible.",
+   "records": "Keep business and personal spending in separate accounts.",
+   "applies_to": "All taxpayers.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  },
+  {
+   "slug": "charitable-contributions",
+   "name": "Charitable donations by your business",
+   "category": "not",
+   "aliases": [
+    "charity",
+    "donation",
+    "charitable",
+    "nonprofit donation",
+    "sponsorship of charity"
+   ],
+   "verdict": "not",
+   "percent": null,
+   "rule": "A sole proprietor or single-member LLC can't deduct charitable contributions as a business expense on Schedule C. They may be deductible on your personal return under the charitable contribution rules.",
+   "limits": "Not on Schedule C. To deduct them personally you generally have to itemize on Schedule A; see Publication 526.",
+   "records": "Written acknowledgments from the charity and proof of payment.",
+   "applies_to": "Sole proprietors and single-member LLCs. Corporations follow their own charitable deduction rules.",
+   "source_url": "https://www.irs.gov/instructions/i1040sc",
+   "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+   "also": [
+    {
+     "title": "IRS Publication 526 (2025), Charitable Contributions",
+     "url": "https://www.irs.gov/publications/p526"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-21T23:55-04:00"
+  }
+ ]
+}

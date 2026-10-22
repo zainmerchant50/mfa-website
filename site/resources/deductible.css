@@ -1,0 +1,359 @@
+/* Is It Deductible? (/tools/is-it-deductible/). Site session owns this file. Builds on blog.css tokens + resources.css.
+   Hero motif: an expense receipt under review (prints itself, gets stamped). Tool motif: an audit workpaper. The list is a
+   schedule with W/P references, dotted leaders and hand-drawn auditor's tickmarks with a legend; the index is a lettered
+   table of contents; the popup is a workpaper page. Shape carries each verdict, color is secondary, the label is always text.
+   The tool area (.dd-main) and the popup follow the visitor's light/dark setting; hero and article keep the site look.
+   Every animation sits inside (prefers-reduced-motion:no-preference); the default styles are the finished state. */
+.dd-page{
+  --brand-a:#05328A;--brand-b:#A3195F;--paper-r:#FBF9F3;--ink-r:#1D2433;
+  --dd-bg:#F6F7F2;--dd-sheet:#FDFDFA;--dd-ink:#151515;--dd-head:#10233F;--dd-muted:rgba(21,21,21,.68);--dd-line:rgba(16,35,63,.15);
+  --dd-leader:rgba(16,35,63,.38);--ref:#7A5C1A;--hl:rgba(216,183,105,.42);
+  --pen-yes:#1C6B40;--pen-part:#1D4F91;--pen-dep:#4F5563;--pen-no:#B42318;
+  --warn-bg:#FFF6E0;--warn-line:#C8922A;--warn-ink:#3D2C05;
+  --grit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.4 1.75'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme:dark){
+  .dd-main,.dd-modal{
+    --dd-bg:#0E1A2B;--dd-sheet:#13223A;--dd-ink:#E9ECF1;--dd-head:#F4F1E8;--dd-muted:rgba(233,236,241,.74);--dd-line:rgba(255,255,255,.16);
+    --dd-leader:rgba(255,255,255,.34);--ref:#D8B769;--hl:rgba(216,183,105,.3);
+    --pen-yes:#86D6A5;--pen-part:#A7C4FF;--pen-dep:#CBD0DA;--pen-no:#FF9E92;
+    --warn-bg:#2A2210;--warn-line:#D8B769;--warn-ink:#F6E7C4;
+  }
+}
+.dd-page [hidden]{display:none!important}
+html:not(.dd-js) .dd-search,html:not(.dd-js) .dd-marq,html:not(.dd-js) .dd-catsec{display:none}
+.dd-nojs{margin-top:26px;padding:14px 18px;border-left:3px solid var(--gold-b);background:rgba(255,255,255,.06);color:#fff;max-width:600px}
+.v-deductible{--pen:var(--pen-yes)}.v-partly{--pen:var(--pen-part)}.v-depends{--pen:var(--pen-dep)}.v-not{--pen:var(--pen-no)}
+.tk{display:block;flex:none;color:var(--pen);overflow:visible}
+
+/* ================= hero: ledger paper on a brand-gradient mesh ================= */
+.dd-hero{padding:52px 0 0;isolation:isolate;
+  background:
+    radial-gradient(60% 80% at 8% 12%,rgba(5,50,138,.95) 0,rgba(5,50,138,0) 62%),
+    radial-gradient(55% 70% at 96% 92%,rgba(163,25,95,.62) 0,rgba(163,25,95,0) 60%),
+    radial-gradient(40% 50% at 78% 8%,rgba(216,183,105,.14) 0,rgba(216,183,105,0) 70%),
+    var(--navy)}
+.dd-hero:after{display:none}
+.dd-hero:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:repeating-linear-gradient(180deg,transparent 0 31px,rgba(255,255,255,.055) 31px 32px),
+             linear-gradient(90deg,transparent 0 71px,rgba(216,183,105,.22) 71px 72px,transparent 72px);
+  -webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 100%);mask-image:linear-gradient(180deg,#000 30%,transparent 100%)}
+.dd-hero .crumbs{margin-bottom:6px}
+.dd-hgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;align-items:center;padding:18px 0 58px}
+.dd-hero h1{font-size:clamp(2.9rem,7.4vw,5.6rem);line-height:.98;letter-spacing:-.012em;margin:0 0 22px;max-width:none}
+.dd-hero h1 em{display:inline-block;padding-right:.06em}
+.dd-hero .dd-dek{font-size:1.06rem;line-height:1.75;max-width:560px;color:rgba(255,255,255,.78)}
+.dd-search{position:relative;margin-top:30px;max-width:640px}
+.dd-search svg{position:absolute;left:22px;top:50%;width:22px;height:22px;transform:translateY(-50%);color:var(--gold-b);pointer-events:none}
+.dd-search input{width:100%;height:64px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:rgba(8,18,36,.42);color:#fff;
+  padding:0 56px 0 58px;font:400 17px Inter,system-ui,sans-serif;outline:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:border-color .3s,background .3s,box-shadow .3s}
+.dd-search input::placeholder{color:rgba(255,255,255,.66)}
+.dd-search input:focus{border-color:var(--gold-b);background:rgba(8,18,36,.6);box-shadow:0 0 0 4px rgba(216,183,105,.24)}
+.dd-search input::-webkit-search-cancel-button{display:none}
+.dd-x-q{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+.dd-x-q:hover{background:rgba(255,255,255,.22)}
+.dd-x-q:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
+.dd-rev{margin-top:24px;font-size:.84rem;color:rgba(255,255,255,.74);font-weight:300;line-height:1.75}
+.dd-rev a{color:var(--gold-b);border-bottom:1px solid rgba(216,183,105,.5)}
+.dd-rev a:hover{color:#fff}
+
+/* the receipt (decorative, aria-hidden) */
+.dd-rcpt{position:relative;width:320px;justify-self:end;transform:rotate(2.2deg);margin-top:-6px}
+.dd-rcpt .paper{position:relative;background:var(--paper-r);color:var(--ink-r);border-radius:3px 3px 0 0;padding:22px 20px 18px;
+  font:500 12.5px/1.25 ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;box-shadow:0 34px 60px -12px rgba(0,0,0,.5)}
+.dd-rcpt .paper:after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:9px;
+  background:conic-gradient(from 135deg at 50% 0,var(--paper-r) 90deg,transparent 0) 0 0/12px 9px repeat-x}
+.dd-rcpt .rh{display:grid;justify-items:center;gap:3px;padding-bottom:12px;margin-bottom:8px;border-bottom:1.5px dashed rgba(29,36,51,.35)}
+.dd-rcpt .rh b{font:500 30px/1 'Cormorant Garamond',Georgia,serif;letter-spacing:.14em;color:var(--brand-a)}
+.dd-rcpt .rh span{font-size:10.5px;letter-spacing:.08em;color:rgba(29,36,51,.66)}
+.dd-rcpt ol{list-style:none;margin:0;padding:0}
+.dd-rcpt li{display:flex;align-items:center;gap:6px;height:30px}
+.dd-rcpt .n{white-space:nowrap}
+.dd-rcpt .ld{flex:1;min-width:8px;border-bottom:1.5px dotted rgba(29,36,51,.35);transform:translateY(3px)}
+.dd-rcpt .a{font-variant-numeric:tabular-nums}
+.dd-rcpt .mk{position:relative;flex:none;width:28px;height:26px;display:grid;place-items:center}
+.dd-rcpt .mk svg{width:22px;height:22px}
+.dd-rcpt .m-half svg,.dd-rcpt .m-part svg{width:26px;height:26px}
+.dd-rcpt .mk em{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:800 8px/1 Inter,sans-serif;font-style:normal;letter-spacing:0;white-space:nowrap}
+.dd-rcpt .m-yes{color:#1F8A55}.dd-rcpt .m-no{color:#C6363C}.dd-rcpt .m-half,.dd-rcpt .m-part{color:#B07A0E}
+.dd-rcpt .m-part em{font-size:6.6px}
+.dd-rcpt .tot{display:flex;align-items:center;gap:6px;margin-top:8px;padding-top:10px;border-top:1.5px dashed rgba(29,36,51,.35);font-weight:700}
+.dd-rcpt .tot span:last-child{font:500 22px/1 'Cormorant Garamond',Georgia,serif;color:var(--brand-b);padding-right:6px}
+.dd-rcpt .bar{height:30px;margin:16px 10px 2px;opacity:.8;
+  background:repeating-linear-gradient(90deg,var(--ink-r) 0 2px,transparent 2px 4px,var(--ink-r) 4px 5px,transparent 5px 8px,var(--ink-r) 8px 11px,transparent 11px 13px)}
+.dd-bigstamp{position:absolute;left:26px;bottom:30px;transform:rotate(-13deg);color:var(--brand-b);pointer-events:none;mix-blend-mode:multiply}
+.dd-bigstamp span{display:block;padding:9px 16px 8px;border:3.5px solid currentColor;border-radius:9px;box-shadow:inset 0 0 0 3px var(--paper-r),inset 0 0 0 4.5px currentColor;
+  font:800 25px/1 Inter,system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;opacity:.9;
+  -webkit-mask-image:var(--grit);mask-image:var(--grit);-webkit-mask-size:160px;mask-size:160px}
+
+/* "Most searched" belt along the bottom of the hero */
+.dd-marq{position:relative;display:flex;align-items:center;gap:18px;height:64px;border-top:1px solid rgba(216,183,105,.24);background:rgba(4,10,22,.34)}
+.dd-marq .lbl{flex:none;padding-left:max(20px,calc((100vw - 1160px)/2 + 20px));font:italic 400 1.2rem/1 'Cormorant Garamond',Georgia,serif;color:var(--gold-b);white-space:nowrap}
+.dd-marq .track{flex:1;min-width:0;overflow:hidden;height:100%;display:flex;align-items:center;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 92%,transparent)}
+.dd-marq .belt{display:flex;width:max-content}
+.dd-marq .set{flex:none;display:flex;gap:10px;padding-right:10px}
+.dd-chip{flex:none;height:38px;padding:0 15px;border-radius:3px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.04);color:#fff;
+  font:500 13.5px/1 Inter,system-ui,sans-serif;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.dd-chip:hover{background:var(--gold-b);border-color:var(--gold-b);color:var(--navy)}
+.dd-chip:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
+.dd-marq .dup{display:none}
+@media (prefers-reduced-motion:no-preference){
+  .dd-js .dd-marq .dup{display:flex}
+  .dd-js .dd-marq .belt{animation:ddBelt 46s linear infinite}
+  .dd-marq:hover .belt,.dd-marq:focus-within .belt{animation-play-state:paused}
+}
+@keyframes ddBelt{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.dd-marq .track{overflow-x:auto;-webkit-mask-image:none;mask-image:none;scrollbar-width:none}}
+/* ================= tool area: the workpaper ================= */
+.dd-main{background:var(--dd-bg);color:var(--dd-ink);padding:48px 0 84px}
+.dd-main .wrap{max-width:1160px}
+.dd-warn{max-width:860px;padding:16px 22px 17px;border:1.5px solid var(--warn-line);border-left-width:7px;border-radius:2px;background:var(--warn-bg);color:var(--warn-ink)}
+.dd-warn strong{display:block;font-size:1.04rem;font-weight:700;line-height:1.45;margin-bottom:3px}
+.dd-warn p{font-size:.96rem;line-height:1.65;margin:0}
+.dd-book{display:grid;grid-template-columns:228px minmax(0,1fr);gap:0 64px;margin-top:52px;align-items:start}
+html:not(.dd-js) .dd-book{display:block}
+
+/* index: a lettered table of contents; the chosen section is highlighted like a line on a workpaper */
+.dd-catsec{position:sticky;top:92px;max-height:calc(100vh - 112px);overflow:auto;scrollbar-width:thin;padding:2px 4px 8px 2px}
+.dd-catsec h2{font:500 1.7rem/1.1 'Cormorant Garamond',Georgia,serif;color:var(--dd-head);padding-bottom:8px;border-bottom:1px solid var(--dd-head)}
+.dd-ixp{font-size:.82rem;line-height:1.5;color:var(--dd-muted);margin:10px 0 6px}
+.dd-cats{list-style:none;margin:0;padding:0}
+.dd-cat{display:grid;grid-template-columns:20px auto minmax(12px,1fr) auto;align-items:end;gap:7px;width:100%;min-height:38px;padding:9px 0 7px;
+  border:0;border-bottom:1px solid var(--dd-line);background:none;color:var(--dd-ink);font:400 .9rem/1.3 Inter,system-ui,sans-serif;text-align:left;cursor:pointer}
+.dd-cat .nm{justify-self:start}
+.dd-cat .lt{font:600 1.02rem/1.1 'Cormorant Garamond',Georgia,serif;color:var(--ref)}
+.dd-cat .ld{height:1px;margin-bottom:5px;border-bottom:1.5px dotted var(--dd-leader)}
+.dd-cat .n{font-size:.82rem;color:var(--dd-muted);font-variant-numeric:tabular-nums}
+.dd-cat:hover .nm{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.dd-cat[aria-pressed="true"] .nm{font-weight:600;color:var(--dd-head);background:linear-gradient(transparent 52%,var(--hl) 52%,var(--hl) 92%,transparent 92%);margin:0 -3px;padding:0 3px}
+.dd-cat:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* schedule header: title, sign-off box, double rule (the accountant's "final total" line) */
+.dd-hd{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 32px;align-items:end;padding-bottom:16px;border-bottom:3px double var(--dd-head)}
+.dd-kick{font:italic 400 1.08rem/1.3 'Cormorant Garamond',Georgia,serif;color:var(--dd-muted);margin-bottom:4px}
+.dd-hd h2{font:500 clamp(2rem,4vw,2.6rem)/1.08 'Cormorant Garamond',Georgia,serif;color:var(--dd-head);letter-spacing:-.005em}
+.dd-cnt{font-size:.88rem;color:var(--dd-muted);margin-top:8px;font-variant-numeric:tabular-nums}
+.dd-link{background:none;border:0;padding:4px 0;margin-left:10px;font:600 .86rem Inter,sans-serif;color:var(--dd-head);cursor:pointer;border-bottom:1.5px solid var(--gold)}
+.dd-link:hover{color:var(--ref)}
+.dd-link:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.dd-sign{display:grid;gap:4px;margin:0;padding:2px 0 2px 16px;border-left:1px solid var(--dd-line);font-size:.8rem;line-height:1.4}
+.dd-sign div{display:grid;grid-template-columns:96px auto;gap:8px}
+.dd-sign dt{color:var(--dd-muted)}
+.dd-sign dd{margin:0;color:var(--dd-ink);font-weight:500;font-variant-numeric:tabular-nums}
+
+/* tickmark legend */
+.dd-legend{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 22px;margin:0;padding:16px 0 18px;border-bottom:1px solid var(--dd-line)}
+.dd-legend li{display:grid;grid-template-columns:24px 1fr;gap:9px;align-items:start;font-size:.82rem;line-height:1.45;color:var(--dd-muted)}
+.dd-legend .tk{width:24px;height:24px}
+.dd-legend b{display:block;color:var(--pen);font-weight:600}
+
+/* the schedule: ref | expense + rule | leader | treatment, % */
+.dd-colh,.dd-item{display:grid;grid-template-columns:50px auto minmax(28px,1fr) 214px;column-gap:14px}
+.dd-colh{padding:22px 0 7px;border-bottom:1px solid var(--dd-head);color:var(--dd-muted);font-size:.8rem}
+.dd-colh span:nth-child(2){grid-column:2/4}
+.dd-colh .tr{grid-column:4;display:grid;grid-template-columns:1fr 46px;padding-left:34px}
+.dd-colh .tr span:last-child{text-align:right}
+.dd-list{display:block}
+.dd-sh{display:flex;align-items:baseline;gap:12px;padding:34px 0 8px;border-bottom:1px solid var(--dd-head)}
+.dd-list>.dd-sh:first-child{padding-top:20px}
+.dd-sh .lt{font:600 1.5rem/1 'Cormorant Garamond',Georgia,serif;color:var(--ref);min-width:36px}
+.dd-sh h3{font:600 .9rem/1.2 Inter,system-ui,sans-serif;letter-spacing:.01em;color:var(--dd-head)}
+.dd-sh .n{margin-left:auto;font-size:.8rem;color:var(--dd-muted);font-variant-numeric:tabular-nums}
+.dd-item{position:relative;row-gap:3px;align-items:baseline;padding:15px 0 14px;border-bottom:1px solid var(--dd-line);scroll-margin-top:96px}
+.dd-item .bd{display:contents}
+.dd-item .ref{grid-column:1;grid-row:1;font-size:.8rem;font-weight:500;color:var(--ref);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dd-item h4{grid-column:2;grid-row:1;font:500 1.42rem/1.18 'Cormorant Garamond',Georgia,serif;color:var(--dd-head);max-width:26ch}
+.dd-item .ld{grid-column:3;grid-row:1;align-self:baseline;height:.3em;border-bottom:1.5px dotted var(--dd-leader);transition:border-color .2s}
+.dd-vd{grid-column:4;grid-row:1;display:grid;grid-template-columns:26px minmax(0,1fr) 46px;gap:8px;align-items:baseline}
+.dd-vd .tk{width:26px;height:26px;align-self:center;margin:-4px 0;transform:rotate(var(--r,0deg))}
+.dd-vd .lb{font:600 .86rem/1.2 Inter,system-ui,sans-serif;color:var(--pen)}
+.dd-vd .pc{text-align:right;font-size:.9rem;font-weight:500;color:var(--dd-ink);font-variant-numeric:tabular-nums}
+.dd-tease{grid-column:2/4;grid-row:2;font-size:.9rem;line-height:1.55;color:var(--dd-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:68ch}
+.dd-open{color:inherit;text-decoration:none}
+.dd-js .dd-item{cursor:pointer}
+.dd-js .dd-open:after{content:"";position:absolute;inset:0}
+.dd-js .dd-item:hover .ld{border-bottom-color:var(--gold)}
+.dd-js .dd-item:hover h4{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:1px;text-underline-offset:4px}
+.dd-open:focus-visible{outline:none}
+.dd-item:has(.dd-open:focus-visible){outline:2px solid var(--gold);outline-offset:3px}
+.dd-tease{display:none}
+.dd-js .dd-tease{display:block}
+.dd-js .dd-item .dd-full{display:none}
+.dd-item .dd-full{grid-column:2/-1;grid-row:3;margin-top:10px}
+.dd-empty{padding:30px 0;border-bottom:1px solid var(--dd-line);font:italic 400 1.2rem/1.6 'Cormorant Garamond',Georgia,serif;color:var(--dd-ink)}
+.dd-empty a{color:var(--dd-head);border-bottom:1px solid var(--gold)}
+
+/* ================= the full answer (under the row without JS, in the popup with JS) ================= */
+.dd-vl{font-size:1rem;line-height:1.65;margin:0 0 6px}
+.dd-vl strong{color:var(--pen)}
+.dd-sec{display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 26px;padding:16px 0;border-top:1px solid var(--dd-line)}
+.dd-sec h3,.dd-sec h5{font:600 .82rem/1.5 Inter,sans-serif;color:var(--dd-muted);margin:0;padding-top:2px}
+.dd-sec p,.dd-sec li{font-size:.98rem;line-height:1.72;color:var(--dd-ink);max-width:62ch}
+.dd-sec ul,.dd-sec ol{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+.dd-sec a{color:var(--dd-head);text-decoration:underline;text-decoration-color:rgba(176,141,63,.7);text-underline-offset:3px}
+.dd-sec a:hover{color:var(--ref)}
+.dd-rule{grid-template-columns:1fr;gap:8px}
+.dd-rule blockquote{margin:0;padding:0 0 0 .5em}
+.dd-rule blockquote p{font:italic 400 1.42rem/1.45 'Cormorant Garamond',Georgia,serif;color:var(--dd-head);max-width:40em;text-indent:-.42em}
+.dd-rule blockquote p:before{content:"\201C";color:var(--gold)}
+.dd-rule blockquote p:after{content:"\201D";color:var(--gold)}
+.dd-check li{display:grid;grid-template-columns:20px 1fr;gap:10px}
+.dd-check .tk{--pen:var(--pen-yes);width:19px;height:19px;margin-top:4px}
+.dd-srcs ol{counter-reset:fn}
+.dd-srcs li{counter-increment:fn;display:grid;grid-template-columns:18px 1fr;gap:6px;font-size:.9rem}
+.dd-srcs li:before{content:counter(fn);font-size:.74rem;line-height:2;color:var(--ref);font-variant-numeric:tabular-nums}
+.dd-sec .ck{grid-column:2;font-size:.82rem;color:var(--dd-muted);margin-top:4px}
+.dd-tools{display:flex;flex-wrap:wrap;gap:4px 22px}
+
+/* ================= popup: a workpaper page ================= */
+.dd-modal{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px;visibility:hidden;pointer-events:none}
+.dd-modal.open{visibility:visible;pointer-events:auto}
+.dd-back{position:absolute;inset:0;background:rgba(6,14,26,.62);opacity:0;transition:opacity .3s ease}
+.dd-modal.open .dd-back{opacity:1}
+.dd-sheet{position:relative;width:min(760px,100%);max-height:min(90vh,940px);overflow:auto;overscroll-behavior:contain;background:var(--dd-sheet);color:var(--dd-ink);
+  border-radius:3px;box-shadow:0 30px 80px rgba(0,0,0,.4);padding:20px 40px 30px;opacity:0;transform:translateY(14px);
+  transition:opacity .28s var(--ease),transform .45s var(--ease)}
+.dd-modal.open .dd-sheet{opacity:1;transform:none}
+.dd-sheet:focus{outline:none}
+.dd-close{position:sticky;top:0;float:right;margin:-6px -20px 0 12px;width:44px;height:44px;border-radius:2px;border:1px solid var(--dd-line);background:var(--dd-sheet);color:var(--dd-head);
+  font-size:24px;line-height:1;cursor:pointer;z-index:2}
+.dd-close:hover{border-color:var(--dd-head)}
+.dd-close:focus-visible,.dd-sheet a:focus-visible,.dd-sheet button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.dd-wp{display:flex;justify-content:space-between;gap:16px;padding:6px 0 10px;margin-right:52px;border-bottom:1px solid var(--dd-line);font-size:.82rem;color:var(--dd-muted)}
+.dd-wp span:first-child{color:var(--ref);font-weight:600;font-variant-numeric:tabular-nums}
+.dd-sheet h2{font:500 clamp(2.1rem,5vw,2.8rem)/1.04 'Cormorant Garamond',Georgia,serif;color:var(--dd-head);margin:18px 0 18px}
+.dd-v{display:grid;grid-template-columns:64px minmax(0,1fr);gap:4px 22px;align-items:center;padding:18px 0 20px;border-top:1px solid var(--dd-head);border-bottom:3px double var(--dd-head)}
+.dd-v.has-fig{grid-template-columns:64px minmax(0,1fr) auto}
+.dd-v .tk{width:62px;height:62px}
+.dd-v .big{font:500 1.95rem/1.1 'Cormorant Garamond',Georgia,serif;color:var(--pen);margin:0 0 4px}
+.dd-v .vt p+p{font-size:.94rem;line-height:1.6;color:var(--dd-ink)}
+.dd-fig{display:grid;justify-items:end;gap:8px;padding-left:18px;border-left:1px solid var(--dd-line)}
+.dd-fig b{font:500 3.4rem/.9 'Cormorant Garamond',Georgia,serif;font-variant-numeric:lining-nums tabular-nums;color:var(--dd-head)}
+.dd-fig small{font-size:.5em;margin-left:2px}
+.dd-ruler{position:relative;display:block;width:120px;height:9px;border-bottom:1px solid var(--dd-muted);
+  background:repeating-linear-gradient(90deg,var(--dd-muted) 0 1px,transparent 1px 12px) 0 100%/100% 5px no-repeat}
+.dd-ruler i{position:absolute;left:0;right:0;bottom:-1px;height:4px;background:var(--pen,var(--dd-head));transform-origin:0 50%;transform:scaleX(var(--p))}
+.dd-v .dd-ruler i{background:currentColor}
+.dd-v .dd-fig{color:var(--pen)}
+.dd-pg{margin-top:4px}
+.dd-pg .dd-sec:first-child{border-top:0}
+.dd-mnote{margin-top:10px;padding:12px 14px;border-left:5px solid var(--warn-line);background:var(--warn-bg);color:var(--warn-ink);font-size:.88rem;line-height:1.55}
+.dd-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.dd-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:3px;font:600 .92rem Inter,sans-serif;cursor:pointer;border:1px solid transparent;text-decoration:none}
+.dd-btn.gold{background:var(--gold-b);color:var(--navy)}
+.dd-btn.gold:hover{background:#E6CA86}
+.dd-btn.line{background:transparent;color:var(--dd-head);border-color:var(--dd-line)}
+.dd-btn.line:hover{border-color:var(--dd-head)}
+html.dd-lock,html.dd-lock body{overflow:hidden}
+
+/* ================= article extras ================= */
+.dd-src-g h3{margin-top:22px!important}
+.dd-kinds{list-style:none;margin:0 0 22px!important;padding:0}
+.dd-kinds li{display:grid;grid-template-columns:28px 128px 1fr;gap:12px;align-items:center;padding:11px 0!important;margin:0!important;border-bottom:1px solid var(--hair)}
+.dd-kinds li{--pen-yes:#1C6B40;--pen-part:#1D4F91;--pen-dep:#4F5563;--pen-no:#B42318}
+.dd-kinds .tk{width:26px;height:26px}
+.dd-kinds b{color:var(--pen);font-weight:600}
+
+/* ================= motion (only when the visitor allows it) ================= */
+@media (prefers-reduced-motion:no-preference){
+  /* hero: the receipt prints, lines type out, marks are ticked, then the stamp lands */
+  .dd-js .dd-rcpt{animation:ddFeed 1s cubic-bezier(.2,.8,.2,1) .15s backwards}
+  .dd-js .dd-rcpt li{animation:ddType .42s steps(16,end) backwards;animation-delay:calc(1s + var(--i) * .17s)}
+  .dd-js .dd-rcpt .mk svg *{stroke-dasharray:1;animation:ddDraw .38s ease-out backwards;animation-delay:calc(2.05s + var(--i) * .12s)}
+  .dd-js .dd-rcpt .mk em{animation:ddFade .3s ease backwards;animation-delay:calc(2.25s + var(--i) * .12s)}
+  .dd-js .dd-rcpt .tot{animation:ddFade .4s ease 2.1s backwards}
+  .dd-js .dd-bigstamp{animation:ddThunk .55s cubic-bezier(.3,1.4,.5,1) 2.95s backwards}
+  .dd-js .dd-rcpt .paper{animation:ddPrint 1s steps(18,end) .15s backwards,ddJolt .32s ease-out 3.15s}
+  /* the one moment: tickmarks are inked down the schedule as the reviewer reaches each line */
+  .dd-ink .dd-item:not(.inked) .dd-vd .tk *{stroke-dasharray:1;stroke-dashoffset:1}
+  .dd-ink .dd-item.inked .dd-vd .tk *{stroke-dasharray:1;animation:ddDraw .4s cubic-bezier(.55,.1,.35,1) backwards;animation-delay:calc(var(--k,0) * 85ms + .05s)}
+  .dd-ink .dd-item.inked .dd-vd .tk :nth-child(2){animation-delay:calc(var(--k,0) * 85ms + .3s)}
+  .dd-ink .dd-item.inked .dd-vd .tk :nth-child(3){animation-delay:calc(var(--k,0) * 85ms + .48s)}
+  .dd-ink .dd-item.inked .dd-vd .tk :nth-child(4){animation-delay:calc(var(--k,0) * 85ms + .58s)}
+  /* popup: the verdict is ticked, the share fills the ruler, records are ticked off */
+  .dd-modal.open .dd-v .tk *{stroke-dasharray:1;animation:ddDraw .5s cubic-bezier(.55,.1,.35,1) .2s backwards}
+  .dd-modal.open .dd-v .tk :nth-child(2){animation-delay:.55s}
+  .dd-modal.open .dd-v .tk :nth-child(3){animation-delay:.8s}
+  .dd-modal.open .dd-v .tk :nth-child(4){animation-delay:.9s}
+  .dd-modal.open .dd-ruler i{animation:ddFill .9s var(--ease) .35s backwards}
+  .dd-modal.open .dd-check .tk *{stroke-dasharray:1;animation:ddDraw .35s ease-out backwards;animation-delay:calc(.6s + var(--i) * .12s)}
+}
+@keyframes ddFeed{from{transform:rotate(2.2deg) translateY(-26px)}}
+@keyframes ddPrint{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 -12px 0)}}
+@keyframes ddType{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes ddDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes ddFade{from{opacity:0}}
+@keyframes ddFill{from{transform:scaleX(0)}}
+@keyframes ddThunk{0%{opacity:0;transform:rotate(-4deg) scale(2.4)}60%{opacity:1;transform:rotate(-14.5deg) scale(.93)}100%{opacity:1;transform:rotate(-13deg) scale(1)}}
+@keyframes ddJolt{30%{transform:translate(1px,2px)}60%{transform:translate(-1px,-1px)}}
+
+/* ================= responsive ================= */
+@media (max-width:980px){
+  .dd-hgrid{grid-template-columns:minmax(0,1fr) 290px;gap:32px}
+  .dd-rcpt{width:290px}
+  .dd-book{grid-template-columns:200px minmax(0,1fr);gap:0 40px}
+  .dd-legend{grid-template-columns:1fr 1fr}
+  .dd-colh,.dd-item{grid-template-columns:44px auto minmax(20px,1fr) 196px}
+  .dd-hd{grid-template-columns:1fr}
+  .dd-sign{border-left:0;padding-left:0}
+}
+@media (max-width:760px){
+  .dd-hero{padding-top:40px}
+  .dd-hero:before{background:repeating-linear-gradient(180deg,transparent 0 31px,rgba(255,255,255,.05) 31px 32px)}
+  .dd-hgrid{grid-template-columns:1fr;gap:34px;padding:10px 0 44px}
+  .dd-rcpt{justify-self:center;width:min(300px,86%);transform:rotate(1.6deg)}
+  .dd-rcpt .paper{font-size:12px;padding:18px 16px 16px}
+  .dd-rcpt li{height:28px}
+  @keyframes ddFeed{from{transform:rotate(1.6deg) translateY(-22px)}}
+  /* the schedule becomes one clean column */
+  .dd-main{padding-top:36px}
+  .dd-book{display:block;margin-top:38px}
+  .dd-catsec{position:static;max-height:none;overflow:visible;padding:0;margin-bottom:40px}
+  .dd-cats{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}
+  .dd-cat{grid-template-columns:16px minmax(0,1fr) auto;font-size:.84rem;min-height:44px;gap:6px}
+  .dd-ixp{display:none}
+  .dd-cat .ld{display:none}
+  .dd-colh{display:none}
+  .dd-legend{padding-top:14px}
+  .dd-item{grid-template-columns:38px minmax(0,1fr);row-gap:6px;padding:15px 0 16px}
+  .dd-item h4{grid-column:2;font-size:1.36rem;max-width:none}
+  .dd-item .ld{display:none}
+  .dd-vd{grid-column:2;grid-row:2;grid-template-columns:22px auto auto;justify-content:start;gap:8px}
+  .dd-vd .tk{width:22px;height:22px}
+  .dd-vd .pc{text-align:left;color:var(--dd-muted)}
+  .dd-tease{grid-column:2;grid-row:3;white-space:normal;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .dd-item .dd-full{grid-column:1/-1}
+  .dd-sec{grid-template-columns:1fr;gap:6px}
+  .dd-sec .ck{grid-column:1}
+}
+@media (max-width:640px){
+  .dd-search{margin-top:24px}
+  .dd-search input{height:58px;font-size:16px;padding-left:52px}
+  .dd-search svg{left:19px}
+  .dd-marq{height:58px;gap:12px}
+  .dd-marq .lbl{padding-left:20px;font-size:1.08rem}
+  .dd-warn{padding:15px 16px;border-left-width:6px}
+  .dd-modal{padding:0;place-items:end stretch}
+  .dd-sheet{width:100%;max-height:92vh;border-radius:8px 8px 0 0;padding:18px 20px 24px;transform:translateY(100%)}
+  .dd-sheet:before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:var(--dd-line);margin:-6px auto 12px}
+  .dd-close{margin:-4px -8px 0 10px}
+  .dd-wp{margin-right:44px}
+  .dd-v,.dd-v.has-fig{grid-template-columns:48px minmax(0,1fr);gap:10px 16px;align-items:start}
+  .dd-v .tk{width:46px;height:46px}
+  .dd-v .big{font-size:1.65rem}
+  .dd-fig{grid-column:2;justify-items:start;padding:10px 0 0;border-left:0;border-top:1px solid var(--dd-line);grid-template-columns:auto 1fr;align-items:center;gap:16px}
+  .dd-fig b{font-size:2.6rem}
+  .dd-rule blockquote p{font-size:1.3rem}
+  .dd-acts .dd-btn{flex:1 1 100%}
+  .dd-kinds li{grid-template-columns:26px 1fr;row-gap:2px}
+  .dd-kinds li span{grid-column:2}
+}
+@media (max-width:360px){
+  .dd-legend{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .dd-sheet,.dd-back,.dd-item .ld{transition:none!important}
+  .dd-sheet{transform:none!important}
+}
