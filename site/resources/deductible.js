@@ -1,7 +1,8 @@
 /* Is It Deductible? (/tools/is-it-deductible/). Site session owns this file.
    Every answer is already in the HTML (tools/build_deductible.py). This script adds: search (name + aliases from #dd-data),
-   category filters with FLIP reordering, the typewriter placeholder, the "Most searched" belt, card tilt, scroll reveals and
-   the detail popup (built from the card's own markup). No tax figures live here. Reduced motion = instant states. */
+   index (category) filters with FLIP reordering, the typewriter placeholder, the "Most searched" belt, tickmarks inked down the
+   schedule as it scrolls into view, and the workpaper popup (built from the row's own markup). No tax figures live here.
+   Reduced motion = instant states. */
 (function () {
   var d = document, root = d.documentElement, W = window;
   var DATA = JSON.parse(d.getElementById('dd-data').textContent);
@@ -14,8 +15,9 @@
   var $ = function (id) { return d.getElementById(id); };
   var q = $('dd-q'), clr = $('dd-clear-q'), list = $('dd-list'), empty = $('dd-empty'), count = $('dd-count'), resH = $('dd-res-h'),
     showAll = $('dd-all'), results = $('dd-results'), catBtns = [].slice.call(d.querySelectorAll('.dd-cat')),
-    cards = {}, cat = '', allLabel = resH.textContent;
+    cards = {}, heads = {}, cat = '', allLabel = resH.textContent;
   [].slice.call(list.querySelectorAll('.dd-item')).forEach(function (a) { cards[a.getAttribute('data-slug')] = a; });
+  [].slice.call(list.querySelectorAll('.dd-sh')).forEach(function (h) { heads[h.getAttribute('data-cat')] = h; });
 
   /* ---------- search: name + aliases ---------- */
   function words(s) { return s.toLowerCase().replace(/[^a-z0-9%$&]+/g, ' ').trim().split(' ').filter(Boolean); }
@@ -49,7 +51,7 @@
       .sort(function (a, b) { return b[0] - a[0] || a[1]._i - b[1]._i; }).map(function (x) { return x[1]; });
   }
 
-  /* ---------- results with FLIP: cards glide to their new place, newcomers fade up ---------- */
+  /* ---------- results with FLIP: rows glide to their new place, newcomers fade in ---------- */
   var timer;
   function run(fromUser) {
     var qs = (q.value || '').trim(), res = search(qs), shown, before = {};
@@ -58,7 +60,19 @@
     var animate = !still && 'animate' in list && results.getBoundingClientRect().top < W.innerHeight;
     if (animate) E.forEach(function (e) { var c = cards[e.slug]; if (!c.hidden) before[e.slug] = c.getBoundingClientRect(); });
     var on = {};
-    shown.forEach(function (e) { on[e.slug] = 1; list.appendChild(cards[e.slug]); });
+    if (res === null) {
+      /* browsing: section heads with their rows, in index order */
+      DATA.categories.forEach(function (c) {
+        var h = heads[c.id], rows = shown.filter(function (e) { return e.category === c.id; });
+        if (h) { h.hidden = !rows.length; list.appendChild(h); }
+        rows.forEach(function (e) { on[e.slug] = 1; list.appendChild(cards[e.slug]); });
+      });
+    } else {
+      /* searching: best match first, no section heads */
+      for (var k in heads) heads[k].hidden = true;
+      shown.forEach(function (e) { on[e.slug] = 1; list.appendChild(cards[e.slug]); });
+    }
+    list.classList.toggle('srch', res !== null);
     E.forEach(function (e) { cards[e.slug].hidden = !on[e.slug]; });
     if (animate) {
       shown.forEach(function (e, i) {
@@ -68,8 +82,8 @@
           var dx = b.left - a.left, dy = b.top - a.top;
           if (dx || dy) c.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }], { duration: 480, easing: EASE });
         } else if (a.top < W.innerHeight + 200) {
-          c.animate([{ opacity: 0, transform: 'translateY(14px) scale(.97)' }, { opacity: 1, transform: 'none' }],
-            { duration: 420, delay: Math.min(i, 9) * 30, easing: EASE, fill: 'backwards' });
+          c.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 360, delay: Math.min(i, 9) * 25, easing: EASE, fill: 'backwards' });
         }
       });
     }
@@ -120,63 +134,43 @@
     t = setTimeout(tick, 3400);
   })();
 
-  /* ---------- reveals and card tilt ---------- */
-  var seenEls = [].slice.call(d.querySelectorAll('.dd-cats,.dd-legend'));
+  /* ---------- tickmarks are inked down the schedule as rows come into view (once per row) ---------- */
+  var allCards = E.map(function (e) { return cards[e.slug]; });
   if ('IntersectionObserver' in W && !still) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('seen'); io.unobserve(x.target); } });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    seenEls.forEach(function (el) { io.observe(el); });
-  } else seenEls.forEach(function (el) { el.classList.add('seen'); });
-  if (!still && mq('(hover: hover) and (pointer: fine)')) {
-    catBtns.forEach(function (b) {
-      b.addEventListener('pointermove', function (ev) {
-        var r = b.getBoundingClientRect(), x = (ev.clientX - r.left) / r.width, y = (ev.clientY - r.top) / r.height;
-        b.style.setProperty('--ry', ((x - .5) * 9).toFixed(2) + 'deg');
-        b.style.setProperty('--rx', ((.5 - y) * 9).toFixed(2) + 'deg');
-        b.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
-        b.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+    root.classList.add('dd-ink');
+    var tio = new IntersectionObserver(function (es) {
+      var k = 0;
+      es.forEach(function (x) {
+        if (!x.isIntersecting) return;
+        x.target.style.setProperty('--k', Math.min(k++, 14));
+        x.target.classList.add('inked');
+        tio.unobserve(x.target);
       });
-      b.addEventListener('pointerleave', function () { b.style.setProperty('--rx', '0deg'); b.style.setProperty('--ry', '0deg'); });
-    });
+    }, { rootMargin: '0px 0px -4% 0px' });
+    allCards.forEach(function (c) { tio.observe(c); });
   }
 
   /* ---------- popup ---------- */
   var modal = $('dd-modal'), sheet = $('dd-sheet'), body = $('dd-mbody'), closeBtn = $('dd-close'), back = $('dd-back'),
     lastFocus = null, current = null, pushed = false, hideT;
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function ring(p) {
-    var C = 2 * Math.PI * 40, off = C * (1 - p / 100);
-    return '<div class="dd-ring" role="img" aria-label="' + p + ' percent deductible"><svg viewBox="0 0 92 92" aria-hidden="true">' +
-      '<circle class="trk" cx="46" cy="46" r="40" fill="none" stroke-width="9"/>' +
-      '<circle class="val" cx="46" cy="46" r="40" fill="none" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(2) +
-      '" stroke-dashoffset="' + (still ? off : C).toFixed(2) + '" data-off="' + off.toFixed(2) + '"/></svg><b aria-hidden="true" data-p="' + p + '">' + (still ? p : 0) + '%</b></div>';
-  }
   function render(e) {
     var v = DATA.verdicts[e.verdict], full = cards[e.slug].querySelector('.dd-full').cloneNode(true);
-    [].slice.call(full.querySelectorAll('h4')).forEach(function (h) { var n = d.createElement('h3'); n.innerHTML = h.innerHTML; h.parentNode.replaceChild(n, h); });
+    [].slice.call(full.querySelectorAll('h5')).forEach(function (h) { var n = d.createElement('h3'); n.innerHTML = h.innerHTML; h.parentNode.replaceChild(n, h); });
     var vl = full.querySelector('.dd-vl'), line = vl ? vl.lastChild.textContent.trim() : '';
     if (vl) vl.parentNode.removeChild(vl);
     full.querySelector('.dd-srcs').insertAdjacentHTML('beforeend', '<p class="ck">Facts checked ' + esc(DATA.checked_label) + '.</p>');
     var pct = e.percent !== null && e.percent !== undefined;
-    var vis = pct && e.verdict !== 'not' ? ring(e.percent) : '<span class="dd-ico" aria-hidden="true">' + DATA.icons[e.verdict] + '</span>';
-    var big = e.verdict === 'not' ? v.big : (pct ? e.percent + '% deductible' : v.big);
-    return '<span class="eb">' + esc(CATS[e.category].name) + '</span><h2 id="dd-mtitle">' + esc(e.name) + '</h2>' +
-      '<div class="dd-v v-' + e.verdict + '">' + vis + '<div><span class="dd-vstamp">' + esc(v.label) + '</span><div class="big">' + esc(big) +
-      '</div><p>' + esc(line) + '</p></div></div>' + full.innerHTML +
+    var fig = pct ? '<div class="dd-fig" role="img" aria-label="' + e.percent + ' percent deductible"><b aria-hidden="true">' + e.percent +
+      '<small>%</small></b><span class="dd-ruler" aria-hidden="true"><i style="--p:' + (e.percent / 100) + '"></i></span></div>' : '';
+    return '<div class="dd-wp"><span>W/P ' + esc(e.ref) + '</span><span>' + esc(CATS[e.category].name) + '</span></div>' +
+      '<h2 id="dd-mtitle">' + esc(e.name) + '</h2>' +
+      '<div class="dd-v v-' + e.verdict + (pct ? ' has-fig' : '') + '">' + DATA.ticks[e.verdict] +
+      '<div class="vt"><p class="big">' + esc(v.big) + '</p><p>' + esc(line) + '</p></div>' + fig + '</div>' +
+      '<div class="dd-pg">' + full.innerHTML + '</div>' +
       '<p class="dd-mnote">' + esc(DATA.short_disclaimer) + '</p>' +
       '<div class="dd-acts"><a class="dd-btn gold" href="/#book" data-conv="book">Book a 30-minute call</a>' +
       '<button type="button" class="dd-btn line" id="dd-copy">Copy link</button></div>';
-  }
-  function countUp(b) {
-    var p = +b.getAttribute('data-p'), t0 = null, dur = 1100, delay = 200;
-    function f(ts) {
-      if (t0 === null) t0 = ts + delay;
-      var k = Math.max(0, Math.min(1, (ts - t0) / dur)), e = 1 - Math.pow(1 - k, 3);
-      b.textContent = Math.round(p * e) + '%';
-      if (k < 1 && current) requestAnimationFrame(f);
-    }
-    requestAnimationFrame(f);
   }
   function focusables() {
     return [].slice.call(sheet.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')).filter(function (el) { return el.offsetParent !== null || el === closeBtn; });
@@ -194,8 +188,6 @@
     requestAnimationFrame(function () { requestAnimationFrame(function () {
       modal.classList.add('open');
       closeBtn.focus({ preventScroll: true });
-      var r = body.querySelector('.dd-ring .val'); if (r) r.setAttribute('stroke-dashoffset', r.getAttribute('data-off'));
-      var b = body.querySelector('.dd-ring b'); if (b && !still) countUp(b);
     }); });
     var cp = $('dd-copy');
     cp.addEventListener('click', function () {

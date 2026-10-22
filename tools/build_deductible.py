@@ -90,6 +90,17 @@ ICONS = {  # 24px line icons (stroke = currentColor)
     "tick": '<path pathLength="1" d="m5 12.5 4.2 4.2L19 7"/>',
     "v-not": '<circle cx="12" cy="12" r="9"/><path d="m8.8 8.8 6.4 6.4M15.2 8.8l-6.4 6.4"/>',
 }
+# Auditor's tickmarks (hand-drawn, slightly uneven strokes; pathLength=1 so CSS can draw them). Shape carries the meaning,
+# color is secondary, and a legend sits on the page like on a real workpaper.
+TICKS = {
+    "deductible": '<path pathLength="1" d="M4.2 13.3c1.6 1 3 2.5 4.3 4.4C10.9 12.6 14.5 8.3 19.8 5"/>',
+    "partly": '<path pathLength="1" d="M4.3 13.5c1.5 1 2.8 2.4 3.9 4.2 1.2-2.5 2.6-4.7 4.3-6.8"/><path pathLength="1" d="M14.9 8.7l.1-.1"/><path pathLength="1" d="M17.9 5.9l.1-.1"/>',
+    "depends": ('<path pathLength="1" d="M16.9 5.3C14.3 3.6 10.8 3.7 8.2 5.5 5 7.7 3.9 12 5.7 15.5c1.8 3.4 6 5 9.6 3.6 3.6-1.4 5.5-5.5 4.4-9.2-.6-2.1-2-3.8-3.8-4.9-1-.6-2.1-.9-3.2-1.1"/>'
+                '<path pathLength="1" d="M10.1 9.9c.1-1.6 1.4-2.7 2.9-2.6 1.5.1 2.5 1.3 2.3 2.7-.2 1.4-1.6 1.8-2.4 2.6-.5.5-.6 1.1-.6 1.8"/><path pathLength="1" d="M12.2 16.6l.2.1"/>'),
+    "not": '<path pathLength="1" d="M5.7 5.9c4.1 3.9 8.3 8.3 12.5 12.8"/><path pathLength="1" d="M18.3 5.3c-4.4 4.1-8.5 8.5-12.4 13.3"/>',
+}
+tick = lambda k, w=2.1, cls="tk": (f'<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{w}" stroke-linecap="round" '
+                                   f'stroke-linejoin="round" aria-hidden="true">{TICKS[k]}</svg>')
 svg = lambda k, w=1.7: (f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{w}" stroke-linecap="round" '
                         f'stroke-linejoin="round" aria-hidden="true">{ICONS[k]}</svg>')
 
@@ -144,9 +155,25 @@ def checklist(t):
     return out
 
 
-def stamp(e, cls="dd-stamp"):
-    pct = f'<i>{e["percent"]}%</i>' if e["percent"] is not None and e["verdict"] != "not" else ""
-    return f'<span class="{cls}"><b>{esc(VERDICTS[e["verdict"]]["label"])}</b>{pct}</span>'
+def verdict_cell(e):
+    """Treatment column: tickmark, label, then the % figure (blank when no single percentage applies)."""
+    pct = f'{e["percent"]}%' if e["percent"] is not None else ""
+    return (f'<span class="dd-vd">{tick(e["verdict"])}<span class="lb">{esc(VERDICTS[e["verdict"]]["label"])}</span>'
+            f'<span class="pc">{pct}</span></span>')
+
+
+def refs():
+    """Workpaper references: one letter per category (A, B, C ...), A-1, A-2 ... per entry. Stable as long as the data order is."""
+    cats = [c for c in DATA["meta"]["categories"] if c["count"]]
+    letter = {c["id"]: chr(65 + i) for i, c in enumerate(cats)}
+    seen, out = {}, {}
+    for e in DATA["entries"]:
+        seen[e["category"]] = seen.get(e["category"], 0) + 1
+        out[e["slug"]] = f'{letter[e["category"]]}-{seen[e["category"]]}'
+    return letter, out
+
+
+LETTER, REF = refs()
 
 
 def full(e):
@@ -155,24 +182,31 @@ def full(e):
     src = (f'<li><a href="{esc(e["source_url"])}" target="_blank" rel="noopener">{esc(e["source_title"])}</a></li>' +
            "".join(f'<li><a href="{esc(a["url"])}" target="_blank" rel="noopener">{esc(a["title"])}</a></li>' for a in e.get("also", [])))
     tools = "".join(f'<a href="{u}">{esc(TOOL_NAMES[u])}</a>' for u in e.get("tools", []))
-    recs = "".join(f'<li style="--i:{i}">{svg("tick", 2.4)}<span>{esc(r)}</span></li>' for i, r in enumerate(checklist(e["records"])))
+    recs = "".join(f'<li style="--i:{i}">{tick("deductible", 2.2)}<span>{esc(r)}</span></li>' for i, r in enumerate(checklist(e["records"])))
     return (f'<div class="dd-full">'
             f'<p class="dd-vl"><strong>{esc(verdict_big(e))}.</strong> {esc(v["line"])}</p>'
-            f'<div class="dd-sec dd-rule"><h4>The rule</h4><blockquote><p>{esc(e["rule"])}</p></blockquote></div>'
-            f'<div class="dd-sec"><h4>Limits</h4><p>{esc(e["limits"])}</p></div>'
-            f'<div class="dd-sec"><h4>Records to keep</h4><ul class="dd-check">{recs}</ul></div>'
-            f'<div class="dd-sec"><h4>Who it applies to</h4><p>{esc(e["applies_to"])}</p></div>'
-            f'<div class="dd-sec dd-srcs"><h4>Official sources</h4><ul>{src}</ul></div>'
-            + (f'<div class="dd-sec"><h4>Related MFA tools</h4><div class="dd-tools">{tools}</div></div>' if tools else "") +
+            f'<div class="dd-sec dd-rule"><h5>The rule</h5><blockquote><p>{esc(e["rule"])}</p></blockquote></div>'
+            f'<div class="dd-sec"><h5>Limits</h5><p>{esc(e["limits"])}</p></div>'
+            f'<div class="dd-sec"><h5>Records to keep</h5><ul class="dd-check">{recs}</ul></div>'
+            f'<div class="dd-sec"><h5>Who it applies to</h5><p>{esc(e["applies_to"])}</p></div>'
+            f'<div class="dd-sec dd-srcs"><h5>Official sources</h5><ol>{src}</ol></div>'
+            + (f'<div class="dd-sec"><h5>Related MFA tools</h5><p class="dd-tools">{tools}</p></div>' if tools else "") +
             '</div>')
 
 
 def item(e, cats):
-    return (f'<article class="dd-item v-{e["verdict"]}" id="{e["slug"]}" data-slug="{e["slug"]}" data-cat="{e["category"]}">'
-            f'<div class="top"><span class="cat">{esc(cats[e["category"]]["name"])}</span>{stamp(e)}</div>'
-            f'<h3><a class="dd-open" href="#{e["slug"]}" aria-haspopup="dialog">{esc(e["name"])}</a></h3>'
-            f'<p class="dd-tease">{esc(first_sentence(e["rule"]))}</p>{full(e)}'
-            f'<span class="go" aria-hidden="true">Rules, limits &amp; records</span></article>')
+    """One ledger row: ref | name + the rule in one line | leader | tickmark, treatment, %. The full answer follows (shown without JS)."""
+    jitter = int(hashlib.md5(e["slug"].encode()).hexdigest()[:2], 16) % 13 - 6   # each mark sits a little differently, as by hand
+    return (f'<article class="dd-item v-{e["verdict"]}" id="{e["slug"]}" data-slug="{e["slug"]}" data-cat="{e["category"]}" style="--r:{jitter}deg">'
+            f'<span class="ref" aria-hidden="true">{REF[e["slug"]]}</span>'
+            f'<div class="bd"><h4><a class="dd-open" href="#{e["slug"]}" aria-haspopup="dialog">{esc(e["name"])}</a></h4>'
+            f'<p class="dd-tease">{esc(first_sentence(e["rule"]))}</p></div>'
+            f'<span class="ld" aria-hidden="true"></span>{verdict_cell(e)}{full(e)}</article>')
+
+
+def section_head(c):
+    return (f'<div class="dd-sh" data-cat="{c["id"]}"><span class="lt" aria-hidden="true">{LETTER[c["id"]]}</span>'
+            f'<h3>{esc(c["name"])}</h3><span class="n">{c["count"]} {"expense" if c["count"] == 1 else "expenses"}</span></div>')
 
 
 FAQ = [
@@ -338,31 +372,42 @@ def build():
 <div class="dd-marq" role="group" aria-label="Most searched expenses"><span class="lbl">Most searched</span><div class="track"><div class="belt"><span class="set">{chips}</span><span class="set dup" aria-hidden="true">{chips_dup}</span></div></div></div>
 </header>"""
 
-    warn = (f'<aside class="dd-warn" aria-label="Important: educational information only">{svg("warn", 1.9)}<div>'
+    warn = (f'<aside class="dd-warn" aria-label="Important: educational information only">'
             f'<strong>Educational information only, not tax, legal or accounting advice.</strong>'
-            f'<p>Tax rules change and depend on your facts. Do your own research using the IRS sources linked, and talk to a qualified tax professional before you file.</p></div></aside>')
-    cat_btns = "".join(
-        f'<button type="button" class="dd-cat{" not" if c["id"] == "not" else ""}" data-cat="{c["id"]}" aria-pressed="false" style="--i:{i}"><i>{svg(c["icon"])}</i>'
-        f'<span><b>{esc(c["name"])}</b><small>{c["count"]} {"expense" if c["count"] == 1 else "expenses"}</small></span></button>'
-        for i, c in enumerate(c for c in meta["categories"] if c["count"]))
-    legend = "".join(f'<li class="v-{k}"><span class="dd-stamp"><b>{esc(v["label"])}</b></span><span>{esc(LEGEND[k])}</span></li>' for k, v in VERDICTS.items())
-    items = "".join(item(e, cats) for e in E)
+            f'<p>Tax rules change and depend on your facts. Do your own research using the IRS sources linked, and talk to a qualified tax professional before you file.</p></aside>')
+    shown_cats = [c for c in meta["categories"] if c["count"]]
+    cat_btns = (f'<li><button type="button" class="dd-cat" data-cat="" aria-pressed="true"><span class="lt" aria-hidden="true"></span>'
+                f'<span class="nm">All expenses</span><span class="ld" aria-hidden="true"></span><span class="n">{n}</span></button></li>' +
+                "".join(f'<li><button type="button" class="dd-cat" data-cat="{c["id"]}" aria-pressed="false"><span class="lt" aria-hidden="true">{LETTER[c["id"]]}</span>'
+                        f'<span class="nm">{esc(c["name"])}</span><span class="ld" aria-hidden="true"></span><span class="n">{c["count"]}</span></button></li>'
+                        for c in shown_cats))
+    legend = "".join(f'<li class="v-{k}">{tick(k)}<span><b>{esc(v["label"])}</b> {esc(LEGEND[k])}</span></li>' for k, v in VERDICTS.items())
+    rows = []
+    for c in shown_cats:
+        rows.append(section_head(c))
+        rows += [item(e, cats) for e in E if e["category"] == c["id"]]
+    items = "".join(rows)
     main = f"""<main class="dd-main" id="dd-main"><div class="wrap">
 {warn}
-<section class="dd-catsec" aria-labelledby="dd-cats-h"><div class="dd-hd"><h2 id="dd-cats-h">Browse by category</h2><p>Tap a category to filter the list. Tap it again to show everything.</p></div>
-<div class="dd-cats">{cat_btns}</div></section>
-<section id="dd-results" aria-labelledby="dd-res-h" style="scroll-margin-top:96px"><div class="dd-hd"><h2 id="dd-res-h">All {n} business expenses</h2><p><span id="dd-count" aria-live="polite">{n} expenses</span> <button type="button" class="dd-link" id="dd-all" hidden>Show all</button></p></div>
-<ul class="dd-legend" aria-label="What the labels mean">{legend}</ul>
+<div class="dd-book">
+<nav class="dd-catsec" aria-labelledby="dd-cats-h"><h2 id="dd-cats-h">Index</h2><p class="dd-ixp">Pick a section to filter the schedule.</p>
+<ul class="dd-cats">{cat_btns}</ul></nav>
+<section class="dd-sched" id="dd-results" aria-labelledby="dd-res-h">
+<div class="dd-hd"><div><p class="dd-kick">Schedule of business expenses, tax year {meta["tax_year"]}</p><h2 id="dd-res-h">All {n} business expenses</h2>
+<p class="dd-cnt"><span id="dd-count" aria-live="polite">{n} expenses</span> <button type="button" class="dd-link" id="dd-all" hidden>Show all</button></p></div>
+<dl class="dd-sign"><div><dt>Prepared by</dt><dd>Z. Merchant, ACCA</dd></div><div><dt>Facts checked</dt><dd>{checked}</dd></div></dl></div>
+<ul class="dd-legend" aria-label="Tickmark legend">{legend}</ul>
+<div class="dd-colh" aria-hidden="true"><span>Ref</span><span>Expense and the rule in brief</span><span class="tr"><span>Treatment</span><span>%</span></span></div>
 <div class="dd-list" id="dd-list">{items}</div>
-<div class="dd-empty" id="dd-empty" hidden>Nothing matches “<span id="dd-empty-q"></span>” yet. Try a different word, browse the categories, or <a href="/#book" data-conv="book">ask us directly</a>.</div>
-</section></div></main>"""
+<div class="dd-empty" id="dd-empty" hidden>Nothing matches “<span id="dd-empty-q"></span>” yet. Try a different word, pick a section from the index, or <a href="/#book" data-conv="book">ask us directly</a>.</div>
+</section></div></div></main>"""
 
-    kinds = "".join(f'<li class="v-{k}"><span class="dd-stamp"><b>{esc(v["label"])}</b></span><span>{esc(v["line"])}</span></li>' for k, v in VERDICTS.items())
+    kinds = "".join(f'<li class="v-{k}">{tick(k)}<b>{esc(v["label"])}</b><span>{esc(v["line"])}</span></li>' for k, v in VERDICTS.items())
     src_html, n_src = sources_list()
     faq = ui_kit.faq_accordion([(esc(q), esc(a)) for q, a in FAQ])
     info = f"""<div class="tinfo"><article class="article">
 <h2>How to read the answers</h2>
-<p>Each expense gets one of four labels. Open any card for the rule in plain English, the limits, the records to keep and the official source it comes from.</p>
+<p>Each expense gets one of four tickmarks, the way an auditor marks a schedule. Open any line for the rule in plain English, the limits, the records to keep and the official source it comes from.</p>
 <ul class="dd-kinds">{kinds}</ul>
 <p>Answers are written for sole proprietors and single-member LLCs filing Schedule C, and most apply the same way to partnerships and corporations. Figures are for the {meta["tax_year"]} tax year where the IRS has published them. Pair this with the <a href="/tools/home-office-deduction-calculator/">home office calculator</a>, the <a href="/tools/mileage-deduction-calculator/">mileage calculator</a> and the <a href="/tools/1099-tax-calculator/">1099 tax calculator</a> to see what your deductions are worth.</p>
 <p>Building something with this? The full list is published as a dataset at <a href="/tools/{SLUG}/deductions.json">deductions.json</a>. Cite it with a link to this page.</p>
@@ -378,10 +423,10 @@ def build():
     # Search index only: everything a reader sees is in the HTML above.
     payload = {
         "entries": [{"slug": e["slug"], "name": e["name"], "aliases": e["aliases"], "category": e["category"], "verdict": e["verdict"],
-                     "percent": e["percent"]} for e in E],
+                     "percent": e["percent"], "ref": REF[e["slug"]]} for e in E],
         "categories": [{"id": c["id"], "name": c["name"]} for c in meta["categories"]],
         "verdicts": {k: {"label": v["label"], "big": v["big"]} for k, v in VERDICTS.items()}, "checked_label": checked,
-        "short_disclaimer": SHORT_DISCLAIMER, "icons": {k: svg("v-" + k, 1.8) for k in VERDICTS},
+        "short_disclaimer": SHORT_DISCLAIMER, "ticks": {k: tick(k, 1.7, "tk big") for k in VERDICTS},
     }
     data_tag = '<script type="application/json" id="dd-data">' + json.dumps(payload, separators=(",", ":"), ensure_ascii=False).replace("</", "<\\/") + "</script>"
 
