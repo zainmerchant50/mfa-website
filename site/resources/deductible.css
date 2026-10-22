@@ -1,5 +1,5 @@
 /* Is It Deductible? (/tools/is-it-deductible/). Site session owns this file. Builds on blog.css tokens + resources.css.
-   Motif: an expense receipt under review. The hero receipt prints itself and gets stamped; verdicts are rubber stamps.
+   Motif: an expense receipt under review. The hero receipt prints itself and gets stamped; verdicts are quiet pill badges.
    The tool area (.dd-main) and the popup follow the visitor's light/dark setting; hero and article keep the site look.
    Every animation sits inside (prefers-reduced-motion:no-preference); the default styles are the finished state. */
 .dd-page{
@@ -146,12 +146,15 @@ html:not(.dd-js) .dd-search,html:not(.dd-js) .dd-marq,html:not(.dd-js) .dd-catse
 .dd-legend li{display:flex;align-items:center;gap:12px;padding:12px 14px;font-size:.84rem;line-height:1.4;color:var(--dd-muted)}
 .dd-legend li+li{border-left:1px solid var(--dd-line)}
 
-/* rubber-stamp verdicts */
-.dd-stamp{display:inline-flex;align-items:center;gap:0;flex:none;white-space:nowrap;padding:5px 8px 4px;border:1.5px solid currentColor;border-radius:5px;
-  outline:1px solid currentColor;outline-offset:2px;font:800 10.5px/1.05 Inter,sans-serif;letter-spacing:.11em;text-transform:uppercase;transform:rotate(-3deg);
-  transition:transform .4s var(--ease)}
-.dd-stamp i{font-style:normal;margin-left:7px;padding-left:7px;border-left:1.5px solid currentColor}
-.v-deductible .dd-stamp{color:var(--v-yes-fg)}.v-partly .dd-stamp{color:var(--v-part-fg)}.v-depends .dd-stamp{color:var(--v-dep-fg)}.v-not .dd-stamp{color:var(--v-no-fg)}
+/* verdict badges: quiet pills (tinted background, status dot) */
+.dd-stamp{display:inline-flex;align-items:center;gap:7px;flex:none;white-space:nowrap;padding:5px 11px 5px 9px;border-radius:999px;
+  font:600 11.5px/1.2 Inter,sans-serif;letter-spacing:.02em;text-transform:none;background:var(--vb);color:var(--vf);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--vf) 18%,transparent)}
+.dd-stamp::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--vr);flex:none}
+.dd-stamp i{font-style:normal;font-weight:500;opacity:.8;padding-left:7px;border-left:1px solid color-mix(in srgb,var(--vf) 30%,transparent)}
+.v-deductible{--vf:var(--v-yes-fg);--vb:var(--v-yes-bg);--vr:var(--v-yes-ring)}
+.v-partly{--vf:var(--v-part-fg);--vb:var(--v-part-bg);--vr:var(--v-part-ring)}
+.v-depends{--vf:var(--v-dep-fg);--vb:var(--v-dep-bg);--vr:var(--v-dep-ring)}
+.v-not{--vf:var(--v-no-fg);--vb:var(--v-no-bg);--vr:var(--v-no-ring)}
 
 /* expense cards: without JS a single readable column with the full answer; with JS a grid of teasers */
 .dd-list{display:grid;grid-template-columns:1fr;gap:16px;max-width:860px}
@@ -160,7 +163,6 @@ html:not(.dd-js) .dd-search,html:not(.dd-js) .dd-marq,html:not(.dd-js) .dd-catse
   transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .25s;scroll-margin-top:96px}
 .dd-js .dd-item{cursor:pointer}
 .dd-js .dd-item:hover{transform:translateY(-3px);box-shadow:var(--dd-shadow);border-color:rgba(176,141,63,.55)}
-.dd-js .dd-item:hover .dd-stamp{transform:rotate(-7deg) scale(1.05)}
 .dd-item .top{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:26px}
 .dd-item .cat{font-size:.78rem;font-weight:500;color:var(--dd-muted)}
 .dd-item h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.5rem;line-height:1.15;color:var(--dd-head)}
@@ -218,10 +220,9 @@ html:not(.dd-js) .dd-search,html:not(.dd-js) .dd-marq,html:not(.dd-js) .dd-catse
 .dd-v .big{font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:500;line-height:1.1;margin-top:10px}
 .dd-v.v-deductible .big{color:var(--v-yes-fg)}.dd-v.v-partly .big{color:var(--v-part-fg)}.dd-v.v-depends .big{color:var(--v-dep-fg)}.dd-v.v-not .big{color:var(--v-no-fg)}
 .dd-v p{font-size:.95rem;line-height:1.6;margin-top:4px;color:var(--dd-ink)}
-.dd-vstamp{display:inline-block;padding:7px 13px 6px;border:2.5px solid currentColor;border-radius:7px;outline:1.5px solid currentColor;outline-offset:3px;
-  font:800 15px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-6deg);transform-origin:30% 60%;
-  -webkit-mask-image:var(--grit-lite);mask-image:var(--grit-lite);-webkit-mask-size:140px;mask-size:140px}
-.v-deductible .dd-vstamp{color:var(--v-yes-fg)}.v-partly .dd-vstamp{color:var(--v-part-fg)}.v-depends .dd-vstamp{color:var(--v-dep-fg)}.v-not .dd-vstamp{color:var(--v-no-fg)}
+.dd-vstamp{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 11px;border-radius:999px;background:var(--vb);color:var(--vf);
+  font:600 13px/1.2 Inter,sans-serif;letter-spacing:.02em;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--vf) 20%,transparent)}
+.dd-vstamp::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--vr)}
 .dd-ring{flex:none;width:96px;height:96px;position:relative}
 .dd-ring svg{width:96px;height:96px;transform:rotate(-90deg)}
 .dd-ring .trk{stroke:var(--dd-track)}
@@ -244,8 +245,8 @@ html.dd-lock,html.dd-lock body{overflow:hidden}
 .dd-src-g h3{margin-top:22px!important}
 .dd-kinds{list-style:none;margin:0 0 22px!important;padding:0}
 .dd-kinds li{display:flex;gap:16px;align-items:center;padding:10px 0!important;margin:0!important;border-bottom:1px solid var(--hair)}
-.dd-kinds .dd-stamp{min-width:132px;justify-content:center}
-.dd-kinds li.v-deductible .dd-stamp{color:#12663F}.dd-kinds li.v-partly .dd-stamp{color:#7A4E00}.dd-kinds li.v-depends .dd-stamp{color:#1D4A85}.dd-kinds li.v-not .dd-stamp{color:#9B1C22}
+.dd-kinds .dd-stamp{min-width:124px}
+
 
 /* ================= motion (only when the visitor allows it) ================= */
 @media (prefers-reduced-motion:no-preference){
@@ -263,9 +264,9 @@ html.dd-lock,html.dd-lock body{overflow:hidden}
   .dd-js .dd-legend:not(.seen) li{opacity:0}
   .dd-js .dd-legend.seen li{animation:ddRise .6s var(--ease) backwards}
   .dd-js .dd-legend.seen li:nth-child(2){animation-delay:.08s}.dd-js .dd-legend.seen li:nth-child(3){animation-delay:.16s}.dd-js .dd-legend.seen li:nth-child(4){animation-delay:.24s}
-  .dd-js .dd-legend.seen .dd-stamp{animation:ddThunkSm .5s cubic-bezier(.3,1.4,.5,1) backwards;animation-delay:inherit}
+  .dd-js .dd-legend.seen .dd-stamp{animation:ddPill .45s var(--ease) backwards;animation-delay:inherit}
   /* popup: the verdict is stamped, records are ticked off */
-  .dd-modal.open .dd-vstamp{animation:ddThunkV .6s cubic-bezier(.3,1.45,.5,1) .22s backwards}
+  .dd-modal.open .dd-vstamp{animation:ddPill .45s var(--ease) .18s backwards}
   .dd-modal.open .dd-v{animation:ddJoltV .3s ease-out .5s}
   .dd-modal.open .dd-check svg path{stroke-dasharray:1;animation:ddDraw .4s ease-out backwards;animation-delay:calc(.55s + var(--i) * .14s)}
   .dd-modal.open .dd-rule blockquote{animation:ddRise .7s var(--ease) .3s backwards}
@@ -277,6 +278,7 @@ html.dd-lock,html.dd-lock body{overflow:hidden}
 @keyframes ddFade{from{opacity:0}}
 @keyframes ddRise{from{opacity:0;transform:translateY(14px)}}
 @keyframes ddThunk{0%{opacity:0;transform:rotate(-4deg) scale(2.4)}60%{opacity:1;transform:rotate(-14.5deg) scale(.93)}100%{opacity:1;transform:rotate(-13deg) scale(1)}}
+@keyframes ddPill{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:none}}
 @keyframes ddThunkSm{0%{opacity:0;transform:rotate(2deg) scale(1.9)}65%{opacity:1;transform:rotate(-4deg) scale(.95)}}
 @keyframes ddThunkV{0%{opacity:0;transform:rotate(0) scale(2.6);filter:blur(2px)}55%{opacity:1;transform:rotate(-8deg) scale(.9);filter:none}100%{transform:rotate(-6deg) scale(1)}}
 @keyframes ddJolt{30%{transform:translate(1px,2px)}60%{transform:translate(-1px,-1px)}}
