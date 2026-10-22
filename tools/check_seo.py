@@ -198,7 +198,7 @@ def main():
     for b in BOTS:
         if not re.search(rf"User-agent: {re.escape(b)}\nAllow: /\n", rb):
             E("robots.txt", f"{b} is not explicitly allowed")
-    if re.search(r"^Disallow:\s*\S", rb, re.M):
+    if re.search(r"^Disallow:\s*(?!/cdn-cgi/\s*$)\S", rb, re.M):  # /cdn-cgi/ (Cloudflare internals) is the only allowed Disallow
         E("robots.txt", "has a Disallow rule")
     if f"Sitemap: {BASE}/sitemap.xml" not in rb:
         E("robots.txt", "no Sitemap line")
