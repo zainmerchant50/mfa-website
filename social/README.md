@@ -30,12 +30,16 @@ there must already be fact-checked and ready to post. Nobody reviews it after yo
    Ready to Post folder above). Confirm with `device_list_dir`.
 8. Append the post to `social/log.json`, commit (`social: <date> <slug>`) and push to main. The Cloudflare site only deploys
    `site/`, so this does not change the website.
-9. Update the agent dashboard (see `claude/site/agent-dashboard.md` in the project) with what was made and the next idea.
+9. Email Abiha (abihamerchant@icloud.com), who posts for Zain: folder name, steps, both captions (see the scheduled task).
+10. Update the agent dashboard (see `claude/site/agent-dashboard.md` in the project) with what was made and the next idea.
 
 ## Content mix (per 5 weekdays)
 - 2 **product posts** (layout `product`): a real screenshot of one of our trackers/checklists from `social/products/<id>/`
   (`photo-3.jpg` is usually the in-app screenshot; `photo-1.jpg` the hero; `cover.jpg` for 01–03), 3–4 features,
   CTA word = the product type (TRACKER, CHECKLIST, CALCULATOR, KIT, TEMPLATE). Link: `mfa-advisory.com/shop`.
+  **Protect the product:** set `product.crop` to the useful part of the screenshot and `product.blur` to boxes over the
+  figures/formulas (fractions of the cropped image; see the 2026-10-23 post). The renderer always adds a diagonal
+  "SAMPLE · mfa-advisory.com" watermark and renders at 2x (Instagram 2160x2700, LinkedIn 2400x2400).
   Only use products whose `status` is `live` in `catalog/products.json`. Never show a price on the image; the caption may
   give the catalog price.
 - 2 **"save this" value posts** (layout `hero` or `list`): one money-saving rule, deadline or threshold, tied to a guide,

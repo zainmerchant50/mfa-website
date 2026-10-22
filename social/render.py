@@ -9,7 +9,7 @@ hexagon logo top-left, a gold letterspaced label top-right, Cormorant Garamond h
 with info@mfa-advisory.com / mfa-advisory.com plus "General information, not tax advice. Facts checked <date>."
 
 Writes into OUT_DIR:
-  NN_<Slug>_INSTAGRAM.png, NN_<Slug>_LINKEDIN.png, NN_<Slug>_INSTAGRAM_caption.txt, NN_<Slug>_LINKEDIN_caption.txt
+  NN_<Slug>_INSTAGRAM.png (2160x2700, HD at 2x), NN_<Slug>_LINKEDIN.png (2400x2400), NN_<Slug>_INSTAGRAM_caption.txt, NN_<Slug>_LINKEDIN_caption.txt
 Needs: playwright (Chromium). Fonts and logo are bundled in social/, so no network is used.
 """
 import base64
@@ -55,6 +55,44 @@ def rich(s):
     return re.sub(r"\*(.+?)\*", r'<em>\1</em>', s)
 
 
+def shot_b64(img, pr):
+    """Product screenshot, prepared so it can't be copied from the post:
+    crop  [l, t, r, b]  fractions of the photo, to drop empty margins;
+    blur  [[l, t, r, b], ...]  fractions of the CROPPED image to blur (figures, formulas, anything that is the product);
+    a diagonal "SAMPLE · mfa-advisory.com" watermark is always tiled over the screenshot."""
+    from PIL import Image, ImageDraw, ImageFilter, ImageFont
+    import io
+    im = Image.open(img).convert("RGB")
+    w, h = im.size
+    if pr.get("crop"):
+        l, t, r, bt = pr["crop"]
+        im = im.crop((int(l * w), int(t * h), int(r * w), int(bt * h)))
+        w, h = im.size
+    for l, t, r, bt in pr.get("blur", []):
+        box = (int(l * w), int(t * h), int(r * w), int(bt * h))
+        im.paste(im.crop(box).filter(ImageFilter.GaussianBlur(max(6, w // 220))), box)
+    # tiled diagonal watermark
+    try:
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", max(18, w // 34))
+    except OSError:
+        font = ImageFont.load_default()
+    text = "SAMPLE  \u00b7  mfa-advisory.com"
+    tile = Image.new("RGBA", (w * 2, h * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(tile)
+    tw = d.textlength(text, font=font)
+    step_x, step_y = int(tw + w * 0.18), int(h * 0.30)
+    for yy in range(0, h * 2, step_y):
+        off = (yy // step_y % 2) * step_x // 2
+        for xx in range(-step_x, w * 2, step_x):
+            d.text((xx + off, yy), text, font=font, fill=(16, 35, 63, 34))
+    tile = tile.rotate(24, resample=Image.BICUBIC)
+    tile = tile.crop((w // 2, h // 2, w // 2 + w, h // 2 + h))
+    im = Image.alpha_composite(im.convert("RGBA"), tile).convert("RGB")
+    buf = io.BytesIO()
+    im.save(buf, "JPEG", quality=93)
+    return base64.b64encode(buf.getvalue()).decode()
+
+
 def body_html(p, mode):
     lay = p.get("layout", "hero")
     parts = []
@@ -74,17 +112,7 @@ def body_html(p, mode):
         img = HERE / "products" / pr["id"] / pr.get("image", "photo-3.jpg")
         if not img.exists():
             img = HERE / "products" / pr["id"] / "cover.jpg"
-        if pr.get("crop"):  # [left, top, right, bottom] as fractions of the photo, to drop empty margins
-            from PIL import Image
-            import io
-            im = Image.open(img).convert("RGB")
-            w, h = im.size
-            l, t, r, bt = pr["crop"]
-            buf = io.BytesIO()
-            im.crop((int(l * w), int(t * h), int(r * w), int(bt * h))).save(buf, "JPEG", quality=90)
-            data = base64.b64encode(buf.getvalue()).decode()
-        else:
-            data = b64(img)
+        data = shot_b64(img, pr)
         feats = "".join(f"<li>{rich(f)}</li>" for f in pr.get("features", []))
         parts.append(f'<div class="shot"><img src="data:image/jpeg;base64,{data}"/></div>'
                      f'<ul class="feats">{feats}</ul>')
@@ -174,7 +202,7 @@ def main(spec, out):
     with sync_playwright() as pw:
         b = pw.chromium.launch()
         for mode, W, H, tag in (("ig", 1080, 1350, "INSTAGRAM"), ("li", 1200, 1200, "LINKEDIN")):
-            pg = b.new_page(viewport={"width": W, "height": H})
+            pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=2)
             pg.set_content(page(p, W, H, mode), wait_until="load")
             pg.evaluate("document.fonts.ready")
             # overflow guard: the footer must sit inside the canvas
