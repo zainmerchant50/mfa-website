@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated October 21, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated October 22, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -181,6 +181,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Break-Even Calculator for Small Businesses: Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal. https://mfa-advisory.com/tools/break-even-calculator/
 - Do I Need to Send a 1099? 2026 Payments Checker: Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines. https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/
 - Home Office Deduction Calculator 2026: Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side. https://mfa-advisory.com/tools/home-office-deduction-calculator/
+- Is It Deductible? 2026 Business Expense Finder: Search 58 common small business expenses to see if they're deductible in 2026, the limits and the records to keep, with the IRS source for each. https://mfa-advisory.com/tools/is-it-deductible/
 - Mileage Deduction Calculator 2026 (IRS Standard Rates): Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates. https://mfa-advisory.com/tools/mileage-deduction-calculator/
 - Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY): Estimate W-2 take-home pay per paycheck after federal income tax, Social Security, Medicare and New Jersey or New York tax. https://mfa-advisory.com/tools/paycheck-tax-calculator/
 - Profit Margin & Markup Calculator: Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide. https://mfa-advisory.com/tools/profit-margin-calculator/

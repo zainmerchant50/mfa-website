@@ -288,6 +288,7 @@ RELATED = {
     "break-even-calculator": (["fractional-cfo", "financial-reporting"], [], []),
     "profit-margin-calculator": (["fractional-cfo", "financial-reporting"], [], []),
     "tax-deadlines-2027": (["tax-preparation"], ["small-business-year-end-tax-checklist"], ["2027-tax-calendar"]),
+    "is-it-deductible": (["tax-preparation", "tax-planning"], ["small-business-year-end-tax-checklist"], ["section-179-bonus-depreciation-2026", "year-end-tax-planning-2026-key-dates"]),
 }
 
 

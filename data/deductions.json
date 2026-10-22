@@ -496,7 +496,7 @@
    "checked": "2026-10-21T23:55-04:00"
   },
   {
-   "slug": "business-meals",
+   "slug": "meals",
    "name": "Business meals",
    "category": "meals",
    "aliases": [
@@ -1289,7 +1289,8 @@
     "bookkeeping",
     "consultant fees",
     "professional fees",
-    "cpa fees"
+    "accounting fees",
+    "tax advisor"
    ],
    "verdict": "deductible",
    "percent": 100,
@@ -1346,8 +1347,7 @@
     "chamber of commerce",
     "bar dues",
     "license renewal",
-    "acca",
-    "aicpa"
+    "professional body"
    ],
    "verdict": "deductible",
    "percent": null,
