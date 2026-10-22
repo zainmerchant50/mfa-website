@@ -45,7 +45,9 @@ for p in cat["products"]:
         if not p["shop"].get("blurb"):
             errs.append(f"{tag}: missing shop blurb")
         # the built page must show this product's link and price
-        if f'href="{g["url"]}"' not in shop:
+        e0 = p.get("etsy") or {}
+        buy_url = e0["url"] if e0.get("allowed") and e0.get("url") else g["url"]
+        if f'href="{buy_url}"' not in shop:
             errs.append(f"{tag}: /shop/ is missing its Buy link (rebuild: python3 tools/build_resources.py)")
         if f'>${g["price"]}<' not in shop:
             errs.append(f'{tag}: /shop/ does not show ${g["price"]} (rebuild)')
@@ -53,8 +55,9 @@ for p in cat["products"]:
     if e.get("allowed") and e.get("sale") is not None and g.get("price") and float(e["sale"]) != float(g["price"]):
         errs.append(f'{tag}: Etsy sale price {e["sale"]} != Gumroad price {g["price"]}')
 
-live_links = set(re.findall(r'href="(https://mfaadvisory\.gumroad\.com/l/[^"]+)"', shop))
-cat_links = {p["gumroad"]["url"] for p in cat["products"] if p["status"] == "live"}
+live_links = set(re.findall(r'href="(https://(?:mfaadvisory\.gumroad\.com/l|www\.etsy\.com/listing)/[^"]+)"', shop))
+cat_links = {p["gumroad"]["url"] for p in cat["products"] if p["status"] == "live"} | \
+            {p["etsy"]["url"] for p in cat["products"] if p["status"] == "live" and (p.get("etsy") or {}).get("url")}
 for extra in sorted(live_links - cat_links):
     errs.append(f"/shop/ links to {extra}, which isn't a live catalog product")
 

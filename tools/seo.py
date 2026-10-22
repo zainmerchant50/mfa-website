@@ -246,6 +246,15 @@ def llc_service(url, state=None):
 
 
 # ----------------------------------------------------------------------------------------------- shop (Gumroad) products
+def buy_link(p):
+    """Where Buy sends the visitor: the Etsy listing when there is one (Zain 2026-10-22: Etsy's checkout is better),
+    otherwise Gumroad. Returns (url, "etsy"|"gumroad")."""
+    e = p.get("etsy") or {}
+    if e.get("allowed") and e.get("url"):
+        return e["url"], "etsy"
+    return p["gumroad"]["url"], "gumroad"
+
+
 def live_products():
     cat = json.loads((ROOT / "catalog" / "products.json").read_text(encoding="utf-8"))
     groups = {g["id"]: g["name"] for g in cat["groups"]}
@@ -254,7 +263,9 @@ def live_products():
         if p["status"] != "live" or not p["gumroad"].get("url"):
             continue
         s = p["shop"]
-        out.append({"slug": p["slug"], "name": p["name"], "price": p["gumroad"]["price"], "url": p["gumroad"]["url"],
+        url, via = buy_link(p)
+        out.append({"slug": p["slug"], "name": p["name"], "price": p["gumroad"]["price"], "url": url, "via": via,
+                    "gumroad_url": p["gumroad"]["url"],
                     "blurb": s["blurb"], "format": s["format"], "group": groups.get(s["group"], s["group"]),
                     "related": s.get("related")})
     return out

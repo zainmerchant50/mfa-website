@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Builds /shop/ (Site/Hub). Zain approved the page 2026-10-21 01:25 ET ("go ahead with shop").
 
-Lists only products that are LIVE on Gumroad, at their live Gumroad prices.
-Buy buttons are plain links to mfaadvisory.gumroad.com/l/<slug>; Gumroad's overlay script
-(https://gumroad.com/js/gumroad.js, loaded once) opens checkout on top of this page.
-Gumroad is the merchant of record (payment + sales tax). Never "free", never "CPA", no street address.
+Lists only products that are LIVE, at their catalog prices.
+Buy goes to the product's Etsy listing when it has one (Zain 2026-10-22: Etsy's checkout is better), in a new tab.
+Products without an Etsy listing (AI prompt packs, which Etsy doesn't allow, and any not yet listed) keep Gumroad's
+overlay checkout (https://gumroad.com/js/gumroad.js, loaded only when needed).
+Etsy and Gumroad are the merchants of record (payment + sales tax). Never "free", never "CPA", no street address.
 Products, prices and links come from catalog/products.json. Change them there (in the same commit as the Gumroad change) and rebuild.
 """
 import json
@@ -25,7 +26,8 @@ def load():
             continue
         s = p["shop"]
         rel = (s["related"]["url"], s["related"]["label"]) if s.get("related") else None
-        items.append((s["group"], p["slug"], p["name"], p["gumroad"]["price"], s["blurb"], s["format"], rel, p["gumroad"]["url"]))
+        url, via = seo.buy_link(p)
+        items.append((s["group"], p["slug"], p["name"], p["gumroad"]["price"], s["blurb"], s["format"], rel, url, via))
     groups = [(g["id"], g["name"], g["lead"]) for g in cat["groups"]]
     return items, groups
 
@@ -51,8 +53,17 @@ CSS = """<style>
 </style>"""
 
 
+def buy_btn(url, via, slug):
+    if via == "etsy":
+        return f'<a class="btn btn-gold" href="{url}" target="_blank" rel="noopener" data-shop="{slug}">Buy on Etsy</a>'
+    return f'<a class="btn btn-gold" href="{url}" data-shop="{slug}">Buy now</a>'
+
+
 def price_txt(p):
     return f"${p}"
+
+
+GJS = '<script src="https://gumroad.com/js/gumroad.js"></script>'
 
 
 def build():
@@ -64,14 +75,14 @@ def build():
     secs = []
     for gid, gname, glead in GROUPS:
         cards = []
-        for g, slug, name, price, blurb, fmt, rel, gurl in PRODUCTS:
+        for g, slug, name, price, blurb, fmt, rel, gurl, via in PRODUCTS:
             if g != gid:
                 continue
             rl = f'<p class="shp-rel"><a href="{rel[0]}">{esc(rel[1])} →</a></p>' if rel else ""
             cards.append(f'''<article class="shp card"><img src="/shop/img/{slug}.webp" alt="{esc(name)} ({esc(fmt)})" width="400" height="400" loading="lazy"/>
 <div class="shp-bd"><h3>{esc(name)}</h3><p>{esc(blurb)}</p>{rl}
 <div class="shp-meta"><span class="shp-price">{price_txt(price)}</span><span class="shp-fmt">{esc(fmt)}</span></div>
-<a class="btn btn-gold" href="{gurl}" data-shop="{slug}">Buy now</a></div></article>''')
+{buy_btn(gurl, via, slug)}</div></article>''')
         secs.append(f'''<section class="wrap llc-sec" id="{gid}" aria-labelledby="{gid}-h"><div class="sec-hd"><span class="eyebrow eb-dark">{esc(gname)}</span>
 <h2 id="{gid}-h">{esc(glead)}</h2></div><div class="shop-grid">{"".join(cards)}</div></section>''')
     body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">MFA shop</span>
@@ -87,14 +98,14 @@ def build():
 <section class="wrap llc-sec" aria-label="How buying works"><div class="card" style="padding:22px 24px">
 <h2 style="margin-top:0;font-size:1.4rem">How buying works</h2>
 <div class="shop-note">
-<div><strong>Secure checkout by Gumroad.</strong> Checkout opens on this page. Gumroad processes the payment and handles sales tax.</div>
+<div><strong>Secure checkout on Etsy.</strong> Buy on Etsy opens the product in our Etsy shop, which processes the payment and handles sales tax. A few items (like the AI prompt packs) check out through Gumroad on this page.</div>
 <div><strong>Instant download.</strong> Files arrive right after checkout and by email. Spreadsheets work in Excel and Google Sheets, with no macros.</div>
 <div><strong>All sales final.</strong> Because files are delivered instantly, purchases aren't refundable. Questions before you buy? Email info@mfa-advisory.com.</div>
 </div></div></section>
 {cta("Rather have it done for you?", "Book a 30-minute call. We'll handle the bookkeeping, filings or tax work, with the price agreed before we start.")}
 <section class="wrap llc-sec"><p class="disclaimer">Products are general information, not tax, legal or accounting advice, and don't create a client relationship. MFA is not affiliated with the IRS, Intuit, QuickBooks or Xero.</p></section>
 </main>
-<script src="https://gumroad.com/js/gumroad.js"></script>'''
+{GJS if any(x[8] == "gumroad" for x in PRODUCTS) else ""}'''
     prods = seo.live_products()
     ld = seo.graph(url, "MFA shop", desc,
                    {"@type": "ItemList", "@id": url + "#list", "name": "MFA shop", "url": url, "numberOfItems": len(prods),

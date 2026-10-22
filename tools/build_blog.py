@@ -209,6 +209,13 @@ def post_products(p):
     return out
 
 
+def buy_btn(x, cls):
+    """Etsy listings open in a new tab; Gumroad links open the overlay checkout on the page."""
+    if x.get("via") == "etsy":
+        return f'<a class="{cls}" href="{esc(x["url"])}" target="_blank" rel="noopener" data-shop="{esc(x["slug"])}">Buy on Etsy</a>'
+    return f'<a class="{cls}" href="{esc(x["url"])}" data-shop="{esc(x["slug"])}">Buy now</a>'
+
+
 def products_box(p):
     """'Do it yourself with our tools' cards (catalog name, price, blurb, format, Gumroad overlay Buy now)."""
     items = post_products(p)
@@ -218,7 +225,7 @@ def products_box(p):
     <span class="pb-fmt">{esc(x["format"])}</span>
     <p class="pb-n">{esc(x["name"])}</p>
     <p class="pb-b">{esc(x["blurb"])}</p>
-    <div class="pb-foot"><span class="pb-price">${esc(x["price"])}</span><a class="btn btn-gold pb-buy" href="{esc(x["url"])}" data-shop="{esc(x["slug"])}">Buy now</a></div>
+    <div class="pb-foot"><span class="pb-price">${esc(x["price"])}</span>{buy_btn(x, "btn btn-gold pb-buy")}</div>
   </li>''' for x in items)
     return f'''<aside class="prodbox" aria-label="Tools for doing this yourself">
   <p class="pb-h">Do it yourself with our tools</p>
@@ -622,7 +629,7 @@ def build_post(p):
 <p class="disclaimer">Facts checked against the sources above as of {asof}. {DISCLAIMER}</p></section>
 </article>
 {cta(p)}</main>
-{FOOT}{SHARE_JS}{NL_JS}{GUMROAD_JS if prods else ""}</body></html>'''
+{FOOT}{SHARE_JS}{NL_JS}{GUMROAD_JS if any(x.get("via") == "gumroad" for x in prods) else ""}</body></html>'''
     out = SITE / "blog" / p["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
