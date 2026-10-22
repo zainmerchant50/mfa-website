@@ -73,8 +73,12 @@
 .dd-item:hover{transform:translateY(-3px);box-shadow:var(--dd-shadow);border-color:rgba(176,141,63,.55)}
 .dd-item .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .dd-item .cat{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dd-muted)}
+.dd-item{position:relative}
+.dd-open{color:inherit;text-decoration:none}
+.dd-js .dd-open:after{content:"";position:absolute;inset:0;border-radius:inherit}
+.dd-js .dd-full{display:none}
 .dd-item h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:1.36rem;line-height:1.2;color:var(--dd-head)}
-.dd-item p{font-size:.88rem;line-height:1.6;font-weight:400;color:var(--dd-muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.dd-item .dd-tease{font-size:.88rem;line-height:1.6;font-weight:400;color:var(--dd-muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .dd-item .go{margin-top:auto;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dd-head)}
 .dd-item .go i{font-style:normal;display:inline-block;transition:transform .3s var(--ease)}
 .dd-item:hover .go i{transform:translateX(4px)}
@@ -83,12 +87,13 @@
 .dd-empty a{color:var(--dd-head);border-bottom:1px solid var(--gold)}
 
 /* verdict badge */
-.dd-badge{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:5px 10px;border-radius:999px;font:700 10.5px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase}
-.dd-badge:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-.v-deductible .dd-badge,.dd-badge.v-deductible{color:var(--v-yes-fg);background:var(--v-yes-bg)}
-.v-partly .dd-badge,.dd-badge.v-partly{color:var(--v-part-fg);background:var(--v-part-bg)}
-.v-depends .dd-badge,.dd-badge.v-depends{color:var(--v-dep-fg);background:var(--v-dep-bg)}
-.v-not .dd-badge,.dd-badge.v-not{color:var(--v-no-fg);background:var(--v-no-bg)}
+.dd-stamp i{font-style:normal}
+.dd-badge,.dd-stamp{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:5px 10px;border-radius:999px;font:700 10.5px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.dd-badge:before,.dd-stamp:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.v-deductible .dd-badge,.v-deductible .dd-stamp,.dd-badge.v-deductible{color:var(--v-yes-fg);background:var(--v-yes-bg)}
+.v-partly .dd-badge,.v-partly .dd-stamp,.dd-badge.v-partly{color:var(--v-part-fg);background:var(--v-part-bg)}
+.v-depends .dd-badge,.v-depends .dd-stamp,.dd-badge.v-depends{color:var(--v-dep-fg);background:var(--v-dep-bg)}
+.v-not .dd-badge,.v-not .dd-stamp,.dd-badge.v-not{color:var(--v-no-fg);background:var(--v-no-bg)}
 
 /* ---------- popup ---------- */
 .dd-modal{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px;visibility:hidden;pointer-events:none}

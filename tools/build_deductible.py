@@ -9,6 +9,7 @@ data/tax-figures-2026.json at build time.
 """
 import hashlib
 import json
+import re
 from datetime import date
 from pathlib import Path
 
@@ -22,6 +23,10 @@ DATA = json.loads((ROOT / "data" / "deductions.json").read_text(encoding="utf-8"
 FIG = json.loads((ROOT / "data" / "tax-figures-2026.json").read_text(encoding="utf-8"))
 SLUG = "is-it-deductible"
 URL = f"{BASE}/tools/{SLUG}/"
+JSON_URL = URL + "deductions.json"   # the dataset, published next to the page (data/deductions.json + license note)
+PAGE_MODIFIED = "2026-10-22"         # page/markup last changed (facts: meta.checked; review: meta.last_reviewed)
+LICENSE_NOTE = ("© Merchant Financial Advisory LLC. You may quote or reuse this data if you cite it with a link to "
+                + URL + ". Educational information only, not tax, legal or accounting advice.")
 V = lambda f: hashlib.md5((SITE / "resources" / f).read_bytes()).hexdigest()[:10]
 
 VERDICTS = {
@@ -68,6 +73,7 @@ ICONS = {  # 24px line icons (stroke = currentColor)
     "v-deductible": '<circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16.5 9.5"/>',
     "v-partly": '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/>',
     "v-depends": '<circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.8M12 16.6v.3"/>',
+    "tick": '<path d="m5 12.5 4.2 4.2L19 7"/>',
     "v-not": '<circle cx="12" cy="12" r="9"/><path d="m8.8 8.8 6.4 6.4M15.2 8.8l-6.4 6.4"/>',
 }
 svg = lambda k, w=1.7: (f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{w}" stroke-linecap="round" '
@@ -102,13 +108,57 @@ def check_data():
     assert 50 <= len(E) <= 60, f"{len(E)} entries (expected 50-60)"
 
 
+def first_sentence(t):
+    return t.split(". ")[0].rstrip(".") + "."
+
+
+def verdict_big(e):
+    """'50% deductible', 'Partly deductible', 'Not deductible' ..."""
+    if e["verdict"] == "not":
+        return VERDICTS["not"]["big"]
+    return f'{e["percent"]}% deductible' if e["percent"] is not None else VERDICTS[e["verdict"]]["big"]
+
+
+def checklist(t):
+    """Records text -> checklist items: one per sentence, and 'X, plus Y' becomes two items."""
+    out = []
+    for sent in re.split(r"(?<=[a-z0-9)])\.\s+(?=[A-Z])", t.strip()):
+        for part in re.split(r",\s+plus\s+", sent.rstrip(".")):
+            part = part.strip()
+            if part:
+                out.append(part[0].upper() + part[1:])
+    return out
+
+
+def stamp(e, cls="dd-stamp"):
+    pct = f'<i>{e["percent"]}%</i>' if e["percent"] is not None and e["verdict"] != "not" else ""
+    return f'<span class="{cls}"><b>{esc(VERDICTS[e["verdict"]]["label"])}</b>{pct}</span>'
+
+
+def full(e):
+    """The complete answer for one expense, server-rendered (crawlable, readable without JS). The popup reuses this markup."""
+    v = VERDICTS[e["verdict"]]
+    src = (f'<li><a href="{esc(e["source_url"])}" target="_blank" rel="noopener">{esc(e["source_title"])}</a></li>' +
+           "".join(f'<li><a href="{esc(a["url"])}" target="_blank" rel="noopener">{esc(a["title"])}</a></li>' for a in e.get("also", [])))
+    tools = "".join(f'<a href="{u}">{esc(TOOL_NAMES[u])}</a>' for u in e.get("tools", []))
+    recs = "".join(f'<li>{svg("tick", 2.2)}<span>{esc(r)}</span></li>' for r in checklist(e["records"]))
+    return (f'<div class="dd-full">'
+            f'<p class="dd-vl"><strong>{esc(verdict_big(e))}.</strong> {esc(v["line"])}</p>'
+            f'<div class="dd-sec dd-rule"><h4>The rule</h4><blockquote><p>{esc(e["rule"])}</p></blockquote></div>'
+            f'<div class="dd-sec"><h4>Limits</h4><p>{esc(e["limits"])}</p></div>'
+            f'<div class="dd-sec"><h4>Records to keep</h4><ul class="dd-check">{recs}</ul></div>'
+            f'<div class="dd-sec"><h4>Who it applies to</h4><p>{esc(e["applies_to"])}</p></div>'
+            f'<div class="dd-sec dd-srcs"><h4>Official sources</h4><ul>{src}</ul></div>'
+            + (f'<div class="dd-sec"><h4>Related MFA tools</h4><div class="dd-tools">{tools}</div></div>' if tools else "") +
+            '</div>')
+
+
 def item(e, cats):
-    first = e["rule"].split(". ")[0].rstrip(".") + "."
-    pct = f' · {e["percent"]}%' if e["percent"] is not None and e["verdict"] != "not" else ""
-    return (f'<a class="dd-item v-{e["verdict"]}" href="#{e["slug"]}" data-slug="{e["slug"]}" aria-haspopup="dialog">'
-            f'<span class="top"><span class="cat">{esc(cats[e["category"]]["name"])}</span>'
-            f'<span class="dd-badge">{esc(VERDICTS[e["verdict"]]["label"])}{pct}</span></span>'
-            f'<h3>{esc(e["name"])}</h3><p>{esc(first)}</p><span class="go">Rules, limits &amp; records <i>→</i></span></a>')
+    return (f'<article class="dd-item v-{e["verdict"]}" id="{e["slug"]}" data-slug="{e["slug"]}" data-cat="{e["category"]}">'
+            f'<div class="top"><span class="cat">{esc(cats[e["category"]]["name"])}</span>{stamp(e)}</div>'
+            f'<h3><a class="dd-open" href="#{e["slug"]}" aria-haspopup="dialog">{esc(e["name"])}</a></h3>'
+            f'<p class="dd-tease">{esc(first_sentence(e["rule"]))}</p>{full(e)}'
+            f'<span class="go" aria-hidden="true">Rules, limits &amp; records</span></article>')
 
 
 FAQ = [
@@ -116,10 +166,20 @@ FAQ = [
      "The general test is that the cost is ordinary and necessary for carrying on your trade or business. Personal, living and family costs aren't "
      "deductible, and when something is used for both business and personal purposes, only the business share counts. Some expenses also have their "
      "own limits, such as the 50% limit on business meals and the $25 limit on gifts."),
+    ("What can I write off if I'm self-employed?",
+     "Ordinary and necessary costs of running your business, reported on Schedule C. Common write-offs include software and supplies, "
+     "advertising, payments to contractors, business insurance, business travel, a qualifying home office and the business share of your "
+     "phone, internet and car. Self-employed people can also deduct half of their self-employment tax, self-employed health insurance "
+     "premiums if they qualify, and contributions to a SEP IRA or solo 401(k); those are claimed on Form 1040 rather than Schedule C."),
     ("Can I deduct 100% of business meals in 2026?",
      "Usually not. Business meals with clients and meals while traveling are generally 50% deductible (80% for workers under Department of "
      "Transportation hours-of-service limits). Holiday parties and similar events mainly for employees are fully deductible. Starting in 2026, food "
      "and drinks an employer provides to employees at work, such as office snacks or on-site meals for the employer's convenience, are no longer deductible."),
+    ("What expenses are never deductible as business expenses?",
+     "Commuting between home and your regular workplace, fines and penalties paid to a government (including parking tickets and tax "
+     "penalties), political contributions and most lobbying, dues for social, athletic and similar clubs, entertainment such as game "
+     "tickets and golf, and personal, living and family expenses. A sole proprietor's charitable donations aren't a business expense "
+     "either, though they may be deductible on Schedule A if you itemize."),
     ("What records do I need to keep?",
      "Keep receipts, canceled checks and other documents that support each deduction. For travel, meals, gifts and car use, also record the amount, "
      "date, place, business purpose and business relationship, and keep receipts for lodging and anything $75 or more. Keep records at least until the "
@@ -155,25 +215,99 @@ def sources_list():
     return "".join(out), len(seen)
 
 
+def all_sources():
+    seen = {}
+    for e in DATA["entries"]:
+        for t, u in [(e["source_title"], e["source_url"])] + [(a["title"], a["url"]) for a in e.get("also", [])]:
+            seen.setdefault(u, t)
+    return seen
+
+
+def structured_data(title, desc, n):
+    """WebPage (reviewedBy, citations) + WebApplication + Dataset + FAQPage + ItemList + BreadcrumbList, one @graph."""
+    meta, E = DATA["meta"], DATA["entries"]
+    pubs = [{"@type": "CreativeWork", "@id": u, "name": t, "url": u,
+             "publisher": {"@type": "GovernmentOrganization", "name": "Internal Revenue Service", "url": "https://www.irs.gov/"}}
+            for u, t in sorted(all_sources().items(), key=lambda r: r[1])
+            if u.startswith("https://www.irs.gov/") and ("/publications/" in u or "/instructions/" in u or "/pub/irs-pdf/" in u)]
+    app = {"@type": "WebApplication", "@id": URL + "#app", "name": "Is It Deductible? business expense finder", "url": URL,
+           "description": desc, "applicationCategory": "FinanceApplication", "applicationSubCategory": "Tax deduction lookup",
+           "operatingSystem": "Any", "browserRequirements": "Works in any modern browser; search and filters use JavaScript",
+           "inLanguage": "en-US", "publisher": {"@id": seo.ORG_ID}, "creator": {"@id": seo.ORG_ID},
+           "featureList": [f"Search {n} common business expenses by name or everyday wording",
+                           "Filter by category", "Verdict, rule, limits, records to keep and the IRS source for each expense"],
+           "isBasedOn": {"@id": URL + "#dataset"}}
+    dataset = {"@type": "Dataset", "@id": URL + "#dataset", "name": f"Is It Deductible? {meta['tax_year']} business expense deductions",
+               "description": (f"{n} common small business expenses with a verdict (deductible, partly, depends, not deductible), the percentage "
+                               f"where one applies, the rule, limits, records to keep and who it applies to, each sourced to IRS publications, "
+                               f"instructions or the Internal Revenue Code. Facts checked {nice(meta['checked'])}."),
+               "url": URL, "sameAs": JSON_URL, "inLanguage": "en-US",
+               "keywords": ["tax deductions", "business expenses", "self-employed", "Schedule C", "write-offs", str(meta["tax_year"])],
+               "temporalCoverage": str(meta["tax_year"]), "spatialCoverage": {"@type": "Country", "name": "United States"},
+               "dateModified": PAGE_MODIFIED, "creator": {"@id": seo.ORG_ID}, "publisher": {"@id": seo.ORG_ID},
+               "copyrightHolder": {"@id": seo.ORG_ID}, "copyrightNotice": LICENSE_NOTE,
+               "license": {"@type": "CreativeWork", "name": "Copyright Merchant Financial Advisory LLC; reuse with attribution (cite with a link)", "url": URL},
+               "contributor": {"@id": seo.PERSON_ID}, "citation": [{"@id": c["@id"]} for c in pubs],
+               "distribution": {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": JSON_URL}}
+    faq = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+    items = {"@type": "ItemList", "@id": URL + "#expenses", "name": f"{n} business expenses and whether they're deductible in {meta['tax_year']}",
+             "numberOfItems": n, "itemListOrder": "https://schema.org/ItemListUnordered", "itemListElement": [
+                 {"@type": "ListItem", "position": i, "url": f"{URL}#{e['slug']}", "name": f"{e['name']}: {verdict_big(e)}",
+                  "description": first_sentence(e["rule"])} for i, e in enumerate(E, 1)]}
+    ld = seo.graph(URL, title.replace(" | MFA", ""), desc, app, dataset, faq, items,
+                   crumb=[("Home", BASE + "/"), ("Resources", BASE + "/resources/"), ("Is it tax deductible?", URL)],
+                   modified=PAGE_MODIFIED,
+                   extra={"mainEntity": {"@id": URL + "#app"}, "hasPart": [{"@id": URL + "#expenses"}, {"@id": URL + "#faq"}],
+                          "reviewedBy": {"@id": seo.PERSON_ID}, "lastReviewed": meta["last_reviewed"], "citation": pubs,
+                          "keywords": "is it tax deductible, can I write off, business expense deductions 2026, what can I write off self-employed"})
+    return clean_ld(ld)
+
+
+def write_json():
+    """Publishes the dataset at /tools/is-it-deductible/deductions.json (same content as data/deductions.json, plus where it lives and the license)."""
+    out = {"meta": {**{k: v for k, v in DATA["meta"].items() if k != "owner"}, "url": JSON_URL, "page": URL, "page_modified": PAGE_MODIFIED, "license": LICENSE_NOTE,
+                    "publisher": seo.NAME}, "entries": DATA["entries"]}
+    path = SITE / "tools" / SLUG / "deductions.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def llms_lines(full_text=False):
+    """Plain-text summary of every entry for llms.txt (one line each) and llms-full.txt (rule, limits, records, source). Used by tools/seo.py."""
+    E, meta = DATA["entries"], DATA["meta"]
+    if not full_text:
+        return [f"- [{e['name']}]({URL}#{e['slug']}): {verdict_big(e)}. {first_sentence(e['rule'])}" for e in E]
+    o = []
+    for e in E:
+        o += [f"### {e['name']}: {verdict_big(e)}", f"Rule: {e['rule']}", f"Limits: {e['limits']}", f"Records to keep: {e['records']}",
+              f"Applies to: {e['applies_to']}", f"Source: {e['source_title']} {e['source_url']}"]
+        o += [f"Also: {a['title']} {a['url']}" for a in e.get("also", [])]
+        o += [f"Page: {URL}#{e['slug']}", ""]
+    return o
+
+
 def build():
     check_data()
     meta, E = DATA["meta"], DATA["entries"]
     cats = {c["id"]: c for c in meta["categories"]}
     checked = nice(meta["checked"])
     reviewed = nice(meta["last_reviewed"])
-    title = "Is It Deductible? 2026 Business Expense Finder | MFA"
-    desc = (f"Search {len(E)} common small business expenses to see if they're deductible in 2026, the limits and the records to keep, "
-            "with the IRS source for each.")
+    n = len(E)
+    title = "Is It Tax Deductible? 2026 Business Write-Off Finder | MFA"
+    desc = (f"Can I write it off? Search {n} business expense deductions for 2026: what self-employed people can deduct, "
+            "the limits, records and IRS source.")
+    assert len(title) <= 60 and len(desc) <= 155, (len(title), len(desc))
 
     chips = "".join(f'<button class="chip dd-chip" type="button" data-q="{esc(q)}">{esc(t)}</button>' for t, q in POPULAR)
     hero = f"""<header class="bhero dd-hero"><div class="wrap">
-  <div class="crumbs"><a href="/">Home</a> / <a href="/resources/">Resources</a> / Is it deductible?</div>
+  <div class="crumbs"><a href="/">Home</a> / <a href="/resources/">Resources</a> / Is it tax deductible?</div>
   <span class="eyebrow">Deduction finder · {meta["tax_year"]} tax year</span>
-  <h1>Is it <em>deductible?</em></h1>
-  <p>Search a business expense to see whether you can write it off, the limits that apply and the records to keep. Every answer links to its IRS source.</p>
+  <h1>Is it tax <em>deductible?</em></h1>
+  <p>Can I write this off? Search {n} common business expenses to see what's deductible for {meta["tax_year"]}, the limits that apply and the records to keep. Every answer links to its IRS source.</p>
   <div class="dd-search" role="search">{svg("search", 2)}<input type="search" id="dd-q" placeholder="Search an expense, e.g. meals, laptop, phone" aria-label="Search an expense" aria-controls="dd-list" autocomplete="off" spellcheck="false"/><button type="button" class="dd-x-q" id="dd-clear-q" aria-label="Clear search" hidden>×</button></div>
   <div class="chips dd-pop" role="group" aria-label="Popular searches"><span>Popular</span>{chips}</div>
-  <p class="dd-rev">Reviewed by <a href="/authors/zain-merchant/">Zain Merchant, ACCA</a> · Last reviewed {reviewed}<br/>Facts checked {checked} · {len(E)} expenses · Sources: IRS and the Internal Revenue Code</p>
+  <p class="dd-rev">Reviewed by <a href="/authors/zain-merchant/">Zain Merchant, ACCA</a> · Last reviewed {reviewed}<br/>Facts checked {checked} · {n} expenses · Sources: IRS and the Internal Revenue Code</p>
 </div></header>"""
 
     warn = (f'<aside class="dd-warn" aria-label="Important: educational information only">{svg("warn", 1.9)}<div>'
@@ -189,11 +323,10 @@ def build():
 {warn}
 <section aria-labelledby="dd-cats-h"><div class="dd-hd"><h2 id="dd-cats-h">Browse by category</h2><p>Tap a category to filter the list. Tap it again to show everything.</p></div>
 <div class="dd-cats">{cat_btns}</div></section>
-<section id="dd-results" aria-labelledby="dd-res-h" style="scroll-margin-top:96px"><div class="dd-hd"><h2 id="dd-res-h">All expenses</h2><p><span id="dd-count" aria-live="polite">{len(E)} expenses</span> <button type="button" class="dd-link" id="dd-all" hidden>Show all</button></p></div>
+<section id="dd-results" aria-labelledby="dd-res-h" style="scroll-margin-top:96px"><div class="dd-hd"><h2 id="dd-res-h">All {n} business expenses</h2><p><span id="dd-count" aria-live="polite">{n} expenses</span> <button type="button" class="dd-link" id="dd-all" hidden>Show all</button></p></div>
 <div class="dd-legend" aria-label="What the labels mean">{legend}</div>
 <div class="dd-list" id="dd-list">{items}</div>
 <div class="dd-empty" id="dd-empty" hidden>Nothing matches “<span id="dd-empty-q"></span>” yet. Try a different word, browse the categories, or <a href="/#book" data-conv="book">ask us directly</a>.</div>
-<noscript><p class="dd-empty">Search and the detail popups need JavaScript. The full list of expenses is shown above.</p></noscript>
 </section></div></main>"""
 
     kinds = "".join(f'<li><span class="dd-badge v-{k}">{esc(v["label"])}</span><span>{esc(v["line"])}</span></li>' for k, v in VERDICTS.items())
@@ -204,6 +337,7 @@ def build():
 <p>Each expense gets one of four labels. Open any card for the rule in plain English, the limits, the records to keep and the official source it comes from.</p>
 <ul class="dd-kinds">{kinds}</ul>
 <p>Answers are written for sole proprietors and single-member LLCs filing Schedule C, and most apply the same way to partnerships and corporations. Figures are for the {meta["tax_year"]} tax year where the IRS has published them. Pair this with the <a href="/tools/home-office-deduction-calculator/">home office calculator</a>, the <a href="/tools/mileage-deduction-calculator/">mileage calculator</a> and the <a href="/tools/1099-tax-calculator/">1099 tax calculator</a> to see what your deductions are worth.</p>
+<p>Building something with this? The full list is published as a dataset at <a href="/tools/{SLUG}/deductions.json">deductions.json</a>. Cite it with a link to this page.</p>
 <section class="faqs" id="faqs"><h2>FAQs</h2>{faq}</section>
 <section class="sources dd-src-g"><h2>Official sources</h2><p>All {n_src} sources used on this page. IRS Publication 535 (Business Expenses) has been discontinued, so it isn't cited.</p>{src_html}
 <p class="disclaimer">Reviewed by <a href="/authors/zain-merchant/">Zain Merchant, ACCA</a>, {reviewed}. Facts checked against the sources above as of {checked}. {esc(NOTE)}</p></section>
@@ -213,29 +347,28 @@ def build():
 <div class="dd-sheet" id="dd-sheet" role="dialog" aria-modal="true" aria-labelledby="dd-mtitle" tabindex="-1">
 <button type="button" class="dd-close" id="dd-close" aria-label="Close">×</button><div id="dd-mbody"></div></div></div>"""
 
-    tools_used = sorted({u for e in E for u in e.get("tools", [])})
+    # Search index only: everything a reader sees is in the HTML above.
     payload = {
-        "entries": [{k: e[k] for k in ("slug", "name", "category", "aliases", "verdict", "percent", "rule", "limits", "records", "applies_to",
-                                       "source_url", "source_title", "also", "tools")} for e in E],
+        "entries": [{"slug": e["slug"], "name": e["name"], "aliases": e["aliases"], "category": e["category"], "verdict": e["verdict"],
+                     "percent": e["percent"]} for e in E],
         "categories": [{"id": c["id"], "name": c["name"]} for c in meta["categories"]],
-        "verdicts": VERDICTS, "tools": {u: TOOL_NAMES[u] for u in tools_used}, "checked_label": checked,
+        "verdicts": {k: {"label": v["label"], "big": v["big"]} for k, v in VERDICTS.items()}, "checked_label": checked,
         "short_disclaimer": SHORT_DISCLAIMER, "icons": {k: svg("v-" + k, 1.8) for k in VERDICTS},
     }
     data_tag = '<script type="application/json" id="dd-data">' + json.dumps(payload, separators=(",", ":"), ensure_ascii=False).replace("</", "<\\/") + "</script>"
 
-    ld = clean_ld(tool_ld("Is It Deductible? business expense finder", URL, desc))
-    ld["@graph"].append({"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [
-        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]})
-    for g in ld["@graph"]:
-        if g.get("@id") == URL + "#webpage":
-            g["dateModified"] = meta["last_reviewed"]
-            g["reviewedBy"] = {"@id": seo.PERSON_ID}
-            g["lastReviewed"] = meta["last_reviewed"]
-    extra = (EXTRA_CSS + f'<link rel="stylesheet" href="/resources/deductible.css?v={V("deductible.css")}"/>' + seo.script(ld))
+    ld = structured_data(title, desc, n)
+    extra = ('<script>document.documentElement.classList.add("dd-js")</script>' + EXTRA_CSS +
+             f'<link rel="stylesheet" href="/resources/deductible.css?v={V("deductible.css")}"/>' +
+             f'<link rel="alternate" type="application/json" href="/tools/{SLUG}/deductions.json" title="Is It Deductible? dataset"/>' + seo.script(ld))
     body = (hero + main + info + modal + data_tag +
             f'<script src="/resources/deductible.js?v={V("deductible.js")}" defer></script>' +
             cta("Not sure what you can write off?", "We review your expenses, set up your books so deductions are tracked all year and prepare your return. Book a 30-minute consultation."))
     html = f'{B.head(title, desc, URL, OG, extra)}\n<body class="dd-page">{B.nav("res")}\n{body}\n{B.FOOT}</body></html>'
+    ids = re.findall(r'\sid="([^"]+)"', html)
+    dup = {x for x in ids if ids.count(x) > 1}
+    assert not dup, f"duplicate ids on the page: {sorted(dup)}"
+    write_json()
     return write(f"tools/{SLUG}", html)
 
 

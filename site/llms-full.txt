@@ -181,7 +181,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Break-Even Calculator for Small Businesses: Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal. https://mfa-advisory.com/tools/break-even-calculator/
 - Do I Need to Send a 1099? 2026 Payments Checker: Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines. https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/
 - Home Office Deduction Calculator 2026: Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side. https://mfa-advisory.com/tools/home-office-deduction-calculator/
-- Is It Deductible? 2026 Business Expense Finder: Search 58 common small business expenses to see if they're deductible in 2026, the limits and the records to keep, with the IRS source for each. https://mfa-advisory.com/tools/is-it-deductible/
+- Is It Tax Deductible? 2026 Business Write-Off Finder: Can I write it off? Search 58 business expense deductions for 2026: what self-employed people can deduct, the limits, records and IRS source. https://mfa-advisory.com/tools/is-it-deductible/
 - Mileage Deduction Calculator 2026 (IRS Standard Rates): Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates. https://mfa-advisory.com/tools/mileage-deduction-calculator/
 - Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY): Estimate W-2 take-home pay per paycheck after federal income tax, Social Security, Medicare and New Jersey or New York tax. https://mfa-advisory.com/tools/paycheck-tax-calculator/
 - Profit Margin & Markup Calculator: Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide. https://mfa-advisory.com/tools/profit-margin-calculator/
@@ -207,6 +207,544 @@ Page: https://mfa-advisory.com/services/#business-advisory
 ### AI prompt packs
 - AI Prompts for Small Business Bookkeeping & Taxes: $6.99, PDF. 130 copy-paste AI prompts for bookkeeping, month-end close, reconciliations, Schedule C prep, quarterly estimates and 1099s, each with an expected output and a "check this" note. Buy: https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes
 - AI Prompts for Tax Preparers & Bookkeepers: $6.99, PDF. 104 copy-paste AI prompts for client intake, document requests, notices in plain English, cleanup scoping, review notes, newsletters, social posts and SOPs. Buy: https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers
+
+## Is It Deductible? 2026 business expense deductions (https://mfa-advisory.com/tools/is-it-deductible/)
+
+Educational information only, not tax, legal or accounting advice. Written for sole proprietors and single-member LLCs filing Schedule C. Dataset: https://mfa-advisory.com/tools/is-it-deductible/deductions.json (cite with a link to the page).
+
+### Home office: It depends
+Rule: You can deduct part of your home costs if a specific area is used regularly and exclusively for your business and is your principal place of business (or where you meet clients). Use the simplified method ($5 per square foot) or the regular method (your business-use percentage of actual home costs, on Form 8829).
+Limits: Simplified method: $5 per square foot, up to 300 square feet, so $1,500 at most. Either method can't exceed the gross income from the business use of your home minus your other business expenses; under the regular method the excess carries over to the next year, under the simplified method it doesn't.
+Records to keep: Measurements or a floor plan of the office and the whole home, photos showing exclusive use, and the bills, receipts and canceled checks for every home expense you deduct (and your home's basis if you claim depreciation).
+Applies to: Self-employed people. W-2 employees can't claim a home office deduction.
+Source: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.gov/publications/p587
+Also: IRS: Simplified option for home office deduction https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction
+Page: https://mfa-advisory.com/tools/is-it-deductible/#home-office
+
+### Office rent: 100% deductible
+Rule: Rent you pay for office, retail or other business space is deductible in the year it applies to. Rent for vehicles, machinery and equipment is deductible too, for the business share of use.
+Limits: No dollar limit. For rented vehicles, machinery and equipment, only the business share of use counts.
+Records to keep: The signed lease, monthly invoices or statements, and proof of payment.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 CFR § 1.162-1, Business expenses https://www.law.cornell.edu/cfr/text/26/1.162-1
+Page: https://mfa-advisory.com/tools/is-it-deductible/#office-rent
+
+### Coworking space or shared desk: 100% deductible
+Rule: A coworking membership, desk rental or meeting-room booking used for your business is rent for business space and is deductible.
+Limits: Only the business share counts if part of the membership is for personal use (for example, a gym or social perks bundled in).
+Records to keep: Membership agreement, monthly invoices and proof of payment. A short note of what the space is used for helps.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 CFR § 1.162-1, Business expenses https://www.law.cornell.edu/cfr/text/26/1.162-1
+Page: https://mfa-advisory.com/tools/is-it-deductible/#coworking
+
+### Utilities (electric, gas, water): It depends
+Rule: Utilities for a business location (an office, shop or studio) are deductible. Utilities for your home are deductible only through a home office deduction, as part of your business-use percentage under the regular method.
+Limits: No dollar limit for a business location. At home, only the business-use share counts, and the home office income limit applies.
+Records to keep: Utility bills and proof of payment; for a home office, your square-footage calculation.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.gov/publications/p587
+Page: https://mfa-advisory.com/tools/is-it-deductible/#utilities
+
+### Office supplies and postage: 100% deductible
+Rule: Office supplies and postage used in your business are deductible. Materials and supplies are generally deducted as you use them, and items you normally use up within a year can be deducted when bought.
+Limits: Items that last substantially longer than a year are generally depreciated instead (or expensed under the de minimis safe harbor or Section 179).
+Records to keep: Receipts or invoices showing what you bought and when.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#office-supplies
+
+### Work clothes and uniforms: It depends
+Rule: Clothing is deductible only if your work requires it and it isn't suitable for ordinary street wear, such as protective gear or a uniform you wouldn't wear outside work. Everyday clothes are personal, even if you only wear them for work.
+Limits: No dollar limit. The test is objective: if the item could be worn as ordinary street clothing, it doesn't qualify, however you actually use it.
+Records to keep: Receipts, plus a note of why the item is required for your work and not suitable for everyday wear (photos help).
+Applies to: Self-employed people.
+Source: IRS Federal, State and Local Governments directive: Tax treatment of uniforms (2015) https://www.irs.gov/pub/irs-tege/FSLG_Directive_Tax_Treatment_of_Uniforms.pdf
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Page: https://mfa-advisory.com/tools/is-it-deductible/#uniforms
+
+### Car mileage (standard rate): Partly deductible
+Rule: Deduct your business miles times the IRS standard mileage rate instead of tracking actual car costs. Business miles are trips to clients, between work locations and for business errands, never the commute.
+Limits: 2026 business rate: 72.5 cents a mile for Jan. 1 to June 30 and 76 cents a mile for July 1 to Dec. 31 (2025: 70 cents). You must choose the standard rate in the first year you use a car you own for business; with five or more cars used at the same time you can't use it. Business parking and tolls are deductible on top.
+Records to keep: A mileage log kept as you go: date, destination, business purpose and miles for each trip, plus total miles for the year and odometer readings.
+Applies to: Self-employed people who own or lease the car. W-2 employees generally can't deduct unreimbursed car costs.
+Source: IRS: Standard mileage rates https://www.irs.gov/tax-professionals/standard-mileage-rates
+Also: IRS Topic no. 510, Business use of car https://www.irs.gov/taxtopics/tc510
+Also: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Page: https://mfa-advisory.com/tools/is-it-deductible/#mileage
+
+### Car expenses (actual costs): Partly deductible
+Rule: Instead of the standard rate, you can deduct the business share of what the car actually costs: gas, oil, repairs, tires, insurance, registration, licenses and depreciation or lease payments. If you also drive it personally, only the business-use percentage counts.
+Limits: Business-use percentage = business miles divided by total miles. Depreciation is subject to the yearly limits for passenger cars; a heavy SUV's Section 179 deduction is capped at $32,000 for tax years beginning in 2026 ($31,300 in 2025).
+Records to keep: Every receipt for car costs, the purchase or lease papers, and a mileage log showing business and total miles.
+Applies to: Self-employed people. W-2 employees generally can't deduct unreimbursed car costs.
+Source: IRS Topic no. 510, Business use of car https://www.irs.gov/taxtopics/tc510
+Also: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov/publications/p946
+Also: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Page: https://mfa-advisory.com/tools/is-it-deductible/#vehicle-actual-expenses
+
+### Parking and tolls: 100% deductible
+Rule: Parking fees and tolls for business trips are deductible on top of either the standard mileage rate or actual expenses.
+Limits: Parking at your own regular place of business is a commuting cost and isn't deductible.
+Records to keep: Receipts or toll statements, matched to trips in your mileage log.
+Applies to: Self-employed people; employees only in limited cases.
+Source: IRS Topic no. 510, Business use of car https://www.irs.gov/taxtopics/tc510
+Also: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Page: https://mfa-advisory.com/tools/is-it-deductible/#parking-tolls
+
+### Business travel (flights, hotels): Deductible
+Rule: Ordinary and necessary costs of traveling away from your tax home overnight for business are deductible: transportation, lodging, taxis or rideshare at the destination, baggage, laundry and business calls. Meals on the trip are 50% deductible.
+Limits: The trip has to take you away from your tax home (the general area of your main place of business) longer than a normal workday, needing sleep or rest. A trip that is mainly personal is a personal expense.
+Records to keep: Receipts for lodging and anything $75 or more, plus the dates, destination and business purpose of the trip.
+Applies to: Self-employed people. W-2 employees generally can't deduct unreimbursed travel.
+Source: IRS Topic no. 511, Business travel expenses https://www.irs.gov/taxtopics/tc511
+Also: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: 26 CFR § 1.274-5, Substantiation requirements https://www.law.cornell.edu/cfr/text/26/1.274-5
+Page: https://mfa-advisory.com/tools/is-it-deductible/#business-travel
+
+### Meals while traveling: 50% deductible
+Rule: Meals while you're traveling away from home on business are generally 50% deductible. You can deduct actual costs or use the standard meal allowance for the area instead of keeping meal receipts.
+Limits: 50% of the cost (80% for workers subject to Department of Transportation hours-of-service limits, such as long-haul truck drivers).
+Records to keep: Receipts if you deduct actual costs; with the standard meal allowance, records of the time, place and business purpose of the trip.
+Applies to: Self-employed people traveling overnight for business.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
+Page: https://mfa-advisory.com/tools/is-it-deductible/#travel-meals
+
+### Business meals: 50% deductible
+Rule: A meal with a client, customer or business contact is generally 50% deductible if it isn't lavish, you (or an employee) are there, and it has a business purpose.
+Limits: 50% of the cost, including tax and tip. Food and drinks at an entertainment event count only if bought separately or listed separately on the bill.
+Records to keep: Receipt (required for $75 or more), plus a note of the date, place, who attended, their business relationship to you and what you discussed. Write it down at or near the time.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
+Also: 26 CFR § 1.274-5, Substantiation requirements https://www.law.cornell.edu/cfr/text/26/1.274-5
+Page: https://mfa-advisory.com/tools/is-it-deductible/#meals
+
+### Entertainment (tickets, golf, shows): Not deductible
+Rule: Entertainment is not deductible, even with a clear business purpose. That covers tickets to games and shows, golf, and similar outings with clients or prospects.
+Limits: 0%. Food and drinks bought separately at an entertainment event, or listed separately on the bill, can still be a 50% business meal.
+Records to keep: Keep records anyway if a separately billed meal was involved.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
+Page: https://mfa-advisory.com/tools/is-it-deductible/#entertainment
+
+### Staff parties and team events: 100% deductible
+Rule: Recreational and social events mainly for your employees, such as a holiday party or summer picnic, are an exception to the entertainment and 50% meal limits.
+Limits: 100%, as long as the event is mainly for employees in general rather than for highly compensated employees only.
+Records to keep: Invoices and receipts, the date, and a guest list showing it was for staff.
+Applies to: Businesses with employees.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
+Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-parties
+
+### Snacks and meals for employees at work: Not deductible
+Rule: Starting in 2026, an employer can no longer deduct the cost of food and drinks provided to employees through an on-site eating facility, as de minimis fringe benefits, or for the employer's convenience. There are narrow exceptions in the law.
+Limits: 0% for amounts paid or incurred after Dec. 31, 2025. Staff parties and other recreational events mainly for employees follow a different rule.
+Records to keep: Invoices, plus what the food was for, so the right rule can be applied.
+Applies to: Businesses with employees.
+Source: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits https://www.irs.gov/publications/p15b
+Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
+Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-meals
+
+### Cell phone and phone service: Partly deductible
+Rule: The business share of your cell phone plan is deductible. For a home landline, the basic charge for the first line into your home is personal, but business long-distance calls and a second line used only for business are deductible.
+Limits: Only the business-use percentage of a mixed-use phone. The phone itself is equipment: deduct it under the de minimis safe harbor, Section 179 or depreciation.
+Records to keep: Phone bills, plus a reasonable basis for your business-use percentage (for example, a sample month of itemized usage).
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.gov/publications/p587
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#cell-phone
+
+### Internet service: Partly deductible
+Rule: Internet service for a business location is deductible. At home, only the business share counts, either as part of your home office expenses or based on your business use.
+Limits: Only the business-use percentage when you also use it personally.
+Records to keep: Monthly bills and how you worked out the business percentage.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.gov/publications/p587
+Page: https://mfa-advisory.com/tools/is-it-deductible/#internet
+
+### Software and subscriptions: Deductible
+Rule: Monthly or annual subscriptions to software and online services you use for your business are ordinary business expenses. Software you buy outright and use for more than a year is generally depreciated, though off-the-shelf software can qualify for Section 179 expensing.
+Limits: Only the business share if you also use the subscription personally.
+Records to keep: Invoices or receipts, and the account showing it's used for the business.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 U.S.C. § 179, Election to expense certain depreciable business assets https://www.law.cornell.edu/uscode/text/26/179
+Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Page: https://mfa-advisory.com/tools/is-it-deductible/#software-subscriptions
+
+### Laptop or computer: It depends
+Rule: A computer used in your business is a business asset. You can deduct it all at once using the de minimis safe harbor (if $2,500 or less per item or invoice), Section 179 or 100% bonus depreciation, or depreciate it over several years. If you also use it personally, only the business share counts.
+Limits: Since 2018 computers are no longer "listed property," but personal use still reduces the deduction. If business use later falls so it's no longer mainly for business, part of a Section 179 deduction can be recaptured.
+Records to keep: The receipt or invoice, the date you started using it for business, and a record of business versus personal use.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov/publications/p946
+Also: 26 U.S.C. § 280F, Limitation on depreciation for luxury automobiles; listed property https://www.law.cornell.edu/uscode/text/26/280F
+Also: IRS: Tangible property final regulations (FAQs) https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations
+Also: 26 U.S.C. § 179, Election to expense certain depreciable business assets https://www.law.cornell.edu/uscode/text/26/179
+Page: https://mfa-advisory.com/tools/is-it-deductible/#computer
+
+### Equipment and machinery (Section 179): Deductible
+Rule: Section 179 lets you deduct the cost of qualifying business equipment, furniture and off-the-shelf software in the year you start using it, instead of depreciating it over several years.
+Limits: Tax years beginning in 2026: up to $2,560,000, reduced dollar for dollar once qualifying purchases exceed $4,090,000 (2025: $2,500,000 and $4,000,000). Heavy SUVs are capped at $32,000. The deduction can't exceed your taxable income from active business; the excess carries forward.
+Records to keep: Invoices, the placed-in-service date, business-use percentage, and Form 4562.
+Applies to: Businesses of any type that buy qualifying property for active business use.
+Source: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov/publications/p946
+Also: IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures https://www.irs.gov/pub/irs-drop/rp-25-32.pdf
+Also: 26 U.S.C. § 179, Election to expense certain depreciable business assets https://www.law.cornell.edu/uscode/text/26/179
+Page: https://mfa-advisory.com/tools/is-it-deductible/#section-179
+
+### Bonus depreciation: 100% deductible
+Rule: Qualified property acquired and placed in service after Jan. 19, 2025 can be written off 100% in the first year through the special depreciation allowance, now permanent under the 2025 tax law (P.L. 119-21). You can elect out, or elect a smaller 40% allowance for the first tax year ending after Jan. 19, 2025.
+Limits: 100% for property acquired after Jan. 19, 2025. Property acquired before Jan. 20, 2025 and placed in service in 2025 is limited to 40% (60% for certain long-production property and aircraft).
+Records to keep: Purchase contracts showing the acquisition date, invoices, placed-in-service date and Form 4562.
+Applies to: Businesses of any type.
+Source: IRS IR-2026-06: Guidance on the 100% additional first-year depreciation deduction (Notice 2026-11) https://www.irs.gov/newsroom/treasury-irs-issue-guidance-on-the-additional-first-year-depreciation-deduction-amended-as-part-of-the-one-big-beautiful-bill
+Also: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov/publications/p946
+Page: https://mfa-advisory.com/tools/is-it-deductible/#bonus-depreciation
+
+### Small equipment purchases ($2,500 or less): Deductible
+Rule: With the de minimis safe harbor election you can deduct, rather than depreciate, tangible items that cost $2,500 or less per invoice or item. You make the election each year with a statement attached to your timely filed return.
+Limits: $2,500 per invoice or item ($5,000 if you have an applicable financial statement). Items above the limit are depreciated or expensed under Section 179 or bonus depreciation.
+Records to keep: Invoices and the election statement filed with your return.
+Applies to: Businesses of any type, including sole proprietors.
+Source: IRS: Tangible property final regulations (FAQs) https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations
+Also: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov/publications/p946
+Page: https://mfa-advisory.com/tools/is-it-deductible/#de-minimis-safe-harbor
+
+### Tools and small equipment: Deductible
+Rule: Tools and professional instruments you normally use up within a year can be deducted when bought. Longer-lasting tools are depreciated, unless you expense them under the de minimis safe harbor or Section 179.
+Limits: Only the business share if you also use them personally.
+Records to keep: Receipts or invoices and, for larger items, the date you started using them.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS: Tangible property final regulations (FAQs) https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations
+Page: https://mfa-advisory.com/tools/is-it-deductible/#tools-equipment
+
+### Repairs vs. improvements: It depends
+Rule: Incidental repairs and routine maintenance that keep property in normal working order are deductible. Work that betters, restores or adapts the property to a new use is an improvement: it's capitalized and depreciated.
+Limits: Small taxpayer safe harbor: buildings with an unadjusted basis of $1 million or less, if your average gross receipts are $10 million or less, can deduct repairs, maintenance and improvements up to the lesser of $10,000 or 2% of the building's basis.
+Records to keep: Contractor invoices describing the work done, before-and-after photos, and any safe harbor election statements.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS: Tangible property final regulations (FAQs) https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#repairs-vs-improvements
+
+### Contractor and freelancer payments: 100% deductible
+Rule: Payments to independent contractors for work done for your business are deductible as contract labor.
+Limits: No deduction limit. For payments made in 2026, you generally must file Form 1099-NEC for anyone you paid $2,000 or more for services (it was $600 for 2025 payments).
+Records to keep: A signed Form W-9 from each contractor, invoices, proof of payment and copies of the 1099s you filed.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Instructions for Forms 1099-MISC and 1099-NEC https://www.irs.gov/instructions/i1099mec
+Page: https://mfa-advisory.com/tools/is-it-deductible/#contractors
+
+### Employee wages: 100% deductible
+Rule: Reasonable wages, salaries and bonuses you pay employees for work actually done are deductible. As a sole proprietor, what you pay yourself (owner's draws) is not a deduction.
+Limits: Pay must be reasonable for the services. Reduce the deduction by certain employment credits you claim, such as the work opportunity credit.
+Records to keep: Payroll records, Forms W-2 and W-4, timesheets and payroll tax filings. Keep employment tax records at least 4 years.
+Applies to: Businesses with employees.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Also: IRS Topic no. 305, Recordkeeping https://www.irs.gov/taxtopics/tc305
+Page: https://mfa-advisory.com/tools/is-it-deductible/#wages
+
+### Employer payroll taxes: 100% deductible
+Rule: The employer's share of Social Security and Medicare taxes, federal unemployment tax (FUTA) and state unemployment contributions are deductible business taxes.
+Limits: Only your share as the employer. Taxes you withhold from employees' pay are part of their wages, not a separate deduction.
+Records to keep: Forms 941 and 940, state payroll filings and deposit confirmations.
+Applies to: Businesses with employees.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Topic no. 305, Recordkeeping https://www.irs.gov/taxtopics/tc305
+Page: https://mfa-advisory.com/tools/is-it-deductible/#payroll-taxes
+
+### Employee benefit programs: Deductible
+Rule: Contributions to employee benefit programs, such as accident and health plans, group-term life insurance and dependent care assistance, are deductible.
+Limits: Reduce the deduction by any small employer health insurance credit. Benefits for yourself as a self-employed person don't go here. Employer-paid education assistance is excludable for employees up to $5,250 a year.
+Records to keep: Plan documents, invoices and payment records, and who was covered.
+Applies to: Businesses with employees.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits https://www.irs.gov/publications/p15b
+Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-benefits
+
+### Employee awards and holiday gifts: Deductible
+Rule: Tangible awards for length of service or safety, given as part of a meaningful presentation, are deductible within limits. Occasional low-value holiday gifts (not cash) can be a de minimis fringe benefit.
+Limits: Achievement awards: up to $400 per employee a year, or $1,600 under a qualified plan. Cash, gift cards and similar items never count as achievement awards or de minimis gifts; they are taxable wages.
+Records to keep: What was given, to whom, its cost, the reason for the award and the presentation date.
+Applies to: Businesses with employees.
+Source: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits https://www.irs.gov/publications/p15b
+Page: https://mfa-advisory.com/tools/is-it-deductible/#achievement-awards
+
+### Business insurance: 100% deductible
+Rule: Premiums for business insurance, such as general or professional liability, property and workers' compensation coverage, are deductible.
+Limits: Employee health coverage is an employee benefit program, and your own health insurance follows the self-employed health insurance rules.
+Records to keep: Policy declarations pages, invoices and proof of payment.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 CFR § 1.162-1, Business expenses https://www.law.cornell.edu/cfr/text/26/1.162-1
+Page: https://mfa-advisory.com/tools/is-it-deductible/#business-insurance
+
+### Health insurance (self-employed): It depends
+Rule: If you're self-employed with a profit, you can deduct medical, dental, vision and qualified long-term care premiums for yourself, your spouse and dependents (and a child under 27). It's an adjustment on Schedule 1, not a Schedule C expense, and the plan must be established under your business.
+Limits: Can't exceed your net earnings from the business. No deduction for any month you (or your spouse) were eligible for a subsidized employer health plan, even if you didn't enroll. Figured on Form 7206.
+Records to keep: Premium statements, proof of payment and which months you had coverage and employer-plan eligibility.
+Applies to: Sole proprietors, partners with self-employment earnings and more-than-2% S corporation shareholders (through their W-2 wages).
+Source: IRS Instructions for Form 7206 (2025), Self-Employed Health Insurance Deduction https://www.irs.gov/instructions/i7206
+Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Page: https://mfa-advisory.com/tools/is-it-deductible/#self-employed-health-insurance
+
+### Life insurance premiums: Not deductible
+Rule: You can't deduct premiums on a life insurance policy when you or your business is directly or indirectly a beneficiary. Premiums on your own personal life insurance are personal.
+Limits: Group-term life insurance for employees can be deductible as an employee benefit, but not coverage for yourself as a self-employed person.
+Records to keep: The policy, showing the owner and beneficiaries.
+Applies to: All taxpayers.
+Source: 26 U.S.C. § 264, Certain amounts paid in connection with insurance contracts https://www.law.cornell.edu/uscode/text/26/264
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions https://www.irs.gov/publications/p529
+Page: https://mfa-advisory.com/tools/is-it-deductible/#life-insurance
+
+### SEP-IRA contributions: Deductible
+Rule: Contributions to a SEP-IRA for yourself are deductible on Schedule 1, not Schedule C; contributions for employees go on Schedule C. You can set up the plan and contribute as late as your return's due date, including extensions.
+Limits: 2026: the lesser of 25% of compensation or $72,000 per person (2025: $70,000), with compensation counted up to $360,000 (2025: $350,000). For your own contribution, compensation is net self-employment earnings minus half of SE tax and minus the contribution itself, so the effective rate is lower than 25%.
+Records to keep: Plan document (for example, Form 5305-SEP), contribution confirmations and your calculation of the limit.
+Applies to: Self-employed people and businesses of any size.
+Source: IRS Publication 560 (2025), Retirement Plans for Small Business https://www.irs.gov/publications/p560
+Also: IRS: 401(k) and profit-sharing plan contribution limits https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits
+Page: https://mfa-advisory.com/tools/is-it-deductible/#sep-ira
+
+### Solo 401(k) contributions: Deductible
+Rule: In a one-participant 401(k) you can contribute as both employee (elective deferrals) and employer (profit-sharing). Contributions for yourself are deducted on Schedule 1, not Schedule C.
+Limits: 2026: elective deferrals up to $24,500, plus $8,000 catch-up at 50 or older ($11,250 instead at ages 60 to 63). Total employee and employer additions up to $72,000 (more with catch-up). Compensation counted up to $360,000.
+Records to keep: Plan document, deferral elections, contribution confirmations and your limit calculation.
+Applies to: Self-employed people and owner-only businesses.
+Source: IRS: 401(k) and profit-sharing plan contribution limits https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits
+Also: IRS IR-2025-111: 401(k) limit increases to $24,500 for 2026 https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500
+Also: IRS Publication 560 (2025), Retirement Plans for Small Business https://www.irs.gov/publications/p560
+Page: https://mfa-advisory.com/tools/is-it-deductible/#solo-401k
+
+### Retirement contributions for employees: Deductible
+Rule: Contributions you make to a retirement plan for the benefit of your employees are deductible on Schedule C. Contributions for yourself go on Schedule 1 instead.
+Limits: Plan limits apply. For 2026, SIMPLE IRA deferrals are up to $17,000 and 401(k) deferrals up to $24,500.
+Records to keep: Plan documents, contribution records and annual plan filings.
+Applies to: Businesses with employees.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS IR-2025-111: 401(k) limit increases to $24,500 for 2026 https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500
+Also: IRS Publication 560 (2025), Retirement Plans for Small Business https://www.irs.gov/publications/p560
+Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-retirement
+
+### Legal and accounting fees: 100% deductible
+Rule: Fees for accountants, bookkeepers, attorneys and other professionals that are ordinary and necessary for your business are deductible.
+Limits: Personal legal fees (a will, a divorce) aren't deductible.
+Records to keep: Engagement letters, invoices and proof of payment.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions https://www.irs.gov/publications/p529
+Page: https://mfa-advisory.com/tools/is-it-deductible/#legal-professional-fees
+
+### Tax preparation fees: Partly deductible
+Rule: Tax preparation and tax advice fees related to your business are deductible on Schedule C. The part of the fee for the rest of your personal return isn't a business expense.
+Limits: Ask your preparer to split the invoice between business schedules and the personal return.
+Records to keep: The preparer's invoice showing the business portion, and proof of payment.
+Applies to: Sole proprietors and single-member LLCs; businesses deduct the cost of their own returns.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#tax-prep-fees
+
+### Professional and trade association dues: Deductible
+Rule: Dues to professional organizations, trade associations, business leagues, chambers of commerce, real estate boards and civic or public service groups are deductible, as long as the group's main purpose isn't entertainment.
+Limits: The part of dues a tax-exempt group tells you goes to lobbying or political activity isn't deductible. Social, athletic and similar clubs are never deductible.
+Records to keep: Membership invoices and any statement from the group showing the nondeductible lobbying share.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: 26 CFR § 1.274-2, Entertainment expenses (club dues) https://www.law.cornell.edu/cfr/text/26/1.274-2
+Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Page: https://mfa-advisory.com/tools/is-it-deductible/#professional-dues
+
+### Advertising and marketing: 100% deductible
+Rule: Advertising and other selling expenses, such as online ads, print ads, business cards, flyers and promotional campaigns, are ordinary business expenses.
+Limits: No dollar limit. Political advertising and lobbying are not deductible.
+Records to keep: Invoices, ad platform receipts and statements.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: 26 CFR § 1.162-1, Business expenses https://www.law.cornell.edu/cfr/text/26/1.162-1
+Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Page: https://mfa-advisory.com/tools/is-it-deductible/#advertising
+
+### Gifts to clients: Partly deductible
+Rule: Business gifts to clients, customers and referral partners are deductible, but only up to $25 per person per year.
+Limits: $25 per recipient per year. Incidental costs such as engraving, packaging, gift wrapping, insuring and mailing don't count toward the $25.
+Records to keep: Receipts, the date, a description and cost of each gift, the recipient's name and their business relationship to you.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
+Page: https://mfa-advisory.com/tools/is-it-deductible/#client-gifts
+
+### Branded promotional items: Deductible
+Rule: Low-cost items with your business name clearly and permanently imprinted, handed out widely (pens, keychains, desk sets and the like), don't count as gifts, so the $25 limit doesn't apply.
+Limits: Items must cost $4 or less each and be one of a number of identical items you distribute widely. Pricier items given to a person count toward the $25 gift limit.
+Records to keep: Invoices showing the unit cost and quantity.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
+Page: https://mfa-advisory.com/tools/is-it-deductible/#promotional-items
+
+### Courses, training and conferences: It depends
+Rule: Education that maintains or improves skills you need in your current business, or is required by law to keep your status, is deductible. Education that qualifies you for a new trade or business, or meets the minimum requirements to enter your field, isn't.
+Limits: No dollar limit for qualifying education. Books and materials you normally use within a year can be deducted when bought. Travel to a qualifying course follows the travel rules, and meals are 50%.
+Records to keep: Receipts, course descriptions or agendas, and a note of how the course relates to your current work.
+Applies to: Self-employed people. Employers can also provide employees up to $5,250 a year of excludable educational assistance.
+Source: 26 CFR § 1.162-5, Expenses for education https://www.law.cornell.edu/cfr/text/26/1.162-5
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits https://www.irs.gov/publications/p15b
+Page: https://mfa-advisory.com/tools/is-it-deductible/#business-education
+
+### Bank and card processing fees: 100% deductible
+Rule: Monthly fees on a business bank account, wire fees and the fees payment processors take from your sales are ordinary and necessary business expenses.
+Limits: Only fees on business accounts and transactions. Fees on personal accounts are personal.
+Records to keep: Bank and processor statements (they show the fees taken).
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Page: https://mfa-advisory.com/tools/is-it-deductible/#bank-card-fees
+
+### Interest on business loans and credit cards: Partly deductible
+Rule: Interest on money borrowed for your business is deductible. Interest is allocated by how the borrowed money was used, so on a card or loan used for both, only the business share counts. Personal interest isn't deductible.
+Limits: Small businesses that meet the gross receipts test ($32 million average for tax years beginning in 2026; $31 million in 2025) are exempt from the business interest limit. Larger businesses may be limited.
+Records to keep: Loan agreements, Forms 1098 and statements, and records tracing how loan proceeds were spent.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 U.S.C. § 163, Interest https://www.law.cornell.edu/uscode/text/26/163
+Also: IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures https://www.irs.gov/pub/irs-drop/rp-25-32.pdf
+Page: https://mfa-advisory.com/tools/is-it-deductible/#business-interest
+
+### Unpaid invoices (bad debts): It depends
+Rule: A business bad debt is deductible only if the amount was already included in your income. Most small businesses use the cash method, so an unpaid invoice was never income and can't be deducted.
+Limits: Deduct it only in the year it becomes wholly or partly worthless, after reasonable collection efforts. Refund claims for bad debts have a 7-year window.
+Records to keep: The invoice, proof it was included in income, collection attempts and why it became worthless.
+Applies to: Mostly accrual-method businesses, and loans or credit sales made in the business.
+Source: IRS Topic no. 453, Bad debt deduction https://www.irs.gov/taxtopics/tc453
+Also: IRS Publication 334 (2025), Tax Guide for Small Business https://www.irs.gov/publications/p334
+Also: IRS Topic no. 305, Recordkeeping https://www.irs.gov/taxtopics/tc305
+Page: https://mfa-advisory.com/tools/is-it-deductible/#bad-debts
+
+### Startup costs: Partly deductible
+Rule: Costs of investigating or setting up a business before it opens (market research, pre-opening advertising, training, consultants) can be deducted up to $5,000 in the year you start, with the rest amortized over 180 months.
+Limits: $5,000 deduction, reduced dollar for dollar once total startup costs exceed $50,000 (none at $55,000 or more). The remainder is deducted evenly over 180 months from the month the business starts.
+Records to keep: Receipts and invoices dated before opening, and the date the business began.
+Applies to: Any new active trade or business.
+Source: 26 U.S.C. § 195, Start-up expenditures https://www.law.cornell.edu/uscode/text/26/195
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#startup-costs
+
+### Business formation costs: Partly deductible
+Rule: Costs to form a corporation or partnership (including a multi-member LLC), such as state filing fees and legal fees for the organizing documents, can be deducted up to $5,000 in the first year, with the rest amortized over 180 months.
+Limits: $5,000, reduced dollar for dollar once these costs exceed $50,000; the remainder over 180 months. Partnership costs to sell ownership interests (syndication costs) aren't deductible.
+Records to keep: State filing receipts, attorney invoices and the date the business began.
+Applies to: Corporations and partnerships, including multi-member LLCs taxed as partnerships.
+Source: 26 U.S.C. § 248, Organizational expenditures (corporations) https://www.law.cornell.edu/uscode/text/26/248
+Also: 26 U.S.C. § 709, Organization and syndication fees (partnerships) https://www.law.cornell.edu/uscode/text/26/709
+Also: 26 U.S.C. § 195, Start-up expenditures https://www.law.cornell.edu/uscode/text/26/195
+Page: https://mfa-advisory.com/tools/is-it-deductible/#organizational-costs
+
+### Inventory and cost of goods sold: It depends
+Rule: Products you buy or make to sell aren't deducted when bought. Their cost is deducted as cost of goods sold (Schedule C, Part III) when they are sold. Small businesses that meet the gross receipts test can choose not to keep inventories, under the method in the Schedule C instructions.
+Limits: The small business option is available if average annual gross receipts for the prior 3 years are $32 million or less for tax years beginning in 2026 ($31 million for 2025).
+Records to keep: Purchase invoices, beginning and ending inventory counts, and your inventory method.
+Applies to: Businesses that sell products.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures https://www.irs.gov/pub/irs-drop/rp-25-32.pdf
+Page: https://mfa-advisory.com/tools/is-it-deductible/#inventory-cogs
+
+### Shipping and postage: 100% deductible
+Rule: Postage and the cost of shipping orders to customers are deductible business expenses.
+Limits: Only shipments for the business. Postage is reported with office expenses.
+Records to keep: Carrier receipts or account statements.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Page: https://mfa-advisory.com/tools/is-it-deductible/#shipping-postage
+
+### Self-employment tax: 50% deductible
+Rule: Half of your self-employment tax (the employer-equivalent part) is deductible in figuring adjusted gross income, on Schedule 1. It isn't a Schedule C expense and doesn't reduce the SE tax itself.
+Limits: 50% of SE tax. SE tax is 15.3% on 92.35% of net self-employment earnings, with the Social Security part stopping at the $184,500 wage base for 2026.
+Records to keep: Schedule SE and your Schedule C.
+Applies to: Self-employed people who owe SE tax (net earnings of $400 or more).
+Source: IRS Form 1040-ES (2026), Estimated Tax for Individuals https://www.irs.gov/pub/irs-pdf/f1040es.pdf
+Also: IRS: Self-employment tax (Social Security and Medicare taxes) https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#self-employment-tax
+
+### Business taxes: Partly deductible
+Rule: Deductible: sales taxes imposed on you as the seller, real estate and personal property taxes on business assets, and federal highway use tax. Not deductible: federal income tax (including SE tax), estate and gift taxes, and taxes on personal property.
+Limits: Sales tax you pay on property bought for the business is added to its cost. Sales tax imposed on your customers that you collect and pay over isn't deductible.
+Records to keep: Tax bills, returns and proof of payment.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#business-taxes
+
+### Business licenses and permits: 100% deductible
+Rule: Licenses and regulatory fees you pay each year to state or local governments for your business are deductible.
+Limits: Fees to form an entity follow the startup or organizational cost rules instead.
+Records to keep: Receipts and renewal notices.
+Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#licenses-permits
+
+### Commuting: Not deductible
+Rule: Getting between your home and your regular place of work is commuting, a personal expense, however far it is and even if you work during the trip. That includes parking at your regular workplace.
+Limits: 0%. Exceptions: trips from a home office that is your principal place of business to other work sites, between two workplaces, and to a temporary work location can be business miles.
+Records to keep: If you claim trips as business, a mileage log showing they weren't commutes.
+Applies to: All taxpayers.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Page: https://mfa-advisory.com/tools/is-it-deductible/#commuting
+
+### Fines and penalties: Not deductible
+Rule: Fines and penalties paid to a government for breaking a law aren't deductible, including traffic and parking tickets and tax penalties.
+Limits: 0%. A narrow exception covers amounts a court order or settlement specifically identifies as restitution or as costs to come into compliance with the law.
+Records to keep: The order or settlement, if you rely on the restitution exception.
+Applies to: All taxpayers.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Page: https://mfa-advisory.com/tools/is-it-deductible/#fines-penalties
+
+### Political contributions and lobbying: Not deductible
+Rule: Contributions to candidates, campaigns and political parties aren't deductible, and neither are most costs of lobbying or trying to influence legislation or elections.
+Limits: 0%. Part of your trade association dues may also be nondeductible if the group lobbies.
+Records to keep: Nothing to keep for a deduction.
+Applies to: All taxpayers.
+Source: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
+Also: IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions https://www.irs.gov/publications/p529
+Page: https://mfa-advisory.com/tools/is-it-deductible/#political-lobbying
+
+### Club memberships: Not deductible
+Rule: Dues for clubs organized for business, pleasure, recreation or other social purposes, such as country clubs, golf and athletic clubs, airline and hotel clubs, aren't deductible.
+Limits: 0%. Professional and trade associations, chambers of commerce and civic groups are different, and are generally deductible.
+Records to keep: Nothing to keep for a deduction.
+Applies to: All taxpayers.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: 26 CFR § 1.274-2, Entertainment expenses (club dues) https://www.law.cornell.edu/cfr/text/26/1.274-2
+Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
+Page: https://mfa-advisory.com/tools/is-it-deductible/#club-dues
+
+### Personal expenses: Not deductible
+Rule: Personal, living and family expenses aren't business deductions, even if paid from a business account. When something is used for both, deduct only the business share.
+Limits: 0% for the personal part. Paying a personal bill from the business account doesn't make it deductible.
+Records to keep: Keep business and personal spending in separate accounts.
+Applies to: All taxpayers.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#personal-expenses
+
+### Charitable donations by your business: Not deductible
+Rule: A sole proprietor or single-member LLC can't deduct charitable contributions as a business expense on Schedule C. They may be deductible on your personal return under the charitable contribution rules.
+Limits: Not on Schedule C. To deduct them personally you generally have to itemize on Schedule A; see Publication 526.
+Records to keep: Written acknowledgments from the charity and proof of payment.
+Applies to: Sole proprietors and single-member LLCs. Corporations follow their own charitable deduction rules.
+Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Also: IRS Publication 526 (2025), Charitable Contributions https://www.irs.gov/publications/p526
+Page: https://mfa-advisory.com/tools/is-it-deductible/#charitable-contributions
 
 ## Frequently asked questions
 

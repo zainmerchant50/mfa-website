@@ -461,7 +461,8 @@ def build_home():
 <ul><li>The space must be used regularly and exclusively for business, and it must be your principal place of business.</li>
 <li>{esc(h["limit_note"])}.</li>
 <li>The deduction is for self-employed people who file Schedule C. W-2 employees generally can't claim it.</li></ul>
-<p>Keep a floor plan or measurements, photos of the space and the bills behind every expense. Once you have your deduction, see how it changes your tax in the <a href="/tools/1099-tax-calculator/">1099 tax calculator</a>.</p>"""
+<p>Keep a floor plan or measurements, photos of the space and the bills behind every expense. Once you have your deduction, see how it changes your tax in the <a href="/tools/1099-tax-calculator/">1099 tax calculator</a>.</p>
+<p>Wondering about your phone, internet or utilities? <a href="/tools/is-it-deductible/#home-office">Check other expenses →</a></p>"""
     return build_page(slug, "Home Office Deduction Calculator 2026",
                       "Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side.",
                       "Home office calculator", "Home office deduction calculator",
@@ -498,7 +499,8 @@ def build_mileage():
 <li><strong>Keep a mileage log.</strong> Record the date, destination, purpose and miles for each trip, as it happens. A log is what the IRS asks for.</li>
 <li><strong>Parking and tolls</strong> for business trips can be deducted in addition to the standard rate.</li>
 <li><strong>Choosing the method.</strong> If you want to use the standard rate for a car you own, you generally have to use it in the first year the car is used for business. Ask us before you choose.</li></ul>
-<p>Mileage reduces the profit you pay tax on. See the effect in the <a href="/tools/1099-tax-calculator/">1099 tax calculator</a>.</p>"""
+<p>Mileage reduces the profit you pay tax on. See the effect in the <a href="/tools/1099-tax-calculator/">1099 tax calculator</a>.</p>
+<p>Parking, tolls, travel and meals have their own rules. <a href="/tools/is-it-deductible/#mileage">Check other expenses →</a></p>"""
     return build_page(slug, "Mileage Deduction Calculator 2026 (IRS Standard Rates)",
                       "Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates.",
                       "Mileage calculator", "Mileage deduction calculator",

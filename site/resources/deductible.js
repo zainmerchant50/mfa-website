@@ -65,7 +65,7 @@
   }
   q.addEventListener('input', function () { run(true); });
   q.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Enter') { ev.preventDefault(); var first = list.querySelector('.dd-item:not([hidden])'); if (first) first.focus(); }
+    if (ev.key === 'Enter') { ev.preventDefault(); var first = list.querySelector('.dd-item:not([hidden]) .dd-open'); if (first) first.focus(); }
   });
   clr.addEventListener('click', function () { q.value = ''; run(); q.focus(); });
   [].slice.call(d.querySelectorAll('.dd-chip')).forEach(function (b) {
@@ -96,22 +96,19 @@
       '" stroke-dashoffset="' + (still ? off : C).toFixed(2) + '" data-off="' + off.toFixed(2) + '"/></svg><b>' + p + '%</b></div>';
   }
   function render(e) {
-    var v = VERB[e.verdict];
-    var vis = e.percent !== null && e.percent !== undefined ? ring(e.percent) : '<span class="dd-ico" aria-hidden="true">' + DATA.icons[e.verdict] + '</span>';
-    var src = '<li>Source: <a href="' + esc(e.source_url) + '" target="_blank" rel="noopener">' + esc(e.source_title) + '</a></li>' +
-      (e.also || []).map(function (s) { return '<li>Also: <a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title) + '</a></li>'; }).join('');
-    var tools = (e.tools || []).map(function (u) { return DATA.tools[u] ? '<a href="' + esc(u) + '">' + esc(DATA.tools[u]) + '</a>' : ''; }).join('');
+    var v = VERB[e.verdict], card = cards[e.slug], fullEl = card.querySelector('.dd-full').cloneNode(true);
+    [].slice.call(fullEl.querySelectorAll('h4')).forEach(function (h) { var n = d.createElement('h3'); n.innerHTML = h.innerHTML; h.parentNode.replaceChild(n, h); });
+    var vl = fullEl.querySelector('.dd-vl'), line = vl ? vl.lastChild.textContent.trim() : '';
+    if (vl) vl.parentNode.removeChild(vl);
+    var pct = e.percent !== null && e.percent !== undefined;
+    var vis = pct ? ring(e.percent) : '<span class="dd-ico" aria-hidden="true">' + DATA.icons[e.verdict] + '</span>';
+    fullEl.querySelector('.dd-srcs').insertAdjacentHTML('beforeend', '<p class="ck">Facts checked ' + esc(DATA.checked_label) + '.</p>');
     return '<span class="eb">' + esc(CATS[e.category].name) + '</span><h2 id="dd-mtitle">' + esc(e.name) + '</h2>' +
       '<div class="dd-v v-' + e.verdict + '">' + vis + '<div><span class="dd-badge">' + esc(v.label) + '</span><div class="big">' +
-      esc(e.percent !== null && e.percent !== undefined ? (e.verdict === 'not' ? 'Not deductible' : e.percent + '% deductible') : v.big) + '</div><p>' + esc(v.line) + '</p></div></div>' +
-      '<section class="dd-sec"><h3>The rule</h3><p>' + esc(e.rule) + '</p></section>' +
-      '<section class="dd-sec"><h3>Limits</h3><p>' + esc(e.limits) + '</p></section>' +
-      '<section class="dd-sec"><h3>Records to keep</h3><p>' + esc(e.records) + '</p></section>' +
-      '<section class="dd-sec"><h3>Who it applies to</h3><p>' + esc(e.applies_to) + '</p></section>' +
-      '<section class="dd-sec"><h3>Official sources</h3><ul>' + src + '</ul><p class="ck">Facts checked ' + esc(DATA.checked_label) + '.</p></section>' +
-      (tools ? '<section class="dd-sec"><h3>Related MFA tools</h3><div class="dd-tools">' + tools + '</div></section>' : '') +
+      esc(pct ? (e.verdict === 'not' ? 'Not deductible' : e.percent + '% deductible') : v.big) + '</div><p>' + esc(line) + '</p></div></div>' +
+      fullEl.innerHTML +
       '<p class="dd-mnote">' + esc(DATA.short_disclaimer) + '</p>' +
-      '<div class="dd-acts"><a class="dd-btn gold" href="/#book" data-conv="book">Need help? Book a consultation</a>' +
+      '<div class="dd-acts"><a class="dd-btn gold" href="/#book" data-conv="book">Book a 30-minute call</a>' +
       '<button type="button" class="dd-btn line" id="dd-copy">Copy link</button></div>';
   }
   function focusables() {
@@ -153,7 +150,7 @@
   }
   list.addEventListener('click', function (ev) {
     var a = ev.target.closest && ev.target.closest('.dd-item'); if (!a) return;
-    ev.preventDefault(); open(a.getAttribute('data-slug'), { from: a });
+    ev.preventDefault(); open(a.getAttribute('data-slug'), { from: a.querySelector('.dd-open') });
   });
   closeBtn.addEventListener('click', close);
   back.addEventListener('click', close);

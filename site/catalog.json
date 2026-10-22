@@ -1670,9 +1670,9 @@
    "dateModified": "2026-10-22",
    "item": {
     "@type": "WebApplication",
-    "name": "Is It Deductible? 2026 Business Expense Finder",
+    "name": "Is It Tax Deductible? 2026 Business Write-Off Finder",
     "url": "https://mfa-advisory.com/tools/is-it-deductible/",
-    "description": "Search 58 common small business expenses to see if they're deductible in 2026, the limits and the records to keep, with the IRS source for each.",
+    "description": "Can I write it off? Search 58 business expense deductions for 2026: what self-employed people can deduct, the limits, records and IRS source.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
     "offers": {
