@@ -5,8 +5,9 @@ var A={id:'AW-18505873837',call:'_Z6FCLjJk5sdEK3zpPhE',form:'rNQJCK2_kJsdEK3zpPh
 w.dataLayer=w.dataLayer||[];
 if(typeof w.gtag!=='function')w.gtag=function(){w.dataLayer.push(arguments);};
 w.gtag('js',new Date());w.gtag('config',A.id);
-function conv(k){if(A[k])w.gtag('event','conversion',{send_to:A.id+'/'+A[k]});}
-w.mfaLead=function(form,params){conv('form');var p={form:form||'lead'};for(var k in params||{})p[k]=params[k];w.gtag('event','generate_lead',p);};
+var X=(function(){try{var q=w.location.search;if(/[?&]internal=1/.test(q))w.localStorage.setItem('mfa_internal','1');if(/[?&]internal=0/.test(q))w.localStorage.removeItem('mfa_internal');return !!w.navigator.webdriver||!/(^|\.)mfa-advisory\.com$/.test(w.location.hostname)||w.localStorage.getItem('mfa_internal')==='1';}catch(e){return !!w.navigator.webdriver;}})();
+function conv(k){if(X||!A[k])return;w.gtag('event','conversion',{send_to:A.id+'/'+A[k]});}
+w.mfaLead=function(form,params){conv('form');if(X)return;var p={form:form||'lead'};for(var k in params||{})p[k]=params[k];w.gtag('event','generate_lead',p);};
 d.addEventListener('click',function(e){
 var a=e.target&&e.target.closest?e.target.closest('a[href],[data-conv]'):null;if(!a)return;
 var k=a.getAttribute('data-conv'),h=a.getAttribute('href')||'';
