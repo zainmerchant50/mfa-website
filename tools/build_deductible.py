@@ -49,7 +49,21 @@ TOOL_NAMES = {
     "/tools/s-corp-tax-savings-calculator/": "S corp tax savings calculator",
     "/llc-formation/": "LLC formation: NJ & NY fees",
 }
-POPULAR = [("Meals", "meals"), ("Home office", "home office"), ("Car", "car"), ("Phone", "phone"), ("Laptop", "laptop"), ("Travel", "travel")]
+POPULAR = [("Meals", "meals"), ("Home office", "home office"), ("Car", "car"), ("Phone", "phone"), ("Laptop", "laptop"), ("Travel", "travel"),
+           ("Software", "software"), ("Health insurance", "health insurance"), ("Client gifts", "gifts"), ("Parking tickets", "parking ticket"),
+           ("Coworking", "coworking"), ("Contractors", "contractors")]
+LEGEND = {"deductible": "Generally deductible", "partly": "A share, a percentage or up to a limit",
+          "depends": "Turns on how and why you use it", "not": "Generally not deductible"}
+TYPE_EXAMPLES = ["client lunch", "new laptop", "home office", "parking ticket", "cell phone", "health insurance", "coworking desk"]
+# The hero receipt: each line matches an entry's verdict (slug in the comment). Decorative; the real answers are in the list.
+RECEIPT = [("Client lunch", "$86.40", "half", "50%"),        # meals
+           ("Office chair", "$340.00", "yes", ""),          # tools-equipment / de minimis
+           ("Design software", "$29.00", "yes", ""),        # software-subscriptions
+           ("Cell phone bill", "$78.00", "part", ""),       # cell-phone (business share)
+           ("Golf with a client", "$120.00", "no", ""),     # entertainment
+           ("Parking ticket", "$45.00", "no", "")]          # fines-penalties
+MARKS = {"yes": '<path pathLength="1" d="m4 12.5 5 5L20 6.5"/>', "no": '<path pathLength="1" d="M6 6l12 12"/><path pathLength="1" d="M18 6 6 18"/>',
+         "half": '<circle pathLength="1" cx="12" cy="12" r="8.5"/>', "part": '<path pathLength="1" d="M12 3.5a8.5 8.5 0 1 1-8.5 8.5"/>'}
 
 ICONS = {  # 24px line icons (stroke = currentColor)
     "home": '<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5M10 20v-5h4v5"/>',
@@ -73,7 +87,7 @@ ICONS = {  # 24px line icons (stroke = currentColor)
     "v-deductible": '<circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16.5 9.5"/>',
     "v-partly": '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/>',
     "v-depends": '<circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.8M12 16.6v.3"/>',
-    "tick": '<path d="m5 12.5 4.2 4.2L19 7"/>',
+    "tick": '<path pathLength="1" d="m5 12.5 4.2 4.2L19 7"/>',
     "v-not": '<circle cx="12" cy="12" r="9"/><path d="m8.8 8.8 6.4 6.4M15.2 8.8l-6.4 6.4"/>',
 }
 svg = lambda k, w=1.7: (f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{w}" stroke-linecap="round" '
@@ -141,7 +155,7 @@ def full(e):
     src = (f'<li><a href="{esc(e["source_url"])}" target="_blank" rel="noopener">{esc(e["source_title"])}</a></li>' +
            "".join(f'<li><a href="{esc(a["url"])}" target="_blank" rel="noopener">{esc(a["title"])}</a></li>' for a in e.get("also", [])))
     tools = "".join(f'<a href="{u}">{esc(TOOL_NAMES[u])}</a>' for u in e.get("tools", []))
-    recs = "".join(f'<li>{svg("tick", 2.2)}<span>{esc(r)}</span></li>' for r in checklist(e["records"]))
+    recs = "".join(f'<li style="--i:{i}">{svg("tick", 2.4)}<span>{esc(r)}</span></li>' for i, r in enumerate(checklist(e["records"])))
     return (f'<div class="dd-full">'
             f'<p class="dd-vl"><strong>{esc(verdict_big(e))}.</strong> {esc(v["line"])}</p>'
             f'<div class="dd-sec dd-rule"><h4>The rule</h4><blockquote><p>{esc(e["rule"])}</p></blockquote></div>'
@@ -299,37 +313,51 @@ def build():
             "the limits, records and IRS source.")
     assert len(title) <= 60 and len(desc) <= 155, (len(title), len(desc))
 
-    chips = "".join(f'<button class="chip dd-chip" type="button" data-q="{esc(q)}">{esc(t)}</button>' for t, q in POPULAR)
+    chips = "".join(f'<button class="dd-chip" type="button" data-q="{esc(q)}">{esc(t)}</button>' for t, q in POPULAR)
+    chips_dup = "".join(f'<button class="dd-chip" type="button" data-q="{esc(q)}" tabindex="-1">{esc(t)}</button>' for t, q in POPULAR)
+    rows = "".join(f'<li style="--i:{i}"><span class="n">{esc(nm)}</span><span class="ld"></span><span class="a">{amt}</span>'
+                   f'<span class="mk m-{k}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" '
+                   f'stroke-linejoin="round">{MARKS[k]}</svg>{f"<em>{esc(t)}</em>" if t else ""}</span></li>'
+                   for i, (nm, amt, k, t) in enumerate(RECEIPT))
+    receipt = f"""<div class="dd-rcpt" aria-hidden="true"><div class="paper">
+    <div class="rh"><b>MFA</b><span>Expense review</span><span>Tax year {meta["tax_year"]}</span></div>
+    <ol>{rows}</ol>
+    <div class="tot"><span>Write-offs</span><span class="ld"></span><span>?</span></div>
+    <div class="bar"></div></div>
+    <div class="dd-bigstamp"><span>Deductible?</span></div></div>"""
     hero = f"""<header class="bhero dd-hero"><div class="wrap">
   <div class="crumbs"><a href="/">Home</a> / <a href="/resources/">Resources</a> / Is it tax deductible?</div>
-  <span class="eyebrow">Deduction finder · {meta["tax_year"]} tax year</span>
+  <div class="dd-hgrid"><div class="dd-htext">
   <h1>Is it tax <em>deductible?</em></h1>
-  <p>Can I write this off? Search {n} common business expenses to see what's deductible for {meta["tax_year"]}, the limits that apply and the records to keep. Every answer links to its IRS source.</p>
-  <div class="dd-search" role="search">{svg("search", 2)}<input type="search" id="dd-q" placeholder="Search an expense, e.g. meals, laptop, phone" aria-label="Search an expense" aria-controls="dd-list" autocomplete="off" spellcheck="false"/><button type="button" class="dd-x-q" id="dd-clear-q" aria-label="Clear search" hidden>×</button></div>
-  <div class="chips dd-pop" role="group" aria-label="Popular searches"><span>Popular</span>{chips}</div>
+  <p class="dd-dek">Can I write this off? Search {n} common business expenses to see what's deductible for {meta["tax_year"]}, the limits that apply and the records to keep. Every answer links to its IRS source.</p>
+  <div class="dd-search" role="search">{svg("search", 2)}<input type="search" id="dd-q" placeholder="Search an expense, e.g. meals, laptop, phone" aria-label="Search an expense" aria-controls="dd-list" autocomplete="off" spellcheck="false" data-examples="{esc(json.dumps(TYPE_EXAMPLES))}"/><button type="button" class="dd-x-q" id="dd-clear-q" aria-label="Clear search" hidden>×</button></div>
+  <noscript><p class="dd-nojs">Search and filters need JavaScript. All {n} answers are listed in full below.</p></noscript>
   <p class="dd-rev">Reviewed by <a href="/authors/zain-merchant/">Zain Merchant, ACCA</a> · Last reviewed {reviewed}<br/>Facts checked {checked} · {n} expenses · Sources: IRS and the Internal Revenue Code</p>
-</div></header>"""
+  </div>{receipt}</div>
+</div>
+<div class="dd-marq" role="group" aria-label="Most searched expenses"><span class="lbl">Most searched</span><div class="track"><div class="belt"><span class="set">{chips}</span><span class="set dup" aria-hidden="true">{chips_dup}</span></div></div></div>
+</header>"""
 
     warn = (f'<aside class="dd-warn" aria-label="Important: educational information only">{svg("warn", 1.9)}<div>'
             f'<strong>Educational information only, not tax, legal or accounting advice.</strong>'
             f'<p>Tax rules change and depend on your facts. Do your own research using the IRS sources linked, and talk to a qualified tax professional before you file.</p></div></aside>')
     cat_btns = "".join(
-        f'<button type="button" class="dd-cat{" not" if c["id"] == "not" else ""}" data-cat="{c["id"]}" aria-pressed="false"><i>{svg(c["icon"])}</i>'
+        f'<button type="button" class="dd-cat{" not" if c["id"] == "not" else ""}" data-cat="{c["id"]}" aria-pressed="false" style="--i:{i}"><i>{svg(c["icon"])}</i>'
         f'<span><b>{esc(c["name"])}</b><small>{c["count"]} {"expense" if c["count"] == 1 else "expenses"}</small></span></button>'
-        for c in meta["categories"] if c["count"])
-    legend = "".join(f'<span><span class="dd-badge v-{k}">{esc(v["label"])}</span></span>' for k, v in VERDICTS.items())
+        for i, c in enumerate(c for c in meta["categories"] if c["count"]))
+    legend = "".join(f'<li class="v-{k}"><span class="dd-stamp"><b>{esc(v["label"])}</b></span><span>{esc(LEGEND[k])}</span></li>' for k, v in VERDICTS.items())
     items = "".join(item(e, cats) for e in E)
     main = f"""<main class="dd-main" id="dd-main"><div class="wrap">
 {warn}
-<section aria-labelledby="dd-cats-h"><div class="dd-hd"><h2 id="dd-cats-h">Browse by category</h2><p>Tap a category to filter the list. Tap it again to show everything.</p></div>
+<section class="dd-catsec" aria-labelledby="dd-cats-h"><div class="dd-hd"><h2 id="dd-cats-h">Browse by category</h2><p>Tap a category to filter the list. Tap it again to show everything.</p></div>
 <div class="dd-cats">{cat_btns}</div></section>
 <section id="dd-results" aria-labelledby="dd-res-h" style="scroll-margin-top:96px"><div class="dd-hd"><h2 id="dd-res-h">All {n} business expenses</h2><p><span id="dd-count" aria-live="polite">{n} expenses</span> <button type="button" class="dd-link" id="dd-all" hidden>Show all</button></p></div>
-<div class="dd-legend" aria-label="What the labels mean">{legend}</div>
+<ul class="dd-legend" aria-label="What the labels mean">{legend}</ul>
 <div class="dd-list" id="dd-list">{items}</div>
 <div class="dd-empty" id="dd-empty" hidden>Nothing matches “<span id="dd-empty-q"></span>” yet. Try a different word, browse the categories, or <a href="/#book" data-conv="book">ask us directly</a>.</div>
 </section></div></main>"""
 
-    kinds = "".join(f'<li><span class="dd-badge v-{k}">{esc(v["label"])}</span><span>{esc(v["line"])}</span></li>' for k, v in VERDICTS.items())
+    kinds = "".join(f'<li class="v-{k}"><span class="dd-stamp"><b>{esc(v["label"])}</b></span><span>{esc(v["line"])}</span></li>' for k, v in VERDICTS.items())
     src_html, n_src = sources_list()
     faq = ui_kit.faq_accordion([(esc(q), esc(a)) for q, a in FAQ])
     info = f"""<div class="tinfo"><article class="article">
