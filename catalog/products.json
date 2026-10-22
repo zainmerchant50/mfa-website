@@ -548,6 +548,306 @@
         "related": null
       },
       "note": "Built 2026-10-21; price approved by Zain 2026-10-21 23:45 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23",
+      "slug": null,
+      "name": "QuickBooks Online Chart of Accounts Pack: All 8 Industry Editions",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "14.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 29.98,
+        "sale": 14.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23a",
+      "slug": null,
+      "name": "QuickBooks Chart of Accounts: E-commerce Seller",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23b",
+      "slug": null,
+      "name": "QuickBooks Chart of Accounts: Freelancer & Service Business",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23c",
+      "slug": null,
+      "name": "QuickBooks Chart of Accounts: Construction & Trades",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23d",
+      "slug": null,
+      "name": "QuickBooks Chart of Accounts: Restaurant & Food Service",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23e",
+      "slug": null,
+      "name": "QuickBooks Chart of Accounts: Rental Property & Landlord",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23f",
+      "slug": null,
+      "name": "QuickBooks Chart of Accounts: Beauty, Salon & Wellness",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23g",
+      "slug": null,
+      "name": "QuickBooks Chart of Accounts: Medical, Dental & Health Practice",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "23h",
+      "slug": null,
+      "name": "QuickBooks Chart of Accounts: Trucking & Delivery",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "24",
+      "slug": null,
+      "name": "Tax Preparer Client Onboarding Kit",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "25",
+      "slug": null,
+      "name": "Bookkeeper Engagement Kit",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "5.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 11.98,
+        "sale": 5.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
+    },
+    {
+      "id": "26",
+      "slug": null,
+      "name": "Tax-Season Client Email Pack",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "5.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 11.98,
+        "sale": 5.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": null,
+        "format": null,
+        "related": null
+      },
+      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up."
     }
   ]
 }
