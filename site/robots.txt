@@ -4,51 +4,66 @@
 
 User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
 
 # Search engines (Google, Bing and Apple power most AI answers: ChatGPT search and Copilot use Bing's index, AI Overviews and AI Mode use Google's)
 User-agent: Googlebot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Applebot
 Allow: /
+Disallow: /cdn-cgi/
 
 # AI search crawlers: pages are indexed so assistants can cite and link to MFA
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: DuckAssistBot
 Allow: /
+Disallow: /cdn-cgi/
 
 # Fetches made on a person's behalf when they ask an assistant about a page (some of these ignore robots.txt by design)
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /cdn-cgi/
 
 # Training-use controls. They do not affect search visibility; change to Disallow to opt out of model training
 User-agent: GPTBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /cdn-cgi/
 
 Sitemap: https://mfa-advisory.com/sitemap.xml
