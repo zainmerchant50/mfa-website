@@ -527,7 +527,7 @@ def build_llms_full(posts):
 def build_catalog(posts):
     """schema.org DataFeed at /catalog.json: the firm, every service with its public price, tools and shop products."""
     tools = [{"@type": "WebApplication", "name": t, "url": u, "description": d, "applicationCategory": "BusinessApplication",
-              "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+              "operatingSystem": "Any",
               "provider": {"@id": ORG_ID}} for t, u, d in _tools()]
     feed = {"@context": "https://schema.org", "@type": "DataFeed", "@id": BASE + "/catalog.json",
             "name": "Merchant Financial Advisory: services, public prices, tools and products",

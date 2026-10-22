@@ -1575,11 +1575,6 @@
     "description": "Track vendors, W-9s and payments, see who needs a 1099-NEC at the 2026 $2,000 threshold, and export to CSV. Data stays in your browser.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1595,11 +1590,6 @@
     "description": "Estimate the self-employment tax, federal income tax and NJ or NY tax on your 1099 income, plus the share of every payment to set aside.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1615,11 +1605,6 @@
     "description": "Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1635,11 +1620,6 @@
     "description": "Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1655,11 +1635,6 @@
     "description": "Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1675,11 +1650,6 @@
     "description": "Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1695,11 +1665,6 @@
     "description": "Estimate W-2 take-home pay per paycheck after federal income tax, Social Security, Medicare and New Jersey or New York tax.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1715,11 +1680,6 @@
     "description": "Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1735,11 +1695,6 @@
     "description": "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the safe-harbor amount.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1755,11 +1710,6 @@
     "description": "Compare self-employment tax as an LLC with payroll taxes as an S corporation. See annual savings after costs and the break-even profit.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1775,11 +1725,6 @@
     "description": "Every 2027 federal, New Jersey and New York tax deadline for sole proprietors, partnerships, S and C corporations, employers and nonprofits.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }
@@ -1795,11 +1740,6 @@
     "description": "Copy-ready W-9 request emails for new vendors, year-end 1099 prep and reminders. Personalize the names and deadline, then copy with one click.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
-    "offers": {
-     "@type": "Offer",
-     "price": "0",
-     "priceCurrency": "USD"
-    },
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     }

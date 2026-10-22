@@ -128,7 +128,6 @@ def tool_header(eyebrow, h1, dek):
 def tool_ld(name, url, desc, cat="BusinessApplication"):
     app = {"@type": "WebApplication", "@id": url + "#app", "name": name, "url": url, "description": desc, "applicationCategory": cat,
            "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en-US",
-           "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
            "publisher": {"@id": seo.ORG_ID}}
     return seo.graph(url, name, desc, app, crumb=[("Home", BASE + "/"), ("Resources", BASE + "/resources/"), (name, url)],
                      extra={"mainEntity": {"@id": url + "#app"}})
