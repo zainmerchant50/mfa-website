@@ -416,6 +416,8 @@ if __name__ == "__main__":
     urls.append(build_cleanup.build())
     import build_book  # noqa: E402  (/book/, booking calendar moved off the home page; Zain 2026-10-23)
     urls.append(build_book.build())
+    import build_hindi_urdu  # noqa: E402  (/hindi-urdu-accountant/, Edison/Iselin bilingual landing page; Zain 2026-10-23)
+    urls.append(build_hindi_urdu.build())
     urls.append(BASE + "/new-york-ny/")  # Site-owned landing page (build_landing.py); NJ pages are listed by build_blog.py
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))
