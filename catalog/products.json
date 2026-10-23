@@ -1,6 +1,6 @@
 {
   "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "store": "https://mfaadvisory.gumroad.com/",
   "groups": [
     {
@@ -116,7 +116,7 @@
         "allowed": true,
         "list": 30.0,
         "sale": 15.0,
-        "url": null
+        "url": "https://www.etsy.com/listing/4601418995/1099-kit-2026-who-needs-a-1099-nec-w-9"
       },
       "shop": {
         "group": "kit",
@@ -167,7 +167,7 @@
         "allowed": true,
         "list": 24.0,
         "sale": 12.0,
-        "url": null
+        "url": "https://www.etsy.com/listing/4601446924/bookkeeping-cleanup-checklist-catch-up"
       },
       "shop": {
         "group": "kit",
@@ -191,7 +191,7 @@
         "allowed": true,
         "list": 18.0,
         "sale": 9.0,
-        "url": null
+        "url": "https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein"
       },
       "shop": {
         "group": "kit",

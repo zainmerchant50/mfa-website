@@ -1329,11 +1329,11 @@
    "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
-    "@id": "https://mfaadvisory.gumroad.com/l/1099-kit#product",
+    "@id": "https://www.etsy.com/listing/4601418995/1099-kit-2026-who-needs-a-1099-nec-w-9#product",
     "name": "The 1099 Kit (2026 payments, filed in 2027)",
     "description": "Decide who needs a 1099, collect W-9s and file on time. Updated for the new $2,000 threshold, with a contractor tracker.",
     "sku": "1099-kit",
-    "url": "https://mfaadvisory.gumroad.com/l/1099-kit",
+    "url": "https://www.etsy.com/listing/4601418995/1099-kit-2026-who-needs-a-1099-nec-w-9",
     "image": "https://mfa-advisory.com/shop/img/1099-kit.webp",
     "category": "Checklists & kits",
     "brand": {
@@ -1357,7 +1357,7 @@
      "price": "15",
      "priceCurrency": "USD",
      "availability": "https://schema.org/InStock",
-     "url": "https://mfaadvisory.gumroad.com/l/1099-kit",
+     "url": "https://www.etsy.com/listing/4601418995/1099-kit-2026-who-needs-a-1099-nec-w-9",
      "seller": {
       "@id": "https://mfa-advisory.com/#organization"
      },
@@ -1475,11 +1475,11 @@
    "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
-    "@id": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist#product",
+    "@id": "https://www.etsy.com/listing/4601446924/bookkeeping-cleanup-checklist-catch-up#product",
     "name": "Bookkeeping Cleanup Checklist + Catch-Up Tracker",
     "description": "The step-by-step method to catch up months-behind books, plus a tracker that shows what's done.",
     "sku": "bookkeeping-cleanup-checklist",
-    "url": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist",
+    "url": "https://www.etsy.com/listing/4601446924/bookkeeping-cleanup-checklist-catch-up",
     "image": "https://mfa-advisory.com/shop/img/bookkeeping-cleanup-checklist.webp",
     "category": "Checklists & kits",
     "brand": {
@@ -1503,7 +1503,7 @@
      "price": "12",
      "priceCurrency": "USD",
      "availability": "https://schema.org/InStock",
-     "url": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist",
+     "url": "https://www.etsy.com/listing/4601446924/bookkeeping-cleanup-checklist-catch-up",
      "seller": {
       "@id": "https://mfa-advisory.com/#organization"
      },
@@ -1548,11 +1548,11 @@
    "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
-    "@id": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist#product",
+    "@id": "https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein#product",
     "name": "New Business Setup Checklist",
     "description": "Every step from idea to set up right: entity, EIN, registrations, bank, books and the compliance calendar.",
     "sku": "new-business-setup-checklist",
-    "url": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist",
+    "url": "https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein",
     "image": "https://mfa-advisory.com/shop/img/new-business-setup-checklist.webp",
     "category": "Checklists & kits",
     "brand": {
@@ -1576,7 +1576,7 @@
      "price": "9",
      "priceCurrency": "USD",
      "availability": "https://schema.org/InStock",
-     "url": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist",
+     "url": "https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein",
      "seller": {
       "@id": "https://mfa-advisory.com/#organization"
      },
