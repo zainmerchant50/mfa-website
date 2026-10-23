@@ -3226,6 +3226,79 @@
    "@type": "DataFeedItem",
    "dateModified": "2026-10-23",
    "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601741304#product",
+    "name": "2026 Tax Season Bundle: 1099 Kit + Personal Tax Organizer + Year-End Checklist",
+    "description": "Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Saves about $5 against buying all three.",
+    "sku": "tax-season-bundle-2026",
+    "url": "https://www.etsy.com/listing/4601741304",
+    "image": "https://mfa-advisory.com/shop/img/tax-season-bundle-2026.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "ZIP: Excel + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "12.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601741304",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
     "@type": "WebApplication",
     "name": "1099 Contractor Tracker: Who Needs a 1099-NEC in 2026",
     "url": "https://mfa-advisory.com/tools/1099-contractor-tracker/",

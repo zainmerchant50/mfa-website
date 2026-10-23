@@ -1063,6 +1063,31 @@
         "related": null
       },
       "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "33",
+      "slug": "tax-season-bundle-2026",
+      "name": "2026 Tax Season Bundle: 1099 Kit + Personal Tax Organizer + Year-End Checklist",
+      "status": "live",
+      "tier": "bundle",
+      "gumroad": {
+        "price": "12.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 25.98,
+        "sale": 12.99,
+        "url": "https://www.etsy.com/listing/4601741304"
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Saves about $5 against buying all three.",
+        "format": "ZIP: Excel + PDF",
+        "related": null
+      },
+      "note": "Zain approved 2026-10-23 11:10 ET (bundle at $12.99). Etsy first; Gumroad after the 10/day limit."
     }
   ]
 }
