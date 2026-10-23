@@ -9,6 +9,10 @@
 /newsletter/issues/*
   X-Robots-Tag: noindex
 
+/ready/*
+  X-Robots-Tag: noindex
+  Content-Disposition: inline
+
 # Machine-readable files for search engines, AI assistants and agents (tools/seo.py)
 /llms.txt
   Content-Type: text/plain; charset=utf-8
