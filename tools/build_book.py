@@ -6,6 +6,7 @@ Never "free", never "CPA", no street address. Run via tools/build_resources.py (
 """
 import build_blog as B
 import seo
+import ui_kit
 from build_resources import page, write, esc, BASE
 
 CAL = ("https://calendar.google.com/calendar/appointments/schedules/"
@@ -28,14 +29,28 @@ CSS = """<style>
 .bk-frame{background:#fff;border:1px solid var(--line, #e3dfd3);border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(16,35,63,.08)}
 .bk-frame iframe{display:block;width:100%;height:760px;border:0}
 .bk-alt{text-align:center;margin:14px 0 0;font-size:.9rem;color:var(--muted)}
-.bk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:6px}
-.bk-grid .card{padding:20px 22px}.bk-grid h3{font-size:1.1rem;margin:0 0 6px}.bk-grid p{margin:0;font-size:.93rem;line-height:1.55}
+.bk-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s;margin-top:6px}
+.bk-steps .step{padding:26px;border-top:2px solid var(--gold, #B08D3F);background:#fff;border-radius:0 0 12px 12px}
+.bk-steps .step:before{counter-increment:s;content:"0" counter(s);font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;color:var(--gold, #B08D3F);display:block;line-height:1;margin-bottom:10px}
+.bk-steps .step h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;font-weight:500;margin:0 0 8px;color:var(--ink, #10233F)}
+.bk-steps .step p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.7}
 .bk-topics{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 0;padding:0;list-style:none}
-.bk-topics li{border:1px solid var(--gold, #B08D3F);border-radius:999px;padding:6px 14px;font-size:.9rem}
-.bk-faq details{border-bottom:1px solid var(--line, #e3dfd3);padding:14px 0}.bk-faq summary{cursor:pointer;font-weight:600}
-.bk-faq p{margin:8px 0 0;line-height:1.6}
+.bk-topics li{border:1px solid var(--gold, #B08D3F);border-radius:999px;padding:7px 16px;font-size:.92rem;cursor:default;transition:background .3s,color .3s,transform .35s cubic-bezier(.16,1,.3,1)}
+.bk-topics li:hover{background:var(--gold, #B08D3F);color:#fff;transform:translateY(-2px)}
+.js .bk-topics li{opacity:0;transform:translateY(12px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),background .3s,color .3s}
+.js .bk-topics.in li{opacity:1;transform:none}
+.bk-frame{transition:box-shadow .5s cubic-bezier(.16,1,.3,1)}
+.bk-frame:hover{box-shadow:0 18px 44px rgba(16,35,63,.14)}
+@media(max-width:860px){.bk-steps{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.js .bk-topics li{opacity:1;transform:none;transition:none}}
 @media(max-width:860px){.bk-frame iframe{height:1000px}}
 </style>"""
+
+
+# Staggered entrance for the topic pills (outside the f-string because of its braces).
+TOPICS_JS = """<script>(function(){var u=document.getElementById('bk-topics');if(!u)return;var li=[].slice.call(u.children);li.forEach(function(e,i){e.style.transitionDelay=(i*70)+'ms';});
+function go(){u.classList.add('in');setTimeout(function(){li.forEach(function(e){e.style.transitionDelay='';});},1200);}
+if(!('IntersectionObserver' in window))return go();var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){go();io.disconnect();}},{threshold:.2});io.observe(u);setTimeout(go,4000);})();</script>"""
 
 
 def build():
@@ -43,25 +58,26 @@ def build():
     title = "Book a 30-Minute Consultation | Merchant Financial Advisory"
     desc = ("Book a 30-minute call about bookkeeping, business taxes, LLC formation or year-end planning. "
             "Pick a time on Google Meet or call (347) 205-4468.")
-    expect = "".join(f'<article class="card"><h3>{esc(h)}</h3><p>{esc(p)}</p></article>' for h, p in EXPECT)
+    expect = "".join(f'<div class="step"><h3>{esc(h)}</h3><p>{esc(p)}</p></div>' for h, p in EXPECT)
     topics = "".join(f"<li>{esc(t)}</li>" for t in TOPICS)
-    faq = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in FAQ)
+    faq = ui_kit.faq_accordion([(esc(q), esc(a)) for q, a in FAQ], prefix="bk")
     body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Book a call</span>
 <h1>Thirty minutes. <em>Your numbers, our full attention.</em></h1>
 <p>Pick a time that works for you. It's 30 minutes on Google Meet, and you'll leave with a clear read on what to fix first.</p>
 <div class="hero-btns"><a class="btn btn-gold" href="#calendar">Choose a time</a><a class="btn btn-line" href="tel:+13472054468" data-conv="call">Call (347) 205-4468</a></div></div></header>
 <main>
 <section class="wrap llc-sec" id="calendar" aria-label="Booking calendar"><div class="bk-wrap">
-<div class="bk-frame"><iframe src="{CAL}?gv=true" title="Book a consultation with Merchant Financial Advisory" loading="lazy"></iframe></div>
+<div class="bk-frame book-frame"><iframe src="{CAL}?gv=true" title="Book a consultation with Merchant Financial Advisory" loading="lazy"></iframe></div>
 <p class="bk-alt">Calendar not loading? <a href="{CAL}" target="_blank" rel="noopener noreferrer" data-conv="book">Open the booking page</a> or email <a href="mailto:{B.EMAIL}">{B.EMAIL}</a>.</p>
 </div></section>
 <section class="wrap llc-sec" aria-labelledby="exp-h"><div class="sec-hd"><span class="eyebrow eb-dark">How it works</span><h2 id="exp-h">What to expect</h2></div>
-<div class="bk-grid">{expect}</div></section>
+<div class="bk-steps">{expect}</div></section>
 <section class="wrap llc-sec" aria-labelledby="top-h"><div class="sec-hd"><span class="eyebrow eb-dark">Common topics</span><h2 id="top-h">What people book us for</h2></div>
-<ul class="bk-topics">{topics}</ul></section>
-<section class="wrap llc-sec bk-faq" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">Before you book</h2></div>{faq}</section>
+<ul class="bk-topics" id="bk-topics">{topics}</ul></section>
+<section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">Before you book</h2></div>{faq}</section>
 <section class="wrap llc-sec"><p class="disclaimer">A consultation is general information and does not create a client relationship until we both agree a written scope.</p></section>
-</main>'''
+</main>
+{TOPICS_JS}'''
     ld = seo.graph(url, "Book a consultation", desc,
                    {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
                        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
