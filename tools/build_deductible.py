@@ -399,7 +399,7 @@ def build():
 <ul class="dd-legend" aria-label="Tickmark legend">{legend}</ul>
 <div class="dd-colh" aria-hidden="true"><span>Ref</span><span>Expense and the rule in brief</span><span class="tr"><span>Treatment</span><span>%</span></span></div>
 <div class="dd-list" id="dd-list">{items}</div>
-<div class="dd-empty" id="dd-empty" hidden>Nothing matches “<span id="dd-empty-q"></span>” yet. Try a different word, pick a section from the index, or <a href="/#book" data-conv="book">ask us directly</a>.</div>
+<div class="dd-empty" id="dd-empty" hidden>Nothing matches “<span id="dd-empty-q"></span>” yet. Try a different word, pick a section from the index, or <a href="/book/" data-conv="book">ask us directly</a>.</div>
 </section></div></div></main>"""
 
     kinds = "".join(f'<li class="v-{k}">{tick(k)}<b>{esc(v["label"])}</b><span>{esc(v["line"])}</span></li>' for k, v in VERDICTS.items())

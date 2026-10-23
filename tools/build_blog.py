@@ -34,7 +34,7 @@ UI_VER = hashlib.sha1(ui_kit.UI_CSS.encode()).hexdigest()[:10]
 POSTS_DIR = ROOT / "content" / "posts"
 PAGES_DIR = ROOT / "content" / "pages"
 BASE = "https://mfa-advisory.com"
-BOOK_URL = BASE + "/#book"
+BOOK_URL = BASE + "/book/"
 FORM_ENDPOINT = "https://formsubmit.co/ajax/info@mfa-advisory.com"   # same inbox as the site contact forms
 EMAIL = "info@mfa-advisory.com"
 PHONE = "(347) 205-4468"
@@ -148,7 +148,7 @@ def nav(active):
         return f'<a href="{href}"{" class=on" if key == active else ""}>{label}</a>'
     return f'''<header class="bnav"><div class="wrap bnav-in">
   <a href="/" class="brand" aria-label="Merchant Financial Advisory — home"><img src="/apple-touch-icon.png" alt="" width="44" height="44"/><span class="brand-txt"><b>Merchant</b><i>Financial Advisory</i></span></a>
-  <nav class="bnav-links" aria-label="Main navigation">{a("/services/","Services","s")}{a("/resources/","Resources","res")}{a("/shop/","Shop","shop")}{a("/blog/","Insights","blog")}{a("/#book","Book","b")}<a href="/#contact" class="cta">{MAIL_ICON}Contact Us</a></nav>
+  <nav class="bnav-links" aria-label="Main navigation">{a("/services/","Services","s")}{a("/resources/","Resources","res")}{a("/shop/","Shop","shop")}{a("/blog/","Insights","blog")}{a("/book/","Book","b")}<a href="/#contact" class="cta">{MAIL_ICON}Contact Us</a></nav>
 </div></header>'''
 
 
@@ -736,7 +736,7 @@ def build_author(posts):
   <span class="eyebrow">Author</span>
   <h1>{esc(a["name"])}, {esc(a["credential"])}</h1>
   <p class="dek">Founder &amp; Principal of Merchant Financial Advisory, an accounting, tax and business solutions provider in Princeton, New Jersey, serving individuals and small and mid-sized businesses nationwide.</p>
-  <div class="cta-btns">{li_btn}<a class="btn btn-line" href="/#book">Book a consultation</a></div></div></div>
+  <div class="cta-btns">{li_btn}<a class="btn btn-line" href="/book/">Book a consultation</a></div></div></div>
 </div></header>
 <main><article class="article">
 <h2>About Zain</h2>

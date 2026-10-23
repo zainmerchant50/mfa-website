@@ -84,7 +84,7 @@ SERVICES = [
 OFFERS = [
     ("LLC formation", "From $150", "+ state fee, paid once", "Formation $150, Business Setup $249, Complete Launch $649 with your first month of bookkeeping.", "/llc-formation/", "See packages"),
     ("Monthly bookkeeping", "From $199", "/ month", "One bank, one card, up to 100 transactions a month. Month to month; bigger books quoted up front.", "/llc-formation/#monthly", "How it works"),
-    ("Tax preparation", "Quoted", "up front", "Individual and business returns, federal and state. You see the price before we start.", "/#book", "Get a quote"),
+    ("Tax preparation", "Quoted", "up front", "Individual and business returns, federal and state. You see the price before we start.", "/book/", "Get a quote"),
 ]
 
 
@@ -96,7 +96,7 @@ def build():
     jump = "".join(f'<a href="#{sid}">{name}</a>' for sid, name, *_ in SERVICES)
     offers = "".join(f'''<div class="pkc card{" feat" if i == 1 else ""}"><span class="pk-tag">{esc(n)}</span>
 <p class="pk-price"><b>{p}</b><span>{s}</span></p><p class="pk-lead">{t}</p>
-<a class="btn {"btn-gold" if i == 1 else "btn-ink"}" href="{u}"{' data-conv="book"' if u == "/#book" else ""}>{b}</a></div>''' for i, (n, p, s, t, u, b) in enumerate(OFFERS))
+<a class="btn {"btn-gold" if i == 1 else "btn-ink"}" href="{u}"{' data-conv="book"' if u == "/book/" else ""}>{b}</a></div>''' for i, (n, p, s, t, u, b) in enumerate(OFFERS))
     rows = []
     for i, (sid, name, lead, items, price, links) in enumerate(SERVICES, 1):
         lis = "".join(f"<li>{ICO}<span>{x}</span></li>" for x in items)
@@ -107,7 +107,7 @@ def build():
     body = f'''<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Accounting, tax &amp; business solutions</span>
 <h1>Services built to <em>work together.</em></h1>
 <p>Reporting, planning and compliance from one team, so each piece strengthens the others. Flat monthly fees or hourly, always quoted before we start.</p>
-<div class="hero-btns"><a class="btn btn-gold" href="/#book" data-conv="book">Book a 30-minute consultation</a><a class="btn btn-line" href="#all">See all services</a></div></div></header>
+<div class="hero-btns"><a class="btn btn-gold" href="/book/" data-conv="book">Book a 30-minute consultation</a><a class="btn btn-line" href="#all">See all services</a></div></div></header>
 <main>
 <section class="wrap llc-sec" aria-labelledby="of-h"><div class="sec-hd"><span class="eyebrow eb-dark">Start here</span><h2 id="of-h">Three common starting points.</h2></div>
 <div class="pk">{offers}</div></section>

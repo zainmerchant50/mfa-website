@@ -130,7 +130,7 @@ def build():
     body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Bookkeeping cleanup</span>
 <h1>Behind on your books? <em>We'll get you caught up.</em></h1>
 <p>Cleanup depends on how many months, accounts and transactions are involved, so we don't guess at a flat rate. Send a few details, and we'll give you a fixed quote before any work starts.</p>
-<div class="hero-btns"><a class="btn btn-gold" href="#quote">Request a quote</a><a class="btn btn-line" href="/services/#bookkeeping">All bookkeeping services</a></div></div></header>
+<div class="hero-btns"><a class="btn btn-gold" href="#quote">Request a quote</a><a class="btn btn-line" href="/services/book/keeping">All bookkeeping services</a></div></div></header>
 <main>
 <section class="wrap llc-sec" aria-labelledby="cov-h"><div class="sec-hd"><span class="eyebrow eb-dark">What cleanup covers</span><h2 id="cov-h">From a pile of transactions to books you can use.</h2></div>
 <div class="cu-list">{cov}</div>

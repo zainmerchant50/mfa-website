@@ -107,7 +107,7 @@ def page(title, desc, url, body, ld=None, active="res"):
 def cta(headline, text):
     return f"""<section class="cta-block" aria-label="Book a consultation"><div class="cta-card">
   <span class="eyebrow">Talk to MFA</span><h2>{esc(headline)}</h2><p>{text}</p>
-  <div class="cta-btns"><a class="btn btn-gold" href="/#book" data-conv="book">Book a 30-minute consultation</a><a class="btn btn-line" href="mailto:{B.EMAIL}">Email {B.EMAIL}</a></div>
+  <div class="cta-btns"><a class="btn btn-gold" href="/book/" data-conv="book">Book a 30-minute consultation</a><a class="btn btn-line" href="mailto:{B.EMAIL}">Email {B.EMAIL}</a></div>
 </div></section>"""
 
 
@@ -180,7 +180,7 @@ def build_hub(posts):
 <p>Calculators, checkers, calendars, templates and guides for individuals and small and mid-sized businesses. Plain English, checked against IRS and state sources.</p>
 <div class="rsearch"><input type="search" id="rq" placeholder="Search tools and guides, e.g. 1099, break-even, deadline" aria-label="Search resources"/></div>
 <div class="chips" role="group" aria-label="Filter by type">{chips}</div></div></header>
-<main class="wrap rgroups" id="rmain">{sections}<p class="rempty" id="rempty">Nothing matches that search yet. Try another word, or <a href="/#book" style="border-bottom:1px solid var(--gold)">ask us directly</a>.</p></main>
+<main class="wrap rgroups" id="rmain">{sections}<p class="rempty" id="rempty">Nothing matches that search yet. Try another word, or <a href="/book/" style="border-bottom:1px solid var(--gold)">ask us directly</a>.</p></main>
 <p class="rnote">{esc(NOTE)} Each tool lists its official sources and the date its facts were last checked.</p>
 {cta("Rather have it handled for you?", "Book a 30-minute consultation about your books, taxes or business setup, or email us at <a href='mailto:" + B.EMAIL + "' style='color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)'>" + B.EMAIL + "</a>.")}
 <script>
@@ -218,7 +218,7 @@ def build_1099():
 <label class="opt" style="margin-top:10px"><input type="checkbox" id="bw"/><span>I withheld federal income tax (backup withholding)<small>Usually because the payee didn't give you a tax ID number</small></span></label></div>
 </div>"""
     result = """<div class="tcard tres" aria-live="polite"><h2>Your answer</h2><p class="sub">Updates as you answer.</p><div id="out"><div class="verdict"><span class="vk">Start with question 1</span><h3>Let's find out.</h3><p>Most 1099 questions come down to four things: business or personal, how you paid, who you paid, and how much.</p></div></div>
-<div class="acts"><a class="btn btn-gold" href="/#book" data-conv="book">Have MFA file your 1099s</a><a class="btn btn-line" href="/blog/form-1099-preparation-guide-2026/">Read the full 1099 guide</a></div>
+<div class="acts"><a class="btn btn-gold" href="/book/" data-conv="book">Have MFA file your 1099s</a><a class="btn btn-line" href="/blog/form-1099-preparation-guide-2026/">Read the full 1099 guide</a></div>
 <p class="muted">Educational information, not tax or legal advice.</p></div>"""
     js = """<script>
 (function(){var T={nec:%NEC%,misc:%MISC%,roy:%ROY%,att:%ATT%};
@@ -291,7 +291,7 @@ def build_w9():
 <li>Check that the name and tax ID match, and note the tax classification (box 3).</li>
 <li>Store W-9s securely, outside your inbox, and re-request when a vendor's name, address or entity type changes.</li>
 <li>Not sure who needs a 1099? Use the <a href="/tools/do-i-need-to-send-a-1099/">1099 checker</a>.</li></ol>
-<div class="acts"><a class="btn btn-gold" href="/#book" data-conv="book">Have MFA handle your 1099s</a></div>
+<div class="acts"><a class="btn btn-gold" href="/book/" data-conv="book">Have MFA handle your 1099s</a></div>
 <p class="muted">Educational information, not tax or legal advice.</p></div>"""
     js = """<script>
 (function(){var ids=['vendor','biz','you','due','upload'],def={vendor:'[Vendor name]',biz:'[Your business]',you:'[Your name]',due:'[date]',upload:'[secure upload link]'};
@@ -326,7 +326,7 @@ def build_breakeven():
 <div class="kpi"><b id="k2">—</b><span id="k2l">Units per month</span></div><div class="kpi"><b id="k3">—</b><span>Contribution margin</span></div>
 <div class="kpi wide"><b id="k4">—</b><span id="k4l">Sales needed for your profit goal</span></div></div>
 <p class="muted" id="bnote">Break-even point = fixed costs ÷ (price − variable cost per unit).</p>
-<div class="acts"><a class="btn btn-gold" href="/#book" data-conv="book">Get help with pricing &amp; budgets</a></div></div>"""
+<div class="acts"><a class="btn btn-gold" href="/book/" data-conv="book">Get help with pricing &amp; budgets</a></div></div>"""
     js = """<script>
 (function(){var mode='unit',g=function(i){var v=parseFloat(document.getElementById(i).value);return isNaN(v)?null:v;};
 var $=function(i){return document.getElementById(i);},m0=function(n){return '$'+Math.ceil(n).toLocaleString('en-US');},n0=function(n){return Math.ceil(n).toLocaleString('en-US');};
@@ -371,7 +371,7 @@ def build_margin():
 <div class="kpis"><div class="kpi gold"><b id="r1">—</b><span>Gross margin</span></div><div class="kpi"><b id="r2">—</b><span>Markup</span></div>
 <div class="kpi"><b id="r3">—</b><span>Selling price</span></div><div class="kpi"><b id="r4">—</b><span>Profit per unit</span></div></div>
 <p class="muted">Margin = profit ÷ price. Markup = profit ÷ cost. A 50% markup is only a 33% margin.</p>
-<div class="acts"><a class="btn btn-gold" href="/#book" data-conv="book">Talk pricing with MFA</a></div></div>"""
+<div class="acts"><a class="btn btn-gold" href="/book/" data-conv="book">Talk pricing with MFA</a></div></div>"""
     js = """<script>
 (function(){var mode='cp',$=function(i){return document.getElementById(i);},g=function(i){var v=parseFloat($(i).value);return isNaN(v)?null:v;};
 var d=function(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});},pc=function(n){return (Math.round(n*10)/10)+'%';};
@@ -414,6 +414,8 @@ if __name__ == "__main__":
     urls.append(build_shop.build())
     import build_cleanup  # noqa: E402  (/bookkeeping-cleanup/, quoted service with a quote-request form; Zain 2026-10-21)
     urls.append(build_cleanup.build())
+    import build_book  # noqa: E402  (/book/, booking calendar moved off the home page; Zain 2026-10-23)
+    urls.append(build_book.build())
     urls.append(BASE + "/new-york-ny/")  # Site-owned landing page (build_landing.py); NJ pages are listed by build_blog.py
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))

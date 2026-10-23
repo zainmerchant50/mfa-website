@@ -129,7 +129,7 @@
    "name": "Book a 30-minute consultation",
    "target": {
     "@type": "EntryPoint",
-    "urlTemplate": "https://mfa-advisory.com/#book",
+    "urlTemplate": "https://mfa-advisory.com/book/",
     "actionPlatform": "https://schema.org/DesktopWebPlatform"
    }
   },

@@ -155,7 +155,7 @@ def kpi(i, label, cls=""):
 def result_card(title, kpis, extra="", cta_label="Talk to MFA about your taxes"):
     return (f'<div class="tcard tres" aria-live="polite"><h2>{title}</h2><p class="sub" id="rsub">Enter your numbers to see the result.</p>{extra}'
             f'<div class="kpis">{kpis}</div><p class="muted" id="rnote"></p>'
-            f'<div class="acts"><a class="btn btn-gold" href="/#book" data-conv="book">{cta_label}</a></div>'
+            f'<div class="acts"><a class="btn btn-gold" href="/book/" data-conv="book">{cta_label}</a></div>'
             f'<p class="muted">General information, not tax advice.</p></div>')
 
 

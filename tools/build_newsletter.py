@@ -172,7 +172,7 @@ def services_block(p, slug):
         name, desc = SERVICES[k]
         items += (f'<tr><td width="22" valign="top" style="padding:3px 0 14px"><div style="width:8px;height:8px;background:{GOLDB};border-radius:2px;margin-top:6px;font-size:0;line-height:0">&nbsp;</div></td>'
                   f'<td valign="top" style="padding:0 0 14px"><p style="margin:0;{f(15, 23, color="#DCE2EA")}"><strong style="color:#ffffff;font-weight:700">{name}.</strong> {desc}</p></td></tr>')
-    book = track(B.BOOK_URL.replace("/#book", "/#book"), slug)
+    book = track(B.BOOK_URL.replace("/book/", "/book/"), slug)
     return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>'
             f'<td bgcolor="{NAVY}" class="box" style="background:{NAVY};border-radius:10px;padding:36px 34px 28px">'
             + eyebrow("How MFA can help", GOLDB)
