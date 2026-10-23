@@ -1,6 +1,6 @@
 {
   "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
-  "updated": "2026-10-23",
+  "updated": "2026-10-23 (30% price cut, Zain 05:10 ET)",
   "store": "https://mfaadvisory.gumroad.com/",
   "groups": [
     {
@@ -27,14 +27,14 @@
       "status": "live",
       "tier": "calculator",
       "gumroad": {
-        "price": "7.99",
+        "price": "5.49",
         "url": "https://mfaadvisory.gumroad.com/l/1099-self-employed-tax-calculator-2026",
         "product_id": "yyqrs"
       },
       "etsy": {
         "allowed": true,
-        "list": 15.98,
-        "sale": 7.99,
+        "list": 10.98,
+        "sale": 5.49,
         "url": "https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026"
       },
       "shop": {
@@ -54,14 +54,14 @@
       "status": "live",
       "tier": "calculator",
       "gumroad": {
-        "price": "7.99",
+        "price": "5.49",
         "url": "https://mfaadvisory.gumroad.com/l/salary-paycheck-tax-calculator-2026",
         "product_id": "kagpzb"
       },
       "etsy": {
         "allowed": true,
-        "list": 15.98,
-        "sale": 7.99,
+        "list": 10.98,
+        "sale": 5.49,
         "url": "https://www.etsy.com/listing/4601160748/2026-paycheck-calculator-excel-google"
       },
       "shop": {
@@ -81,14 +81,14 @@
       "status": "live",
       "tier": "calculator",
       "gumroad": {
-        "price": "11.99",
+        "price": "8.49",
         "url": "https://mfaadvisory.gumroad.com/l/s-corp-vs-llc-savings-calculator",
         "product_id": "xhhnd"
       },
       "etsy": {
         "allowed": true,
-        "list": 23.99,
-        "sale": 11.99,
+        "list": 16.98,
+        "sale": 8.49,
         "url": "https://www.etsy.com/listing/4601163974/s-corp-vs-llc-calculator-is-an-s-corp"
       },
       "shop": {
@@ -108,14 +108,14 @@
       "status": "live",
       "tier": "kit",
       "gumroad": {
-        "price": "15",
+        "price": "10.49",
         "url": "https://mfaadvisory.gumroad.com/l/1099-kit",
         "product_id": "giens"
       },
       "etsy": {
         "allowed": true,
-        "list": 30.0,
-        "sale": 15.0,
+        "list": 20.98,
+        "sale": 10.49,
         "url": "https://www.etsy.com/listing/4601418995/1099-kit-2026-who-needs-a-1099-nec-w-9"
       },
       "shop": {
@@ -135,14 +135,14 @@
       "status": "live",
       "tier": "checklist+workbook",
       "gumroad": {
-        "price": "12.99",
+        "price": "8.99",
         "url": "https://mfaadvisory.gumroad.com/l/month-end-close-checklist",
         "product_id": "jzjim"
       },
       "etsy": {
         "allowed": true,
-        "list": 25.98,
-        "sale": 12.99,
+        "list": 17.98,
+        "sale": 8.99,
         "url": "https://www.etsy.com/listing/4601137589/month-end-close-checklist-excel-google"
       },
       "shop": {
@@ -159,14 +159,14 @@
       "status": "live",
       "tier": "checklist+tracker",
       "gumroad": {
-        "price": "12",
+        "price": "8.49",
         "url": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist",
         "product_id": "gpgxj"
       },
       "etsy": {
         "allowed": true,
-        "list": 24.0,
-        "sale": 12.0,
+        "list": 16.98,
+        "sale": 8.49,
         "url": "https://www.etsy.com/listing/4601446924/bookkeeping-cleanup-checklist-catch-up"
       },
       "shop": {
@@ -183,14 +183,14 @@
       "status": "live",
       "tier": "checklist",
       "gumroad": {
-        "price": "9",
+        "price": "6.49",
         "url": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist",
         "product_id": "efonxz"
       },
       "etsy": {
         "allowed": true,
-        "list": 18.0,
-        "sale": 9.0,
+        "list": 12.98,
+        "sale": 6.49,
         "url": "https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein"
       },
       "shop": {
@@ -210,14 +210,14 @@
       "status": "live",
       "tier": "checklist",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": "https://mfaadvisory.gumroad.com/l/small-business-year-end-tax-checklist",
         "product_id": "ccksxu"
       },
       "etsy": {
         "allowed": true,
-        "list": 9.99,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601136753/small-business-year-end-tax-checklist"
       },
       "shop": {
@@ -237,7 +237,7 @@
       "status": "live",
       "tier": "prompts",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes",
         "product_id": "jtthiq"
       },
@@ -259,7 +259,7 @@
       "status": "live",
       "tier": "prompts",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers",
         "product_id": "goxalq"
       },
@@ -281,14 +281,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/1099-contractor-payment-tracker-2026",
         "product_id": "dpxwbz"
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601110337/1099-contractor-payment-tracker-2026"
       },
       "shop": {
@@ -305,14 +305,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/1099-income-tracker-freelancers-2026",
         "product_id": "ywcbks"
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601113193/1099-income-tracker-for-freelancers-2026"
       },
       "shop": {
@@ -329,14 +329,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/small-business-bookkeeping-spreadsheet",
         "product_id": "gzwilb"
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601114741/small-business-bookkeeping-spreadsheet"
       },
       "shop": {
@@ -353,14 +353,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/expense-categorization-guide-tracker",
         "product_id": "qpgydz"
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601141354/schedule-c-expense-categorization-guide"
       },
       "shop": {
@@ -377,14 +377,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/self-employed-tax-deduction-tracker-2026",
         "product_id": "idmsm"
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601142854/self-employed-tax-deduction-tracker-2026"
       },
       "shop": {
@@ -401,14 +401,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/irs-mileage-log-2026",
         "product_id": "ytvqnyc"
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601144570/irs-mileage-log-2026-mileage-tracker"
       },
       "shop": {
@@ -425,14 +425,14 @@
       "status": "planned",
       "tier": "bundle",
       "gumroad": {
-        "price": "24.99",
+        "price": "17.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 49.99,
-        "sale": 24.99,
+        "list": 34.98,
+        "sale": 17.49,
         "url": null
       },
       "shop": {
@@ -450,14 +450,14 @@
       "status": "planned",
       "tier": "bundle",
       "gumroad": {
-        "price": "24.99",
+        "price": "17.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 49.99,
-        "sale": 24.99,
+        "list": 34.98,
+        "sale": 17.49,
         "url": null
       },
       "shop": {
@@ -475,14 +475,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": "https://mfaadvisory.gumroad.com/l/online-seller-bookkeeping-sheet",
         "product_id": "wciqgn"
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601119735/online-seller-bookkeeping-spreadsheet"
       },
       "shop": {
@@ -499,14 +499,14 @@
       "status": "draft",
       "tier": "tracker",
       "gumroad": {
-        "price": "5.99",
+        "price": "3.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 11.98,
-        "sale": 5.99,
+        "list": 7.98,
+        "sale": 3.99,
         "url": "https://www.etsy.com/listing/4601158276/rental-property-tracker-spreadsheet"
       },
       "shop": {
@@ -524,14 +524,14 @@
       "status": "draft",
       "tier": "tracker",
       "gumroad": {
-        "price": "5.99",
+        "price": "3.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 11.98,
-        "sale": 5.99,
+        "list": 7.98,
+        "sale": 3.99,
         "url": "https://www.etsy.com/listing/4601133387/rideshare-delivery-driver-tax-tracker"
       },
       "shop": {
@@ -549,14 +549,14 @@
       "status": "live",
       "tier": "kit",
       "gumroad": {
-        "price": "14.99",
+        "price": "10.49",
         "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-pack",
         "product_id": "rxmjbs"
       },
       "etsy": {
         "allowed": true,
-        "list": 29.98,
-        "sale": 14.99,
+        "list": 20.98,
+        "sale": 10.49,
         "url": "https://www.etsy.com/listing/4601146728/quickbooks-online-chart-of-accounts"
       },
       "shop": {
@@ -573,14 +573,14 @@
       "status": "live",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-e-commerce-seller",
         "product_id": "boszr"
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601148092/quickbooks-online-chart-of-accounts-e"
       },
       "shop": {
@@ -597,14 +597,14 @@
       "status": "live",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-freelancer-service-business",
         "product_id": "diegoe"
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601122895/quickbooks-online-chart-of-accounts"
       },
       "shop": {
@@ -621,14 +621,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601150194/quickbooks-online-chart-of-accounts"
       },
       "shop": {
@@ -646,14 +646,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601151054/quickbooks-online-chart-of-accounts"
       },
       "shop": {
@@ -671,14 +671,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601154482/quickbooks-online-chart-of-accounts"
       },
       "shop": {
@@ -696,14 +696,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601151892/quickbooks-online-chart-of-accounts"
       },
       "shop": {
@@ -721,14 +721,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601126661/quickbooks-online-chart-of-accounts"
       },
       "shop": {
@@ -746,14 +746,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601153624/quickbooks-online-chart-of-accounts"
       },
       "shop": {
@@ -771,14 +771,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601129985/tax-preparer-client-onboarding-kit"
       },
       "shop": {
@@ -796,14 +796,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "5.99",
+        "price": "3.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 11.98,
-        "sale": 5.99,
+        "list": 7.98,
+        "sale": 3.99,
         "url": "https://www.etsy.com/listing/4601130859/bookkeeper-engagement-letter-kit-scope"
       },
       "shop": {
@@ -821,14 +821,14 @@
       "status": "draft",
       "tier": "kit",
       "gumroad": {
-        "price": "5.99",
+        "price": "3.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 11.98,
-        "sale": 5.99,
+        "list": 7.98,
+        "sale": 3.99,
         "url": "https://www.etsy.com/listing/4601131713/tax-season-client-email-templates-35"
       },
       "shop": {
@@ -846,14 +846,14 @@
       "status": "live",
       "tier": "kit",
       "gumroad": {
-        "price": "5.99",
+        "price": "3.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 11.98,
-        "sale": 5.99,
+        "list": 7.98,
+        "sale": 3.99,
         "url": "https://www.etsy.com/listing/4601457443"
       },
       "shop": {
@@ -871,14 +871,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "19.99",
+        "price": "13.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 39.98,
-        "sale": 19.99,
+        "list": 27.98,
+        "sale": 13.99,
         "url": "https://www.etsy.com/listing/4601484776"
       },
       "shop": {
@@ -896,14 +896,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601488785"
       },
       "shop": {
@@ -921,14 +921,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601489655"
       },
       "shop": {
@@ -946,14 +946,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601490377"
       },
       "shop": {
@@ -971,14 +971,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601491161"
       },
       "shop": {
@@ -996,14 +996,14 @@
       "status": "live",
       "tier": "tracker",
       "gumroad": {
-        "price": "6.99",
+        "price": "4.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 13.98,
-        "sale": 6.99,
+        "list": 9.98,
+        "sale": 4.99,
         "url": "https://www.etsy.com/listing/4601517742"
       },
       "shop": {
@@ -1021,14 +1021,14 @@
       "status": "live",
       "tier": "kit",
       "gumroad": {
-        "price": "9.99",
+        "price": "6.99",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 19.98,
-        "sale": 9.99,
+        "list": 13.98,
+        "sale": 6.99,
         "url": "https://www.etsy.com/listing/4601492601"
       },
       "shop": {
@@ -1046,14 +1046,14 @@
       "status": "live",
       "tier": "kit",
       "gumroad": {
-        "price": "4.99",
+        "price": "3.49",
         "url": null,
         "product_id": null
       },
       "etsy": {
         "allowed": true,
-        "list": 9.98,
-        "sale": 4.99,
+        "list": 6.98,
+        "sale": 3.49,
         "url": "https://www.etsy.com/listing/4601519074"
       },
       "shop": {
