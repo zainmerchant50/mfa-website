@@ -81,6 +81,27 @@ UI_CSS = r"""
 .kd-menu a:hover{background:var(--paper-2,#F5F4EF);color:var(--navy)!important}
 @keyframes uiMenu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media (max-width:560px){.kd-menu{left:0;right:auto}.kd-sub{width:100%}.kd-sub>summary{width:100%;justify-content:center}}
+/* 2026 Tax Starter Kit call-to-action (ui_kit.kit_cta; links to /start/, the lead-magnet page) */
+.kitcta{max-width:1080px;margin:44px auto}
+.kitcta-wrap{padding-top:8px}
+.kitcta-in{position:relative;overflow:hidden;display:flex;align-items:center;gap:26px;background:var(--navy);color:#fff;border-radius:18px;padding:24px 30px}
+.kitcta-in::after{content:"";position:absolute;right:-90px;top:-110px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(216,183,105,.25);pointer-events:none}
+.kitcta-img{flex-shrink:0;width:86px;height:auto;border-radius:6px;box-shadow:0 12px 28px rgba(0,0,0,.35);transform:rotate(-4deg);transition:transform .6s var(--ui-ease)}
+.kitcta-in:hover .kitcta-img{transform:rotate(0) translateY(-4px) scale(1.03)}
+.kitcta-t{flex:1;min-width:0}
+.kitcta .eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-b)}
+.kitcta .kitcta-h{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.65rem;line-height:1.15;color:#fff!important;margin:6px 0 4px!important}
+.kitcta .kitcta-p{font-size:.92rem!important;line-height:1.6!important;font-weight:300;color:rgba(255,255,255,.74)!important;margin:0!important;max-width:620px}
+.kitcta .btn{flex-shrink:0;position:relative;z-index:1}
+.kitcta a.btn-gold,.article .kitcta a.btn-gold{color:var(--navy);border-bottom:0}
+.article .kitcta{margin:40px 0}
+.fkit{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:0 0 16px;margin:0 0 4px;border-bottom:1px solid var(--hair)}
+.fkit b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.2rem;color:var(--navy)}
+.fkit span{font-size:.84rem}
+.fkit a{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);padding:8px 14px;border:1px solid var(--gold);border-radius:999px;transition:background .3s,color .3s,transform .35s var(--ui-ease)}
+.fkit a:hover{background:var(--gold);color:#fff!important;transform:translateY(-2px)}
+.fkit a i{font-style:normal;transition:transform .35s var(--ui-ease)}.fkit a:hover i{transform:translateX(3px)}
+@media (max-width:640px){.kitcta-in{flex-wrap:wrap;gap:16px;padding:22px 20px}.kitcta-img{width:64px}.kitcta-t{flex-basis:calc(100% - 90px)}.kitcta .btn{width:100%;justify-content:center}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none}
@@ -108,7 +129,7 @@ UI_JS = r"""<script>
   if(location.hash){var t=d.querySelector(location.hash);var it=t&&t.closest&&t.closest('.faq-i');if(it&&!it.classList.contains('open'))it.querySelector('.faq-q').click();}
   /* Scroll reveal */
   var sel=['.article>h2','.article>figure','.article>.tldr','.article>table','.article>section','.article>div:not(.share)',
-    '.pcard','.cta-card','.sec-hd','.card','.step','.why>div','.rev','.book-frame','.faq-l','.final .wrap','.nl-wrap','.alist li'];
+    '.pcard','.cta-card','.kitcta-in','.sec-hd','.card','.step','.why>div','.rev','.book-frame','.faq-l','.final .wrap','.nl-wrap','.alist li'];
   var els=[].slice.call(d.querySelectorAll(sel.join(',')));
   if(!still&&'IntersectionObserver' in window){
     els.forEach(function(el){
@@ -179,3 +200,21 @@ def accordionize_faqs(body):
     pairs = re.findall(r"<h3>(.*?)</h3>\s*<p>(.*?)</p>", m.group(1), re.S)
     block = f'<section class="faqs" id="faqs"><h2>FAQs</h2>{faq_accordion(pairs)}</section>\n\n'
     return body[:m.start()] + block + body[m.end():]
+
+
+KIT_URL = "/start/"
+
+
+def kit_cta(where, wrap=False):
+    """Compact 'Get the 2026 Tax Starter Kit' block linking to /start/ (Zain 2026-10-23: everything leads back to /start).
+    where: short label for analytics (shop, guide, tool). wrap=True puts it in a .wrap container for full-width pages."""
+    box = (f'<aside class="kitcta" aria-label="2026 Small Business Tax Starter Kit"><div class="kitcta-in">'
+           f'<img class="kitcta-img" src="/start/kit-cover.webp" alt="Cover of the 2026 Small Business Tax Starter Kit" width="86" height="111" loading="lazy"/>'
+           f'<div class="kitcta-t"><span class="eyebrow">2026 Tax Starter Kit</span><p class="kitcta-h">Get the 2026 Tax Starter Kit</p>'
+           f'<p class="kitcta-p">Key dates, quarterly estimates, deduction and 1099 checklists, and LLC vs S corp basics. Eight pages, sent to your inbox.</p></div>'
+           f'<a class="btn btn-gold" href="{KIT_URL}" data-kit="{where}">Get the kit</a></div></aside>')
+    return f'<div class="wrap kitcta-wrap">{box}</div>' if wrap else box
+
+
+FOOT_KIT = ('<p class="fkit"><b>2026 Tax Starter Kit</b><span>Key dates and checklists for small businesses, sent to your inbox.</span>'
+            f'<a href="{KIT_URL}" data-kit="footer">Get the kit <i>&rarr;</i></a></p>')

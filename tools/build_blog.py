@@ -153,6 +153,7 @@ def nav(active):
 
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
+  {ui_kit.FOOT_KIT}
   <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
   <nav><a href="/">Home</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
@@ -234,6 +235,16 @@ def products_box(p):
   <a class="pb-all" href="/shop/">See all tools in the shop &rarr;</a>
 </aside>
 '''
+
+
+def is_form_guide(p):
+    """Tax-form guides: posts with a "formHelp" meta (Schedule C, 1065, 1120-S, ST-50, which form) or a form-* slug (1099 guide)."""
+    return bool(p.get("formHelp")) or p["slug"].startswith("form-")
+
+
+def kit_box(p):
+    """'Get the 2026 Tax Starter Kit' block on every tax-form guide (links to /start/)."""
+    return ui_kit.kit_cta("guide") if is_form_guide(p) else ""
 
 
 def with_help(p, body):
@@ -619,7 +630,7 @@ def build_post(p):
 </div></header>
 <main><article class="article">
 {ui_kit.accordionize_faqs(with_help(p, p["body"]))}
-{products_box(p)}{help_box(p, "end")}
+{products_box(p)}{help_box(p, "end")}{kit_box(p)}
 {keydates_block(p)}
 {tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>

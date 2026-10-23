@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 
 import seo
+import ui_kit
 from build_resources import page, write, esc, BASE, cta
 
 CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "products.json"
@@ -91,6 +92,7 @@ def build():
 <div class="hero-btns"><a class="btn btn-gold" href="#calc">Browse the shop</a><a class="btn btn-line" href="/services/">See our services</a></div></div></header>
 <main>
 {"".join(secs)}
+{ui_kit.kit_cta("shop", wrap=True)}
 <section class="wrap llc-sec" id="services" aria-labelledby="svc-h"><div class="sec-hd"><span class="eyebrow eb-dark">Services</span>
 <h2 id="svc-h">Need it done for you?</h2></div>
 <div class="shop-svc card"><div><h3>Bookkeeping cleanup</h3><p>Months behind on your books? We catch up the categorization, reconcile your bank and card accounts, tidy payables and receivables, and send a written summary. We review a sample of your accounts and give you a fixed quote before any work starts.</p></div>

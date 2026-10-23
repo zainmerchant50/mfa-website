@@ -13,6 +13,12 @@
   X-Robots-Tag: noindex
   Content-Disposition: inline
 
+# 2026 Tax Starter Kit PDF: delivered by email only (MailerLite automation), never indexed (tools/build_start_kit.py)
+/start/kit/*
+  X-Robots-Tag: noindex, nofollow
+  Content-Type: application/pdf
+  Cache-Control: public, max-age=3600
+
 # Machine-readable files for search engines, AI assistants and agents (tools/seo.py)
 /llms.txt
   Content-Type: text/plain; charset=utf-8

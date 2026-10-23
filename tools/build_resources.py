@@ -15,6 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_blog as B  # noqa: E402
 import seo  # noqa: E402  JSON-LD building blocks and root files (tools/seo.py)
+import ui_kit  # noqa: E402  shared components (kit_cta)
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
@@ -144,6 +145,10 @@ def write(rel, html):
     if rel.startswith("tools/"):   # internal links: tool -> service, shop product, guide (placed just above the site footer)
         rel_html = seo.related_html(rel.split("/", 1)[1])
         html = re.sub(r"<footer\b", lambda m: rel_html + m.group(0), html, count=1) if rel_html else html
+        # 2026 Tax Starter Kit block (links to /start/), just before the page's closing "Book a consultation" card
+        kit = ui_kit.kit_cta("tool", wrap=True)
+        i = html.rfind('<section class="cta-block"')
+        html = html[:i] + kit + html[i:] if i >= 0 else re.sub(r"<footer\b", lambda m: kit + m.group(0), html, count=1)
     out = SITE / rel / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
@@ -416,6 +421,8 @@ if __name__ == "__main__":
     urls.append(build_cleanup.build())
     import build_book  # noqa: E402  (/book/, booking calendar moved off the home page; Zain 2026-10-23)
     urls.append(build_book.build())
+    import build_start  # noqa: E402  (/start/, 2026 Tax Starter Kit lead magnet + MailerLite form; Zain 2026-10-23)
+    urls.append(build_start.build())
     urls.append(BASE + "/new-york-ny/")  # Site-owned landing page (build_landing.py); NJ pages are listed by build_blog.py
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))
