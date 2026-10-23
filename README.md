@@ -1,5 +1,7 @@
 # mfa-advisory.com
 
+**Design (Zain, 2026-10-23):** every new page or update must match the site's design system from the first version, with animations where they fit. Read `docs/design-system.md`, and run `tools/check_ui.py` together with `check_seo.py` and `check_catalog.py` before every push.
+
 Source for Merchant Financial Advisory LLC's website. Static site: everything published lives in `site/` (no build step on the host).
 
 - `site/` – published folder (index.html, blog/, union-city-nj/ landing page, icons, `_headers`, `_redirects`).
