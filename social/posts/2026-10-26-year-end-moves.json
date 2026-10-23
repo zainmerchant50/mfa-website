@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-26",
+  "number": 1,
+  "slug": "Year-End-Moves",
+  "topic": "Year-end tax moves with a Dec 31, 2026 cutoff",
+  "type": "value",
+  "accent": "forest",
+  "label": "Year-end planning / Guide",
+  "kicker": "Save this for December",
+  "headline": "Four tax moves that end on *Dec. 31*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {"title": "Equipment: in service, not just bought", "text": "To deduct it for 2026, it must be ready and available for use by Dec. 31."},
+    {"title": "Charity without itemizing", "text": "New for 2026: up to $1,000 of cash gifts ($2,000 joint). Give by Dec. 31."},
+    {"title": "Max your 401(k) payroll deferrals", "text": "2026 limit $24,500, plus $8,000 if you are 50 or older. Raise it before the last paychecks."},
+    {"title": "Then mark Jan. 15, 2027", "text": "The fourth-quarter 2026 estimated tax payment is due."}
+  ],
+  "body": [],
+  "cta_word": "GUIDE",
+  "link": "mfa-advisory.com/blog",
+  "checked": "October 23, 2026",
+  "ig_caption": "Most 2026 tax moves stop counting on December 31. Save this before the holidays get busy.\n\n✔️ Equipment: buying it is not enough. It has to be placed in service, ready and available for use, by Dec. 31 to count for 2026.\n✔️ Charity: new for 2026, you can deduct up to $1,000 of cash gifts ($2,000 filing jointly) even if you take the standard deduction.\n✔️ 401(k): the 2026 deferral limit is $24,500, plus $8,000 if you are 50 or older. Raise your payroll deferral before the last paychecks of the year.\n✔️ Then mark January 15, 2027 for the fourth-quarter estimated tax payment.\n\nComment GUIDE and we'll send you the link, or find it at mfa-advisory.com/blog/year-end-tax-planning-2026-key-dates\n\nGeneral information, not tax advice.\n\n#smallbusiness #taxes #taxplanning #accounting #bookkeeping #businessowner #taxtips #selfemployed\n#yearendtaxplanning #taxdeadline #401k #charitablegiving #section179 #estimatedtaxes #njsmallbusiness #nysmallbusiness",
+  "li_caption": "Most tax-saving moves for 2026 have a hard cutoff of December 31. After that, there is nothing to fix in March.\n\nFour we review with owners every year-end:\n\n1. Equipment. Buying it is not the test. It has to be placed in service, meaning ready and available for its intended use, by December 31 to be deducted for 2026. A machine delivered in December and installed in January counts for 2027.\n2. Charity without itemizing. Starting in 2026, non-itemizers can deduct up to $1,000 of cash gifts to qualifying charities, or $2,000 filing jointly. Keep the bank record or written acknowledgment.\n3. 401(k) payroll deferrals. The 2026 limit is $24,500, plus an $8,000 catch-up at 50 or older. Deferrals come out of paychecks, so the change has to be in before the last payroll of the year.\n4. Then mark January 15, 2027, when the fourth-quarter 2026 estimated tax payment is due.\n\nOur guide covers each date between now and April 15, with the 2026 IRA and HSA limits. Comment GUIDE and we will send it, or see mfa-advisory.com/blog/year-end-tax-planning-2026-key-dates\n\n#TaxPlanning #SmallBusiness #YearEnd #Accounting",
+  "sources": [
+    {"fact": "Property is placed in service when ready and available for a specific use; delivered-but-not-installed example", "url": "https://www.irs.gov/publications/p946"},
+    {"fact": "Starting tax year 2026, non-itemizers may deduct up to $1,000 ($2,000 joint) of cash contributions", "url": "https://www.irs.gov/taxtopics/tc506"},
+    {"fact": "2026 401(k) deferral limit $24,500; age 50+ catch-up $8,000", "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"},
+    {"fact": "Fourth-quarter 2026 estimated tax due Jan. 15, 2027 (repo data/tax-figures-2026.json, checked 2026-10-20)", "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"}
+  ],
+  "post_times": {"linkedin": "8:00 AM ET", "instagram": "12:00 PM ET"}
+}

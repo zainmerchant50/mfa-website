@@ -6,7 +6,7 @@ Last updated: 2026-10-22 19:45 ET by Hub. Add ideas at the bottom; Blog's new gu
 | # | Type | Topic / angle | Product or page | CTA word |
 |---|---|---|---|---|
 | 1 | product | ~~1099-NEC $2,000 threshold: who needs a 1099~~ (2026-10-23) | 09 1099 Contractor Payment Tracker | TRACKER |
-| 2 | value | Year-end moves before Dec 31 (Solo 401(k) setup, equipment placed in service, gifts) | /blog/year-end-tax-planning-2026-key-dates/ | GUIDE |
+| 2 | value | ~~Year-end moves before Dec 31 (Solo 401(k) setup, equipment placed in service, gifts)~~ (2026-10-26) | /blog/year-end-tax-planning-2026-key-dates/ | GUIDE |
 | 3 | service | Behind on your books? Cleanup quote before tax season | /bookkeeping-cleanup/ | CALL |
 | 4 | product | Mileage log: what the IRS wants in a log, 2026 rates 72.5¢ / 76¢ | 14 IRS Mileage Log 2026 | TRACKER |
 | 5 | value | S corp or LLC? Profit, not revenue, decides | /tools/s-corp-tax-savings-calculator/ | CALCULATOR |
