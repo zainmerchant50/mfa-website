@@ -2569,6 +2569,663 @@
    "@type": "DataFeedItem",
    "dateModified": "2026-10-23",
    "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601457443#product",
+    "name": "2026 Personal Tax Organizer (Form 1040 Prep) with NJ & NY Pages",
+    "description": "Gather everything for your 2026 Form 1040 in one Excel / Google Sheets workbook: income, deductions, side-business totals, a 41-document checklist, New Jersey and New York pages and a one-page summary for your preparer.",
+    "sku": "2026-tax-organizer",
+    "url": "https://www.etsy.com/listing/4601457443",
+    "image": "https://mfa-advisory.com/shop/img/2026-tax-organizer.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "5.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601457443",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601484776#product",
+    "name": "Industry Bookkeeping Trackers 5-Pack (2026)",
+    "description": "Five bookkeeping and tax trackers for therapists, hair stylists, cleaning businesses, real estate agents and content creators: Schedule C mapping, 2026 mileage, 1099 check and quarterly set-aside.",
+    "sku": "industry-bookkeeping-trackers-5-pack",
+    "url": "https://www.etsy.com/listing/4601484776",
+    "image": "https://mfa-advisory.com/shop/img/industry-bookkeeping-trackers-5-pack.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel (10 files) + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "19.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601484776",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601488785#product",
+    "name": "Therapist & Counselor Bookkeeping Tracker (2026)",
+    "description": "Therapist bookkeeping spreadsheet 2026: private pay and insurance income, Schedule C expenses, CE and license tracker, mileage, 1099 check, quarterly set-aside.",
+    "sku": "therapist-counselor-bookkeeping-tracker",
+    "url": "https://www.etsy.com/listing/4601488785",
+    "image": "https://mfa-advisory.com/shop/img/therapist-counselor-bookkeeping-tracker.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel (10 files) + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601488785",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601489655#product",
+    "name": "Hair Stylist & Salon Bookkeeping Tracker (2026)",
+    "description": "Hair stylist bookkeeping spreadsheet 2026: booth rent, services, tips, retail and sales tax, Schedule C expenses, mileage, 1099-K check, quarterly set-aside.",
+    "sku": "hair-stylist-salon-bookkeeping-tracker",
+    "url": "https://www.etsy.com/listing/4601489655",
+    "image": "https://mfa-advisory.com/shop/img/hair-stylist-salon-bookkeeping-tracker.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel (10 files) + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601489655",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601490377#product",
+    "name": "Cleaning Business Bookkeeping Tracker (2026)",
+    "description": "Cleaning business bookkeeping spreadsheet 2026: job log, client balances, income, supplies and helpers by Schedule C line, mileage, quarterly set-aside.",
+    "sku": "cleaning-business-bookkeeping-tracker",
+    "url": "https://www.etsy.com/listing/4601490377",
+    "image": "https://mfa-advisory.com/shop/img/cleaning-business-bookkeeping-tracker.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel (10 files) + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601490377",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601491161#product",
+    "name": "Real Estate Agent Bookkeeping Tracker (2026)",
+    "description": "Realtor bookkeeping spreadsheet 2026: deals, GCI, broker splits and fees, agent expenses by Schedule C line, showing mileage, 1099 check, quarterly set-aside.",
+    "sku": "real-estate-agent-bookkeeping-tracker",
+    "url": "https://www.etsy.com/listing/4601491161",
+    "image": "https://mfa-advisory.com/shop/img/real-estate-agent-bookkeeping-tracker.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel (10 files) + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601491161",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601517742#product",
+    "name": "Content Creator Bookkeeping Tracker (2026)",
+    "description": "Content creator bookkeeping spreadsheet 2026: payouts, brand deals, gifted products, gear and software by Schedule C line, 1099 check, quarterly set-aside.",
+    "sku": "content-creator-bookkeeping-tracker",
+    "url": "https://www.etsy.com/listing/4601517742",
+    "image": "https://mfa-advisory.com/shop/img/content-creator-bookkeeping-tracker.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel (10 files) + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "6.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601517742",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601492601#product",
+    "name": "Small Business Budget + 13-Week Cash Flow Forecast (2026)",
+    "description": "An annual budget with budget vs. actual by month and year to date, plus a rolling 13-week cash flow forecast from your recurring items, receivables and bills, with scenarios and a low-cash alert.",
+    "sku": "small-business-budget-13-week-cash-flow",
+    "url": "https://www.etsy.com/listing/4601492601",
+    "image": "https://mfa-advisory.com/shop/img/small-business-budget-13-week-cash-flow.webp",
+    "category": "Tax calculators",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "9.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601492601",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
+    "@type": "Product",
+    "@id": "https://www.etsy.com/listing/4601519074#product",
+    "name": "Reseller Year-End Kit: Inventory Count, COGS & 1099-K Reconciliation",
+    "description": "Year-end inventory count, cost of goods sold (Schedule C Part III) and a 1099-K vs. platform report vs. bank deposit reconciliation for Etsy, eBay, Amazon, Poshmark, Mercari and Shopify sellers.",
+    "sku": "reseller-year-end-kit",
+    "url": "https://www.etsy.com/listing/4601519074",
+    "image": "https://mfa-advisory.com/shop/img/reseller-year-end-kit.webp",
+    "category": "Checklists & kits",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "Excel + PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "4.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://www.etsy.com/listing/4601519074",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-23",
+   "item": {
     "@type": "WebApplication",
     "name": "1099 Contractor Tracker: Who Needs a 1099-NEC in 2026",
     "url": "https://mfa-advisory.com/tools/1099-contractor-tracker/",
