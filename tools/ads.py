@@ -47,7 +47,10 @@ if(k==='call'||k==='book')conv(k);
 """ % ADS
 
 VER = hashlib.sha1(JS.encode()).hexdigest()[:10]
-TAG = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={ADS["id"]}"></script>'
+# Site-wide verification meta tags ride along with the Ads tag so every page's <head> gets them.
+# Pinterest website claim (account pinterest.com/merchant4104, Zain's yes 2026-10-23).
+VERIFY = '<meta name="p:domain_verify" content="b4398f09fdd0e385c266cc687acecf36"/>'
+TAG = (VERIFY + f'<script async src="https://www.googletagmanager.com/gtag/js?id={ADS["id"]}"></script>'
        f'<script src="/assets/ads.js?v={VER}"></script>')
 MARKED = f"<!--ads:tag-->{TAG}<!--/ads:tag-->"
 HAND_BUILT = ["index.html", "404.html"]
