@@ -5,7 +5,7 @@
  "name": "Merchant Financial Advisory: services, public prices, tools and products",
  "description": "Machine-readable list of what MFA offers and what is publicly priced. Services marked 'quoted up front' have no public price.",
  "url": "https://mfa-advisory.com/catalog.json",
- "dateModified": "2026-10-22",
+ "dateModified": "2026-10-23",
  "inLanguage": "en-US",
  "provider": {
   "@type": "AccountingService",
@@ -369,7 +369,7 @@
  "dataFeedElement": [
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#tax-preparation",
@@ -422,7 +422,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#tax-planning",
@@ -475,7 +475,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#bookkeeping",
@@ -536,7 +536,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#financial-reporting",
@@ -589,7 +589,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#fractional-cfo",
@@ -642,7 +642,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#audit-support",
@@ -695,7 +695,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#technical-accounting",
@@ -748,7 +748,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#business-advisory",
@@ -836,7 +836,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/llc-formation/#service",
@@ -1107,7 +1107,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026#product",
@@ -1180,7 +1180,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601160748/2026-paycheck-calculator-excel-google#product",
@@ -1253,7 +1253,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601163974/s-corp-vs-llc-calculator-is-an-s-corp#product",
@@ -1326,7 +1326,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://mfaadvisory.gumroad.com/l/1099-kit#product",
@@ -1399,7 +1399,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601137589/month-end-close-checklist-excel-google#product",
@@ -1472,7 +1472,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://mfaadvisory.gumroad.com/l/bookkeeping-cleanup-checklist#product",
@@ -1545,7 +1545,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://mfaadvisory.gumroad.com/l/new-business-setup-checklist#product",
@@ -1618,7 +1618,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601136753/small-business-year-end-tax-checklist#product",
@@ -1691,7 +1691,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes#product",
@@ -1764,7 +1764,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers#product",
@@ -1837,7 +1837,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601110337/1099-contractor-payment-tracker-2026#product",
@@ -1910,7 +1910,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601113193/1099-income-tracker-for-freelancers-2026#product",
@@ -1983,7 +1983,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601114741/small-business-bookkeeping-spreadsheet#product",
@@ -2056,7 +2056,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601141354/schedule-c-expense-categorization-guide#product",
@@ -2129,7 +2129,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601142854/self-employed-tax-deduction-tracker-2026#product",
@@ -2202,7 +2202,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601144570/irs-mileage-log-2026-mileage-tracker#product",
@@ -2275,7 +2275,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601119735/online-seller-bookkeeping-spreadsheet#product",
@@ -2348,7 +2348,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601146728/quickbooks-online-chart-of-accounts#product",
@@ -2421,7 +2421,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601148092/quickbooks-online-chart-of-accounts-e#product",
@@ -2494,7 +2494,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601122895/quickbooks-online-chart-of-accounts#product",
@@ -2567,7 +2567,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "1099 Contractor Tracker: Who Needs a 1099-NEC in 2026",
@@ -2582,7 +2582,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "1099 Tax Calculator 2026: Self-Employment, NJ & NY",
@@ -2597,7 +2597,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "Break-Even Calculator for Small Businesses",
@@ -2612,7 +2612,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "Do I Need to Send a 1099? 2026 Payments Checker",
@@ -2627,7 +2627,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "Home Office Deduction Calculator 2026",
@@ -2642,7 +2642,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "Is It Tax Deductible? 2026 Business Write-Off Finder",
@@ -2657,7 +2657,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "Mileage Deduction Calculator 2026 (IRS Standard Rates)",
@@ -2672,7 +2672,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY)",
@@ -2687,7 +2687,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "Profit Margin & Markup Calculator",
@@ -2702,7 +2702,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY",
@@ -2717,7 +2717,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "S Corp Tax Savings Calculator: Is an S Corp Worth It?",
@@ -2732,7 +2732,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "2027 Business Tax Deadlines by Entity: Fed, NJ & NY",
@@ -2747,7 +2747,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-22",
+   "dateModified": "2026-10-23",
    "item": {
     "@type": "WebApplication",
     "name": "W-9 Request Email Templates for Vendors",

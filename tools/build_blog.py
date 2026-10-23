@@ -230,6 +230,7 @@ def products_box(p):
     return f'''<aside class="prodbox" aria-label="Tools for doing this yourself">
   <p class="pb-h">Do it yourself with our tools</p>
   <ul class="pb-list">{cards}</ul>
+  <p class="pb-b">Bought a tool and want us to take it from there? Book paid work within 30 days and we credit what you paid.</p>
   <a class="pb-all" href="/shop/">See all tools in the shop &rarr;</a>
 </aside>
 '''
