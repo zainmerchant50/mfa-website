@@ -181,7 +181,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Break-Even Calculator for Small Businesses: Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal. https://mfa-advisory.com/tools/break-even-calculator/
 - Do I Need to Send a 1099? 2026 Payments Checker: Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines. https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/
 - Home Office Deduction Calculator 2026: Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side. https://mfa-advisory.com/tools/home-office-deduction-calculator/
-- Is It Tax Deductible? 2026 Business Write-Off Finder: Can I write it off? Search 58 business expense deductions for 2026: what self-employed people can deduct, the limits, records and IRS source. https://mfa-advisory.com/tools/is-it-deductible/
+- Is It Tax Deductible? 2026 Business Write-Off Finder: Can I write this off? Tap or search 59 everyday business expenses for 2026 and get a plain answer, what proof to keep and the mistake to avoid. https://mfa-advisory.com/tools/is-it-deductible/
 - Mileage Deduction Calculator 2026 (IRS Standard Rates): Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates. https://mfa-advisory.com/tools/mileage-deduction-calculator/
 - Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY): Estimate W-2 take-home pay per paycheck after federal income tax, Social Security, Medicare and New Jersey or New York tax. https://mfa-advisory.com/tools/paycheck-tax-calculator/
 - Profit Margin & Markup Calculator: Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide. https://mfa-advisory.com/tools/profit-margin-calculator/
@@ -222,7 +222,10 @@ Page: https://mfa-advisory.com/services/#business-advisory
 
 Educational information only, not tax, legal or accounting advice. Written for sole proprietors and single-member LLCs filing Schedule C. Dataset: https://mfa-advisory.com/tools/is-it-deductible/deductions.json (cite with a link to the page).
 
-### Home office: It depends
+### Home office: Partly (It depends)
+In plain English: If a specific spot in your home is used only and regularly for your business, and it's your main place of work (or where you meet clients), part of your home costs counts. The easy way: $5 per square foot, up to 300 square feet.
+Keep as proof: Measurements of your office and your whole home; Photos showing the space is only used for work; Your home bills and receipts, if you use the regular method
+Common mistake: Calling a corner of the guest room or the kitchen table an office. The space has to be used only for work, and regularly.
 Rule: You can deduct part of your home costs if a specific area is used regularly and exclusively for your business and is your principal place of business (or where you meet clients). Use the simplified method ($5 per square foot) or the regular method (your business-use percentage of actual home costs, on Form 8829).
 Limits: Simplified method: $5 per square foot, up to 300 square feet, so $1,500 at most. Either method can't exceed the gross income from the business use of your home minus your other business expenses; under the regular method the excess carries over to the next year, under the simplified method it doesn't.
 Records to keep: Measurements or a floor plan of the office and the whole home, photos showing exclusive use, and the bills, receipts and canceled checks for every home expense you deduct (and your home's basis if you claim depreciation).
@@ -231,7 +234,10 @@ Source: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.go
 Also: IRS: Simplified option for home office deduction https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction
 Page: https://mfa-advisory.com/tools/is-it-deductible/#home-office
 
-### Office rent: 100% deductible
+### Office rent: Yes (100% deductible)
+In plain English: Rent for an office, shop, studio or storefront you use for your business counts in full.
+Keep as proof: The signed lease; Monthly invoices or statements; Proof you paid
+Common mistake: Writing off rent on your own home as office rent. Home costs only count through the home office rules.
 Rule: Rent you pay for office, retail or other business space is deductible in the year it applies to. Rent for vehicles, machinery and equipment is deductible too, for the business share of use.
 Limits: No dollar limit. For rented vehicles, machinery and equipment, only the business share of use counts.
 Records to keep: The signed lease, monthly invoices or statements, and proof of payment.
@@ -240,7 +246,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: 26 CFR § 1.162-1, Business expenses https://www.law.cornell.edu/cfr/text/26/1.162-1
 Page: https://mfa-advisory.com/tools/is-it-deductible/#office-rent
 
-### Coworking space or shared desk: 100% deductible
+### Coworking space or shared desk: Yes (100% deductible)
+In plain English: A coworking membership, desk rental or meeting room you book for work counts as rent for business space. If the membership bundles in personal perks like a gym, only the business part counts.
+Keep as proof: Your membership agreement; Monthly invoices and proof you paid; A quick note of what you use the space for
+Common mistake: Writing off the whole membership when it bundles in personal perks like a gym. Only the business part counts.
 Rule: A coworking membership, desk rental or meeting-room booking used for your business is rent for business space and is deductible.
 Limits: Only the business share counts if part of the membership is for personal use (for example, a gym or social perks bundled in).
 Records to keep: Membership agreement, monthly invoices and proof of payment. A short note of what the space is used for helps.
@@ -249,7 +258,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: 26 CFR § 1.162-1, Business expenses https://www.law.cornell.edu/cfr/text/26/1.162-1
 Page: https://mfa-advisory.com/tools/is-it-deductible/#coworking
 
-### Utilities (electric, gas, water): It depends
+### Utilities (electric, gas, water): Partly (It depends)
+In plain English: For a shop, office or studio, yes. For your home, only through the home office deduction: the work-space share of the bills counts if you use the regular method.
+Keep as proof: Utility bills and proof you paid; Your square-footage math, if it's for a home office
+Common mistake: Writing off the whole home electric or gas bill. At home, only the office's share counts, and only with the regular home office method.
 Rule: Utilities for a business location (an office, shop or studio) are deductible. Utilities for your home are deductible only through a home office deduction, as part of your business-use percentage under the regular method.
 Limits: No dollar limit for a business location. At home, only the business-use share counts, and the home office income limit applies.
 Records to keep: Utility bills and proof of payment; for a home office, your square-footage calculation.
@@ -258,7 +270,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.gov/publications/p587
 Page: https://mfa-advisory.com/tools/is-it-deductible/#utilities
 
-### Office supplies and postage: 100% deductible
+### Office supplies and postage: Yes (100% deductible)
+In plain English: Paper, ink, pens, stamps and other supplies you use up in your business count. Things that last well over a year are treated as equipment instead.
+Keep as proof: Receipts showing what you bought and when
+Common mistake: Lumping a printer or a desk in with supplies. Things that last well over a year are equipment, with their own rules.
 Rule: Office supplies and postage used in your business are deductible. Materials and supplies are generally deducted as you use them, and items you normally use up within a year can be deducted when bought.
 Limits: Items that last substantially longer than a year are generally depreciated instead (or expensed under the de minimis safe harbor or Section 179).
 Records to keep: Receipts or invoices showing what you bought and when.
@@ -266,7 +281,10 @@ Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule 
 Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#office-supplies
 
-### Work clothes and uniforms: It depends
+### Work clothes and uniforms: Usually not (It depends)
+In plain English: Only if your work requires it and it isn't something you could wear as everyday clothing, like protective gear, scrubs or a uniform you wouldn't wear outside work. Regular clothes don't count, even if you only wear them for work.
+Keep as proof: Receipts; A note of why your work requires it (photos help)
+Common mistake: Writing off clothes you could wear outside work, like a suit or black pants, even if you only wear them for work.
 Rule: Clothing is deductible only if your work requires it and it isn't suitable for ordinary street wear, such as protective gear or a uniform you wouldn't wear outside work. Everyday clothes are personal, even if you only wear them for work.
 Limits: No dollar limit. The test is objective: if the item could be worn as ordinary street clothing, it doesn't qualify, however you actually use it.
 Records to keep: Receipts, plus a note of why the item is required for your work and not suitable for everyday wear (photos help).
@@ -276,7 +294,10 @@ Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/ins
 Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
 Page: https://mfa-advisory.com/tools/is-it-deductible/#uniforms
 
-### Car mileage (standard rate): Partly deductible
+### Car mileage (standard rate): Partly (Partly deductible)
+In plain English: Yes for business driving, never for your commute. The easy way: multiply your business miles by the IRS rate, 72.5 cents a mile for January to June 2026 and 76 cents from July to December. Business parking and tolls count on top.
+Keep as proof: A mileage log kept as you go: date, where, why and how many miles; Your odometer reading at the start and end of the year
+Common mistake: Counting the drive from home to your regular shop or office. That's commuting, and it never counts.
 Rule: Deduct your business miles times the IRS standard mileage rate instead of tracking actual car costs. Business miles are trips to clients, between work locations and for business errands, never the commute.
 Limits: 2026 business rate: 72.5 cents a mile for Jan. 1 to June 30 and 76 cents a mile for July 1 to Dec. 31 (2025: 70 cents). You must choose the standard rate in the first year you use a car you own for business; with five or more cars used at the same time you can't use it. Business parking and tolls are deductible on top.
 Records to keep: A mileage log kept as you go: date, destination, business purpose and miles for each trip, plus total miles for the year and odometer readings.
@@ -286,7 +307,10 @@ Also: IRS Topic no. 510, Business use of car https://www.irs.gov/taxtopics/tc510
 Also: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
 Page: https://mfa-advisory.com/tools/is-it-deductible/#mileage
 
-### Car expenses (actual costs): Partly deductible
+### Car expenses (actual costs): Partly (Partly deductible)
+In plain English: Instead of the mileage rate, you can write off the work share of what your car really costs: gas, repairs, tires, insurance, registration, and depreciation or lease payments. If 70% of your miles are for work, 70% of those costs count.
+Keep as proof: Every car receipt: gas, repairs, insurance; Your purchase or lease papers; A mileage log with work miles and total miles
+Common mistake: Writing off 100% of a car you also drive personally, with no mileage log to back up your work percentage.
 Rule: Instead of the standard rate, you can deduct the business share of what the car actually costs: gas, oil, repairs, tires, insurance, registration, licenses and depreciation or lease payments. If you also drive it personally, only the business-use percentage counts.
 Limits: Business-use percentage = business miles divided by total miles. Depreciation is subject to the yearly limits for passenger cars; a heavy SUV's Section 179 deduction is capped at $32,000 for tax years beginning in 2026 ($31,300 in 2025).
 Records to keep: Every receipt for car costs, the purchase or lease papers, and a mileage log showing business and total miles.
@@ -296,7 +320,10 @@ Also: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov
 Also: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
 Page: https://mfa-advisory.com/tools/is-it-deductible/#vehicle-actual-expenses
 
-### Parking and tolls: 100% deductible
+### Parking and tolls: Yes (100% deductible)
+In plain English: Parking and tolls on business trips count, on top of mileage or actual car costs. Parking at your own regular workplace doesn't, because that's commuting.
+Keep as proof: Receipts or toll statements; A matching note in your mileage log
+Common mistake: Writing off the monthly spot at your own office or shop. That's part of your commute.
 Rule: Parking fees and tolls for business trips are deductible on top of either the standard mileage rate or actual expenses.
 Limits: Parking at your own regular place of business is a commuting cost and isn't deductible.
 Records to keep: Receipts or toll statements, matched to trips in your mileage log.
@@ -305,7 +332,10 @@ Source: IRS Topic no. 510, Business use of car https://www.irs.gov/taxtopics/tc5
 Also: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
 Page: https://mfa-advisory.com/tools/is-it-deductible/#parking-tolls
 
-### Business travel (flights, hotels): Deductible
+### Business travel (flights, hotels): Yes (Deductible)
+In plain English: Yes, when work takes you away from home overnight: flights, hotels, rides and taxis there, baggage and laundry. Meals on the trip count at half. A trip that's mainly a vacation doesn't count.
+Keep as proof: Hotel receipts and any receipt of $75 or more; The dates, where you went and the business reason
+Common mistake: Writing off a family vacation because you took a few work calls. The trip has to be mainly for business.
 Rule: Ordinary and necessary costs of traveling away from your tax home overnight for business are deductible: transportation, lodging, taxis or rideshare at the destination, baggage, laundry and business calls. Meals on the trip are 50% deductible.
 Limits: The trip has to take you away from your tax home (the general area of your main place of business) longer than a normal workday, needing sleep or rest. A trip that is mainly personal is a personal expense.
 Records to keep: Receipts for lodging and anything $75 or more, plus the dates, destination and business purpose of the trip.
@@ -315,7 +345,10 @@ Also: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs
 Also: 26 CFR § 1.274-5, Substantiation requirements https://www.law.cornell.edu/cfr/text/26/1.274-5
 Page: https://mfa-advisory.com/tools/is-it-deductible/#business-travel
 
-### Meals while traveling: 50% deductible
+### Meals while traveling: Partly (50% deductible)
+In plain English: Meals while you're away overnight on business count at 50%. Keep your receipts, or use the IRS daily meal allowance for the area instead.
+Keep as proof: Meal receipts, or with the daily allowance, the dates, place and reason for the trip
+Common mistake: Writing off 100% of meals on the road. They count at half.
 Rule: Meals while you're traveling away from home on business are generally 50% deductible. You can deduct actual costs or use the standard meal allowance for the area instead of keeping meal receipts.
 Limits: 50% of the cost (80% for workers subject to Department of Transportation hours-of-service limits, such as long-haul truck drivers).
 Records to keep: Receipts if you deduct actual costs; with the standard meal allowance, records of the time, place and business purpose of the trip.
@@ -325,7 +358,10 @@ Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/ins
 Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
 Page: https://mfa-advisory.com/tools/is-it-deductible/#travel-meals
 
-### Business meals: 50% deductible
+### Business meals: Partly (50% deductible)
+In plain English: A meal with a client, customer or business contact counts at 50%, tax and tip included, as long as you're there, it isn't over the top, and there's a real business reason.
+Keep as proof: The receipt (a must for $75 or more); Who you ate with, how you know them and what you talked about; Jot it down the same day
+Common mistake: Keeping the receipt but not noting who you ate with and why. The receipt alone doesn't show the business reason.
 Rule: A meal with a client, customer or business contact is generally 50% deductible if it isn't lavish, you (or an employee) are there, and it has a business purpose.
 Limits: 50% of the cost, including tax and tip. Food and drinks at an entertainment event count only if bought separately or listed separately on the bill.
 Records to keep: Receipt (required for $75 or more), plus a note of the date, place, who attended, their business relationship to you and what you discussed. Write it down at or near the time.
@@ -335,7 +371,10 @@ Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses ht
 Also: 26 CFR § 1.274-5, Substantiation requirements https://www.law.cornell.edu/cfr/text/26/1.274-5
 Page: https://mfa-advisory.com/tools/is-it-deductible/#meals
 
-### Entertainment (tickets, golf, shows): Not deductible
+### Entertainment (tickets, golf, shows): Usually not (Not deductible)
+In plain English: Game tickets, golf, concerts and shows don't count, even with a client and a real business reason. Food bought separately at the event can still count as a half-off business meal.
+Keep as proof: Receipts for any food bought separately
+Common mistake: Writing off game tickets or a round of golf because a client came along. Entertainment doesn't count, even with a real business reason.
 Rule: Entertainment is not deductible, even with a clear business purpose. That covers tickets to games and shows, golf, and similar outings with clients or prospects.
 Limits: 0%. Food and drinks bought separately at an entertainment event, or listed separately on the bill, can still be a 50% business meal.
 Records to keep: Keep records anyway if a separately billed meal was involved.
@@ -344,7 +383,10 @@ Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.i
 Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
 Page: https://mfa-advisory.com/tools/is-it-deductible/#entertainment
 
-### Staff parties and team events: 100% deductible
+### Staff parties and team events: Yes (100% deductible)
+In plain English: Yes, in full. A holiday party or summer picnic mainly for your team counts 100%, not just half, as long as it's for your staff in general and not only your top earners.
+Keep as proof: Invoices and receipts; The date and a guest list showing it was for staff
+Common mistake: Counting it at half like a client meal, or inviting only your top earners. A party for your staff in general counts in full.
 Rule: Recreational and social events mainly for your employees, such as a holiday party or summer picnic, are an exception to the entertainment and 50% meal limits.
 Limits: 100%, as long as the event is mainly for employees in general rather than for highly compensated employees only.
 Records to keep: Invoices and receipts, the date, and a guest list showing it was for staff.
@@ -353,7 +395,10 @@ Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.i
 Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
 Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-parties
 
-### Snacks and meals for employees at work: Not deductible
+### Snacks and meals for employees at work: Usually not (Not deductible)
+In plain English: No, starting in 2026. Snacks, coffee and meals you provide to employees at work are no longer deductible, apart from a few narrow exceptions. Staff parties follow a different rule.
+Keep as proof: Invoices, plus what the food was for, so the right rule is used
+Common mistake: Still writing off office snacks and catered team lunches out of habit. That stopped counting in 2026.
 Rule: Starting in 2026, an employer can no longer deduct the cost of food and drinks provided to employees through an on-site eating facility, as de minimis fringe benefits, or for the employer's convenience. There are narrow exceptions in the law.
 Limits: 0% for amounts paid or incurred after Dec. 31, 2025. Staff parties and other recreational events mainly for employees follow a different rule.
 Records to keep: Invoices, plus what the food was for, so the right rule can be applied.
@@ -362,7 +407,10 @@ Source: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits htt
 Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
 Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-meals
 
-### Cell phone and phone service: Partly deductible
+### Cell phone and phone service: Partly (Partly deductible)
+In plain English: The work share of your phone bill counts. If you use your phone 60% for work, you can write off 60% of the bill. The phone itself is equipment and is written off separately.
+Keep as proof: Your phone bills; A sample month showing how much is work, to back up your percentage
+Common mistake: Writing off 100% of a phone you also use for personal calls and apps.
 Rule: The business share of your cell phone plan is deductible. For a home landline, the basic charge for the first line into your home is personal, but business long-distance calls and a second line used only for business are deductible.
 Limits: Only the business-use percentage of a mixed-use phone. The phone itself is equipment: deduct it under the de minimis safe harbor, Section 179 or depreciation.
 Records to keep: Phone bills, plus a reasonable basis for your business-use percentage (for example, a sample month of itemized usage).
@@ -371,7 +419,10 @@ Source: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.go
 Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#cell-phone
 
-### Internet service: Partly deductible
+### Internet service: Partly (Partly deductible)
+In plain English: At a business location, all of it counts. At home, only the work share does.
+Keep as proof: Monthly bills; How you worked out your work percentage
+Common mistake: Writing off the whole home internet bill when the whole family uses it too.
 Rule: Internet service for a business location is deductible. At home, only the business share counts, either as part of your home office expenses or based on your business use.
 Limits: Only the business-use percentage when you also use it personally.
 Records to keep: Monthly bills and how you worked out the business percentage.
@@ -380,7 +431,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.gov/publications/p587
 Page: https://mfa-advisory.com/tools/is-it-deductible/#internet
 
-### Software and subscriptions: Deductible
+### Software and subscriptions: Yes (Deductible)
+In plain English: Monthly or yearly subscriptions you use for your business, like QuickBooks, Canva, Zoom or Adobe, count. If you also use one personally, only the business share counts.
+Keep as proof: Invoices or receipts; The account showing it's used for the business
+Common mistake: Mixing personal subscriptions, like streaming or family cloud storage, in with business ones.
 Rule: Monthly or annual subscriptions to software and online services you use for your business are ordinary business expenses. Software you buy outright and use for more than a year is generally depreciated, though off-the-shelf software can qualify for Section 179 expensing.
 Limits: Only the business share if you also use the subscription personally.
 Records to keep: Invoices or receipts, and the account showing it's used for the business.
@@ -390,7 +444,10 @@ Also: 26 U.S.C. § 179, Election to expense certain depreciable business assets 
 Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
 Page: https://mfa-advisory.com/tools/is-it-deductible/#software-subscriptions
 
-### Laptop or computer: It depends
+### Laptop or computer: Yes (It depends)
+In plain English: Usually yes, for the share you use for work. You can often write off a work laptop all at once (for example, if it costs $2,500 or less), or spread it over a few years.
+Keep as proof: The receipt; The date you started using it for work; A rough record of work versus personal use
+Common mistake: Writing off 100% of a laptop the family also uses. Only the work share counts.
 Rule: A computer used in your business is a business asset. You can deduct it all at once using the de minimis safe harbor (if $2,500 or less per item or invoice), Section 179 or 100% bonus depreciation, or depreciate it over several years. If you also use it personally, only the business share counts.
 Limits: Since 2018 computers are no longer "listed property," but personal use still reduces the deduction. If business use later falls so it's no longer mainly for business, part of a Section 179 deduction can be recaptured.
 Records to keep: The receipt or invoice, the date you started using it for business, and a record of business versus personal use.
@@ -401,7 +458,10 @@ Also: IRS: Tangible property final regulations (FAQs) https://www.irs.gov/busine
 Also: 26 U.S.C. § 179, Election to expense certain depreciable business assets https://www.law.cornell.edu/uscode/text/26/179
 Page: https://mfa-advisory.com/tools/is-it-deductible/#computer
 
-### Equipment and machinery (Section 179): Deductible
+### Equipment and machinery (Section 179): Yes (Deductible)
+In plain English: Furniture, machines and other equipment for your business can usually be written off in full the year you start using it, instead of over several years. The write-off can't be more than your business income; any extra moves to next year.
+Keep as proof: Invoices; The date you started using it; How much you use it for work
+Common mistake: Expecting it to create a loss. It can't be more than your business income; the extra moves to next year.
 Rule: Section 179 lets you deduct the cost of qualifying business equipment, furniture and off-the-shelf software in the year you start using it, instead of depreciating it over several years.
 Limits: Tax years beginning in 2026: up to $2,560,000, reduced dollar for dollar once qualifying purchases exceed $4,090,000 (2025: $2,500,000 and $4,000,000). Heavy SUVs are capped at $32,000. The deduction can't exceed your taxable income from active business; the excess carries forward.
 Records to keep: Invoices, the placed-in-service date, business-use percentage, and Form 4562.
@@ -411,7 +471,10 @@ Also: IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures https://www.irs.go
 Also: 26 U.S.C. § 179, Election to expense certain depreciable business assets https://www.law.cornell.edu/uscode/text/26/179
 Page: https://mfa-advisory.com/tools/is-it-deductible/#section-179
 
-### Bonus depreciation: 100% deductible
+### Bonus depreciation: Yes (100% deductible)
+In plain English: Most business equipment bought after Jan. 19, 2025 can be written off 100% in the first year. You can also choose to spread it out instead.
+Keep as proof: The purchase contract showing the date you bought it; Invoices; The date you started using it
+Common mistake: Claiming it for something you bought but haven't started using yet. It counts from the year you start using it in the business.
 Rule: Qualified property acquired and placed in service after Jan. 19, 2025 can be written off 100% in the first year through the special depreciation allowance, now permanent under the 2025 tax law (P.L. 119-21). You can elect out, or elect a smaller 40% allowance for the first tax year ending after Jan. 19, 2025.
 Limits: 100% for property acquired after Jan. 19, 2025. Property acquired before Jan. 20, 2025 and placed in service in 2025 is limited to 40% (60% for certain long-production property and aircraft).
 Records to keep: Purchase contracts showing the acquisition date, invoices, placed-in-service date and Form 4562.
@@ -420,7 +483,10 @@ Source: IRS IR-2026-06: Guidance on the 100% additional first-year depreciation 
 Also: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov/publications/p946
 Page: https://mfa-advisory.com/tools/is-it-deductible/#bonus-depreciation
 
-### Small equipment purchases ($2,500 or less): Deductible
+### Small equipment purchases ($2,500 or less): Yes (Deductible)
+In plain English: Items that cost $2,500 or less each (or per invoice) can be written off right away instead of over several years, if you choose this rule each year on your tax return.
+Keep as proof: Invoices; The election statement filed with your return (your preparer adds it)
+Common mistake: Forgetting to make the choice on your return. It has to be made each year, or a $2,000 item may have to be spread out.
 Rule: With the de minimis safe harbor election you can deduct, rather than depreciate, tangible items that cost $2,500 or less per invoice or item. You make the election each year with a statement attached to your timely filed return.
 Limits: $2,500 per invoice or item ($5,000 if you have an applicable financial statement). Items above the limit are depreciated or expensed under Section 179 or bonus depreciation.
 Records to keep: Invoices and the election statement filed with your return.
@@ -429,7 +495,10 @@ Source: IRS: Tangible property final regulations (FAQs) https://www.irs.gov/busi
 Also: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov/publications/p946
 Page: https://mfa-advisory.com/tools/is-it-deductible/#de-minimis-safe-harbor
 
-### Tools and small equipment: Deductible
+### Tools and small equipment: Yes (Deductible)
+In plain English: Tools you use up within a year count when you buy them. Bigger, longer-lasting tools are spread over a few years, though many can be written off right away under the small-purchase or equipment rules. If you also use them personally, only the work share counts.
+Keep as proof: Receipts or invoices; For bigger items, the date you started using them
+Common mistake: Writing off tools you mostly use at home. Only the work share counts.
 Rule: Tools and professional instruments you normally use up within a year can be deducted when bought. Longer-lasting tools are depreciated, unless you expense them under the de minimis safe harbor or Section 179.
 Limits: Only the business share if you also use them personally.
 Records to keep: Receipts or invoices and, for larger items, the date you started using them.
@@ -438,7 +507,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS: Tangible property final regulations (FAQs) https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations
 Page: https://mfa-advisory.com/tools/is-it-deductible/#tools-equipment
 
-### Repairs vs. improvements: It depends
+### Repairs vs. improvements: Yes (It depends)
+In plain English: Fixing something to keep it working counts right away. Making it better, bigger or fit for a new use is an improvement, written off over several years. Smaller businesses may be able to write off repairs and improvements on a building right away, up to the lesser of $10,000 or 2% of the building's cost.
+Keep as proof: Contractor invoices describing the work; Before-and-after photos
+Common mistake: Writing off a full renovation as a "repair." If it makes the property better, bigger or fit for a new use, it's an improvement.
 Rule: Incidental repairs and routine maintenance that keep property in normal working order are deductible. Work that betters, restores or adapts the property to a new use is an improvement: it's capitalized and depreciated.
 Limits: Small taxpayer safe harbor: buildings with an unadjusted basis of $1 million or less, if your average gross receipts are $10 million or less, can deduct repairs, maintenance and improvements up to the lesser of $10,000 or 2% of the building's basis.
 Records to keep: Contractor invoices describing the work done, before-and-after photos, and any safe harbor election statements.
@@ -447,7 +519,10 @@ Source: IRS: Tangible property final regulations (FAQs) https://www.irs.gov/busi
 Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#repairs-vs-improvements
 
-### Contractor and freelancer payments: 100% deductible
+### Contractor and freelancer payments: Yes (100% deductible)
+In plain English: What you pay freelancers and contractors for work on your business counts in full. If you pay someone $2,000 or more for services in 2026, you'll usually need to send them a 1099-NEC.
+Keep as proof: A W-9 from each contractor; Invoices and proof you paid; Copies of the 1099s you file
+Common mistake: Paying a contractor without getting a W-9 first. Ask for it before the first payment so the 1099 is easy at year-end.
 Rule: Payments to independent contractors for work done for your business are deductible as contract labor.
 Limits: No deduction limit. For payments made in 2026, you generally must file Form 1099-NEC for anyone you paid $2,000 or more for services (it was $600 for 2025 payments).
 Records to keep: A signed Form W-9 from each contractor, invoices, proof of payment and copies of the 1099s you filed.
@@ -456,7 +531,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS Instructions for Forms 1099-MISC and 1099-NEC https://www.irs.gov/instructions/i1099mec
 Page: https://mfa-advisory.com/tools/is-it-deductible/#contractors
 
-### Employee wages: 100% deductible
+### Employee wages: Yes (100% deductible)
+In plain English: Reasonable pay, salaries and bonuses for your employees count. What you take out for yourself as a sole owner (owner's draws) doesn't.
+Keep as proof: Payroll records and W-2s; Timesheets; Payroll tax filings, kept at least 4 years
+Common mistake: Writing off what you take out for yourself as a sole owner as "wages." Owner's draws aren't an expense.
 Rule: Reasonable wages, salaries and bonuses you pay employees for work actually done are deductible. As a sole proprietor, what you pay yourself (owner's draws) is not a deduction.
 Limits: Pay must be reasonable for the services. Reduce the deduction by certain employment credits you claim, such as the work opportunity credit.
 Records to keep: Payroll records, Forms W-2 and W-4, timesheets and payroll tax filings. Keep employment tax records at least 4 years.
@@ -466,7 +544,10 @@ Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/u
 Also: IRS Topic no. 305, Recordkeeping https://www.irs.gov/taxtopics/tc305
 Page: https://mfa-advisory.com/tools/is-it-deductible/#wages
 
-### Employer payroll taxes: 100% deductible
+### Employer payroll taxes: Yes (100% deductible)
+In plain English: Your share as the employer of Social Security, Medicare and unemployment taxes counts. The taxes you hold back from employees' paychecks are part of their pay, not an extra write-off.
+Keep as proof: Payroll tax forms (941 and 940) and state filings; Deposit confirmations
+Common mistake: Writing off the taxes withheld from employees' pay a second time. They're already part of the wages you wrote off.
 Rule: The employer's share of Social Security and Medicare taxes, federal unemployment tax (FUTA) and state unemployment contributions are deductible business taxes.
 Limits: Only your share as the employer. Taxes you withhold from employees' pay are part of their wages, not a separate deduction.
 Records to keep: Forms 941 and 940, state payroll filings and deposit confirmations.
@@ -475,7 +556,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS Topic no. 305, Recordkeeping https://www.irs.gov/taxtopics/tc305
 Page: https://mfa-advisory.com/tools/is-it-deductible/#payroll-taxes
 
-### Employee benefit programs: Deductible
+### Employee benefit programs: Yes (Deductible)
+In plain English: What you pay toward your employees' health plans, group life insurance and dependent care help counts. Your own benefits as a self-employed owner don't go here.
+Keep as proof: Plan documents; Invoices and payment records; A list of who was covered
+Common mistake: Putting your own health insurance here. As a self-employed owner, yours follows different rules.
 Rule: Contributions to employee benefit programs, such as accident and health plans, group-term life insurance and dependent care assistance, are deductible.
 Limits: Reduce the deduction by any small employer health insurance credit. Benefits for yourself as a self-employed person don't go here. Employer-paid education assistance is excludable for employees up to $5,250 a year.
 Records to keep: Plan documents, invoices and payment records, and who was covered.
@@ -484,7 +568,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits https://www.irs.gov/publications/p15b
 Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-benefits
 
-### Employee awards and holiday gifts: Deductible
+### Employee awards and holiday gifts: Yes (Deductible)
+In plain English: Yes, within limits. Awards for years of service or safety (real items, not cash) count up to $400 per employee a year. Small, low-value holiday gifts count too. Cash and gift cards are treated as wages.
+Keep as proof: What you gave, to whom and what it cost; The reason and the date you gave it
+Common mistake: Handing out gift cards and calling them awards. Cash and gift cards are taxable wages.
 Rule: Tangible awards for length of service or safety, given as part of a meaningful presentation, are deductible within limits. Occasional low-value holiday gifts (not cash) can be a de minimis fringe benefit.
 Limits: Achievement awards: up to $400 per employee a year, or $1,600 under a qualified plan. Cash, gift cards and similar items never count as achievement awards or de minimis gifts; they are taxable wages.
 Records to keep: What was given, to whom, its cost, the reason for the award and the presentation date.
@@ -492,7 +579,10 @@ Applies to: Businesses with employees.
 Source: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits https://www.irs.gov/publications/p15b
 Page: https://mfa-advisory.com/tools/is-it-deductible/#achievement-awards
 
-### Business insurance: 100% deductible
+### Business insurance: Yes (100% deductible)
+In plain English: Insurance for your business, like general or professional liability, property or workers' comp coverage, counts in full. Health insurance follows its own rules.
+Keep as proof: The policy's declarations page; Invoices and proof you paid
+Common mistake: Lumping health or life insurance on yourself in with business insurance. Those follow their own rules.
 Rule: Premiums for business insurance, such as general or professional liability, property and workers' compensation coverage, are deductible.
 Limits: Employee health coverage is an employee benefit program, and your own health insurance follows the self-employed health insurance rules.
 Records to keep: Policy declarations pages, invoices and proof of payment.
@@ -501,7 +591,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: 26 CFR § 1.162-1, Business expenses https://www.law.cornell.edu/cfr/text/26/1.162-1
 Page: https://mfa-advisory.com/tools/is-it-deductible/#business-insurance
 
-### Health insurance (self-employed): It depends
+### Health insurance (self-employed): Yes (It depends)
+In plain English: Usually yes, if you're self-employed and your business made a profit. Health, dental, vision and qualified long-term care premiums for you and your family count, on your personal return. Not for any month you or your spouse could have joined an employer's subsidized plan.
+Keep as proof: Premium statements and proof you paid; Which months you had coverage; Whether you or your spouse could join an employer plan
+Common mistake: Claiming it for months when you or your spouse could have joined an employer's subsidized plan, even if you didn't sign up.
 Rule: If you're self-employed with a profit, you can deduct medical, dental, vision and qualified long-term care premiums for yourself, your spouse and dependents (and a child under 27). It's an adjustment on Schedule 1, not a Schedule C expense, and the plan must be established under your business.
 Limits: Can't exceed your net earnings from the business. No deduction for any month you (or your spouse) were eligible for a subsidized employer health plan, even if you didn't enroll. Figured on Form 7206.
 Records to keep: Premium statements, proof of payment and which months you had coverage and employer-plan eligibility.
@@ -510,7 +603,10 @@ Source: IRS Instructions for Form 7206 (2025), Self-Employed Health Insurance De
 Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
 Page: https://mfa-advisory.com/tools/is-it-deductible/#self-employed-health-insurance
 
-### Life insurance premiums: Not deductible
+### Life insurance premiums: Usually not (Not deductible)
+In plain English: Life insurance on yourself is personal, and you can't write off premiums when you or your business would get the payout. Group life coverage for employees can count as a benefit.
+Keep as proof: The policy, showing who owns it and who gets paid
+Common mistake: Writing off your own life insurance because the business pays the premium. It's still personal.
 Rule: You can't deduct premiums on a life insurance policy when you or your business is directly or indirectly a beneficiary. Premiums on your own personal life insurance are personal.
 Limits: Group-term life insurance for employees can be deductible as an employee benefit, but not coverage for yourself as a self-employed person.
 Records to keep: The policy, showing the owner and beneficiaries.
@@ -520,7 +616,10 @@ Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/ins
 Also: IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions https://www.irs.gov/publications/p529
 Page: https://mfa-advisory.com/tools/is-it-deductible/#life-insurance
 
-### SEP-IRA contributions: Deductible
+### SEP-IRA contributions: Yes (Deductible)
+In plain English: Money you put into a SEP-IRA for yourself lowers your taxes, on your personal return. For 2026 the cap is 25% of pay or $72,000, whichever is less, and for the self-employed the math works out a bit lower. You can open and fund it up to your tax deadline, including extensions.
+Keep as proof: Plan paperwork (for example, Form 5305-SEP); Contribution confirmations; How you figured your limit
+Common mistake: Assuming you can put in a full 25% of your profit. For the self-employed, the math works out lower.
 Rule: Contributions to a SEP-IRA for yourself are deductible on Schedule 1, not Schedule C; contributions for employees go on Schedule C. You can set up the plan and contribute as late as your return's due date, including extensions.
 Limits: 2026: the lesser of 25% of compensation or $72,000 per person (2025: $70,000), with compensation counted up to $360,000 (2025: $350,000). For your own contribution, compensation is net self-employment earnings minus half of SE tax and minus the contribution itself, so the effective rate is lower than 25%.
 Records to keep: Plan document (for example, Form 5305-SEP), contribution confirmations and your calculation of the limit.
@@ -529,7 +628,10 @@ Source: IRS Publication 560 (2025), Retirement Plans for Small Business https://
 Also: IRS: 401(k) and profit-sharing plan contribution limits https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits
 Page: https://mfa-advisory.com/tools/is-it-deductible/#sep-ira
 
-### Solo 401(k) contributions: Deductible
+### Solo 401(k) contributions: Yes (Deductible)
+In plain English: If it's just you, a solo 401(k) lets you save as both the "employee" and the "employer." For 2026: up to $24,500 as the employee, plus extra if you're 50 or older, and up to $72,000 in total. You claim it on your personal return.
+Keep as proof: Plan paperwork; Your contribution elections and confirmations; How you figured your limit
+Common mistake: Forgetting a day-job 401(k). The $24,500 employee limit covers all your 401(k) plans combined.
 Rule: In a one-participant 401(k) you can contribute as both employee (elective deferrals) and employer (profit-sharing). Contributions for yourself are deducted on Schedule 1, not Schedule C.
 Limits: 2026: elective deferrals up to $24,500, plus $8,000 catch-up at 50 or older ($11,250 instead at ages 60 to 63). Total employee and employer additions up to $72,000 (more with catch-up). Compensation counted up to $360,000.
 Records to keep: Plan document, deferral elections, contribution confirmations and your limit calculation.
@@ -539,7 +641,10 @@ Also: IRS IR-2025-111: 401(k) limit increases to $24,500 for 2026 https://www.ir
 Also: IRS Publication 560 (2025), Retirement Plans for Small Business https://www.irs.gov/publications/p560
 Page: https://mfa-advisory.com/tools/is-it-deductible/#solo-401k
 
-### Retirement contributions for employees: Deductible
+### Retirement contributions for employees: Yes (Deductible)
+In plain English: Matches and other contributions you make to your employees' retirement plans count as a business expense.
+Keep as proof: Plan documents; Contribution records; Yearly plan filings
+Common mistake: Writing off your own contributions here. Yours go on your personal return, not as a business expense.
 Rule: Contributions you make to a retirement plan for the benefit of your employees are deductible on Schedule C. Contributions for yourself go on Schedule 1 instead.
 Limits: Plan limits apply. For 2026, SIMPLE IRA deferrals are up to $17,000 and 401(k) deferrals up to $24,500.
 Records to keep: Plan documents, contribution records and annual plan filings.
@@ -549,7 +654,10 @@ Also: IRS IR-2025-111: 401(k) limit increases to $24,500 for 2026 https://www.ir
 Also: IRS Publication 560 (2025), Retirement Plans for Small Business https://www.irs.gov/publications/p560
 Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-retirement
 
-### Legal and accounting fees: 100% deductible
+### Legal and accounting fees: Yes (100% deductible)
+In plain English: Fees for accountants, bookkeepers, lawyers and other pros you hire for your business count in full. Personal legal fees, like a will or a divorce, don't.
+Keep as proof: Engagement letters; Invoices and proof you paid
+Common mistake: Running personal legal bills, like a will or a divorce, through the business.
 Rule: Fees for accountants, bookkeepers, attorneys and other professionals that are ordinary and necessary for your business are deductible.
 Limits: Personal legal fees (a will, a divorce) aren't deductible.
 Records to keep: Engagement letters, invoices and proof of payment.
@@ -558,7 +666,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions https://www.irs.gov/publications/p529
 Page: https://mfa-advisory.com/tools/is-it-deductible/#legal-professional-fees
 
-### Tax preparation fees: Partly deductible
+### Tax preparation fees: Partly (Partly deductible)
+In plain English: The cost of preparing the business part of your return counts. The part for the rest of your personal return doesn't, so ask your preparer to split the bill.
+Keep as proof: The preparer's invoice showing the business part; Proof you paid
+Common mistake: Writing off the whole tax prep bill. Only the business part counts.
 Rule: Tax preparation and tax advice fees related to your business are deductible on Schedule C. The part of the fee for the rest of your personal return isn't a business expense.
 Limits: Ask your preparer to split the invoice between business schedules and the personal return.
 Records to keep: The preparer's invoice showing the business portion, and proof of payment.
@@ -566,7 +677,10 @@ Applies to: Sole proprietors and single-member LLCs; businesses deduct the cost 
 Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#tax-prep-fees
 
-### Professional and trade association dues: Deductible
+### Professional and trade association dues: Yes (Deductible)
+In plain English: Dues for professional groups, trade associations and the chamber of commerce count. Social clubs, golf clubs and gyms never do.
+Keep as proof: Membership invoices; Any note from the group about the share spent on lobbying, which doesn't count
+Common mistake: Filing a gym or country club membership under "dues." Those never count.
 Rule: Dues to professional organizations, trade associations, business leagues, chambers of commerce, real estate boards and civic or public service groups are deductible, as long as the group's main purpose isn't entertainment.
 Limits: The part of dues a tax-exempt group tells you goes to lobbying or political activity isn't deductible. Social, athletic and similar clubs are never deductible.
 Records to keep: Membership invoices and any statement from the group showing the nondeductible lobbying share.
@@ -575,7 +689,10 @@ Source: 26 CFR § 1.274-2, Entertainment expenses (club dues) https://www.law.co
 Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
 Page: https://mfa-advisory.com/tools/is-it-deductible/#professional-dues
 
-### Advertising and marketing: 100% deductible
+### Advertising and marketing: Yes (100% deductible)
+In plain English: Ads, business cards, flyers, Google or Instagram ads and other marketing count in full.
+Keep as proof: Invoices and ad platform receipts
+Common mistake: Calling a political ad or a campaign donation "advertising." Neither counts.
 Rule: Advertising and other selling expenses, such as online ads, print ads, business cards, flyers and promotional campaigns, are ordinary business expenses.
 Limits: No dollar limit. Political advertising and lobbying are not deductible.
 Records to keep: Invoices, ad platform receipts and statements.
@@ -584,7 +701,10 @@ Source: 26 CFR § 1.162-1, Business expenses https://www.law.cornell.edu/cfr/tex
 Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
 Page: https://mfa-advisory.com/tools/is-it-deductible/#advertising
 
-### Gifts to clients: Partly deductible
+### Gifts to clients: Partly (Partly deductible)
+In plain English: Up to $25 per person per year. Wrapping, engraving and shipping don't count toward the $25.
+Keep as proof: Receipts; Who got it, what it was, the cost and the date; How they're connected to your business
+Common mistake: Writing off the full price of a pricey gift. Only $25 per person per year counts.
 Rule: Business gifts to clients, customers and referral partners are deductible, but only up to $25 per person per year.
 Limits: $25 per recipient per year. Incidental costs such as engraving, packaging, gift wrapping, insuring and mailing don't count toward the $25.
 Records to keep: Receipts, the date, a description and cost of each gift, the recipient's name and their business relationship to you.
@@ -593,7 +713,10 @@ Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.i
 Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
 Page: https://mfa-advisory.com/tools/is-it-deductible/#client-gifts
 
-### Branded promotional items: Deductible
+### Branded promotional items: Yes (Deductible)
+In plain English: Low-cost items with your logo that you hand out widely, like pens or keychains, aren't treated as gifts, so the $25 limit doesn't apply. They need to cost $4 or less each.
+Keep as proof: Invoices showing the cost per item and how many
+Common mistake: Treating a nice logo jacket for one client as a promo item. Over $4 each, it's a gift with the $25 limit.
 Rule: Low-cost items with your business name clearly and permanently imprinted, handed out widely (pens, keychains, desk sets and the like), don't count as gifts, so the $25 limit doesn't apply.
 Limits: Items must cost $4 or less each and be one of a number of identical items you distribute widely. Pricier items given to a person count toward the $25 gift limit.
 Records to keep: Invoices showing the unit cost and quantity.
@@ -602,7 +725,10 @@ Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.i
 Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
 Page: https://mfa-advisory.com/tools/is-it-deductible/#promotional-items
 
-### Courses, training and conferences: It depends
+### Courses, training and conferences: Yes (It depends)
+In plain English: Yes, if it keeps up or improves skills for the work you already do. Not if it trains you for a new line of work, or covers the basic requirements to get into your field.
+Keep as proof: Receipts; The course description or agenda; A note of how it relates to your current work
+Common mistake: Writing off a degree or licensing course for a new line of work.
 Rule: Education that maintains or improves skills you need in your current business, or is required by law to keep your status, is deductible. Education that qualifies you for a new trade or business, or meets the minimum requirements to enter your field, isn't.
 Limits: No dollar limit for qualifying education. Books and materials you normally use within a year can be deducted when bought. Travel to a qualifying course follows the travel rules, and meals are 50%.
 Records to keep: Receipts, course descriptions or agendas, and a note of how the course relates to your current work.
@@ -612,7 +738,10 @@ Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/ins
 Also: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits https://www.irs.gov/publications/p15b
 Page: https://mfa-advisory.com/tools/is-it-deductible/#business-education
 
-### Bank and card processing fees: 100% deductible
+### Bank and card processing fees: Yes (100% deductible)
+In plain English: Fees on your business bank account, wire fees and the cut Stripe, Square or PayPal takes from your sales all count.
+Keep as proof: Bank and processor statements (they show the fees)
+Common mistake: Reporting only what lands in the bank. If Stripe or Square takes its fees first, report the full sales and write off the fees.
 Rule: Monthly fees on a business bank account, wire fees and the fees payment processors take from your sales are ordinary and necessary business expenses.
 Limits: Only fees on business accounts and transactions. Fees on personal accounts are personal.
 Records to keep: Bank and processor statements (they show the fees taken).
@@ -620,7 +749,10 @@ Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule 
 Source: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
 Page: https://mfa-advisory.com/tools/is-it-deductible/#bank-card-fees
 
-### Interest on business loans and credit cards: Partly deductible
+### Interest on business loans and credit cards: Partly (Partly deductible)
+In plain English: Interest on money borrowed for your business counts. On a card or loan used for both business and personal spending, only the business share counts.
+Keep as proof: Loan agreements and statements; Records of what the borrowed money paid for
+Common mistake: Writing off all the interest on a card or loan you also use personally. Only the business share counts.
 Rule: Interest on money borrowed for your business is deductible. Interest is allocated by how the borrowed money was used, so on a card or loan used for both, only the business share counts. Personal interest isn't deductible.
 Limits: Small businesses that meet the gross receipts test ($32 million average for tax years beginning in 2026; $31 million in 2025) are exempt from the business interest limit. Larger businesses may be limited.
 Records to keep: Loan agreements, Forms 1098 and statements, and records tracing how loan proceeds were spent.
@@ -630,7 +762,10 @@ Also: 26 U.S.C. § 163, Interest https://www.law.cornell.edu/uscode/text/26/163
 Also: IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures https://www.irs.gov/pub/irs-drop/rp-25-32.pdf
 Page: https://mfa-advisory.com/tools/is-it-deductible/#business-interest
 
-### Unpaid invoices (bad debts): It depends
+### Unpaid invoices (bad debts): Usually not (It depends)
+In plain English: Usually not for small businesses. If you never counted the unpaid invoice as income (most small businesses don't until they're paid), there's nothing to write off.
+Keep as proof: The invoice and proof it was counted as income; Your attempts to collect
+Common mistake: Writing off an unpaid invoice you never reported as income. There's nothing to deduct.
 Rule: A business bad debt is deductible only if the amount was already included in your income. Most small businesses use the cash method, so an unpaid invoice was never income and can't be deducted.
 Limits: Deduct it only in the year it becomes wholly or partly worthless, after reasonable collection efforts. Refund claims for bad debts have a 7-year window.
 Records to keep: The invoice, proof it was included in income, collection attempts and why it became worthless.
@@ -640,7 +775,10 @@ Also: IRS Publication 334 (2025), Tax Guide for Small Business https://www.irs.g
 Also: IRS Topic no. 305, Recordkeeping https://www.irs.gov/taxtopics/tc305
 Page: https://mfa-advisory.com/tools/is-it-deductible/#bad-debts
 
-### Startup costs: Partly deductible
+### Startup costs: Partly (Partly deductible)
+In plain English: Costs before you open, like market research, pre-launch ads or training, can be written off up to $5,000 in your first year. The rest is spread over 15 years.
+Keep as proof: Receipts dated before you opened; The date your business started
+Common mistake: Writing off every pre-opening cost in year one. Only up to $5,000 counts right away.
 Rule: Costs of investigating or setting up a business before it opens (market research, pre-opening advertising, training, consultants) can be deducted up to $5,000 in the year you start, with the rest amortized over 180 months.
 Limits: $5,000 deduction, reduced dollar for dollar once total startup costs exceed $50,000 (none at $55,000 or more). The remainder is deducted evenly over 180 months from the month the business starts.
 Records to keep: Receipts and invoices dated before opening, and the date the business began.
@@ -649,7 +787,10 @@ Source: 26 U.S.C. § 195, Start-up expenditures https://www.law.cornell.edu/usco
 Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#startup-costs
 
-### Business formation costs: Partly deductible
+### Business formation costs: Partly (Partly deductible)
+In plain English: Costs to form a partnership or corporation (including a multi-member LLC), like state filing and legal fees, can be written off up to $5,000 in the first year, with the rest spread over 15 years.
+Keep as proof: State filing receipts; Lawyer invoices; The date the business began
+Common mistake: Mixing one-time formation fees in with yearly state fees. Yearly fees are regular expenses; formation costs follow the startup rules.
 Rule: Costs to form a corporation or partnership (including a multi-member LLC), such as state filing fees and legal fees for the organizing documents, can be deducted up to $5,000 in the first year, with the rest amortized over 180 months.
 Limits: $5,000, reduced dollar for dollar once these costs exceed $50,000; the remainder over 180 months. Partnership costs to sell ownership interests (syndication costs) aren't deductible.
 Records to keep: State filing receipts, attorney invoices and the date the business began.
@@ -659,7 +800,10 @@ Also: 26 U.S.C. § 709, Organization and syndication fees (partnerships) https:/
 Also: 26 U.S.C. § 195, Start-up expenditures https://www.law.cornell.edu/uscode/text/26/195
 Page: https://mfa-advisory.com/tools/is-it-deductible/#organizational-costs
 
-### Inventory and cost of goods sold: It depends
+### Inventory and cost of goods sold: Yes (It depends)
+In plain English: Products you buy or make to sell count when they sell, not when you buy them. Smaller businesses can often use a simpler method.
+Keep as proof: Purchase invoices; Inventory counts at the start and end of the year
+Common mistake: Writing off a big stock order the day you buy it. Products generally count as they sell.
 Rule: Products you buy or make to sell aren't deducted when bought. Their cost is deducted as cost of goods sold (Schedule C, Part III) when they are sold. Small businesses that meet the gross receipts test can choose not to keep inventories, under the method in the Schedule C instructions.
 Limits: The small business option is available if average annual gross receipts for the prior 3 years are $32 million or less for tax years beginning in 2026 ($31 million for 2025).
 Records to keep: Purchase invoices, beginning and ending inventory counts, and your inventory method.
@@ -668,7 +812,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS Rev. Proc. 2025-32: 2026 inflation-adjusted figures https://www.irs.gov/pub/irs-drop/rp-25-32.pdf
 Page: https://mfa-advisory.com/tools/is-it-deductible/#inventory-cogs
 
-### Shipping and postage: 100% deductible
+### Shipping and postage: Yes (100% deductible)
+In plain English: Shipping orders to customers and business postage count in full.
+Keep as proof: Carrier receipts or account statements
+Common mistake: Mixing personal packages in with business shipping.
 Rule: Postage and the cost of shipping orders to customers are deductible business expenses.
 Limits: Only shipments for the business. Postage is reported with office expenses.
 Records to keep: Carrier receipts or account statements.
@@ -677,7 +824,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
 Page: https://mfa-advisory.com/tools/is-it-deductible/#shipping-postage
 
-### Self-employment tax: 50% deductible
+### Self-employment tax: Partly (50% deductible)
+In plain English: You can write off half of your self-employment tax on your personal return. It lowers your income tax, not the self-employment tax itself.
+Keep as proof: Schedule SE and your Schedule C (tax software or your preparer handles this)
+Common mistake: Putting it on your business schedule. Half of it is deducted on your personal return instead.
 Rule: Half of your self-employment tax (the employer-equivalent part) is deductible in figuring adjusted gross income, on Schedule 1. It isn't a Schedule C expense and doesn't reduce the SE tax itself.
 Limits: 50% of SE tax. SE tax is 15.3% on 92.35% of net self-employment earnings, with the Social Security part stopping at the $184,500 wage base for 2026.
 Records to keep: Schedule SE and your Schedule C.
@@ -687,7 +837,10 @@ Also: IRS: Self-employment tax (Social Security and Medicare taxes) https://www.
 Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#self-employment-tax
 
-### Business taxes: Partly deductible
+### Business taxes: Partly (Partly deductible)
+In plain English: Property taxes on business assets and some business taxes count. Federal income tax and self-employment tax never do, and sales tax you collect from customers and pass on isn't yours to write off.
+Keep as proof: Tax bills and proof you paid
+Common mistake: Writing off the sales tax you collected from customers. That money was never yours.
 Rule: Deductible: sales taxes imposed on you as the seller, real estate and personal property taxes on business assets, and federal highway use tax. Not deductible: federal income tax (including SE tax), estate and gift taxes, and taxes on personal property.
 Limits: Sales tax you pay on property bought for the business is added to its cost. Sales tax imposed on your customers that you collect and pay over isn't deductible.
 Records to keep: Tax bills, returns and proof of payment.
@@ -695,7 +848,10 @@ Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule 
 Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#business-taxes
 
-### Business licenses and permits: 100% deductible
+### Business licenses and permits: Yes (100% deductible)
+In plain English: Yearly business licenses, permits and state or local regulatory fees count.
+Keep as proof: Receipts and renewal notices
+Common mistake: Lumping one-time formation fees in with yearly license fees. Formation costs follow the startup rules.
 Rule: Licenses and regulatory fees you pay each year to state or local governments for your business are deductible.
 Limits: Fees to form an entity follow the startup or organizational cost rules instead.
 Records to keep: Receipts and renewal notices.
@@ -703,7 +859,10 @@ Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule 
 Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#licenses-permits
 
-### Commuting: Not deductible
+### Commuting: Usually not (Not deductible)
+In plain English: Getting from home to your regular workplace is personal, however far it is. But if your home office is your main place of business, trips from there to clients or job sites can count.
+Keep as proof: If you claim trips, a mileage log showing they weren't commutes
+Common mistake: Thinking a long commute, or taking work calls on the way, makes it business. It doesn't.
 Rule: Getting between your home and your regular place of work is commuting, a personal expense, however far it is and even if you work during the trip. That includes parking at your regular workplace.
 Limits: 0%. Exceptions: trips from a home office that is your principal place of business to other work sites, between two workplaces, and to a temporary work location can be business miles.
 Records to keep: If you claim trips as business, a mileage log showing they weren't commutes.
@@ -711,7 +870,10 @@ Applies to: All taxpayers.
 Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
 Page: https://mfa-advisory.com/tools/is-it-deductible/#commuting
 
-### Fines and penalties: Not deductible
+### Fines and penalties: Usually not (Not deductible)
+In plain English: Parking tickets, speeding tickets and IRS penalties can't be written off, even if you got them while working.
+Keep as proof: Nothing for a deduction, unless a court order or settlement names part of it as restitution (see the fine print)
+Common mistake: Writing off a parking ticket because you got it on a job.
 Rule: Fines and penalties paid to a government for breaking a law aren't deductible, including traffic and parking tickets and tax penalties.
 Limits: 0%. A narrow exception covers amounts a court order or settlement specifically identifies as restitution or as costs to come into compliance with the law.
 Records to keep: The order or settlement, if you rely on the restitution exception.
@@ -720,7 +882,10 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu/uscode/text/26/162
 Page: https://mfa-advisory.com/tools/is-it-deductible/#fines-penalties
 
-### Political contributions and lobbying: Not deductible
+### Political contributions and lobbying: Usually not (Not deductible)
+In plain English: Donations to candidates, campaigns and political parties, and most lobbying costs, can't be written off.
+Keep as proof: Nothing to keep for a deduction
+Common mistake: Running a campaign donation through the business as "marketing."
 Rule: Contributions to candidates, campaigns and political parties aren't deductible, and neither are most costs of lobbying or trying to influence legislation or elections.
 Limits: 0%. Part of your trade association dues may also be nondeductible if the group lobbies.
 Records to keep: Nothing to keep for a deduction.
@@ -729,7 +894,10 @@ Source: 26 U.S.C. § 162, Trade or business expenses https://www.law.cornell.edu
 Also: IRS Publication 529 (Rev. 12/2020), Miscellaneous Deductions https://www.irs.gov/publications/p529
 Page: https://mfa-advisory.com/tools/is-it-deductible/#political-lobbying
 
-### Club memberships: Not deductible
+### Club memberships: Usually not (Not deductible)
+In plain English: Country clubs, golf clubs, gyms and other social or athletic clubs don't count, even if you meet clients there. Professional groups and the chamber of commerce are different.
+Keep as proof: Nothing to keep for a deduction
+Common mistake: Calling a country club or golf membership "networking." It still doesn't count.
 Rule: Dues for clubs organized for business, pleasure, recreation or other social purposes, such as country clubs, golf and athletic clubs, airline and hotel clubs, aren't deductible.
 Limits: 0%. Professional and trade associations, chambers of commerce and civic groups are different, and are generally deductible.
 Records to keep: Nothing to keep for a deduction.
@@ -739,7 +907,22 @@ Also: 26 CFR § 1.274-2, Entertainment expenses (club dues) https://www.law.corn
 Also: 26 U.S.C. § 274, Disallowance of certain entertainment, etc., expenses https://www.law.cornell.edu/uscode/text/26/274
 Page: https://mfa-advisory.com/tools/is-it-deductible/#club-dues
 
-### Personal expenses: Not deductible
+### Gym and fitness memberships: Usually not (Not deductible)
+In plain English: Gym, health club and fitness memberships are personal, even if staying fit helps you work. Meeting clients there doesn't change that.
+Keep as proof: Nothing to keep for a deduction
+Common mistake: Writing off a gym membership because staying fit helps you work, or because you sometimes meet clients there.
+Rule: Gym, health club and fitness memberships are personal expenses. Dues to athletic clubs and other clubs organized for recreation or social purposes aren't deductible, even if you use them to meet clients.
+Limits: 0%. Professional and trade associations, chambers of commerce and civic groups are different, and are generally deductible.
+Records to keep: None needed for a deduction.
+Applies to: All taxpayers.
+Source: IRS Publication 463 (2025), Travel, Gift, and Car Expenses https://www.irs.gov/publications/p463
+Also: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
+Page: https://mfa-advisory.com/tools/is-it-deductible/#gym
+
+### Personal expenses: Usually not (Not deductible)
+In plain English: Groceries, your gym, haircuts, vacations and family costs aren't business expenses, even if you pay with the business card. If something is used for both, only the business part counts.
+Keep as proof: Keep business and personal spending in separate accounts
+Common mistake: Paying personal bills from the business account and treating them as business expenses.
 Rule: Personal, living and family expenses aren't business deductions, even if paid from a business account. When something is used for both, deduct only the business share.
 Limits: 0% for the personal part. Paying a personal bill from the business account doesn't make it deductible.
 Records to keep: Keep business and personal spending in separate accounts.
@@ -747,13 +930,17 @@ Applies to: All taxpayers.
 Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Page: https://mfa-advisory.com/tools/is-it-deductible/#personal-expenses
 
-### Charitable donations by your business: Not deductible
+### Charitable donations by your business: Usually not (Not deductible)
+In plain English: Not as a business expense if you're a sole owner. On your personal return they can count if you itemize, and starting in 2026 up to $1,000 in cash gifts ($2,000 for married couples filing jointly) counts even if you don't.
+Keep as proof: A written receipt from the charity; Proof you paid
+Common mistake: Putting donations on your business schedule as a sole owner. They belong on your personal return.
 Rule: A sole proprietor or single-member LLC can't deduct charitable contributions as a business expense on Schedule C. They may be deductible on your personal return under the charitable contribution rules.
-Limits: Not on Schedule C. To deduct them personally you generally have to itemize on Schedule A; see Publication 526.
+Limits: Not on Schedule C. On your personal return, itemize on Schedule A, or, starting in 2026, deduct up to $1,000 of qualifying cash gifts ($2,000 married filing jointly) without itemizing. See Publication 526 and Publication 6196.
 Records to keep: Written acknowledgments from the charity and proof of payment.
 Applies to: Sole proprietors and single-member LLCs. Corporations follow their own charitable deduction rules.
 Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
 Also: IRS Publication 526 (2025), Charitable Contributions https://www.irs.gov/publications/p526
+Also: IRS Publication 6196 (10-2026), Charitable Contribution Deduction Tips for Non-Itemizers https://www.irs.gov/pub/irs-pdf/p6196.pdf
 Page: https://mfa-advisory.com/tools/is-it-deductible/#charitable-contributions
 
 ## Frequently asked questions
