@@ -3,10 +3,10 @@
   "tax_year": 2026,
   "title": "Is It Deductible?",
   "owner": "Site session (verified data)",
-  "checked": "2026-10-21T23:55-04:00",
+  "checked": "2026-10-23T09:30-04:00",
   "reviewed_by": "Zain Merchant, ACCA",
   "last_reviewed": "2026-10-21",
-  "format": "Each entry: verdict deductible|partly|depends|not; percent is set only when one clear percentage applies, else null. source_url is irs.gov or the Code/Regs (law.cornell.edu). 'also' lists further official sources; 'tools' lists related MFA pages.",
+  "format": "Each entry: verdict deductible|partly|depends|not (technical); answer yes|partly|no is the plain-English lead shown to owners (Yes / Partly / Usually not). percent is set only when one clear percentage applies, else null. plain, example, keep and mistake are the owner-facing wording; rule, limits, records and applies_to are the technical detail. source_url is irs.gov or the Code/Regs (law.cornell.edu). 'also' lists further official sources; 'tools' lists related MFA pages.",
   "disclaimer": "Educational information only, not tax, legal or accounting advice. Tax rules change and depend on your facts. Do your own research using the IRS sources linked, and talk to a qualified tax professional before you file.",
   "note": "IRS Publication 535 (Business Expenses) has been discontinued; its topics now live in Publication 334 and the Schedule C instructions. Where a 2026 edition isn't published yet, the latest edition is cited with its year.",
   "order": [
@@ -122,7 +122,7 @@
     "id": "not",
     "name": "Not deductible",
     "icon": "ban",
-    "count": 6
+    "count": 7
    }
   ]
  },
@@ -157,7 +157,17 @@
    "tools": [
     "/tools/home-office-deduction-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "home",
+   "plain": "If a specific spot in your home is used only and regularly for your business, and it's your main place of work (or where you meet clients), part of your home costs counts. The easy way: $5 per square foot, up to 300 square feet.",
+   "example": "Priya, a bookkeeper, works in a 150-square-foot spare room she uses only for work. With the easy method, that's 150 × $5 = $750.",
+   "keep": [
+    "Measurements of your office and your whole home",
+    "Photos showing the space is only used for work",
+    "Your home bills and receipts, if you use the regular method"
+   ],
+   "answer": "partly",
+   "mistake": "Calling a corner of the guest room or the kitchen table an office. The space has to be used only for work, and regularly."
   },
   {
    "slug": "office-rent",
@@ -188,7 +198,17 @@
    "tools": [
     "/tools/do-i-need-to-send-a-1099/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "building",
+   "plain": "Yes. Rent for an office, shop, studio or storefront you use for your business counts in full.",
+   "example": "Lena rents a salon suite for $900 a month. All $10,800 for the year is a business expense.",
+   "keep": [
+    "The signed lease",
+    "Monthly invoices or statements",
+    "Proof you paid"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off rent on your own home as office rent. Home costs only count through the home office rules."
   },
   {
    "slug": "coworking",
@@ -218,7 +238,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "desk",
+   "plain": "Yes. A coworking membership, desk rental or meeting room you book for work counts as rent for business space. If the membership bundles in personal perks like a gym, only the business part counts.",
+   "example": "Marcus, a consultant, pays $250 a month for a hot desk. That's $3,000 a year he can write off.",
+   "keep": [
+    "Your membership agreement",
+    "Monthly invoices and proof you paid",
+    "A quick note of what you use the space for"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off the whole membership when it bundles in personal perks like a gym. Only the business part counts."
   },
   {
    "slug": "utilities",
@@ -250,7 +280,16 @@
    "tools": [
     "/tools/home-office-deduction-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "bolt",
+   "plain": "For a shop, office or studio, yes. For your home, only through the home office deduction: the work-space share of the bills counts if you use the regular method.",
+   "example": "Sofia's bakery has its own electric bill, so all of it counts. Her home electric bill counts only for the share of her home that's a qualifying office.",
+   "keep": [
+    "Utility bills and proof you paid",
+    "Your square-footage math, if it's for a home office"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off the whole home electric or gas bill. At home, only the office's share counts, and only with the regular home office method."
   },
   {
    "slug": "office-supplies",
@@ -276,7 +315,15 @@
    "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
    "also": [],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "pencil",
+   "plain": "Yes. Paper, ink, pens, stamps and other supplies you use up in your business count. Things that last well over a year are treated as equipment instead.",
+   "example": "Jay, an Etsy seller, spends $40 a month on printer ink and paper. That's $480 a year in write-offs.",
+   "keep": [
+    "Receipts showing what you bought and when"
+   ],
+   "answer": "yes",
+   "mistake": "Lumping a printer or a desk in with supplies. Things that last well over a year are equipment, with their own rules."
   },
   {
    "slug": "uniforms",
@@ -292,7 +339,10 @@
     "safety boots",
     "scrubs",
     "costume",
-    "suit"
+    "suit",
+    "shoes",
+    "outfit",
+    "work boots"
    ],
    "verdict": "depends",
    "percent": null,
@@ -313,7 +363,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "shirt",
+   "plain": "Only if your work requires it and it isn't something you could wear as everyday clothing, like protective gear, scrubs or a uniform you wouldn't wear outside work. Regular clothes don't count, even if you only wear them for work.",
+   "example": "An electrician's safety boots and protective gloves count. A stylist's black outfits for the salon don't, because they could be worn anywhere.",
+   "keep": [
+    "Receipts",
+    "A note of why your work requires it (photos help)"
+   ],
+   "answer": "no",
+   "mistake": "Writing off clothes you could wear outside work, like a suit or black pants, even if you only wear them for work."
   },
   {
    "slug": "mileage",
@@ -351,7 +410,16 @@
    "tools": [
     "/tools/mileage-deduction-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "car",
+   "plain": "Yes for business driving, never for your commute. The easy way: multiply your business miles by the IRS rate, 72.5 cents a mile for January to June 2026 and 76 cents from July to December. Business parking and tolls count on top.",
+   "example": "Tom, a handyman, drives 4,000 business miles to clients and supply stores between January and June. That's 4,000 × $0.725 = $2,900.",
+   "keep": [
+    "A mileage log kept as you go: date, where, why and how many miles",
+    "Your odometer reading at the start and end of the year"
+   ],
+   "answer": "partly",
+   "mistake": "Counting the drive from home to your regular shop or office. That's commuting, and it never counts."
   },
   {
    "slug": "vehicle-actual-expenses",
@@ -368,7 +436,9 @@
     "car lease",
     "car payment",
     "depreciation car",
-    "registration"
+    "registration",
+    "gas for car",
+    "car wash"
    ],
    "verdict": "partly",
    "percent": null,
@@ -391,7 +461,17 @@
    "tools": [
     "/tools/mileage-deduction-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "fuel",
+   "plain": "Instead of the mileage rate, you can write off the work share of what your car really costs: gas, repairs, tires, insurance, registration, and depreciation or lease payments. If 70% of your miles are for work, 70% of those costs count.",
+   "example": "Ana drove 10,000 miles this year, 7,000 of them for her cleaning business. With $6,000 in car costs, 70% counts: $4,200.",
+   "keep": [
+    "Every car receipt: gas, repairs, insurance",
+    "Your purchase or lease papers",
+    "A mileage log with work miles and total miles"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off 100% of a car you also drive personally, with no mileage log to back up your work percentage."
   },
   {
    "slug": "parking-tolls",
@@ -422,7 +502,16 @@
    "tools": [
     "/tools/mileage-deduction-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "parking",
+   "plain": "Yes. Parking and tolls on business trips count, on top of mileage or actual car costs. Parking at your own regular workplace doesn't, because that's commuting.",
+   "example": "Visiting a client downtown, Raj pays $18 to park and $6 in tolls. Both count.",
+   "keep": [
+    "Receipts or toll statements",
+    "A matching note in your mileage log"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off the monthly spot at your own office or shop. That's part of your commute."
   },
   {
    "slug": "business-travel",
@@ -440,7 +529,9 @@
     "conference travel",
     "rental car",
     "uber",
-    "taxi"
+    "taxi",
+    "lyft",
+    "vacation work trip"
    ],
    "verdict": "deductible",
    "percent": null,
@@ -461,7 +552,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "plane",
+   "plain": "Yes, when work takes you away from home overnight: flights, hotels, rides and taxis there, baggage and laundry. Meals on the trip count at half. A trip that's mainly a vacation doesn't count.",
+   "example": "A photographer flies to Chicago for a three-day wedding shoot. Her flight, hotel and rides count, and her meals count at half.",
+   "keep": [
+    "Hotel receipts and any receipt of $75 or more",
+    "The dates, where you went and the business reason"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off a family vacation because you took a few work calls. The trip has to be mainly for business."
   },
   {
    "slug": "travel-meals",
@@ -493,7 +593,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "meal",
+   "plain": "Half. Meals while you're away overnight on business count at 50%. Keep your receipts, or use the IRS daily meal allowance for the area instead.",
+   "example": "On a two-day trip to a trade show, Kim spends $120 on meals. She can write off $60.",
+   "keep": [
+    "Meal receipts, or with the daily allowance, the dates, place and reason for the trip"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off 100% of meals on the road. They count at half."
   },
   {
    "slug": "meals",
@@ -530,7 +638,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "meal",
+   "plain": "Half. A meal with a client, customer or business contact counts at 50%, tax and tip included, as long as you're there, it isn't over the top, and there's a real business reason.",
+   "example": "Lisa, a realtor, takes a client to lunch for $60 with tip. She can write off $30.",
+   "keep": [
+    "The receipt (a must for $75 or more)",
+    "Who you ate with, how you know them and what you talked about",
+    "Jot it down the same day"
+   ],
+   "answer": "partly",
+   "mistake": "Keeping the receipt but not noting who you ate with and why. The receipt alone doesn't show the business reason."
   },
   {
    "slug": "entertainment",
@@ -562,7 +680,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "ticket",
+   "plain": "No. Game tickets, golf, concerts and shows don't count, even with a client and a real business reason. Food bought separately at the event can still count as a half-off business meal.",
+   "example": "Taking a client to a ball game: the $200 tickets don't count. The $40 of food bought separately counts at half, so $20.",
+   "keep": [
+    "Receipts for any food bought separately"
+   ],
+   "answer": "no",
+   "mistake": "Writing off game tickets or a round of golf because a client came along. Entertainment doesn't count, even with a real business reason."
   },
   {
    "slug": "employee-parties",
@@ -592,7 +718,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "party",
+   "plain": "Yes, in full. A holiday party or summer picnic mainly for your team counts 100%, not just half, as long as it's for your staff in general and not only your top earners.",
+   "example": "A salon owner throws a $1,200 holiday dinner for her eight stylists. All of it counts.",
+   "keep": [
+    "Invoices and receipts",
+    "The date and a guest list showing it was for staff"
+   ],
+   "answer": "yes",
+   "mistake": "Counting it at half like a client meal, or inviting only your top earners. A party for your staff in general counts in full."
   },
   {
    "slug": "employee-meals",
@@ -622,7 +757,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "coffee",
+   "plain": "No, starting in 2026. Snacks, coffee and meals you provide to employees at work are no longer deductible, apart from a few narrow exceptions. Staff parties follow a different rule.",
+   "example": "The break-room coffee and snacks for your team don't count from 2026 on.",
+   "keep": [
+    "Invoices, plus what the food was for, so the right rule is used"
+   ],
+   "answer": "no",
+   "mistake": "Still writing off office snacks and catered team lunches out of habit. That stopped counting in 2026."
   },
   {
    "slug": "cell-phone",
@@ -638,7 +781,9 @@
     "smartphone",
     "verizon",
     "t-mobile",
-    "at&t"
+    "at&t",
+    "cell",
+    "phone case"
    ],
    "verdict": "partly",
    "percent": null,
@@ -655,7 +800,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "phone",
+   "plain": "Partly. The work share of your phone bill counts. If you use your phone 60% for work, you can write off 60% of the bill. The phone itself is equipment and is written off separately.",
+   "example": "Mia's phone bill is $80 a month and about 60% of her use is for her design clients. That's $48 a month, or $576 a year.",
+   "keep": [
+    "Your phone bills",
+    "A sample month showing how much is work, to back up your percentage"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off 100% of a phone you also use for personal calls and apps."
   },
   {
    "slug": "internet",
@@ -686,7 +840,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "wifi",
+   "plain": "Partly. At a business location, all of it counts. At home, only the work share does.",
+   "example": "Omar pays $70 a month for home internet and uses about half of it for his bookkeeping business, so about $35 a month counts.",
+   "keep": [
+    "Monthly bills",
+    "How you worked out your work percentage"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off the whole home internet bill when the whole family uses it too."
   },
   {
    "slug": "software-subscriptions",
@@ -704,7 +867,11 @@
     "canva",
     "apps",
     "cloud storage",
-    "chatgpt"
+    "chatgpt",
+    "app",
+    "subscription app",
+    "website hosting",
+    "domain"
    ],
    "verdict": "deductible",
    "percent": null,
@@ -725,7 +892,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "app",
+   "plain": "Yes. Monthly or yearly subscriptions you use for your business, like QuickBooks, Canva, Zoom or Adobe, count. If you also use one personally, only the business share counts.",
+   "example": "Jen pays $15 a month for a design app she uses for her Etsy shop. That's $180 a year in write-offs.",
+   "keep": [
+    "Invoices or receipts",
+    "The account showing it's used for the business"
+   ],
+   "answer": "yes",
+   "mistake": "Mixing personal subscriptions, like streaming or family cloud storage, in with business ones."
   },
   {
    "slug": "computer",
@@ -766,7 +942,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "laptop",
+   "plain": "Usually yes, for the share you use for work. You can often write off a work laptop all at once (for example, if it costs $2,500 or less), or spread it over a few years.",
+   "example": "Chris buys an $1,800 laptop and uses it 90% for his consulting work. He can write off 90%, or $1,620.",
+   "keep": [
+    "The receipt",
+    "The date you started using it for work",
+    "A rough record of work versus personal use"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off 100% of a laptop the family also uses. Only the work share counts."
   },
   {
    "slug": "section-179",
@@ -802,7 +988,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "chair",
+   "plain": "Yes. Furniture, machines and other equipment for your business can usually be written off in full the year you start using it, instead of over several years. The write-off can't be more than your business income; any extra moves to next year.",
+   "example": "A landscaper buys a $12,000 mower and starts using it in May. If his business income covers it, he can write off all $12,000 this year.",
+   "keep": [
+    "Invoices",
+    "The date you started using it",
+    "How much you use it for work"
+   ],
+   "answer": "yes",
+   "mistake": "Expecting it to create a loss. It can't be more than your business income; the extra moves to next year."
   },
   {
    "slug": "bonus-depreciation",
@@ -830,7 +1026,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "chart",
+   "plain": "Yes. Most business equipment bought after Jan. 19, 2025 can be written off 100% in the first year. You can also choose to spread it out instead.",
+   "example": "A food truck owner buys $20,000 of kitchen equipment in 2026. She can write off all of it on her 2026 return.",
+   "keep": [
+    "The purchase contract showing the date you bought it",
+    "Invoices",
+    "The date you started using it"
+   ],
+   "answer": "yes",
+   "mistake": "Claiming it for something you bought but haven't started using yet. It counts from the year you start using it in the business."
   },
   {
    "slug": "de-minimis-safe-harbor",
@@ -860,7 +1066,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "tag",
+   "plain": "Yes. Items that cost $2,500 or less each (or per invoice) can be written off right away instead of over several years, if you choose this rule each year on your tax return.",
+   "example": "Tia buys a $1,200 espresso machine for her café. She can write off the full $1,200 this year.",
+   "keep": [
+    "Invoices",
+    "The election statement filed with your return (your preparer adds it)"
+   ],
+   "answer": "yes",
+   "mistake": "Forgetting to make the choice on your return. It has to be made each year, or a $2,000 item may have to be spread out."
   },
   {
    "slug": "tools-equipment",
@@ -889,7 +1104,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "tool",
+   "plain": "Yes. Tools you use up within a year count when you buy them. Bigger, longer-lasting tools are spread over a few years, though many can be written off right away under the small-purchase or equipment rules. If you also use them personally, only the work share counts.",
+   "example": "A plumber's drill bits and saw blades count right away. His new $900 pipe threader can usually be written off this year too.",
+   "keep": [
+    "Receipts or invoices",
+    "For bigger items, the date you started using them"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off tools you mostly use at home. Only the work share counts."
   },
   {
    "slug": "repairs-vs-improvements",
@@ -921,7 +1145,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "hammer",
+   "plain": "Fixing something to keep it working counts right away. Making it better, bigger or fit for a new use is an improvement, written off over several years. Smaller businesses may be able to write off repairs and improvements on a building right away, up to the lesser of $10,000 or 2% of the building's cost.",
+   "example": "Patching a leak in the salon's roof: write it off now. Replacing the whole roof: that's an improvement, written off over time.",
+   "keep": [
+    "Contractor invoices describing the work",
+    "Before-and-after photos"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off a full renovation as a \"repair.\" If it makes the property better, bigger or fit for a new use, it's an improvement."
   },
   {
    "slug": "contractors",
@@ -958,7 +1191,17 @@
     "/tools/1099-contractor-tracker/",
     "/tools/w-9-request-email-template/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "handshake",
+   "plain": "Yes. What you pay freelancers and contractors for work on your business counts in full. If you pay someone $2,000 or more for services in 2026, you'll usually need to send them a 1099-NEC.",
+   "example": "Nina pays a freelance web designer $2,400 to redo her site. All of it counts, and she sends the designer a 1099-NEC.",
+   "keep": [
+    "A W-9 from each contractor",
+    "Invoices and proof you paid",
+    "Copies of the 1099s you file"
+   ],
+   "answer": "yes",
+   "mistake": "Paying a contractor without getting a W-9 first. Ask for it before the first payment so the 1099 is easy at year-end."
   },
   {
    "slug": "wages",
@@ -995,7 +1238,17 @@
    "tools": [
     "/tools/paycheck-tax-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "cash",
+   "plain": "Yes. Reasonable pay, salaries and bonuses for your employees count. What you take out for yourself as a sole owner (owner's draws) doesn't.",
+   "example": "A salon pays its receptionist $32,000 this year, and all of it counts. The money the owner takes out for herself doesn't.",
+   "keep": [
+    "Payroll records and W-2s",
+    "Timesheets",
+    "Payroll tax filings, kept at least 4 years"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off what you take out for yourself as a sole owner as \"wages.\" Owner's draws aren't an expense."
   },
   {
    "slug": "payroll-taxes",
@@ -1027,7 +1280,16 @@
    "tools": [
     "/tools/paycheck-tax-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "receipt",
+   "plain": "Yes. Your share as the employer of Social Security, Medicare and unemployment taxes counts. The taxes you hold back from employees' paychecks are part of their pay, not an extra write-off.",
+   "example": "Your payroll report lists \"employer taxes\" each payday. Those count. The amounts taken out of your employees' checks are already part of their wages.",
+   "keep": [
+    "Payroll tax forms (941 and 940) and state filings",
+    "Deposit confirmations"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off the taxes withheld from employees' pay a second time. They're already part of the wages you wrote off."
   },
   {
    "slug": "employee-benefits",
@@ -1057,7 +1319,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "heart",
+   "plain": "Yes. What you pay toward your employees' health plans, group life insurance and dependent care help counts. Your own benefits as a self-employed owner don't go here.",
+   "example": "A small landscaping company pays $400 a month toward each worker's health plan. That counts.",
+   "keep": [
+    "Plan documents",
+    "Invoices and payment records",
+    "A list of who was covered"
+   ],
+   "answer": "yes",
+   "mistake": "Putting your own health insurance here. As a self-employed owner, yours follows different rules."
   },
   {
    "slug": "achievement-awards",
@@ -1081,7 +1353,16 @@
    "source_title": "IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits",
    "also": [],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "award",
+   "plain": "Yes, within limits. Awards for years of service or safety (real items, not cash) count up to $400 per employee a year. Small, low-value holiday gifts count too. Cash and gift cards are treated as wages.",
+   "example": "A contractor gives a worker a $300 watch at a team dinner for ten years of service, and it counts as an award. A $100 gift card would be taxable wages instead.",
+   "keep": [
+    "What you gave, to whom and what it cost",
+    "The reason and the date you gave it"
+   ],
+   "answer": "yes",
+   "mistake": "Handing out gift cards and calling them awards. Cash and gift cards are taxable wages."
   },
   {
    "slug": "business-insurance",
@@ -1114,7 +1395,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "umbrella",
+   "plain": "Yes. Insurance for your business, like general or professional liability, property or workers' comp coverage, counts in full. Health insurance follows its own rules.",
+   "example": "A dog groomer's $600-a-year liability policy counts in full.",
+   "keep": [
+    "The policy's declarations page",
+    "Invoices and proof you paid"
+   ],
+   "answer": "yes",
+   "mistake": "Lumping health or life insurance on yourself in with business insurance. Those follow their own rules."
   },
   {
    "slug": "self-employed-health-insurance",
@@ -1146,7 +1436,17 @@
    "tools": [
     "/tools/1099-tax-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "health",
+   "plain": "Usually yes, if you're self-employed and your business made a profit. Health, dental, vision and qualified long-term care premiums for you and your family count, on your personal return. Not for any month you or your spouse could have joined an employer's subsidized plan.",
+   "example": "Leo, a freelance writer, pays $450 a month for his own health plan and has no employer plan he could join. If his profit is more than $5,400, all $5,400 counts.",
+   "keep": [
+    "Premium statements and proof you paid",
+    "Which months you had coverage",
+    "Whether you or your spouse could join an employer plan"
+   ],
+   "answer": "yes",
+   "mistake": "Claiming it for months when you or your spouse could have joined an employer's subsidized plan, even if you didn't sign up."
   },
   {
    "slug": "life-insurance",
@@ -1177,7 +1477,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "shield",
+   "plain": "No. Life insurance on yourself is personal, and you can't write off premiums when you or your business would get the payout. Group life coverage for employees can count as a benefit.",
+   "example": "Sam's $50-a-month term life policy, with his wife as the beneficiary, is a personal cost.",
+   "keep": [
+    "The policy, showing who owns it and who gets paid"
+   ],
+   "answer": "no",
+   "mistake": "Writing off your own life insurance because the business pays the premium. It's still personal."
   },
   {
    "slug": "sep-ira",
@@ -1207,7 +1515,17 @@
    "tools": [
     "/tools/1099-tax-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "piggy",
+   "plain": "Yes. Money you put into a SEP-IRA for yourself lowers your taxes, on your personal return. For 2026 the cap is 25% of pay or $72,000, whichever is less, and for the self-employed the math works out a bit lower. You can open and fund it up to your tax deadline, including extensions.",
+   "example": "A consultant with a strong 2026 puts $15,000 into her SEP-IRA in March 2027, before filing. It counts for 2026.",
+   "keep": [
+    "Plan paperwork (for example, Form 5305-SEP)",
+    "Contribution confirmations",
+    "How you figured your limit"
+   ],
+   "answer": "yes",
+   "mistake": "Assuming you can put in a full 25% of your profit. For the self-employed, the math works out lower."
   },
   {
    "slug": "solo-401k",
@@ -1241,7 +1559,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "piggy",
+   "plain": "Yes. If it's just you, a solo 401(k) lets you save as both the \"employee\" and the \"employer.\" For 2026: up to $24,500 as the employee, plus extra if you're 50 or older, and up to $72,000 in total. You claim it on your personal return.",
+   "example": "A one-person video editing business puts $24,500 into a solo 401(k) as the employee, plus an employer contribution on top, and claims them on the owner's personal return.",
+   "keep": [
+    "Plan paperwork",
+    "Your contribution elections and confirmations",
+    "How you figured your limit"
+   ],
+   "answer": "yes",
+   "mistake": "Forgetting a day-job 401(k). The $24,500 employee limit covers all your 401(k) plans combined."
   },
   {
    "slug": "employee-retirement",
@@ -1274,7 +1602,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "piggy",
+   "plain": "Yes. Matches and other contributions you make to your employees' retirement plans count as a business expense.",
+   "example": "A dental office matches 3% of each employee's pay into their 401(k). That match counts.",
+   "keep": [
+    "Plan documents",
+    "Contribution records",
+    "Yearly plan filings"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off your own contributions here. Yours go on your personal return, not as a business expense."
   },
   {
    "slug": "legal-professional-fees",
@@ -1309,7 +1647,16 @@
    "tools": [
     "/tools/do-i-need-to-send-a-1099/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "scale",
+   "plain": "Yes. Fees for accountants, bookkeepers, lawyers and other pros you hire for your business count in full. Personal legal fees, like a will or a divorce, don't.",
+   "example": "Kayla pays a bookkeeper $200 a month and a lawyer $800 to review a client contract. All $3,200 counts.",
+   "keep": [
+    "Engagement letters",
+    "Invoices and proof you paid"
+   ],
+   "answer": "yes",
+   "mistake": "Running personal legal bills, like a will or a divorce, through the business."
   },
   {
    "slug": "tax-prep-fees",
@@ -1333,7 +1680,16 @@
    "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
    "also": [],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "calc",
+   "plain": "Partly. The cost of preparing the business part of your return counts. The part for the rest of your personal return doesn't, so ask your preparer to split the bill.",
+   "example": "Your preparer charges $600: $400 for the business schedules and $200 for the rest. You write off $400.",
+   "keep": [
+    "The preparer's invoice showing the business part",
+    "Proof you paid"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off the whole tax prep bill. Only the business part counts."
   },
   {
    "slug": "professional-dues",
@@ -1364,7 +1720,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "badge",
+   "plain": "Yes. Dues for professional groups, trade associations and the chamber of commerce count. Social clubs, golf clubs and gyms never do.",
+   "example": "A home inspector's yearly trade association dues count.",
+   "keep": [
+    "Membership invoices",
+    "Any note from the group about the share spent on lobbying, which doesn't count"
+   ],
+   "answer": "yes",
+   "mistake": "Filing a gym or country club membership under \"dues.\" Those never count."
   },
   {
    "slug": "advertising",
@@ -1382,7 +1747,10 @@
     "sponsorship",
     "seo",
     "promotion",
-    "website ads"
+    "website ads",
+    "website",
+    "logo design",
+    "social media ads"
    ],
    "verdict": "deductible",
    "percent": 100,
@@ -1399,7 +1767,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "megaphone",
+   "plain": "Yes. Ads, business cards, flyers, Google or Instagram ads and other marketing count in full.",
+   "example": "An Etsy seller spends $90 a month on ads. That's $1,080 a year in write-offs.",
+   "keep": [
+    "Invoices and ad platform receipts"
+   ],
+   "answer": "yes",
+   "mistake": "Calling a political ad or a campaign donation \"advertising.\" Neither counts."
   },
   {
    "slug": "client-gifts",
@@ -1411,7 +1787,9 @@
     "holiday gifts",
     "gift basket",
     "thank you gift",
-    "customer gifts"
+    "customer gifts",
+    "gift",
+    "present"
    ],
    "verdict": "partly",
    "percent": null,
@@ -1428,7 +1806,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "gift",
+   "plain": "Partly: up to $25 per person per year. Wrapping, engraving and shipping don't count toward the $25.",
+   "example": "Sending a client a $60 gift basket: $25 counts, plus the $12 shipping.",
+   "keep": [
+    "Receipts",
+    "Who got it, what it was, the cost and the date",
+    "How they're connected to your business"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off the full price of a pricey gift. Only $25 per person per year counts."
   },
   {
    "slug": "promotional-items",
@@ -1458,7 +1846,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "pen",
+   "plain": "Yes. Low-cost items with your logo that you hand out widely, like pens or keychains, aren't treated as gifts, so the $25 limit doesn't apply. They need to cost $4 or less each.",
+   "example": "A realtor orders 500 logo pens at $1 each. All $500 counts.",
+   "keep": [
+    "Invoices showing the cost per item and how many"
+   ],
+   "answer": "yes",
+   "mistake": "Treating a nice logo jacket for one client as a promo item. Over $4 each, it's a gift with the $25 limit."
   },
   {
    "slug": "business-education",
@@ -1475,7 +1871,10 @@
     "cpe",
     "webinar",
     "coaching",
-    "books"
+    "books",
+    "class",
+    "online course",
+    "masterclass"
    ],
    "verdict": "depends",
    "percent": null,
@@ -1496,7 +1895,17 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "book",
+   "plain": "Yes, if it keeps up or improves skills for the work you already do. Not if it trains you for a new line of work, or covers the basic requirements to get into your field.",
+   "example": "A licensed esthetician takes a $400 advanced skincare course, and it counts. Going to beauty school to get licensed in the first place doesn't.",
+   "keep": [
+    "Receipts",
+    "The course description or agenda",
+    "A note of how it relates to your current work"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off a degree or licensing course for a new line of work."
   },
   {
    "slug": "bank-card-fees",
@@ -1523,7 +1932,15 @@
    "source_title": "26 U.S.C. § 162, Trade or business expenses",
    "also": [],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "card",
+   "plain": "Yes. Fees on your business bank account, wire fees and the cut Stripe, Square or PayPal takes from your sales all count.",
+   "example": "Square keeps $300 in fees from a hairdresser's card sales this year. That $300 is a write-off.",
+   "keep": [
+    "Bank and processor statements (they show the fees)"
+   ],
+   "answer": "yes",
+   "mistake": "Reporting only what lands in the bank. If Stripe or Square takes its fees first, report the full sales and write off the fees."
   },
   {
    "slug": "business-interest",
@@ -1558,7 +1975,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "percent",
+   "plain": "Partly. Interest on money borrowed for your business counts. On a card or loan used for both business and personal spending, only the business share counts.",
+   "example": "Mo borrows $10,000 to buy a used van for his moving business. The interest on that loan counts. Interest on his personal shopping doesn't.",
+   "keep": [
+    "Loan agreements and statements",
+    "Records of what the borrowed money paid for"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off all the interest on a card or loan you also use personally. Only the business share counts."
   },
   {
    "slug": "bad-debts",
@@ -1591,7 +2017,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "invoice",
+   "plain": "Usually not for small businesses. If you never counted the unpaid invoice as income (most small businesses don't until they're paid), there's nothing to write off.",
+   "example": "A designer bills $1,500 and the client never pays. She never reported that $1,500 as income, so there's no deduction, and no tax on it either.",
+   "keep": [
+    "The invoice and proof it was counted as income",
+    "Your attempts to collect"
+   ],
+   "answer": "no",
+   "mistake": "Writing off an unpaid invoice you never reported as income. There's nothing to deduct."
   },
   {
    "slug": "startup-costs",
@@ -1623,7 +2058,16 @@
    "tools": [
     "/llc-formation/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "rocket",
+   "plain": "Partly. Costs before you open, like market research, pre-launch ads or training, can be written off up to $5,000 in your first year. The rest is spread over 15 years.",
+   "example": "Before opening her bakery, Rosa spends $8,000 on research, ads and training. She writes off $5,000 in year one and the other $3,000 bit by bit over 15 years.",
+   "keep": [
+    "Receipts dated before you opened",
+    "The date your business started"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off every pre-opening cost in year one. Only up to $5,000 counts right away."
   },
   {
    "slug": "organizational-costs",
@@ -1659,7 +2103,17 @@
    "tools": [
     "/llc-formation/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "doc",
+   "plain": "Partly. Costs to form a partnership or corporation (including a multi-member LLC), like state filing and legal fees, can be written off up to $5,000 in the first year, with the rest spread over 15 years.",
+   "example": "Two friends form an LLC for their cleaning company and pay $1,200 in state and legal fees. All of it can be written off in the first year.",
+   "keep": [
+    "State filing receipts",
+    "Lawyer invoices",
+    "The date the business began"
+   ],
+   "answer": "partly",
+   "mistake": "Mixing one-time formation fees in with yearly state fees. Yearly fees are regular expenses; formation costs follow the startup rules."
   },
   {
    "slug": "inventory-cogs",
@@ -1690,7 +2144,16 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "box",
+   "plain": "Products you buy or make to sell count when they sell, not when you buy them. Smaller businesses can often use a simpler method.",
+   "example": "A candle maker buys $2,000 of wax and jars and uses $1,500 of it in candles she sells this year. The $1,500 counts now; the rest counts when those candles sell.",
+   "keep": [
+    "Purchase invoices",
+    "Inventory counts at the start and end of the year"
+   ],
+   "answer": "yes",
+   "mistake": "Writing off a big stock order the day you buy it. Products generally count as they sell."
   },
   {
    "slug": "shipping-postage",
@@ -1721,7 +2184,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "truck",
+   "plain": "Yes. Shipping orders to customers and business postage count in full.",
+   "example": "An Etsy shop spends $300 a month on shipping labels. That's $3,600 a year in write-offs.",
+   "keep": [
+    "Carrier receipts or account statements"
+   ],
+   "answer": "yes",
+   "mistake": "Mixing personal packages in with business shipping."
   },
   {
    "slug": "self-employment-tax",
@@ -1756,7 +2227,15 @@
     "/tools/1099-tax-calculator/",
     "/tools/quarterly-estimated-tax-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "percent",
+   "plain": "Half. You can write off half of your self-employment tax on your personal return. It lowers your income tax, not the self-employment tax itself.",
+   "example": "If your self-employment tax is $7,000, you can deduct $3,500.",
+   "keep": [
+    "Schedule SE and your Schedule C (tax software or your preparer handles this)"
+   ],
+   "answer": "partly",
+   "mistake": "Putting it on your business schedule. Half of it is deducted on your personal return instead."
   },
   {
    "slug": "business-taxes",
@@ -1782,7 +2261,15 @@
    "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
    "also": [],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "gov",
+   "plain": "Partly. Property taxes on business assets and some business taxes count. Federal income tax and self-employment tax never do, and sales tax you collect from customers and pass on isn't yours to write off.",
+   "example": "The property tax bill on a food truck counts. The owner's federal income tax payments don't.",
+   "keep": [
+    "Tax bills and proof you paid"
+   ],
+   "answer": "partly",
+   "mistake": "Writing off the sales tax you collected from customers. That money was never yours."
   },
   {
    "slug": "licenses-permits",
@@ -1807,7 +2294,15 @@
    "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
    "also": [],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "cert",
+   "plain": "Yes. Yearly business licenses, permits and state or local regulatory fees count.",
+   "example": "A cosmetologist's license renewal and her city business permit both count.",
+   "keep": [
+    "Receipts and renewal notices"
+   ],
+   "answer": "yes",
+   "mistake": "Lumping one-time formation fees in with yearly license fees. Formation costs follow the startup rules."
   },
   {
    "slug": "commuting",
@@ -1834,7 +2329,15 @@
    "tools": [
     "/tools/mileage-deduction-calculator/"
    ],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "train",
+   "plain": "No. Getting from home to your regular workplace is personal, however far it is. But if your home office is your main place of business, trips from there to clients or job sites can count.",
+   "example": "A barber's daily drive to his shop doesn't count. A consultant who works from a home office and drives to a client's office can count that trip.",
+   "keep": [
+    "If you claim trips, a mileage log showing they weren't commutes"
+   ],
+   "answer": "no",
+   "mistake": "Thinking a long commute, or taking work calls on the way, makes it business. It doesn't."
   },
   {
    "slug": "fines-penalties",
@@ -1864,7 +2367,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "warn",
+   "plain": "No. Parking tickets, speeding tickets and IRS penalties can't be written off, even if you got them while working.",
+   "example": "A delivery driver's $45 parking ticket on a job doesn't count.",
+   "keep": [
+    "Nothing for a deduction, unless a court order or settlement names part of it as restitution (see the fine print)"
+   ],
+   "answer": "no",
+   "mistake": "Writing off a parking ticket because you got it on a job."
   },
   {
    "slug": "political-lobbying",
@@ -1893,7 +2404,15 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "flag",
+   "plain": "No. Donations to candidates, campaigns and political parties, and most lobbying costs, can't be written off.",
+   "example": "A $500 donation to a local candidate from your business account doesn't count.",
+   "keep": [
+    "Nothing to keep for a deduction"
+   ],
+   "answer": "no",
+   "mistake": "Running a campaign donation through the business as \"marketing.\""
   },
   {
    "slug": "club-dues",
@@ -1927,7 +2446,56 @@
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "golf",
+   "plain": "No. Country clubs, golf clubs, gyms and other social or athletic clubs don't count, even if you meet clients there. Professional groups and the chamber of commerce are different.",
+   "example": "A consultant's golf club membership doesn't count, even if he plays with clients.",
+   "keep": [
+    "Nothing to keep for a deduction"
+   ],
+   "answer": "no",
+   "mistake": "Calling a country club or golf membership \"networking.\" It still doesn't count."
+  },
+  {
+   "slug": "gym",
+   "name": "Gym and fitness memberships",
+   "category": "not",
+   "aliases": [
+    "gym",
+    "gym membership",
+    "fitness",
+    "health club",
+    "yoga",
+    "pilates",
+    "crossfit",
+    "peloton",
+    "fitness class",
+    "workout"
+   ],
+   "verdict": "not",
+   "percent": 0,
+   "rule": "Gym, health club and fitness memberships are personal expenses. Dues to athletic clubs and other clubs organized for recreation or social purposes aren't deductible, even if you use them to meet clients.",
+   "limits": "0%. Professional and trade associations, chambers of commerce and civic groups are different, and are generally deductible.",
+   "records": "None needed for a deduction.",
+   "applies_to": "All taxpayers.",
+   "source_url": "https://www.irs.gov/publications/p463",
+   "source_title": "IRS Publication 463 (2025), Travel, Gift, and Car Expenses",
+   "also": [
+    {
+     "title": "IRS Instructions for Schedule C (Form 1040) (2025)",
+     "url": "https://www.irs.gov/instructions/i1040sc"
+    }
+   ],
+   "tools": [],
+   "checked": "2026-10-23T09:30-04:00",
+   "icon": "gym",
+   "plain": "Gym, health club and fitness memberships are personal, even if staying fit helps you work. Meeting clients there doesn't change that.",
+   "example": "A real estate agent pays $60 a month for a gym where she sometimes meets clients. None of it counts.",
+   "keep": [
+    "Nothing to keep for a deduction"
+   ],
+   "answer": "no",
+   "mistake": "Writing off a gym membership because staying fit helps you work, or because you sometimes meet clients there."
   },
   {
    "slug": "personal-expenses",
@@ -1955,7 +2523,15 @@
    "source_title": "IRS Instructions for Schedule C (Form 1040) (2025)",
    "also": [],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-21T23:55-04:00",
+   "icon": "cart",
+   "plain": "No. Groceries, your gym, haircuts, vacations and family costs aren't business expenses, even if you pay with the business card. If something is used for both, only the business part counts.",
+   "example": "Paying for Netflix or the family groceries from the business account doesn't make them deductible.",
+   "keep": [
+    "Keep business and personal spending in separate accounts"
+   ],
+   "answer": "no",
+   "mistake": "Paying personal bills from the business account and treating them as business expenses."
   },
   {
    "slug": "charitable-contributions",
@@ -1971,7 +2547,7 @@
    "verdict": "not",
    "percent": null,
    "rule": "A sole proprietor or single-member LLC can't deduct charitable contributions as a business expense on Schedule C. They may be deductible on your personal return under the charitable contribution rules.",
-   "limits": "Not on Schedule C. To deduct them personally you generally have to itemize on Schedule A; see Publication 526.",
+   "limits": "Not on Schedule C. On your personal return, itemize on Schedule A, or, starting in 2026, deduct up to $1,000 of qualifying cash gifts ($2,000 married filing jointly) without itemizing. See Publication 526 and Publication 6196.",
    "records": "Written acknowledgments from the charity and proof of payment.",
    "applies_to": "Sole proprietors and single-member LLCs. Corporations follow their own charitable deduction rules.",
    "source_url": "https://www.irs.gov/instructions/i1040sc",
@@ -1980,10 +2556,23 @@
     {
      "title": "IRS Publication 526 (2025), Charitable Contributions",
      "url": "https://www.irs.gov/publications/p526"
+    },
+    {
+     "title": "IRS Publication 6196 (10-2026), Charitable Contribution Deduction Tips for Non-Itemizers",
+     "url": "https://www.irs.gov/pub/irs-pdf/p6196.pdf"
     }
    ],
    "tools": [],
-   "checked": "2026-10-21T23:55-04:00"
+   "checked": "2026-10-23T09:30-04:00",
+   "icon": "hands",
+   "plain": "Not as a business expense if you're a sole owner. On your personal return they can count if you itemize, and starting in 2026 up to $1,000 in cash gifts ($2,000 for married couples filing jointly) counts even if you don't.",
+   "example": "A salon owner gives $500 to a local food bank. It can't go on her business schedule, but it may count on her personal return, even if she doesn't itemize.",
+   "keep": [
+    "A written receipt from the charity",
+    "Proof you paid"
+   ],
+   "answer": "no",
+   "mistake": "Putting donations on your business schedule as a sole owner. They belong on your personal return."
   }
  ]
 }
