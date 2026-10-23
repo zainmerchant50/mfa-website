@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:schedule-c-guide-single-member-llc-3@mfa-advisory.com
+DTSTAMP:20261023T042846Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:Second 2027 estimated tax payment (Form 1040-ES)
+DESCRIPTION:Self-employed owners pay estimated tax because no tax is with
+ held from business profit.\n\nDetails: https://mfa-advisory.com/blog/sche
+ dule-c-guide-single-member-llc/\nGeneral information\, not tax advice. Me
+ rchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Second 2027 estimated tax payment (Form 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

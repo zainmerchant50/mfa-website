@@ -1,0 +1,100 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Schedule C for Single-Member LLCs and Sole Proprietors
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:schedule-c-guide-single-member-llc-0@mfa-advisory.com
+DTSTAMP:20261023T042846Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth 2026 estimated tax payment (Form 1040-ES)
+DESCRIPTION:For sole proprietors and single-member LLC owners who expect 
+ to owe $1\,000 or more for 2026.\n\nDetails: https://mfa-advisory.com/blo
+ g/schedule-c-guide-single-member-llc/\nGeneral information\, not tax advi
+ ce. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth 2026 estimated tax payment (Form 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:schedule-c-guide-single-member-llc-1@mfa-advisory.com
+DTSTAMP:20261023T042846Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form 1099-NEC due to contractors and the IRS
+DESCRIPTION:Only if your business paid a contractor $2\,000 or more durin
+ g 2026.\n\nDetails: https://mfa-advisory.com/blog/schedule-c-guide-single
+ -member-llc/\nGeneral information\, not tax advice. Merchant Financial Ad
+ visory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1099-NEC due to contractors and the IRS
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:schedule-c-guide-single-member-llc-2@mfa-advisory.com
+DTSTAMP:20261023T042846Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Form 1040 with Schedule C and Schedule SE due (2026 tax year)
+DESCRIPTION:Also the first 2027 estimated tax payment. Form 4868 extends 
+ filing\, not payment\, to October 15\, 2027.\n\nDetails: https://mfa-advi
+ sory.com/blog/schedule-c-guide-single-member-llc/\nGeneral information\, 
+ not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1040 with Schedule C and Schedule SE due (2026 tax year)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:schedule-c-guide-single-member-llc-3@mfa-advisory.com
+DTSTAMP:20261023T042846Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:Second 2027 estimated tax payment (Form 1040-ES)
+DESCRIPTION:Self-employed owners pay estimated tax because no tax is with
+ held from business profit.\n\nDetails: https://mfa-advisory.com/blog/sche
+ dule-c-guide-single-member-llc/\nGeneral information\, not tax advice. Me
+ rchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Second 2027 estimated tax payment (Form 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:schedule-c-guide-single-member-llc-4@mfa-advisory.com
+DTSTAMP:20261023T042846Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:Third 2027 estimated tax payment (Form 1040-ES)
+DESCRIPTION:Recheck your 2027 profit before this payment so the January p
+ ayment isn't a surprise.\n\nDetails: https://mfa-advisory.com/blog/schedu
+ le-c-guide-single-member-llc/\nGeneral information\, not tax advice. Merc
+ hant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Third 2027 estimated tax payment (Form 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

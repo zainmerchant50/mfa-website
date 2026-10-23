@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:schedule-c-guide-single-member-llc-0@mfa-advisory.com
+DTSTAMP:20261023T042846Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth 2026 estimated tax payment (Form 1040-ES)
+DESCRIPTION:For sole proprietors and single-member LLC owners who expect 
+ to owe $1\,000 or more for 2026.\n\nDetails: https://mfa-advisory.com/blo
+ g/schedule-c-guide-single-member-llc/\nGeneral information\, not tax advi
+ ce. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth 2026 estimated tax payment (Form 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

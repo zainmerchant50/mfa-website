@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:schedule-c-guide-single-member-llc-1@mfa-advisory.com
+DTSTAMP:20261023T042846Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form 1099-NEC due to contractors and the IRS
+DESCRIPTION:Only if your business paid a contractor $2\,000 or more durin
+ g 2026.\n\nDetails: https://mfa-advisory.com/blog/schedule-c-guide-single
+ -member-llc/\nGeneral information\, not tax advice. Merchant Financial Ad
+ visory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1099-NEC due to contractors and the IRS
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
