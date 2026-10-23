@@ -25,3 +25,5 @@ Last updated: 2026-10-22 19:45 ET by Hub. Add ideas at the bottom; Blog's new gu
 | 18 | value | 2027 tax calendar: every date by entity type | /blog/2027-tax-calendar/ | GUIDE |
 | 19 | product | QuickBooks chart of accounts by industry | 23 QBO Chart of Accounts Pack | TEMPLATE |
 | 20 | product | Expense categories: what goes where on Schedule C | 12 Expense Categorization Guide & Tracker | TRACKER |
+| 21 | value | Schedule C for single-member LLCs: who files, SE tax 15.3% on 92.35% | /blog/schedule-c-guide-single-member-llc/ | GUIDE |
+| 22 | value | NJ sales tax ST-50: due the 20th after each quarter, file even with zero sales, 6.625% | /blog/nj-sales-tax-st50-filing-guide/ | GUIDE |
