@@ -35,12 +35,13 @@ for p in cat["products"]:
         if not p.get("slug") or p["slug"] in slugs:
             errs.append(f"{tag}: missing or duplicate slug")
         slugs.add(p.get("slug"))
-        if not g.get("url") or not str(g.get("price") or "").strip():
-            errs.append(f"{tag}: live product needs a Gumroad url and price")
+        e1 = p.get("etsy") or {}
+        if not (g.get("url") or e1.get("url")) or not str(g.get("price") or "").strip():
+            errs.append(f"{tag}: live product needs a Gumroad or Etsy url and a price")
             continue
         if not PRICE.match(str(g["price"])):
             errs.append(f'{tag}: bad price format {g["price"]}')
-        if not g["url"].endswith("/l/" + p["slug"]):
+        if g.get("url") and not g["url"].endswith("/l/" + p["slug"]):
             errs.append(f"{tag}: Gumroad url doesn't match slug")
         if not p["shop"].get("blurb"):
             errs.append(f"{tag}: missing shop blurb")
@@ -56,7 +57,7 @@ for p in cat["products"]:
         errs.append(f'{tag}: Etsy sale price {e["sale"]} != Gumroad price {g["price"]}')
 
 live_links = set(re.findall(r'href="(https://(?:mfaadvisory\.gumroad\.com/l|www\.etsy\.com/listing)/[^"]+)"', shop))
-cat_links = {p["gumroad"]["url"] for p in cat["products"] if p["status"] == "live"} | \
+cat_links = {p["gumroad"]["url"] for p in cat["products"] if p["status"] == "live" and p["gumroad"].get("url")} | \
             {p["etsy"]["url"] for p in cat["products"] if p["status"] == "live" and (p.get("etsy") or {}).get("url")}
 for extra in sorted(live_links - cat_links):
     errs.append(f"/shop/ links to {extra}, which isn't a live catalog product")

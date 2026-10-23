@@ -838,6 +838,231 @@
         "related": null
       },
       "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+    },
+    {
+      "id": "29",
+      "slug": "2026-tax-organizer",
+      "name": "2026 Personal Tax Organizer (Form 1040 Prep) with NJ & NY Pages",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "5.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 11.98,
+        "sale": 5.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Gather everything for your 2026 Form 1040 in one Excel / Google Sheets workbook: income, deductions, side-business totals, a 41-document checklist, New Jersey and New York pages and a one-page summary for your preparer.",
+        "format": "Excel + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "30",
+      "slug": "industry-bookkeeping-trackers-5-pack",
+      "name": "Industry Bookkeeping Trackers 5-Pack (2026)",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "19.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 39.98,
+        "sale": 19.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Five bookkeeping and tax trackers for therapists, hair stylists, cleaning businesses, real estate agents and content creators: Schedule C mapping, 2026 mileage, 1099 check and quarterly set-aside.",
+        "format": "Excel (10 files) + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "30a",
+      "slug": "therapist-counselor-bookkeeping-tracker",
+      "name": "Therapist & Counselor Bookkeeping Tracker (2026)",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Therapist bookkeeping spreadsheet 2026: private pay and insurance income, Schedule C expenses, CE and license tracker, mileage, 1099 check, quarterly set-aside.",
+        "format": "Excel (10 files) + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "30b",
+      "slug": "hair-stylist-salon-bookkeeping-tracker",
+      "name": "Hair Stylist & Salon Bookkeeping Tracker (2026)",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Hair stylist bookkeeping spreadsheet 2026: booth rent, services, tips, retail and sales tax, Schedule C expenses, mileage, 1099-K check, quarterly set-aside.",
+        "format": "Excel (10 files) + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "30c",
+      "slug": "cleaning-business-bookkeeping-tracker",
+      "name": "Cleaning Business Bookkeeping Tracker (2026)",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Cleaning business bookkeeping spreadsheet 2026: job log, client balances, income, supplies and helpers by Schedule C line, mileage, quarterly set-aside.",
+        "format": "Excel (10 files) + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "30d",
+      "slug": "real-estate-agent-bookkeeping-tracker",
+      "name": "Real Estate Agent Bookkeeping Tracker (2026)",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Realtor bookkeeping spreadsheet 2026: deals, GCI, broker splits and fees, agent expenses by Schedule C line, showing mileage, 1099 check, quarterly set-aside.",
+        "format": "Excel (10 files) + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "30e",
+      "slug": "content-creator-bookkeeping-tracker",
+      "name": "Content Creator Bookkeeping Tracker (2026)",
+      "status": "draft",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Content creator bookkeeping spreadsheet 2026: payouts, brand deals, gifted products, gear and software by Schedule C line, 1099 check, quarterly set-aside.",
+        "format": "Excel (10 files) + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "31",
+      "slug": "small-business-budget-13-week-cash-flow",
+      "name": "Small Business Budget + 13-Week Cash Flow Forecast (2026)",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "9.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 19.98,
+        "sale": 9.99,
+        "url": null
+      },
+      "shop": {
+        "group": "calc",
+        "blurb": "An annual budget with budget vs. actual by month and year to date, plus a rolling 13-week cash flow forecast from your recurring items, receivables and bills, with scenarios and a low-cash alert.",
+        "format": "Excel + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
+    },
+    {
+      "id": "32",
+      "slug": "reseller-year-end-kit",
+      "name": "Reseller Year-End Kit: Inventory Count, COGS & 1099-K Reconciliation",
+      "status": "draft",
+      "tier": "kit",
+      "gumroad": {
+        "price": "4.99",
+        "url": null,
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": null
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Year-end inventory count, cost of goods sold (Schedule C Part III) and a 1099-K vs. platform report vs. bank deposit reconciliation for Etsy, eBay, Amazon, Poshmark, Mercari and Shopify sellers.",
+        "format": "Excel + PDF",
+        "related": null
+      },
+      "note": "Batch 4 (Zain approved build + prices 2026-10-23). Launch: Etsy first, Gumroad after the 10/day limit."
     }
   ]
 }

@@ -251,7 +251,7 @@ def buy_link(p):
     otherwise Gumroad. Returns (url, "etsy"|"gumroad")."""
     e = p.get("etsy") or {}
     if e.get("allowed") and e.get("url"):
-        return e["url"], "etsy"
+        return e["url"], "etsy"  # Etsy-only products (Gumroad not created yet) also land here
     return p["gumroad"]["url"], "gumroad"
 
 
@@ -260,12 +260,12 @@ def live_products():
     groups = {g["id"]: g["name"] for g in cat["groups"]}
     out = []
     for p in cat["products"]:
-        if p["status"] != "live" or not p["gumroad"].get("url"):
+        if p["status"] != "live" or not (p["gumroad"].get("url") or (p.get("etsy") or {}).get("url")):
             continue
         s = p["shop"]
         url, via = buy_link(p)
         out.append({"slug": p["slug"], "name": p["name"], "price": p["gumroad"]["price"], "url": url, "via": via,
-                    "gumroad_url": p["gumroad"]["url"],
+                    "gumroad_url": p["gumroad"].get("url"),
                     "blurb": s["blurb"], "format": s["format"], "group": groups.get(s["group"], s["group"]),
                     "related": s.get("related")})
     return out

@@ -22,7 +22,7 @@ def load():
     cat = json.loads(CATALOG.read_text(encoding="utf-8"))
     items = []
     for p in cat["products"]:
-        if p["status"] != "live" or not p["gumroad"].get("url"):
+        if p["status"] != "live" or not (p["gumroad"].get("url") or (p.get("etsy") or {}).get("url")):
             continue
         s = p["shop"]
         rel = (s["related"]["url"], s["related"]["label"]) if s.get("related") else None
