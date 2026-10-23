@@ -314,7 +314,7 @@ def structured_data(title, desc, n):
              "publisher": {"@type": "GovernmentOrganization", "name": "Internal Revenue Service", "url": "https://www.irs.gov/"}}
             for u, t in sorted(all_sources().items(), key=lambda r: r[1])
             if u.startswith("https://www.irs.gov/") and ("/publications/" in u or "/instructions/" in u or "/pub/irs-pdf/" in u)]
-    app = {"@type": "WebApplication", "@id": URL + "#app", "name": "Is It Deductible? Can I write this off?", "url": URL,
+    app = {"@type": "WebApplication", "@id": URL + "#app", "name": "Tax Write Offs for Small Business: Is It Deductible?", "url": URL,
            "description": desc, "applicationCategory": "FinanceApplication", "applicationSubCategory": "Tax deduction lookup",
            "operatingSystem": "Any", "browserRequirements": "Works in any modern browser; search uses JavaScript",
            "inLanguage": "en-US", "publisher": {"@id": seo.ORG_ID}, "creator": {"@id": seo.ORG_ID},
@@ -345,7 +345,7 @@ def structured_data(title, desc, n):
                    modified=PAGE_MODIFIED,
                    extra={"mainEntity": {"@id": URL + "#app"}, "hasPart": [{"@id": URL + "#expenses"}, {"@id": URL + "#faq"}],
                           "reviewedBy": {"@id": seo.PERSON_ID}, "lastReviewed": meta["last_reviewed"], "citation": pubs,
-                          "keywords": "is it tax deductible, can I write this off, business expense deductions 2026, what can I write off self-employed"})
+                          "keywords": "tax write offs for small business, is it tax deductible, can I write this off, business expense deductions 2026, what can I write off self-employed"})
     return clean_ld(ld)
 
 
@@ -381,8 +381,8 @@ def build():
     checked = nice(meta["checked"])
     reviewed = nice(meta["last_reviewed"])
     n = len(E)
-    title = "Is It Tax Deductible? 2026 Business Write-Off Finder | MFA"
-    desc = (f"Can I write this off? Tap or search {n} everyday business expenses for 2026 and get a plain answer, "
+    title = "Tax Write Offs for Small Business: Is It Deductible? | MFA"
+    desc = (f"Tax write offs for small business, 2026: search {n} everyday expenses for a plain answer, "
             "what proof to keep and the mistake to avoid.")
     assert len(title) <= 60 and len(desc) <= 155, (len(title), len(desc))
 
@@ -397,8 +397,8 @@ def build():
             f'</div></div>')
     hero = f"""<header class="dd-hero"><div class="wrap"><div class="dd-hgrid"><div class="dd-htext">
   <div class="crumbs"><a href="/">Home</a> / <a href="/resources/">Resources</a> / Is it tax deductible?</div>
-  <h1>Can I write this off?</h1>
-  <p class="dek">Search or tap something your business spends money on. You'll get a straight answer for the {meta["tax_year"]} tax year, what to keep as proof and the mistake people make most.</p>
+  <h1><span class="h1-kw">Tax write offs for small business:</span> Is it deductible?</h1>
+  <p class="dek">Can I write this off? Search or tap something your business spends money on. You'll get a straight answer for the {meta["tax_year"]} tax year, what to keep as proof and the mistake people make most.</p>
   <div class="dd-find" role="search">
     <label class="sr" for="dd-q">Search an expense</label>
     <div class="dd-box">{svg("search", 2)}<input type="search" id="dd-q" placeholder="Try “car”, “phone bill” or “gym”" autocomplete="off" spellcheck="false" aria-controls="dd-res" aria-describedby="dd-gen"/><button type="button" class="dd-clear" id="dd-clear" aria-label="Clear search" hidden>{svg("a-no", 2)}</button></div>

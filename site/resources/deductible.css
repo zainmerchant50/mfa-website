@@ -197,3 +197,4 @@ html.dd-lock{overflow:hidden}
 .dd-src-g h3{font-size:.95rem;margin:22px 0 8px}
 .dd-page .cta-block{margin-top:10px}
 @media (max-width:699px){.dd-page .tinfo{padding:0 16px}.dd-page .tinfo .article{padding-top:14px}.dd-page .cta-block{padding:0 16px}}
+.dd-hero h1 .h1-kw{display:block;max-width:none;font-family:'Inter',system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;line-height:1.5;text-transform:uppercase;color:var(--gold-b);margin:0 0 14px}
