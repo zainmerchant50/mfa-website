@@ -30,7 +30,14 @@ there must already be fact-checked and ready to post. Nobody reviews it after yo
    Ready to Post folder above). Confirm with `device_list_dir`.
 8. Append the post to `social/log.json`, commit (`social: <date> <slug>`) and push to main. The Cloudflare site only deploys
    `site/`, so this does not change the website.
-9. Email Abiha (abihamerchant@icloud.com), who posts for Zain: folder name, steps, both captions (see the scheduled task).
+9. Email Abiha at **abihamerchant1@gmail.com** (Zain 2026-10-23; not the iCloud address), who posts for Zain:
+   - Images: `python3 social/email.py --images social/posts/<file>.json /mnt/user-data/outputs/social/<folder>` writes HD JPEGs to
+     `site/ready/<date>/<slug>-INSTAGRAM.jpg` and `-LINKEDIN.jpg` (noindex via site/_headers). Commit and push, wait for the
+     Cloudflare Pages check to pass, then confirm both URLs return 200 image/jpeg (Chrome tab fetch from mfa-advisory.com).
+   - Email: `python3 social/email.py social/posts/<file>.json "<exact reply text from 00_POST-NOTES.md>"` writes
+     /tmp/abiha-email/subject.txt, body.html and body.txt. Send with the Gmail send tool: to abihamerchant1@gmail.com only,
+     subject = subject.txt, htmlBody = body.html, body = body.txt, no attachments. Each caption sits alone in a box so she
+     can copy it straight into LinkedIn / Instagram.
 10. Update the agent dashboard (see `claude/site/agent-dashboard.md` in the project) with what was made and the next idea.
 
 ## Content mix (per 5 weekdays)
