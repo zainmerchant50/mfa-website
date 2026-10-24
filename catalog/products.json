@@ -179,7 +179,7 @@
     {
       "id": "02",
       "slug": "new-business-setup-checklist",
-      "name": "New Business Setup Checklist",
+      "name": "Starting a Business Checklist: New Business Setup",
       "status": "live",
       "tier": "checklist",
       "gumroad": {
@@ -206,7 +206,7 @@
     {
       "id": "17",
       "slug": "small-business-year-end-tax-checklist",
-      "name": "Small Business Year-End Tax Checklist",
+      "name": "Small Business Tax Prep Checklist: Year-End 2026",
       "status": "live",
       "tier": "checklist",
       "gumroad": {
@@ -325,7 +325,7 @@
     {
       "id": "11",
       "slug": "small-business-bookkeeping-spreadsheet",
-      "name": "Small Business Bookkeeping Spreadsheet",
+      "name": "Small Business Bookkeeping Spreadsheet for Beginners",
       "status": "live",
       "tier": "tracker",
       "gumroad": {
@@ -349,7 +349,7 @@
     {
       "id": "12",
       "slug": "expense-categorization-guide-tracker",
-      "name": "Expense Categorization Guide & Tracker",
+      "name": "Business Expense Tracker & Schedule C Categories Guide",
       "status": "live",
       "tier": "tracker",
       "gumroad": {
@@ -373,7 +373,7 @@
     {
       "id": "13",
       "slug": "self-employed-tax-deduction-tracker-2026",
-      "name": "Self-Employed Tax Deduction Tracker",
+      "name": "Tax Write Offs Tracker for Self Employed (2026)",
       "status": "live",
       "tier": "tracker",
       "gumroad": {
@@ -397,7 +397,7 @@
     {
       "id": "14",
       "slug": "irs-mileage-log-2026",
-      "name": "IRS Mileage Log 2026",
+      "name": "Mileage Log for Taxes 2026",
       "status": "live",
       "tier": "tracker",
       "gumroad": {
