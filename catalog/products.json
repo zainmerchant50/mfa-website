@@ -1,6 +1,6 @@
 {
   "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
-  "updated": "2026-10-23 (30% price cut, Zain 05:10 ET)",
+  "updated": "2026-10-23 (Gumroad launch: 23c-23h, 24-27)",
   "store": "https://mfaadvisory.gumroad.com/",
   "groups": [
     {
@@ -494,14 +494,14 @@
     },
     {
       "id": "27",
-      "slug": null,
+      "slug": "rental-property-tracker-schedule-e",
       "name": "Rental Property Tracker (Schedule E)",
-      "status": "draft",
+      "status": "live",
       "tier": "tracker",
       "gumroad": {
         "price": "3.99",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/rental-property-tracker-schedule-e",
+        "product_id": "hbiqo"
       },
       "etsy": {
         "allowed": true,
@@ -511,11 +511,10 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "Landlord workbook for up to 8 rentals: rent roll, income and expense logs mapped to Schedule E lines, mileage at the 2026 rates, depreciation and a per-property Schedule E.",
+        "format": "Excel + PDF",
         "related": null
-      },
-      "note": "Built 2026-10-21; price approved by Zain 2026-10-21 23:45 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "28",
@@ -616,14 +615,14 @@
     },
     {
       "id": "23c",
-      "slug": null,
+      "slug": "quickbooks-online-chart-of-accounts-construction-trades",
       "name": "QuickBooks Chart of Accounts: Construction & Trades",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "3.49",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-construction-trades",
+        "product_id": "dptbbg"
       },
       "etsy": {
         "allowed": true,
@@ -633,22 +632,21 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "An import-ready QuickBooks Online chart of accounts (104 accounts) built for general contractors, remodelers, plumbers, electricians, HVAC and roofing contractors and other trades: job costing, progress billings, retainage, over/under billings, materials and subcontractors.",
+        "format": "CSV + Excel + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "23d",
-      "slug": null,
+      "slug": "quickbooks-online-chart-of-accounts-restaurant-food-service",
       "name": "QuickBooks Chart of Accounts: Restaurant & Food Service",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "3.49",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-restaurant-food-service",
+        "product_id": "cvwzwf"
       },
       "etsy": {
         "allowed": true,
@@ -658,22 +656,21 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "An import-ready QuickBooks Online chart of accounts (113 accounts) built for restaurants, cafes, coffee shops, bakeries, caterers, food trucks, bars and ghost kitchens: food and beverage COGS, tips payable, card-processor and delivery-app clearing, catering deposits and prime-cost payroll.",
+        "format": "CSV + Excel + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "23e",
-      "slug": null,
+      "slug": "quickbooks-online-chart-of-accounts-rental-property-landlord",
       "name": "QuickBooks Chart of Accounts: Rental Property & Landlord",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "3.49",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-rental-property-landlord",
+        "product_id": "foltfr"
       },
       "etsy": {
         "allowed": true,
@@ -683,22 +680,21 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "An import-ready QuickBooks Online chart of accounts (78 accounts) built for landlords, small real estate investors, rental LLCs and short-term rental hosts: rent income by type, security deposits held, mortgages, depreciation and Schedule E / Form 8825 line mapping.",
+        "format": "CSV + Excel + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "23f",
-      "slug": null,
+      "slug": "quickbooks-online-chart-of-accounts-beauty-salon-wellness",
       "name": "QuickBooks Chart of Accounts: Beauty, Salon & Wellness",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "3.49",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-beauty-salon-wellness",
+        "product_id": "ayhzoe"
       },
       "etsy": {
         "allowed": true,
@@ -708,22 +704,21 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "An import-ready QuickBooks Online chart of accounts (100 accounts) built for hair salons, barbershops, nail and lash studios, estheticians, spas, massage therapists and wellness studios, including booth-rent models: service and retail revenue, booth rent, tips payable, appointment deposits and independent stylists.",
+        "format": "CSV + Excel + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "23g",
-      "slug": null,
+      "slug": "quickbooks-online-chart-of-accounts-medical-dental-health-practice",
       "name": "QuickBooks Chart of Accounts: Medical, Dental & Health Practice",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "3.49",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-medical-dental-health-practice",
+        "product_id": "rwkpi"
       },
       "etsy": {
         "allowed": true,
@@ -733,22 +728,21 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "An import-ready QuickBooks Online chart of accounts (101 accounts) built for physicians, dentists, chiropractors, physical therapists, therapists and other small private practices: patient service revenue, contractual adjustments, claims receivable, patient credits and clinical costs.",
+        "format": "CSV + Excel + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "23h",
-      "slug": null,
+      "slug": "quickbooks-online-chart-of-accounts-trucking-delivery",
       "name": "QuickBooks Chart of Accounts: Trucking & Delivery",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "3.49",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/quickbooks-online-chart-of-accounts-trucking-delivery",
+        "product_id": "zzfyqo"
       },
       "etsy": {
         "allowed": true,
@@ -758,22 +752,21 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "An import-ready QuickBooks Online chart of accounts (101 accounts) built for owner-operators, small carriers, box-truck and cargo-van businesses, couriers and last-mile delivery contractors: freight revenue, fuel, tolls, IFTA, Form 2290 and registrations, factoring and per diem.",
+        "format": "CSV + Excel + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "24",
-      "slug": null,
+      "slug": "tax-preparer-client-onboarding-kit",
       "name": "Tax Preparer Client Onboarding Kit",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "4.99",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/tax-preparer-client-onboarding-kit",
+        "product_id": "adrpnt"
       },
       "etsy": {
         "allowed": true,
@@ -783,22 +776,21 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "Editable Word templates to onboard individual tax clients: intake questionnaire and document checklist, engagement letter with fee schedule and welcome email, and Section 7216 consent forms, plus a 6-page rules guide.",
+        "format": "Word + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "25",
-      "slug": null,
+      "slug": "bookkeeper-engagement-kit",
       "name": "Bookkeeper Engagement Kit",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "3.99",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/bookkeeper-engagement-kit",
+        "product_id": "amlxqw"
       },
       "etsy": {
         "allowed": true,
@@ -808,22 +800,21 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "Editable Word templates for a bookkeeping practice: engagement letter with scope and fee schedules, cleanup project scope, onboarding questionnaire and access checklist, monthly close checklist and QuickBooks Online setup SOP.",
+        "format": "Word + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "26",
-      "slug": null,
+      "slug": "tax-season-client-email-pack",
       "name": "Tax-Season Client Email Pack",
-      "status": "draft",
+      "status": "live",
       "tier": "kit",
       "gumroad": {
         "price": "3.99",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/tax-season-client-email-pack",
+        "product_id": "eiyidv"
       },
       "etsy": {
         "allowed": true,
@@ -833,11 +824,10 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "35 ready-to-send emails and letters for tax preparers and bookkeepers, from organizer send-out to e-file notices and fee changes, in Word and plain text, with a send calendar for the 2027 filing season.",
+        "format": "Word + text + PDF",
         "related": null
-      },
-      "note": "Built and QA-fixed 2026-10-21; price approved by Zain 2026-10-22 00:32 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "29",
