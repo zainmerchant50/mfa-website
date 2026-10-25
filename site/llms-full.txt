@@ -88,13 +88,26 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - LLC formation, Formation + Business Setup: $249 plus the state filing fee (paid once, does not renew). Everything in Formation, plus the tax and books setup most new owners miss.
 - LLC formation, Complete Launch: $649 plus the state filing fee (paid once, does not renew). Everything in Business Setup, plus your elections, sales tax and first month of books.
 - Monthly bookkeeping: from $199/month for one bank account, one credit card, up to 100 transactions a month. Month to month; larger books are quoted up front. Software: QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks.
-- Quarterly estimated tax service: $250 for the year (four federal and state estimate calculations with due dates).
+- Quarterly estimated tax service: $199 for the year (four federal and state estimate calculations with due dates).
 - 1099 preparation and e-filing: $25 per form, $75 minimum.
 - Sales tax registration: $99 (included in Complete Launch). S corporation election (Form 2553): $149 (included in Complete Launch).
 - Bookkeeping cleanup and catch-up: fixed quote after a review of a sample of your accounts (https://mfa-advisory.com/bookkeeping-cleanup/).
 - International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal, $129 with one state return; Social Security and Medicare refund claim (Forms 843 + 8316) $49; H-1B and other US tax residents file Form 1040 at standard tax return pricing. State returns for every state except Connecticut, Maryland and Oregon.
 - Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; bookkeeping, LLC formation and quarterly estimates at the prices above. State returns for every state except Connecticut, Maryland and Oregon.
 - Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts.
+- Year-end tax planning session (60 minutes + written action list): $99, pay online at https://mfa-advisory.com/year-end-tax-planning/
+- 1099-NEC/MISC preparation and e-filing, early-bird (per form): $20 per form/person, pay online at https://mfa-advisory.com/1099-filing/
+- 1099-NEC/MISC preparation and e-filing (per form): $25 per form/person, pay online at https://mfa-advisory.com/1099-filing/
+- S corp switch for 2027 (savings check, Form 2553, salary and payroll plan): $299, pay online at https://mfa-advisory.com/s-corp-election/
+- Quarterly estimated tax plan, 2027 (four federal and state payments): $199, pay online at https://mfa-advisory.com/quarterly-estimated-taxes/
+- Next estimated tax payment (due January 15, 2027): $59, pay online at https://mfa-advisory.com/quarterly-estimated-taxes/
+- LLC annual report filing (service fee; state fee billed at cost): $39, pay online at https://mfa-advisory.com/llc-annual-report/
+- Form 8843 only (per person): $25 per form/person, pay online at https://mfa-advisory.com/international-students/
+- Student package: Form 1040-NR + Form 8843 + tax treaty check: $99, pay online at https://mfa-advisory.com/international-students/
+- Student package with one state return: $129, pay online at https://mfa-advisory.com/international-students/
+- Social Security and Medicare refund claim (Forms 843 + 8316): $49, pay online at https://mfa-advisory.com/international-students/
+- Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR: $129, pay online at https://mfa-advisory.com/international-students/
+- First-year H-1B (dual-status) tax return, federal: $249, pay online at https://mfa-advisory.com/international-students/
 
 ## LLC formation packages (https://mfa-advisory.com/llc-formation/)
 

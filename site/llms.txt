@@ -11,6 +11,11 @@ Not a law firm. MFA does not perform audits or issue audit, review or compilatio
 - [LLC formation in all 50 states](https://mfa-advisory.com/llc-formation/): $150 / $249 / $649 plus the state fee, paid once; state-by-state fees and rules
 - [Bookkeeping cleanup and catch-up](https://mfa-advisory.com/bookkeeping-cleanup/): fixed quote request
 - [International students and H-1B workers](https://mfa-advisory.com/international-students/): international student tax filing; Form 8843 $25, Form 1040-NR student package $99 ($129 with one state), Social Security and Medicare (FICA) refund claim $49, tax treaty check; H-1B returns at standard Form 1040 pricing
+- [Year-end tax planning session](https://mfa-advisory.com/year-end-tax-planning/): 60 minutes before Dec 31 plus a written action list, $99, pay online
+- [1099-NEC filing](https://mfa-advisory.com/1099-filing/): W-9s, IRS e-filing and contractor copies; $20 per form early-bird through Dec 15, 2026, then $25 (3-form minimum)
+- [S corp election for 2027](https://mfa-advisory.com/s-corp-election/): savings check, Form 2553, reasonable salary and payroll plan, $299
+- [Quarterly estimated taxes](https://mfa-advisory.com/quarterly-estimated-taxes/): federal and state payments worked out, $199 for 2027 or $59 for the next payment
+- [LLC annual report filing](https://mfa-advisory.com/llc-annual-report/): $39 plus the state fee at cost; annual report fees and due dates for all 50 states and DC
 - [Taxes for artists and creatives](https://mfa-advisory.com/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $199/month, LLC formation from $150 plus state fee, quarterly estimates $250/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC
 - [Machine-readable catalog](https://mfa-advisory.com/catalog.json): all services, prices, tools and products as schema.org JSON
 

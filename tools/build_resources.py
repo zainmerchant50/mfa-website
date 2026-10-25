@@ -455,6 +455,8 @@ if __name__ == "__main__":
     urls.append(build_intl.build())
     import build_artists  # noqa: E402  (/artists/, taxes for artists & creatives; Zain 2026-10-25)
     urls.append(build_artists.build())
+    import build_offers  # noqa: E402  (fixed-price services with pay-now checkout; Zain 2026-10-25 standing price approval)
+    urls.extend(build_offers.build_all())
     urls.append(BASE + "/new-york-ny/")  # Site-owned landing page (build_landing.py); NJ pages are listed by build_blog.py
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))

@@ -94,7 +94,7 @@ ADDONS = {
     "f1099": {"name": "1099 preparation and e-filing", "per": 25, "min": 75},
     "salestax": {"name": "Sales tax registration", "price": 99, "included_in": ["launch"]},
     "scorp": {"name": "S corp election (Form 2553)", "price": 149, "included_in": ["launch"]},
-    "quarterly": {"name": "Quarterly estimated tax service", "price": 250},  # Zain 2026-10-21 01:57: $250 for the year (was $49/quarter)
+    "quarterly": {"name": "Quarterly estimated tax service", "price": 199},  # Hub 2026-10-25 under Zain's standing low-price approval (was $250; Zain 2026-10-21 set $250)
 }
 
 

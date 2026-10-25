@@ -226,10 +226,10 @@
       },
       "url": "https://mfa-advisory.com/services/#tax-planning"
      },
-     "price": "250",
+     "price": "199",
      "priceSpecification": {
       "@type": "UnitPriceSpecification",
-      "price": "250",
+      "price": "199",
       "priceCurrency": "USD",
       "unitCode": "ANN",
       "unitText": "year"
@@ -421,6 +421,38 @@
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
      "price": "49",
+     "url": "https://mfa-advisory.com/international-students/#prices"
+    },
+    {
+     "@type": "Offer",
+     "name": "Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR",
+     "priceCurrency": "USD",
+     "description": "Residency checked and the correct amended return prepared.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/international-students/#prices"
+     },
+     "price": "129",
+     "url": "https://mfa-advisory.com/international-students/#prices"
+    },
+    {
+     "@type": "Offer",
+     "name": "First-year H-1B (dual-status) tax return, federal",
+     "priceCurrency": "USD",
+     "description": "Dual-status return or first-year choice compared; state return quoted up front.",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "First-year H-1B (dual-status) tax return, federal",
+      "provider": {
+       "@id": "https://mfa-advisory.com/#organization"
+      },
+      "url": "https://mfa-advisory.com/international-students/#prices"
+     },
+     "price": "249",
      "url": "https://mfa-advisory.com/international-students/#prices"
     },
     {
@@ -1338,6 +1370,38 @@
      },
      {
       "@type": "Offer",
+      "name": "Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR",
+      "priceCurrency": "USD",
+      "description": "Residency checked and the correct amended return prepared.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/international-students/#prices"
+      },
+      "price": "129",
+      "url": "https://mfa-advisory.com/international-students/#prices"
+     },
+     {
+      "@type": "Offer",
+      "name": "First-year H-1B (dual-status) tax return, federal",
+      "priceCurrency": "USD",
+      "description": "Dual-status return or first-year choice compared; state return quoted up front.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "First-year H-1B (dual-status) tax return, federal",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/international-students/#prices"
+      },
+      "price": "249",
+      "url": "https://mfa-advisory.com/international-students/#prices"
+     },
+     {
+      "@type": "Offer",
       "name": "Form 1040 for H-1B workers and other US tax residents",
       "priceCurrency": "USD",
       "description": "Standard tax return pricing, quoted up front by return type.",
@@ -1470,10 +1534,10 @@
        },
        "url": "https://mfa-advisory.com/services/#tax-planning"
       },
-      "price": "250",
+      "price": "199",
       "priceSpecification": {
        "@type": "UnitPriceSpecification",
-       "price": "250",
+       "price": "199",
        "priceCurrency": "USD",
        "unitCode": "ANN",
        "unitText": "year"

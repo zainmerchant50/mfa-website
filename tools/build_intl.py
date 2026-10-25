@@ -16,6 +16,7 @@ import build_blog as B
 import seo
 import ui_kit
 from build_resources import page, write, esc, BASE, cta
+import build_offers as O
 
 URL = BASE + "/international-students/"
 OG_IMG = URL + "og.png"   # rendered from content/graphics/international-students-og.html (tools/render_graphics.js)
@@ -43,15 +44,23 @@ PRICES = [
     ("No US income", "Form 8843 only", "$25", "per person",
      "For F, J, M or Q students and scholars with no US income who still need to send Form 8843.",
      ["Form 8843 prepared from your visa and travel dates", "Day count for the substantial presence test",
-      "Ready for you to sign and mail, with the IRS address"], "/book/", "Book a call", False),
+      "Ready for you to sign and mail, with the IRS address"], "pay:f8843", "Pay $25", False),
     ("Most students", "Student package", "$99", "federal · $129 with one state return",
      "Your nonresident federal return, prepared and e-filed, with Form 8843 attached.",
      ["Form 1040-NR, e-filed", "Form 8843", "Tax treaty check for your wages or scholarship",
-      "One state return in the $129 option"], "/book/", "Book a call", True),
+      "One state return in the $129 option"], "pay:nr-fed|nr-state", "Pay $99|Pay $129 with state", True),
     ("OPT and campus jobs", "Social Security refund claim", "$49", "Forms 843 + 8316",
      "Social Security and Medicare withheld from your pay while you were exempt, and your employer won't refund it.",
      ["Form 843 claim for refund", "Form 8316 statement", "Supporting documents checklist and filing instructions"],
-     "/book/", "Book a call", False),
+     "pay:fica", "Pay $49", False),
+    ("Filed the wrong form?", "Wrong-form fix", "$129", "amended return",
+     "You filed a Form 1040 (often through TurboTax) while you were a nonresident. We fix it with the right amended return.",
+     ["Your residency checked year by year", "Amended return prepared, with Form 1040-NR and Form 8843", "Any credits you weren't entitled to identified"],
+     "pay:nr-fix", "Pay $129", False),
+    ("F-1 to H-1B this year", "First-year H-1B return", "$249", "federal · dual-status year",
+     "The year you switched from F-1 or J-1 to H-1B is often dual-status: part nonresident, part resident. We work out the best way to file.",
+     ["Residency start date worked out", "Dual-status return or first-year choice compared", "State return quoted up front"],
+     "pay:dual", "Pay $249", False),
     ("Residents for tax", "H-1B and US tax residents", "Form 1040", "standard pricing",
      "If you pass the substantial presence test, you file the same Form 1040 as a US citizen, at our standard tax return pricing.",
      ["Form 1040 with your state return", "Dual-status first or last year reviewed", "Quoted up front by return type"],
@@ -68,8 +77,8 @@ NEED = [
 ]
 
 STEPS = [
-    ("Book a call", 'Pick a time on our <a href="/book/" data-conv="book">booking page</a> or call ' + TEL +
-     ". We confirm which forms you need and the price before any work starts."),
+    ("Pay online or book a call", 'Pay for your package above, or pick a time on our <a href="/book/" data-conv="book">booking page</a> or call ' + TEL +
+     ". If we find you need different forms, we adjust the price or refund the difference before any work starts."),
     ("Upload your documents", "We send a secure upload link and a checklist. Please don't email passport pages or tax forms."),
     ("We prepare and e-file", "We prepare your return and walk you through it. You review and sign, then we e-file. "
      "Form 8843 on its own can't be e-filed, so you sign and mail it."),
@@ -169,6 +178,7 @@ CSS = """<style>
 .is-steps .step:before{counter-increment:s;content:"0" counter(s);font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;color:var(--gold, #B08D3F);display:block;line-height:1;margin-bottom:10px}
 .is-steps .step h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;font-weight:500;margin:0 0 8px;color:var(--ink, #10233F)}
 .is-steps .step p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.7}
+.is-btns{display:flex;flex-wrap:wrap;gap:8px}.is-btns .btn{flex:1 1 auto;justify-content:center}
 .is-cred{margin:18px 0 0;font-size:.88rem;color:var(--muted)}
 @media (max-width:860px){.is-steps{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.js .is-need li{opacity:1;transform:none;transition:none}}
@@ -197,6 +207,8 @@ def offers():
             {**o("Student package with one state return", 129, f"Form 1040-NR, Form 8843, tax treaty check and one state return (not {STATES_OUT}).", url=u),
              "eligibleRegion": {"@type": "Country", "name": "United States"}, "ineligibleRegion": seo.states_excluded(STATE_CODES)},
             o("Social Security and Medicare refund claim (Forms 843 + 8316)", 49, "Claim for refund of Social Security and Medicare tax withheld in error.", url=u),
+            o("Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR", 129, "Residency checked and the correct amended return prepared.", url=u),
+            o("First-year H-1B (dual-status) tax return, federal", 249, "Dual-status return or first-year choice compared; state return quoted up front.", url=u),
             o("Form 1040 for H-1B workers and other US tax residents", None, "Standard tax return pricing, quoted up front by return type.",
               url=BASE + "/services/#tax-preparation")]
 
@@ -227,14 +239,19 @@ def build():
     for tag, name, price, note, lead, items, href, btn, feat in PRICES:
         lis = "".join(f"<li>{ICO}<span>{esc(x)}</span></li>" for x in items)
         conv = ' data-conv="book"' if href == "/book/" else ""
+        if href.startswith("pay:"):
+            cls = "btn btn-gold" if feat else "btn btn-ink"
+            btns = "".join(O.pay_btn(sid, lab, cls if i == 0 else "btn btn-line") for i, (sid, lab) in enumerate(zip(href[4:].split("|"), btn.split("|"))))
+        else:
+            btns = f'<a class="btn {"btn-gold" if feat else "btn-ink"}" href="{href}"{conv}>{esc(btn)}</a>'
         cards.append(f'''<div class="pkc card{" feat" if feat else ""}"><span class="pk-tag">{esc(tag)}</span><h3>{esc(name)}</h3>
 <p class="pk-price"><b>{esc(price)}</b><span>{esc(note)}</span></p><p class="pk-lead">{esc(lead)}</p><ul class="pk-list">{lis}</ul>
-<a class="btn {"btn-gold" if feat else "btn-ink"}" href="{href}"{conv}>{esc(btn)}</a></div>''')
+<div class="is-btns">{btns}</div></div>''')
     need = "".join(f"<li>{ICO}<div><b>{esc(a)}</b><span>{esc(b)}</span></div></li>" for a, b in NEED)
     steps = "".join(f'<div class="step"><h3>{esc(h)}</h3><p>{p}</p></div>' for h, p in STEPS)
     faq = ui_kit.faq_accordion([(esc(q), esc(a)) for q, a in FAQ], prefix="is")
     src = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(t)}</a></li>' for t, u in SOURCES)
-    body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Nonresident tax returns</span>
+    body = f'''{CSS}{O.DIALOG_CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Nonresident tax returns</span>
 <h1>International student tax filing <em>for F-1, J-1 and <span class="nw">H-1B</span>.</em></h1>
 <p>Your F-1 or J-1 student tax return on Form 1040-NR, Form 8843 help, a nonresident tax treaty check and OPT Social Security and Medicare refund claims, plus H-1B tax returns. We prepare and e-file, at a set price you see before we start.</p>
 <div class="hero-btns"><a class="btn btn-gold" href="/book/" data-conv="book">Book a 30-minute call</a><a class="btn btn-line" href="#prices">See prices</a></div></div></header>
@@ -261,7 +278,7 @@ def build():
 {cta("Not sure which forms you need?", "Book a 30-minute call or phone " + TEL + ". We'll work out your tax residency, the forms you need and the price before any work starts.")}
 {ui_kit.fineprint("General information, not tax or immigration advice. Tax residency is separate from immigration status; for visa questions, talk to your school's international student office or an immigration attorney. "
                   f"State returns are not available for {STATES_OUT}. Reading this page or booking a call doesn't create a client relationship.")}
-</main>
+</main>{O.DIALOG}{O.dialog_js()}
 {NEED_JS}'''
     svc = service_node()
     faq_ld = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [
