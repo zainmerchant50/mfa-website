@@ -168,6 +168,7 @@ NAV = [
         ("Get started", [("LLC formation, all 50 states", "/llc-formation/"),
                          ("Monthly bookkeeping", "/llc-formation/#monthly"),
                          ("Bookkeeping cleanup & catch-up", "/bookkeeping-cleanup/"),
+                         ("International students & H-1B", "/international-students/"),
                          ("LLC costs by state", "/llc-formation/#states")]),
         ("By location", [("Princeton, NJ", "/princeton-nj/"), ("Union City, NJ", "/union-city-nj/"),
                          ("New York City", "/new-york-ny/")]),

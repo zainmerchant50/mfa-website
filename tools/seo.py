@@ -212,7 +212,8 @@ def quoted_offers():
 
 
 def offer_list():
-    return llc_packages() + llc_addons() + quoted_offers()
+    import build_intl
+    return llc_packages() + llc_addons() + quoted_offers() + build_intl.offers()
 
 
 def service_nodes():
@@ -435,6 +436,10 @@ def _pricing_lines():
               f"- 1099 preparation and e-filing: ${A['f1099']['per']} per form, ${A['f1099']['min']} minimum.",
               f"- Sales tax registration: ${A['salestax']['price']} (included in Complete Launch). S corporation election (Form 2553): ${A['scorp']['price']} (included in Complete Launch).",
               "- Bookkeeping cleanup and catch-up: fixed quote after a review of a sample of your accounts (https://mfa-advisory.com/bookkeeping-cleanup/).",
+              "- International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; "
+              "student package (Form 1040-NR + Form 8843 + tax-treaty check) $99 federal, $129 with one state return; Social Security and Medicare "
+              "refund claim (Forms 843 + 8316) $49; H-1B and other US tax residents file Form 1040 at standard tax return pricing. "
+              "No state returns for California, Connecticut, Maryland, New York or Oregon.",
               "- Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts."]
     return lines
 
@@ -457,6 +462,7 @@ def build_llms(posts):
         f"- [Services]({BASE}/services/): tax preparation, tax planning, bookkeeping, financial reporting, fractional CFO, audit support, technical accounting, business advisory",
         f"- [LLC formation in all 50 states]({BASE}/llc-formation/): $150 / $249 / $649 plus the state fee, paid once; state-by-state fees and rules",
         f"- [Bookkeeping cleanup and catch-up]({BASE}/bookkeeping-cleanup/): fixed quote request",
+        f"- [International students and H-1B workers]({BASE}/international-students/): Form 8843 $25, Form 1040-NR student package $99 ($129 with one state), Social Security refund claim $49",
         f"- [Machine-readable catalog]({BASE}/catalog.json): all services, prices, tools and products as schema.org JSON",
         "",
         "## Local pages",

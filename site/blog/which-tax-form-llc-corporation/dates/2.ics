@@ -6,7 +6,7 @@ METHOD:PUBLISH
   January 1\, 2027
 BEGIN:VEVENT
 UID:which-tax-form-llc-corporation-1@mfa-advisory.com
-DTSTAMP:20261025T034342Z
+DTSTAMP:20261025T040104Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:Last day to file Form 2553 for S corporation status starting Janu
