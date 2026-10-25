@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-24",
+  "slug": "1099-2000-rule",
+  "title": "1099s: the $2,000 rule for 2026",
+  "type": "value",
+  "accent": "burgundy",
+  "label": "1099 Season",
+  "checked": "October 24, 2026",
+  "link": {
+    "path": "/blog/form-1099-preparation-guide-2026/",
+    "label": "Form 1099 guide for 2026 payments"
+  },
+  "hook": {
+    "text": "1099s: the new *$2,000* rule",
+    "sub": "For payments you make in 2026."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Luis paid a handyman $2,400 this year.",
+        "And a designer $1,800.",
+        "Old habit: send both a 1099."
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Form 1099-NEC threshold",
+      "from": "$600",
+      "value": "$2,000",
+      "sub": "for payments made in 2026"
+    },
+    {
+      "type": "rows",
+      "kicker": "So, generally",
+      "items": [
+        {
+          "l": "Handyman · $2,400",
+          "r": "1099-NEC",
+          "ok": true
+        },
+        {
+          "l": "Designer · $1,800",
+          "r": "Not required",
+          "ok": false
+        }
+      ],
+      "note": "Paid by credit card or a payment network? That goes on a 1099-K, not your 1099-NEC.",
+      "dur": 6.8
+    },
+    {
+      "type": "stat",
+      "kicker": "Due to contractors and the IRS",
+      "value": "Feb. 1, 2027",
+      "sub": "Jan. 31 falls on a Sunday.",
+      "dur": 2.6
+    },
+    {
+      "type": "product",
+      "image": "social/shorts/img/1099-kit.jpg",
+      "kicker": "Get W-9s now",
+      "text": "The *1099 Kit*",
+      "sub": "Who gets one, W-9 tracker, 2027 deadlines."
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "Read our 1099 guide for 2026 payments."
+  },
+  "captions": {
+    "comment_word": "1099",
+    "instagram": "The 1099-NEC rule changed for payments you make in 2026.\n\n✔️ The threshold is now $2,000 for the year, up from $600.\n✔️ Paid a contractor $2,400 for services? Generally a 1099-NEC. Paid someone $1,800? Generally not required.\n✔️ Paid by credit card or through a payment network? That's reported on a 1099-K, not your 1099-NEC.\n✔️ 1099-NECs for 2026 are due to contractors and the IRS on Feb. 1, 2027, because Jan. 31 falls on a Sunday.\n\nCollect W-9s now, while people still answer emails. Our guide walks through who gets one and how to file.",
+    "hashtags": [
+      "#1099",
+      "#1099nec",
+      "#smallbusiness",
+      "#contractors",
+      "#taxdeadline",
+      "#bookkeeping",
+      "#smallbusinesstaxes"
+    ],
+    "youtube_title": "1099-NEC Rule for 2026 Payments: The New $2,000 Threshold",
+    "youtube_description": "For payments made in 2026, Form 1099-NEC is generally required when you pay a contractor $2,000 or more for services (it was $600). Card and payment-network payments go on Form 1099-K instead. 2026 forms are due to contractors and the IRS on Feb. 1, 2027, since Jan. 31 falls on a Sunday.",
+    "pinterest_title": "1099-NEC Rules 2026: The New $2,000 Threshold and the Feb. 1, 2027 Deadline",
+    "pinterest_description": "1099 form rules for small business owners: for payments made in 2026, the 1099-NEC threshold is $2,000, up from $600. Card and payment-network payments go on a 1099-K instead. Forms are due to contractors and the IRS on Feb. 1, 2027. Collect W-9s now with our 1099 guide.",
+    "pinterest_alt": "Short video: a business owner paid a handyman $2,400 and a designer $1,800; the 1099-NEC threshold rises from $600 to $2,000 for 2026 payments, with the Feb. 1, 2027 deadline.",
+    "pinterest_board": "Self-Employed & 1099 Taxes"
+  },
+  "sync": {
+    "product_id": "01",
+    "etsy_title_phrase": "1099 kit 2026",
+    "ads_keywords": [
+      "1099 nec 2026",
+      "who needs a 1099"
+    ],
+    "blog": "/blog/form-1099-preparation-guide-2026/",
+    "pin_ids": [
+      "p04",
+      "p14",
+      "p19"
+    ]
+  },
+  "sources": [
+    {
+      "fact": "For tax years beginning after 2025 the NEC reporting threshold is $2,000 (Box 1a: NEC of $2,000 or more); instructions Rev. 12/2026, read 2026-10-24",
+      "url": "https://www.irs.gov/instructions/i1099mec"
+    },
+    {
+      "fact": "Prior threshold: 'Enter nonemployee compensation (NEC) of $600 or more' (Rev. April 2025 instructions)",
+      "url": "https://www.irs.gov/pub/irs-prior/i1099mec--2025.pdf"
+    },
+    {
+      "fact": "Credit/payment card and third-party network payments are reported on Form 1099-K, not 1099-NEC",
+      "url": "https://www.irs.gov/instructions/i1099mec"
+    },
+    {
+      "fact": "Furnish and file 1099-NEC by January 31; a due date on a Saturday, Sunday or legal holiday moves to the next business day (Jan. 31, 2027 is a Sunday, so Feb. 1, 2027)",
+      "url": "https://www.irs.gov/instructions/i1099mec"
+    }
+  ]
+}

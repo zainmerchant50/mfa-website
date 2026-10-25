@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-24",
+  "slug": "hair-stylist-write-offs",
+  "title": "3 tax write-offs hair stylists miss",
+  "type": "product",
+  "accent": "plum",
+  "label": "Stylists · Tax",
+  "checked": "October 24, 2026",
+  "link": {
+    "path": "/shop/",
+    "anchor": "kit",
+    "label": "Hair Stylist & Salon Bookkeeping Tracker (MFA shop)"
+  },
+  "hook": {
+    "text": "3 tax write-offs *hair stylists* miss",
+    "sub": "For booth renters and 1099 stylists."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Jess rents a chair at a salon.",
+        "Square keeps a cut of every color.",
+        "At tax time she listed booth rent. That's it."
+      ]
+    },
+    {
+      "type": "question",
+      "text": "What did she leave out?"
+    },
+    {
+      "type": "list",
+      "kicker": "Usually deductible",
+      "items": [
+        {
+          "t": "Card processing fees",
+          "s": "Report full sales, then deduct the cut Square or Stripe keeps."
+        },
+        {
+          "t": "Classes that build your skills",
+          "s": "Advanced color or cutting courses for work you already do."
+        },
+        {
+          "t": "Shears, dryers, flat irons",
+          "s": "The work share counts; many can be written off the year you buy them."
+        }
+      ],
+      "dur": 8.6
+    },
+    {
+      "type": "product",
+      "image": "social/shorts/img/hair-stylist-salon-bookkeeping-tracker.jpg",
+      "kicker": "Track it all year",
+      "text": "Hair Stylist & Salon *Bookkeeping Tracker*",
+      "sub": "Booth rent, tips, fees and supplies in one place."
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com/shop",
+    "sub": "Find the stylist tracker in our shop."
+  },
+  "captions": {
+    "comment_word": "STYLIST",
+    "instagram": "Three write-offs we see hair stylists skip, especially booth renters and 1099 stylists:\n\n✔️ Card processing fees. Square or Stripe keeps its cut before the money reaches your bank. Report the full sales, then deduct the fees.\n✔️ Classes that sharpen skills you already use, like an advanced color course. (Beauty school to get licensed doesn't count.)\n✔️ Shears, dryers and flat irons. The work share counts, and many tools can be written off the year you buy them.\n\nOur Hair Stylist & Salon Bookkeeping Tracker keeps booth rent, tips, fees and supplies in one place all year.",
+    "hashtags": [
+      "#hairstylist",
+      "#boothrenter",
+      "#taxwriteoffs",
+      "#salonowner",
+      "#selfemployed",
+      "#smallbusinesstaxes",
+      "#bookkeeping",
+      "#taxtips"
+    ],
+    "youtube_title": "3 Tax Write-Offs Hair Stylists Miss (Booth Renters, 2026)",
+    "youtube_description": "Card processing fees, skill-building classes and your tools: three deductions booth renters and 1099 stylists often leave out. Report your full card sales and deduct the processor's fees; classes count when they improve skills for the work you already do; tools count for their work share.",
+    "pinterest_title": "Tax Write Offs for Hair Stylists: 3 Deductions Booth Renters Miss (2026)",
+    "pinterest_description": "Tax write offs for hairstylists that booth renters often miss: card processing fees, classes that build skills you already use, and tools like shears and dryers. Keep them all year in a hair stylist bookkeeping spreadsheet for booth rent, tips, retail sales and 1099-K checks.",
+    "pinterest_alt": "Short video: a stylist's story, then three often-missed write-offs (card processing fees, skill classes, tools) and the MFA Hair Stylist & Salon Bookkeeping Tracker.",
+    "pinterest_board": "Bookkeeping for Hair Stylists, Realtors & More"
+  },
+  "sync": {
+    "product_id": "30b",
+    "etsy_title_phrase": "hair stylist bookkeeping spreadsheet",
+    "ads_keywords": [
+      "tax write offs for hairstylist",
+      "booth rent deduction"
+    ],
+    "blog": "/tools/is-it-deductible/",
+    "pin_ids": [
+      "p26"
+    ]
+  },
+  "sources": [
+    {
+      "fact": "Processor fees (Square, Stripe) are deductible; report full sales and deduct the fees (repo data/deductions.json bank-card-fees, checked 2026-10-21)",
+      "url": "https://www.law.cornell.edu/uscode/text/26/162"
+    },
+    {
+      "fact": "Education that maintains or improves skills in your current business is deductible; education for a new trade or minimum entry requirements is not (data/deductions.json business-education, checked 2026-10-21)",
+      "url": "https://www.law.cornell.edu/cfr/text/26/1.162-5"
+    },
+    {
+      "fact": "Tools: business share deductible; many can be expensed under the de minimis safe harbor or Section 179 (data/deductions.json tools-equipment, checked 2026-10-21)",
+      "url": "https://www.irs.gov/instructions/i1040sc"
+    },
+    {
+      "fact": "De minimis safe harbor: $2,500 per item/invoice, annual election",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations"
+    }
+  ]
+}

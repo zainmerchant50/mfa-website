@@ -1,6 +1,6 @@
 # MFA Social agent: daily Instagram + LinkedIn posts
 
-Last updated: 2026-10-22 19:40 ET by Hub (agent created on Zain's instruction).
+Last updated: 2026-10-24 by the Social + Pinterest video agent (Shorts section added). Created 2026-10-22 by Hub on Zain's instruction.
 
 ## What it does
 Every weekday, the agent makes **one post** (Instagram image + LinkedIn image + both captions + sources) and saves it to
@@ -80,6 +80,66 @@ accent (burgundy|amber|teal|plum|forest|slate), label, kicker, headline, headlin
 (hero|list|product), hero {value, sub} | items [{title, text}] | product {id, image, crop [l,t,r,b], features[]},
 body [paragraphs], cta_word, link, checked ("October 22, 2026"), ig_caption, li_caption, sources [{fact, url}], post_times`.
 Example: `social/posts/2026-10-23-1099-contractor-tracker.json`.
+
+## Shorts (Reels, YouTube Shorts, Pinterest video pins)
+
+Added 2026-10-24 on Zain's instruction: "start creating pins, they should also be moving shorts/videos ... the goal is to
+get views, have people go from those videos to the site/store and buy our digital products or hire us ... everything to
+ALL work in SYNC." **First batch (5, 2026-10-24) is waiting for Zain's review. Do not email Abiha or post any short until
+Zain has approved the batch in chat**; after that, shorts follow the same standing approval as daily posts.
+
+### Make one
+1. Write `social/shorts/specs/<date>-<slug>.json` (copy a 2026-10-24 spec; every field is documented at the top of
+   `social/shorts.py`). Pattern, 4-7 beats between the hook and the CTA: **hook** (on screen at frame 0, ≤ 7 words, one gold
+   *accent*) → **story** (2-3 short lines, invented first name, never a client) → **twist / question** → **the fix** (list,
+   stat, values or rows) → **product or service** (image in `social/shorts/img/`, 1200 px JPEG of the public listing hero)
+   → **CTA** "Link in bio" + `mfa-advisory.com` pill. Never "click", "tap the link", "swipe up" or "link below" on the
+   video (nothing in a Reel is clickable); never a price on the video; no IRS logos or form look-alikes.
+2. Verify every figure exactly as for posts (irs.gov / ssa.gov / state site, or `data/*.json` checked within 30 days) and
+   list each in `sources`. No refund or savings promises ("deduction", not "you'll save").
+3. Render: `python3 social/shorts.py social/shorts/specs/<file>.json /home/claude/mfa-hub/shorts/<date>/<slug> --frames 0,1,3,6,10,end`
+   (about 3-4 minutes per short; run long batches in the background). It refuses banned words, captions over the
+   platform limits, durations outside 12-30 s and any text outside the safe area (top 250 px, bottom 350 px).
+4. **Look at the check frames** (`frames/`) yourself: clipped words, orphans, overlaps. Then move `frames/` out of the
+   folder (they are for you, not for Abiha).
+5. Output per short: `<slug>.mp4` (1080x1920, H.264/AAC, 30 fps, ≤ 50 MB), `<slug>-cover.jpg`, `INSTAGRAM.txt`,
+   `YOUTUBE.txt`, `PINTEREST.txt`, `00_SHORT-NOTES.md` (beats, UTM links, comment keyword, sync row, sources).
+6. Copy the folder to the PC: `C:\Users\MFA\iCloudDrive\Documents\MFA\Social Media Management\Ready to Post\Shorts\<YYYY-MM-DD - Title>\`
+   with `device_commit_files`, confirm with `device_list_dir`. Commit the spec (`social: short <slug>`) and push.
+
+### Cadence and who posts where
+- **2-3 shorts a week** (for example Tue / Thu / Sat), on top of the daily weekday post. Never two shorts on the same topic
+  within 3 weeks; rotate product, value (guide/tool) and service shorts like the post mix.
+- **Instagram Reels:** Abiha posts from the Shorts folder (same email flow as daily posts once Zain approves: video link +
+  INSTAGRAM.txt in its own box). Reels from @mfa_advisory auto-publish to Pinterest, so a Reel *is* a Pinterest video pin;
+  don't upload the same video to Pinterest by hand as well.
+- **Pinterest direct video pins** (only for shorts that were not posted as a Reel, or a second cut with a different hook):
+  the Pinterest daily task may upload 2-3 a week from the Shorts folder, using PINTEREST.txt (title, description,
+  destination URL with `utm_source=pinterest&utm_medium=video`, alt text, board). Count them in the daily cap:
+  **never more than 5 pins a day in total**, images and videos together.
+- **YouTube Shorts:** not started. **Zain must create the YouTube channel himself** (we never create accounts): a Brand
+  Account channel named "Merchant Financial Advisory", handle like @mfa-advisory, logo from the project, link
+  mfa-advisory.com, and phone verification so descriptions can carry links. Once it exists, upload each short with
+  YOUTUBE.txt (title ≤ 70 characters, description with the UTM link). Until then, keep the files; don't post anywhere else.
+- **TikTok / LinkedIn video:** not set up. The same MP4 works on both if Zain wants them later (LinkedIn: post the video
+  natively with the LinkedIn-style caption; TikTok would need its own account, which Zain creates).
+
+### Keep everything in sync
+- **One topic, one destination.** Each short points to the page that matches it: a guide (`/blog/...`), a tool
+  (`/tools/...`), the product's group in `/shop/` or a service page (`/services/`, `/bookkeeping-cleanup/`, `/book/`).
+  UTMs: `utm_source=instagram|youtube|pinterest&utm_medium=video&utm_campaign=<slug>` (the renderer writes them). When
+  `mfa-advisory.com/start` is live (branch `start-hub`, waiting for Zain), shorts with no product match point there.
+- **Same words everywhere.** Use the Pinterest RESEARCH.md phrase as the hook or Pinterest title (e.g. "tax write offs for
+  hairstylist", "mileage log for taxes", "month end close checklist"), the same phrase as the product's Etsy title lead
+  and, where the Ads agent bids on it, the same search term (`sync` block in the spec records product id, Etsy phrase,
+  Ads keywords, blog and matching pin ids).
+- **Same story everywhere.** Reuse a Pinterest story pin's angle for its short (p15 "Dana's bank said..." ↔ month-end
+  close), so a viewer who sees both recognises the brand.
+- **Etsy:** shorts never create Etsy listings. Each new listing costs $0.20 and renews at $0.20; don't flood the shop to
+  match a video. Never put the site or a discount for buying elsewhere in an Etsy listing.
+- **Fiverr:** never send people from Fiverr off-platform (no site links, emails or "link in bio" in Fiverr messages,
+  gigs or deliveries). Shorts may mention Fiverr reviews only as proof, never as a contact route.
+- After a short goes live, add a row to `social/log.json` with `"format": "short"` and the platforms it went to.
 
 ## Comment-keyword replies
 Instagram auto-DMs need a tool such as ManyChat (not set up yet). Until then Zain's helper replies to "TRACKER", "GUIDE"

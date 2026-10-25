@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-24",
+  "slug": "rideshare-miles",
+  "title": "Did you track your miles? (rideshare and delivery drivers)",
+  "type": "product",
+  "accent": "teal",
+  "label": "Drivers · Mileage",
+  "checked": "October 24, 2026",
+  "link": {
+    "path": "/tools/mileage-deduction-calculator/",
+    "label": "Mileage deduction calculator (with the driver tracker in our shop)"
+  },
+  "hook": {
+    "text": "Did you track your *miles*?",
+    "sub": "Uber, Lyft, DoorDash and Instacart drivers."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Andre drove DoorDash all year.",
+        "Thousands of miles.",
+        "Not one of them written down."
+      ]
+    },
+    {
+      "type": "values",
+      "kicker": "2026 IRS business rate",
+      "items": [
+        {
+          "v": "72.5¢",
+          "l": "per mile, Jan to Jun"
+        },
+        {
+          "v": "76¢",
+          "l": "per mile, Jul to Dec"
+        }
+      ],
+      "dur": 3.2
+    },
+    {
+      "type": "stat",
+      "kicker": "1,000 miles from July on",
+      "value": "$760",
+      "count": {
+        "to": 760,
+        "pre": "$"
+      },
+      "sub": "of deductible mileage at 76¢ a mile",
+      "note": "Only if you can show the miles."
+    },
+    {
+      "type": "list",
+      "kicker": "Log every trip",
+      "items": [
+        {
+          "t": "Date and miles",
+          "s": "Odometer at the start and end of the year, too."
+        },
+        {
+          "t": "Where you went, and why",
+          "s": "Pickups, deliveries, the drive between orders."
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "image": "social/shorts/img/rideshare-delivery-driver-tax-tracker.jpg",
+      "kicker": "Built for drivers",
+      "text": "Rideshare & Delivery *Driver Tax Tracker*",
+      "sub": "A shift log at the 2026 rates by trip date."
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "Mileage calculator and driver tracker."
+  },
+  "captions": {
+    "comment_word": "MILES",
+    "instagram": "Drivers: your miles may be your biggest write-off, but only the ones you can show.\n\n✔️ The 2026 IRS business rate is 72.5 cents a mile from January to June and 76 cents from July to December.\n✔️ 1,000 business miles in the second half of the year is $760 of mileage deduction.\n✔️ Keep a log as you go: date, miles, where and why, plus your odometer at the start and end of the year.\n\nOur Rideshare & Delivery Driver Tax Tracker logs each shift at the right rate for its date. The mileage calculator on our site does the quick math.",
+    "hashtags": [
+      "#rideshare",
+      "#deliverydriver",
+      "#doordashdriver",
+      "#ubertaxes",
+      "#mileagelog",
+      "#selfemployed",
+      "#1099",
+      "#taxtips"
+    ],
+    "youtube_title": "Rideshare & Delivery Drivers: Did You Track Your Miles? (2026 Rate)",
+    "youtube_description": "The 2026 IRS standard mileage rate for business is 72.5 cents a mile for January to June and 76 cents from July to December. 1,000 business miles in the second half is $760 of mileage deduction, if you keep a log: date, miles, where and why, and your odometer readings.",
+    "pinterest_title": "Mileage Log for Taxes 2026: Rideshare & Delivery Drivers (IRS Rate 72.5¢ / 76¢)",
+    "pinterest_description": "Mileage log for taxes for Uber, Lyft, DoorDash and Instacart drivers. The 2026 IRS business mileage rate is 72.5 cents a mile for January to June and 76 cents from July 1. Log the date, miles, destination and purpose of each trip, then run the numbers with our mileage deduction calculator.",
+    "pinterest_alt": "Short video for rideshare and delivery drivers: the 2026 IRS mileage rates (72.5 and 76 cents), a $760 example for 1,000 miles, what to log, and the MFA driver tax tracker.",
+    "pinterest_board": "Self-Employed & 1099 Taxes"
+  },
+  "sync": {
+    "product_id": "28",
+    "etsy_title_phrase": "rideshare delivery driver tax tracker",
+    "ads_keywords": [
+      "mileage log for taxes",
+      "doordash taxes"
+    ],
+    "blog": "/tools/mileage-deduction-calculator/",
+    "pin_ids": [
+      "p22"
+    ]
+  },
+  "sources": [
+    {
+      "fact": "2026 business standard mileage rate 72.5 cents (Jan 1-Jun 30) and 76 cents (Jul 1-Dec 31); read on irs.gov 2026-10-24",
+      "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates"
+    },
+    {
+      "fact": "Mileage log: date, destination, business purpose and miles for each trip, plus odometer readings (data/deductions.json mileage, checked 2026-10-21; IRS Topic 510 / Pub 463)",
+      "url": "https://www.irs.gov/taxtopics/tc510"
+    },
+    {
+      "fact": "Example math: 1,000 miles x $0.76 = $760",
+      "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates"
+    }
+  ]
+}

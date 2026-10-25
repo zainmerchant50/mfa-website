@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-24",
+  "slug": "s-corp-yet",
+  "title": "Is your LLC an S corp yet?",
+  "type": "value",
+  "accent": "slate",
+  "label": "LLC · S Corp",
+  "checked": "October 24, 2026",
+  "link": {
+    "path": "/tools/s-corp-tax-savings-calculator/",
+    "label": "S corp calculator"
+  },
+  "hook": {
+    "text": "Is your LLC an *S corp* yet?",
+    "sub": "Read this before you elect."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Nadia's LLC had its best year.",
+        "A friend said: \"Go S corp. Everyone does.\"",
+        "Nobody mentioned payroll."
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Self-employment tax today",
+      "value": "15.3%",
+      "sub": "on 92.35% of your net profit",
+      "dur": 2.6
+    },
+    {
+      "type": "list",
+      "kicker": "As an S corp owner who works in it",
+      "items": [
+        {
+          "t": "You pay yourself a reasonable salary",
+          "s": "IRS: wages come before distributions."
+        },
+        {
+          "t": "Payroll taxes apply to that salary",
+          "s": "Distributions on top don't carry them."
+        },
+        {
+          "t": "New costs show up",
+          "s": "Payroll service, a Form 1120-S return, state fees in some states."
+        }
+      ],
+      "dur": 8.0
+    },
+    {
+      "type": "question",
+      "text": "Does the math still work for you?",
+      "dur": 2.4
+    },
+    {
+      "type": "product",
+      "image": "social/shorts/img/s-corp-vs-llc-savings-calculator.jpg",
+      "kicker": "Run your numbers",
+      "text": "S Corp vs LLC *Calculator*",
+      "sub": "After the extra costs, with your break-even profit."
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "Try the S corp calculator, or book a call with us."
+  },
+  "captions": {
+    "comment_word": "SCORP",
+    "instagram": "\"Go S corp\" is common advice. The payroll part usually gets skipped.\n\n✔️ As a sole owner or partner, you pay 15.3% self-employment tax on 92.35% of your net profit.\n✔️ As an S corp owner who works in the business, the IRS expects a reasonable salary before any distributions. That salary carries payroll taxes; distributions above it don't.\n✔️ New costs come with it: a payroll service, a Form 1120-S return and, in some states, extra fees.\n\nWhether it pays off depends on your profit and those costs. Run your numbers on our S corp calculator, or book a call and we'll look at them with you.",
+    "hashtags": [
+      "#scorp",
+      "#llc",
+      "#smallbusinessowner",
+      "#selfemploymenttax",
+      "#taxplanning",
+      "#entrepreneur",
+      "#smallbusinesstaxes"
+    ],
+    "youtube_title": "Is Your LLC an S Corp Yet? Read This Before You Elect",
+    "youtube_description": "Self-employment tax is 15.3% on 92.35% of net profit. An S corp owner who works in the business must take a reasonable salary before distributions, and that salary carries payroll taxes. Add a payroll service, a Form 1120-S return and state fees, then compare. Our calculator does the side-by-side.",
+    "pinterest_title": "S Corp vs LLC: Is Your LLC an S Corp Yet? Reasonable Salary, Payroll and the Real Math",
+    "pinterest_description": "S corp vs LLC for small business owners: self-employment tax is 15.3% on 92.35% of net profit, but an S corp owner who works in the business must take a reasonable salary with payroll taxes, plus pay for payroll and a Form 1120-S return. Run the numbers with our S corp calculator before you elect.",
+    "pinterest_alt": "Short video: an LLC owner considers an S corp election; it shows the 15.3% self-employment tax, the reasonable-salary rule, new costs, and the MFA S corp calculator.",
+    "pinterest_board": "LLC Checklist & Starting a Business"
+  },
+  "sync": {
+    "product_id": "19",
+    "etsy_title_phrase": "s corp vs llc calculator",
+    "ads_keywords": [
+      "s corp vs llc",
+      "form 1120-s",
+      "s corp election"
+    ],
+    "blog": "/blog/form-1120s-s-corp-guide/",
+    "pin_ids": [
+      "p13",
+      "g03"
+    ]
+  },
+  "sources": [
+    {
+      "fact": "Self-employment tax 15.3% (12.4% Social Security + 2.9% Medicare) (data/tax-figures-2026.json, checked 2026-10-20)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    },
+    {
+      "fact": "SE tax applies to 92.35% of net profit (data/tax-figures-2026.json, checked 2026-10-20)",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
+    },
+    {
+      "fact": "S corps must pay reasonable compensation to a shareholder-employee before non-wage distributions; wages are subject to employment taxes, distributions are not; read 2026-10-24",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues"
+    },
+    {
+      "fact": "S corporations file Form 1120-S",
+      "url": "https://www.irs.gov/pub/irs-pdf/i1120s.pdf"
+    }
+  ]
+}
