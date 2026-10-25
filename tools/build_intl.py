@@ -5,7 +5,7 @@ Zain approved the service line and these prices in chat on 2026-10-24:
   Form 8843 only (no US income) $25; student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal,
   $129 with one state return; Social Security/Medicare (FICA) refund claim, Forms 843 + 8316, $49;
   H-1B and others who are US residents for tax: standard Form 1040 pricing (link to /services/#tax-preparation, no number).
-  No CA, CT, MD or OR state returns (same exclusion as our other tax services).
+  State returns for every state except CT, MD and OR (same as our other tax services; Zain, 2026-10-25: CA and NY are in).
 Targeted by visa and tax situation, never nationality. No immigration advice. Every fact in the FAQ was checked on irs.gov
 on CHECKED and is listed in SOURCES. Never "free", never "CPA" (except the approved credential line), no street address,
 no software vendor or partner names. Run via tools/build_resources.py (it calls build()).
@@ -25,8 +25,9 @@ CHECKED_SAVE = "2026-10-25"   # treaty and refund pages for the tax-savings sect
 KEYWORDS = ["international student tax filing", "F-1 student tax return", "1040-NR preparer", "Form 8843 help",
             "OPT tax refund Social Security Medicare", "H-1B tax return", "nonresident tax treaty",
             "tax savings for international students", "J-1 tax return", "FICA refund F-1 student"]
-STATE_CODES = ["CA", "CT", "MD", "OR"]
-STATES_OUT = "California, Connecticut, Maryland or Oregon"
+STATE_CODES = ["CT", "MD", "OR"]   # the only states we don't prepare returns for (Zain, 2026-10-25)
+STATES_OUT = "Connecticut, Maryland or Oregon"
+STATES_EXCEPT = "Connecticut, Maryland and Oregon"
 ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
 TEL = '<a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>'
 
@@ -109,8 +110,8 @@ FAQ = [
      "weren't. Form 8843 sent on its own follows the same Form 1040-NR due date. H-1B workers filing Form 1040 file by "
      "April 15, 2027. Need more time? File Form 4868 by the regular due date."),
     ("Which state returns don't you prepare?",
-     f"We don't prepare state returns for {STATES_OUT}, the same as our other tax services. New Jersey and New York returns are no problem, "
-     "and we can do your federal return and Form 8843 wherever you live."),
+     f"State returns are available for every state except {STATES_EXCEPT}, the same as our other tax services. That includes "
+     "New Jersey, New York and California, and we can do your federal return and Form 8843 wherever you live."),
     ("Can you help with my visa or immigration status?",
      "No. We prepare tax returns and don't give immigration advice. For questions about your visa, OPT or a change of status, "
      "talk to your school's international student office or an immigration attorney."),
@@ -208,7 +209,7 @@ DESC = ("F-1 student tax return on Form 1040-NR $99, Form 8843 help $25, OPT Soc
 def service_node():
     return {"@type": "Service", "@id": URL + "#service", "name": "US tax returns for international students and H-1B workers", "url": URL,
             "serviceType": "Tax preparation for international students and nonresident aliens (Form 1040-NR, Form 8843, Forms 843 and 8316)",
-            "description": DESC + f" Federal returns for every US state. State returns for every state except {STATES_OUT}.",
+            "description": DESC + f" Federal returns for every US state. State returns for every state except {STATES_EXCEPT}.",
             "provider": {"@id": seo.ORG_ID}, "areaServed": {"@type": "Country", "name": "United States"},
             "keywords": ", ".join(KEYWORDS),
             "audience": {"@type": "Audience", "audienceType": "F-1 and J-1 students, J-1 scholars and H-1B workers in the United States"},

@@ -21,8 +21,9 @@ from build_resources import page, write, esc, BASE, cta
 URL = BASE + "/artists/"
 OG_IMG = URL + "og.png"   # rendered from content/graphics/artists-og.html (tools/render_graphics.js)
 CHECKED = "2026-10-25"
-STATES_OUT = "California, Connecticut, Maryland or Oregon"
-STATE_CODES = ["CA", "CT", "MD", "OR"]
+STATES_OUT = "Connecticut, Maryland or Oregon"
+STATES_EXCEPT = "Connecticut, Maryland and Oregon"
+STATE_CODES = ["CT", "MD", "OR"]   # the only states we don't prepare returns for (Zain, 2026-10-25)
 KEYWORDS = ["artist taxes", "tax deductions for artists", "self-employed artist tax return", "do artists need an LLC",
             "art business bookkeeping", "Etsy artist 1099-K", "tax savings for artists", "Schedule C for artists",
             "musician taxes", "photographer taxes", "art fair sales tax"]
@@ -89,7 +90,7 @@ FAQ = [
      "Selling in person can mean registering with that state and collecting its sales tax, and some events ask for your permit number. "
      "Check the revenue department for each state where you sell. Sales tax you collect from buyers and pass on to the state isn't your income."),
     ("Which state returns don't you prepare?",
-     f"We don't prepare state returns for {STATES_OUT}, the same as our other tax services. New Jersey and New York returns are no problem, and we can do your federal return wherever you live."),
+     f"State returns are available for every state except {STATES_EXCEPT}, the same as our other tax services. That includes New Jersey, New York and California, and we can do your federal return wherever you live."),
 ]
 FAQ_LINKS = {   # answer index -> (phrase in the answer, link) for the on-page version (JSON-LD keeps plain text)
     1: ("See the list of tax deductions for artists on this page.", LNK("#deductions", "See the list of tax deductions for artists") + " on this page."),
@@ -200,7 +201,7 @@ def services():
 def offers():
     o = seo._offer
     tax = o("Self-employed artist tax return (Form 1040 with Schedule C)", None,
-            f"Quoted up front by return type. Federal returns for every US state; state returns for every state except {STATES_OUT}.",
+            f"Quoted up front by return type. Federal returns for every US state; state returns for every state except {STATES_EXCEPT}.",
             url=BASE + "/services/#tax-preparation")
     tax["ineligibleRegion"] = seo.states_excluded(STATE_CODES)
     return [tax,
@@ -216,7 +217,7 @@ def service_node(desc=None):
             "serviceType": "Tax preparation, bookkeeping and LLC formation for self-employed artists",
             "description": (desc or "Schedule C tax returns, art business bookkeeping, LLC formation and quarterly estimated taxes "
                             "for self-employed artists, illustrators, photographers, musicians, crafters and Etsy art sellers.")
-            + f" Federal returns for every US state; state returns for every state except {STATES_OUT}.",
+            + f" Federal returns for every US state; state returns for every state except {STATES_EXCEPT}.",
             "provider": {"@id": seo.ORG_ID}, "areaServed": {"@type": "Country", "name": "United States"},
             "audience": {"@type": "Audience", "audienceType": "Self-employed visual artists, illustrators, photographers, musicians, crafters and Etsy art sellers"},
             "keywords": ", ".join(KEYWORDS), "offers": offers()}
