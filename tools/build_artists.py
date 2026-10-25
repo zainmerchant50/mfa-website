@@ -4,7 +4,7 @@
 Zain, 2026-10-25: "can we add tags to SEO for international students and art folks' tax filings and their tax savings."
 For freelance and self-employed visual artists, illustrators, photographers, musicians, crafters and Etsy art sellers.
 No new prices: every price here is an existing public price (Schedule C returns are quoted up front like every tax return;
-monthly bookkeeping from $199/month; LLC formation from $150 plus the state fee; quarterly estimated tax service $250 for the
+monthly bookkeeping from $199/month; LLC formation from $150 plus the state fee; quarterly estimated tax service $199 for the
 year). Shop products are pulled from catalog/products.json (status "live" only). Every tax fact was checked on irs.gov on
 CHECKED and is listed in SOURCES; sales tax stays general and points to each state's revenue department.
 Never "free", never "CPA" (except the approved credential line), no street address, no partner or software vendor names.
@@ -79,7 +79,7 @@ FAQ = [
      "Usually, if you expect to owe $1,000 or more when you file, because no employer is withholding tax from your art income. Most "
      "people avoid the underpayment penalty by paying at least 90% of this year's tax or 100% of the tax on last year's return, "
      "whichever is smaller. Payments are figured with Form 1040-ES across four payment periods a year. Our quarterly estimated tax "
-     "service is $250 for the year."),
+     "service is $199 for the year."),
     ("Do artists need an LLC?",
      "Not for taxes. By default the IRS ignores a single-member LLC for income tax (a \"disregarded entity\"), so you still report your art income on Schedule C with "
      "your Form 1040 and still pay self-employment tax. An LLC can elect to be taxed as a corporation, which only makes sense once "
@@ -94,8 +94,8 @@ FAQ = [
 ]
 FAQ_LINKS = {   # answer index -> (phrase in the answer, link) for the on-page version (JSON-LD keeps plain text)
     1: ("See the list of tax deductions for artists on this page.", LNK("#deductions", "See the list of tax deductions for artists") + " on this page."),
-    4: ("Our quarterly estimated tax service is $250 for the year.", "Our " + LNK("/tools/quarterly-estimated-tax-calculator/", "quarterly estimated tax calculator")
-        + " shows the numbers, and our quarterly estimated tax service is $250 for the year."),
+    4: ("Our quarterly estimated tax service is $199 for the year.", "Our " + LNK("/tools/quarterly-estimated-tax-calculator/", "quarterly estimated tax calculator")
+        + " shows the numbers, and our quarterly estimated tax service is $199 for the year."),
     5: ("which only makes sense once profits are steady; we run the numbers first.", "which only makes sense once profits are steady; "
         + LNK("/tools/s-corp-tax-savings-calculator/", "we run the numbers first") + "."),
     6: ("Check the revenue department for each state where you sell.", "Check the revenue department for each state where you sell. "
