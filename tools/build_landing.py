@@ -95,7 +95,7 @@ SERVICES = [
         "Individual returns (1040), including self-employed and 1099 income",
         "Business returns for LLCs, S corps, partnerships and C corps",
         "§STATE§ and multi-state returns",
-        "Extensions, prior-year and late filings, IRS notice help",
+        "Extensions, amended returns, and prior-year or late filings",
     ]),
 ]
 
