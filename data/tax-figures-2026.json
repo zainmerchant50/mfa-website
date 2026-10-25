@@ -354,7 +354,7 @@
    "note": "300 sq ft x $5"
   },
   "limit_note": {
-   "value": "Can't exceed gross income from the business use of the home minus business expenses; no carryover; space must be used regularly and exclusively for business",
+   "value": "With the simplified method, the deduction can't be more than your business profit from the home, and any extra can't be carried over to next year.",
    "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction",
    "checked": "2026-10-20T18:16-04:00"
   }
@@ -653,7 +653,7 @@
    },
    "source_url": "https://www.tax.ny.gov/pdf/2026/inc/it2105i_2026.pdf",
    "checked": "2026-10-20T18:16-04:00",
-   "note": "2026 IT-2105 worksheet rate schedules (includes the 2026 rate cuts). Simplified estimating schedule: the full return also applies a tax-benefit recapture for higher incomes."
+   "note": "2026 IT-2105 worksheet rate schedules (includes the 2026 rate cuts). Simplified estimating schedule: the full return also adds an extra charge for higher incomes (the tax-benefit recapture)."
   },
   "standard_deduction": {
    "value": {

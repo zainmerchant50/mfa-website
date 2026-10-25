@@ -342,12 +342,12 @@
     },
     {
      "@type": "Offer",
-     "name": "Student package: Form 1040-NR + Form 8843 + tax-treaty check",
+     "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
      "priceCurrency": "USD",
      "description": "Federal nonresident return, e-filed. $129 with one state return.",
      "itemOffered": {
       "@type": "Service",
-      "name": "Student package: Form 1040-NR + Form 8843 + tax-treaty check",
+      "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
       "provider": {
        "@id": "https://mfa-advisory.com/#organization"
       },
@@ -360,7 +360,7 @@
      "@type": "Offer",
      "name": "Student package with one state return",
      "priceCurrency": "USD",
-     "description": "Form 1040-NR, Form 8843, tax-treaty check and one state return (not California, Connecticut, Maryland, New York or Oregon).",
+     "description": "Form 1040-NR, Form 8843, tax treaty check and one state return (not California, Connecticut, Maryland, New York or Oregon).",
      "itemOffered": {
       "@type": "Service",
       "name": "Student package with one state return",
@@ -501,7 +501,7 @@
     "name": "Tax Preparation & Filing",
     "url": "https://mfa-advisory.com/services/#tax-preparation",
     "serviceType": "Tax Preparation & Filing",
-    "description": "Federal and multi-state returns for individuals and businesses: accurate, on time, and positioned to minimize what you legitimately owe. Quoted up front by return type and complexity.",
+    "description": "Federal and multi-state returns for individuals and businesses: accurate, on time, and with every deduction and credit you're entitled to. Quoted up front by return type and complexity.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -554,7 +554,7 @@
     "name": "Tax Planning & Strategy",
     "url": "https://mfa-advisory.com/services/#tax-planning",
     "serviceType": "Tax Planning & Strategy",
-    "description": "Year-round planning tied to live numbers: entity elections, estimated payments, retirement vehicles and deductions. Quoted up front; often bundled with monthly bookkeeping.",
+    "description": "Year-round planning on your real numbers: entity elections, estimated payments, retirement accounts and deductions. Quoted up front; often bundled with monthly bookkeeping.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -607,7 +607,7 @@
     "name": "Bookkeeping & Accounting",
     "url": "https://mfa-advisory.com/services/#bookkeeping",
     "serviceType": "Bookkeeping & Accounting",
-    "description": "Transactions, reconciliations, AP/AR and a disciplined monthly close, so your books stay decision-ready all year, not just at year-end. Monthly bookkeeping from $199/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.",
+    "description": "Transactions, reconciliations, bills and invoices (AP/AR) and a monthly close, so your books are ready to use all year, not just at year-end. Monthly bookkeeping from $199/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -774,7 +774,7 @@
     "name": "Audit Support & Controls",
     "url": "https://mfa-advisory.com/services/#audit-support",
     "serviceType": "Audit Support & Controls",
-    "description": "Help getting ready for your auditor: PBC lists, internal-controls assessment and remediation, drawn from Big Four audit experience. Project fee, quoted up front.",
+    "description": "Help getting ready for your auditor: the auditor's request lists (PBC), internal-controls assessment and remediation, drawn from Big Four audit experience. Project fee, quoted up front.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -880,7 +880,7 @@
     "name": "Systems & Business Advisory",
     "url": "https://mfa-advisory.com/services/#business-advisory",
     "serviceType": "Systems & Business Advisory",
-    "description": "Entity formation, QuickBooks setup and cleanup, system selection, and financially grounded guidance for the decisions that matter. LLC formation from $150 plus the state fee , paid once. Other work quoted up front.",
+    "description": "Entity formation, QuickBooks setup and cleanup, system selection, and practical advice on the big decisions. LLC formation from $150 plus the state fee , paid once. Other work quoted up front.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -1271,12 +1271,12 @@
      },
      {
       "@type": "Offer",
-      "name": "Student package: Form 1040-NR + Form 8843 + tax-treaty check",
+      "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
       "priceCurrency": "USD",
       "description": "Federal nonresident return, e-filed. $129 with one state return.",
       "itemOffered": {
        "@type": "Service",
-       "name": "Student package: Form 1040-NR + Form 8843 + tax-treaty check",
+       "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
        "provider": {
         "@id": "https://mfa-advisory.com/#organization"
        },
@@ -1289,7 +1289,7 @@
       "@type": "Offer",
       "name": "Student package with one state return",
       "priceCurrency": "USD",
-      "description": "Form 1040-NR, Form 8843, tax-treaty check and one state return (not California, Connecticut, Maryland, New York or Oregon).",
+      "description": "Form 1040-NR, Form 8843, tax treaty check and one state return (not California, Connecticut, Maryland, New York or Oregon).",
       "itemOffered": {
        "@type": "Service",
        "name": "Student package with one state return",
@@ -1533,7 +1533,7 @@
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026#product",
     "name": "1099 Self-Employed Tax Calculator & Quarterly Planner (2026)",
-    "description": "From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log.",
+    "description": "From Schedule C to self-employment tax to a 1040-ES schedule: how much to set aside, the payment that avoids an underpayment penalty, 2026 and 2027 due dates and a payment log.",
     "sku": "1099-self-employed-tax-calculator-2026",
     "url": "https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026",
     "image": "https://mfa-advisory.com/shop/img/1099-self-employed-tax-calculator-2026.webp",
@@ -1825,7 +1825,7 @@
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601137589/month-end-close-checklist-excel-google#product",
     "name": "Month-End Close Checklist + Close Workbook",
-    "description": "A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, flux review, sign-off sheet and dashboard.",
+    "description": "A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, month-over-month change review, sign-off sheet and dashboard.",
     "sku": "month-end-close-checklist",
     "url": "https://www.etsy.com/listing/4601137589/month-end-close-checklist-excel-google",
     "image": "https://mfa-advisory.com/shop/img/month-end-close-checklist.webp",
@@ -1971,7 +1971,7 @@
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein#product",
     "name": "Starting a Business Checklist: New Business Setup",
-    "description": "Every step from idea to set up right: entity, EIN, registrations, bank, books and the compliance calendar.",
+    "description": "Every step to set up a new business right: entity, EIN, registrations, bank, books and the compliance calendar.",
     "sku": "new-business-setup-checklist",
     "url": "https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein",
     "image": "https://mfa-advisory.com/shop/img/new-business-setup-checklist.webp",
@@ -2044,7 +2044,7 @@
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601136753/small-business-year-end-tax-checklist#product",
     "name": "Small Business Tax Prep Checklist: Year-End 2026",
-    "description": "A check-the-box year-end guide for sole props, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines.",
+    "description": "A check-the-box year-end guide for sole proprietors, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines.",
     "sku": "small-business-year-end-tax-checklist",
     "url": "https://www.etsy.com/listing/4601136753/small-business-year-end-tax-checklist",
     "image": "https://mfa-advisory.com/shop/img/small-business-year-end-tax-checklist.webp",
@@ -2847,7 +2847,7 @@
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601133387/rideshare-delivery-driver-tax-tracker#product",
     "name": "Rideshare & Delivery Driver Tax Tracker",
-    "description": "Mileage-first tax tracker for Uber, Lyft, DoorDash and Instacart drivers: shift log at the 2026 IRS rates by trip date, earnings and fees, standard vs. actual, 1099 check and quarterly set-aside.",
+    "description": "Mileage-focused tax tracker for Uber, Lyft, DoorDash and Instacart drivers: shift log at the 2026 IRS rates by trip date, earnings and fees, standard vs. actual, 1099 check and quarterly set-aside.",
     "sku": "rideshare-delivery-driver-tax-tracker",
     "url": "https://www.etsy.com/listing/4601133387/rideshare-delivery-driver-tax-tracker",
     "image": "https://mfa-advisory.com/shop/img/rideshare-delivery-driver-tax-tracker.webp",
@@ -4161,7 +4161,7 @@
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601491161#product",
     "name": "Real Estate Agent Bookkeeping Tracker (2026)",
-    "description": "Realtor bookkeeping spreadsheet 2026: deals, GCI, broker splits and fees, agent expenses by Schedule C line, showing mileage, 1099 check, quarterly set-aside.",
+    "description": "Realtor bookkeeping spreadsheet 2026: deals, gross commission income, broker splits and fees, agent expenses by Schedule C line, showing mileage, 1099 check, quarterly set-aside.",
     "sku": "real-estate-agent-bookkeeping-tracker",
     "url": "https://www.etsy.com/listing/4601491161",
     "image": "https://mfa-advisory.com/shop/img/real-estate-agent-bookkeeping-tracker.webp",
@@ -4453,7 +4453,7 @@
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601741304#product",
     "name": "2026 Tax Season Bundle: 1099 Kit + Personal Tax Organizer + Year-End Checklist",
-    "description": "Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Saves about $5 against buying all three.",
+    "description": "Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Costs about $5 less than buying all three separately.",
     "sku": "tax-season-bundle-2026",
     "url": "https://www.etsy.com/listing/4601741304",
     "image": "https://mfa-advisory.com/shop/img/tax-season-bundle-2026.webp",
@@ -4599,9 +4599,9 @@
    "dateModified": "2026-10-25",
    "item": {
     "@type": "WebApplication",
-    "name": "Tax Write Offs for Small Business: Is It Deductible?",
+    "name": "Tax Write-Offs for Small Business: Is It Deductible?",
     "url": "https://mfa-advisory.com/tools/is-it-deductible/",
-    "description": "Tax write offs for small business, 2026: search 59 everyday expenses for a plain answer, what proof to keep and the mistake to avoid.",
+    "description": "Tax write-offs for small business, 2026: search 59 everyday expenses for a plain answer, what proof to keep and the mistake to avoid.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
     "provider": {
@@ -4661,7 +4661,7 @@
     "@type": "WebApplication",
     "name": "Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY",
     "url": "https://mfa-advisory.com/tools/quarterly-estimated-tax-calculator/",
-    "description": "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the safe-harbor amount.",
+    "description": "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the penalty-safe amount.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
     "provider": {

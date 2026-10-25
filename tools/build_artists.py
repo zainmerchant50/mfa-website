@@ -60,7 +60,7 @@ FAQ = [
      "It depends on whether you run it to make a profit. The IRS weighs nine factors, including whether you keep complete books and "
      "records, the time and effort you put in, whether you change methods to improve profitability, and whether you've made a "
      "profit in some years. No single factor decides it. Either way, the income has to be reported. Running it as a business is what "
-     "lets you deduct your expenses on Schedule C: hobby expenses are miscellaneous itemized deductions, which can't currently be deducted."),
+     "lets you deduct your expenses on Schedule C. Hobby expenses can't be deducted at all, and a 2025 tax law made that permanent."),
     ("What tax deductions can artists take?",
      "Expenses that are ordinary (common and accepted in your field) and necessary (helpful and appropriate for your business): "
      "supplies and materials, studio rent or a home studio, equipment and software, booth fees and marketing, shipping, platform and "
@@ -69,18 +69,18 @@ FAQ = [
     ("I got a 1099-K from Etsy or a payment app. Is all of it taxable?",
      "No. Form 1099-K shows the gross amount of payments, with nothing taken off for fees, refunds, shipping or discounts. Those "
      "aren't income, so you report your real sales and then deduct fees, shipping and your other costs on Schedule C. Payment apps "
-     "and marketplaces send a 1099-K when payments for goods or services top $20,000 and 200 transactions, card payments have no "
-     "threshold, and some states set lower ones. Income is taxable whether or not you get a form."),
+     "and marketplaces send a 1099-K when your payments top $20,000 and 200 transactions. Card payments have no minimum, "
+     "and some states set lower limits. Income is taxable whether or not you get a form."),
     ("Do artists pay self-employment tax?",
      "Yes, once your net earnings from self-employment reach $400. Self-employment tax is 15.3%: 12.4% for Social Security and 2.9% "
-     "for Medicare, figured on Schedule SE. You can deduct the employer-equivalent portion when you work out your adjusted gross income."),
+     "for Medicare, figured on Schedule SE. You can deduct half of it from your income on Form 1040."),
     ("Do I need to make quarterly estimated tax payments?",
      "Usually, if you expect to owe $1,000 or more when you file, because no employer is withholding tax from your art income. Most "
      "people avoid the underpayment penalty by paying at least 90% of this year's tax or 100% of the tax on last year's return, "
      "whichever is smaller. Payments are figured with Form 1040-ES across four payment periods a year. Our quarterly estimated tax "
      "service is $250 for the year."),
     ("Do artists need an LLC?",
-     "Not for taxes. A single-member LLC is a disregarded entity by default, so you still report your art income on Schedule C with "
+     "Not for taxes. By default the IRS ignores a single-member LLC for income tax (a \"disregarded entity\"), so you still report your art income on Schedule C with "
      "your Form 1040 and still pay self-employment tax. An LLC can elect to be taxed as a corporation, which only makes sense once "
      "profits are steady; we run the numbers first. What an LLC does add is a separate legal business for contracts, bank accounts and "
      "state filings, with state fees that vary by state. Questions about personal liability are for an attorney."),
@@ -89,7 +89,7 @@ FAQ = [
      "Selling in person can mean registering with that state and collecting its sales tax, and some events ask for your permit number. "
      "Check the revenue department for each state where you sell. Sales tax you collect from buyers and pass on to the state isn't your income."),
     ("Which state returns don't you prepare?",
-     f"We don't prepare state returns for {STATES_OUT}, the same as our other tax services. Your federal return is fine wherever you live."),
+     f"We don't prepare state returns for {STATES_OUT}, the same as our other tax services. We can still do your federal return wherever you live."),
 ]
 FAQ_LINKS = {   # answer index -> (phrase in the answer, link) for the on-page version (JSON-LD keeps plain text)
     1: ("See the list of tax deductions for artists on this page.", LNK("#deductions", "See the list of tax deductions for artists") + " on this page."),
@@ -104,7 +104,7 @@ FAQ_LINKS = {   # answer index -> (phrase in the answer, link) for the on-page v
 SOURCES = [
     ("IRS: Earning side income: is it a hobby or a business? (the nine factors)", "https://www.irs.gov/newsroom/earning-side-income-is-it-a-hobby-or-a-business"),
     ("IRS: Paying taxes on hobby activities (reporting hobby income)", "https://www.irs.gov/newsroom/heres-what-taxpayers-need-to-know-about-paying-taxes-on-their-hobby-activities"),
-    ("IRS Tax Tip 2019-85: hobby expenses are miscellaneous itemized deductions", "https://www.irs.gov/node/69456"),
+    ("IRS: Publication 525 (2025), Taxable and Nontaxable Income (activity not for profit: hobby income and expenses)", "https://www.irs.gov/publications/p525"),
     ("IRS: Schedule C (Form 1040) 2025, Profit or Loss From Business", "https://www.irs.gov/pub/irs-pdf/f1040sc.pdf"),
     ("IRS: Publication 334 (2025), Tax Guide for Small Business", "https://www.irs.gov/pub/irs-prior/p334--2025.pdf"),
     ("IRS: Guide to business expense resources", "https://www.irs.gov/forms-pubs/guide-to-business-expense-resources"),
@@ -262,7 +262,7 @@ def build():
 <p>Whether art is your full-time living or a side business, the tax rules are the same once you're running it to make a profit.</p></div>
 <div class="ar-who">{who}</div></section>
 <section class="wrap llc-sec" id="deductions" aria-labelledby="ded-h"><div class="sec-hd"><span class="eyebrow eb-dark">Tax deductions for artists</span><h2 id="ded-h">Tax savings for artists start with what you can deduct.</h2>
-<p>Business expenses come off your art income before income tax and self-employment tax are figured. They need to be ordinary and necessary for your art business, and you need the records to back them up.</p></div>
+<p>Business expenses come off your art income before income tax and self-employment tax are figured. They need to be ordinary (common for artists) and necessary (helpful for your art business), and you need the records to back them up.</p></div>
 <ul class="ar-ded" id="ar-ded">{ded}</ul>
 <p class="ar-note">Not sure about an expense? Search it in <a href="/tools/is-it-deductible/">Is It Deductible?</a>, or work out a home studio with the <a href="/tools/home-office-deduction-calculator/">home office calculator</a> and your driving with the <a href="/tools/mileage-deduction-calculator/">mileage calculator</a>.</p></section>
 <section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Common questions</span><h2 id="faq-h">Artist tax questions, answered</h2></div>{faq}</section>

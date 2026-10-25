@@ -79,7 +79,7 @@ MONTHLY = {"price": 199, "scope": "one bank account, one credit card, up to 100 
                      "Monthly P&amp;L and balance sheet, with a short note on what changed",
                      "Owner draws, loans and transfers kept separate from income and expenses",
                      "Year-end books handed to your tax preparer (or to us) ready to file",
-                     "Questions by email between closes"]}
+                     "Questions by email any time during the month"]}
 
 
 # Add-ons sold in the LLC cart (Zain, 2026-10-20 23:3x). Bookkeeping: up to 4 accounts and 200 transactions/month
@@ -265,7 +265,7 @@ def addons_html():
 <div class="addon-sub" id="f1099-sub" hidden><div class="fld fld-n"><label for="f1099-n">How many 1099s?</label><input type="number" id="f1099-n" name="f1099_forms" min="1" max="250" value="3" inputmode="numeric"/></div></div></div>
 <label class="opt opt-wide" id="ad-st"><input type="checkbox" id="f-st" name="addon_salestax" value="yes"/><span><b>{A["salestax"]["name"]}</b> <small class="ad-pr" data-price="${A["salestax"]["price"]}">${A["salestax"]["price"]}</small></span></label>
 <label class="opt opt-wide" id="ad-sc"><input type="checkbox" id="f-sc" name="addon_scorp" value="yes"/><span><b>{A["scorp"]["name"]}</b> <small class="ad-pr" data-price="${A["scorp"]["price"]}">${A["scorp"]["price"]}</small></span></label>
-<label class="opt opt-wide"><input type="checkbox" id="f-q" name="addon_quarterly" value="yes"/><span><b>{A["quarterly"]["name"]}</b> <small>${A["quarterly"]["price"]} for the year: four federal and state estimate calculations with due dates. Based on books reconciled through each quarter-end (automatic if we keep your books); if they aren't current, we use the prior-year safe harbor.</small></span></label>
+<label class="opt opt-wide"><input type="checkbox" id="f-q" name="addon_quarterly" value="yes"/><span><b>{A["quarterly"]["name"]}</b> <small>${A["quarterly"]["price"]} for the year: four federal and state estimate calculations with due dates. Based on books reconciled through each quarter-end (automatic if we keep your books); if they aren't current, we base the payments on last year's tax, which avoids an underpayment penalty.</small></span></label>
 </div></div>'''
 
 
@@ -411,7 +411,7 @@ FAQ = [
     ("Is there anything that renews or bills me later?",
      "No. Each package is a one-time fee plus the state's filing fee at cost. Monthly bookkeeping is optional: it starts only if you ask for it, runs month to month, and you can stop anytime."),
     ("What happens after the first month of bookkeeping?",
-     "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $199 a month for up to two accounts (for example one bank account and one credit card) and up to 100 transactions a month. Each extra account adds $50 a month and 101 to 200 transactions add $100 a month. More than four accounts or 200 transactions a month is quoted up front. If not, you keep your QuickBooks file and everything we set up."),
+     "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $199 a month for up to two accounts (for example one bank account and one credit card) and up to 100 transactions a month. Each extra account adds $50 a month and 101 to 200 transactions add $100 a month. More than four accounts or 200 transactions a month is quoted up front. If you'd rather stop, you keep your QuickBooks file and everything we set up."),
     ("How do I pay?",
      "By card or bank account at checkout on this page, powered by Stripe. You pay one total: your package plus your state's filing fee at cost, shown as separate lines on your receipt. We check the name and file right after. If we can't file, we refund you in full; state fees can't be refunded once the state accepts the filing."),
     ("Which states do you form LLCs in?",
@@ -427,7 +427,7 @@ FAQ = [
     ("What if the state rejects the filing?",
      "We correct the filing and resubmit it. State fees are non-refundable once a filing is submitted, so we confirm every detail with you before we file."),
     ("What does the state charge after formation?",
-     "Most states charge an annual or biennial report fee, and a few charge an annual franchise or privilege tax (California, for example). We show each state's figure on its page and in the cost picker, and your first-year compliance calendar lists the due dates."),
+     "Most states charge an annual or biennial report fee, and a few charge an annual franchise or privilege tax (varies by state). We show each state's figure on its page and in the cost picker, and your first-year compliance calendar lists the due dates."),
 ]
 
 
@@ -504,12 +504,14 @@ def build_state(code):
     arnote = pubnote((s.get("annual_report_fee") or {}).get("note", "") if isinstance(s.get("annual_report_fee"), dict) else "")
     freq = v(s, "annual_report_frequency")
     due = v(s, "annual_report_due")
-    if isinstance(arf, (int, float)):
+    if arf == 0 and due and str(due).lower().startswith("none"):
+        rows.append(("Annual report", "None required." + (f" {esc(arnote)}" if arnote else "")))
+    elif isinstance(arf, (int, float)):
         txt = f"${arf:,}" + (f" ({esc(str(freq))})" if freq else "") + (f"; due {esc(lc1(str(due)))}" if due else "")
         rows.append(("Annual report", txt + (f". {esc(arnote)}" if arnote else "")))
     else:
         bi = v(s, "biennial_statement_fee")
-        rows.append(("Annual report", esc(arnote or ("None required." if (due and str(due).lower().startswith("none")) else "See the state's official page in the sources below; we confirm current state fees before invoicing.")) + (f" Biennial statement: ${bi}; {esc(lc1(str(due or '')))}." if bi else "")))
+        rows.append(("Annual report", esc(arnote or ("None required." if (due and str(due).lower().startswith("none")) else "See the state's official page in the sources below; we confirm current state fees before invoicing.")) + (f" Due {esc(lc1(str(due or '')).replace('biennial statement every', 'every'))}." if bi else "")))
     if isinstance(pub, dict) and pub.get("newspapers") and pub.get("certificate_of_publication_fee"):
         rows.append(("Publication", f"Publish once a week for {pub['weeks']} weeks in {pub['newspapers']} newspapers designated by the county clerk, "
                                     f"then file the Certificate of Publication (${pub['certificate_of_publication_fee']}) within {pub['deadline_days']} days of forming."))

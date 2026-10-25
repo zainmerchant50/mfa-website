@@ -220,7 +220,7 @@ def reg(slug, name, kind, card_desc, icon, group, kw, badge="New"):
 
 
 reg("quarterly-estimated-tax-calculator", "Quarterly estimated tax calculator", "Calculator",
-    "Your four 2026 estimated payments and their due dates, federal and NJ/NY, with the safe-harbor amount.", "calc", "taxcalcs",
+    "Your four 2026 estimated payments and their due dates, federal and NJ/NY, with the amount that avoids an underpayment penalty.", "calc", "taxcalcs",
     "estimated tax quarterly 1040-es safe harbor self employed")
 reg("1099-tax-calculator", "1099 tax calculator", "Calculator",
     "Estimate self-employment tax, federal income tax and NJ/NY tax on freelance income, and how much of each payment to set aside.", "calc", "taxcalcs",
@@ -302,7 +302,7 @@ def build_quarterly():
 <p>This calculator follows the 2026 Form 1040-ES worksheet in plain steps. It starts with self-employment tax, takes the deduction for half of it, applies the standard deduction and the 2026 tax brackets, then adds your state tax. The total is split into four payments.</p>
 <ul><li><strong>Self-employment tax.</strong> {pc(fed["se_rate"])} ({pc(fed["ss_rate"])} Social Security + {pc(fed["med_rate"])} Medicare) on {pc(fed["factor"])} of your net profit. Social Security stops at the {usd(fed["wage_base"])} wage base, and your W-2 wages use that up first.</li>
 <li><strong>Additional Medicare Tax.</strong> {pc(fed["addl_rate"])} on wages plus self-employment earnings above {usd(fed["addl_thr"]["single"])} ({usd(fed["addl_thr"]["married_joint"])} if married filing jointly).</li>
-<li><strong>Half of SE tax is deductible.</strong> It lowers your income for income tax, not your SE tax.</li>
+<li><strong>Half of self-employment tax is deductible.</strong> It lowers your income for income tax, not your self-employment tax.</li>
 <li><strong>State.</strong> New Jersey and New York use the 2026 rate schedules in their estimated tax instructions. For another state, enter a flat rate. New York City residents add the city tax.</li></ul>
 <h2>Due dates for 2026 estimated payments</h2>
 <p>Federal, New Jersey and New York all use the same four dates: {", ".join(day(d) for d in due[:3])} and {day(due[3])}. Estimated payments are generally required if you expect to owe {usd(fed["est_threshold"])} or more after withholding. New Jersey's threshold is {usd(nj["threshold"])} and New York's is {usd(nyd["threshold"])}. {esc(nj["due_note"])}</p>
@@ -316,7 +316,7 @@ def build_quarterly():
 <p>Planning for 2027? The 2027 estimated payment dates are on the <a href="/tools/tax-deadlines-2027/">2027 deadlines page</a>. We will update this calculator when the 2027 figures are final.</p>"""
     data = {"fed": fed, "nj": nj, "ny": nyd, "nyc": nyc}
     return build_page(slug, "Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY",
-                      "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the safe-harbor amount.",
+                      "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the penalty-safe amount.",
                       "Quarterly estimated tax", "Quarterly estimated tax calculator",
                       "Enter your expected 2026 profit and see what to pay on each due date, with the math shown, federal and state.",
                       grid + res, below, info, data, "quarterly", f, "Not sure what to pay?", "We calculate your estimates, track what you have paid and keep you ahead of every due date. Book a 30-minute consultation.")
@@ -341,10 +341,10 @@ def build_1099calc():
     info = f"""<h2>What you owe on 1099 income</h2>
 <p>Income reported on a 1099 has no tax taken out. You owe three things on the profit, which is income minus business expenses:</p>
 <ul><li><strong>Self-employment tax of {pc(fed["se_rate"])}.</strong> This covers Social Security and Medicare, both the employee and employer halves, on {pc(fed["factor"])} of profit.</li>
-<li><strong>Federal income tax.</strong> Figured with the 2026 brackets after the standard deduction and the deduction for half of your SE tax.</li>
+<li><strong>Federal income tax.</strong> Figured with the 2026 brackets after the standard deduction and the deduction for half of your self-employment tax.</li>
 <li><strong>State income tax.</strong> New Jersey and New York use the 2026 rate schedules; for another state, enter its flat rate.</li></ul>
 <h2>How to use the "set aside" percentage</h2>
-<p>The set-aside figure is your total estimated tax divided by your 1099 income. Move that share of every client payment into a separate savings account, and use it to make quarterly estimated payments. Try the <a href="/tools/quarterly-estimated-tax-calculator/">quarterly estimated tax calculator</a> for the payment dates and the safe-harbor option.</p>
+<p>The set-aside figure is your total estimated tax divided by your 1099 income. Move that share of every client payment into a separate savings account, and use it to make quarterly estimated payments. Try the <a href="/tools/quarterly-estimated-tax-calculator/">quarterly estimated tax calculator</a> for the payment dates and the amount that avoids an underpayment penalty.</p>
 <h2>What this estimate leaves out</h2>
 <ul><li>The qualified business income (QBI) deduction, itemized deductions and tax credits. They can lower your tax, so the estimate errs high.</li>
 <li>Other income such as a W-2 job or a spouse's wages. Those change your bracket and the Social Security wage base. Use the quarterly calculator if you have them.</li>
@@ -377,19 +377,19 @@ def build_scorp():
         money("s-cost1", "Payroll service and filings, per year", "", "600", "600", "Assumption") +
         money("s-cost2", "Extra tax return prep and bookkeeping, per year", "An S corporation files its own return (Form 1120-S)", "1500", "1500", "Assumption") + "</div></div>")
     verdict = '<div class="verdict" id="verdict"><span class="vk">Start here</span><h3>Enter your profit and salary.</h3><p>We compare self-employment tax as an LLC with payroll taxes as an S corporation.</p></div>'
-    kp = (kpi("k-save", "Annual savings after costs", "wide gold") + kpi("k-llc", "SE tax as an LLC") + kpi("k-scorp", "Payroll taxes as S corp") + kpi("k-be", "Break-even profit", "wide"))
+    kp = (kpi("k-save", "Annual savings after costs", "wide gold") + kpi("k-llc", "Self-employment tax as an LLC") + kpi("k-scorp", "Payroll taxes as S corp") + kpi("k-be", "Break-even profit", "wide"))
     res = result_card("Is an S corp worth it?", kp, extra=verdict, cta_label="Ask MFA about an S corp election")
     below = math_card(sub="Self-employment tax on the whole profit versus payroll taxes on the salary. Income tax and the QBI deduction are not part of this comparison.")
     info = f"""<h2>What this compares</h2>
 <p>An LLC owner who is taxed as a sole proprietor pays self-employment tax ({pc(fed["se_rate"])} on {pc(fed["factor"])} of profit) on all of the profit. An S corporation owner who works in the business is paid a salary and the company pays payroll taxes on that salary only (the same {pc(fed["se_rate"])}, split between employee and employer, on the full salary). Profit left over as distributions is not subject to payroll or self-employment tax. The savings come from that difference, minus the extra costs of running a corporation.</p>
-<p><strong>Not included:</strong> federal and state income tax differences, the qualified business income (QBI) deduction, and the deduction effects of half of SE tax versus the employer payroll tax. Those can move the answer in either direction, so use this as a first filter, not a final answer.</p>
+<p><strong>Not included:</strong> federal and state income tax differences, the qualified business income (QBI) deduction, and the deduction effects of half of self-employment tax versus the employer payroll tax. Those can move the answer in either direction, so use this as a first filter, not a final answer.</p>
 <h2>What else to weigh</h2>
 <ul><li><strong>Reasonable compensation.</strong> The IRS expects an owner-employee to be paid a reasonable salary before taking distributions. A very low salary is a common audit trigger. Base it on what the role would cost to hire.</li>
 <li><strong>Form 2553 timing.</strong> The S corporation election is made on Form 2553. For 2027, calendar-year entities have until March 15, 2027; check the <a href="/tools/tax-deadlines-2027/">2027 deadlines</a> for the date for your entity.</li>
 <li><strong>Payroll obligations.</strong> You must run payroll, make payroll tax deposits and file quarterly and year-end payroll returns, and the state may add its own payroll registrations.</li>
 <li><strong>Extra filings and fees.</strong> A separate corporate return (Form 1120-S), K-1s, and state-level fees or taxes for S corporations.</li>
 <li><strong>Retirement, health insurance and loans.</strong> Salary affects retirement contribution limits, and owner health insurance has its own S corporation rules.</li>
-<li><strong>Formation first.</strong> You need a corporation or an LLC before electing S status. See our <a href="/llc-formation/">LLC formation service</a> for NJ and NY.</li></ul>"""
+<li><strong>Formation first.</strong> You need a corporation or an LLC before electing S status. See our <a href="/llc-formation/">LLC formation service</a> for any state.</li></ul>"""
     d = {"fed": fed, "notes": notes}
     return build_page(slug, "S Corp Tax Savings Calculator: Is an S Corp Worth It?",
                       "Compare self-employment tax as an LLC with payroll taxes as an S corporation. See annual savings after costs and the break-even profit.",
@@ -413,7 +413,7 @@ def build_paycheck():
         select("p-state", "State", [("NJ", "New Jersey"), ("NY", "New York State"), ("NYC", "New York City resident (state + city)"), ("NONE", "Other state (state tax not included)")]) +
         fgh("Pre-tax deductions, per paycheck") +
         money("p-k401", "401(k) or traditional retirement", "Lowers federal income tax. Social Security and Medicare still apply", "0") +
-        money("p-s125", "Health insurance and other Section 125 plans", "Lowers income tax and Social Security and Medicare", "0") + "</div>")
+        money("p-s125", "Health insurance and other pre-tax benefits (Section 125)", "Lowers income tax and Social Security and Medicare", "0") + "</div>")
     kp = kpi("k-net", "Take-home per paycheck", "wide gold") + kpi("k-gross", "Gross per paycheck") + kpi("k-tax", "Taxes per paycheck") + kpi("k-rate", "Taxes as % of gross", "wide")
     res = result_card("Your take-home pay", kp, cta_label="Talk to MFA about your taxes")
     head = '<thead><tr><th>Item</th><th class="num">Per paycheck</th><th class="num">Per year</th></tr></thead>'
@@ -512,7 +512,7 @@ def build_mileage():
 # ------------------------------------------------------------------ 4. contractor tracker
 ENTITIES = [
     {"id": "indiv", "label": "Individual or sole proprietor", "corp": False, "exempt": False, "foreign": False},
-    {"id": "llc", "label": "LLC taxed as a sole prop or partnership", "corp": False, "exempt": False, "foreign": False},
+    {"id": "llc", "label": "LLC taxed as a sole proprietor or partnership", "corp": False, "exempt": False, "foreign": False},
     {"id": "partnership", "label": "Partnership", "corp": False, "exempt": False, "foreign": False},
     {"id": "ccorp", "label": "C corporation", "corp": True, "exempt": False, "foreign": False},
     {"id": "scorp", "label": "S corporation", "corp": True, "exempt": False, "foreign": False},
@@ -572,7 +572,7 @@ def build_tracker():
 <p>For payments made in 2026, a vendor needs a Form 1099-NEC when you paid them {usd(nec)} or more for services by check, ACH, wire, cash, Zelle or a personal app transfer. Nonemployee compensation goes in box 1a of the 2026 Form 1099-NEC (revised 12/2026). Send it to the contractor and file it with the IRS by {day(dl["date"])}.</p>
 <ul><li><strong>{usd(nec)} threshold.</strong> The same {usd(nec)} threshold applies to most Form 1099-MISC payments for 2026 (it was $600 for 2025). Royalties stay at {usd(T["royalties"])}, and gross proceeds paid to attorneys at {usd(T["attorney_proceeds"])}.</li>
 <li><strong>Card and app payments are excluded.</strong> Payments by credit or debit card or through a payment network are reported by the processor on Form 1099-K, so they don't count toward the 1099-NEC. They are listed separately so you can see the full picture.</li>
-<li><strong>Corporations are generally exempt,</strong> except for legal services. Tick the attorney box for a law firm.</li>
+<li><strong>Corporations are generally exempt,</strong> except for legal services. Check the attorney box for a law firm.</li>
 <li><strong>Tax-exempt organizations, government agencies and foreign payees</strong> generally don't receive a 1099-NEC.</li>
 <li><strong>Get the W-9 first.</strong> Ask for a Form W-9 before the first payment. The <a href="/tools/w-9-request-email-template/">W-9 request email templates</a> make it quick.</li></ul>
 <p>This tracker treats every payment as payment for services (Form 1099-NEC). Rent, medical payments, royalties and prizes use Form 1099-MISC and other rules: run those through the <a href="/tools/do-i-need-to-send-a-1099/">1099 checker</a>. For the full walkthrough, read the <a href="/blog/form-1099-preparation-guide-2026/">Form 1099 preparation guide</a>.</p>

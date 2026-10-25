@@ -383,12 +383,41 @@ def seo_lint(p):
     return warn
 
 
+_TAG_UP = {"nj": "NJ", "ny": "NY", "nyc": "NYC", "llc": "LLC", "llcs": "LLCs", "irs": "IRS", "st-50": "ST-50", "salt": "SALT",
+           "ptet": "PTET", "bait": "BAIT", "ira": "IRA", "hsa": "HSA", "sep-ira": "SEP-IRA", "ai": "AI", "k-1": "K-1", "k-1s": "K-1s"}
+_TAG_CAP = {"schedule", "section", "new", "jersey", "york", "quickbooks"}
+
+
+def tag_label(k):
+    """Display casing for keyword tags (the keyword data stays lowercase for SEO tooling)."""
+    words = k.split(" ")
+    out = []
+    for i, w in enumerate(words):
+        lw = w.lower()
+        prev = words[i - 1].lower() if i else ""
+        if lw in _TAG_UP:
+            w = _TAG_UP[lw]
+        elif lw in _TAG_CAP and w == lw:
+            w = lw.capitalize()
+        elif lw == "form" and i + 1 < len(words) and words[i + 1][:1].isdigit():
+            w = "Form"
+        elif lw.endswith("-s") and lw[:-2].isdigit():
+            w = w[:-1] + "S"
+        elif lw in ("s", "c") and i + 1 < len(words) and words[i + 1].lower() in ("corp", "corporation", "corps"):
+            w = lw.upper()
+        elif lw in ("c", "e", "se") and prev == "schedule":
+            w = lw.upper()
+        out.append(w)
+    t = " ".join(out)
+    return t[:1].upper() + t[1:]
+
+
 def tags_block(p):
     kws = p.get("keywords", [])
     if not kws:
         return ""
     return ('<div class="tags"><span class="tags-k">Topics covered</span><ul>'
-            + "".join(f"<li>{esc(k)}</li>" for k in kws) + "</ul></div>")
+            + "".join(f"<li>{esc(tag_label(k))}</li>" for k in kws) + "</ul></div>")
 
 
 # ---------- Key dates (savable calendar) ----------
@@ -566,8 +595,8 @@ def build_newsletter_pages(posts):
     up = "".join(f'<li><span class="kd-d">{datetime.fromisoformat(e["date"]):%a, %b %-d, %Y}</span><span class="kd-t"><b>{esc(e["title"])}</b></span>'
                  f'<a class="kd-g" href="{esc(e["url"])}">Read more</a></li>' for e in upcoming)
     recent = "".join(f'<li><a href="/blog/{p["slug"]}/"><b>{esc(p["title"])}</b></a> <span class="m">{p["dt"]:%b %-d, %Y}</span></li>' for p in posts[:5])
-    desc = ("MFA Insights by email: new tax, accounting and QuickBooks articles, key IRS and New Jersey deadlines, "
-            "and a savable key-dates calendar.")
+    desc = ("MFA Insights by email: new tax, accounting and QuickBooks articles, key IRS, New Jersey and New York "
+            "deadlines, and a key-dates calendar you can save.")
     ldn = seo.graph(BASE + "/newsletter/", "MFA Insights newsletter", desc, crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/"), ("Newsletter", BASE + "/newsletter/")],
                     modified=posts[0]["date"] if posts else None)
     page = f"""{head("MFA Insights Newsletter: Tax Dates & QuickBooks Tips", desc, BASE + "/newsletter/", BASE + "/apple-touch-icon.png", seo.script(ldn))}

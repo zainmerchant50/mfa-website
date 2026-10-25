@@ -84,7 +84,7 @@
 <p>Before you look at a dollar amount, run each vendor through three questions:</p>
 <ol>
   <li><strong>Tax classification.</strong> Individuals, sole proprietors, partnerships and single-member LLCs generally get a 1099. C and S corporations generally don't. The big exceptions are <strong>attorneys and medical providers, who get one even if incorporated</strong>. The vendor's Form W-9 tells you which box they checked.</li>
-  <li><strong>Nature of the payment.</strong> Services, rent, prizes and other business income are reportable. Merchandise, freight, storage, telephone and similar items, accountable-plan reimbursements, and personal payments are not.</li>
+  <li><strong>Nature of the payment.</strong> Services, rent, prizes and other business income are reportable. Merchandise, freight, storage, telephone and similar items, expense reimbursements backed by receipts (an "accountable plan"), and personal payments are not.</li>
   <li><strong>Calendar-year total, by payment method.</strong> Add up everything you paid the vendor from Jan. 1 to Dec. 31 across all accounts, but only count payments you made by check, ACH, wire, cash, Zelle or a personal peer-to-peer transfer.</li>
 </ol>
 
@@ -119,18 +119,18 @@
 <h2>How to prepare 1099s in QuickBooks Online, step by step</h2>
 <ol>
   <li><strong>Reconcile everything through Dec. 31.</strong> Bank, cash and payment-app wallet accounts. Every transaction needs a real payee: record the actual vendor, not "Zelle" or "Venmo". Clear Uncategorized Expense.</li>
-  <li><strong>Export the year's transactions.</strong> Run a transaction report for Jan. 1–Dec. 31 on bank, cash and P2P accounts only (leave out credit cards and processor accounts). Export to Excel (XLSX), not CSV, so the Split column survives.</li>
+  <li><strong>Export the year's transactions.</strong> Run a transaction report for Jan. 1–Dec. 31 on bank, cash and payment-app (peer-to-peer) accounts only (leave out credit cards and processor accounts). Export to Excel (XLSX), not CSV, so the Split column survives.</li>
   <li><strong>Build a pivot table.</strong> Rows: vendor name, then expense account (Split). Values: sum of amount. Payments export as negatives, so a conditional-format rule of "less than -1,999.99" highlights everyone over the 2026 threshold.</li>
   <li><strong>Fix blank vendors.</strong> Drill into any unnamed amounts in accounts like Contract Labor, Legal &amp; Professional, Repairs or Rent, assign the vendor in QuickBooks, and refresh.</li>
   <li><strong>Mark each payee Y / N / ?</strong> using the three-part test. Anything uncertain gets a "?" and a second look.</li>
   <li><strong>Confirm W-9s are on file</strong> for every "Y" payee, and request the missing ones in one consolidated list.</li>
   <li><strong>Update vendor records</strong> to match the W-9: legal name, address, tax ID, and the "Track payments for 1099" box. Then map each expense account to the right form and box.</li>
-  <li><strong>Review, then e-file</strong> through QuickBooks' 1099 e-file service or IRIS. Reconcile 1099 totals back to your pivot, furnish recipient copies on time, and keep the confirmations and W-9s.</li>
+  <li><strong>Review, then e-file</strong> through QuickBooks' 1099 e-file service or IRIS. Reconcile 1099 totals back to your pivot, send recipient copies on time, and keep the confirmations and W-9s.</li>
 </ol>
 
 <h2>Year-round habits that make January easy</h2>
 <ul>
-  <li><strong>The best way to collect W-9s: get one before the first payment</strong> to any new vendor. It must show legal name, address, tax classification, TIN, signature and date.</li>
+  <li><strong>The best way to collect W-9s: get one before the first payment</strong> to any new vendor. It must show legal name, address, tax classification, taxpayer ID number (TIN), signature and date.</li>
   <li><strong>Monthly:</strong> add new vendors, request W-9s, and make sure every transaction has a payee.</li>
   <li><strong>Quarterly:</strong> review the vendor list for 1099-eligible payees and merge duplicate vendor records.</li>
   <li><strong>Split mixed bills.</strong> Separate services from materials and reimbursements so only reportable amounts land on the 1099.</li>
@@ -145,7 +145,7 @@
     <tr><td>Within 30 days of the due date</td><td>$60</td></tr>
     <tr><td>31 days late through Aug. 1</td><td>$130</td></tr>
     <tr><td>After Aug. 1, or not filed</td><td>$340</td></tr>
-    <tr><td>Intentional disregard</td><td>$680 minimum</td></tr>
+    <tr><td>Ignored on purpose (intentional disregard)</td><td>$680 minimum</td></tr>
   </tbody>
 </table>
 <p>Amounts for returns due in 2027 are adjusted for inflation each year. A paper filing when e-filing was required counts as not filed.</p>

@@ -15,7 +15,7 @@ ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
 
 SERVICES = [
     ("tax-preparation", "Tax Preparation &amp; Filing",
-     "Federal and multi-state returns for individuals and businesses: accurate, on time, and positioned to minimize what you legitimately owe.",
+     "Federal and multi-state returns for individuals and businesses: accurate, on time, and with every deduction and credit you're entitled to.",
      ["Individual returns (Form 1040) with Schedule C, E and multi-state filings",
       "Business returns: partnerships (1065), S corporations (1120-S), C corporations (1120)",
       "Federal and state estimated tax calculations, with a payment calendar",
@@ -26,15 +26,15 @@ SERVICES = [
      "Quoted up front by return type and complexity.",
      [("/international-students/", "International students & H-1B"), ("/artists/", "Artists & creatives"), ("/tools/quarterly-estimated-tax-calculator/", "Quarterly estimated tax calculator"), ("/tools/tax-deadlines-2027/", "2027 tax deadlines")]),
     ("tax-planning", "Tax Planning &amp; Strategy",
-     "Year-round planning tied to live numbers: entity elections, estimated payments, retirement vehicles and deductions.",
-     ["Entity and S corporation analysis, including a reasonable-salary range",
+     "Year-round planning on your real numbers: entity elections, estimated payments, retirement accounts and deductions.",
+     ["Entity and S corporation analysis, including what salary to pay yourself",
       "Quarterly estimate reviews against year-to-date results",
       "Retirement plan options for owners (SEP IRA, solo 401(k))",
       "Year-end planning before December 31, while there's still time to act"],
      "Quoted up front; often bundled with monthly bookkeeping.",
      [("/tools/s-corp-tax-savings-calculator/", "Is an S corp worth it?"), ("/tools/1099-tax-calculator/", "1099 tax calculator")]),
     ("bookkeeping", "Bookkeeping &amp; Accounting",
-     "Transactions, reconciliations, AP/AR and a disciplined monthly close, so your books stay decision-ready all year, not just at year-end.",
+     "Transactions, reconciliations, bills and invoices (AP/AR) and a monthly close, so your books are ready to use all year, not just at year-end.",
      ["Monthly categorization to a chart of accounts built for your business",
       "Bank, credit card and loan reconciliations to the statements",
       "Accounts payable and receivable tracking",
@@ -59,7 +59,7 @@ SERVICES = [
      "Monthly retainer, quoted up front.",
      [("/tools/break-even-calculator/", "Break-even calculator")]),
     ("audit-support", "Audit Support &amp; Controls",
-     "Help getting ready for your auditor: PBC lists, internal-controls assessment and remediation, drawn from Big Four audit experience.",
+     "Help getting ready for your auditor: the auditor's request lists (PBC), internal-controls assessment and remediation, drawn from Big Four audit experience.",
      ["Prepared-by-client (PBC) schedules and support",
       "Internal-controls walkthroughs and documentation",
       "Remediation plans for deficiencies your auditor raised",
@@ -74,7 +74,7 @@ SERVICES = [
      "Hourly or project fee, quoted up front.",
      []),
     ("business-advisory", "Systems &amp; Business Advisory",
-     "Entity formation, QuickBooks setup and cleanup, system selection, and financially grounded guidance for the decisions that matter.",
+     "Entity formation, QuickBooks setup and cleanup, system selection, and practical advice on the big decisions.",
      ["LLC formation in all 50 states and DC, with EIN and operating agreement template",
       "QuickBooks Online setup, migration and cleanup",
       "Accounting system and app selection",
@@ -113,14 +113,14 @@ def build():
 <main>
 <section class="wrap llc-sec" aria-labelledby="of-h"><div class="sec-hd"><span class="eyebrow eb-dark">Start here</span><h2 id="of-h">Three common starting points.</h2></div>
 <div class="pk">{offers}</div></section>
-<section class="wrap llc-sec" id="all" aria-labelledby="all-h"><div class="sec-hd"><span class="eyebrow eb-dark">All services</span><h2 id="all-h">Eight services, one finance function.</h2></div>
+<section class="wrap llc-sec" id="all" aria-labelledby="all-h"><div class="sec-hd"><span class="eyebrow eb-dark">All services</span><h2 id="all-h">Eight services, one team.</h2></div>
 <nav class="sv-jump" aria-label="Jump to a service">{jump}</nav>
 <div class="svs">{"".join(rows)}</div></section>
 <section class="wrap llc-sec"><div class="diy card"><div><span class="eyebrow eb-dark">Prefer to do it yourself?</span><h3>Calculators, trackers and guides</h3>
 <p>Quarterly estimates, 1099 tax, S corp savings, paycheck, home office and mileage calculators, a 1099 contractor tracker and the 2027 deadline calendar.</p></div>
 <a class="btn btn-ink" href="/resources/">Browse resources</a></div></section>
-<section class="wrap llc-sec" aria-labelledby="more-h"><div class="sec-hd"><span class="eyebrow eb-dark">Where we work, and more</span><h2 id="more-h">Local pages and related pages.</h2></div>
-<nav class="sv-jump" aria-label="Local pages and related pages"><a href="/princeton-nj/">Princeton, NJ</a><a href="/union-city-nj/">Union City, NJ</a><a href="/new-york-ny/">New York City</a><a href="/llc-formation/">LLC formation in all 50 states</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup quote</a><a href="/international-students/">International students &amp; H-1B</a><a href="/artists/">Artists &amp; creatives</a><a href="/shop/">Shop</a><a href="/resources/">Resources</a><a href="/blog/">MFA Insights</a><a href="/authors/zain-merchant/">About Zain Merchant, ACCA</a></nav></section>
+<section class="wrap llc-sec" aria-labelledby="more-h"><div class="sec-hd"><span class="eyebrow eb-dark">Where we work, and more</span><h2 id="more-h">Local and related pages.</h2></div>
+<nav class="sv-jump" aria-label="Local and related pages"><a href="/princeton-nj/">Princeton, NJ</a><a href="/union-city-nj/">Union City, NJ</a><a href="/new-york-ny/">New York City</a><a href="/llc-formation/">LLC formation in all 50 states</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup quote</a><a href="/international-students/">International students &amp; H-1B</a><a href="/artists/">Artists &amp; creatives</a><a href="/shop/">Shop</a><a href="/resources/">Resources</a><a href="/blog/">MFA Insights</a><a href="/authors/zain-merchant/">About Zain Merchant, ACCA</a></nav></section>
 {cta("Not sure where to start?", "Tell us what's going on in a 30-minute call and we'll suggest the smallest engagement that fixes it, with a price before any work begins.")}
 <section class="wrap llc-sec fineprint" aria-label="Fine print"><p class="disclaimer">Merchant Financial Advisory provides accounting, bookkeeping, tax preparation and advisory services. We do not perform audits or issue audit, review or compilation reports, and we are not a law firm. Languages: English, Hindi and Urdu.</p></section>
 </main>'''

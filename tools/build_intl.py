@@ -2,7 +2,7 @@
 """Builds /international-students/ (Site session): US tax returns for international students, scholars and H-1B workers.
 
 Zain approved the service line and these prices in chat on 2026-10-24:
-  Form 8843 only (no US income) $25; student package (Form 1040-NR + Form 8843 + tax-treaty check) $99 federal,
+  Form 8843 only (no US income) $25; student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal,
   $129 with one state return; Social Security/Medicare (FICA) refund claim, Forms 843 + 8316, $49;
   H-1B and others who are US residents for tax: standard Form 1040 pricing (link to /services/#tax-preparation, no number).
   No CA, CT, MD, NY or OR state returns (same exclusion as our other tax services).
@@ -33,7 +33,7 @@ TEL = '<a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>'
 WHO = [
     ("F-1 and J-1 students", "Including OPT and CPT. In your first US years you are usually a nonresident for tax, which means Form 1040-NR and Form 8843."),
     ("J-1 scholars, researchers and teachers", "Teachers and trainees follow a different exempt-years rule than students, so we check your years in the US carefully."),
-    ("H-1B and other work visas", "Most H-1B workers pass the substantial presence test and file Form 1040. A first or last year in the US can be dual-status."),
+    ("H-1B and other work visas", "Most H-1B workers pass the substantial presence test and file Form 1040. A first or last year in the US can be dual-status (part nonresident, part resident)."),
     ("No US income this year", "Students and scholars who were in the US but earned nothing usually still need to send Form 8843."),
 ]
 
@@ -45,7 +45,7 @@ PRICES = [
       "Ready for you to sign and mail, with the IRS address"], "/book/", "Book a call", False),
     ("Most students", "Student package", "$99", "federal · $129 with one state return",
      "Your nonresident federal return, prepared and e-filed, with Form 8843 attached.",
-     ["Form 1040-NR, e-filed", "Form 8843", "Tax-treaty check for your wages or scholarship",
+     ["Form 1040-NR, e-filed", "Form 8843", "Tax treaty check for your wages or scholarship",
       "One state return in the $129 option"], "/book/", "Book a call", True),
     ("OPT and campus jobs", "Social Security refund claim", "$49", "Forms 843 + 8316",
      "Social Security and Medicare withheld from your pay while you were exempt, and your employer won't refund it.",
@@ -103,14 +103,14 @@ FAQ = [
     ("Do H-1B workers file Form 1040 or Form 1040-NR?",
      "Most H-1B workers count every day in the US, pass the substantial presence test and file Form 1040 as US residents for tax. "
      "A first or last year in the US can be dual-status, which needs extra care. An H-1B tax return is at our standard Form 1040 "
-     "pricing, quoted up front. Social Security and Medicare apply to H-1B wages, so the student FICA refund doesn't."),
+     "pricing, quoted up front. Social Security and Medicare apply to H-1B wages, so the student refund of those taxes doesn't apply."),
     ("When is the international student tax deadline?",
      "For 2026 income, generally April 15, 2027 if you were paid US wages with income tax withheld, and June 15, 2027 if you "
      "weren't. Form 8843 sent on its own follows the same Form 1040-NR due date. H-1B workers filing Form 1040 file by "
      "April 15, 2027. Need more time? File Form 4868 by the regular due date."),
     ("Which state returns don't you prepare?",
-     f"We don't prepare state returns for {STATES_OUT}, the same as our other tax services. Your federal return and Form 8843 "
-     "are fine wherever you live."),
+     f"We don't prepare state returns for {STATES_OUT}, the same as our other tax services. We can still do your federal return "
+     "and Form 8843 wherever you live."),
     ("Can you help with my visa or immigration status?",
      "No. We prepare tax returns and don't give immigration advice. For questions about your visa, OPT or a change of status, "
      "talk to your school's international student office or an immigration attorney."),
@@ -192,8 +192,8 @@ def offers():
     o = seo._offer
     u = URL + "#prices"
     return [o("Form 8843 only (no US income)", 25, "Form 8843 prepared for an exempt individual with no US income, ready to sign and mail.", url=u),
-            o("Student package: Form 1040-NR + Form 8843 + tax-treaty check", 99, "Federal nonresident return, e-filed. $129 with one state return.", url=u),
-            {**o("Student package with one state return", 129, f"Form 1040-NR, Form 8843, tax-treaty check and one state return (not {STATES_OUT}).", url=u),
+            o("Student package: Form 1040-NR + Form 8843 + tax treaty check", 99, "Federal nonresident return, e-filed. $129 with one state return.", url=u),
+            {**o("Student package with one state return", 129, f"Form 1040-NR, Form 8843, tax treaty check and one state return (not {STATES_OUT}).", url=u),
              "eligibleRegion": {"@type": "Country", "name": "United States"}, "ineligibleRegion": seo.states_excluded(STATE_CODES)},
             o("Social Security and Medicare refund claim (Forms 843 + 8316)", 49, "Claim for refund of Social Security and Medicare tax withheld in error.", url=u),
             o("Form 1040 for H-1B workers and other US tax residents", None, "Standard tax return pricing, quoted up front by return type.",
@@ -233,7 +233,7 @@ def build():
     steps = "".join(f'<div class="step"><h3>{esc(h)}</h3><p>{p}</p></div>' for h, p in STEPS)
     faq = ui_kit.faq_accordion([(esc(q), esc(a)) for q, a in FAQ], prefix="is")
     src = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(t)}</a></li>' for t, u in SOURCES)
-    body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">International student tax filing</span>
+    body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Nonresident tax returns</span>
 <h1>International student tax filing <em>for F-1, J-1 and <span class="nw">H-1B</span>.</em></h1>
 <p>Your F-1 or J-1 student tax return on Form 1040-NR, Form 8843 help, a nonresident tax treaty check and OPT Social Security and Medicare refund claims, plus H-1B tax returns. We prepare and e-file, at a set price you see before we start.</p>
 <div class="hero-btns"><a class="btn btn-gold" href="/book/" data-conv="book">Book a 30-minute call</a><a class="btn btn-line" href="#prices">See prices</a></div></div></header>
@@ -241,7 +241,7 @@ def build():
 <section class="wrap llc-sec" aria-labelledby="who-h"><div class="sec-hd"><span class="eyebrow eb-dark">Who it's for</span><h2 id="who-h">F-1, J-1 and H-1B tax returns: who we help.</h2>
 <p>The right forms depend on your visa, how long you've been in the US and what you earned, not on where you're from.</p></div>
 <div class="is-who">{who}</div></section>
-<section class="wrap llc-sec" id="prices" aria-labelledby="pr-h"><div class="sec-hd"><span class="eyebrow eb-dark">Prices</span><h2 id="pr-h">1040-NR preparer prices, agreed before we start.</h2>
+<section class="wrap llc-sec" id="prices" aria-labelledby="pr-h"><div class="sec-hd"><span class="eyebrow eb-dark">Prices</span><h2 id="pr-h">Form 1040-NR preparation prices, agreed before we start.</h2>
 <p>We confirm which one fits on a short call before any work starts.</p></div>
 <div class="pk is-pk">{"".join(cards)}</div>
 <p class="is-note">State returns are not available for {STATES_OUT}. Not sure if you're a resident or a nonresident for tax? See <a href="#is-2">the FAQ on residency</a>.</p></section>

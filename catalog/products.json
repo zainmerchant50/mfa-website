@@ -39,7 +39,7 @@
       },
       "shop": {
         "group": "calc",
-        "blurb": "From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log.",
+        "blurb": "From Schedule C to self-employment tax to a 1040-ES schedule: how much to set aside, the payment that avoids an underpayment penalty, 2026 and 2027 due dates and a payment log.",
         "format": "Excel / Google Sheets",
         "related": {
           "url": "/tools/1099-tax-calculator/",
@@ -147,7 +147,7 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": "A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, flux review, sign-off sheet and dashboard.",
+        "blurb": "A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, month-over-month change review, sign-off sheet and dashboard.",
         "format": "PDF + Excel",
         "related": null
       }
@@ -195,7 +195,7 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": "Every step from idea to set up right: entity, EIN, registrations, bank, books and the compliance calendar.",
+        "blurb": "Every step to set up a new business right: entity, EIN, registrations, bank, books and the compliance calendar.",
         "format": "PDF",
         "related": {
           "url": "/llc-formation/",
@@ -222,7 +222,7 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": "A check-the-box year-end guide for sole props, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines.",
+        "blurb": "A check-the-box year-end guide for sole proprietors, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines.",
         "format": "PDF",
         "related": {
           "url": "/tools/tax-deadlines-2027/",
@@ -535,7 +535,7 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": "Mileage-first tax tracker for Uber, Lyft, DoorDash and Instacart drivers: shift log at the 2026 IRS rates by trip date, earnings and fees, standard vs. actual, 1099 check and quarterly set-aside.",
+        "blurb": "Mileage-focused tax tracker for Uber, Lyft, DoorDash and Instacart drivers: shift log at the 2026 IRS rates by trip date, earnings and fees, standard vs. actual, 1099 check and quarterly set-aside.",
         "format": "Excel + PDF",
         "related": null
       }
@@ -972,7 +972,7 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": "Realtor bookkeeping spreadsheet 2026: deals, GCI, broker splits and fees, agent expenses by Schedule C line, showing mileage, 1099 check, quarterly set-aside.",
+        "blurb": "Realtor bookkeeping spreadsheet 2026: deals, gross commission income, broker splits and fees, agent expenses by Schedule C line, showing mileage, 1099 check, quarterly set-aside.",
         "format": "Excel (10 files) + PDF",
         "related": null
       },
@@ -1072,7 +1072,7 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": "Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Saves about $5 against buying all three.",
+        "blurb": "Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Costs about $5 less than buying all three separately.",
         "format": "ZIP: Excel + PDF",
         "related": null
       },

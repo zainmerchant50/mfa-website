@@ -15,7 +15,7 @@ Generated October 25, 2026 from the live site sources. Prices shown here are the
 ## Services (https://mfa-advisory.com/services/)
 
 ### Tax Preparation & Filing
-Federal and multi-state returns for individuals and businesses: accurate, on time, and positioned to minimize what you legitimately owe. Pricing: Quoted up front by return type and complexity.
+Federal and multi-state returns for individuals and businesses: accurate, on time, and with every deduction and credit you're entitled to. Pricing: Quoted up front by return type and complexity.
 - Individual returns (Form 1040) with Schedule C, E and multi-state filings
 - Business returns: partnerships (1065), S corporations (1120-S), C corporations (1120)
 - Federal and state estimated tax calculations, with a payment calendar
@@ -26,15 +26,15 @@ Federal and multi-state returns for individuals and businesses: accurate, on tim
 Page: https://mfa-advisory.com/services/#tax-preparation
 
 ### Tax Planning & Strategy
-Year-round planning tied to live numbers: entity elections, estimated payments, retirement vehicles and deductions. Pricing: Quoted up front; often bundled with monthly bookkeeping.
-- Entity and S corporation analysis, including a reasonable-salary range
+Year-round planning on your real numbers: entity elections, estimated payments, retirement accounts and deductions. Pricing: Quoted up front; often bundled with monthly bookkeeping.
+- Entity and S corporation analysis, including what salary to pay yourself
 - Quarterly estimate reviews against year-to-date results
 - Retirement plan options for owners (SEP IRA, solo 401(k))
 - Year-end planning before December 31, while there's still time to act
 Page: https://mfa-advisory.com/services/#tax-planning
 
 ### Bookkeeping & Accounting
-Transactions, reconciliations, AP/AR and a disciplined monthly close, so your books stay decision-ready all year, not just at year-end. Pricing: Monthly bookkeeping from $199/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.
+Transactions, reconciliations, bills and invoices (AP/AR) and a monthly close, so your books are ready to use all year, not just at year-end. Pricing: Monthly bookkeeping from $199/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.
 - Monthly categorization to a chart of accounts built for your business
 - Bank, credit card and loan reconciliations to the statements
 - Accounts payable and receivable tracking
@@ -59,7 +59,7 @@ Forecasting, budgeting, margin analysis and board-ready reporting: financial lea
 Page: https://mfa-advisory.com/services/#fractional-cfo
 
 ### Audit Support & Controls
-Help getting ready for your auditor: PBC lists, internal-controls assessment and remediation, drawn from Big Four audit experience. Pricing: Project fee, quoted up front.
+Help getting ready for your auditor: the auditor's request lists (PBC), internal-controls assessment and remediation, drawn from Big Four audit experience. Pricing: Project fee, quoted up front.
 - Prepared-by-client (PBC) schedules and support
 - Internal-controls walkthroughs and documentation
 - Remediation plans for deficiencies your auditor raised
@@ -74,7 +74,7 @@ US GAAP and IFRS guidance on the hard parts: revenue recognition, leases, financ
 Page: https://mfa-advisory.com/services/#technical-accounting
 
 ### Systems & Business Advisory
-Entity formation, QuickBooks setup and cleanup, system selection, and financially grounded guidance for the decisions that matter. Pricing: LLC formation from $150 plus the state fee , paid once. Other work quoted up front.
+Entity formation, QuickBooks setup and cleanup, system selection, and practical advice on the big decisions. Pricing: LLC formation from $150 plus the state fee , paid once. Other work quoted up front.
 - LLC formation in all 50 states and DC, with EIN and operating agreement template
 - QuickBooks Online setup, migration and cleanup
 - Accounting system and app selection
@@ -91,7 +91,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - 1099 preparation and e-filing: $25 per form, $75 minimum.
 - Sales tax registration: $99 (included in Complete Launch). S corporation election (Form 2553): $149 (included in Complete Launch).
 - Bookkeeping cleanup and catch-up: fixed quote after a review of a sample of your accounts (https://mfa-advisory.com/bookkeeping-cleanup/).
-- International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; student package (Form 1040-NR + Form 8843 + tax-treaty check) $99 federal, $129 with one state return; Social Security and Medicare refund claim (Forms 843 + 8316) $49; H-1B and other US tax residents file Form 1040 at standard tax return pricing. No state returns for California, Connecticut, Maryland, New York or Oregon.
+- International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal, $129 with one state return; Social Security and Medicare refund claim (Forms 843 + 8316) $49; H-1B and other US tax residents file Form 1040 at standard tax return pricing. No state returns for California, Connecticut, Maryland, New York or Oregon.
 - Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; bookkeeping, LLC formation and quarterly estimates at the prices above. No state returns for California, Connecticut, Maryland, New York or Oregon.
 - Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts.
 
@@ -185,11 +185,11 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Break-Even Calculator for Small Businesses: Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal. https://mfa-advisory.com/tools/break-even-calculator/
 - Do I Need to Send a 1099? 2026 Payments Checker: Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines. https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/
 - Home Office Deduction Calculator 2026: Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side. https://mfa-advisory.com/tools/home-office-deduction-calculator/
-- Tax Write Offs for Small Business: Is It Deductible?: Tax write offs for small business, 2026: search 59 everyday expenses for a plain answer, what proof to keep and the mistake to avoid. https://mfa-advisory.com/tools/is-it-deductible/
+- Tax Write-Offs for Small Business: Is It Deductible?: Tax write-offs for small business, 2026: search 59 everyday expenses for a plain answer, what proof to keep and the mistake to avoid. https://mfa-advisory.com/tools/is-it-deductible/
 - Mileage Deduction Calculator 2026 (IRS Standard Rates): Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates. https://mfa-advisory.com/tools/mileage-deduction-calculator/
 - Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY): Estimate W-2 take-home pay per paycheck after federal income tax, Social Security, Medicare and New Jersey or New York tax. https://mfa-advisory.com/tools/paycheck-tax-calculator/
 - Profit Margin & Markup Calculator: Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide. https://mfa-advisory.com/tools/profit-margin-calculator/
-- Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY: Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the safe-harbor amount. https://mfa-advisory.com/tools/quarterly-estimated-tax-calculator/
+- Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY: Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the penalty-safe amount. https://mfa-advisory.com/tools/quarterly-estimated-tax-calculator/
 - S Corp Tax Savings Calculator: Is an S Corp Worth It?: Compare self-employment tax as an LLC with payroll taxes as an S corporation. See annual savings after costs and the break-even profit. https://mfa-advisory.com/tools/s-corp-tax-savings-calculator/
 - 2027 Business Tax Deadlines by Entity: Fed, NJ & NY: Every 2027 federal, New Jersey and New York tax deadline for sole proprietors, partnerships, S and C corporations, employers and nonprofits. https://mfa-advisory.com/tools/tax-deadlines-2027/
 - W-9 Request Email Templates for Vendors: Copy-ready W-9 request emails for new vendors, year-end 1099 prep and reminders. Personalize the names and deadline, then copy with one click. https://mfa-advisory.com/tools/w-9-request-email-template/
@@ -197,17 +197,17 @@ Page: https://mfa-advisory.com/services/#business-advisory
 ## Shop products (checkout by Gumroad; instant download; all sales final)
 
 ### Tax calculators
-- 1099 Self-Employed Tax Calculator & Quarterly Planner (2026): $5.49, Excel / Google Sheets. From Schedule C to self-employment tax to a 1040-ES schedule: set-aside %, safe-harbor sizing, 2026 and 2027 due dates and a payment log. Buy: https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026
+- 1099 Self-Employed Tax Calculator & Quarterly Planner (2026): $5.49, Excel / Google Sheets. From Schedule C to self-employment tax to a 1040-ES schedule: how much to set aside, the payment that avoids an underpayment penalty, 2026 and 2027 due dates and a payment log. Buy: https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026
 - 2026 Salary & Paycheck Tax Calculator (W-2): $5.49, Excel / Google Sheets. See where a 2026 paycheck goes: federal, FICA, NJ / NY / NYC tax and net pay per year and per paycheck, with a bracket-by-bracket table. Buy: https://www.etsy.com/listing/4601160748/2026-paycheck-calculator-excel-google
 - S Corp vs LLC Savings Calculator: $8.49, Excel / Google Sheets. Compare self-employment tax with S corp payroll taxes after the extra costs, see net annual savings and the break-even profit, and read the warnings before you elect. Buy: https://www.etsy.com/listing/4601163974/s-corp-vs-llc-calculator-is-an-s-corp
 - Small Business Budget + 13-Week Cash Flow Forecast (2026): $6.99, Excel + PDF. An annual budget with budget vs. actual by month and year to date, plus a rolling 13-week cash flow forecast from your recurring items, receivables and bills, with scenarios and a low-cash alert. Buy: https://www.etsy.com/listing/4601492601
 
 ### Checklists & kits
 - The 1099 Kit (2026 payments, filed in 2027): $10.49, PDF + Excel. Decide who needs a 1099, collect W-9s and file on time. Updated for the new $2,000 threshold, with a contractor tracker. Buy: https://www.etsy.com/listing/4601418995/1099-kit-2026-who-needs-a-1099-nec-w-9
-- Month-End Close Checklist + Close Workbook: $8.99, PDF + Excel. A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, flux review, sign-off sheet and dashboard. Buy: https://www.etsy.com/listing/4601137589/month-end-close-checklist-excel-google
+- Month-End Close Checklist + Close Workbook: $8.99, PDF + Excel. A 38-step close checklist plus an 8-tab workbook: 12-month close tracker, month view, reconciliation log, month-over-month change review, sign-off sheet and dashboard. Buy: https://www.etsy.com/listing/4601137589/month-end-close-checklist-excel-google
 - Bookkeeping Cleanup Checklist + Catch-Up Tracker: $8.49, PDF + Excel. The step-by-step method to catch up months-behind books, plus a tracker that shows what's done. Buy: https://www.etsy.com/listing/4601446924/bookkeeping-cleanup-checklist-catch-up
-- Starting a Business Checklist: New Business Setup: $6.49, PDF. Every step from idea to set up right: entity, EIN, registrations, bank, books and the compliance calendar. Buy: https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein
-- Small Business Tax Prep Checklist: Year-End 2026: $3.49, PDF. A check-the-box year-end guide for sole props, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines. Buy: https://www.etsy.com/listing/4601136753/small-business-year-end-tax-checklist
+- Starting a Business Checklist: New Business Setup: $6.49, PDF. Every step to set up a new business right: entity, EIN, registrations, bank, books and the compliance calendar. Buy: https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein
+- Small Business Tax Prep Checklist: Year-End 2026: $3.49, PDF. A check-the-box year-end guide for sole proprietors, partnerships, S corps and C corps: documents, reconciliations, 1099s, payroll, assets, owner pay and 2027 deadlines. Buy: https://www.etsy.com/listing/4601136753/small-business-year-end-tax-checklist
 - 1099 Contractor Payment Tracker: $4.99, Excel / Google Sheets. Log every contractor and vendor payment in 2026, see who needs a Form 1099-NEC or 1099-MISC at the $2,000 threshold, and work a year-end filing checklist with the 2027 deadlines. Buy: https://www.etsy.com/listing/4601110337/1099-contractor-payment-tracker-2026
 - 1099 Income Tracker for Freelancers: $4.99, Excel / Google Sheets. Track who paid you, which 1099 to expect from each client or platform, reconcile the forms you receive to your books, and set money aside for each 2026 Form 1040-ES period. Buy: https://www.etsy.com/listing/4601113193/1099-income-tracker-for-freelancers-2026
 - Small Business Bookkeeping Spreadsheet for Beginners: $4.99, Excel / Google Sheets. A complete cash-basis set of books for a sole proprietor or single-member LLC: chart of accounts, ledger, monthly P&L, dashboard, bank reconciliation and a Schedule C summary. Buy: https://www.etsy.com/listing/4601114741/small-business-bookkeeping-spreadsheet
@@ -216,7 +216,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Mileage Log for Taxes 2026: $4.99, Excel / Google Sheets. A trip-by-trip mileage log with odometer readings, automatic miles, the 2026 standard mileage rates by trip date (including the July 1 change) and a monthly summary. Buy: https://www.etsy.com/listing/4601144570/irs-mileage-log-2026-mileage-tracker
 - Online Seller Bookkeeping Sheet: $4.99, PDF + Excel. Order-level bookkeeping for Etsy, Shopify, Amazon and eBay sellers: platform fees, COGS, a Form 1099-K reconciliation, a sales tax log by state and a Schedule C summary. Buy: https://www.etsy.com/listing/4601119735/online-seller-bookkeeping-spreadsheet
 - Rental Property Tracker (Schedule E): $3.99, Excel + PDF. Landlord workbook for up to 8 rentals: rent roll, income and expense logs mapped to Schedule E lines, mileage at the 2026 rates, depreciation and a per-property Schedule E. Buy: https://www.etsy.com/listing/4601158276/rental-property-tracker-spreadsheet
-- Rideshare & Delivery Driver Tax Tracker: $3.99, Excel + PDF. Mileage-first tax tracker for Uber, Lyft, DoorDash and Instacart drivers: shift log at the 2026 IRS rates by trip date, earnings and fees, standard vs. actual, 1099 check and quarterly set-aside. Buy: https://www.etsy.com/listing/4601133387/rideshare-delivery-driver-tax-tracker
+- Rideshare & Delivery Driver Tax Tracker: $3.99, Excel + PDF. Mileage-focused tax tracker for Uber, Lyft, DoorDash and Instacart drivers: shift log at the 2026 IRS rates by trip date, earnings and fees, standard vs. actual, 1099 check and quarterly set-aside. Buy: https://www.etsy.com/listing/4601133387/rideshare-delivery-driver-tax-tracker
 - QuickBooks Online Chart of Accounts Pack: All 8 Industry Editions: $10.49, CSV + Excel + PDF. All eight industry charts of accounts for QuickBooks Online in one download: 8 annotated workbooks, 16 import-ready CSVs and the PDF import guide. Buy: https://www.etsy.com/listing/4601146728/quickbooks-online-chart-of-accounts
 - QuickBooks Chart of Accounts: E-commerce Seller: $3.49, CSV + Excel + PDF. An import-ready QuickBooks Online chart of accounts (112 accounts) built for Etsy, Amazon, Shopify, eBay, TikTok Shop and Walmart sellers, print-on-demand shops, dropshippers and craft sellers: channel sales, marketplace and processor clearing accounts, marketplace fees, COGS, payouts and 1099-K reconciliation. Buy: https://www.etsy.com/listing/4601148092/quickbooks-online-chart-of-accounts-e
 - QuickBooks Chart of Accounts: Freelancer & Service Business: $3.49, CSV + Excel + PDF. An import-ready QuickBooks Online chart of accounts (92 accounts) built for freelancers, consultants, coaches, designers, writers, developers, agencies and virtual assistants: service revenue, retainers and client deposits, contractor costs and Schedule C mapping. Buy: https://www.etsy.com/listing/4601122895/quickbooks-online-chart-of-accounts
@@ -234,10 +234,10 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Therapist & Counselor Bookkeeping Tracker (2026): $4.99, Excel (10 files) + PDF. Therapist bookkeeping spreadsheet 2026: private pay and insurance income, Schedule C expenses, CE and license tracker, mileage, 1099 check, quarterly set-aside. Buy: https://www.etsy.com/listing/4601488785
 - Hair Stylist & Salon Bookkeeping Tracker (2026): $4.99, Excel (10 files) + PDF. Hair stylist bookkeeping spreadsheet 2026: booth rent, services, tips, retail and sales tax, Schedule C expenses, mileage, 1099-K check, quarterly set-aside. Buy: https://www.etsy.com/listing/4601489655
 - Cleaning Business Bookkeeping Tracker (2026): $4.99, Excel (10 files) + PDF. Cleaning business bookkeeping spreadsheet 2026: job log, client balances, income, supplies and helpers by Schedule C line, mileage, quarterly set-aside. Buy: https://www.etsy.com/listing/4601490377
-- Real Estate Agent Bookkeeping Tracker (2026): $4.99, Excel (10 files) + PDF. Realtor bookkeeping spreadsheet 2026: deals, GCI, broker splits and fees, agent expenses by Schedule C line, showing mileage, 1099 check, quarterly set-aside. Buy: https://www.etsy.com/listing/4601491161
+- Real Estate Agent Bookkeeping Tracker (2026): $4.99, Excel (10 files) + PDF. Realtor bookkeeping spreadsheet 2026: deals, gross commission income, broker splits and fees, agent expenses by Schedule C line, showing mileage, 1099 check, quarterly set-aside. Buy: https://www.etsy.com/listing/4601491161
 - Content Creator Bookkeeping Tracker (2026): $4.99, Excel (10 files) + PDF. Content creator bookkeeping spreadsheet 2026: payouts, brand deals, gifted products, gear and software by Schedule C line, 1099 check, quarterly set-aside. Buy: https://www.etsy.com/listing/4601517742
 - Reseller Year-End Kit: Inventory Count, COGS & 1099-K Reconciliation: $3.49, Excel + PDF. Year-end inventory count, cost of goods sold (Schedule C Part III) and a 1099-K vs. platform report vs. bank deposit reconciliation for Etsy, eBay, Amazon, Poshmark, Mercari and Shopify sellers. Buy: https://www.etsy.com/listing/4601519074
-- 2026 Tax Season Bundle: 1099 Kit + Personal Tax Organizer + Year-End Checklist: $12.99, ZIP: Excel + PDF. Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Saves about $5 against buying all three. Buy: https://www.etsy.com/listing/4601741304
+- 2026 Tax Season Bundle: 1099 Kit + Personal Tax Organizer + Year-End Checklist: $12.99, ZIP: Excel + PDF. Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Costs about $5 less than buying all three separately. Buy: https://www.etsy.com/listing/4601741304
 
 ### AI prompt packs
 - AI Prompts for Small Business Bookkeeping & Taxes: $4.99, PDF. 130 copy-paste AI prompts for bookkeeping, month-end close, reconciliations, Schedule C prep, quarterly estimates and 1099s, each with an expected output and a "check this" note. Buy: https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes
@@ -300,7 +300,7 @@ In plain English: Paper, ink, pens, stamps and other supplies you use up in your
 Keep as proof: Receipts showing what you bought and when
 Common mistake: Lumping a printer or a desk in with supplies. Things that last well over a year are equipment, with their own rules.
 Rule: Office supplies and postage used in your business are deductible. Materials and supplies are generally deducted as you use them, and items you normally use up within a year can be deducted when bought.
-Limits: Items that last substantially longer than a year are generally depreciated instead (or expensed under the de minimis safe harbor or Section 179).
+Limits: Items that last substantially longer than a year are generally depreciated instead (or deducted right away under the $2,500 small-purchase rule or Section 179).
 Records to keep: Receipts or invoices showing what you bought and when.
 Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
 Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/instructions/i1040sc
@@ -361,7 +361,7 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#parking-tolls
 In plain English: Yes, when work takes you away from home overnight: flights, hotels, rides and taxis there, baggage and laundry. Meals on the trip count at half. A trip that's mainly a vacation doesn't count.
 Keep as proof: Hotel receipts and any receipt of $75 or more; The dates, where you went and the business reason
 Common mistake: Writing off a family vacation because you took a few work calls. The trip has to be mainly for business.
-Rule: Ordinary and necessary costs of traveling away from your tax home overnight for business are deductible: transportation, lodging, taxis or rideshare at the destination, baggage, laundry and business calls. Meals on the trip are 50% deductible.
+Rule: The normal, needed costs of traveling away from your tax home overnight for business are deductible: transportation, lodging, taxis or rideshare at the destination, baggage, laundry and business calls. Meals on the trip are 50% deductible.
 Limits: The trip has to take you away from your tax home (the general area of your main place of business) longer than a normal workday, needing sleep or rest. A trip that is mainly personal is a personal expense.
 Records to keep: Receipts for lodging and anything $75 or more, plus the dates, destination and business purpose of the trip.
 Applies to: Self-employed people. W-2 employees generally can't deduct unreimbursed travel.
@@ -424,7 +424,7 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-parties
 In plain English: No, starting in 2026. Snacks, coffee and meals you provide to employees at work are no longer deductible, apart from a few narrow exceptions. Staff parties follow a different rule.
 Keep as proof: Invoices, plus what the food was for, so the right rule is used
 Common mistake: Still writing off office snacks and catered team lunches out of habit. That stopped counting in 2026.
-Rule: Starting in 2026, an employer can no longer deduct the cost of food and drinks provided to employees through an on-site eating facility, as de minimis fringe benefits, or for the employer's convenience. There are narrow exceptions in the law.
+Rule: Starting in 2026, an employer can no longer deduct the cost of food and drinks provided to employees through an on-site eating facility, as small (de minimis) perks, or for the employer's convenience. There are narrow exceptions in the law.
 Limits: 0% for amounts paid or incurred after Dec. 31, 2025. Staff parties and other recreational events mainly for employees follow a different rule.
 Records to keep: Invoices, plus what the food was for, so the right rule can be applied.
 Applies to: Businesses with employees.
@@ -437,7 +437,7 @@ In plain English: The work share of your phone bill counts. If you use your phon
 Keep as proof: Your phone bills; A sample month showing how much is work, to back up your percentage
 Common mistake: Writing off 100% of a phone you also use for personal calls and apps.
 Rule: The business share of your cell phone plan is deductible. For a home landline, the basic charge for the first line into your home is personal, but business long-distance calls and a second line used only for business are deductible.
-Limits: Only the business-use percentage of a mixed-use phone. The phone itself is equipment: deduct it under the de minimis safe harbor, Section 179 or depreciation.
+Limits: Only the business-use percentage of a mixed-use phone. The phone itself is equipment: deduct it under the $2,500 small-purchase rule (de minimis safe harbor), Section 179 or depreciation.
 Records to keep: Phone bills, plus a reasonable basis for your business-use percentage (for example, a sample month of itemized usage).
 Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
 Source: IRS Publication 587 (2025), Business Use of Your Home https://www.irs.gov/publications/p587
@@ -473,8 +473,8 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#software-subscriptions
 In plain English: Usually yes, for the share you use for work. You can often write off a work laptop all at once (for example, if it costs $2,500 or less), or spread it over a few years.
 Keep as proof: The receipt; The date you started using it for work; A rough record of work versus personal use
 Common mistake: Writing off 100% of a laptop the family also uses. Only the work share counts.
-Rule: A computer used in your business is a business asset. You can deduct it all at once using the de minimis safe harbor (if $2,500 or less per item or invoice), Section 179 or 100% bonus depreciation, or depreciate it over several years. If you also use it personally, only the business share counts.
-Limits: Since 2018 computers are no longer "listed property," but personal use still reduces the deduction. If business use later falls so it's no longer mainly for business, part of a Section 179 deduction can be recaptured.
+Rule: A computer used in your business is a business asset. You can deduct it all at once using the small-purchase rule, called the de minimis safe harbor (if $2,500 or less per item or invoice), Section 179 or 100% bonus depreciation, or depreciate it over several years. If you also use it personally, only the business share counts.
+Limits: Since 2018 computers are no longer "listed property," but personal use still reduces the deduction. If business use later falls so it's no longer mainly for business, part of a Section 179 deduction has to be paid back as income (recapture).
 Records to keep: The receipt or invoice, the date you started using it for business, and a record of business versus personal use.
 Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
 Source: IRS Publication 946 (2025), How To Depreciate Property https://www.irs.gov/publications/p946
@@ -512,7 +512,7 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#bonus-depreciation
 In plain English: Items that cost $2,500 or less each (or per invoice) can be written off right away instead of over several years, if you choose this rule each year on your tax return.
 Keep as proof: Invoices; The election statement filed with your return (your preparer adds it)
 Common mistake: Forgetting to make the choice on your return. It has to be made each year, or a $2,000 item may have to be spread out.
-Rule: With the de minimis safe harbor election you can deduct, rather than depreciate, tangible items that cost $2,500 or less per invoice or item. You make the election each year with a statement attached to your timely filed return.
+Rule: With the small-purchase election (the de minimis safe harbor) you can deduct, rather than depreciate, tangible items that cost $2,500 or less per invoice or item. You make the election each year with a statement attached to your timely filed return.
 Limits: $2,500 per invoice or item ($5,000 if you have an applicable financial statement). Items above the limit are depreciated or expensed under Section 179 or bonus depreciation.
 Records to keep: Invoices and the election statement filed with your return.
 Applies to: Businesses of any type, including sole proprietors.
@@ -524,7 +524,7 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#de-minimis-safe-harbor
 In plain English: Tools you use up within a year count when you buy them. Bigger, longer-lasting tools are spread over a few years, though many can be written off right away under the small-purchase or equipment rules. If you also use them personally, only the work share counts.
 Keep as proof: Receipts or invoices; For bigger items, the date you started using them
 Common mistake: Writing off tools you mostly use at home. Only the work share counts.
-Rule: Tools and professional instruments you normally use up within a year can be deducted when bought. Longer-lasting tools are depreciated, unless you expense them under the de minimis safe harbor or Section 179.
+Rule: Tools and professional instruments you normally use up within a year can be deducted when bought. Longer-lasting tools are depreciated, unless you deduct them right away under the $2,500 small-purchase rule or Section 179.
 Limits: Only the business share if you also use them personally.
 Records to keep: Receipts or invoices and, for larger items, the date you started using them.
 Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
@@ -597,8 +597,8 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-benefits
 In plain English: Yes, within limits. Awards for years of service or safety (real items, not cash) count up to $400 per employee a year. Small, low-value holiday gifts count too. Cash and gift cards are treated as wages.
 Keep as proof: What you gave, to whom and what it cost; The reason and the date you gave it
 Common mistake: Handing out gift cards and calling them awards. Cash and gift cards are taxable wages.
-Rule: Tangible awards for length of service or safety, given as part of a meaningful presentation, are deductible within limits. Occasional low-value holiday gifts (not cash) can be a de minimis fringe benefit.
-Limits: Achievement awards: up to $400 per employee a year, or $1,600 under a qualified plan. Cash, gift cards and similar items never count as achievement awards or de minimis gifts; they are taxable wages.
+Rule: Tangible awards for length of service or safety, given as part of a meaningful presentation, are deductible within limits. Occasional low-value holiday gifts (not cash) can count as a small perk that isn't taxed (a de minimis fringe benefit).
+Limits: Achievement awards: up to $400 per employee a year, or $1,600 under a qualified plan. Cash, gift cards and similar items never count as achievement awards or small untaxed gifts; they are taxable wages.
 Records to keep: What was given, to whom, its cost, the reason for the award and the presentation date.
 Applies to: Businesses with employees.
 Source: IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits https://www.irs.gov/publications/p15b
@@ -683,7 +683,7 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#employee-retirement
 In plain English: Fees for accountants, bookkeepers, lawyers and other pros you hire for your business count in full. Personal legal fees, like a will or a divorce, don't.
 Keep as proof: Engagement letters; Invoices and proof you paid
 Common mistake: Running personal legal bills, like a will or a divorce, through the business.
-Rule: Fees for accountants, bookkeepers, attorneys and other professionals that are ordinary and necessary for your business are deductible.
+Rule: Fees for accountants, bookkeepers, attorneys and other professionals that are normal and needed for your business are deductible.
 Limits: Personal legal fees (a will, a divorce) aren't deductible.
 Records to keep: Engagement letters, invoices and proof of payment.
 Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
@@ -767,7 +767,7 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#business-education
 In plain English: Fees on your business bank account, wire fees and the cut Stripe, Square or PayPal takes from your sales all count.
 Keep as proof: Bank and processor statements (they show the fees)
 Common mistake: Reporting only what lands in the bank. If Stripe or Square takes its fees first, report the full sales and write off the fees.
-Rule: Monthly fees on a business bank account, wire fees and the fees payment processors take from your sales are ordinary and necessary business expenses.
+Rule: Monthly fees on a business bank account, wire fees and the fees payment processors take from your sales are normal business expenses you can deduct.
 Limits: Only fees on business accounts and transactions. Fees on personal accounts are personal.
 Records to keep: Bank and processor statements (they show the fees taken).
 Applies to: Sole proprietors and single-member LLCs (Schedule C); the same rule generally applies to partnerships and corporations.
@@ -974,13 +974,13 @@ Page: https://mfa-advisory.com/tools/is-it-deductible/#charitable-contributions
 Yes — we serve clients nationwide through secure cloud tools, video meetings, and encrypted document exchange. Whether you're across the river or across the country, the service is the same.
 
 **How is your pricing structured?**
-You choose how you pay. Ongoing bookkeeping and advisory are usually a flat monthly fee, so your cost is predictable. One-off projects like cleanups and catch-up work get a project quote, and we also work on hourly contracts if you prefer to pay as you go. Bookkeeping pricing depends mainly on your monthly transaction volume, the number of accounts, complexity, and whether your books are on a cash or accrual basis. Everything is quoted upfront after an initial consultation.
+You choose how you pay. Ongoing bookkeeping and advisory are usually a flat monthly fee, so your cost is predictable. One-off projects like cleanups and catch-up work get a project quote, and we also work on hourly contracts if you prefer to pay as you go. Bookkeeping pricing depends mainly on your monthly transaction volume, the number of accounts, complexity, and whether your books are on a cash or accrual basis. Everything is quoted up front after an initial consultation.
 
 **What should I bring to the first call?**
 For bookkeeping, tell us roughly how many accounts your business has, including bank accounts, credit cards and loans (an estimate is fine). That gives us your approximate monthly transaction volume, which, together with complexity, drives bookkeeping pricing. If you know whether your books are on a cash or accrual basis, mention that too; if not, we'll work it out together. For tax returns, have last year's return handy if you can.
 
 **Can you clean up my QuickBooks or messy books?**
-Absolutely — as a QuickBooks ProAdvisor, cleanups and rebuilds are a specialty. We restructure your chart of accounts, correct misclassifications, reconcile every account, and hand back financials you can actually trust.
+Absolutely. Our founder is a QuickBooks ProAdvisor, and cleanups and rebuilds are a specialty. We restructure your chart of accounts, correct misclassifications, reconcile every account, and hand back financials you can actually trust.
 
 **I'm behind on my taxes. Can you help?**
 Yes. Prior-year filings, catch-up bookkeeping, and estimated payment planning to get you current and keep you there. The sooner we start, the more options you have — reach out for a confidential conversation.
@@ -989,7 +989,7 @@ Yes. Prior-year filings, catch-up bookkeeping, and estimated payment planning to
 Cash-flow forecasting, budgeting, KPI dashboards, pricing and margin analysis, financing support, and investor or board reporting — scaled to your business, at a fraction of a full-time hire.
 
 **How do I switch from my current accountant?**
-Painlessly. After a short consultation we handle the transition — requesting prior records, reviewing past filings, and standing up your systems — usually with no disruption to your operations.
+Painlessly. After a short consultation we handle the transition — requesting prior records, reviewing past filings, and setting up your systems — usually with no disruption to your operations.
 
 ## Articles (MFA Insights)
 

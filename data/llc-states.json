@@ -243,7 +243,7 @@
     "value": null,
     "source_url": "https://www.sos.alabama.gov/business-entities",
     "checked": "2026-10-20T20:49-04:00",
-    "note": "The state does not publish a processing time on the pages checked, and does not say which LLC filings can be made online on the Business Entities page. The Certificate of Formation form says it may be filed online."
+    "note": "The state does not publish a processing time. The Certificate of Formation can be filed online."
    },
    "state_tax_registration": {
     "value": "All entities must register with the Alabama Department of Revenue through My Alabama Taxes; the initial business privilege tax return (BPT-IN) is due within 2.5 months of formation",
@@ -254,7 +254,7 @@
    "special_rules": [
     "Name Reservation Certificate must be attached to the Certificate of Formation.",
     "$100 of the $200 filing fee goes to the county treasurer where the registered office is located.",
-    "No stand-alone SOS annual report found; recurring filing is the business privilege tax return with the Department of Revenue (tax due of $100 or less is exempt for tax years after 2023).",
+    "No separate annual report. Instead, file the business privilege tax return with the Department of Revenue each year (no tax is due if it comes to $100 or less, for tax years after 2023).",
     "County and city business licenses are separate from state formation."
    ]
   },
@@ -282,7 +282,7 @@
     "value": 100,
     "source_url": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorporationFormsFees",
     "checked": "2026-10-20T20:49-04:00",
-    "note": "Alaska calls this the Biennial Report; filed online. A report filed on or after February 2 costs $137.50 ($37.50 late fee), per the Biennial Report FAQs."
+    "note": "Alaska calls this the Biennial Report, filed online. A report filed on or after February 2 costs $137.50, including a $37.50 late fee."
    },
    "annual_report_frequency": {
     "value": "biennial",
@@ -341,7 +341,7 @@
     "value": 0,
     "source_url": "https://azcc.gov/faqs/BusinessServicesFAQs",
     "checked": "2026-10-20T20:49-04:00",
-    "note": "ACC FAQ: LLCs are not required to file annual reports (only corporations must)."
+    "note": "Arizona LLCs don't file annual reports (only corporations do)."
    },
    "annual_report_due": {
     "value": "None: LLCs are not required to file annual reports",
@@ -465,7 +465,7 @@
     "value": 20,
     "source_url": "https://www.sos.ca.gov/business-programs/cannabizfile/cannabis-forms-and-fees/limited-liability-companies-llc-california",
     "checked": "2026-10-20T20:49-04:00",
-    "note": "California calls this the Statement of Information (LLC-12), $20.00; the SOS FAQ says the fee is \"$20 or $25\". Separate from the $800 annual franchise tax paid to the Franchise Tax Board."
+    "note": "California calls this the Statement of Information (Form LLC-12). It is separate from the $800 annual franchise tax paid to the Franchise Tax Board."
    },
    "annual_report_frequency": {
     "value": "biennial",
@@ -598,7 +598,7 @@
     "value": null,
     "source_url": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees",
     "checked": "2026-10-20T20:49-04:00",
-    "note": "The state does not publish an online processing time on the pages checked. Expedited service is available only for online filings."
+    "note": "The state does not publish an online processing time. Expedited service is available only for online filings."
    },
    "expedite": {
     "value": {
@@ -665,7 +665,7 @@
    },
    "special_rules": [
     "Annual LLC tax due June 1; $200 late penalty plus 1.5% monthly interest. No annual report.",
-    "Amount discrepancy: official pages show both $300 and $400 for the annual tax; the LLC/LP/GP tax instructions page and fee-related pages show $400."
+    "Delaware's current tax instructions and fee pages show $400 a year (a few older state pages still show $300)."
    ]
   },
   "DC": {
@@ -960,7 +960,7 @@
     "value": "Approximately 7-10 days",
     "source_url": "https://sos.idaho.gov/business-resources/business-faq/",
     "checked": "2026-10-20T20:50-04:00",
-    "note": "A banner on the SOS FAQ page gives this as a recent estimate; the state says processing times vary with filing volume."
+    "note": "This is the state's recent estimate; processing times vary with filing volume."
    },
    "expedite": {
     "value": {
@@ -1011,10 +1011,10 @@
     "value": 75,
     "source_url": "https://www.ilsos.gov/publications/business-services/llc.html",
     "checked": "2026-10-20T20:50-04:00",
-    "note": "LLC Annual Report (Form LLC-50.1). The statute adds $50 per series with a certificate of designation and a penalty if delinquent (805 ILCS 180/50-10)."
+    "note": "Illinois calls it the LLC Annual Report (Form LLC-50.1). A series LLC pays $50 more per series, and late reports carry a penalty."
    },
    "annual_report_due": {
-    "value": "Filed within the 60 days immediately preceding the first day of the LLC's anniversary month, every year",
+    "value": "Within the 60 days before the first day of the LLC's anniversary month, every year",
     "source_url": "https://ilga.gov/Documents/legislation/ilcs/documents/080501800K50-1.htm",
     "checked": "2026-10-20T20:50-04:00",
     "note": "805 ILCS 180/50-1."
@@ -1143,7 +1143,7 @@
    },
    "annual_report_frequency": "biennial",
    "annual_report_due": {
-    "value": "Biennial report filed between January 1 and April 1 of odd-numbered years; the first is due in the first odd-numbered year after the year the LLC was formed",
+    "value": "Between January 1 and April 1 of odd-numbered years; the first is due in the first odd-numbered year after the year the LLC was formed",
     "source_url": "https://www.legis.iowa.gov/docs/code/2026/489.212.pdf",
     "checked": "2026-10-20T20:50-04:00",
     "note": "Iowa Code 489.212. The SOS help page also says LLC reports are due in odd-numbered years."
@@ -1204,7 +1204,7 @@
     "value": 90,
     "source_url": "https://sos.ks.gov/forms/business_services/ILC.pdf",
     "checked": "2026-10-20T20:50-04:00",
-    "note": "Kansas calls it the Information Report and it is filed every two years. $90 online, $110 by paper (form revised 1/23/26). The statute sets $80 plus amounts in SOS rules (K.S.A. 17-76,139)."
+    "note": "Kansas calls it the Information Report, filed every two years: $90 online, $110 by paper."
    },
    "annual_report_frequency": "biennial",
    "annual_report_due": {
@@ -1408,7 +1408,7 @@
     "value": "40 - 55 business days",
     "source_url": "https://www.maine.gov/sos/corporations-commissions/i-need-a-business-form/limited-liability-company-forms",
     "checked": "2026-10-20T20:50-04:00",
-    "note": "This is the corporate filings processing time posted on the LLC forms page; formation is a mailed paper filing."
+    "note": "This is the state's posted processing time for business filings. Formation is a paper filing sent by mail."
    },
    "expedite": {
     "value": {
@@ -1458,7 +1458,7 @@
     "value": 300,
     "source_url": "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026_Form1%20Final%20(6).pdf",
     "checked": "2026-10-20T20:50-04:00",
-    "note": "Filed as the Annual Report together with the Business Personal Property Return (Form 1). SDAT's 2026 Form 1 lists $300 for LLCs; some entities pay less (for example a MarylandSaves waiver). A 2022 proposal to drop the fee for online filers is not reflected on the 2026 form."
+    "note": "Filed as the Annual Report together with the Business Personal Property Return (Form 1). Some entities pay less, for example with a MarylandSaves waiver."
    },
    "annual_report_due": {
     "value": "April 15 each year (online extension requests move it to mid-June)",
@@ -1475,7 +1475,7 @@
     "value": "6 to 8 weeks (standard, online)",
     "source_url": "https://dat.maryland.gov/businesses/documents/fees.pdf",
     "checked": "2026-10-20T20:50-04:00",
-    "note": "SDAT fee schedule revised May 2024. The newer articles form also lists 6 to 8 weeks standard."
+    "note": "Standard processing can take 6 to 8 weeks."
    },
    "expedite": {
     "value": {
@@ -1718,7 +1718,7 @@
     "value": 0,
     "source_url": "https://www.sos.ms.gov/business-services/annual-reports",
     "checked": "2026-10-20T20:54-04:00",
-    "note": "Mississippi domestic LLCs file an annual report at no cost (fee schedule: 'Annual Report of MS LLC ... No fee'; SOS notice: domestic LLC owners can file annual reports 'at no cost'). A foreign LLC pays $250."
+    "note": "Mississippi LLCs file their annual report at no cost. An LLC formed in another state pays $250."
    },
    "annual_report_due": {
     "value": "April 15 each year (filing opens January 1); must be filed online",
@@ -1772,7 +1772,7 @@
     "value": null,
     "source_url": "https://www.sos.mo.gov/business/faqs",
     "checked": "2026-10-20T20:54-04:00",
-    "note": "Not applicable: the SOS FAQ answers 'Do limited liability companies have to file an annual report?' with 'No.'"
+    "note": "Missouri LLCs don't file annual reports."
    },
    "annual_report_due": {
     "value": "None. Missouri LLCs do not file annual reports",
@@ -1912,7 +1912,7 @@
     },
     "source_url": "https://nebraskalegislature.gov/laws/statutes.php?statute=21-193&print=true",
     "checked": "2026-10-20T20:54-04:00",
-    "note": "Neb. Rev. Stat. 21-193: notice of organization must be published for three successive weeks in a legal newspaper of general circulation, and proof of publication filed with the Secretary of State. Newspaper cost is not published by the state."
+    "note": "Publish a notice of the new LLC once a week for three weeks in a local legal newspaper, then file proof with the Secretary of State. The state doesn't publish the newspaper cost."
    },
    "state_tax_registration": {
     "value": null,
@@ -2039,7 +2039,7 @@
     "value": 100,
     "source_url": "https://quickstart.sos.nh.gov/online/Home/FillingFee",
     "checked": "2026-10-20T20:54-04:00",
-    "note": "Domestic LLC annual report $100 + $2 online handling charge; late fee $50 if not filed by April 1 (RSA 304-C:191, II(f))."
+    "note": "Plus a $2 online handling charge; a $50 late fee applies if it isn't filed by April 1."
    },
    "annual_report_due": {
     "value": "April 1 each year (filing window January 1 to April 1). The first report is due the calendar year after formation; LLCs formed between December 1 and April 1 skip the current year's report",
@@ -2126,7 +2126,7 @@
     "note": "not confirmed on an official page."
    },
    "registered_agent": {
-    "value": "Required: a domestic LLC must have and continuously maintain a registered agent and registered office on file (NMSA 53-19-5)",
+    "value": "Required: a New Mexico LLC must always have a registered agent and registered office on file",
     "source_url": "https://www.srca.nm.gov/parts/title12/12.003.0004.html",
     "checked": "2026-10-20T20:54-04:00"
    },
@@ -2159,7 +2159,7 @@
     "value": 200,
     "source_url": "https://www.sosnc.gov/manual/launching_a_business/maintaining_registration",
     "checked": "2026-10-20T20:54-04:00",
-    "note": "'The annual report fee for a limited liability company is $200.00.' Online filing adds $3.00 for credit cards or $2.00 for ACH. Also G.S. 57D-1-22(a)(28)."
+    "note": "Paying online adds $3 by credit card or $2 by bank transfer (ACH)."
    },
    "annual_report_due": {
     "value": "April 15 each year; the first annual report is due April 15 of the year following the year the LLC was created",
@@ -2276,7 +2276,7 @@
     "value": null,
     "source_url": "https://www.ohiosos.gov/business/ohio-business-roadmap/frequently-asked-questions",
     "checked": "2026-10-20T20:54-04:00",
-    "note": "Not applicable: SOS FAQ says 'Regular reporting requirements exist only for certain entities' (professional associations and LLPs, nonprofits, trade names); LLCs are not listed."
+    "note": "Ohio LLCs don't file annual reports."
    },
    "annual_report_due": {
     "value": "None. Ohio LLCs have no annual or biennial report",
@@ -2287,7 +2287,7 @@
     "value": null,
     "source_url": "https://www.ohiosos.gov/business/ohio-business-roadmap/frequently-asked-questions",
     "checked": "2026-10-20T20:54-04:00",
-    "note": "No timeframe published. SOS says regular filings are processed in the order received; expedited filings carry a guaranteed processing time and an additional fee (amounts not listed on the pages checked)."
+    "note": "The state does not publish a processing time. Regular filings are handled in the order received; expedited filings cost extra and come with a guaranteed time."
    },
    "state_tax_registration": {
     "value": "Register with the Ohio Department of Taxation: sales and use tax and employer withholding through OH|TAX eServices; Commercial Activity Tax through the Ohio Business Gateway",
@@ -2381,7 +2381,7 @@
     "value": 100,
     "source_url": "https://sos.oregon.gov/business/Documents/business-registry-forms/br-fee-schedule.pdf",
     "checked": "2026-10-20T20:54-04:00",
-    "note": "Listed as 'Renewal (Annually) $100.00' under Domestic LLC. Amendment to an annual report is $0.00."
+    "note": "Oregon calls it the annual renewal."
    },
    "annual_report_due": {
     "value": "Annually by the renewal due date shown for each LLC; SOS mails renewal notices about 45 days before the due date",
@@ -2790,7 +2790,7 @@
    "special_rules": [
     "Franchise tax: no-tax-due threshold is $2,650,000 of annualized total revenue for the 2026 and 2027 report years",
     "Franchise tax rates: 0.75%, or 0.375% for retail or wholesale",
-    "Entities at or below the threshold file no No Tax Due Report but must file a Public Information Report (05-102) or Ownership Information Report (05-167)",
+    "LLCs at or below the threshold don't file a No Tax Due Report, but must still file a Public Information Report (05-102) or Ownership Information Report (05-167)",
     "Annual report/PIR goes to the Comptroller, not the Secretary of State"
    ],
    "special_rules_sources": [
@@ -2829,7 +2829,7 @@
     "value": 18,
     "source_url": "https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf",
     "checked": "2026-10-20T20:50-04:00",
-    "note": "Utah calls it the annual renewal. The $18 includes a $5 charge for the state's single sign-on portal (FY2026 schedule)."
+    "note": "Utah calls it the annual renewal. The $18 includes a $5 charge for the state's login portal."
    },
    "annual_report_due": {
     "value": "One year from the date of registration, and annually thereafter",
@@ -2919,7 +2919,7 @@
     "note": "Not confirmed on an official page."
    },
    "registered_agent": {
-    "value": "Required: the LLC must designate and continuously maintain a designated office (it need not be in Vermont) and an agent for service of process under 11 V.S.A. § 1655",
+    "value": "Required: the LLC must always have a designated office (it doesn't have to be in Vermont) and a registered agent",
     "source_url": "http://legislature.vermont.gov/statutes/section/11/025/04007",
     "checked": "2026-10-20T20:50-04:00",
     "note": "Agent qualifications and address rules are in § 1655, which was not read, so they are not stated here."
@@ -3058,7 +3058,7 @@
     "note": "The license application fee varies; see the Department of Revenue instructions. Certain structures must file with the Secretary of State first."
    },
    "registered_agent": {
-    "value": "Required: all businesses must designate a registered agent in Washington (commercial or noncommercial) and give the agent's email address, per RCW 23.95.415",
+    "value": "Required: every business must name a registered agent in Washington (commercial or noncommercial) and give the agent's email address",
     "source_url": "https://www.sos.wa.gov/corporations-charities/business-entities/online-filing-instructions/start-domestic-wa-limited-liability-company-llc-online",
     "checked": "2026-10-20T20:50-04:00"
    },
@@ -3253,7 +3253,7 @@
     "value": 60,
     "source_url": "https://sos.wyo.gov/business/docs/businessfees.pdf",
     "checked": "2026-10-20T20:50-04:00",
-    "note": "Wyoming annual report license tax: the greater of $60 or two-tenths of one mill ($0.0002) per dollar of assets located and employed in Wyoming. $60 is the minimum; no separate LLC report fee or online fee is listed."
+    "note": "Wyoming charges $60 or two-hundredths of a cent per dollar of the LLC's assets in Wyoming, whichever is more. Most small LLCs pay the $60 minimum."
    },
    "annual_report_due": {
     "value": "Every year on the 1st day of the LLC's anniversary month of formation (an LLC formed January 15 is due January 1)",

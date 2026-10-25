@@ -25,7 +25,7 @@ TOPICS = ["Monthly bookkeeping and catch-up", "Business tax returns (Schedule C,
           "LLC formation and S corp elections", "1099 filing for your contractors", "QuickBooks Online setup and cleanup"]
 FAQ = [
     ("Is there a cost for the consultation?", "No. The first 30-minute consultation has no charge and no obligation."),
-    ("Who will I meet with?", "Zain Merchant, the founder of Merchant Financial Advisory, and/or a member of his team of tax and "
+    ("Who will I meet with?", "Zain Merchant, the founder of Merchant Financial Advisory, or a member of his team of tax and "
      "accounting experts, depending on what you'd like to discuss. Zain's background: CPA candidate · ACCA · Big Four (ex-PwC) · "
      "PTIN/EFIN tax preparer."),
     ("Can we talk by phone instead?", f'Yes. Call <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>, or pick a time in the '
@@ -86,7 +86,7 @@ def build():
 <section class="wrap llc-sec" aria-labelledby="top-h"><div class="sec-hd"><span class="eyebrow eb-dark">Common topics</span><h2 id="top-h">What people book us for</h2></div>
 <ul class="bk-topics" id="bk-topics">{topics}</ul></section>
 <section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">Before you book</h2></div>{faq}</section>
-{ui_kit.fineprint("A consultation is general information and does not create a client relationship until we both agree a written scope.")}
+{ui_kit.fineprint("A consultation is general information and does not create a client relationship until we both agree to a written scope.")}
 </main>
 {TOPICS_JS}'''
     ld = seo.graph(url, "Book a consultation", desc,

@@ -106,7 +106,7 @@ SOON = [
      "tax refund estimator federal refund amount due withholding w-2 1040"),
     ("NJ & NY sales tax calculator", "Calculator", "Add sales tax to a price, or back it out of a total, at New Jersey and New York rates.", "pct",
      "sales tax calculator new jersey new york rate reverse"),
-    ("Contractor or employee? checker", "Checker", "Questions based on the IRS common-law factors to help you decide between a 1099 and a W-2.", "check",
+    ("Contractor or employee?", "Checker", "Questions based on the IRS common-law factors to help you decide between a 1099 and a W-2.", "check",
      "worker classification contractor employee 1099 w-2 misclassification ss-8"),
     ("Freelance hourly rate calculator", "Calculator", "Work back from the income you want to the rate you need, after taxes, costs and time off.", "clock",
      "hourly rate freelancer pricing day rate self employed"),
@@ -115,7 +115,7 @@ SOON = [
      "cost of employee employer payroll taxes futa suta fica hiring budget"),
     ("Section 179 & depreciation calculator", "Calculator", "Compare Section 179, bonus and regular depreciation for an equipment or vehicle purchase.", "chart",
      "section 179 bonus depreciation macrs equipment vehicle"),
-    ("Where do I owe sales tax? checker", "Checker", "Compare your sales in each state with that state's economic nexus threshold.", "map",
+    ("Where do I owe sales tax?", "Checker", "Compare your sales in each state with the sales level at which that state makes out-of-state sellers collect its tax.", "map",
      "sales tax nexus economic nexus online sellers wayfair registration"),
     ("Month-end close checklist", "Template", "The steps to close your books cleanly every month.", "list", "month end close checklist"),
     ("Cash flow runway calculator", "Calculator", "How many months your cash covers your costs, and what changes when sales or spending move.", "chart",
@@ -247,7 +247,7 @@ def build_1099():
 <div class="prog" aria-hidden="true"><i id="pg"></i></div>
 <div class="fld"><span class="lbl">1. Was it a business payment?</span>{radios("purpose", [("business", "Yes, paid by my business", ""), ("personal", "No, it was personal", "e.g., a contractor for your own home")])}</div>
 <div class="fld"><span class="lbl">2. How did you pay?</span>{radios("method", [("bank", "Check, ACH, wire, cash, Zelle or a personal app transfer", "Includes PayPal Friends &amp; Family and personal Venmo / Cash App"), ("card", "Credit or debit card, or a business payment app", "PayPal Goods &amp; Services, Stripe, Square, business Venmo or Cash App")])}</div>
-<div class="fld"><span class="lbl">3. Who did you pay?</span>{radios("payee", [("indiv", "Individual or sole proprietor", ""), ("llc", "LLC taxed as a sole prop or partnership, or a partnership", "Check box 3 on their Form W-9"), ("corp", "C corporation or S corporation", "Including an LLC that elected corporate tax status"), ("exempt", "Tax-exempt organization or government agency", ""), ("employee", "My employee", ""), ("foreign", "Foreign person or business (gave you a W-8)", "")])}</div>
+<div class="fld"><span class="lbl">3. Who did you pay?</span>{radios("payee", [("indiv", "Individual or sole proprietor", ""), ("llc", "LLC taxed as a sole proprietor or partnership, or a partnership", "Check box 3 on their Form W-9"), ("corp", "C corporation or S corporation", "Including an LLC that elected corporate tax status"), ("exempt", "Tax-exempt organization or government agency", ""), ("employee", "My employee", ""), ("foreign", "Foreign person or business (gave you a W-8)", "")])}</div>
 <div class="fld"><span class="lbl">4. What was it for?</span>{radios("type", [("services", "Services or contract labor", "Freelancers, consultants, repairs, cleaning, bookkeeping"), ("attorney_fees", "Legal services (attorney fees)", ""), ("attorney_proceeds", "Gross proceeds paid to an attorney", "e.g., settlement funds paid to a lawyer"), ("rent", "Rent paid to the property owner", "Office, warehouse, equipment"), ("rent_agent", "Rent paid to a real estate agent or property manager", ""), ("medical", "Medical or health care services", ""), ("royalties", "Royalties", ""), ("prizes", "Prizes, awards or other income", ""), ("goods", "Merchandise, freight, storage or telephone", "")])}</div>
 <div class="fld"><label for="amt">5. Total paid in 2026</label><div class="money"><input type="number" id="amt" min="0" step="0.01" inputmode="decimal" placeholder="0.00"/></div>
 <label class="opt" style="margin-top:10px"><input type="checkbox" id="bw"/><span>I withheld federal income tax (backup withholding)<small>Usually because the payee didn't give you a tax ID number</small></span></label></div>

@@ -455,7 +455,7 @@ def _pricing_lines():
               f"- Sales tax registration: ${A['salestax']['price']} (included in Complete Launch). S corporation election (Form 2553): ${A['scorp']['price']} (included in Complete Launch).",
               "- Bookkeeping cleanup and catch-up: fixed quote after a review of a sample of your accounts (https://mfa-advisory.com/bookkeeping-cleanup/).",
               "- International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; "
-              "student package (Form 1040-NR + Form 8843 + tax-treaty check) $99 federal, $129 with one state return; Social Security and Medicare "
+              "student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal, $129 with one state return; Social Security and Medicare "
               "refund claim (Forms 843 + 8316) $49; H-1B and other US tax residents file Form 1040 at standard tax return pricing. "
               "No state returns for California, Connecticut, Maryland, New York or Oregon.",
               "- Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; "
@@ -482,7 +482,7 @@ def build_llms(posts):
         f"- [Services]({BASE}/services/): tax preparation, tax planning, bookkeeping, financial reporting, fractional CFO, audit support, technical accounting, business advisory",
         f"- [LLC formation in all 50 states]({BASE}/llc-formation/): $150 / $249 / $649 plus the state fee, paid once; state-by-state fees and rules",
         f"- [Bookkeeping cleanup and catch-up]({BASE}/bookkeeping-cleanup/): fixed quote request",
-        f"- [International students and H-1B workers]({BASE}/international-students/): international student tax filing; Form 8843 $25, Form 1040-NR student package $99 ($129 with one state), Social Security and Medicare (FICA) refund claim $49, tax-treaty check; H-1B returns at standard Form 1040 pricing",
+        f"- [International students and H-1B workers]({BASE}/international-students/): international student tax filing; Form 8843 $25, Form 1040-NR student package $99 ($129 with one state), Social Security and Medicare (FICA) refund claim $49, tax treaty check; H-1B returns at standard Form 1040 pricing",
         f"- [Taxes for artists and creatives]({BASE}/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $199/month, LLC formation from $150 plus state fee, quarterly estimates $250/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC",
         f"- [Machine-readable catalog]({BASE}/catalog.json): all services, prices, tools and products as schema.org JSON",
         "",

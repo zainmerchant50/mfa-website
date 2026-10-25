@@ -68,7 +68,7 @@ VARIANTS = {
     },
     "hindi-urdu": {
         "h1": "Accountant &amp; Tax Preparer Who Speaks Hindi &amp; Urdu",
-        "lead": "Bookkeeping, accounting and tax preparation for families and small businesses in §CITY§ and across §REGION§, explained in English, Hindi or Urdu, with a clear quote upfront.",
+        "lead": "Bookkeeping, accounting and tax preparation for families and small businesses in §CITY§ and across §REGION§, explained in English, Hindi or Urdu, with a clear quote up front.",
         "svc": "",
     },
     "accounting": {
@@ -83,7 +83,7 @@ SERVICES = [
         "Monthly bookkeeping and bank/credit card reconciliations",
         "Catch-up bookkeeping if you're months (or years) behind",
         "QuickBooks Online setup and cleanup (QuickBooks ProAdvisor)",
-        "Payables, receivables and sales-tax tracking",
+        "Payables, receivables and sales tax tracking",
     ]),
     ("Accounting", "accounting", [
         "Month-end close with P&amp;L, balance sheet and cash flow",
@@ -108,9 +108,9 @@ REVIEWS = [
 FAQ = [
     ("Where are you located?", f"We're based in Princeton, NJ and work with clients across §REGION§, including {', '.join(AREA[:-1])} and {AREA[-1]}. Most work happens by video call, phone and secure document upload, so you don't need to take time off to drop off paperwork."),
     ("Who will work on my account?", "A senior team of experienced accountants and tax professionals, led by founder Zain Merchant, a member of ACCA (the Association of Chartered Certified Accountants, UK) with Big Four audit and assurance experience. For engagements that require a licensed CPA, we partner with licensed CPAs. You get one point of contact who knows your file."),
-    ("How much do you charge?", "You choose how you pay. Ongoing bookkeeping and advisory are usually a flat monthly fee, so your cost is predictable. One-off projects like cleanups and catch-up work get a project quote, and we also work on hourly contracts if you prefer to pay as you go. Bookkeeping pricing depends mainly on how many transactions you have each month, the number of accounts, the complexity of your business, and whether your books are kept on a cash or accrual basis. Every engagement is quoted upfront after an initial consultation."),
+    ("How much do you charge?", "You choose how you pay. Ongoing bookkeeping and advisory are usually a flat monthly fee, so your cost is predictable. One-off projects like cleanups and catch-up work get a project quote, and we also work on hourly contracts if you prefer to pay as you go. Bookkeeping pricing depends mainly on how many transactions you have each month, the number of accounts, the complexity of your business, and whether your books are kept on a cash or accrual basis. Every engagement is quoted up front after an initial consultation."),
     ("I'm behind on my books or haven't filed. Can you help?", "Yes. Catch-up bookkeeping and prior-year returns are a regular part of our work. We rebuild the records, reconcile every account and get your filings current."),
-    ("Do you work with QuickBooks?", "Yes. We're a QuickBooks ProAdvisor and handle QuickBooks Online setup, cleanup and ongoing bookkeeping. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
+    ("Do you work with QuickBooks?", "Yes. Our founder is a QuickBooks ProAdvisor, and we handle QuickBooks Online setup, cleanup and ongoing bookkeeping. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
     ("What should I bring to the first call?", "For bookkeeping, tell us roughly how many accounts your business has, including bank accounts, credit cards and loans (an estimate is fine). That tells us your approximate monthly transaction volume, which, together with complexity, is what drives bookkeeping pricing. If you know whether your books are on a cash or accrual basis, mention that too; if not, we'll work it out together. For tax returns, have last year's return handy if you can."),
 ]
 
@@ -139,7 +139,7 @@ if ST == "NY":   # New York City: the five boroughs
 else:
     LOCAL_AREAS = [{"@type": "City", "name": c, "containedInPlace": {"@type": "State", "name": STATE}} for c in AREA]
 LOCAL_AREAS.append({"@type": "State", "name": STATE})
-LOCAL_DESC = "Bookkeeping, accounting and tax preparation in §CITY§, §ST§. QuickBooks ProAdvisor, Big Four trained, quoted upfront. Book a 30-minute consultation."
+LOCAL_DESC = "Bookkeeping, accounting and tax preparation in §CITY§, §ST§. QuickBooks ProAdvisor, Big Four trained, quoted up front. Book a 30-minute consultation."
 ld = seo.graph(URL, "Bookkeeping & Tax Preparation in §CITY§, §ST§", LOCAL_DESC,
                {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
                kind="WebPage", full_org=True, areas=LOCAL_AREAS, crumb=[("Home", "https://mfa-advisory.com/"), ("§CITY§, §ST§", URL)])
@@ -260,7 +260,7 @@ page = f'''<!doctype html><html lang="en"><head>
 <link rel="canonical" href="{URL}"/>
 <meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/><meta property="og:locale" content="en_US"/>
 <meta property="og:title" content="Bookkeeping &amp; Tax Preparation in §CITY§, §ST§"/>
-<meta property="og:description" content="Clean monthly books and accurate tax returns for §REGION§ small businesses and households. 30-minute consultation, clear quote upfront."/>
+<meta property="og:description" content="Clean monthly books and accurate tax returns for small businesses and households in §REGION§. 30-minute consultation, clear quote up front."/>
 <meta property="og:url" content="{URL}"/><meta property="og:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Bookkeeping &amp; Tax Preparation in §CITY§, §ST§"/><meta name="twitter:description" content="{LOCAL_DESC}"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
@@ -323,7 +323,7 @@ page = f'''<!doctype html><html lang="en"><head>
   <div class="why">
     <div><b>Senior team</b><span>experienced accountants and tax professionals with 10+ years in accounting, audit and tax, including at Big Four firms</span></div>
     <div><b>ProAdvisor</b><span>QuickBooks Online setup, cleanup and support</span></div>
-    <div><b>Flexible pricing</b><span>flat monthly, project or hourly, quoted upfront after an initial consultation</span></div>
+    <div><b>Flexible pricing</b><span>flat monthly, project or hourly, quoted up front after an initial consultation</span></div>
     <div><b>Direct access</b><span>you talk to your advisor, not a call center or a seasonal temp</span></div>
   </div>
 </div></section>
