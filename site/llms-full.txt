@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated October 23, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated October 24, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -212,6 +212,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Mileage Log for Taxes 2026: $4.99, Excel / Google Sheets. A trip-by-trip mileage log with odometer readings, automatic miles, the 2026 standard mileage rates by trip date (including the July 1 change) and a monthly summary. Buy: https://www.etsy.com/listing/4601144570/irs-mileage-log-2026-mileage-tracker
 - Online Seller Bookkeeping Sheet: $4.99, PDF + Excel. Order-level bookkeeping for Etsy, Shopify, Amazon and eBay sellers: platform fees, COGS, a Form 1099-K reconciliation, a sales tax log by state and a Schedule C summary. Buy: https://www.etsy.com/listing/4601119735/online-seller-bookkeeping-spreadsheet
 - Rental Property Tracker (Schedule E): $3.99, Excel + PDF. Landlord workbook for up to 8 rentals: rent roll, income and expense logs mapped to Schedule E lines, mileage at the 2026 rates, depreciation and a per-property Schedule E. Buy: https://www.etsy.com/listing/4601158276/rental-property-tracker-spreadsheet
+- Rideshare & Delivery Driver Tax Tracker: $3.99, Excel + PDF. Mileage-first tax tracker for Uber, Lyft, DoorDash and Instacart drivers: shift log at the 2026 IRS rates by trip date, earnings and fees, standard vs. actual, 1099 check and quarterly set-aside. Buy: https://www.etsy.com/listing/4601133387/rideshare-delivery-driver-tax-tracker
 - QuickBooks Online Chart of Accounts Pack: All 8 Industry Editions: $10.49, CSV + Excel + PDF. All eight industry charts of accounts for QuickBooks Online in one download: 8 annotated workbooks, 16 import-ready CSVs and the PDF import guide. Buy: https://www.etsy.com/listing/4601146728/quickbooks-online-chart-of-accounts
 - QuickBooks Chart of Accounts: E-commerce Seller: $3.49, CSV + Excel + PDF. An import-ready QuickBooks Online chart of accounts (112 accounts) built for Etsy, Amazon, Shopify, eBay, TikTok Shop and Walmart sellers, print-on-demand shops, dropshippers and craft sellers: channel sales, marketplace and processor clearing accounts, marketplace fees, COGS, payouts and 1099-K reconciliation. Buy: https://www.etsy.com/listing/4601148092/quickbooks-online-chart-of-accounts-e
 - QuickBooks Chart of Accounts: Freelancer & Service Business: $3.49, CSV + Excel + PDF. An import-ready QuickBooks Online chart of accounts (92 accounts) built for freelancers, consultants, coaches, designers, writers, developers, agencies and virtual assistants: service revenue, retainers and client deposits, contractor costs and Schedule C mapping. Buy: https://www.etsy.com/listing/4601122895/quickbooks-online-chart-of-accounts

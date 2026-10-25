@@ -1,6 +1,6 @@
 {
   "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
-  "updated": "2026-10-23 (Gumroad launch: 23c-23h, 24-27)",
+  "updated": "2026-10-24 (Gumroad launch: 28)",
   "store": "https://mfaadvisory.gumroad.com/",
   "groups": [
     {
@@ -518,14 +518,14 @@
     },
     {
       "id": "28",
-      "slug": null,
+      "slug": "rideshare-delivery-driver-tax-tracker",
       "name": "Rideshare & Delivery Driver Tax Tracker",
-      "status": "draft",
+      "status": "live",
       "tier": "tracker",
       "gumroad": {
         "price": "3.99",
-        "url": null,
-        "product_id": null
+        "url": "https://mfaadvisory.gumroad.com/l/rideshare-delivery-driver-tax-tracker",
+        "product_id": "qupsf"
       },
       "etsy": {
         "allowed": true,
@@ -535,11 +535,10 @@
       },
       "shop": {
         "group": "kit",
-        "blurb": null,
-        "format": null,
+        "blurb": "Mileage-first tax tracker for Uber, Lyft, DoorDash and Instacart drivers: shift log at the 2026 IRS rates by trip date, earnings and fees, standard vs. actual, 1099 check and quarterly set-aside.",
+        "format": "Excel + PDF",
         "related": null
-      },
-      "note": "Built 2026-10-21; price approved by Zain 2026-10-21 23:45 ET. Launches on Gumroad + Etsy + /shop/ together once Etsy is set up. Etsy listing live 2026-10-22 (LAUNCH50 sale); Gumroad not created yet: Gumroad 10-products-per-day limit hit on 2026-10-22. Create on Gumroad, then set live."
+      }
     },
     {
       "id": "23",
