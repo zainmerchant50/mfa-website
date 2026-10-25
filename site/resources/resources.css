@@ -8,8 +8,8 @@
 .chip{height:36px;padding:0 15px;border-radius:999px;border:1px solid rgba(216,183,105,.38);background:transparent;color:rgba(255,255,255,.85);font:600 10.5px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
 .chip:hover{border-color:var(--gold-b);color:#fff}
 .chip[aria-pressed="true"]{background:var(--gold-b);border-color:var(--gold-b);color:var(--navy)}
-.rgroups{padding:56px 0 30px}
-.rgroup{margin-bottom:54px}
+.rgroups{padding:56px 28px 30px}
+.rgroup{margin-bottom:54px;scroll-margin-top:100px}
 .rgroup-hd{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid var(--hair);padding-bottom:14px;margin-bottom:24px}
 .rgroup-hd h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:2rem;color:var(--navy)}
 .rgroup-hd p{font-size:.9rem;font-weight:300;color:var(--muted);max-width:520px;text-align:right}
@@ -27,6 +27,13 @@ a.rcard:hover .go i{transform:translateX(4px)}
 .rcard.soon .ri{background:rgba(16,35,63,.08);color:var(--navy-2)}
 .badge{position:absolute;top:18px;right:18px;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:rgba(176,141,63,.14);color:var(--gold)}
 .badge.new{background:var(--gold-b);color:var(--navy)}
+.rcard .kind{font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.rcard.soon .rask{margin-top:auto;padding-top:6px;align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);display:inline-flex;gap:8px;align-items:center;border-bottom:1px solid rgba(176,141,63,.45);padding-bottom:3px;transition:color .3s,border-color .3s}
+.rcard.soon .rask i{font-style:normal;transition:transform .35s var(--ease)}
+.rcard.soon .rask:hover{color:var(--gold);border-color:var(--gold)}
+.rcard.soon .rask:hover i{transform:translateX(4px)}
+.rcard.soon{transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s}
+.rcard.soon:hover{border-color:rgba(176,141,63,.45)}
 .rempty{display:none;padding:40px 0;text-align:center;color:var(--muted)}
 .rnote{max-width:860px;margin:0 auto;padding:0 28px 30px;font-size:.84rem;color:var(--muted);line-height:1.7;text-align:center}
 

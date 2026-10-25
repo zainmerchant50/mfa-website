@@ -647,6 +647,109 @@ body.scrolled .burger{color:var(--ink)}
 @media(prefers-reduced-motion:reduce){.ins,.ins-panel{transition:none}.ins-dot{animation:none}}
 </style>
 <!--ads:tag--><meta name="p:domain_verify" content="b4398f09fdd0e385c266cc687acecf36"/><script async src="https://www.googletagmanager.com/gtag/js?id=AW-18505873837"></script><script src="/assets/ads.js?v=f9baea9088"></script><!--/ads:tag-->
+<!--nav:css--><style>
+/* ---------- Header dropdown menus + phone menu (ui_kit.nav_links / nav_mobile) ---------- */
+.dd{position:relative;display:flex;align-items:center;gap:3px}
+.dd-t{display:inline-grid;place-items:center;width:20px;height:24px;margin-right:-6px;padding:0;border:0;background:none;color:inherit;cursor:pointer;border-radius:5px}
+.dd-t svg{width:11px;height:11px;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.dd.open .dd-t svg{transform:rotate(180deg)}
+.dd-t:focus-visible{outline:2px solid #B08D3F;outline-offset:2px}
+.dd-p{position:absolute;top:100%;left:50%;transform:translateX(calc(-50% + var(--dx,0px)));padding-top:18px;z-index:60;visibility:hidden;pointer-events:none;transition:visibility 0s .3s}
+.dd.open .dd-p{visibility:visible;pointer-events:auto;transition:none}
+html:not(.nav-js) .dd:hover .dd-p,html:not(.nav-js) .dd:focus-within .dd-p{visibility:visible;pointer-events:auto}
+.dd-box{background:#FDFDFC;border:1px solid rgba(21,21,21,.09);border-top:2px solid #B08D3F;border-radius:14px;padding:20px 20px 14px;text-align:left;
+  box-shadow:0 30px 60px -18px rgba(16,35,63,.32),0 6px 16px rgba(16,35,63,.06);opacity:0;transform:translateY(10px);
+  transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.dd.open .dd-box,html:not(.nav-js) .dd:hover .dd-box,html:not(.nav-js) .dd:focus-within .dd-box{opacity:1;transform:none}
+.dd-cols{display:flex;gap:26px}
+.dd-col{min-width:200px}
+.dd-col ul{list-style:none;margin:0;padding:0}
+.dd-h{display:block;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#B08D3F;margin:0 0 8px;padding-left:10px;line-height:1.4}
+.dd-col li{opacity:0;transform:translateY(6px);transition:opacity .35s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.dd.open .dd-col li,html:not(.nav-js) .dd-col li{opacity:1;transform:none}
+.dd.open .dd-col li:nth-child(2){transition-delay:.03s}.dd.open .dd-col li:nth-child(3){transition-delay:.06s}
+.dd.open .dd-col li:nth-child(4){transition-delay:.09s}.dd.open .dd-col li:nth-child(5){transition-delay:.12s}
+.dd.open .dd-col li:nth-child(6){transition-delay:.15s}.dd.open .dd-col li:nth-child(n+7){transition-delay:.18s}
+.bnav-links .dd-p a,.nav-links .dd-p a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 10px;border-radius:8px;
+  font-family:Inter,system-ui,sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0;text-transform:none;line-height:1.35;white-space:nowrap;
+  color:#10233F!important;opacity:1!important;transition:background .25s,padding .4s cubic-bezier(.16,1,.3,1)}
+.bnav-links .dd-p a::after,.nav-links .dd-p a::after{display:none!important}
+.bnav-links .dd-p li a:hover,.nav-links .dd-p li a:hover,.dd-p li a:focus-visible{background:#F5F4EF;padding-left:14px}
+.dd-p a i{font-style:normal;color:#B08D3F;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .35s cubic-bezier(.16,1,.3,1)}
+.dd-p a:hover i,.dd-p a:focus-visible i{opacity:1;transform:none}
+.dd-p a:focus-visible{outline:2px solid #B08D3F;outline-offset:0}
+.dd-ft{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:12px 0 0;padding:12px 0 0;border-top:1px solid rgba(21,21,21,.08)}
+.bnav-links .dd-ft a,.nav-links .dd-ft a{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px}
+.bnav-links .dd-ft a.dd-book,.nav-links .dd-ft a.dd-book{color:#B08D3F!important}
+.dd-ft a.dd-all i{opacity:1;transform:none}
+.bnav-links .dd-ft a:hover,.nav-links .dd-ft a:hover{background:#F5F4EF}
+.bnav-burger{display:none;place-items:center;width:42px;height:42px;padding:0;border:1px solid rgba(21,21,21,.16);border-radius:999px;background:none;color:#151515;cursor:pointer;transition:background .3s,color .3s}
+.bnav-burger svg{width:18px;height:18px;display:block}
+.bnav-burger[aria-expanded="true"]{background:#10233F;border-color:#10233F;color:#fff}
+.bnav-burger:focus-visible{outline:2px solid #B08D3F;outline-offset:3px}
+.bsheet{position:fixed;left:0;right:0;bottom:0;top:var(--sheet-top,78px);z-index:49;overflow-y:auto;overscroll-behavior:contain;background:#FDFDFC;
+  padding:6px 28px 48px;opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .35s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s}
+.bsheet.open{opacity:1;visibility:visible;transform:none;transition:opacity .35s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.bsheet>nav{max-width:560px;margin:0 auto}
+.bsheet-acts{display:flex;flex-direction:column;gap:10px;margin-top:26px}
+.bsheet-acts .btn{justify-content:center}
+.bsheet-tel{align-self:center;margin-top:6px;font-weight:600;color:#10233F;border-bottom:1px solid rgba(176,141,63,.5)}
+@media (max-width:1080px){.bnav-links{gap:24px!important}}
+@media (max-width:1000px){.bnav-links{gap:17px!important}}
+@media (max-width:940px){.bnav-links{gap:11px!important}}
+.bnav .brand{flex-shrink:0}.bnav .brand-txt i{white-space:nowrap}
+@media (max-width:860px){.bnav-links .dd{display:none!important}.bnav-burger{display:inline-grid}.bnav-links{gap:8px!important}}
+@media (min-width:861px){.bsheet{display:none}}
+@media (max-width:480px){.bnav-links a.cta{width:42px;height:42px;padding:0!important;justify-content:center}
+  .bnav-links a.cta span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+.mnav{list-style:none;margin:0;padding:0}
+.mnav>li{border-bottom:1px solid rgba(21,21,21,.09)}
+.mg-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mnav .mg-a{flex:1;display:block;padding:15px 2px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;font-weight:500;line-height:1.2;color:#10233F;opacity:1;transform:none}
+.mnav .mg-a.on{color:#B08D3F}
+.mg-t{flex-shrink:0;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:8px;background:none;cursor:pointer}
+.mg-t:focus-visible{outline:2px solid #B08D3F;outline-offset:2px}
+.mg-pm{position:relative;width:14px;height:14px}
+.mg-pm::before,.mg-pm::after{content:"";position:absolute;background:#B08D3F;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.mg-pm::before{top:6.25px;left:0;width:14px;height:1.5px}
+.mg-pm::after{left:6.25px;top:0;width:1.5px;height:14px}
+.mg.open .mg-pm::after{transform:rotate(90deg) scaleX(0)}
+.mg-p{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .45s cubic-bezier(.16,1,.3,1),visibility 0s .45s}
+.mg.open .mg-p{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .45s cubic-bezier(.16,1,.3,1)}
+.mg-in{overflow:hidden;min-height:0}
+.mg-col{padding:0 0 14px}
+.mg-h{display:block;margin:2px 0 4px;font-family:Inter,system-ui,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#B08D3F}
+.mnav .mg-in a{display:block;padding:10px 0 10px 14px;border-left:1px solid rgba(176,141,63,.35);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.35;color:#151515;transition:color .25s,border-color .25s,padding .35s cubic-bezier(.16,1,.3,1)}
+.mnav .mg-in a:hover{color:#B08D3F;border-left-color:#B08D3F;padding-left:18px}
+.mnav .mg-in a.mg-all{font-weight:600;color:#10233F;border-left-color:transparent}
+.bsheet.open .mnav>li,.msheet.open .mnav>li{animation:mgIn .55s cubic-bezier(.16,1,.3,1) both}
+.bsheet.open .mnav>li:nth-child(2),.msheet.open .mnav>li:nth-child(2){animation-delay:.04s}
+.bsheet.open .mnav>li:nth-child(3),.msheet.open .mnav>li:nth-child(3){animation-delay:.08s}
+.bsheet.open .mnav>li:nth-child(4),.msheet.open .mnav>li:nth-child(4){animation-delay:.12s}
+.bsheet.open .mnav>li:nth-child(5),.msheet.open .mnav>li:nth-child(5){animation-delay:.16s}
+.bsheet.open .mnav>li:nth-child(n+6),.msheet.open .mnav>li:nth-child(n+6){animation-delay:.2s}
+@keyframes mgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.mnav-dark>li{border-bottom-color:rgba(255,255,255,.12)}
+.mnav-dark .mg-a{color:#fff}
+.mnav-dark .mg-h{color:#D8B769}
+.mnav-dark .mg-pm::before,.mnav-dark .mg-pm::after{background:#D8B769}
+.mnav.mnav-dark .mg-in a{color:rgba(255,255,255,.8);border-left-color:rgba(216,183,105,.35)}
+.mnav.mnav-dark .mg-in a:hover{color:#D8B769;border-left-color:#D8B769}
+.mnav.mnav-dark .mg-in a.mg-all{color:#fff}
+body.nav-lock{overflow:hidden}
+@media (prefers-reduced-motion:reduce){.dd-box,.dd-col li,.bsheet,.mg-p,.dd-t svg{transition:none!important}.mnav>li{animation:none!important}}
+
+.nav .dd-t{color:rgba(255,255,255,.85);transition:color .4s}
+.nav .brand{flex-shrink:0}.nav .brand-txt i{white-space:nowrap}
+@media (max-width:1320px){.nav-links{gap:28px}}
+@media (max-width:1180px){.nav-links{display:none}.burger{display:block}}
+body.scrolled .nav .dd-t{color:var(--ink)}
+.msheet{justify-content:flex-start;align-items:stretch;gap:0;padding:128px 28px 48px;overflow-y:auto;overscroll-behavior:contain}
+.msheet .mnav{width:100%;max-width:520px;margin:0 auto}
+.msheet .mnav .mg-a{font-size:27px;padding:12px 2px}
+.msheet .msheet-socs{justify-content:center}
+</style><!--/nav:css-->
 </head>
 <body>
 
@@ -694,13 +797,7 @@ body.scrolled .burger{color:var(--ink)}
       <span class="brand-txt"><b>Merchant</b><i>Financial Advisory</i></span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#approach">Approach</a>
-      <a href="/services/">Services</a>
-      <a href="#reviews">Reviews</a>
-      <a href="/resources/">Resources</a>
-      <a href="/shop/">Shop</a>
-      <a href="/blog/">Insights</a>
-      <a href="/book/">Book</a>
+      <!--nav:links--><a href="#approach">Approach</a><div class="dd" data-dd><a href="/services/" class="dd-a">Services</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-services" aria-label="Show Services links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-services"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">What we do</span><ul><li><a href="/services/#tax-preparation">Tax preparation &amp; 1099 filing<i aria-hidden="true">→</i></a></li><li><a href="/services/#tax-planning">Tax planning &amp; strategy<i aria-hidden="true">→</i></a></li><li><a href="/services/#bookkeeping">Bookkeeping &amp; accounting<i aria-hidden="true">→</i></a></li><li><a href="/services/#financial-reporting">Financial reporting<i aria-hidden="true">→</i></a></li><li><a href="/services/#fractional-cfo">Fractional CFO<i aria-hidden="true">→</i></a></li><li><a href="/services/#audit-support">Audit support &amp; controls<i aria-hidden="true">→</i></a></li><li><a href="/services/#technical-accounting">Technical accounting<i aria-hidden="true">→</i></a></li><li><a href="/services/#business-advisory">Systems &amp; business advisory<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Get started</span><ul><li><a href="/llc-formation/">LLC formation, all 50 states<i aria-hidden="true">→</i></a></li><li><a href="/llc-formation/#monthly">Monthly bookkeeping<i aria-hidden="true">→</i></a></li><li><a href="/bookkeeping-cleanup/">Bookkeeping cleanup &amp; catch-up<i aria-hidden="true">→</i></a></li><li><a href="/llc-formation/#states">LLC costs by state<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">By location</span><ul><li><a href="/princeton-nj/">Princeton, NJ<i aria-hidden="true">→</i></a></li><li><a href="/union-city-nj/">Union City, NJ<i aria-hidden="true">→</i></a></li><li><a href="/new-york-ny/">New York City<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/services/">All services <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><a href="#reviews">Reviews</a><div class="dd" data-dd><a href="/resources/" class="dd-a">Resources</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-resources" aria-label="Show Resources links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-resources"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Browse by type</span><ul><li><a href="/resources/#checkers">Checkers<i aria-hidden="true">→</i></a></li><li><a href="/resources/#calculators">Calculators<i aria-hidden="true">→</i></a></li><li><a href="/resources/#taxcalcs">Tax calculators<i aria-hidden="true">→</i></a></li><li><a href="/resources/#calendars">Calendars<i aria-hidden="true">→</i></a></li><li><a href="/resources/#templates">Templates &amp; checklists<i aria-hidden="true">→</i></a></li><li><a href="/resources/#guides">Guides<i aria-hidden="true">→</i></a></li><li><a href="/resources/#states">State directory<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Popular tools</span><ul><li><a href="/tools/quarterly-estimated-tax-calculator/">Quarterly estimated tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/1099-tax-calculator/">1099 tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/paycheck-tax-calculator/">Paycheck tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/is-it-deductible/">Is It Deductible?<i aria-hidden="true">→</i></a></li><li><a href="/tools/do-i-need-to-send-a-1099/">Do I need to send a 1099?<i aria-hidden="true">→</i></a></li><li><a href="/tools/tax-deadlines-2027/">2027 business tax deadlines<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/resources/">All resources <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><div class="dd" data-dd><a href="/shop/" class="dd-a">Shop</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-shop" aria-label="Show Shop links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-shop"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Shop by type</span><ul><li><a href="/shop/#calc">Tax calculator spreadsheets<i aria-hidden="true">→</i></a></li><li><a href="/shop/#kit">Checklists &amp; kits<i aria-hidden="true">→</i></a></li><li><a href="/shop/#ai">AI prompt packs<i aria-hidden="true">→</i></a></li><li><a href="/shop/#services">Done-for-you services<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/shop/">Visit the shop <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><div class="dd" data-dd><a href="/blog/" class="dd-a">Insights</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-insights" aria-label="Show Insights links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-insights"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Read</span><ul><li><a href="/blog/">All articles<i aria-hidden="true">→</i></a></li><li><a href="/blog/2027-tax-calendar/">2027 tax calendar<i aria-hidden="true">→</i></a></li><li><a href="/blog/which-tax-form-llc-corporation/">Which tax form for your LLC?<i aria-hidden="true">→</i></a></li><li><a href="/blog/form-1099-preparation-guide-2026/">Form 1099 guide for 2026<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Stay current</span><ul><li><a href="/newsletter/">Newsletter<i aria-hidden="true">→</i></a></li><li><a href="/newsletter/#calendar">Key-dates calendar<i aria-hidden="true">→</i></a></li><li><a href="/authors/zain-merchant/">About Zain Merchant<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/blog/">All articles <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><a href="/book/" data-conv="book">Book</a><!--/nav:links-->
       <a href="#contact" class="nav-cta">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
         Contact Us
@@ -713,14 +810,7 @@ body.scrolled .burger{color:var(--ink)}
 </nav>
 
 <div class="msheet" id="msheet">
-  <a href="#approach">Approach</a>
-  <a href="/services/">Services</a>
-  <a href="#reviews">Reviews</a>
-  <a href="/resources/">Resources</a>
-  <a href="/shop/">Shop</a>
-  <a href="/blog/">Insights</a>
-  <a href="#contact">Contact</a>
-  <a href="/book/">Book a Consultation</a>
+  <!--nav:sheet--><ul class="mnav mnav-dark"><li><a class="mg-a" href="#approach">Approach</a></li><li class="mg"><div class="mg-row"><a class="mg-a" href="/services/">Services</a><button class="mg-t" type="button" aria-expanded="false" aria-controls="mg-services" aria-label="Show Services links"><span class="mg-pm" aria-hidden="true"></span></button></div><div class="mg-p" id="mg-services"><div class="mg-in"><div class="mg-col"><span class="mg-h">What we do</span><a href="/services/#tax-preparation">Tax preparation &amp; 1099 filing</a><a href="/services/#tax-planning">Tax planning &amp; strategy</a><a href="/services/#bookkeeping">Bookkeeping &amp; accounting</a><a href="/services/#financial-reporting">Financial reporting</a><a href="/services/#fractional-cfo">Fractional CFO</a><a href="/services/#audit-support">Audit support &amp; controls</a><a href="/services/#technical-accounting">Technical accounting</a><a href="/services/#business-advisory">Systems &amp; business advisory</a></div><div class="mg-col"><span class="mg-h">Get started</span><a href="/llc-formation/">LLC formation, all 50 states</a><a href="/llc-formation/#monthly">Monthly bookkeeping</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup &amp; catch-up</a><a href="/llc-formation/#states">LLC costs by state</a></div><div class="mg-col"><span class="mg-h">By location</span><a href="/princeton-nj/">Princeton, NJ</a><a href="/union-city-nj/">Union City, NJ</a><a href="/new-york-ny/">New York City</a></div><div class="mg-col"><a class="mg-all" href="/services/">All services →</a></div></div></div></li><li><a class="mg-a" href="#reviews">Reviews</a></li><li class="mg"><div class="mg-row"><a class="mg-a" href="/resources/">Resources</a><button class="mg-t" type="button" aria-expanded="false" aria-controls="mg-resources" aria-label="Show Resources links"><span class="mg-pm" aria-hidden="true"></span></button></div><div class="mg-p" id="mg-resources"><div class="mg-in"><div class="mg-col"><span class="mg-h">Browse by type</span><a href="/resources/#checkers">Checkers</a><a href="/resources/#calculators">Calculators</a><a href="/resources/#taxcalcs">Tax calculators</a><a href="/resources/#calendars">Calendars</a><a href="/resources/#templates">Templates &amp; checklists</a><a href="/resources/#guides">Guides</a><a href="/resources/#states">State directory</a></div><div class="mg-col"><span class="mg-h">Popular tools</span><a href="/tools/quarterly-estimated-tax-calculator/">Quarterly estimated tax calculator</a><a href="/tools/1099-tax-calculator/">1099 tax calculator</a><a href="/tools/paycheck-tax-calculator/">Paycheck tax calculator</a><a href="/tools/is-it-deductible/">Is It Deductible?</a><a href="/tools/do-i-need-to-send-a-1099/">Do I need to send a 1099?</a><a href="/tools/tax-deadlines-2027/">2027 business tax deadlines</a></div><div class="mg-col"><a class="mg-all" href="/resources/">All resources →</a></div></div></div></li><li class="mg"><div class="mg-row"><a class="mg-a" href="/shop/">Shop</a><button class="mg-t" type="button" aria-expanded="false" aria-controls="mg-shop" aria-label="Show Shop links"><span class="mg-pm" aria-hidden="true"></span></button></div><div class="mg-p" id="mg-shop"><div class="mg-in"><div class="mg-col"><span class="mg-h">Shop by type</span><a href="/shop/#calc">Tax calculator spreadsheets</a><a href="/shop/#kit">Checklists &amp; kits</a><a href="/shop/#ai">AI prompt packs</a><a href="/shop/#services">Done-for-you services</a></div><div class="mg-col"><a class="mg-all" href="/shop/">Visit the shop →</a></div></div></div></li><li class="mg"><div class="mg-row"><a class="mg-a" href="/blog/">Insights</a><button class="mg-t" type="button" aria-expanded="false" aria-controls="mg-insights" aria-label="Show Insights links"><span class="mg-pm" aria-hidden="true"></span></button></div><div class="mg-p" id="mg-insights"><div class="mg-in"><div class="mg-col"><span class="mg-h">Read</span><a href="/blog/">All articles</a><a href="/blog/2027-tax-calendar/">2027 tax calendar</a><a href="/blog/which-tax-form-llc-corporation/">Which tax form for your LLC?</a><a href="/blog/form-1099-preparation-guide-2026/">Form 1099 guide for 2026</a></div><div class="mg-col"><span class="mg-h">Stay current</span><a href="/newsletter/">Newsletter</a><a href="/newsletter/#calendar">Key-dates calendar</a><a href="/authors/zain-merchant/">About Zain Merchant</a></div><div class="mg-col"><a class="mg-all" href="/blog/">All articles →</a></div></div></div></li><li><a class="mg-a" href="#contact">Contact</a></li><li><a class="mg-a" href="/book/" data-conv="book">Book a Consultation</a></li></ul><!--/nav:sheet-->
   <div class="msheet-socs">
     <a href="https://www.instagram.com/mfa_advisory/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="soc soc-line soc-lg">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.741 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.741 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
@@ -1611,5 +1701,59 @@ body.scrolled .burger{color:var(--ink)}
 })();
 </script>
 <script>if(location.hash==="#book")location.replace("/book/");</script>
+<!--nav:js--><script>
+(function(){
+  var d=document, dds=[].slice.call(d.querySelectorAll('[data-dd]')); d.documentElement.classList.add('nav-js');
+  var fine=window.matchMedia&&matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function btn(dd){return dd.querySelector('.dd-t');}
+  function clamp(dd){var p=dd.querySelector('.dd-p');dd.style.setProperty('--dx','0px');
+    var r=p.getBoundingClientRect(),vw=d.documentElement.clientWidth,m=16,dx=0;
+    if(r.left<m)dx=m-r.left;else if(r.right>vw-m)dx=vw-m-r.right;
+    if(dx)dd.style.setProperty('--dx',Math.round(dx)+'px');}
+  function set(dd,v){
+    if(v)dds.forEach(function(o){if(o!==dd)set(o,false);});
+    if(v&&!dd.classList.contains('open'))clamp(dd);
+    dd.classList.toggle('open',v);btn(dd).setAttribute('aria-expanded',v?'true':'false');
+  }
+  dds.forEach(function(dd){
+    var t=btn(dd), a=dd.querySelector('.dd-a'), timer;
+    dd.addEventListener('mouseenter',function(){if(!fine)return;clearTimeout(timer);timer=setTimeout(function(){set(dd,true);},60);});
+    dd.addEventListener('mouseleave',function(){if(!fine)return;clearTimeout(timer);timer=setTimeout(function(){set(dd,false);},180);});
+    t.addEventListener('click',function(e){e.preventDefault();set(dd,!dd.classList.contains('open'));});
+    /* touch screens: the first tap on the label opens the menu, which has its own "All ..." link */
+    a.addEventListener('click',function(e){if(!fine&&!dd.classList.contains('open')){e.preventDefault();set(dd,true);}});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();set(dd,true);var f=dd.querySelector('.dd-p a');if(f)f.focus();}});
+    dd.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&dd.classList.contains('open')){e.stopPropagation();set(dd,false);t.focus();}
+      if((e.key==='ArrowDown'||e.key==='ArrowUp')&&e.target.closest('.dd-p')){e.preventDefault();
+        var l=[].slice.call(dd.querySelectorAll('.dd-p a')),i=l.indexOf(e.target);
+        var n=l[(i+(e.key==='ArrowDown'?1:-1)+l.length)%l.length];if(n)n.focus();}
+    });
+    dd.addEventListener('focusout',function(e){if(!e.relatedTarget||!dd.contains(e.relatedTarget))set(dd,false);});
+  });
+  d.addEventListener('click',function(e){dds.forEach(function(dd){if(dd.classList.contains('open')&&!dd.contains(e.target))set(dd,false);});});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')dds.forEach(function(dd){if(dd.classList.contains('open'))set(dd,false);});});
+  /* phone menu: expandable groups */
+  [].slice.call(d.querySelectorAll('.mg-t')).forEach(function(t){
+    t.addEventListener('click',function(){var li=t.closest('.mg'),v=!li.classList.contains('open');
+      li.classList.toggle('open',v);t.setAttribute('aria-expanded',v?'true':'false');});
+  });
+  /* inner-page burger */
+  var b=d.querySelector('.bnav-burger'), s=d.getElementById('bsheet'), hd=d.querySelector('.bnav');
+  if(b&&s){
+    var ico=b.innerHTML, x='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+    var open=function(v){
+      if(v&&hd)s.style.setProperty('--sheet-top',Math.max(0,Math.round(hd.getBoundingClientRect().bottom))+'px');
+      s.classList.toggle('open',v);d.body.classList.toggle('nav-lock',v);
+      b.setAttribute('aria-expanded',v?'true':'false');b.setAttribute('aria-label',v?'Close menu':'Open menu');b.innerHTML=v?x:ico;
+    };
+    b.addEventListener('click',function(){open(!s.classList.contains('open'));});
+    s.addEventListener('click',function(e){if(e.target.closest('a'))open(false);});
+    d.addEventListener('keydown',function(e){if(e.key==='Escape'&&s.classList.contains('open')){open(false);b.focus();}});
+    window.addEventListener('resize',function(){if(window.innerWidth>860&&s.classList.contains('open'))open(false);});
+  }
+})();
+</script><script>document.addEventListener('keydown',function(e){var s=document.getElementById('msheet'),b=document.getElementById('burger');
+if(e.key==='Escape'&&s&&b&&s.classList.contains('open')){b.click();b.focus();}});</script><!--/nav:js-->
 </body>
 </html>

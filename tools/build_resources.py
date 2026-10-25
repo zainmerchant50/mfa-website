@@ -9,6 +9,7 @@ and its official sources. Tax figures live in the FACTS dict below, each with it
 Writes tools/site_pages.json so build_blog.py can list these URLs in sitemap.xml.
 """
 import hashlib, json, re, sys
+from urllib.parse import quote
 from datetime import date
 from pathlib import Path
 
@@ -57,6 +58,9 @@ I = {  # simple line icons (stroke = currentColor)
     "car": '<path d="M5 16.5h14M6.5 16.5V19M17.5 16.5V19M4 16.5l1.6-5.2A2 2 0 0 1 7.5 10h9a2 2 0 0 1 1.9 1.3l1.6 5.2"/>',
     "scale": '<path d="M12 4v16M5 8h14M5 8l-2.5 6a3 3 0 0 0 5 0zM19 8l-2.5 6a3 3 0 0 0 5 0zM8 20h8"/>',
     "list": '<path d="M9 6h11M9 12h11M9 18h11"/><path d="m3.5 6 1 1 2-2M3.5 12l1 1 2-2M3.5 18l1 1 2-2"/>',
+    "clock": '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+    "user": '<circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/>',
+    "box": '<path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/>',
 }
 svg = lambda k: f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{I[k]}</svg>'
 
@@ -66,6 +70,7 @@ GROUPS = [
     ("calculators", "Calculators", "Quick numbers for pricing, planning and taxes."),
     ("calendars", "Calendars", "Never miss a filing or payment date."),
     ("templates", "Templates & checklists", "Ready-to-use emails, logs and checklists."),
+    ("soon", "Coming soon", "Tools and templates on the way. Want one sooner? Tell us."),
     ("guides", "Guides", "In-depth MFA Insights articles, checked against IRS and state sources."),
     ("states", "State directory", "Formation fees, annual reports and filing offices by state."),
 ]
@@ -88,12 +93,38 @@ TOOLS = [
     ("calendars", "Business tax deadlines by entity", "Sole proprietor, partnership, S corp, C corp, employer and nonprofit calendars.", None, "cal", "deadline entity s corp partnership", ""),
     ("templates", "W-9 request email templates", "Copy-ready emails to collect W-9s from new vendors, at year-end, and as a reminder.",
      "/tools/w-9-request-email-template/", "mail", "w-9 request email vendor template", "New"),
-    ("templates", "Mileage log & receipt log", "Simple logs that hold up if the IRS asks.", None, "doc", "mileage log receipt log", ""),
-    ("templates", "Month-end close checklist", "The steps to close your books cleanly every month.", None, "list", "month end close checklist", ""),
-    ("templates", "Chart of accounts samples", "Starter charts of accounts for service, retail and construction businesses.", None, "doc", "chart of accounts quickbooks", ""),
     ("states", "LLC formation: NJ & NY fees and first-year cost", "State filing fees, annual reports, tax registration and your first-year total, from the official state sources.",
      "/llc-formation/", "map", "llc formation state fee annual report new jersey new york", "New"),
 ]
+
+
+# "Coming soon" (Zain, 2026-10-24: "add more coming soon resources where we might have new tools come in").
+# Ordered by expected demand (search interest from MFA's audience), most-asked-for first. No dates, prices or outcomes.
+# (title, kind, description, icon, keywords)
+SOON = [
+    ("Tax refund estimator", "Calculator", "Estimate your federal refund or amount due from your W-2s, 1099s and withholding.", "calc",
+     "tax refund estimator federal refund amount due withholding w-2 1040"),
+    ("NJ & NY sales tax calculator", "Calculator", "Add sales tax to a price, or back it out of a total, at New Jersey and New York rates.", "pct",
+     "sales tax calculator new jersey new york rate reverse"),
+    ("Contractor or employee? checker", "Checker", "Questions based on the IRS common-law factors to help you decide between a 1099 and a W-2.", "check",
+     "worker classification contractor employee 1099 w-2 misclassification ss-8"),
+    ("Freelance hourly rate calculator", "Calculator", "Work back from the income you want to the rate you need, after taxes, costs and time off.", "clock",
+     "hourly rate freelancer pricing day rate self employed"),
+    ("Mileage log & receipt log", "Template", "Simple logs that hold up if the IRS asks.", "doc", "mileage log receipt log"),
+    ("Cost of hiring an employee calculator", "Calculator", "Wages plus employer payroll taxes and common extras, so you can budget a first hire.", "user",
+     "cost of employee employer payroll taxes futa suta fica hiring budget"),
+    ("Section 179 & depreciation calculator", "Calculator", "Compare Section 179, bonus and regular depreciation for an equipment or vehicle purchase.", "chart",
+     "section 179 bonus depreciation macrs equipment vehicle"),
+    ("Where do I owe sales tax? checker", "Checker", "Compare your sales in each state with that state's economic nexus threshold.", "map",
+     "sales tax nexus economic nexus online sellers wayfair registration"),
+    ("Month-end close checklist", "Template", "The steps to close your books cleanly every month.", "list", "month end close checklist"),
+    ("Cash flow runway calculator", "Calculator", "How many months your cash covers your costs, and what changes when sales or spending move.", "chart",
+     "cash flow runway burn rate small business forecast"),
+    ("Chart of accounts samples", "Template", "Starter charts of accounts for service, retail and construction businesses.", "doc", "chart of accounts quickbooks"),
+    ("Record retention checklist", "Template", "How long to keep receipts, returns, payroll and bank records, by document type.", "box",
+     "how long to keep records receipts tax returns record retention"),
+]
+TOOLS += [("soon", t, d, None, icon, kw + " coming soon " + kind.lower(), kind) for t, kind, d, icon, kw in SOON]
 
 
 def page(title, desc, url, body, ld=None, active="res"):
@@ -154,14 +185,17 @@ def write(rel, html):
 def build_hub(posts):
     cards = {g[0]: [] for g in GROUPS}
     for grp, title, desc, url, icon, kw, badge in TOOLS:
-        b = f'<span class="badge{" new" if badge == "New" else ""}">{esc(badge)}</span>' if badge else ""
+        b = f'<span class="badge{" new" if badge == "New" else ""}">{esc(badge)}</span>' if badge and url else ""
         if url:
             cards[grp].append(f'<a class="rcard card" href="{url}" data-k="{esc((title + " " + desc + " " + kw).lower())}">{b}'
                               f'<span class="ri">{svg(icon)}</span><h3>{esc(title)}</h3><p>{esc(desc)}</p>'
                               f'<span class="go">{"Read the guide" if url.startswith("/blog/") else "Use the tool"} <i>→</i></span></a>')
         else:
+            ask = f"mailto:{B.EMAIL}?subject=" + quote(f"Resource request: {title}")
+            kind = f'<span class="kind">{esc(badge)}</span>' if badge else ""
             cards[grp].append(f'<div class="rcard card soon" data-k="{esc((title + " " + desc + " " + kw).lower())}"><span class="badge">Coming soon</span>'
-                              f'<span class="ri">{svg(icon)}</span><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>')
+                              f'<span class="ri">{svg(icon)}</span>{kind}<h3>{esc(title)}</h3><p>{esc(desc)}</p>'
+                              f'<a class="rask" href="{esc(ask)}">Want this first? Tell us <i>→</i></a></div>')
     for p in posts:
         k = (p["title"] + " " + p["description"] + " " + p["category"] + " " + " ".join(p.get("keywords", []))).lower()
         cards["guides"].append(f'<a class="rcard card" href="/blog/{p["slug"]}/" data-k="{esc(k)}"><span class="ri">{svg("book")}</span>'
@@ -190,7 +224,8 @@ function run(){{var t=(q.value||'').toLowerCase().trim(),any=false;groups.forEac
 [].slice.call(g.querySelectorAll('.rcard')).forEach(function(c){{var m=on&&(!t||c.getAttribute('data-k').indexOf(t)>-1);c.style.display=m?'':'none';if(m)n++;}});
 g.style.display=n?'':'none';if(n)any=true;}});empty.style.display=any?'none':'block';}}
 q.addEventListener('input',run);chips.forEach(function(c){{c.addEventListener('click',function(){{f=c.getAttribute('data-f');chips.forEach(function(x){{x.setAttribute('aria-pressed',x===c?'true':'false');}});run();}});}});
-var h=location.hash.replace('#','');if(h&&document.querySelector('.chip[data-f="'+h+'"]'))document.querySelector('.chip[data-f="'+h+'"]').click();}})();
+function hash(){{var h=location.hash.replace('#',''),c=h&&document.querySelector('.chip[data-f="'+h+'"]');if(c){{q.value='';c.click();var g=document.getElementById(h);if(g)g.scrollIntoView();}}}}
+hash();window.addEventListener('hashchange',hash);}})();
 </script>"""
     items = list(dict.fromkeys([t[3] for t in TOOLS if t[3]] + [f"/blog/{p['slug']}/" for p in posts]))
     ld = seo.graph(url, "MFA Resources", desc, {"@type": "ItemList", "@id": url + "#list", "name": "MFA tools, templates and guides",

@@ -144,12 +144,12 @@ def load_posts():
 
 
 def nav(active):
-    def a(href, label, key):
-        return f'<a href="{href}"{" class=on" if key == active else ""}>{label}</a>'
+    """Site header: brand, links with dropdown menus (ui_kit.NAV, one source for the whole site), Contact Us and,
+    on phones, a menu button that opens the same groups as expandable rows (ui_kit.mobile_sheet)."""
     return f'''<header class="bnav"><div class="wrap bnav-in">
   <a href="/" class="brand" aria-label="Merchant Financial Advisory — home"><img src="/apple-touch-icon.png" alt="" width="44" height="44"/><span class="brand-txt"><b>Merchant</b><i>Financial Advisory</i></span></a>
-  <nav class="bnav-links" aria-label="Main navigation">{a("/services/","Services","s")}{a("/resources/","Resources","res")}{a("/shop/","Shop","shop")}{a("/blog/","Insights","blog")}{a("/book/","Book","b")}<a href="/#contact" class="cta">{MAIL_ICON}Contact Us</a></nav>
-</div></header>'''
+  <nav class="bnav-links" aria-label="Main navigation">{ui_kit.nav_links(active)}<a href="/#contact" class="cta">{MAIL_ICON}<span>Contact Us</span></a>{ui_kit.BURGER_BTN}</nav>
+</div></header>{ui_kit.mobile_sheet(active)}'''
 
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
@@ -755,6 +755,35 @@ def build_author(posts):
     out.write_text(page, encoding="utf-8")
 
 
+# Home page (hand-built site/index.html): its header links, phone sheet, and the menu CSS/JS come from ui_kit.NAV,
+# written between <!--nav:...--> markers so the home page and every built page share one menu.
+HOME_NAV_CSS = """
+.nav .dd-t{color:rgba(255,255,255,.85);transition:color .4s}
+.nav .brand{flex-shrink:0}.nav .brand-txt i{white-space:nowrap}
+@media (max-width:1320px){.nav-links{gap:28px}}
+@media (max-width:1180px){.nav-links{display:none}.burger{display:block}}
+body.scrolled .nav .dd-t{color:var(--ink)}
+.msheet{justify-content:flex-start;align-items:stretch;gap:0;padding:128px 28px 48px;overflow-y:auto;overscroll-behavior:contain}
+.msheet .mnav{width:100%;max-width:520px;margin:0 auto}
+.msheet .mnav .mg-a{font-size:27px;padding:12px 2px}
+.msheet .msheet-socs{justify-content:center}
+"""
+HOME_NAV_JS = """<script>document.addEventListener('keydown',function(e){var s=document.getElementById('msheet'),b=document.getElementById('burger');
+if(e.key==='Escape'&&s&&b&&s.classList.contains('open')){b.click();b.focus();}});</script>"""
+
+
+def sync_home_nav():
+    f = SITE / "index.html"
+    s = f.read_text(encoding="utf-8")
+    parts = {"links": ui_kit.nav_links("", home=True), "sheet": ui_kit.nav_mobile("", home=True),
+             "css": "<style>" + ui_kit.NAV_CSS + HOME_NAV_CSS + "</style>", "js": ui_kit.NAV_JS + HOME_NAV_JS}
+    for k, v in parts.items():
+        if f"<!--nav:{k}-->" not in s:
+            sys.exit(f"site/index.html: missing <!--nav:{k}--> marker")
+        s = re.sub(rf"<!--nav:{k}-->.*?<!--/nav:{k}-->", lambda m: f"<!--nav:{k}-->{v}<!--/nav:{k}-->", s, count=1, flags=re.S)
+    f.write_text(s, encoding="utf-8")
+
+
 def build_sitemap(posts, pages=()):
     """sitemap.xml, robots.txt, llms.txt, llms-full.txt, catalog.json and the home page's JSON-LD: all in tools/seo.py."""
     return seo.build_all(posts)
@@ -771,5 +800,6 @@ if __name__ == "__main__":
     pages = build_pages()
     build_author(posts)
     build_newsletter_pages(posts)
+    sync_home_nav()
     build_sitemap(posts, pages)   # last: reads the finished pages
     print(f"Built {len(posts)} post(s): " + ", ".join(p["slug"] for p in posts))
