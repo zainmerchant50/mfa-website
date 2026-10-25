@@ -127,5 +127,12 @@
       "fact": "Example math: 1,000 miles x $0.76 = $760",
       "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates"
     }
-  ]
+  ],
+  "character": {
+    "name": "driver",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  }
 }

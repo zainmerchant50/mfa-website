@@ -120,5 +120,12 @@
    "fact": "SE tax / Schedule SE applies when net earnings from self-employment are $400 or more; read 2026-10-24",
    "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
   }
- ]
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "mascot-hmm"
+ }
 }

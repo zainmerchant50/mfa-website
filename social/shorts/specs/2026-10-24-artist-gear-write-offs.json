@@ -117,5 +117,12 @@
       "fact": "1099-K gross doesn't include adjustments for fees or shipping, which are business costs (Q8, read 2026-10-24)",
       "url": "https://www.irs.gov/newsroom/form-1099-k-faqs-general-information"
     }
-  ]
+  ],
+  "character": {
+    "name": "artist",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  }
 }

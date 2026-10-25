@@ -106,5 +106,12 @@
       "fact": "Home office simplified option: $5 per square foot, maximum 300 square feet; space must be used exclusively and regularly for business (read 2026-10-24)",
       "url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction"
     }
-  ]
+  ],
+  "character": {
+    "name": "artist",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  }
 }

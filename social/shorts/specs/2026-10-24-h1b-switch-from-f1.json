@@ -111,5 +111,12 @@
       "fact": "Oct. 1 to Dec. 31 = 92 days (31+30+31)",
       "url": "https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test"
     }
-  ]
+  ],
+  "character": {
+    "name": "worker",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  }
 }

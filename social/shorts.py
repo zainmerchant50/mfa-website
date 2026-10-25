@@ -32,6 +32,10 @@ Spec JSON (see social/shorts/specs/ for real ones):
   captions {comment_word, instagram, hashtags[5-10], youtube_hashtags[3-5 incl #shorts]?, youtube_title (<=70), youtube_description,
             pinterest_title (<=100), pinterest_description (<=500), pinterest_alt, pinterest_board},
   sync {product_id?, etsy_title_phrase?, ads_keywords[], blog?, pin_ids[]}, sources [{fact, url}]
+  character? {name: artist|student|worker|owner|driver|mascot-thumbs|mascot-hmm|mascot-wow, scene: hook|none,
+              position: lower|upper, corner_after: bool, corner: self|mascot-...}   animated character, drawn by
+              social/shorts_characters.py (needs pycairo): large under/over the hook text, then small in the
+              bottom-left corner on later scenes whose text leaves that corner clear
 Beat fields:
   story    {lines[], kicker?}                         lines slide in one by one (invented first names only)
   question {text}                                     big centred question
@@ -657,6 +661,10 @@ def main():
     if errs:
         sys.exit("SHORT REJECTED\n- " + "\n- ".join(errs))
     scenes, total = timeline(p)
+    track = None
+    if p.get("character"):
+        import shorts_characters as SC  # noqa: E402  (pycairo; only loaded when a spec asks for a character)
+        track = SC.Track(p["character"], scenes)
     if not 12 <= total <= 30 and "--force" not in args:
         sys.exit(f"DURATION {total:.1f} s is outside 12-30 s: trim or add beats (or set dur on beats)")
     frames_arg = args[args.index("--frames") + 1] if "--frames" in args else None
@@ -667,10 +675,14 @@ def main():
         br = pw.chromium.launch()
         pg = br.new_page(viewport={"width": W, "height": H}, device_scale_factor=1)
         pg.route("http*://**", lambda r: r.abort())  # everything is inlined; never touch the network
-        pg.set_content(page(p, scenes, total), wait_until="load")
+        doc = page(p, scenes, total)
+        pg.set_content(track.inject(doc) if track else doc, wait_until="load")
         pg.evaluate("document.fonts.ready")
         bad = pg.evaluate("S=>check(S)", SAFE)
         bad += ["near-empty frame at " + x for x in pg.evaluate(f"coverage({total})")]
+        if track:
+            bad += track.check(pg)  # hook text clear of the character; notes which scenes leave the corner free
+        snap = (lambda tt, **kw: track.composite(pg.screenshot(**kw), tt)) if track else (lambda tt, **kw: pg.screenshot(**kw))
         if bad and "--force" not in args:
             sys.exit("LAYOUT CHECK FAILED (safe area / empty frames) in " + str(spec) + "\n- " + "\n- ".join(bad[:20]))
         for arg in (frames_arg, only):
@@ -679,14 +691,14 @@ def main():
                 fd.mkdir(exist_ok=True)
                 for tt in parse_times(arg, total):
                     pg.evaluate(f"seek({tt})")
-                    pg.screenshot(path=str(fd / f"{p['slug']}-{tt:05.2f}s.png"))
+                    (fd / f"{p['slug']}-{tt:05.2f}s.png").write_bytes(snap(tt))
         if only:
             br.close()
             print(out / "frames")
             return
         # cover: the hook once its punch-in has settled
         pg.evaluate("seek(0.6)")
-        pg.screenshot(path=str(out / f"{p['slug']}-cover.jpg"), type="jpeg", quality=92)
+        (out / f"{p['slug']}-cover.jpg").write_bytes(snap(0.6, type="jpeg", quality=92))
         with tempfile.TemporaryDirectory() as td:
             wav = Path(td) / "bed.wav"
             if "--no-music" not in args:
@@ -702,7 +714,7 @@ def main():
             nfr = int(round(total * FPS))
             for i in range(nfr):
                 pg.evaluate(f"seek({i / FPS})")
-                ff.stdin.write(pg.screenshot(type="jpeg", quality=93))
+                ff.stdin.write(snap(i / FPS, type="jpeg", quality=93))
             ff.stdin.close()
             if ff.wait() != 0:
                 sys.exit("ffmpeg failed")

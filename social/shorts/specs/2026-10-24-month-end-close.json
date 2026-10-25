@@ -136,5 +136,12 @@
       "fact": "Monthly bookkeeping from $199/month (published on /services/, approved price)",
       "url": "https://mfa-advisory.com/services/"
     }
-  ]
+  ],
+  "character": {
+    "name": "owner",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  }
 }

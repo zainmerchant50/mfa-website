@@ -116,5 +116,12 @@
    "fact": "Keep records 3 years generally; 6 years if unreported income exceeds 25% of gross income shown; 7 years for worthless securities or bad debt; indefinitely if no return or a fraudulent return; employment tax records at least 4 years; read 2026-10-24 (page updated 30-Jun-2026)",
    "url": "https://irs.gov/businesses/small-businesses-self-employed/how-long-should-i-keep-records"
   }
- ]
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "mascot-thumbs"
+ }
 }

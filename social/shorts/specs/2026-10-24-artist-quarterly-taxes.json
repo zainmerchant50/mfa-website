@@ -112,5 +112,12 @@
       "fact": "Must generally pay 2026 estimated tax if you expect to owe at least $1,000 after withholding and credits; 2026 due dates Apr. 15, June 15, Sept. 15, 2026 and Jan. 15, 2027 (2026 Form 1040-ES, read 2026-10-24)",
       "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
     }
-  ]
+  ],
+  "character": {
+    "name": "artist",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  }
 }

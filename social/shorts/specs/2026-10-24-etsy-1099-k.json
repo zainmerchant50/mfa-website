@@ -122,5 +122,12 @@
    "fact": "Etsy issues a 1099-K at the federal threshold or a lower state threshold (e.g. AR $2,500, IL $1,000, NJ $1,000, DC/MD/MA/VT/VA $600); form shows gross sales; read 2026-10-24",
    "url": "https://help.etsy.com/hc/articles/360000336447"
   }
- ]
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ }
 }

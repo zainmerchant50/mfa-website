@@ -117,5 +117,12 @@
       "fact": "F/J/M/Q students must file Form 1040-NR only if they have taxable income such as wages or scholarship grants; no wages subject to withholding -> 15th day of 6th month (read 2026-10-24)",
       "url": "https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens"
     }
-  ]
+  ],
+  "character": {
+    "name": "student",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  }
 }

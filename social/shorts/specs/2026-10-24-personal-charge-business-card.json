@@ -100,5 +100,12 @@
    "fact": "Owner's draw treatment for sole proprietors / single-member LLCs is standard bookkeeping practice (no tax figure); S corp treatment differs, flagged on screen",
    "url": "https://mfa-advisory.com/bookkeeping-cleanup/"
   }
- ]
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "mascot-thumbs"
+ }
 }

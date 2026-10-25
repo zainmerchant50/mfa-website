@@ -113,5 +113,12 @@
       "fact": "Substantial presence test: 31 days this year and 183 days over 3 years (1, 1/3, 1/6); days as an exempt individual (F/J/M/Q students) don't count (read 2026-10-24)",
       "url": "https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test"
     }
-  ]
+  ],
+  "character": {
+    "name": "student",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  }
 }
