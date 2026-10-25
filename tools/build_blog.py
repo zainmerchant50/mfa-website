@@ -154,7 +154,7 @@ def nav(active):
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
   <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
-  <nav><a href="/">Home</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+  <nav><a href="/">Home</a><a href="/#reviews">Reviews</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
 </div></footer>''' + ui_kit.UI_JS
 
@@ -214,6 +214,25 @@ def buy_btn(x, cls):
     if x.get("via") == "etsy":
         return f'<a class="{cls}" href="{esc(x["url"])}" target="_blank" rel="noopener" data-shop="{esc(x["slug"])}">Buy on Etsy</a>'
     return f'<a class="{cls}" href="{esc(x["url"])}" data-shop="{esc(x["slug"])}">Buy now</a>'
+
+
+# Post slug -> audience pages linked in a "Related on MFA" strip above the footer (Site session, 2026-10-25: internal links
+# to /artists/ and /international-students/ from the guides that answer the same questions). Same component as tool pages.
+_ART, _INTL = ("/artists/", "Taxes for artists & creatives"), ("/international-students/", "International student tax filing")
+AUDIENCE_LINKS = {
+    "schedule-c-guide-single-member-llc": [_ART], "section-179-bonus-depreciation-2026": [_ART],
+    "nj-sales-tax-st50-filing-guide": [_ART], "form-1099-preparation-guide-2026": [_ART],
+    "which-tax-form-llc-corporation": [_ART], "year-end-tax-planning-2026-key-dates": [_ART, _INTL],
+    "2027-tax-calendar": [_INTL, _ART], "october-15-2026-tax-extension-deadline": [_INTL],
+}
+
+
+def audience_strip(p):
+    links = AUDIENCE_LINKS.get(p["slug"], [])
+    if not links:
+        return ""
+    li = "".join(f'<a href="{u}">{esc(t)}</a>' for u, t in links)
+    return f'<nav class="relnav" aria-label="Related on MFA"><div class="wrap"><span>Related on MFA</span>{li}</div></nav>'
 
 
 def products_box(p):
@@ -630,7 +649,7 @@ def build_post(p):
 <p class="disclaimer">Facts checked against the sources above as of {asof}. {DISCLAIMER}</p></section>
 </article>
 {cta(p)}</main>
-{FOOT}{SHARE_JS}{NL_JS}{GUMROAD_JS if any(x.get("via") == "gumroad" for x in prods) else ""}</body></html>'''
+{audience_strip(p)}{FOOT}{SHARE_JS}{NL_JS}{GUMROAD_JS if any(x.get("via") == "gumroad" for x in prods) else ""}</body></html>'''
     out = SITE / "blog" / p["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")

@@ -21,9 +21,10 @@ SERVICES = [
       "Federal and state estimated tax calculations, with a payment calendar",
       "1099 preparation and filing for the contractors you pay",
       "Returns for international students, scholars and H-1B workers: Form 1040-NR, Form 8843 and Social Security refund claims",
+      "Schedule C returns for artists and creatives: deductions, 1099-K income and quarterly estimates",
       "Extensions filed on time when the numbers aren't ready"],
      "Quoted up front by return type and complexity.",
-     [("/international-students/", "International students & H-1B"), ("/tools/quarterly-estimated-tax-calculator/", "Quarterly estimated tax calculator"), ("/tools/tax-deadlines-2027/", "2027 tax deadlines")]),
+     [("/international-students/", "International students & H-1B"), ("/artists/", "Artists & creatives"), ("/tools/quarterly-estimated-tax-calculator/", "Quarterly estimated tax calculator"), ("/tools/tax-deadlines-2027/", "2027 tax deadlines")]),
     ("tax-planning", "Tax Planning &amp; Strategy",
      "Year-round planning tied to live numbers: entity elections, estimated payments, retirement vehicles and deductions.",
      ["Entity and S corporation analysis, including a reasonable-salary range",
@@ -119,7 +120,7 @@ def build():
 <p>Quarterly estimates, 1099 tax, S corp savings, paycheck, home office and mileage calculators, a 1099 contractor tracker and the 2027 deadline calendar.</p></div>
 <a class="btn btn-ink" href="/resources/">Browse resources</a></div></section>
 <section class="wrap llc-sec" aria-labelledby="more-h"><div class="sec-hd"><span class="eyebrow eb-dark">Where we work, and more</span><h2 id="more-h">Local pages and related pages.</h2></div>
-<nav class="sv-jump" aria-label="Local pages and related pages"><a href="/princeton-nj/">Princeton, NJ</a><a href="/union-city-nj/">Union City, NJ</a><a href="/new-york-ny/">New York City</a><a href="/llc-formation/">LLC formation in all 50 states</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup quote</a><a href="/international-students/">International students &amp; H-1B</a><a href="/shop/">Shop</a><a href="/resources/">Resources</a><a href="/blog/">MFA Insights</a><a href="/authors/zain-merchant/">About Zain Merchant, ACCA</a></nav></section>
+<nav class="sv-jump" aria-label="Local pages and related pages"><a href="/princeton-nj/">Princeton, NJ</a><a href="/union-city-nj/">Union City, NJ</a><a href="/new-york-ny/">New York City</a><a href="/llc-formation/">LLC formation in all 50 states</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup quote</a><a href="/international-students/">International students &amp; H-1B</a><a href="/artists/">Artists &amp; creatives</a><a href="/shop/">Shop</a><a href="/resources/">Resources</a><a href="/blog/">MFA Insights</a><a href="/authors/zain-merchant/">About Zain Merchant, ACCA</a></nav></section>
 {cta("Not sure where to start?", "Tell us what's going on in a 30-minute call and we'll suggest the smallest engagement that fixes it, with a price before any work begins.")}
 <section class="wrap llc-sec fineprint" aria-label="Fine print"><p class="disclaimer">Merchant Financial Advisory provides accounting, bookkeeping, tax preparation and advisory services. We do not perform audits or issue audit, review or compilation reports, and we are not a law firm. Languages: English, Hindi and Urdu.</p></section>
 </main>'''

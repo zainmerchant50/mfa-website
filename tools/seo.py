@@ -77,6 +77,14 @@ def area_served():
             {"@type": "Country", "name": "United States"}]
 
 
+STATE_NAMES = {"CA": "California", "CT": "Connecticut", "MD": "Maryland", "NY": "New York", "OR": "Oregon"}
+
+
+def states_excluded(codes):
+    """schema.org States for Offer.ineligibleRegion (states where MFA doesn't prepare state returns)."""
+    return [{"@type": "State", "name": STATE_NAMES[c], "containedInPlace": {"@type": "Country", "name": "United States"}} for c in codes]
+
+
 def person():
     """Zain Merchant. Only published facts: title, ACCA, firm, profile links (same as /authors/zain-merchant/)."""
     return {"@type": "Person", "@id": PERSON_ID, "name": "Zain Merchant", "honorificSuffix": "ACCA",
@@ -311,6 +319,15 @@ RELATED = {
 }
 
 
+# Tool slug -> audience pages to link from the tool's "Related on MFA" strip (internal links, 2026-10-25).
+_ART, _INTL = ("/artists/", "Taxes for artists & creatives"), ("/international-students/", "International student tax filing")
+RELATED_PAGES = {
+    "is-it-deductible": [_ART], "home-office-deduction-calculator": [_ART], "mileage-deduction-calculator": [_ART],
+    "1099-tax-calculator": [_ART], "quarterly-estimated-tax-calculator": [_ART], "s-corp-tax-savings-calculator": [_ART],
+    "paycheck-tax-calculator": [_INTL], "tax-deadlines-2027": [_INTL, _ART],
+}
+
+
 def related_html(slug):
     if slug not in RELATED:
         return ""
@@ -326,6 +343,7 @@ def related_html(slug):
             meta = json.loads(m.group(1))
             titles[meta["slug"]] = re.sub(r"\s*\|\s*MFA( Insights)?$", "", ovr.get(meta["slug"], {}).get("title", meta["title"]))
     links = [(f"/services/#{s}", names[s]) for s in svc if s in names]
+    links += RELATED_PAGES.get(slug, [])
     links += [("/shop/", pn[p]) for p in prods if p in pn]
     links += [(f"/blog/{b}/", titles[b]) for b in posts if b in titles]
     if not links:
@@ -440,6 +458,8 @@ def _pricing_lines():
               "student package (Form 1040-NR + Form 8843 + tax-treaty check) $99 federal, $129 with one state return; Social Security and Medicare "
               "refund claim (Forms 843 + 8316) $49; H-1B and other US tax residents file Form 1040 at standard tax return pricing. "
               "No state returns for California, Connecticut, Maryland, New York or Oregon.",
+              "- Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; "
+              "bookkeeping, LLC formation and quarterly estimates at the prices above. No state returns for California, Connecticut, Maryland, New York or Oregon.",
               "- Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts."]
     return lines
 
@@ -462,7 +482,8 @@ def build_llms(posts):
         f"- [Services]({BASE}/services/): tax preparation, tax planning, bookkeeping, financial reporting, fractional CFO, audit support, technical accounting, business advisory",
         f"- [LLC formation in all 50 states]({BASE}/llc-formation/): $150 / $249 / $649 plus the state fee, paid once; state-by-state fees and rules",
         f"- [Bookkeeping cleanup and catch-up]({BASE}/bookkeeping-cleanup/): fixed quote request",
-        f"- [International students and H-1B workers]({BASE}/international-students/): Form 8843 $25, Form 1040-NR student package $99 ($129 with one state), Social Security refund claim $49",
+        f"- [International students and H-1B workers]({BASE}/international-students/): international student tax filing; Form 8843 $25, Form 1040-NR student package $99 ($129 with one state), Social Security and Medicare (FICA) refund claim $49, tax-treaty check; H-1B returns at standard Form 1040 pricing",
+        f"- [Taxes for artists and creatives]({BASE}/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $199/month, LLC formation from $150 plus state fee, quarterly estimates $250/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC",
         f"- [Machine-readable catalog]({BASE}/catalog.json): all services, prices, tools and products as schema.org JSON",
         "",
         "## Local pages",
@@ -563,6 +584,13 @@ def build_llms_full(posts):
 
 
 # ----------------------------------------------------------------------------------------------- catalog.json (agent-readable)
+def audience_services():
+    """Service nodes for the audience pages (/international-students/, /artists/), same as each page's own JSON-LD."""
+    import build_intl
+    import build_artists
+    return [build_intl.service_node(), build_artists.service_node()]
+
+
 def build_catalog(posts):
     """schema.org DataFeed at /catalog.json: the firm, every service with its public price, tools and shop products."""
     tools = [{"@type": "WebApplication", "name": t, "url": u, "description": d, "applicationCategory": "BusinessApplication",
@@ -574,7 +602,8 @@ def build_catalog(posts):
             "url": BASE + "/catalog.json", "dateModified": date.today().isoformat(), "inLanguage": "en-US",
             "provider": org(True), "creator": person(),
             "dataFeedElement": [{"@type": "DataFeedItem", "dateModified": date.today().isoformat(), "item": i}
-                                for i in service_nodes() + [llc_service(BASE + "/llc-formation/")] + [product_node(p) for p in live_products()] + tools]}
+                                for i in service_nodes() + [llc_service(BASE + "/llc-formation/")] + audience_services()
+                                + [product_node(p) for p in live_products()] + tools]}
     (SITE / "catalog.json").write_text(json.dumps(feed, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
 

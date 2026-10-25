@@ -127,9 +127,9 @@ SOON = [
 TOOLS += [("soon", t, d, None, icon, kw + " coming soon " + kind.lower(), kind) for t, kind, d, icon, kw in SOON]
 
 
-def page(title, desc, url, body, ld=None, active="res"):
+def page(title, desc, url, body, ld=None, active="res", image=None, keywords=None):
     extra = EXTRA_CSS + (seo.script(ld) if ld else "")
-    return f"""{B.head(title, desc, url, OG, extra)}
+    return f"""{B.head(title, desc, url, image or OG, extra, keywords)}
 <body>{B.nav(active)}
 {body}
 {B.FOOT}</body></html>"""
@@ -453,6 +453,8 @@ if __name__ == "__main__":
     urls.append(build_book.build())
     import build_intl  # noqa: E402  (/international-students/, 1040-NR / 8843 / FICA refund service; Zain 2026-10-24)
     urls.append(build_intl.build())
+    import build_artists  # noqa: E402  (/artists/, taxes for artists & creatives; Zain 2026-10-25)
+    urls.append(build_artists.build())
     urls.append(BASE + "/new-york-ny/")  # Site-owned landing page (build_landing.py); NJ pages are listed by build_blog.py
     (ROOT / "tools" / "site_pages.json").write_text(json.dumps({"updated": date.today().isoformat(), "urls": urls}, indent=1), encoding="utf-8")
     print("Built:\n  " + "\n  ".join(urls))

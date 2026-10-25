@@ -28,6 +28,13 @@ Added 2026-10-25 after Zain's feedback that the Latest Insights window and the h
      that opens it); with --render the home page is loaded at 390 and 1300 px, the clock is run 15 s forward and
      the page scrolled, and the build fails if the panel is open or visible, or if a header dropdown panel is
      open on load or wider than 420 px when opened.
+Added 2026-10-25 after Zain's screenshot of the Shop menu ("Book a consultation keeps going out, but also it just looks
+horrible this way"):
+ 12. header dropdowns: one footer link per panel and no "Book a consultation" in a panel (static); with --render every
+     dropdown is opened at 1300 and 1024 px on the home page and on pages with a form behind the menu, and the build fails
+     if any element or line of text inside it overflows the panel's box, the panel leaves the viewport, the panel is
+     see-through (background alpha < 1 or a backdrop blur), or any text in it is below WCAG AA contrast (4.5:1).
+     Internal links never point at /reviews (there is no reviews page; the reviews live at /#reviews).
 Optional: `python3 tools/check_ui.py --render` (needs Playwright + Chromium) also opens every page at 390 and
 1300 px and fails when the last line of text in <main>, or any .disclaimer/.fine/.note, sits less than 40px above
 the footer, or less than 12px under the element above it.
@@ -183,6 +190,69 @@ INSIGHTS_JS = r"""() => {
  return out;}"""
 
 
+def check_dropdowns(rel, h, errs):
+    """Rule 12 (static): one footer link per dropdown panel, no booking link inside a panel, no /reviews page links."""
+    for m in re.finditer(r'<div class="dd-ft">(.*?)</div>', h, re.S):
+        n = len(re.findall(r"<a\b", m.group(1)))
+        if n != 1:
+            errs.append(f"{rel}: a header dropdown footer has {n} links (keep exactly one, e.g. 'All services')")
+    for m in re.finditer(r'<div class="dd-p"[^>]*>(.*?)</div></div></div>', h, re.S):
+        if 'href="/book/"' in m.group(1) or "dd-book" in m.group(1):
+            errs.append(f"{rel}: a header dropdown links to /book/ (Book is already in the top nav; it overflowed the panel)")
+    if re.search(r'href="/reviews/?["#?]', h) or re.search(r'href="/testimonials/?["#?]', h):
+        errs.append(f'{rel}: link to /reviews; there is no reviews page, link to /#reviews (home page section)')
+
+
+DROPDOWN_JS = r"""(dd) => {
+ const out=[], box=dd.querySelector('.dd-box'); if(!box) return ['no .dd-box'];
+ const r=box.getBoundingClientRect(), cs=getComputedStyle(box), T=0.5;
+ const rgba=c=>{const m=c.match(/rgba?\(([^)]+)\)/); if(!m) return [0,0,0,0]; const p=m[1].split(/[ ,\/]+/).filter(Boolean).map(Number); return [p[0],p[1],p[2],p.length>3?p[3]:1];};
+ const bg=rgba(cs.backgroundColor);
+ if(bg[3]<1) out.push(`panel background is see-through (${cs.backgroundColor}); it must be solid`);
+ const bf=cs.backdropFilter||cs.webkitBackdropFilter; if(bf&&bf!=='none') out.push(`panel uses a backdrop blur (${bf}); it must be solid`);
+ if(r.left<0||r.right>innerWidth) out.push(`panel leaves the viewport (${Math.round(r.left)}..${Math.round(r.right)} of ${innerWidth})`);
+ const name=e=>(e.textContent||'').trim().replace(/\s+/g,' ').slice(0,40);
+ const outside=q=>q.width>0&&q.height>0&&(q.left<r.left-T||q.right>r.right+T||q.top<r.top-T||q.bottom>r.bottom+T);
+ for(const e of box.querySelectorAll('*')){
+   const q=e.getBoundingClientRect(); if(outside(q)) out.push(`<${e.tagName.toLowerCase()}> "${name(e)}" overflows the panel by ${Math.round(Math.max(q.right-r.right,r.left-q.left,q.bottom-r.bottom,r.top-q.top))}px`);
+ }
+ const w=document.createTreeWalker(box,NodeFilter.SHOW_TEXT); let n;
+ const lum=c=>{const f=v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);};return .2126*f(c[0])+.7152*f(c[1])+.0722*f(c[2]);};
+ while((n=w.nextNode())){
+   if(!n.textContent.trim()) continue; const el=n.parentElement, ecs=getComputedStyle(el);
+   if(ecs.visibility==='hidden'||+ecs.opacity===0||el.closest('[aria-hidden="true"]')) continue;
+   const rg=document.createRange(); rg.selectNodeContents(n);
+   for(const q of rg.getClientRects()) if(outside(q)) {out.push(`text "${n.textContent.trim().slice(0,40)}" runs past the panel edge`); break;}
+   const c=rgba(ecs.color), a=c[3], fg=[0,1,2].map(i=>c[i]*a+bg[i]*(1-a));
+   const L1=lum(fg), L2=lum(bg), ratio=(Math.max(L1,L2)+.05)/(Math.min(L1,L2)+.05);
+   if(ratio<4.5) out.push(`text "${n.textContent.trim().slice(0,30)}" contrast ${ratio.toFixed(2)}:1 (need 4.5)`);
+ }
+ return out;}"""
+
+
+def dropdown_check(b, base, errs, pages):
+    """Rule 12 in a real browser: every header dropdown, opened over real pages (some with a form behind the menu)."""
+    for w in (1300, 1024):
+        pg = b.new_page(viewport={"width": w, "height": 900})
+        pg.route("**/*", lambda r: r.abort() if any(x in r.request.url for x in ("googletagmanager", "google-analytics", "gumroad.com", "calendar.google", "fonts.g")) else r.continue_())
+        for rel in pages:
+            pg.goto(base + rel.replace("index.html", ""), wait_until="load")
+            dds = [d for d in pg.query_selector_all("[data-dd]") if d.is_visible()]
+            for d in dds:
+                label = d.query_selector(".dd-a").inner_text().strip()
+                d.query_selector(".dd-t").click()
+                pg.wait_for_timeout(700)
+                if not d.evaluate("e=>e.classList.contains('open')"):
+                    errs.append(f"{rel} @{w}px: the {label} dropdown did not open from its chevron")
+                    continue
+                for msg in d.evaluate(DROPDOWN_JS):
+                    errs.append(f"{rel} @{w}px, {label} menu: {msg}")
+                pg.keyboard.press("Escape")
+                pg.mouse.move(5, 890)
+                pg.wait_for_timeout(300)
+        pg.close()
+
+
 def overlay_check(b, base, errs):
     """Rule 11 in a real browser: nothing pops over the hero by itself; header dropdowns stay compact."""
     for w in (390, 1300):
@@ -254,6 +324,9 @@ def render_check(pages, errs):
                 for msg in pg.evaluate(RENDER_JS):
                     errs.append(f"{rel} @{w}px: {msg}")
         overlay_check(b, base, errs)
+        dd_pages = [r for r in ("index.html", "bookkeeping-cleanup/index.html", "llc-formation/index.html", "artists/index.html",
+                                "international-students/index.html") if r in pages]
+        dropdown_check(b, base, errs, dd_pages)
         b.close()
     srv.shutdown()
 
@@ -282,6 +355,7 @@ def main():
         check_directions(rel, h, v, errs)
         check_links(rel, h, errs, redirects)
         check_copy(rel, h, v, errs)
+        check_dropdowns(rel, h, errs)
         if rel == "index.html":
             check_insights(rel, h, errs)
     if "--render" in sys.argv:

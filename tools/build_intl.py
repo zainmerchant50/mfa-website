@@ -18,7 +18,14 @@ import ui_kit
 from build_resources import page, write, esc, BASE, cta
 
 URL = BASE + "/international-students/"
+OG_IMG = URL + "og.png"   # rendered from content/graphics/international-students-og.html (tools/render_graphics.js)
 CHECKED = "2026-10-24"
+CHECKED_SAVE = "2026-10-25"   # treaty and refund pages for the tax-savings section and the treaty FAQ
+# Search phrases this page is written for (Zain, 2026-10-25: "add tags to SEO for international students ... and their tax savings")
+KEYWORDS = ["international student tax filing", "F-1 student tax return", "1040-NR preparer", "Form 8843 help",
+            "OPT tax refund Social Security Medicare", "H-1B tax return", "nonresident tax treaty",
+            "tax savings for international students", "J-1 tax return", "FICA refund F-1 student"]
+STATE_CODES = ["CA", "CT", "MD", "NY", "OR"]
 STATES_OUT = "California, Connecticut, Maryland, New York or Oregon"
 ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
 TEL = '<a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>'
@@ -68,27 +75,36 @@ STEPS = [
 ]
 
 FAQ = [
-    ("Do I need to file if I had no US income?",
+    ("Form 8843 help: do I need to file if I had no US income?",
      "Usually yes, but only Form 8843. If you were in the US as an F, J, M or Q student, or a J or Q teacher or trainee, and you "
      "don't count those days toward the substantial presence test, the IRS requires Form 8843 to explain why. With no tax return "
      "to file, you mail Form 8843 on its own by the Form 1040-NR due date. If you file late, the IRS can count those days, "
      "which can change your tax status. Our Form 8843-only service is $25."),
-    ("Am I a resident or a nonresident for tax?",
+    ("F-1 student tax return: am I a resident or a nonresident for tax?",
      "It depends on the substantial presence test: at least 31 days in the US this year and 183 days over three years, counting "
      "all of this year's days, one-third of last year's and one-sixth of the year before. Days as an exempt individual don't count. "
      "Students on F, J, M or Q visas are generally exempt for up to five calendar years; J and Q teachers and trainees lose the "
      "exemption if they were exempt in two of the six years before. H-1B workers count every day, so most become residents and "
      "file Form 1040. Tax residency is separate from immigration status."),
-    ("Can I use the tax software I'd use for a regular return?",
+    ("Do I need a 1040-NR preparer, or can I use regular tax software?",
      "Only if it prepares Form 1040-NR. Nonresidents who have to file must use Form 1040-NR, not Form 1040, so a program that "
      "only prepares Form 1040 won't produce the right return. Check that it supports Form 1040-NR and Form 8843 before you "
      "start. The IRS accepts Form 1040-NR electronically, and we e-file it for you."),
-    ("Social Security and Medicare were taken out of my OPT pay. Can I get it back?",
+    ("OPT tax refund: can I get back Social Security and Medicare taken from my pay?",
      "Often, yes. The IRS says F-1, J-1 and M-1 students who are nonresident aliens are exempt from Social Security and Medicare "
      "tax on wages for permitted work, including practical training on or off campus. The exemption ends once you become a "
      "resident for tax, and it doesn't cover F-2, J-2 or M-2 family members or H-1B wages. Ask your employer for a refund first. "
      "If they won't refund all of it, we prepare Form 843 with Form 8316 and the supporting documents for $49."),
-    ("When is the deadline?",
+    ("Does a nonresident tax treaty lower my US tax?",
+     "It can. If the US has an income tax treaty with your country of residence, students, trainees and researchers may be "
+     "exempt from US tax on certain income, such as some wages or a scholarship. Each treaty is different, so your country and "
+     "the treaty article decide what qualifies. To stop withholding on treaty-exempt wages or scholarship, you give the payer "
+     "Form 8233. Our student package includes a treaty check, and we apply any treaty benefit when we prepare your Form 1040-NR."),
+    ("Do H-1B workers file Form 1040 or Form 1040-NR?",
+     "Most H-1B workers count every day in the US, pass the substantial presence test and file Form 1040 as US residents for tax. "
+     "A first or last year in the US can be dual-status, which needs extra care. An H-1B tax return is at our standard Form 1040 "
+     "pricing, quoted up front. Social Security and Medicare apply to H-1B wages, so the student FICA refund doesn't."),
+    ("When is the international student tax deadline?",
      "For 2026 income, generally April 15, 2027 if you were paid US wages with income tax withheld, and June 15, 2027 if you "
      "weren't. Form 8843 sent on its own follows the same Form 1040-NR due date. H-1B workers filing Form 1040 file by "
      "April 15, 2027. Need more time? File Form 4868 by the regular due date."),
@@ -110,6 +126,22 @@ SOURCES = [
     ("IRS: Foreign student liability for Social Security and Medicare taxes", "https://www.irs.gov/individuals/international-taxpayers/foreign-student-liability-for-social-security-and-medicare-taxes"),
     ("IRS: Social Security tax/Medicare tax and self-employment (refunds of taxes withheld in error, Form 843)", "https://www.irs.gov/individuals/international-taxpayers/social-security-tax-medicare-tax-and-self-employment"),
     ("IRS: Publication 901, U.S. Tax Treaties", "https://www.irs.gov/publications/p901"),
+    ("IRS: Claiming tax treaty benefits", "https://www.irs.gov/individuals/international-taxpayers/claiming-tax-treaty-benefits"),
+    ("IRS: Withholding certificates and exemptions for personal services and students (Form 8233)",
+     "https://www.irs.gov/individuals/international-taxpayers/withholding-certificates-and-exemptions-for-personal-services-and-students"),
+]
+
+# "Tax savings for international students" (Zain, 2026-10-25). Only what irs.gov says; no promised amounts.
+SAVE = [
+    ("Treaty benefits", "Nonresident tax treaty",
+     "If the US has an income tax treaty with your country of residence, students and trainees may be exempt from US tax on some "
+     "income, such as wages or a scholarship. We check your treaty in every student package.", "#is-5", "Read the answer"),
+    ("OPT and campus jobs", "Social Security and Medicare refund",
+     "F-1, J-1 and M-1 students who are nonresidents for tax don't owe Social Security or Medicare on wages for permitted work, "
+     "including OPT. If it was withheld anyway, it can be claimed back.", "#is-4", "Read the answer"),
+    ("Withheld income tax", "Your federal refund",
+     "If more federal income tax was taken from your pay than you owe, the IRS says you must file a return to claim the refund. "
+     "For most students that return is Form 1040-NR.", "#prices", "See the student package"),
 ]
 
 CSS = """<style>
@@ -139,6 +171,10 @@ CSS = """<style>
 .is-cred{margin:18px 0 0;font-size:.88rem;color:var(--muted)}
 @media (max-width:860px){.is-steps{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.js .is-need li{opacity:1;transform:none;transition:none}}
+.nw{white-space:nowrap}
+.is-save .pk-tag{display:block;margin:0 0 6px}
+.is-more{display:inline-flex;gap:6px;margin-top:12px;font-size:.86rem;font-weight:600;color:var(--navy);border-bottom:1px solid var(--gold);transition:color .3s,gap .3s}
+.is-more:hover{color:var(--gold);gap:10px}.is-more i{font-style:normal;color:var(--gold)}
 .is-src{max-width:860px}.is-src .sources{margin-top:0;padding-top:0;border-top:0}
 .is-src ul{margin:6px 0 0;padding-left:20px;display:grid;gap:8px}.is-src li{font-size:.92rem;line-height:1.55}.is-src li::marker{color:var(--gold)}
 .is-src li a{color:var(--navy);border-bottom:1px solid rgba(176,141,63,.5);text-decoration:none;transition:color .3s,border-color .3s}.is-src li a:hover{color:var(--gold);border-color:var(--gold)}
@@ -157,18 +193,35 @@ def offers():
     u = URL + "#prices"
     return [o("Form 8843 only (no US income)", 25, "Form 8843 prepared for an exempt individual with no US income, ready to sign and mail.", url=u),
             o("Student package: Form 1040-NR + Form 8843 + tax-treaty check", 99, "Federal nonresident return, e-filed. $129 with one state return.", url=u),
-            o("Student package with one state return", 129, f"Form 1040-NR, Form 8843, tax-treaty check and one state return (not {STATES_OUT}).", url=u),
+            {**o("Student package with one state return", 129, f"Form 1040-NR, Form 8843, tax-treaty check and one state return (not {STATES_OUT}).", url=u),
+             "eligibleRegion": {"@type": "Country", "name": "United States"}, "ineligibleRegion": seo.states_excluded(STATE_CODES)},
             o("Social Security and Medicare refund claim (Forms 843 + 8316)", 49, "Claim for refund of Social Security and Medicare tax withheld in error.", url=u),
             o("Form 1040 for H-1B workers and other US tax residents", None, "Standard tax return pricing, quoted up front by return type.",
               url=BASE + "/services/#tax-preparation")]
 
 
+TITLE = "International Student Tax Filing: 1040-NR & 8843 | MFA"
+DESC = ("F-1 student tax return on Form 1040-NR $99, Form 8843 help $25, OPT Social Security refund $49, tax treaty check. "
+        "H-1B returns too. E-filed.")
+
+
+def service_node():
+    return {"@type": "Service", "@id": URL + "#service", "name": "US tax returns for international students and H-1B workers", "url": URL,
+            "serviceType": "Tax preparation for international students and nonresident aliens (Form 1040-NR, Form 8843, Forms 843 and 8316)",
+            "description": DESC + f" Federal returns for every US state. State returns for every state except {STATES_OUT}.",
+            "provider": {"@id": seo.ORG_ID}, "areaServed": {"@type": "Country", "name": "United States"},
+            "keywords": ", ".join(KEYWORDS),
+            "audience": {"@type": "Audience", "audienceType": "F-1 and J-1 students, J-1 scholars and H-1B workers in the United States"},
+            "offers": offers()}
+
+
 def build():
-    title = "Tax Returns for International Students & H-1B | MFA"
-    desc = ("Form 8843 $25, Form 1040-NR student package $99 ($129 with a state), Social Security refund claims $49. "
-            "For F-1, J-1 and H-1B. Prepared and e-filed.")
-    checked = date.fromisoformat(CHECKED).strftime("%B %-d, %Y")
+    title, desc = TITLE, DESC
+    nice = lambda d: date.fromisoformat(d).strftime("%B %-d, %Y")
+    checked = f"{nice(CHECKED)}; the treaty and refund pages on {nice(CHECKED_SAVE)}"
     who = "".join(f'<div class="card"><h3>{esc(a)}</h3><p>{esc(b)}</p></div>' for a, b in WHO)
+    save = "".join(f'<div class="card"><span class="pk-tag">{esc(t)}</span><h3>{esc(h)}</h3><p>{esc(p)}</p>'
+                   f'<a class="is-more" href="{u}">{esc(l)} <i aria-hidden="true">→</i></a></div>' for t, h, p, u, l in SAVE)
     cards = []
     for tag, name, price, note, lead, items, href, btn, feat in PRICES:
         lis = "".join(f"<li>{ICO}<span>{esc(x)}</span></li>" for x in items)
@@ -180,25 +233,28 @@ def build():
     steps = "".join(f'<div class="step"><h3>{esc(h)}</h3><p>{p}</p></div>' for h, p in STEPS)
     faq = ui_kit.faq_accordion([(esc(q), esc(a)) for q, a in FAQ], prefix="is")
     src = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(t)}</a></li>' for t, u in SOURCES)
-    body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">International students &amp; H-1B</span>
-<h1>US tax returns for international students <em>and H-1B workers.</em></h1>
-<p>Form 8843, Form 1040-NR, tax-treaty checks and Social Security refund claims for F-1 and J-1 students, scholars and H-1B workers. We prepare and e-file, at a set price you see before we start.</p>
+    body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">International student tax filing</span>
+<h1>International student tax filing <em>for F-1, J-1 and <span class="nw">H-1B</span>.</em></h1>
+<p>Your F-1 or J-1 student tax return on Form 1040-NR, Form 8843 help, a nonresident tax treaty check and OPT Social Security and Medicare refund claims, plus H-1B tax returns. We prepare and e-file, at a set price you see before we start.</p>
 <div class="hero-btns"><a class="btn btn-gold" href="/book/" data-conv="book">Book a 30-minute call</a><a class="btn btn-line" href="#prices">See prices</a></div></div></header>
 <main>
-<section class="wrap llc-sec" aria-labelledby="who-h"><div class="sec-hd"><span class="eyebrow eb-dark">Who it's for</span><h2 id="who-h">Students, scholars and workers on US visas.</h2>
+<section class="wrap llc-sec" aria-labelledby="who-h"><div class="sec-hd"><span class="eyebrow eb-dark">Who it's for</span><h2 id="who-h">F-1, J-1 and H-1B tax returns: who we help.</h2>
 <p>The right forms depend on your visa, how long you've been in the US and what you earned, not on where you're from.</p></div>
 <div class="is-who">{who}</div></section>
-<section class="wrap llc-sec" id="prices" aria-labelledby="pr-h"><div class="sec-hd"><span class="eyebrow eb-dark">Prices</span><h2 id="pr-h">Clear prices, agreed before we start.</h2>
+<section class="wrap llc-sec" id="prices" aria-labelledby="pr-h"><div class="sec-hd"><span class="eyebrow eb-dark">Prices</span><h2 id="pr-h">1040-NR preparer prices, agreed before we start.</h2>
 <p>We confirm which one fits on a short call before any work starts.</p></div>
 <div class="pk is-pk">{"".join(cards)}</div>
 <p class="is-note">State returns are not available for {STATES_OUT}. Not sure if you're a resident or a nonresident for tax? See <a href="#is-2">the FAQ on residency</a>.</p></section>
-<section class="wrap llc-sec" aria-labelledby="need-h"><div class="sec-hd"><span class="eyebrow eb-dark">What you'll need</span><h2 id="need-h">Have these ready.</h2>
+<section class="wrap llc-sec" id="savings" aria-labelledby="sv-h"><div class="sec-hd"><span class="eyebrow eb-dark">Tax savings</span><h2 id="sv-h">Tax savings for international students: what's real.</h2>
+<p>Three ways students on F-1 and J-1 visas legitimately pay less or get money back. What you get depends on your income, withholding, visa and treaty, so we never promise an amount.</p></div>
+<div class="is-who is-save">{save}</div></section>
+<section class="wrap llc-sec" aria-labelledby="need-h"><div class="sec-hd"><span class="eyebrow eb-dark">What you'll need</span><h2 id="need-h">What you'll need for Form 1040-NR and Form 8843.</h2>
 <p>Missing something? Send what you have and we'll tell you what else to get.</p></div>
 <ul class="is-need" id="is-need">{need}</ul></section>
-<section class="wrap llc-sec" aria-labelledby="how-h"><div class="sec-hd"><span class="eyebrow eb-dark">How it works</span><h2 id="how-h">Three steps, mostly online.</h2></div>
+<section class="wrap llc-sec" aria-labelledby="how-h"><div class="sec-hd"><span class="eyebrow eb-dark">How it works</span><h2 id="how-h">How our 1040-NR preparation works.</h2></div>
 <div class="is-steps">{steps}</div>
 <p class="is-cred">Your return is prepared by Zain Merchant and his team of tax and accounting experts. Zain: CPA candidate · ACCA · Big Four (ex-PwC) · PTIN/EFIN tax preparer.</p></section>
-<section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">Common questions</h2></div>{faq}</section>
+<section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">International student tax questions</h2></div>{faq}</section>
 <section class="wrap llc-sec" aria-labelledby="src-h"><div class="sec-hd"><span class="eyebrow eb-dark">Sources</span><h2 id="src-h">Checked against the IRS.</h2></div>
 <div class="is-src"><div class="sources"><ul>{src}</ul><p class="factline">Facts checked against the IRS pages above on {checked}.</p></div></div></section>
 {cta("Not sure which forms you need?", "Book a 30-minute call or phone " + TEL + ". We'll work out your tax residency, the forms you need and the price before any work starts.")}
@@ -206,16 +262,13 @@ def build():
                   f"State returns are not available for {STATES_OUT}. Reading this page or booking a call doesn't create a client relationship.")}
 </main>
 {NEED_JS}'''
-    svc = {"@type": "Service", "@id": URL + "#service", "name": "US tax returns for international students and H-1B workers", "url": URL,
-           "serviceType": "Tax preparation", "description": desc, "provider": {"@id": seo.ORG_ID}, "areaServed": seo.area_served(),
-           "audience": {"@type": "Audience", "audienceType": "F-1 and J-1 students, J-1 scholars and H-1B workers in the United States"},
-           "offers": offers()}
+    svc = service_node()
     faq_ld = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
     ld = seo.graph(URL, "US tax returns for international students and H-1B workers", desc, svc, faq_ld,
                    crumb=[("Home", BASE + "/"), ("Services", BASE + "/services/"), ("International students & H-1B", URL)],
-                   extra={"mainEntity": {"@id": URL + "#service"}})
-    return write("international-students", page(title, desc, URL, body, ld, active="s"))
+                   extra={"mainEntity": {"@id": URL + "#service"}, "primaryImageOfPage": {"@type": "ImageObject", "url": OG_IMG}})
+    return write("international-students", page(title, desc, URL, body, ld, active="s", image=OG_IMG, keywords=KEYWORDS))
 
 
 if __name__ == "__main__":

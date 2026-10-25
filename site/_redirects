@@ -28,3 +28,9 @@
 # Resources hub (site session)
 /tools                 /resources/                301
 /tools/                /resources/                301
+
+# Reviews live on the home page only (Zain, 2026-10-25: no separate reviews page)
+/reviews               /#reviews                  301
+/reviews/              /#reviews                  301
+/testimonials          /#reviews                  301
+/testimonials/         /#reviews                  301

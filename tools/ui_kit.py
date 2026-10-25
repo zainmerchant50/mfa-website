@@ -112,7 +112,8 @@ UI_JS = r"""<script>
     });
   });
   /* Open the FAQ a link points at (e.g. #faq-2) */
-  if(location.hash){var t=d.querySelector(location.hash);var it=t&&t.closest&&t.closest('.faq-i');if(it&&!it.classList.contains('open'))it.querySelector('.faq-q').click();}
+  function openHash(){if(!location.hash)return;var t=null;try{t=d.querySelector(location.hash);}catch(e){}var it=t&&t.closest&&t.closest('.faq-i');if(it&&!it.classList.contains('open'))it.querySelector('.faq-q').click();}
+  openHash(); window.addEventListener('hashchange',openHash);
   /* Scroll reveal */
   var sel=['.article>h2','.article>figure','.article>.tldr','.article>table','.article>section','.article>div:not(.share)',
     '.pcard','.cta-card','.sec-hd','.card','.step','.why>div','.rev','.book-frame','.faq-l','.final .wrap','.nl-wrap','.alist li'];
@@ -169,6 +170,7 @@ NAV = [
                          ("Monthly bookkeeping", "/llc-formation/#monthly"),
                          ("Bookkeeping cleanup & catch-up", "/bookkeeping-cleanup/"),
                          ("International students & H-1B", "/international-students/"),
+                         ("Artists & creatives", "/artists/"),
                          ("LLC costs by state", "/llc-formation/#states")]),
         ("By location", [("Princeton, NJ", "/princeton-nj/"), ("Union City, NJ", "/union-city-nj/"),
                          ("New York City", "/new-york-ny/")]),
@@ -198,7 +200,9 @@ NAV = [
     ], ("All articles", "/blog/")),
     ("b", "Book", "/book/", [], None),
 ]
-HOME_EXTRA = {"s": ("Approach", "#approach"), "res": ("Reviews", "#reviews")}   # home-page anchors placed before these
+# Home-page anchors placed before these items. Reviews is not a nav item (Zain, 2026-10-25: no separate reviews page; the
+# reviews stay on the home page). It is reached from the footer ("Reviews" -> /#reviews) on every page.
+HOME_EXTRA = {"s": ("Approach", "#approach")}
 _CHEV = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>'
 _BURGER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>'
 _e = lambda s: _html.escape(s, quote=True)
@@ -224,8 +228,8 @@ def nav_links(active="", home=False):
         body = "".join(f'<div class="dd-col"><span class="dd-h">{_e(h)}</span><ul>'
                        + "".join(f'<li><a href="{u}">{_e(t)}<i aria-hidden="true">→</i></a></li>' for t, u in links)
                        + '</ul></div>' for h, links in cols)
-        ft = (f'<div class="dd-ft"><a class="dd-all" href="{foot[1]}">{_e(foot[0])} <i aria-hidden="true">→</i></a>'
-              f'<a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div>') if foot else ""
+        # One footer link per panel (Zain, 2026-10-25: "Book a consultation" overflowed the panel; Book is already in the nav).
+        ft = f'<div class="dd-ft"><a class="dd-all" href="{foot[1]}">{_e(foot[0])} <i aria-hidden="true">→</i></a></div>' if foot else ""
         out.append(f'<div class="dd" data-dd><a href="{href}" class="dd-a{" on" if key == active else ""}">{label}</a>'
                    f'<button class="dd-t" type="button" aria-expanded="false" aria-controls="{pid}" aria-label="Show {label} links">{_CHEV}</button>'
                    f'<div class="dd-p" id="{pid}"><div class="dd-box{wide}"><div class="dd-cols">{body}</div>{ft}</div></div></div>')
@@ -280,14 +284,13 @@ NAV_CSS = r"""
 .dd-p{position:absolute;top:100%;left:-14px;transform:translateX(var(--dx,0px));padding-top:14px;z-index:60;visibility:hidden;pointer-events:none;transition:visibility 0s .25s}
 .dd.open .dd-p{visibility:visible;pointer-events:auto;transition:none}
 html:not(.nav-js) .dd:hover .dd-p,html:not(.nav-js) .dd:focus-within .dd-p{visibility:visible;pointer-events:auto}
-/* compact frosted panel under its menu item: navy glass so the page stays visible behind it */
-.dd-box{width:264px;max-width:calc(100vw - 32px);background:rgba(16,35,63,.88);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);
+/* compact SOLID navy panel under its menu item (Zain, 2026-10-25: the see-through glass let form labels show through).
+   The compact size is what keeps the page visible; check_ui.py --render fails if anything inside overflows the panel. */
+.dd-box{box-sizing:border-box;width:264px;max-width:calc(100vw - 32px);background:#10233F;
   border:1px solid rgba(255,255,255,.12);border-top:2px solid #D8B769;border-radius:12px;padding:12px 8px 8px;text-align:left;
   box-shadow:0 18px 40px -16px rgba(10,22,40,.45),0 2px 8px rgba(10,22,40,.12);opacity:0;transform:translateY(6px);
   transition:opacity .22s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1)}
 .dd-box.dd-2c{width:404px}
-@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.dd-box{background:#10233F}}
-@media (prefers-reduced-transparency:reduce){.dd-box{background:#10233F;-webkit-backdrop-filter:none;backdrop-filter:none}}
 .dd.open .dd-box,html:not(.nav-js) .dd:hover .dd-box,html:not(.nav-js) .dd:focus-within .dd-box{opacity:1;transform:none}
 .dd-cols{display:grid;grid-template-columns:1fr;gap:8px 4px}
 .dd-2c .dd-cols{grid-template-columns:1fr 1fr}
@@ -307,12 +310,10 @@ html:not(.nav-js) .dd:hover .dd-p,html:not(.nav-js) .dd:focus-within .dd-p{visib
 .dd-p a i{font-style:normal;color:#D8B769;opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .3s cubic-bezier(.16,1,.3,1)}
 .dd-p a:hover i,.dd-p a:focus-visible i{opacity:1;transform:none}
 .dd-p a:focus-visible{outline:2px solid #D8B769;outline-offset:-2px}
-.dd-ft{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:8px 0 0;padding:6px 0 0;border-top:1px solid rgba(255,255,255,.14)}
-.bnav-links .dd-ft a,.nav-links .dd-ft a{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:7px 10px;white-space:nowrap}
-.bnav-links .dd-ft a.dd-book,.nav-links .dd-ft a.dd-book{color:#D8B769!important}
+.dd-ft{display:flex;align-items:center;margin:8px 0 0;padding:6px 0 0;border-top:1px solid rgba(255,255,255,.14);min-width:0}
+.bnav-links .dd-ft a,.nav-links .dd-ft a{justify-content:flex-start;gap:6px;max-width:100%;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:7px 10px;color:#D8B769!important}
 .dd-ft a.dd-all i{opacity:1;transform:none}
-.bnav-links .dd-ft a:hover,.nav-links .dd-ft a:hover{background:rgba(255,255,255,.1)}
-.bnav-links .dd-ft a.dd-book:hover,.nav-links .dd-ft a.dd-book:hover{color:#fff!important}
+.bnav-links .dd-ft a:hover,.nav-links .dd-ft a:hover{background:rgba(255,255,255,.1);color:#fff!important}
 .bnav-burger{display:none;place-items:center;width:42px;height:42px;padding:0;border:1px solid rgba(21,21,21,.16);border-radius:999px;background:none;color:#151515;cursor:pointer;transition:background .3s,color .3s}
 .bnav-burger svg{width:18px;height:18px;display:block}
 .bnav-burger[aria-expanded="true"]{background:#10233F;border-color:#10233F;color:#fff}

@@ -370,7 +370,53 @@
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
      "price": "129",
-     "url": "https://mfa-advisory.com/international-students/#prices"
+     "url": "https://mfa-advisory.com/international-students/#prices",
+     "eligibleRegion": {
+      "@type": "Country",
+      "name": "United States"
+     },
+     "ineligibleRegion": [
+      {
+       "@type": "State",
+       "name": "California",
+       "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+       }
+      },
+      {
+       "@type": "State",
+       "name": "Connecticut",
+       "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+       }
+      },
+      {
+       "@type": "State",
+       "name": "Maryland",
+       "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+       }
+      },
+      {
+       "@type": "State",
+       "name": "New York",
+       "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+       }
+      },
+      {
+       "@type": "State",
+       "name": "Oregon",
+       "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+       }
+      }
+     ]
     },
     {
      "@type": "Offer",
@@ -1180,6 +1226,302 @@
       },
       "price": "649",
       "url": "https://mfa-advisory.com/llc-formation/#packages"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-25",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/international-students/#service",
+    "name": "US tax returns for international students and H-1B workers",
+    "url": "https://mfa-advisory.com/international-students/",
+    "serviceType": "Tax preparation for international students and nonresident aliens (Form 1040-NR, Form 8843, Forms 843 and 8316)",
+    "description": "F-1 student tax return on Form 1040-NR $99, Form 8843 help $25, OPT Social Security refund $49, tax treaty check. H-1B returns too. E-filed. Federal returns for every US state. State returns for every state except California, Connecticut, Maryland, New York or Oregon.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": {
+     "@type": "Country",
+     "name": "United States"
+    },
+    "keywords": "international student tax filing, F-1 student tax return, 1040-NR preparer, Form 8843 help, OPT tax refund Social Security Medicare, H-1B tax return, nonresident tax treaty, tax savings for international students, J-1 tax return, FICA refund F-1 student",
+    "audience": {
+     "@type": "Audience",
+     "audienceType": "F-1 and J-1 students, J-1 scholars and H-1B workers in the United States"
+    },
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Form 8843 only (no US income)",
+      "priceCurrency": "USD",
+      "description": "Form 8843 prepared for an exempt individual with no US income, ready to sign and mail.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Form 8843 only (no US income)",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/international-students/#prices"
+      },
+      "price": "25",
+      "url": "https://mfa-advisory.com/international-students/#prices"
+     },
+     {
+      "@type": "Offer",
+      "name": "Student package: Form 1040-NR + Form 8843 + tax-treaty check",
+      "priceCurrency": "USD",
+      "description": "Federal nonresident return, e-filed. $129 with one state return.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Student package: Form 1040-NR + Form 8843 + tax-treaty check",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/international-students/#prices"
+      },
+      "price": "99",
+      "url": "https://mfa-advisory.com/international-students/#prices"
+     },
+     {
+      "@type": "Offer",
+      "name": "Student package with one state return",
+      "priceCurrency": "USD",
+      "description": "Form 1040-NR, Form 8843, tax-treaty check and one state return (not California, Connecticut, Maryland, New York or Oregon).",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Student package with one state return",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/international-students/#prices"
+      },
+      "price": "129",
+      "url": "https://mfa-advisory.com/international-students/#prices",
+      "eligibleRegion": {
+       "@type": "Country",
+       "name": "United States"
+      },
+      "ineligibleRegion": [
+       {
+        "@type": "State",
+        "name": "California",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       },
+       {
+        "@type": "State",
+        "name": "Connecticut",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       },
+       {
+        "@type": "State",
+        "name": "Maryland",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       },
+       {
+        "@type": "State",
+        "name": "New York",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       },
+       {
+        "@type": "State",
+        "name": "Oregon",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       }
+      ]
+     },
+     {
+      "@type": "Offer",
+      "name": "Social Security and Medicare refund claim (Forms 843 + 8316)",
+      "priceCurrency": "USD",
+      "description": "Claim for refund of Social Security and Medicare tax withheld in error.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Social Security and Medicare refund claim (Forms 843 + 8316)",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/international-students/#prices"
+      },
+      "price": "49",
+      "url": "https://mfa-advisory.com/international-students/#prices"
+     },
+     {
+      "@type": "Offer",
+      "name": "Form 1040 for H-1B workers and other US tax residents",
+      "priceCurrency": "USD",
+      "description": "Standard tax return pricing, quoted up front by return type.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Form 1040 for H-1B workers and other US tax residents",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/services/#tax-preparation"
+      },
+      "url": "https://mfa-advisory.com/services/#tax-preparation"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-25",
+   "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/artists/#service",
+    "name": "Taxes and bookkeeping for artists and creatives",
+    "url": "https://mfa-advisory.com/artists/",
+    "serviceType": "Tax preparation, bookkeeping and LLC formation for self-employed artists",
+    "description": "Schedule C tax returns, art business bookkeeping, LLC formation and quarterly estimated taxes for self-employed artists, illustrators, photographers, musicians, crafters and Etsy art sellers. Federal returns for every US state; state returns for every state except California, Connecticut, Maryland, New York or Oregon.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": {
+     "@type": "Country",
+     "name": "United States"
+    },
+    "audience": {
+     "@type": "Audience",
+     "audienceType": "Self-employed visual artists, illustrators, photographers, musicians, crafters and Etsy art sellers"
+    },
+    "keywords": "artist taxes, tax deductions for artists, self-employed artist tax return, do artists need an LLC, art business bookkeeping, Etsy artist 1099-K, tax savings for artists, Schedule C for artists, musician taxes, photographer taxes, art fair sales tax",
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Self-employed artist tax return (Form 1040 with Schedule C)",
+      "priceCurrency": "USD",
+      "description": "Quoted up front by return type. Federal returns for every US state; state returns for every state except California, Connecticut, Maryland, New York or Oregon.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Self-employed artist tax return (Form 1040 with Schedule C)",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/services/#tax-preparation"
+      },
+      "url": "https://mfa-advisory.com/services/#tax-preparation",
+      "ineligibleRegion": [
+       {
+        "@type": "State",
+        "name": "California",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       },
+       {
+        "@type": "State",
+        "name": "Connecticut",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       },
+       {
+        "@type": "State",
+        "name": "Maryland",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       },
+       {
+        "@type": "State",
+        "name": "New York",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       },
+       {
+        "@type": "State",
+        "name": "Oregon",
+        "containedInPlace": {
+         "@type": "Country",
+         "name": "United States"
+        }
+       }
+      ]
+     },
+     {
+      "@type": "Offer",
+      "name": "Bookkeeping for artists",
+      "priceCurrency": "USD",
+      "description": "Starting price per month for one bank account, one credit card, up to 100 transactions a month.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Bookkeeping for artists",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/llc-formation/#monthly"
+      },
+      "price": "199",
+      "priceSpecification": {
+       "@type": "UnitPriceSpecification",
+       "price": "199",
+       "priceCurrency": "USD",
+       "unitCode": "MON",
+       "unitText": "month"
+      },
+      "url": "https://mfa-advisory.com/llc-formation/#monthly"
+     },
+     {
+      "@type": "Offer",
+      "name": "LLC formation",
+      "priceCurrency": "USD",
+      "description": "Plus the state filing fee at cost, paid once.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "LLC formation",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/llc-formation/"
+      },
+      "price": "150",
+      "url": "https://mfa-advisory.com/llc-formation/"
+     },
+     {
+      "@type": "Offer",
+      "name": "Quarterly estimated tax service",
+      "priceCurrency": "USD",
+      "description": "Price for the year: four federal and state estimate calculations with due dates.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Quarterly estimated tax service",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/services/#tax-planning"
+      },
+      "price": "250",
+      "priceSpecification": {
+       "@type": "UnitPriceSpecification",
+       "price": "250",
+       "priceCurrency": "USD",
+       "unitCode": "ANN",
+       "unitText": "year"
+      },
+      "url": "https://mfa-advisory.com/services/#tax-planning"
      }
     ]
    }
