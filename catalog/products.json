@@ -1,6 +1,6 @@
 {
   "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
-  "updated": "2026-10-24 (Gumroad launch: 28)",
+  "updated": "2026-10-25 (Batch 5 launch: 34-38)",
   "store": "https://mfaadvisory.gumroad.com/",
   "groups": [
     {
@@ -1077,6 +1077,131 @@
         "related": null
       },
       "note": "Zain approved 2026-10-23 11:10 ET (bundle at $12.99). Etsy first; Gumroad after the 10/day limit."
+    },
+    {
+      "id": "34",
+      "slug": "artist-tax-sales-tracker-2026",
+      "name": "Artist Tax & Sales Tracker (2026)",
+      "status": "live",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "6.99",
+        "url": "https://mfaadvisory.gumroad.com/l/artist-tax-sales-tracker-2026",
+        "product_id": "ztymiu"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 13.98,
+        "sale": 6.99,
+        "url": "https://www.etsy.com/listing/4603122836"
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Bookkeeping and tax tracker for artists: cost of goods per piece, sales by channel (Etsy, website, art fairs, commissions), fees, 1099-K reconciliation, booth costs, mileage, home studio, quarterly set-aside and a Schedule C summary.",
+        "format": "Excel + PDF",
+        "related": null
+      },
+      "note": "Batch 5 (Zain approved build, publish and prices 2026-10-25). Gumroad + Etsy live 2026-10-25."
+    },
+    {
+      "id": "35",
+      "slug": "art-fair-sales-tax-permit-planner",
+      "name": "Art Fair Sales Tax & Permit Planner",
+      "status": "live",
+      "tier": "tracker",
+      "gumroad": {
+        "price": "4.99",
+        "url": "https://mfaadvisory.gumroad.com/l/art-fair-sales-tax-permit-planner",
+        "product_id": "cghplz"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 9.98,
+        "sale": 4.99,
+        "url": "https://www.etsy.com/listing/4603101487"
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Show-by-show sales tax and permit log for art fairs and craft shows, with register-by dates, official state links (NJ, NY, PA, DE, MD, CT), New Jersey ST-50 quarterly reminders and a tax-included price tag calculator.",
+        "format": "Excel + PDF",
+        "related": null
+      },
+      "note": "Batch 5 (Zain approved build, publish and prices 2026-10-25). Gumroad + Etsy live 2026-10-25."
+    },
+    {
+      "id": "36",
+      "slug": "f1-j1-student-tax-checklist-form-8843",
+      "name": "F-1 / J-1 Student Tax Checklist + Form 8843 Walkthrough (2026)",
+      "status": "live",
+      "tier": "checklist",
+      "gumroad": {
+        "price": "3.99",
+        "url": "https://mfaadvisory.gumroad.com/l/f1-j1-student-tax-checklist-form-8843",
+        "product_id": "nyzrfh"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 7.98,
+        "sale": 3.99,
+        "url": "https://www.etsy.com/listing/4603103445"
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "Plain-English tax checklist for F-1 and J-1 students for tax year 2026: resident or nonresident (the 5-calendar-year rule), who files Form 8843 and when, Form 1040-NR vs 1040, treaty and state checks, documents and deadlines.",
+        "format": "PDF + checklist sheet",
+        "related": null
+      },
+      "note": "Batch 5 (Zain approved build, publish and prices 2026-10-25). Gumroad + Etsy live 2026-10-25."
+    },
+    {
+      "id": "37",
+      "slug": "fica-refund-kit-f1-opt-students",
+      "name": "FICA Refund Kit for F-1 / OPT Students",
+      "status": "live",
+      "tier": "checklist+tracker",
+      "gumroad": {
+        "price": "5.99",
+        "url": "https://mfaadvisory.gumroad.com/l/fica-refund-kit-f1-opt-students",
+        "product_id": "rguyoi"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 11.98,
+        "sale": 5.99,
+        "url": "https://www.etsy.com/listing/4603127774"
+      },
+      "shop": {
+        "group": "kit",
+        "blurb": "For F-1 (on-campus, OPT, CPT) and J-1 / M-1 students who had Social Security and Medicare withheld: when FICA shouldn’t apply, an editable employer request letter, the Form 843 + Form 8316 route in plain words, a document checklist and a claim tracker.",
+        "format": "PDF + Word + Excel",
+        "related": null
+      },
+      "note": "Batch 5 (Zain approved build, publish and prices 2026-10-25). Gumroad + Etsy live 2026-10-25."
+    },
+    {
+      "id": "38",
+      "slug": "artist-commission-business-kit",
+      "name": "Artist Commission Business Kit",
+      "status": "live",
+      "tier": "kit",
+      "gumroad": {
+        "price": "5.99",
+        "url": "https://mfaadvisory.gumroad.com/l/artist-commission-business-kit",
+        "product_id": "jgbvgui"
+      },
+      "etsy": {
+        "allowed": true,
+        "list": 11.98,
+        "sale": 5.99,
+        "url": "https://www.etsy.com/listing/4603106225"
+      },
+      "shop": {
+        "group": "calc",
+        "blurb": "Commission price calculator (materials, hours, fees and a tax set-aside), invoice and deposit tracker, W-9 / 1099 check with the 2026 $2,000 rule, and a contract-points checklist for your attorney.",
+        "format": "Excel + PDF",
+        "related": null
+      },
+      "note": "Batch 5 (Zain approved build, publish and prices 2026-10-25). Gumroad + Etsy live 2026-10-25."
     }
   ]
 }
