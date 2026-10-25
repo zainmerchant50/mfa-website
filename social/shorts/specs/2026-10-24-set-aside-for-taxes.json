@@ -1,0 +1,104 @@
+{
+ "date": "2026-10-24",
+ "slug": "set-aside-for-taxes",
+ "title": "Gig worker money tip: set tax money aside first",
+ "type": "value",
+ "accent": "amber",
+ "label": "Gig worker tip",
+ "checked": "October 24, 2026",
+ "series": "Gig worker money tip",
+ "link": {
+  "path": "/tools/1099-tax-calculator/",
+  "label": "1099 tax calculator (MFA)"
+ },
+ "hook": {
+  "text": "Paid on a *1099?*",
+  "sub": "Move this money before you spend it."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Jay made $3,000 delivering in March.",
+    "No tax was taken out.",
+    "April's bill was a shock."
+   ]
+  },
+  {
+   "type": "stat",
+   "kicker": "Self-employment tax",
+   "value": "15.3%",
+   "count": {
+    "to": 15.3,
+    "suf": "%",
+    "dec": 1
+   },
+   "sub": "on top of income tax",
+   "note": "Once net earnings reach $400 for the year."
+  },
+  {
+   "type": "list",
+   "kicker": "The 1-minute fix",
+   "items": [
+    {
+     "t": "Open a separate savings account",
+     "s": "Name it TAXES."
+    },
+    {
+     "t": "Move a set % of every payout",
+     "s": "The same day it lands."
+    },
+    {
+     "t": "Pay estimated tax during the year",
+     "s": "Not one big bill in April."
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "Not sure what % to use?",
+   "text": "Our calculator *works it out.*",
+   "sub": "Enter your income and expenses."
+  }
+ ],
+ "cta": {
+  "big": "Link in *bio*",
+  "url": "mfa-advisory.com",
+  "sub": "1099 tax calculator on our site."
+ },
+ "captions": {
+  "comment_word": "CALCULATOR",
+  "instagram": "Paid on a 1099? Nobody is taking tax out for you, so set it aside before it gets spent.\n\n✔️ Self-employment tax is 15.3%, on top of regular income tax, once your net earnings reach $400 for the year.\n✔️ Open a separate savings account and name it TAXES.\n✔️ Move the same percentage of every payout into it, the day it lands.\n✔️ Pay estimated tax during the year instead of one big bill in April.\n\nNot sure what percentage to use? Our 1099 tax calculator works it out from your income and expenses.",
+  "hashtags": [
+   "#1099",
+   "#selfemployed",
+   "#gigworker",
+   "#doordashdriver",
+   "#freelancer",
+   "#taxtips",
+   "#selfemploymenttax"
+  ],
+  "youtube_title": "Paid on a 1099? Set This Money Aside First (Gig Worker Tax Tip)",
+  "youtube_description": "No one withholds tax from 1099 pay. Self-employment tax is 15.3% on top of income tax once net earnings reach $400. Open a separate savings account, move a set percentage of every payout the day it lands, and pay estimated tax during the year. Our 1099 tax calculator finds your percentage.",
+  "pinterest_title": "How Much to Set Aside for Taxes on 1099 Income: A Gig Worker Money Tip",
+  "pinterest_description": "How much to set aside for taxes when you're paid on a 1099: self-employment tax is 15.3% on top of income tax once net earnings reach $400. Open a separate tax savings account, move a set percentage of every payout, and pay estimated tax during the year. Find your percentage with our 1099 tax calculator.",
+  "pinterest_alt": "Short video: a delivery driver with no tax withheld; self-employment tax of 15.3%; three steps to set tax money aside; MFA's 1099 tax calculator.",
+  "pinterest_board": "Self-Employed & 1099 Taxes"
+ },
+ "sync": {
+  "product_id": "08",
+  "etsy_title_phrase": "1099 tax calculator",
+  "ads_keywords": [
+   "1099 tax calculator",
+   "self employment tax calculator"
+  ],
+  "blog": "/tools/1099-tax-calculator/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Self-employment tax rate is 15.3% (12.4% Social Security + 2.9% Medicare); applies when net earnings from self-employment are $400 or more; read 2026-10-24 (page updated 27-Jun-2026)",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+  }
+ ]
+}

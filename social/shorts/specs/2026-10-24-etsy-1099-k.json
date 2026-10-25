@@ -1,0 +1,120 @@
+{
+ "date": "2026-10-24",
+ "slug": "etsy-1099-k",
+ "title": "Selling on Etsy? Your 1099-K isn't your profit",
+ "type": "product",
+ "accent": "burgundy",
+ "label": "Online sellers",
+ "checked": "October 24, 2026",
+ "series": "Seller money tip",
+ "link": {
+  "path": "/shop/",
+  "anchor": "kit",
+  "label": "Online Seller Bookkeeping Sheet (MFA shop)"
+ },
+ "hook": {
+  "text": "Selling on *Etsy?*",
+  "sub": "Your 1099-K is not your profit."
+ },
+ "beats": [
+  {
+   "type": "values",
+   "kicker": "A 1099-K comes when you pass both",
+   "items": [
+    {
+     "v": "$20,000",
+     "l": "in payments"
+    },
+    {
+     "v": "200",
+     "l": "transactions"
+    }
+   ],
+   "note": "Federal limit. Some states use lower ones."
+  },
+  {
+   "type": "rows",
+   "kicker": "Myth vs fact",
+   "items": [
+    {
+     "l": "Under the limit, it's not taxable",
+     "r": "Myth",
+     "ok": false
+    },
+    {
+     "l": "The 1099-K shows gross sales",
+     "r": "Fact",
+     "ok": true
+    }
+   ],
+   "note": "Before fees and shipping come off."
+  },
+  {
+   "type": "list",
+   "kicker": "So track",
+   "items": [
+    {
+     "t": "Platform and payment fees"
+    },
+    {
+     "t": "Shipping labels and supplies"
+    },
+    {
+     "t": "Cost of what you sold"
+    }
+   ]
+  },
+  {
+   "type": "product",
+   "image": "social/shorts/img/online-seller-bookkeeping-sheet.jpg",
+   "kicker": "All in one sheet",
+   "text": "Online Seller *Bookkeeping Sheet*",
+   "sub": "Fees, cost of goods and a 1099-K check."
+  }
+ ],
+ "cta": {
+  "big": "Link in *bio*",
+  "url": "mfa-advisory.com",
+  "sub": "Online Seller Bookkeeping Sheet in our shop."
+ },
+ "captions": {
+  "comment_word": "SELLER",
+  "instagram": "Etsy, eBay, Shopify and Amazon sellers: your 1099-K is not your profit.\n\n✔️ Federally, a 1099-K comes when payments pass $20,000 and 200 transactions. Some states use lower limits.\n✔️ Under the limit, the income still counts. The IRS says all income is taxable, 1099-K or not.\n✔️ The 1099-K shows gross amounts, before fees, shipping and other adjustments.\n\nSo track your platform and payment fees, shipping labels and supplies, and the cost of what you sold, then reconcile them to the 1099-K.\n\nOur Online Seller Bookkeeping Sheet does all of that in one workbook.",
+  "hashtags": [
+   "#etsyseller",
+   "#etsytaxes",
+   "#1099k",
+   "#onlineseller",
+   "#reseller",
+   "#smallbusinesstaxes",
+   "#bookkeeping",
+   "#etsyshop"
+  ],
+  "youtube_title": "Selling on Etsy? Your 1099-K Is Not Your Profit (2026 Rules)",
+  "youtube_description": "Federally, Form 1099-K is required when payments exceed $20,000 and 200 transactions; some states use lower limits. Income under the limit is still taxable. The 1099-K shows gross amounts before fees, shipping and other adjustments, so track your fees, shipping and supplies, and cost of goods sold, and reconcile them to the form.",
+  "pinterest_title": "Etsy Seller Taxes: Your 1099-K Is Not Your Profit (Fees, Shipping, COGS)",
+  "pinterest_description": "Etsy seller taxes explained: a 1099-K comes when payments pass $20,000 and 200 transactions (some states use lower limits), but all income is taxable either way. The 1099-K shows gross sales before fees and shipping, so track fees, shipping supplies and cost of goods sold in an online seller bookkeeping spreadsheet.",
+  "pinterest_alt": "Short video: the 1099-K limits of $20,000 and 200 transactions, a myth vs fact check, three costs online sellers should track, and the MFA Online Seller Bookkeeping Sheet.",
+  "pinterest_board": "Small Business Bookkeeping Templates & Tips"
+ },
+ "sync": {
+  "product_id": "22",
+  "etsy_title_phrase": "online seller bookkeeping",
+  "ads_keywords": [
+   "etsy bookkeeping spreadsheet",
+   "1099-k etsy"
+  ],
+  "blog": "",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Form 1099-K required when gross payments exceed $20,000 and there are more than 200 transactions (OBBB reinstated); all income taxable even without a 1099-K; gross amount doesn't include adjustments for fees, credits, refunds, shipping; read 2026-10-24 (page updated 03-Apr-2026)",
+   "url": "https://www.irs.gov/newsroom/form-1099-k-faqs-general-information"
+  },
+  {
+   "fact": "Etsy issues a 1099-K at the federal threshold or a lower state threshold (e.g. AR $2,500, IL $1,000, NJ $1,000, DC/MD/MA/VT/VA $600); form shows gross sales; read 2026-10-24",
+   "url": "https://help.etsy.com/hc/articles/360000336447"
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "date": "2026-10-24",
+ "slug": "no-1099-still-taxable",
+ "title": "Tax myth vs fact: no 1099 means no tax",
+ "type": "value",
+ "accent": "plum",
+ "label": "Myth vs fact",
+ "checked": "October 24, 2026",
+ "series": "Tax myth vs fact",
+ "link": {
+  "path": "/shop/",
+  "anchor": "kit",
+  "label": "1099 Income Tracker for Freelancers (MFA shop)"
+ },
+ "hook": {
+  "text": "No 1099? Still *taxable.*",
+  "sub": "Tax myth vs fact for side hustlers."
+ },
+ "beats": [
+  {
+   "type": "rows",
+   "kicker": "Myth vs fact",
+   "items": [
+    {
+     "l": "No 1099 means no tax",
+     "r": "Myth",
+     "ok": false
+    },
+    {
+     "l": "All income counts",
+     "r": "Fact",
+     "ok": true
+    },
+    {
+     "l": "Cash and app payments too",
+     "r": "Fact",
+     "ok": true
+    }
+   ],
+   "note": "IRS: report it even if no 1099 arrives."
+  },
+  {
+   "type": "stat",
+   "kicker": "Self-employment tax starts at",
+   "value": "$400",
+   "count": {
+    "to": 400,
+    "pre": "$"
+   },
+   "sub": "of net earnings for the year"
+  },
+  {
+   "type": "list",
+   "kicker": "Do this today",
+   "items": [
+    {
+     "t": "Log every payment as it lands",
+     "s": "Apps, cash, transfers and checks."
+    },
+    {
+     "t": "Keep the invoice with the deposit"
+    },
+    {
+     "t": "Check your log against any 1099s"
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "big": "Link in *bio*",
+  "url": "mfa-advisory.com",
+  "sub": "1099 Income Tracker in our shop."
+ },
+ "captions": {
+  "comment_word": "TRACKER",
+  "instagram": "Myth: if no 1099 shows up, the income doesn't count.\nFact: the IRS says to report it anyway. A 1099 is just a copy of what someone paid you. The tax is on the income, not the form.\n\n✔️ Cash, Zelle, Venmo and app payouts count.\n✔️ Self-employment tax applies once your net earnings reach $400 for the year.\n✔️ Log every payment as it lands, keep the invoice with the deposit, and check your log against any 1099s you get.\n\nOur 1099 Income Tracker for Freelancers keeps every client and payment in one sheet.",
+  "hashtags": [
+   "#taxmyths",
+   "#sidehustle",
+   "#1099",
+   "#freelancer",
+   "#selfemployed",
+   "#taxtips",
+   "#smallbusiness"
+  ],
+  "youtube_title": "Tax Myth vs Fact: No 1099 Means No Tax? (Side Hustle Income)",
+  "youtube_description": "Myth: no 1099 means the income isn't taxable. Fact: the IRS says to report income even when no information return like a Form 1099-K or 1099-MISC arrives, including cash and app payments. Self-employment tax applies once net earnings reach $400. Log every payment and check it against any 1099s you receive.",
+  "pinterest_title": "Tax Myth vs Fact: No 1099, No Tax? What Side Hustlers Need to Report",
+  "pinterest_description": "Side hustle taxes myth vs fact: income is reportable even if you never get a 1099, including cash, Zelle and Venmo payments. Self-employment tax applies once net earnings reach $400 for the year. Log every payment as it lands and check your log against any 1099s with a 1099 income tracker.",
+  "pinterest_alt": "Short video: myth vs fact rows about 1099s, the $400 self-employment tax threshold, and three steps to log side hustle income.",
+  "pinterest_board": "Self-Employed & 1099 Taxes"
+ },
+ "sync": {
+  "product_id": "10",
+  "etsy_title_phrase": "1099 income tracker",
+  "ads_keywords": [
+   "1099 income tracker",
+   "side hustle taxes"
+  ],
+  "blog": "/blog/schedule-c-guide-single-member-llc/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Gig income must be reported even if not reported on an information return like Form 1099-K, 1099-MISC or W-2 (IR-2023-35); read 2026-10-24",
+   "url": "https://irs.gov/newsroom/tax-time-guide-irs-reminder-to-report-all-income-gig-economy-and-service-industry-digital-or-foreign-assets-and-sources"
+  },
+  {
+   "fact": "All income, no matter the amount, is taxable unless the law says otherwise, even if you don't get a Form 1099-K; read 2026-10-24 (page updated 03-Apr-2026)",
+   "url": "https://www.irs.gov/newsroom/form-1099-k-faqs-general-information"
+  },
+  {
+   "fact": "SE tax / Schedule SE applies when net earnings from self-employment are $400 or more; read 2026-10-24",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+  }
+ ]
+}

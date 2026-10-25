@@ -1,0 +1,113 @@
+{
+ "date": "2026-10-24",
+ "slug": "how-long-keep-receipts",
+ "title": "How long to keep receipts and tax records",
+ "type": "value",
+ "accent": "slate",
+ "label": "1-minute fix",
+ "checked": "October 24, 2026",
+ "series": "1-minute bookkeeping fix",
+ "link": {
+  "path": "/shop/",
+  "anchor": "kit",
+  "label": "Business Expense Tracker (MFA shop)"
+ },
+ "hook": {
+  "text": "How long to keep *receipts?*",
+  "sub": "Screenshot this one."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Sam's shoebox had receipts from 2014.",
+    "Half of them had faded.",
+    "Which ones could go?"
+   ]
+  },
+  {
+   "type": "rows",
+   "kicker": "IRS: keep records",
+   "items": [
+    {
+     "l": "Most tax returns",
+     "r": "3 years",
+     "ok": true
+    },
+    {
+     "l": "Income left off over 25%",
+     "r": "6 years",
+     "ok": false
+    },
+    {
+     "l": "Bad debt or worthless stock",
+     "r": "7 years",
+     "ok": false
+    },
+    {
+     "l": "Payroll tax records",
+     "r": "4+ years",
+     "ok": false
+    }
+   ],
+   "note": "Never filed? Keep them indefinitely."
+  },
+  {
+   "type": "list",
+   "kicker": "The 1-minute habit",
+   "items": [
+    {
+     "t": "Snap a photo the same day",
+     "s": "Thermal paper fades."
+    },
+    {
+     "t": "Name it: date, vendor, amount"
+    },
+    {
+     "t": "Note the business reason",
+     "s": "Who it was with, what it was for."
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "big": "Link in *bio*",
+  "url": "mfa-advisory.com",
+  "sub": "Business Expense Tracker in our shop."
+ },
+ "captions": {
+  "comment_word": "RECEIPTS",
+  "instagram": "How long do you keep receipts? The IRS rules, in one list:\n\n✔️ 3 years for most tax returns\n✔️ 6 years if you left off income of more than 25% of what you reported\n✔️ 7 years if you claimed a bad debt or worthless securities loss\n✔️ At least 4 years for payroll (employment tax) records\n✔️ Indefinitely if a return was never filed\n\nThe 1-minute habit: snap a photo the day you get it, name the file with the date, vendor and amount, and note the business reason.\n\nOur Business Expense Tracker keeps each expense under its Schedule C category.",
+  "hashtags": [
+   "#recordkeeping",
+   "#receipts",
+   "#bookkeepingtips",
+   "#smallbusiness",
+   "#selfemployed",
+   "#taxtips",
+   "#smallbusinessowner"
+  ],
+  "youtube_title": "How Long to Keep Receipts and Tax Records (IRS Rules in 30 Seconds)",
+  "youtube_description": "IRS record rules: 3 years for most returns, 6 years if you left off income over 25% of what you reported, 7 years for a bad debt or worthless securities claim, at least 4 years for employment tax records, and indefinitely if you never filed. Snap a photo of each receipt the same day, name it and note the business reason.",
+  "pinterest_title": "How Long to Keep Receipts for Taxes: IRS Record Rules for Small Business",
+  "pinterest_description": "Receipt organization for taxes: the IRS says keep records 3 years for most returns, 6 years if income was underreported by more than 25%, 7 years for bad debt or worthless securities, at least 4 years for payroll records, and indefinitely if you never filed. Photograph receipts the same day and track them in a business expense tracker.",
+  "pinterest_alt": "Short video: IRS record retention periods of 3, 6, 7 and 4+ years, then a three-step habit for photographing and naming receipts.",
+  "pinterest_board": "Small Business Bookkeeping Templates & Tips"
+ },
+ "sync": {
+  "product_id": "12",
+  "etsy_title_phrase": "business expense tracker",
+  "ads_keywords": [
+   "business expense tracker",
+   "receipt organization for taxes"
+  ],
+  "blog": "/tools/is-it-deductible/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Keep records 3 years generally; 6 years if unreported income exceeds 25% of gross income shown; 7 years for worthless securities or bad debt; indefinitely if no return or a fraudulent return; employment tax records at least 4 years; read 2026-10-24 (page updated 30-Jun-2026)",
+   "url": "https://irs.gov/businesses/small-businesses-self-employed/how-long-should-i-keep-records"
+  }
+ ]
+}

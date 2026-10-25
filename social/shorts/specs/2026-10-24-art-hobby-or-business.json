@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-24",
+  "slug": "art-hobby-or-business",
+  "title": "Selling art: hobby or business?",
+  "type": "value",
+  "accent": "amber",
+  "label": "Artists · Tax",
+  "checked": "October 24, 2026",
+  "link": {
+    "path": "/blog/schedule-c-guide-single-member-llc/",
+    "label": "Schedule C guide (MFA)"
+  },
+  "hook": {
+    "text": "Selling art: *hobby* or business?",
+    "sub": "The IRS looks at how you run it."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Leo sold 14 paintings this year.",
+        "He calls it a hobby.",
+        "So he skipped the tax part."
+      ]
+    },
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "Hobby money isn't taxable",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Hobby income goes on your return too",
+          "r": "Fact",
+          "ok": true
+        }
+      ],
+      "note": "It's reported on Schedule 1, line 8j."
+    },
+    {
+      "type": "list",
+      "kicker": "Signs the IRS sees a business",
+      "items": [
+        {
+          "t": "You run it in a businesslike way",
+          "s": "Separate records, invoices, a bank account."
+        },
+        {
+          "t": "You put in real time and effort"
+        },
+        {
+          "t": "You change things to make a profit"
+        }
+      ],
+      "dur": 6.4
+    },
+    {
+      "type": "text",
+      "kicker": "If it's a business",
+      "text": "Schedule C: income *minus* expenses",
+      "sub": "Self-employment tax starts once net earnings reach $400."
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "Read our Schedule C guide."
+  },
+  "captions": {
+    "comment_word": "GUIDE",
+    "instagram": "Selling a few paintings a year still counts on your tax return.\n\n✔️ Hobby income still goes on your federal return (Schedule 1, line 8j).\n✔️ The IRS weighs several signs of a business: you run it in a businesslike way with real records, you put in real time and effort, you change your methods to make a profit, and you rely on the income.\n✔️ A business reports on Schedule C: income minus ordinary business expenses like materials, booth fees and software.\n✔️ Self-employment tax applies once net earnings reach $400 for the year.\n\nOur Schedule C guide walks through who files, the dates and the deductions worth tracking.",
+    "hashtags": [
+      "#artbusiness",
+      "#artistsoninstagram",
+      "#artfair",
+      "#sellingart",
+      "#selfemployed",
+      "#taxtips",
+      "#smallbusinesstaxes",
+      "#artist"
+    ],
+    "youtube_title": "Selling Art: Hobby or Business for Taxes? (IRS Signs)",
+    "youtube_description": "Hobby income is still reported on your federal return (Schedule 1, line 8j). The IRS looks at how you run the activity: businesslike records, time and effort, changing methods to make a profit, relying on the income. An art business reports on Schedule C, income minus expenses, and self-employment tax applies once net earnings reach $400.",
+    "pinterest_title": "Is Selling Art a Hobby or a Business for Taxes? What the IRS Looks At",
+    "pinterest_description": "Hobby or business for artists: hobby income is still reported on Schedule 1, line 8j. The IRS looks at whether you run it in a businesslike way, put in real time and effort, and change methods to make a profit. A business files Schedule C (income minus expenses) and owes self-employment tax once net earnings reach $400.",
+    "pinterest_alt": "Short video: an artist sold 14 paintings and calls it a hobby; myth vs fact on hobby income, three signs the IRS sees a business, and Schedule C.",
+    "pinterest_board": "Self-Employed & 1099 Taxes"
+  },
+  "sync": {
+    "product_id": "13",
+    "etsy_title_phrase": "self employed tax deduction tracker",
+    "ads_keywords": [
+      "hobby or business irs",
+      "artist taxes"
+    ],
+    "blog": "/blog/schedule-c-guide-single-member-llc/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Hobby income must still be reported on Schedule 1 (Form 1040), line 8j; signs of a business: businesslike manner and accurate records, substantial time and effort, intent to make a profit, relying on the income, prior profits (Taxpayer Advocate Service tax tip, March 2026, read 2026-10-24)",
+      "url": "https://www.taxpayeradvocate.irs.gov/news/tax-tips/hobby-vs-business-income/2026/03/"
+    },
+    {
+      "fact": "IRS factors: time and effort, profit history, businesslike books and records, changed methods to improve profitability, reliance on income (IRS Tax Tip 2024-55, read 2026-10-24)",
+      "url": "https://www.irs.gov/newsroom/hobby-or-business-what-people-need-to-know-if-they-have-a-side-hustle"
+    },
+    {
+      "fact": "Schedule SE and SE tax apply when net earnings from self-employment are $400 or more; rate 15.3% (read 2026-10-24)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    }
+  ]
+}

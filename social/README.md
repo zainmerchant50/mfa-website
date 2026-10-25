@@ -1,6 +1,6 @@
 # MFA Social agent: daily Instagram + LinkedIn posts
 
-Last updated: 2026-10-24 by the Social + Pinterest video agent (Shorts section added). Created 2026-10-22 by Hub on Zain's instruction.
+Last updated: 2026-10-24 by the Social/Shorts agent (Shorts content rule, batch 1 emailed, IDEAS.md backlog). Created 2026-10-22 by Hub on Zain's instruction.
 
 ## What it does
 Every weekday, the agent makes **one post** (Instagram image + LinkedIn image + both captions + sources) and saves it to
@@ -85,8 +85,27 @@ Example: `social/posts/2026-10-23-1099-contractor-tracker.json`.
 
 Added 2026-10-24 on Zain's instruction: "start creating pins, they should also be moving shorts/videos ... the goal is to
 get views, have people go from those videos to the site/store and buy our digital products or hire us ... everything to
-ALL work in SYNC." **First batch (5, 2026-10-24) is waiting for Zain's review. Do not email Abiha or post any short until
-Zain has approved the batch in chat**; after that, shorts follow the same standing approval as daily posts.
+ALL work in SYNC."
+
+**Status.** Batch 1 (5 shorts, 2026-10-24) was approved by Zain on 2026-10-24 ("the 5 are ok, email to Abiha") and emailed
+to Abiha the same night with a Mon/Wed/Fri 6:00 PM ET schedule (Oct 26 to Nov 4). Batch 2 (the first 5 tip shorts from
+`social/shorts/IDEAS.md`, 2026-10-24) **waits for Zain's review: don't email or post it**. Until Zain confirms the tip
+format, every new batch waits for his review in chat.
+
+### Content rule (Zain, 2026-10-24): practical tips that make people follow, then buy
+"Going forward the video reels, shorts, pinterest etc should all be tips and tricks for small sized businesses/individuals
+so they are encouraged and then want to follow and then buy our digital products. It should be real helpful practical stuff."
+- **Every short, Reel and video pin is a practical tip that helps the viewer today**: one problem real people ask about
+  (see the research in `social/shorts/IDEAS.md`), then the fix in 2-4 concrete steps they can do this week.
+- **It ends on a soft CTA** to the page that matches the tip: a site tool, a guide, or the matching live product. "Link in
+  bio" plus one line naming it ("1099 tax calculator on our site"). No hard sell, no price on the video.
+- **Mix: about 80% pure tips, 20% product-led.** Pure tips have no product beat; product-led shorts (about 1 in 5) show the
+  product in a `product` beat after the tip.
+- **Series formats** people can follow: **1-minute bookkeeping fix**, **Tax myth vs fact**, **Gig worker money tip**,
+  **Seller money tip**, **Owner pay 101**. Put the series name in the label or the hook sub.
+- **Pick from the top of `social/shorts/IDEAS.md`** (ranked backlog; mark an idea "made <date>" when you render it). Re-verify
+  every figure on its primary source on the day you render, whatever the backlog says.
+- Audiences to rotate: individuals with side income, 1099/gig workers, small business owners, Etsy/online sellers.
 
 ### Make one
 1. Write `social/shorts/specs/<date>-<slug>.json` (copy a 2026-10-24 spec; every field is documented at the top of
@@ -99,7 +118,8 @@ Zain has approved the batch in chat**; after that, shorts follow the same standi
    list each in `sources`. No refund or savings promises ("deduction", not "you'll save").
 3. Render: `python3 social/shorts.py social/shorts/specs/<file>.json /home/claude/mfa-hub/shorts/<date>/<slug> --frames 0,1,3,6,10,end`
    (about 3-4 minutes per short; run long batches in the background). It refuses banned words, captions over the
-   platform limits, durations outside 12-30 s and any text outside the safe area (top 250 px, bottom 350 px).
+   platform limits, durations outside 12-30 s, any text outside the safe area (top 250 px, bottom 350 px) and any frame
+   where nothing is readable (scenes cross-fade: the next one starts 0.3 s before the cut, so no blank frames).
 4. **Look at the check frames** (`frames/`) yourself: clipped words, orphans, overlaps. Then move `frames/` out of the
    folder (they are for you, not for Abiha).
 5. Output per short: `<slug>.mp4` (1080x1920, H.264/AAC, 30 fps, ≤ 50 MB), `<slug>-cover.jpg`, `INSTAGRAM.txt`,
@@ -113,6 +133,11 @@ Zain has approved the batch in chat**; after that, shorts follow the same standi
 - **Instagram Reels:** Abiha posts from the Shorts folder (same email flow as daily posts once Zain approves: video link +
   INSTAGRAM.txt in its own box). Reels from @mfa_advisory auto-publish to Pinterest, so a Reel *is* a Pinterest video pin;
   don't upload the same video to Pinterest by hand as well.
+  **Hosting for the email:** MP4s are about 10 MB each, too big to attach several. Copy each approved `<slug>.mp4` and
+  `<slug>-cover.jpg` to `site/ready/shorts/<batch date>/` (noindex via `/ready/*` in site/_headers), commit
+  `shorts: <date> batch for Abiha`, push, wait for the Cloudflare Pages check, then send ONE email listing the schedule
+  and, per short, the download links plus the Instagram caption, comment reply, YouTube title/description and Pinterest
+  title/description, each in its own box (the 2026-10-24 email is the model).
 - **Pinterest direct video pins** (only for shorts that were not posted as a Reel, or a second cut with a different hook):
   the Pinterest daily task may upload 2-3 a week from the Shorts folder, using PINTEREST.txt (title, description,
   destination URL with `utm_source=pinterest&utm_medium=video`, alt text, board). Count them in the daily cap:
