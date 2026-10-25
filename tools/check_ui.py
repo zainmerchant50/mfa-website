@@ -23,6 +23,11 @@ Added 2026-10-24 after Zain's /book/ review ("you need to catch these things"):
   9. one phone number and one email: (347) 205-4468 / +13472054468 and info@mfa-advisory.com;
  10. no sentence repeated back-to-back, and no firm-voice "I/me" ("contact me", "I'll review"):
      the firm is "we"/"our team", the person is "Zain".
+Added 2026-10-25 after Zain's feedback that the Latest Insights window and the header menus covered the hero:
+ 11. the home page's Latest Insights panel must start closed and open only from its pill (no timer or scroll
+     that opens it); with --render the home page is loaded at 390 and 1300 px, the clock is run 15 s forward and
+     the page scrolled, and the build fails if the panel is open or visible, or if a header dropdown panel is
+     open on load or wider than 420 px when opened.
 Optional: `python3 tools/check_ui.py --render` (needs Playwright + Chromium) also opens every page at 390 and
 1300 px and fails when the last line of text in <main>, or any .disclaimer/.fine/.note, sits less than 40px above
 the footer, or less than 12px under the element above it.
@@ -159,6 +164,51 @@ def check_copy(rel, h, v, errs):
             errs.append(f'{rel}: stand-alone disclaimer section without .fineprint (use ui_kit.fineprint())')
 
 
+def check_insights(rel, h, errs):
+    """Rule 11 (static): the Latest Insights panel starts closed and opens only when the visitor clicks the pill."""
+    if 'id="ins"' not in h:
+        return
+    if re.search(r'<aside class="ins\b[^"]*\bopen\b', h) or re.search(r'id="insPanel"[^>]*aria-hidden="false"', h):
+        errs.append(f"{rel}: the Latest Insights panel is open in the markup (it must start closed)")
+    js = next((m.group(1) for m in re.finditer(r"<script>(.*?)</script>", h, re.S) if "latest.json" in m.group(1)), "")
+    if re.search(r"setOpen\(\s*(?:true|1|!0)\s*\)", js) or re.search(r"setTimeout\([^;]*?(?:\bpop\b|setOpen|insBtn|\.click\(\))", js):
+        errs.append(f"{rel}: the Latest Insights panel opens by itself (timer or scroll); it may open only from the pill's click")
+
+
+INSIGHTS_JS = r"""() => {
+ const out=[], box=document.getElementById('ins'), p=document.getElementById('insPanel');
+ if(box&&p){const cs=getComputedStyle(p), r=p.getBoundingClientRect();
+   if(box.classList.contains('open')||(cs.visibility!=='hidden'&&+cs.opacity>0.05&&r.width>0)) out.push('the Latest Insights panel is open without a click (it must never open by itself)');}
+ if(document.querySelector('.dd.open')) out.push('a header dropdown is open on load');
+ return out;}"""
+
+
+def overlay_check(b, base, errs):
+    """Rule 11 in a real browser: nothing pops over the hero by itself; header dropdowns stay compact."""
+    for w in (390, 1300):
+        pg = b.new_page(viewport={"width": w, "height": 900})
+        pg.route("**/*", lambda r: r.abort() if any(x in r.request.url for x in ("googletagmanager", "google-analytics")) else r.continue_())
+        pg.clock.install()
+        pg.goto(base, wait_until="networkidle")
+        pg.clock.run_for(15000)
+        for msg in pg.evaluate(INSIGHTS_JS):
+            errs.append(f"index.html @{w}px (after 15 s): {msg}")
+        pg.evaluate("window.scrollTo(0, innerHeight*1.5)")
+        pg.clock.run_for(3000)
+        for msg in pg.evaluate(INSIGHTS_JS):
+            errs.append(f"index.html @{w}px (after scrolling): {msg}")
+        if w == 1300:
+            pg.evaluate("window.scrollTo(0,0)")
+            for i, t in enumerate(pg.query_selector_all(".nav-links .dd-t")):
+                t.click()
+                pg.clock.run_for(600)
+                bw = pg.evaluate("(()=>{const x=document.querySelector('.dd.open .dd-box');return x?x.getBoundingClientRect().width:0})()")
+                if bw > 420:
+                    errs.append(f"index.html @1300px: header dropdown {i + 1} is {round(bw)}px wide (keep it compact, max 420)")
+                pg.keyboard.press("Escape")
+        pg.close()
+
+
 RENDER_JS = r"""() => {
  document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));
  const st=document.createElement('style'); st.textContent='*{transition:none!important;animation:none!important}'; document.head.appendChild(st);
@@ -203,6 +253,7 @@ def render_check(pages, errs):
                 pg.goto(base + rel.replace("index.html", ""), wait_until="load")
                 for msg in pg.evaluate(RENDER_JS):
                     errs.append(f"{rel} @{w}px: {msg}")
+        overlay_check(b, base, errs)
         b.close()
     srv.shutdown()
 
@@ -231,6 +282,8 @@ def main():
         check_directions(rel, h, v, errs)
         check_links(rel, h, errs, redirects)
         check_copy(rel, h, v, errs)
+        if rel == "index.html":
+            check_insights(rel, h, errs)
     if "--render" in sys.argv:
         render_check([p.relative_to(SITE).as_posix() for p in pages
                       if "http-equiv=\"refresh\"" not in p.read_text(encoding="utf-8", errors="ignore")], errs)

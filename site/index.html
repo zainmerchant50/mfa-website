@@ -611,39 +611,54 @@ body.scrolled .burger{color:var(--ink)}
 .foot-legal b{font-weight:600;color:rgba(21,21,21,.6)}
 .foot-legal a{color:rgba(21,21,21,.6);border-bottom:1px solid rgba(176,141,63,.5)}
 
-/* Latest Insights window */
-.ins{position:fixed;right:24px;bottom:24px;z-index:45;display:flex;flex-direction:column;align-items:flex-end;gap:12px;
-  opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease);pointer-events:none}
+/* Latest Insights: a small pill in the corner; opens only on click, as a compact panel anchored to the pill
+   (a bottom sheet on phones). It never opens by itself, so it never covers the hero. check_ui.py --render enforces this. */
+.ins{position:fixed;right:24px;bottom:24px;z-index:45;opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease);pointer-events:none}
 .ins.show{opacity:1;transform:none}
 .ins.show .ins-btn{pointer-events:auto}
-.ins-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px 12px 15px;border-radius:999px;border:1px solid rgba(216,183,105,.45);
+.ins-btn{display:inline-flex;align-items:center;gap:9px;padding:11px 16px 11px 13px;border-radius:999px;border:1px solid rgba(216,183,105,.45);
   background:var(--navy);color:#fff;font:700 9.5px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;
-  box-shadow:0 14px 34px rgba(16,35,63,.32);position:relative;transition:transform .4s var(--ease),background .3s}
-.ins-btn:hover{transform:translateY(-2px);background:var(--navy-2)}
-.ins-btn svg{width:17px;height:17px;color:var(--gold-b);flex-shrink:0}
-.ins-dot{position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--gold-b);border:2px solid #fff;animation:insPulse 2s infinite}
-@keyframes insPulse{0%{box-shadow:0 0 0 0 rgba(216,183,105,.6)}70%{box-shadow:0 0 0 10px rgba(216,183,105,0)}100%{box-shadow:0 0 0 0 rgba(216,183,105,0)}}
-.ins-panel{width:340px;max-width:calc(100vw - 48px);background:#fff;border:1px solid var(--hair);border-radius:18px;overflow:hidden;
-  box-shadow:0 28px 70px rgba(16,35,63,.24);transform-origin:bottom right;transform:translateY(10px) scale(.96);opacity:0;visibility:hidden;
-  transition:opacity .4s var(--ease),transform .4s var(--ease),visibility 0s .4s;pointer-events:none}
+  box-shadow:0 10px 26px rgba(16,35,63,.28);position:relative;transition:transform .4s var(--ease),background .3s}
+.ins-btn:hover,.ins.open .ins-btn{background:var(--navy-2)}
+.ins-btn:hover{transform:translateY(-2px)}
+.ins-btn:focus-visible{outline:2px solid var(--gold-b);outline-offset:3px}
+.ins-btn svg{width:16px;height:16px;color:var(--gold-b);flex-shrink:0}
+.ins-dot{position:absolute;top:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:var(--gold-b);border:2px solid #fff;animation:insPulse 2s 3}
+@keyframes insPulse{0%{box-shadow:0 0 0 0 rgba(216,183,105,.6)}70%{box-shadow:0 0 0 9px rgba(216,183,105,0)}100%{box-shadow:0 0 0 0 rgba(216,183,105,0)}}
+.ins-panel{position:absolute;right:0;bottom:calc(100% + 10px);width:360px;max-width:calc(100vw - 32px);max-height:min(60vh,500px);display:flex;flex-direction:column;
+  background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden;box-shadow:0 20px 44px -14px rgba(16,35,63,.34),0 2px 8px rgba(16,35,63,.08);
+  transform-origin:bottom right;transform:translateY(8px) scale(.97);opacity:0;visibility:hidden;
+  transition:opacity .3s var(--ease),transform .4s var(--ease),visibility 0s .4s;pointer-events:none}
 .ins.open .ins-panel{opacity:1;transform:none;visibility:visible;transition-delay:0s;pointer-events:auto}
-.ins-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 18px 14px;background:var(--navy);color:#fff}
-.ins-eyebrow{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-b)}
-.ins-head h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem;line-height:1.1;margin-top:6px}
-.ins-x{background:none;border:0;color:rgba(255,255,255,.7);cursor:pointer;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
-.ins-x:hover{background:rgba(255,255,255,.1);color:#fff}
-.ins-x svg{width:16px;height:16px}
-.ins-list{list-style:none;margin:0;padding:6px 0}
-.ins-list a{display:grid;grid-template-columns:76px 1fr;gap:12px;align-items:center;padding:11px 18px;transition:background .25s}
-.ins-list a:hover{background:var(--paper-2)}
-.ins-list img{width:76px;height:40px;object-fit:cover;border-radius:7px;background:var(--navy)}
-.ins-list .m{font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;gap:6px;align-items:center}
-.ins-list .new{background:var(--gold-b);color:var(--navy);border-radius:999px;padding:2px 6px;letter-spacing:.12em}
-.ins-list .t{font-size:.84rem;font-weight:500;line-height:1.35;color:var(--ink);margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.ins-all{display:block;padding:14px 18px;border-top:1px solid var(--hair);font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy)}
-.ins-all:hover{color:var(--gold)}
-@media(max-width:1100px){.ins-lbl{display:none}.ins-btn{padding:13px}.ins-btn svg{width:19px;height:19px}}
-@media(max-width:600px){.ins{right:14px;bottom:14px}}
+.ins-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 8px 10px 16px;border-bottom:1px solid var(--hair);flex-shrink:0}
+.ins-eyebrow{display:block;font-size:8.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8A6B24}
+.ins-head h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.15rem;line-height:1.15;margin-top:3px;color:var(--navy)}
+.ins-x{background:none;border:0;color:rgba(21,21,21,.6);cursor:pointer;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;transition:background .25s,color .25s}
+.ins-x:hover{background:var(--paper-2);color:var(--ink)}
+.ins-x:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.ins-x svg{width:15px;height:15px}
+.ins-list{list-style:none;margin:0;padding:4px 0;overflow-y:auto;overscroll-behavior:contain;flex:1 1 auto;min-height:0}
+.ins-list a{display:grid;grid-template-columns:56px 1fr;gap:11px;align-items:center;padding:8px 16px;transition:background .25s}
+.ins-list a:hover,.ins-list a:focus-visible{background:var(--paper-2)}
+.ins-list a:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.ins-list img{width:56px;height:32px;object-fit:cover;border-radius:5px;background:var(--navy)}
+.ins-list .t{font-size:.82rem;font-weight:500;line-height:1.32;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ins-list .m{display:flex;gap:6px;align-items:center;margin-top:3px;font-size:.7rem;color:#626262}
+.ins-list .new{background:var(--gold-b);color:var(--navy);border-radius:999px;padding:1px 6px;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.ins-ft{display:flex;justify-content:space-between;gap:4px;padding:4px 6px;border-top:1px solid var(--hair);flex-shrink:0}
+.ins-all{display:block;padding:9px 10px;border-radius:7px;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);transition:background .25s,color .25s}
+.ins-all:hover{background:var(--paper-2);color:#8A6B24}
+@media(max-width:1100px){.ins-lbl{display:none}.ins-btn{padding:12px}.ins-btn svg{width:18px;height:18px}}
+/* phones: a bottom sheet that covers at most 55% of the screen */
+@media(max-width:600px){
+  .ins{right:14px;bottom:14px}
+  .ins-panel{position:fixed;left:0;right:0;bottom:0;width:auto;max-width:none;max-height:55vh;border-radius:16px 16px 0 0;border-bottom:0;
+    transform:translateY(100%);transform-origin:bottom center;box-shadow:0 -14px 40px -10px rgba(16,35,63,.3)}
+  .ins-head{padding-top:18px;position:relative}
+  .ins-head::before{content:"";position:absolute;top:7px;left:50%;width:36px;height:4px;margin-left:-18px;border-radius:2px;background:rgba(21,21,21,.16)}
+  .ins-ft{padding-bottom:calc(4px + env(safe-area-inset-bottom))}
+  .ins.open .ins-btn{opacity:0;pointer-events:none}
+}
 @media(prefers-reduced-motion:reduce){.ins,.ins-panel{transition:none}.ins-dot{animation:none}}
 </style>
 <!--ads:tag--><meta name="p:domain_verify" content="b4398f09fdd0e385c266cc687acecf36"/><script async src="https://www.googletagmanager.com/gtag/js?id=AW-18505873837"></script><script src="/assets/ads.js?v=f9baea9088"></script><!--/ads:tag-->
@@ -654,35 +669,42 @@ body.scrolled .burger{color:var(--ink)}
 .dd-t svg{width:11px;height:11px;transition:transform .4s cubic-bezier(.16,1,.3,1)}
 .dd.open .dd-t svg{transform:rotate(180deg)}
 .dd-t:focus-visible{outline:2px solid #B08D3F;outline-offset:2px}
-.dd-p{position:absolute;top:100%;left:50%;transform:translateX(calc(-50% + var(--dx,0px)));padding-top:18px;z-index:60;visibility:hidden;pointer-events:none;transition:visibility 0s .3s}
+.dd-p{position:absolute;top:100%;left:-14px;transform:translateX(var(--dx,0px));padding-top:14px;z-index:60;visibility:hidden;pointer-events:none;transition:visibility 0s .25s}
 .dd.open .dd-p{visibility:visible;pointer-events:auto;transition:none}
 html:not(.nav-js) .dd:hover .dd-p,html:not(.nav-js) .dd:focus-within .dd-p{visibility:visible;pointer-events:auto}
-.dd-box{background:#FDFDFC;border:1px solid rgba(21,21,21,.09);border-top:2px solid #B08D3F;border-radius:14px;padding:20px 20px 14px;text-align:left;
-  box-shadow:0 30px 60px -18px rgba(16,35,63,.32),0 6px 16px rgba(16,35,63,.06);opacity:0;transform:translateY(10px);
-  transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+/* compact frosted panel under its menu item: navy glass so the page stays visible behind it */
+.dd-box{width:264px;max-width:calc(100vw - 32px);background:rgba(16,35,63,.88);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);
+  border:1px solid rgba(255,255,255,.12);border-top:2px solid #D8B769;border-radius:12px;padding:12px 8px 8px;text-align:left;
+  box-shadow:0 18px 40px -16px rgba(10,22,40,.45),0 2px 8px rgba(10,22,40,.12);opacity:0;transform:translateY(6px);
+  transition:opacity .22s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1)}
+.dd-box.dd-2c{width:404px}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.dd-box{background:#10233F}}
+@media (prefers-reduced-transparency:reduce){.dd-box{background:#10233F;-webkit-backdrop-filter:none;backdrop-filter:none}}
 .dd.open .dd-box,html:not(.nav-js) .dd:hover .dd-box,html:not(.nav-js) .dd:focus-within .dd-box{opacity:1;transform:none}
-.dd-cols{display:flex;gap:26px}
-.dd-col{min-width:200px}
+.dd-cols{display:grid;grid-template-columns:1fr;gap:8px 4px}
+.dd-2c .dd-cols{grid-template-columns:1fr 1fr}
+.dd-2c .dd-col:first-child{grid-row:span 2}
+.dd-col{min-width:0}
 .dd-col ul{list-style:none;margin:0;padding:0}
-.dd-h{display:block;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#B08D3F;margin:0 0 8px;padding-left:10px;line-height:1.4}
-.dd-col li{opacity:0;transform:translateY(6px);transition:opacity .35s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.dd-h{display:block;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#D8B769;margin:0 0 3px;padding:0 10px;line-height:1.5}
+.dd-col li{opacity:0;transform:translateY(4px);transition:opacity .25s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1)}
 .dd.open .dd-col li,html:not(.nav-js) .dd-col li{opacity:1;transform:none}
-.dd.open .dd-col li:nth-child(2){transition-delay:.03s}.dd.open .dd-col li:nth-child(3){transition-delay:.06s}
-.dd.open .dd-col li:nth-child(4){transition-delay:.09s}.dd.open .dd-col li:nth-child(5){transition-delay:.12s}
-.dd.open .dd-col li:nth-child(6){transition-delay:.15s}.dd.open .dd-col li:nth-child(n+7){transition-delay:.18s}
-.bnav-links .dd-p a,.nav-links .dd-p a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 10px;border-radius:8px;
-  font-family:Inter,system-ui,sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0;text-transform:none;line-height:1.35;white-space:nowrap;
-  color:#10233F!important;opacity:1!important;transition:background .25s,padding .4s cubic-bezier(.16,1,.3,1)}
+.dd.open .dd-col li:nth-child(2){transition-delay:.02s}.dd.open .dd-col li:nth-child(3){transition-delay:.04s}
+.dd.open .dd-col li:nth-child(4){transition-delay:.06s}.dd.open .dd-col li:nth-child(n+5){transition-delay:.08s}
+.bnav-links .dd-p a,.nav-links .dd-p a{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px;border-radius:7px;
+  font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;line-height:1.3;white-space:normal;
+  color:#fff!important;opacity:1!important;transition:background .2s,padding .3s cubic-bezier(.16,1,.3,1)}
 .bnav-links .dd-p a::after,.nav-links .dd-p a::after{display:none!important}
-.bnav-links .dd-p li a:hover,.nav-links .dd-p li a:hover,.dd-p li a:focus-visible{background:#F5F4EF;padding-left:14px}
-.dd-p a i{font-style:normal;color:#B08D3F;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .35s cubic-bezier(.16,1,.3,1)}
+.bnav-links .dd-p li a:hover,.nav-links .dd-p li a:hover,.dd-p li a:focus-visible{background:rgba(255,255,255,.1);padding-left:13px}
+.dd-p a i{font-style:normal;color:#D8B769;opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .3s cubic-bezier(.16,1,.3,1)}
 .dd-p a:hover i,.dd-p a:focus-visible i{opacity:1;transform:none}
-.dd-p a:focus-visible{outline:2px solid #B08D3F;outline-offset:0}
-.dd-ft{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:12px 0 0;padding:12px 0 0;border-top:1px solid rgba(21,21,21,.08)}
-.bnav-links .dd-ft a,.nav-links .dd-ft a{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px}
-.bnav-links .dd-ft a.dd-book,.nav-links .dd-ft a.dd-book{color:#B08D3F!important}
+.dd-p a:focus-visible{outline:2px solid #D8B769;outline-offset:-2px}
+.dd-ft{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:8px 0 0;padding:6px 0 0;border-top:1px solid rgba(255,255,255,.14)}
+.bnav-links .dd-ft a,.nav-links .dd-ft a{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:7px 10px;white-space:nowrap}
+.bnav-links .dd-ft a.dd-book,.nav-links .dd-ft a.dd-book{color:#D8B769!important}
 .dd-ft a.dd-all i{opacity:1;transform:none}
-.bnav-links .dd-ft a:hover,.nav-links .dd-ft a:hover{background:#F5F4EF}
+.bnav-links .dd-ft a:hover,.nav-links .dd-ft a:hover{background:rgba(255,255,255,.1)}
+.bnav-links .dd-ft a.dd-book:hover,.nav-links .dd-ft a.dd-book:hover{color:#fff!important}
 .bnav-burger{display:none;place-items:center;width:42px;height:42px;padding:0;border:1px solid rgba(21,21,21,.16);border-radius:999px;background:none;color:#151515;cursor:pointer;transition:background .3s,color .3s}
 .bnav-burger svg{width:18px;height:18px;display:block}
 .bnav-burger[aria-expanded="true"]{background:#10233F;border-color:#10233F;color:#fff}
@@ -738,7 +760,7 @@ html:not(.nav-js) .dd:hover .dd-p,html:not(.nav-js) .dd:focus-within .dd-p{visib
 .mnav.mnav-dark .mg-in a:hover{color:#D8B769;border-left-color:#D8B769}
 .mnav.mnav-dark .mg-in a.mg-all{color:#fff}
 body.nav-lock{overflow:hidden}
-@media (prefers-reduced-motion:reduce){.dd-box,.dd-col li,.bsheet,.mg-p,.dd-t svg{transition:none!important}.mnav>li{animation:none!important}}
+@media (prefers-reduced-motion:reduce){.dd-box,.dd-col li,.dd-p a,.bsheet,.mg-p,.dd-t svg{transition:none!important}.mnav>li{animation:none!important}}
 
 .nav .dd-t{color:rgba(255,255,255,.85);transition:color .4s}
 .nav .brand{flex-shrink:0}.nav .brand-txt i{white-space:nowrap}
@@ -797,7 +819,7 @@ body.scrolled .nav .dd-t{color:var(--ink)}
       <span class="brand-txt"><b>Merchant</b><i>Financial Advisory</i></span>
     </a>
     <div class="nav-links" id="navLinks">
-      <!--nav:links--><a href="#approach">Approach</a><div class="dd" data-dd><a href="/services/" class="dd-a">Services</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-services" aria-label="Show Services links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-services"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">What we do</span><ul><li><a href="/services/#tax-preparation">Tax preparation &amp; 1099 filing<i aria-hidden="true">→</i></a></li><li><a href="/services/#tax-planning">Tax planning &amp; strategy<i aria-hidden="true">→</i></a></li><li><a href="/services/#bookkeeping">Bookkeeping &amp; accounting<i aria-hidden="true">→</i></a></li><li><a href="/services/#financial-reporting">Financial reporting<i aria-hidden="true">→</i></a></li><li><a href="/services/#fractional-cfo">Fractional CFO<i aria-hidden="true">→</i></a></li><li><a href="/services/#audit-support">Audit support &amp; controls<i aria-hidden="true">→</i></a></li><li><a href="/services/#technical-accounting">Technical accounting<i aria-hidden="true">→</i></a></li><li><a href="/services/#business-advisory">Systems &amp; business advisory<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Get started</span><ul><li><a href="/llc-formation/">LLC formation, all 50 states<i aria-hidden="true">→</i></a></li><li><a href="/llc-formation/#monthly">Monthly bookkeeping<i aria-hidden="true">→</i></a></li><li><a href="/bookkeeping-cleanup/">Bookkeeping cleanup &amp; catch-up<i aria-hidden="true">→</i></a></li><li><a href="/international-students/">International students &amp; H-1B<i aria-hidden="true">→</i></a></li><li><a href="/llc-formation/#states">LLC costs by state<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">By location</span><ul><li><a href="/princeton-nj/">Princeton, NJ<i aria-hidden="true">→</i></a></li><li><a href="/union-city-nj/">Union City, NJ<i aria-hidden="true">→</i></a></li><li><a href="/new-york-ny/">New York City<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/services/">All services <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><a href="#reviews">Reviews</a><div class="dd" data-dd><a href="/resources/" class="dd-a">Resources</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-resources" aria-label="Show Resources links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-resources"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Browse by type</span><ul><li><a href="/resources/#checkers">Checkers<i aria-hidden="true">→</i></a></li><li><a href="/resources/#calculators">Calculators<i aria-hidden="true">→</i></a></li><li><a href="/resources/#taxcalcs">Tax calculators<i aria-hidden="true">→</i></a></li><li><a href="/resources/#calendars">Calendars<i aria-hidden="true">→</i></a></li><li><a href="/resources/#templates">Templates &amp; checklists<i aria-hidden="true">→</i></a></li><li><a href="/resources/#guides">Guides<i aria-hidden="true">→</i></a></li><li><a href="/resources/#states">State directory<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Popular tools</span><ul><li><a href="/tools/quarterly-estimated-tax-calculator/">Quarterly estimated tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/1099-tax-calculator/">1099 tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/paycheck-tax-calculator/">Paycheck tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/is-it-deductible/">Is It Deductible?<i aria-hidden="true">→</i></a></li><li><a href="/tools/do-i-need-to-send-a-1099/">Do I need to send a 1099?<i aria-hidden="true">→</i></a></li><li><a href="/tools/tax-deadlines-2027/">2027 business tax deadlines<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/resources/">All resources <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><div class="dd" data-dd><a href="/shop/" class="dd-a">Shop</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-shop" aria-label="Show Shop links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-shop"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Shop by type</span><ul><li><a href="/shop/#calc">Tax calculator spreadsheets<i aria-hidden="true">→</i></a></li><li><a href="/shop/#kit">Checklists &amp; kits<i aria-hidden="true">→</i></a></li><li><a href="/shop/#ai">AI prompt packs<i aria-hidden="true">→</i></a></li><li><a href="/shop/#services">Done-for-you services<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/shop/">Visit the shop <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><div class="dd" data-dd><a href="/blog/" class="dd-a">Insights</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-insights" aria-label="Show Insights links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-insights"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Read</span><ul><li><a href="/blog/">All articles<i aria-hidden="true">→</i></a></li><li><a href="/blog/2027-tax-calendar/">2027 tax calendar<i aria-hidden="true">→</i></a></li><li><a href="/blog/which-tax-form-llc-corporation/">Which tax form for your LLC?<i aria-hidden="true">→</i></a></li><li><a href="/blog/form-1099-preparation-guide-2026/">Form 1099 guide for 2026<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Stay current</span><ul><li><a href="/newsletter/">Newsletter<i aria-hidden="true">→</i></a></li><li><a href="/newsletter/#calendar">Key-dates calendar<i aria-hidden="true">→</i></a></li><li><a href="/authors/zain-merchant/">About Zain Merchant<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/blog/">All articles <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><a href="/book/" data-conv="book">Book</a><!--/nav:links-->
+      <!--nav:links--><a href="#approach">Approach</a><div class="dd" data-dd><a href="/services/" class="dd-a">Services</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-services" aria-label="Show Services links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-services"><div class="dd-box dd-2c"><div class="dd-cols"><div class="dd-col"><span class="dd-h">What we do</span><ul><li><a href="/services/#tax-preparation">Tax preparation &amp; 1099 filing<i aria-hidden="true">→</i></a></li><li><a href="/services/#tax-planning">Tax planning &amp; strategy<i aria-hidden="true">→</i></a></li><li><a href="/services/#bookkeeping">Bookkeeping &amp; accounting<i aria-hidden="true">→</i></a></li><li><a href="/services/#financial-reporting">Financial reporting<i aria-hidden="true">→</i></a></li><li><a href="/services/#fractional-cfo">Fractional CFO<i aria-hidden="true">→</i></a></li><li><a href="/services/#audit-support">Audit support &amp; controls<i aria-hidden="true">→</i></a></li><li><a href="/services/#technical-accounting">Technical accounting<i aria-hidden="true">→</i></a></li><li><a href="/services/#business-advisory">Systems &amp; business advisory<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Get started</span><ul><li><a href="/llc-formation/">LLC formation, all 50 states<i aria-hidden="true">→</i></a></li><li><a href="/llc-formation/#monthly">Monthly bookkeeping<i aria-hidden="true">→</i></a></li><li><a href="/bookkeeping-cleanup/">Bookkeeping cleanup &amp; catch-up<i aria-hidden="true">→</i></a></li><li><a href="/international-students/">International students &amp; H-1B<i aria-hidden="true">→</i></a></li><li><a href="/llc-formation/#states">LLC costs by state<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">By location</span><ul><li><a href="/princeton-nj/">Princeton, NJ<i aria-hidden="true">→</i></a></li><li><a href="/union-city-nj/">Union City, NJ<i aria-hidden="true">→</i></a></li><li><a href="/new-york-ny/">New York City<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/services/">All services <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><a href="#reviews">Reviews</a><div class="dd" data-dd><a href="/resources/" class="dd-a">Resources</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-resources" aria-label="Show Resources links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-resources"><div class="dd-box dd-2c"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Browse by type</span><ul><li><a href="/resources/#checkers">Checkers<i aria-hidden="true">→</i></a></li><li><a href="/resources/#calculators">Calculators<i aria-hidden="true">→</i></a></li><li><a href="/resources/#taxcalcs">Tax calculators<i aria-hidden="true">→</i></a></li><li><a href="/resources/#calendars">Calendars<i aria-hidden="true">→</i></a></li><li><a href="/resources/#templates">Templates &amp; checklists<i aria-hidden="true">→</i></a></li><li><a href="/resources/#guides">Guides<i aria-hidden="true">→</i></a></li><li><a href="/resources/#states">State directory<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Popular tools</span><ul><li><a href="/tools/quarterly-estimated-tax-calculator/">Quarterly estimated tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/1099-tax-calculator/">1099 tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/paycheck-tax-calculator/">Paycheck tax calculator<i aria-hidden="true">→</i></a></li><li><a href="/tools/is-it-deductible/">Is It Deductible?<i aria-hidden="true">→</i></a></li><li><a href="/tools/do-i-need-to-send-a-1099/">Do I need to send a 1099?<i aria-hidden="true">→</i></a></li><li><a href="/tools/tax-deadlines-2027/">2027 business tax deadlines<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/resources/">All resources <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><div class="dd" data-dd><a href="/shop/" class="dd-a">Shop</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-shop" aria-label="Show Shop links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-shop"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Shop by type</span><ul><li><a href="/shop/#calc">Tax calculator spreadsheets<i aria-hidden="true">→</i></a></li><li><a href="/shop/#kit">Checklists &amp; kits<i aria-hidden="true">→</i></a></li><li><a href="/shop/#ai">AI prompt packs<i aria-hidden="true">→</i></a></li><li><a href="/shop/#services">Done-for-you services<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/shop/">Visit the shop <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><div class="dd" data-dd><a href="/blog/" class="dd-a">Insights</a><button class="dd-t" type="button" aria-expanded="false" aria-controls="dd-insights" aria-label="Show Insights links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd-p" id="dd-insights"><div class="dd-box"><div class="dd-cols"><div class="dd-col"><span class="dd-h">Read</span><ul><li><a href="/blog/">All articles<i aria-hidden="true">→</i></a></li><li><a href="/blog/2027-tax-calendar/">2027 tax calendar<i aria-hidden="true">→</i></a></li><li><a href="/blog/which-tax-form-llc-corporation/">Which tax form for your LLC?<i aria-hidden="true">→</i></a></li><li><a href="/blog/form-1099-preparation-guide-2026/">Form 1099 guide for 2026<i aria-hidden="true">→</i></a></li></ul></div><div class="dd-col"><span class="dd-h">Stay current</span><ul><li><a href="/newsletter/">Newsletter<i aria-hidden="true">→</i></a></li><li><a href="/newsletter/#calendar">Key-dates calendar<i aria-hidden="true">→</i></a></li><li><a href="/authors/zain-merchant/">About Zain Merchant<i aria-hidden="true">→</i></a></li></ul></div></div><div class="dd-ft"><a class="dd-all" href="/blog/">All articles <i aria-hidden="true">→</i></a><a class="dd-book" href="/book/" data-conv="book">Book a consultation</a></div></div></div></div><a href="/book/" data-conv="book">Book</a><!--/nav:links-->
       <a href="#contact" class="nav-cta">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
         Contact Us
@@ -1401,20 +1423,19 @@ body.scrolled .nav .dd-t{color:var(--ink)}
   </div>
 </footer>
 
-<!-- Latest Insights window (fed by /blog/latest.json, regenerated on every blog build) -->
+<!-- Latest Insights (fed by /blog/latest.json, regenerated on every blog build). Opens only when the visitor clicks the pill. -->
 <aside class="ins" id="ins" aria-label="Latest Insights" hidden>
-  <div class="ins-panel" id="insPanel" role="dialog" aria-labelledby="insTitle" aria-hidden="true">
+  <div class="ins-panel" id="insPanel" role="dialog" aria-labelledby="insTitle">
     <div class="ins-head">
       <div><span class="ins-eyebrow">MFA Insights</span><h3 id="insTitle">Latest from the blog</h3></div>
-      <button class="ins-x" id="insClose" aria-label="Close latest insights"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <button class="ins-x" id="insClose" type="button" aria-label="Close latest insights"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
     <ul class="ins-list" id="insList"></ul>
-    <a class="ins-all" href="/blog/">View all insights <span aria-hidden="true">→</span></a>
-    <a class="ins-all" href="/newsletter/">Get new insights by email <span aria-hidden="true">→</span></a>
+    <div class="ins-ft"><a class="ins-all" href="/blog/">All insights <span aria-hidden="true">→</span></a><a class="ins-all" href="/newsletter/">Get them by email <span aria-hidden="true">→</span></a></div>
   </div>
-  <button class="ins-btn" id="insBtn" aria-expanded="false" aria-controls="insPanel">
+  <button class="ins-btn" id="insBtn" type="button" aria-expanded="false" aria-controls="insPanel">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M19 9h1a1 1 0 0 1 1 1v8a2 2 0 0 1-2 2"/><path d="M8 9h7M8 13h7M8 17h4"/></svg>
-    <span class="ins-lbl">Latest Insights</span><span class="ins-dot" id="insDot" hidden></span>
+    <span class="ins-lbl">Latest insights</span><span class="ins-dot" id="insDot" hidden></span>
   </button>
 </aside>
 
@@ -1673,31 +1694,42 @@ body.scrolled .nav .dd-t{color:var(--ink)}
 })();
 </script>
 <script>
-/* Latest Insights window: lists the newest posts from /blog/latest.json and pops open once per new post per visitor. */
+/* Latest Insights: the newest 3 posts from /blog/latest.json behind a small corner pill.
+   Never opens by itself (Zain, 2026-10-25: it covered the hero). A gold dot marks a post newer than the visitor's last visit. */
 (function(){
   var box=document.getElementById('ins'); if(!box||!window.fetch) return;
   var panel=document.getElementById('insPanel'), btn=document.getElementById('insBtn'), list=document.getElementById('insList'), dot=document.getElementById('insDot');
-  var KEY='mfaInsightsSeen', get=function(){try{return localStorage.getItem(KEY)}catch(e){return null}}, set=function(v){try{localStorage.setItem(KEY,v)}catch(e){}};
+  var st=function(s){try{return window[s]}catch(e){return null}};
+  var get=function(k,s){try{return (st(s||'localStorage')||{}).getItem(k)}catch(e){return null}};
+  var put=function(k,v,s){try{st(s||'localStorage').setItem(k,v)}catch(e){}};
   var esc=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML};
   var fmt=function(d){var p=d.split('-');return new Date(+p[0],p[1]-1,+p[2]).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})};
-  function setOpen(o){box.classList.toggle('open',o);btn.setAttribute('aria-expanded',o);panel.setAttribute('aria-hidden',!o);if(o){set(newest);dot.hidden=true;}}
-  var newest='';
+  /* last visit: read once per browsing session, so the dot stays until the visitor opens the panel */
+  var prev=get('mfaInsPrev','sessionStorage');
+  if(prev===null){prev=get('mfaInsLastVisit')||'';put('mfaInsPrev',prev,'sessionStorage');put('mfaInsLastVisit',new Date().toISOString().slice(0,10));}
+  var newest='', y0=0;
+  function setOpen(o){
+    box.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');
+    if(o){put('mfaInsightsSeen',newest);dot.hidden=true;y0=window.scrollY;}
+  }
   fetch('/blog/latest.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(d){
     if(!d||!d.posts||!d.posts.length) return;
     var posts=d.posts.slice(0,3); newest=posts[0].url;
-    list.innerHTML=posts.map(function(p,i){return '<li><a href="'+p.url+'"><img src="'+p.thumb+'" alt="" loading="lazy" width="76" height="40"/><span><span class="m">'+(i===0&&get()!==newest?'<span class="new">New</span>':'')+esc(p.category)+' · '+fmt(p.date)+'</span><span class="t">'+esc(p.title)+'</span></span></a></li>'}).join('');
+    var recent=new Date(Date.now()-21*864e5).toISOString().slice(0,10), cut=prev||recent;
+    list.innerHTML=posts.map(function(p,i){var n=p.date>cut&&(prev||i===0);   /* first visit: only the newest post is badged */
+      return '<li><a href="'+p.url+'"><img src="'+p.thumb+'" alt="" loading="lazy" width="56" height="32"/><span><span class="t">'+esc(p.title)+'</span><span class="m">'+(n?'<span class="new">New</span>':'')+'<time datetime="'+p.date+'">'+fmt(p.date)+'</time></span></span></a></li>'}).join('');
     box.hidden=false;
-    var unseen=get()!==newest; if(unseen) dot.hidden=false;
-    setTimeout(function(){box.classList.add('show')},1800);
-    if(unseen){
-      var popped=false, pop=function(){if(popped)return;popped=true;window.removeEventListener('scroll',onS);setOpen(true)};
-      var onS=function(){if(window.scrollY>window.innerHeight*0.9)pop()};
-      window.addEventListener('scroll',onS,{passive:true}); setTimeout(pop,9000);
-    }
+    if(posts[0].date>cut&&get('mfaInsightsSeen')!==newest) dot.hidden=false;
+    setTimeout(function(){box.classList.add('show')},1200);
   }).catch(function(){});
-  btn.addEventListener('click',function(){setOpen(!box.classList.contains('open'))});
+  btn.addEventListener('click',function(e){
+    var o=!box.classList.contains('open'); setOpen(o);
+    if(o&&e.detail===0){var f=list.querySelector('a');if(f)f.focus();}   /* opened from the keyboard: move into the list */
+  });
   document.getElementById('insClose').addEventListener('click',function(){setOpen(false);btn.focus()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&box.classList.contains('open'))setOpen(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&box.classList.contains('open')){setOpen(false);btn.focus()}});
+  document.addEventListener('click',function(e){if(box.classList.contains('open')&&!box.contains(e.target))setOpen(false)});
+  window.addEventListener('scroll',function(){if(box.classList.contains('open')&&Math.abs(window.scrollY-y0)>320)setOpen(false)},{passive:true});
 })();
 </script>
 <script>if(location.hash==="#book")location.replace("/book/");</script>
@@ -1717,12 +1749,16 @@ body.scrolled .nav .dd-t{color:var(--ink)}
   }
   dds.forEach(function(dd){
     var t=btn(dd), a=dd.querySelector('.dd-a'), timer;
-    dd.addEventListener('mouseenter',function(){if(!fine)return;clearTimeout(timer);timer=setTimeout(function(){set(dd,true);},60);});
-    dd.addEventListener('mouseleave',function(){if(!fine)return;clearTimeout(timer);timer=setTimeout(function(){set(dd,false);},180);});
+    /* hover intent: open after 120 ms (at once when moving across from another open menu), close 200 ms after the pointer leaves */
+    dd.addEventListener('mouseenter',function(){if(!fine)return;clearTimeout(timer);
+      var other=dds.some(function(o){return o!==dd&&o.classList.contains('open');});
+      timer=setTimeout(function(){set(dd,true);},other?0:120);});
+    dd.addEventListener('mouseleave',function(){if(!fine)return;clearTimeout(timer);timer=setTimeout(function(){set(dd,false);},200);});
     t.addEventListener('click',function(e){e.preventDefault();set(dd,!dd.classList.contains('open'));});
     /* touch screens: the first tap on the label opens the menu, which has its own "All ..." link */
     a.addEventListener('click',function(e){if(!fine&&!dd.classList.contains('open')){e.preventDefault();set(dd,true);}});
-    t.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();set(dd,true);var f=dd.querySelector('.dd-p a');if(f)f.focus();}});
+    var down=function(e){if(e.key==='ArrowDown'){e.preventDefault();set(dd,true);var f=dd.querySelector('.dd-p a');if(f)f.focus();}};
+    t.addEventListener('keydown',down);a.addEventListener('keydown',down);
     dd.addEventListener('keydown',function(e){
       if(e.key==='Escape'&&dd.classList.contains('open')){e.stopPropagation();set(dd,false);t.focus();}
       if((e.key==='ArrowDown'||e.key==='ArrowUp')&&e.target.closest('.dd-p')){e.preventDefault();
