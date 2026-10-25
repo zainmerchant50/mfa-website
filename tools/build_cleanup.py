@@ -33,7 +33,7 @@ STEPS = [
     ("We look at a sample", "We review a sample of your accounts and give you a fixed quote before any work starts."),
     ("You decide", "If the quote works, we begin. If not, you owe nothing."),
 ]
-SOFTWARE = ["QuickBooks Online", "QuickBooks Desktop", "Xero", "Wave", "FreshBooks", "Spreadsheets only", "No system yet", "Other"]
+SOFTWARE = ["QuickBooks Online", "QuickBooks Desktop", "Xero", "Sage", "Spreadsheets only", "No system yet", "Other"]   # Zain, 2026-10-25: QuickBooks, Xero and Sage
 MONTHS = ["1 to 3 months", "4 to 6 months", "7 to 12 months", "13 to 24 months", "More than 24 months"]
 ACCOUNTS = ["1 to 2", "3 to 4", "5 to 8", "9 or more"]
 TXNS = ["Up to 100", "101 to 300", "301 to 600", "601 to 1,000", "More than 1,000"]
