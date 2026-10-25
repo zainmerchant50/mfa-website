@@ -488,6 +488,7 @@ def build_llms(posts):
         "",
         "## Local pages",
         f"- [Princeton, NJ]({BASE}/princeton-nj/): bookkeeping, accounting and tax preparation for Princeton and Mercer County",
+        f"- [Bookkeeping in Princeton, NJ]({BASE}/bookkeeping/princeton-nj/): monthly bookkeeping from $199/month, flat monthly or hourly, cleanup quoted up front",
         f"- [Union City, NJ]({BASE}/union-city-nj/): bookkeeping, accounting and tax preparation for Union City and Hudson County",
         f"- [New York, NY]({BASE}/new-york-ny/): bookkeeping, accounting and tax preparation for the five boroughs",
         "",

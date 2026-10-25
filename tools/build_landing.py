@@ -35,18 +35,29 @@ FORM_ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL
 # Google Ads tag + conversion labels live in tools/ads.py (shared site-wide via /assets/ads.js).
 # ---------------------------------------------------------------- /CONFIG
 
-if len(sys.argv) < 2:   # build every location page
-    for key in LOCATIONS:
+# Single-service ad landing pages (one per ad group that needs its own page). Same header-without-menu pattern,
+# CSS, Ads tag and form flow as the city pages, but one service and a short form above the fold.
+# Zain, 2026-10-25 ("4 yes"): /bookkeeping/princeton-nj/ for the Princeton Bookkeeping ad group (landing-page
+# experience "Below average", Quality Score 3/10 on the city page). Ad final URL:
+#   https://mfa-advisory.com/bookkeeping/princeton-nj/
+SERVICE_PAGES = {
+    "bookkeeping-princeton": dict(loc="princeton", slug="bookkeeping/princeton-nj"),
+}
+
+if len(sys.argv) < 2:   # build every location page, then every service landing page
+    for key in list(LOCATIONS) + list(SERVICE_PAGES):
         subprocess.run([sys.executable, __file__, key], check=True)
     sys.exit(0)
-L = LOCATIONS[sys.argv[1]]
+SP = SERVICE_PAGES.get(sys.argv[1])
+L = LOCATIONS[SP["loc"] if SP else sys.argv[1]]
+SLUG = SP["slug"] if SP else L["slug"]
 AREA = L["area"]
 ST = L.get("st", "NJ")
 STATE = L.get("state", "New Jersey")
 EYEBROW = L.get("eyebrow", L["city"] + " · " + L["region"] + ", " + ST)
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "site" / L["slug"] / "index.html"
-URL = f"https://mfa-advisory.com/{L['slug']}/"
+OUT = ROOT / "site" / SLUG / "index.html"
+URL = f"https://mfa-advisory.com/{SLUG}/"
 
 tel = "+1" + "".join(c for c in PHONE if c.isdigit())[-10:] if PHONE else ""
 
@@ -251,6 +262,240 @@ d = VARIANTS["default"]
 other_locs = "".join(f'<a href="/{o["slug"]}/">{"Bookkeeping in " + o["city"] + ", " + o.get("st", "NJ")}</a>' for k, o in LOCATIONS.items() if o["slug"] != L["slug"])
 call_top = f'<a href="tel:{tel}" class="tel" data-conv="call">{phone_ico}<span>{esc(PHONE)}</span></a>' if tel else ""
 
+BK_CSS = """
+.hero.bk{padding:56px 0 64px}.hero.bk h1{margin-bottom:14px}.hero.bk .lead{margin-bottom:24px}
+.hero.bk .ctas{margin-bottom:24px}
+.hero-card .row3{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.inc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.inc .card{padding:26px}.inc .card h3{font-size:24px;margin-bottom:8px}.inc .card p{font-size:15px;color:var(--muted)}
+.inc .ic{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(176,141,63,.12);color:var(--gold);margin-bottom:14px}
+.inc .ic svg{width:18px;height:18px}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prices .card{display:flex;flex-direction:column}
+.pt{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.pp{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}.pp b{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;line-height:1;color:var(--navy)}
+.pp span{font-size:14px;color:var(--muted)}.prices .card p.d{font-size:15px;color:var(--muted);flex:1;margin-bottom:20px}
+.prices .card .btn{align-self:flex-start}
+.fit{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pills span{font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid rgba(176,141,63,.45);background:#fff;transition:background .3s,color .3s,border-color .3s}
+.pills span:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.js .pills span{animation:uiUp .7s var(--ui-ease) both}
+.pills span:nth-child(2){animation-delay:.05s}.pills span:nth-child(3){animation-delay:.1s}.pills span:nth-child(4){animation-delay:.15s}
+.pills span:nth-child(5){animation-delay:.2s}.pills span:nth-child(n+6){animation-delay:.25s}
+.fit h3{font-size:24px;margin:26px 0 12px;color:var(--navy)}.fit h3:first-child{margin-top:0}
+.creds{background:#fff;border:1px solid var(--hair);border-radius:14px;padding:28px}
+.creds .cl{font-weight:600;color:var(--navy);font-size:15px;line-height:1.7}.creds p{font-size:15px;color:var(--muted);margin-top:10px}
+.revs-sum{display:flex;align-items:center;gap:14px;margin:-18px 0 30px;font-size:14px;color:var(--muted)}
+.revs-sum b{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--ink);line-height:1}.revs-sum .st{color:var(--gold);letter-spacing:2px}
+@media (max-width:900px){.inc{grid-template-columns:1fr 1fr}.prices,.fit{grid-template-columns:1fr}.fit{gap:28px}.hero.bk{padding:28px 0 40px}
+  .hero.bk h1{font-size:38px;margin-bottom:10px}.hero.bk .lead{font-size:17px;margin-bottom:18px}.hero.bk .ctas{margin-bottom:0}.hero.bk .ctas .btn-line,.hero.bk .trust{display:none}
+  .hero.bk .hero-g{gap:24px}.hero.bk .hero-card h2{font-size:24px}.hero.bk .hero-card p.s{margin-bottom:12px}}
+@media (max-width:480px){.inc{grid-template-columns:1fr}.hero-card{padding:22px}}
+"""
+
+
+def bookkeeping_page():
+    """/bookkeeping/princeton-nj/: the Princeton Bookkeeping ad group's landing page.
+    Prices are the site's published ones only (/services/ OFFERS and build_llc.MONTHLY); nothing new."""
+    import build_llc
+    price = build_llc.MONTHLY["price"]   # $199: Zain, 2026-10-20 (same figure as /services/)
+    city = L["city"] + ", " + ST
+    title = f"Bookkeeping in {city} | Flat Monthly or Hourly | MFA"
+    desc = (f"Monthly bookkeeping for {city} small businesses from ${price}/month: reconciliations, P&amp;L and balance sheet. "
+            "Flat monthly or hourly, senior team.")
+    ico = lambda p: f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{p}</svg>'
+    INCLUDED = [
+        ("Reconciliations", ico('<path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/>'),
+         "Bank, credit card and loan accounts reconciled to the statements every month."),
+        ("Categorizing", ico('<path d="M4 6h16M4 12h10M4 18h7"/>'),
+         "Every transaction categorized to a chart of accounts built for your business, with owner draws, loans and transfers kept separate."),
+        ("Monthly P&amp;L and balance sheet", ico('<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>'),
+         "Your profit and loss and balance sheet each month, with a short note on what changed."),
+        ("Sales-tax-ready reports", ico('<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/>'),
+         f"Taxable sales tracked and totaled by period, ready for your {STATE} sales tax return."),
+    ]
+    inc_html = "".join(f'<article class="card"><span class="ic">{i}</span><h3>{t}</h3><p>{d}</p></article>' for t, i, d in INCLUDED)
+    PRICES = [   # copy from /services/ (OFFERS, bookkeeping price line) and the cleanup offer; no new prices
+        ("Monthly bookkeeping", f"From ${price}", "/ month",
+         "One bank, one card, up to 100 transactions a month. Month to month; bigger books quoted up front.",
+         '<a class="btn btn-gold" href="#quote">Get my quote</a>'),
+        ("Hourly", "Hourly", "pay as you go",
+         "Prefer not to commit to a monthly fee? We also work on hourly contracts, with the rate agreed before any work starts.",
+         call_btn("btn btn-ink", "Call " + esc(PHONE)) or '<a class="btn btn-ink" href="#quote">Ask about hourly</a>'),
+        ("Cleanup &amp; catch-up", "Quoted", "up front",
+         "Months or years behind? We rebuild and reconcile the records first. Fixed quote after a review of a sample of your accounts.",
+         '<a class="btn btn-ink" href="/bookkeeping-cleanup/">Request a cleanup quote</a>'),
+    ]
+    price_html = "".join(f'<div class="card"><span class="pt">{n}</span><p class="pp"><b>{p}</b><span>{s}</span></p><p class="d">{t}</p>{b}</div>'
+                         for n, p, s, t, b in PRICES)
+    WHO = [f"Small businesses in {L['city']} &amp; {L['region']}", "Sole proprietors and freelancers", "Single- and multi-member LLCs",
+           "S corporations", "Retail and e-commerce sellers who collect sales tax"]
+    SOFT = ["QuickBooks Online", "Xero", "Spreadsheets and bank statements"]
+    pills = lambda xs: '<div class="pills">' + "".join(f"<span>{x}</span>" for x in xs) + "</div>"
+    FAQ_BK = [
+        ("How much does monthly bookkeeping cost?",
+         f"Monthly bookkeeping starts at ${price} a month for one bank account, one card and up to 100 transactions a month. "
+         "Larger books are quoted up front after a short call, and we also work hourly if you prefer to pay as you go. "
+         "Cleanup and catch-up projects get a fixed quote after we review a sample of your accounts."),
+        ("Do you work in QuickBooks Online and Xero?",
+         "Yes. Our founder is a QuickBooks ProAdvisor, and we keep books in QuickBooks Online or Xero. If you don't use accounting "
+         "software yet, we can set up QuickBooks Online for you or start from your spreadsheets and bank statements."),
+        ("Will my books be ready for sales tax and tax time?",
+         f"Yes. We track taxable sales so the totals for your {STATE} sales tax return are ready each period, and at year-end we hand "
+         "reconciled books to your tax preparer, or to us. Sales tax filings and tax returns are quoted separately."),
+        ("Do I need to come to an office?",
+         f"No. We're based in {city} and work with businesses across {L['region']}, including {', '.join(AREA[1:4])} and {AREA[4]}. "
+         "Most work happens by video call, phone and secure document upload."),
+    ]
+    faq_bk = ui_kit.faq_accordion(FAQ_BK, prefix="bkfaq")
+    acct_opts = "".join(f"<option>{o}</option>" for o in ["1 to 2 accounts", "3 to 4 accounts", "5 or more accounts", "Not sure yet"])
+    service = {"@type": "Service", "@id": URL + "#service", "name": f"Bookkeeping in {city}", "serviceType": "Bookkeeping",
+               "url": URL, "provider": {"@id": seo.ORG_ID}, "areaServed": LOCAL_AREAS, "termsOfService": "https://mfa-advisory.com/terms.html",
+               "description": seo.plain("Monthly bookkeeping: reconciliations, transaction categorizing, a monthly P&amp;L and balance sheet "
+                                        "and sales-tax-ready reports, at a flat monthly fee or hourly. Cleanup and catch-up quoted up front."),
+               "offers": [seo._offer("Monthly bookkeeping", price, "Starting price per month for one bank account, one card and up to 100 transactions a month. "
+                                     "Month to month; larger books are quoted up front.", unit=("MON", "month"))]}
+    faq_ld = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": seo.plain(a)}} for q, a in FAQ_BK]}
+    ld_bk = seo.graph(URL, f"Bookkeeping in {city}", seo.plain(desc), service, faq_ld, kind="WebPage", full_org=True, areas=LOCAL_AREAS,
+                      crumb=[("Home", "https://mfa-advisory.com/"), (city, f"https://mfa-advisory.com/{L['slug']}/"), ("Bookkeeping", URL)])
+    form_id = "landing_" + SLUG.replace("/", "-")
+    js = """
+(function(){
+  var f=document.getElementById('lf'), btn=document.getElementById('lbtn'), st=document.getElementById('lstat');
+  var q=location.search;
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); if(f._honey.value)return; if(!f.checkValidity()){f.reportValidity();return;}
+    var label=btn.innerHTML; btn.disabled=true; btn.textContent='Sending…';
+    var d=new FormData(f); d.append('_subject','New bookkeeping lead (§CITY§ bookkeeping page): '+(d.get('accounts')||''));
+    d.append('_captcha','false'); d.append('_template','table');
+    d.append('source','§PAGE§'+(q.indexOf('gclid')>-1?' / Google Ads':''));
+    fetch(§ENDPOINT§,{method:'POST',headers:{'Accept':'application/json'},body:d})
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(j){ if(j.success===false||j.success==='false')throw 0; §THANKS§ })
+      .catch(function(){ st.textContent='Couldn\\'t send. Please call §PHONE§ or email §EMAIL§.'; btn.disabled=false; btn.innerHTML=label; });
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+""".replace("§PAGE§", SLUG).replace("§ENDPOINT§", json.dumps(FORM_ENDPOINT)).replace("§THANKS§", ads.contact_redirect(form_id)) \
+   .replace("§PHONE§", PHONE).replace("§EMAIL§", EMAIL)
+    call_top = f'<a href="tel:{tel}" class="tel" data-conv="call">{phone_ico}<span>{esc(PHONE)}</span></a>' if tel else ""
+    return f'''<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{esc(title)}</title>
+<meta name="description" content="{desc}"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/>
+<link rel="canonical" href="{URL}"/>
+<meta property="og:type" content="website"/><meta property="og:site_name" content="Merchant Financial Advisory"/><meta property="og:locale" content="en_US"/>
+<meta property="og:title" content="Bookkeeping in {city}"/>
+<meta property="og:description" content="{desc}"/>
+<meta property="og:url" content="{URL}"/><meta property="og:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Bookkeeping in {city}"/><meta name="twitter:description" content="{desc}"/>
+<link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">{seo.dumps(ld_bk, ascii_only=False)}</script>
+{gtag}
+<style>{CSS}{BK_CSS}{ui_kit.UI_CSS}</style></head><body>
+
+<header class="top"><div class="wrap">
+  <a href="/" class="brand" aria-label="Merchant Financial Advisory home"><img src="/apple-touch-icon.png" alt="" width="38" height="38"/><span><b>Merchant</b><i>Financial Advisory</i></span></a>
+  <div class="top-act">{call_top}<a href="#quote" class="btn btn-ink">Get a quote</a></div>
+</div></header>
+
+<main>
+<section class="hero bk"><div class="wrap hero-g">
+  <div>
+    <span class="eyebrow">§EYEBROW§</span>
+    <h1>Bookkeeping in {city}</h1>
+    <p class="lead">Flat monthly or hourly pricing, from a senior accounting team. Monthly bookkeeping from ${price}/month.</p>
+    <div class="ctas">{call_btn("btn btn-gold", "Call " + esc(PHONE))}<a href="#included" class="btn btn-line">What's included</a></div>
+    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA · Big Four (ex-PwC)</span><span>{check}Flat monthly or hourly</span><span>{check}Senior accounting team</span></div>
+  </div>
+  <div class="hero-card" id="quote">
+    <h2>Get a bookkeeping quote</h2>
+    <p class="s">Four quick questions. We reply within one to three business days.</p>
+    <form id="lf" method="POST" action="https://formsubmit.co/{EMAIL}" novalidate>
+      {ads.next_field()}<input type="hidden" name="service" value="Bookkeeping"/>
+      <div class="f"><label for="f-n">Name *</label><input id="f-n" name="name" autocomplete="name" required/></div>
+      <div class="f"><label for="f-e">Email *</label><input id="f-e" name="email" type="email" autocomplete="email" required/></div>
+      <div class="row3"><div class="f"><label for="f-p">Phone (optional)</label><input id="f-p" name="phone" type="tel" autocomplete="tel"/></div>
+      <div class="f"><label for="f-a">Bank &amp; card accounts? *</label><select id="f-a" name="accounts" required><option value="" disabled selected>Select…</option>{acct_opts}</select></div></div>
+      <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+      <div class="f-stat" id="lstat" role="status" aria-live="polite"></div>
+      <button class="btn btn-gold" id="lbtn" type="submit">Get my bookkeeping quote</button>
+      <p class="fine">Confidential. No obligation. We never share your details.</p>
+    </form>
+  </div>
+</div></section>
+
+<section class="sec" id="included"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">What's included</span><h2>Monthly bookkeeping, done properly every month</h2>
+  <p>Your books closed each month, so you know where you stand and your accounts are ready for your lender, your sales tax return and tax time.</p></div>
+  <div class="inc">{inc_html}</div>
+</div></section>
+
+<section class="sec alt" id="pricing"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">Pricing</span><h2>Flat monthly or hourly. You choose.</h2>
+  <p>Every engagement is quoted up front, before any work starts. Pricing depends mainly on how many accounts and transactions you have each month.</p></div>
+  <div class="prices">{price_html}</div>
+</div></section>
+
+<section class="sec"><div class="wrap fit">
+  <div>
+    <div class="sec-hd"><span class="eyebrow">Who it's for</span><h2>Built for {L["city"]}-area small businesses</h2></div>
+    <h3>Businesses we work with</h3>{pills(WHO)}
+    <h3>Software</h3>{pills(SOFT)}
+  </div>
+  <div class="creds">
+    <span class="eyebrow">Senior accounting team</span>
+    <p class="cl">CPA candidate · ACCA · Big Four (ex-PwC) · PTIN/EFIN tax preparer</p>
+    <p>Over 10 years of accounting, audit and tax experience. Your books are handled by Zain Merchant and/or a member of his team of accounting and tax professionals, with one point of contact who knows your file.</p>
+    <div class="area" aria-label="Areas served">{"".join(f"<span>{c}</span>" for c in AREA)}</div>
+  </div>
+</div></section>
+
+<section class="sec alt" id="reviews"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">Client reviews</span><h2>5.0 stars, client after client</h2></div>
+  <div class="revs-sum"><b>5.0</b><div><div class="st">★★★★★</div>Average across verified reviews on Google, Upwork &amp; Fiverr</div></div>
+  <div class="revs">{rev_html}</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">How it works</span><h2>From first call to closed books</h2></div>
+  <div class="steps">
+    <div class="step"><h3>Tell us about your books</h3><p>How many bank and card accounts you have, what software you use and how far behind you are, if at all.</p></div>
+    <div class="step"><h3>A clear quote</h3><p>A flat monthly fee or an hourly rate, agreed before any work starts. Behind? We quote the cleanup separately.</p></div>
+    <div class="step"><h3>Books closed every month</h3><p>Secure document upload, reconciled accounts and your monthly reports, with one person you can call.</p></div>
+  </div>
+</div></section>
+
+<section class="sec alt" id="faq"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">FAQs</span><h2>Bookkeeping questions</h2></div>
+  <div class="faqs-lp">{faq_bk}</div>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Let's get your books closed every month.</h2>
+  <p>Flat monthly or hourly. A clear quote before we start. No obligation.</p>
+  <div class="ctas">{call_btn("btn btn-gold", "Call " + esc(PHONE))}<a href="#quote" class="btn btn-line">Get a quote</a><a href="{BOOK_URL}" target="_blank" rel="noopener" class="btn btn-line" data-conv="book">{cal_ico}Book a 30-min call</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Accounting, tax and business solutions · {city} · Serving {L["region"]} · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
+  <nav><a href="/">Main site</a><a href="/services/#bookkeeping">Services</a><a href="/{L["slug"]}/">Bookkeeping &amp; tax in {city}</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
+  <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc. and Xero is a trademark of Xero Limited; MFA is not affiliated with or endorsed by either.</p>
+</div></footer>
+
+<div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#quote" class="btn btn-gold">Get a quote</a></div>
+<script>{js}</script>
+{ui_kit.UI_JS}
+</body></html>
+'''
+
+
 page = f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Bookkeeping &amp; Tax Preparation in §CITY§, §ST§ | MFA</title>
@@ -363,6 +608,9 @@ page = f'''<!doctype html><html lang="en"><head>
 {ui_kit.UI_JS}
 </body></html>
 '''
+
+if SP:
+    page = bookkeeping_page()
 
 page = page.replace("§EYEBROW§", EYEBROW).replace("§ST§", ST).replace("§STATE§", STATE).replace("§CITY§", L["city"]).replace("§REGION§", L["region"]).replace("§SLUG§", L["slug"])
 OUT.parent.mkdir(parents=True, exist_ok=True)

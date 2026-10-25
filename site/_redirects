@@ -1,7 +1,9 @@
 # Old WordPress URLs (pre-Oct 2026). Useful pages -> 301 to their new home.
 /contact              /#contact        301
 /contact-us           /#contact        301
-/contact/*            /#contact        301
+# /contact/thanks/ is a real page (form thank-you + Ads conversion, 2026-10-25). Cloudflare Pages applies a
+# matching redirect even when a file exists, so no /contact/* wildcard here.
+/contact/             /#contact        301
 # /services/ is a real page since 2026-10-20 (services moved off the home page).
 /service              /services/       301
 /service/*            /services/       301
@@ -34,3 +36,7 @@
 /reviews/              /#reviews                  301
 /testimonials          /#reviews                  301
 /testimonials/         /#reviews                  301
+
+# /bookkeeping/princeton-nj/ is the Princeton Bookkeeping ad landing page; the bare /bookkeeping/ has no page.
+/bookkeeping           /services/#bookkeeping   302
+/bookkeeping/          /services/#bookkeeping   302
