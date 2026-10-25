@@ -69,29 +69,35 @@
     }
   ],
   "cta": {
-    "big": "Comment *FICA*",
+    "big": "Comment *OPT*",
     "url": "mfa-advisory.com/international-students",
     "sub": "We'll DM you prices and booking."
   },
   "captions": {
-    "comment_word": "FICA",
-    "instagram": "Working on OPT or CPT? Look at your pay stub for Social Security and Medicare (FICA).\n\n✔️ F-1 and J-1 students who are nonresident aliens are generally exempt on work USCIS authorizes, including practical training like OPT and CPT.\n✔️ The exemption generally ends once you're a resident for tax purposes (often after 5 calendar years) or switch to a status like H-1B.\n✔️ Withheld by mistake? Ask your employer to return it first.\n✔️ If they won't return all of it, file Form 843 with Form 8316 and your documents.\n\nTax information only, not immigration advice. We prepare the Social Security/Medicare claim (Forms 843 + 8316) for $49, and e-file Form 1040-NR + 8843 in our student package ($99 federal, $129 with one state return). Book a call to start. Not available for CA, CT, MD, NY or OR state returns.",
+    "comment_word": "OPT",
+    "instagram": "Working on OPT or CPT? Look at your pay stub for Social Security and Medicare (FICA).\n\n✔️ F-1 and J-1 students who are nonresident aliens are generally exempt on work USCIS authorizes, including practical training like OPT and CPT.\n✔️ The exemption generally ends once you're a resident for tax purposes (often after 5 calendar years) or switch to a status like H-1B.\n✔️ Withheld by mistake? Ask your employer to return it first.\n✔️ If they won't return all of it, file Form 843 with Form 8316 and your documents.\n\nTax information only, not immigration advice. We prepare the Social Security/Medicare claim (Forms 843 + 8316) for $49, and e-file Form 1040-NR + 8843 in our student package ($99 federal, $129 with one state return). Federal plus NJ and NY returns. Book a call to start. Not available for CA, CT, MD or OR state returns.",
     "hashtags": [
       "#f1visa",
       "#internationalstudents",
       "#optstudents",
-      "#h1b",
-      "#studenttaxes",
-      "#nonresident",
+      "#studentsinusa",
+      "#studyinusa",
       "#taxseason",
-      "#taxtips"
+      "#taxtips",
+      "#nonresident"
     ],
     "youtube_title": "On OPT? Check Your Pay Stub for FICA (F-1 and J-1 Students)",
-    "youtube_description": "F-1 and J-1 students who are nonresident aliens are generally exempt from Social Security and Medicare (FICA) on USCIS-authorized work, including practical training like OPT and CPT. The exemption generally ends when you become a resident for tax purposes or change to a status like H-1B. If FICA was withheld by mistake, ask your employer first; if they won't return all of it, file Form 843 with Form 8316. MFA prepares the FICA claim (Forms 843 + 8316) for $49; book a call. Not available for CA, CT, MD, NY or OR state returns. Tax information only, not immigration advice.",
+    "youtube_description": "F-1 and J-1 students who are nonresident aliens are generally exempt from Social Security and Medicare (FICA) on USCIS-authorized work, including practical training like OPT and CPT. The exemption generally ends when you become a resident for tax purposes or change to a status like H-1B. If FICA was withheld by mistake, ask your employer first; if they won't return all of it, file Form 843 with Form 8316. MFA prepares the FICA claim (Forms 843 + 8316) for $49; book a call. Not available for CA, CT, MD or OR state returns. Tax information only, not immigration advice.",
     "pinterest_title": "FICA Tax on OPT: Are F-1 Students Exempt From Social Security and Medicare?",
     "pinterest_description": "OPT FICA exemption: F-1 and J-1 students who are nonresident aliens are generally exempt from Social Security and Medicare on authorized work, including OPT and CPT. It ends when you become a tax resident or switch to H-1B. Withheld by mistake? Ask your employer first, then file Form 843 with Form 8316. Tax information only, not immigration advice.",
     "pinterest_alt": "Short video: an F-1 student on OPT sees Social Security and Medicare on her pay stub; who is generally exempt from FICA and how to ask for it back (employer, then Forms 843 and 8316).",
-    "pinterest_board": "Tax Prep Checklist & Tax Season Organization"
+    "pinterest_board": "Tax Prep Checklist & Tax Season Organization",
+    "youtube_hashtags": [
+      "#shorts",
+      "#f1visa",
+      "#internationalstudents",
+      "#taxtips"
+    ]
   },
   "sync": {
     "product_id": null,

@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-24",
+  "slug": "f1-filed-1040-by-mistake",
+  "title": "F-1 and filed a 1040 by mistake? How to fix it",
+  "type": "service",
+  "accent": "plum",
+  "label": "F-1 · OPT · Tax",
+  "checked": "October 25, 2026",
+  "link": {
+    "path": "/international-students/",
+    "label": "Tax returns for international students and H-1B (MFA)"
+  },
+  "hook": {
+    "text": "F-1 and filed a *1040*? Fix it",
+    "sub": "Common when a tax app only offers Form 1040."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Kim filed with a popular tax app.",
+        "It put her on Form 1040.",
+        "She was still a nonresident."
+      ]
+    },
+    {
+      "type": "list",
+      "kicker": "How the fix usually works",
+      "items": [
+        {
+          "t": "File Form 1040-X",
+          "s": "The IRS form for correcting a return."
+        },
+        {
+          "t": "Attach a corrected Form 1040-NR",
+          "s": "Write \"Amended\" across the top."
+        },
+        {
+          "t": "Drop credits nonresidents can't claim",
+          "s": "Education credits, for example."
+        }
+      ],
+      "dur": 7.6
+    },
+    {
+      "type": "text",
+      "kicker": "Why it happens",
+      "text": "Some big tax apps don't do *1040-NR*",
+      "sub": "So they file the form they have."
+    },
+    {
+      "type": "text",
+      "kicker": "Want it handled?",
+      "text": "We prepare *1040-NR* returns",
+      "sub": "Book a call about fixing a past filing."
+    }
+  ],
+  "cta": {
+    "big": "Comment *AMEND*",
+    "url": "mfa-advisory.com/international-students",
+    "sub": "We'll DM you prices and booking."
+  },
+  "captions": {
+    "comment_word": "AMEND",
+    "instagram": "On F-1 or J-1 and filed a regular Form 1040 because your tax app didn't offer anything else? It's a common mistake, and there's a set way to fix it.\n\n✔️ File Form 1040-X, the IRS form for correcting a return.\n✔️ Attach a corrected Form 1040-NR with \"Amended\" written across the top.\n✔️ Nonresidents generally can't claim education credits, so those come off.\n✔️ Some popular tax apps don't support Form 1040-NR at all. Check before you file next year.\n\nWe prepare Form 1040-NR returns (student package with Form 8843 and a tax-treaty check: $99 federal, $129 with one state return). Book a call about fixing a past filing. Not available for CA, CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
+    "hashtags": [
+      "#f1visa",
+      "#internationalstudents",
+      "#optstudents",
+      "#studentsinusa",
+      "#studyinusa",
+      "#taxseason",
+      "#taxtips",
+      "#nonresident"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#f1visa",
+      "#internationalstudents",
+      "#taxtips"
+    ],
+    "youtube_title": "F-1 Student Filed a 1040 by Mistake? How the Fix Works (1040-X)",
+    "youtube_description": "Nonresident F-1 or J-1 students who filed Form 1040 instead of Form 1040-NR generally fix it with Form 1040-X, attaching a corrected Form 1040-NR marked \"Amended\". Nonresidents generally can't claim education credits. Some popular tax apps don't support Form 1040-NR. MFA prepares 1040-NR returns; book a call. Tax information only, not immigration advice.",
+    "pinterest_title": "F-1 Student Filed Form 1040 by Mistake? How to Amend to Form 1040-NR",
+    "pinterest_description": "Filed a Form 1040 by mistake as an F-1 or J-1 nonresident student? The usual fix: Form 1040-X with a corrected Form 1040-NR attached and marked Amended. Nonresidents generally can't claim education credits. Some tax apps don't support 1040-NR. MFA prepares 1040-NR returns. Not available for CA, CT, MD or OR state returns. Tax information only, not immigration advice.",
+    "pinterest_alt": "Short video: an F-1 student's tax app filed Form 1040; how a Form 1040-X with a corrected 1040-NR fixes it.",
+    "pinterest_board": "Tax Prep Checklist & Tax Season Organization"
+  },
+  "sync": {
+    "product_id": null,
+    "etsy_title_phrase": null,
+    "ads_keywords": [
+      "f1 student filed 1040 by mistake",
+      "amend 1040 to 1040nr"
+    ],
+    "blog": null,
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Use Form 1040-X if you should have filed Form 1040 instead of Form 1040-NR, or vice versa; complete the corrected return, write \"Amended\" across the top, attach it to Form 1040-X (Instructions for Form 1040-X, Rev. 12/2025, read 2026-10-25)",
+      "url": "https://www.irs.gov/instructions/i1040x"
+    },
+    {
+      "fact": "Generally, nonresident aliens are not eligible to claim education credits (IRS VITA foreign student module, read 2026-10-24)",
+      "url": "https://apps.irs.gov/app/vita/content/0613/0613_01_035.jsp?level=foreignstudent"
+    },
+    {
+      "fact": "TurboTax doesn't support IRS Form 1040-NR (Intuit help article, read 2026-10-24)",
+      "url": "https://ttlc.intuit.com/turbotax-support/en-us/help-article/tax-forms/turbotax-handle-form-1040-nr-nonresident-aliens/L6XqFCkC3_US_en_US"
+    },
+    {
+      "fact": "Substantial presence test: 31 days this year and 183 days over 3 years (1, 1/3, 1/6); days as an exempt individual (F/J/M/Q students) don't count (read 2026-10-24)",
+      "url": "https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test"
+    }
+  ]
+}

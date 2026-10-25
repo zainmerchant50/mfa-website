@@ -29,7 +29,7 @@ Spec JSON (see social/shorts/specs/ for real ones):
   hook {text, sub?}  (text supports *accent* = gold italic),
   beats [ {type: story|question|list|stat|values|rows|product|text, ...fields below, dur?} ],
   cta {big? (default "Comment *WORD*"), url, sub?},  captions.dm_reply? (default: thanks + link label + Instagram UTM link)
-  captions {comment_word, instagram, hashtags[5-8], youtube_title (<=70), youtube_description,
+  captions {comment_word, instagram, hashtags[5-10], youtube_hashtags[3-5 incl #shorts]?, youtube_title (<=70), youtube_description,
             pinterest_title (<=100), pinterest_description (<=500), pinterest_alt, pinterest_board},
   sync {product_id?, etsy_title_phrase?, ads_keywords[], blog?, pin_ids[]}, sources [{fact, url}]
 Beat fields:
@@ -116,8 +116,11 @@ def lint(p):
         errs.append(f"pinterest description is {len(pinterest_description(p))} chars (max 500)")
     if "#" in c["pinterest_description"]:
         errs.append("no hashtags in the Pinterest description")
-    if not 5 <= len(c["hashtags"]) <= 8:
-        errs.append("instagram: 5-8 hashtags")
+    if not 5 <= len(c["hashtags"]) <= 10:
+        errs.append("instagram: 5-10 hashtags (broad + niche; see README hashtag sets)")
+    yh = c.get("youtube_hashtags")
+    if yh is not None and (not 3 <= len(yh) <= 5 or "#shorts" not in [t.lower() for t in yh]):
+        errs.append("youtube_hashtags: 3-5 tags including #shorts")
     if not p["link"]["path"].startswith("/"):
         errs.append("link.path must start with /")
     return errs
@@ -155,7 +158,8 @@ def youtube_text(p):
         desc.append(CODE_LINE)
     desc += ["", "Merchant Financial Advisory: bookkeeping, tax and advisory for small businesses. Book a call: "
              f"{SITE}/book/?utm_source=youtube&utm_medium=video&utm_campaign={p['slug']}",
-             "", DISCLAIMER + " Names in our stories are made up.", "", "#Shorts #SmallBusiness #Taxes"]
+             "", DISCLAIMER + " Names in our stories are made up.", "",
+             " ".join(c.get("youtube_hashtags") or ["#Shorts", "#SmallBusiness", "#Taxes"])]
     return (f"TITLE ({len(c['youtube_title'])}/70)\n{c['youtube_title']}\n\nDESCRIPTION\n" + "\n".join(desc)
             + f"\n\nPINNED COMMENT\n{p['link']['label']}: {utm(p, 'youtube')}\n")
 

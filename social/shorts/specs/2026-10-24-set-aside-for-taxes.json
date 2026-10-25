@@ -73,17 +73,24 @@
    "#1099",
    "#selfemployed",
    "#gigworker",
-   "#doordashdriver",
+   "#sidehustle",
    "#freelancer",
    "#taxtips",
-   "#selfemploymenttax"
+   "#estimatedtaxes",
+   "#smallbusinesstips"
   ],
   "youtube_title": "Paid on a 1099? Set This Money Aside First (Gig Worker Tax Tip)",
   "youtube_description": "No one withholds tax from 1099 pay. Self-employment tax is 15.3% on top of income tax once net earnings reach $400. Open a separate savings account, move a set percentage of every payout the day it lands, and pay estimated tax during the year. Our 1099 tax calculator finds your percentage.",
   "pinterest_title": "How Much to Set Aside for Taxes on 1099 Income: A Gig Worker Money Tip",
   "pinterest_description": "How much to set aside for taxes when you're paid on a 1099: self-employment tax is 15.3% on top of income tax once net earnings reach $400. Open a separate tax savings account, move a set percentage of every payout, and pay estimated tax during the year. Find your percentage with our 1099 tax calculator.",
   "pinterest_alt": "Short video: a delivery driver with no tax withheld; self-employment tax of 15.3%; three steps to set tax money aside; MFA's 1099 tax calculator.",
-  "pinterest_board": "Self-Employed & 1099 Taxes"
+  "pinterest_board": "Self-Employed & 1099 Taxes",
+  "youtube_hashtags": [
+   "#shorts",
+   "#selfemployed",
+   "#gigworker",
+   "#taxtips"
+  ]
  },
  "sync": {
   "product_id": "08",

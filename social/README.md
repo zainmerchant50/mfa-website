@@ -134,6 +134,24 @@ so they are encouraged and then want to follow and then buy our digital products
   gives a PINNED COMMENT with the same link.
 - Pinterest video pins: the pin links to the page (`PINTEREST.txt` destination URL with UTM).
 
+### Hashtags (Zain, 2026-10-25)
+- **Instagram:** 5-10 tags, broad + niche (`shorts.py` lints 5-10). **YouTube Shorts:** 3-5 in `captions.youtube_hashtags`,
+  always including `#shorts` (printed at the end of the description). **Pinterest:** no hashtags; put the search words in a
+  keyword-rich title and description instead.
+- Use real, active tags. Checked 2026-10-25 on displaypurposes.com: #internationalstudents (~356k posts), #f1visa and
+  #artistsoninstagram are active and unflagged. Re-check a tag before leaning on it, and drop any that Instagram
+  restricts. Never tag by nationality or ethnicity; tag the visa or tax situation.
+- Reusable sets (pick 5-10; mix 3-4 broad with niche):
+  - Small business: #smallbusinesstips #smallbusiness #bookkeeping #taxtips #smallbusinesstaxes #entrepreneur #accounting #bookkeepingtips #llc #businessowner
+  - 1099 / gig: #1099 #selfemployed #gigworker #sidehustle #freelancer #estimatedtaxes #uberdriver #doordashdriver #mileagelog #taxwriteoffs
+  - Sellers: #etsyseller #etsyshop #onlineseller #1099k #sidehustle #smallbusinesstips
+  - Artists: #artistsoninstagram #artbusiness #artist #sellingart #artfair #etsyseller #taxwriteoffs #salestax #taxtips #smallbusinesstips
+  - Stylists: #hairstylist #boothrenter #salonowner #taxwriteoffs #selfemployed
+  - F-1 / OPT students: #f1visa #internationalstudents #optstudents #studentsinusa #studyinusa #nonresident #taxseason #taxtips
+  - H-1B / H-4: #h1b #h1bvisa #workinusa #h4visa #h4ead #nonresident #taxseason #taxtips
+  - YouTube sets: `#shorts #smallbusiness #taxtips #bookkeeping` · `#shorts #artists #artbusiness #taxtips` ·
+    `#shorts #f1visa #internationalstudents #taxtips` · `#shorts #h1b #taxtips #taxseason` · `#shorts #selfemployed #gigworker #taxtips`
+
 ### Make one
 1. Write `social/shorts/specs/<date>-<slug>.json` (copy a 2026-10-24 spec; every field is documented at the top of
    `social/shorts.py`). Pattern, 4-7 beats between the hook and the CTA: **hook** (on screen at frame 0, ≤ 7 words, one gold

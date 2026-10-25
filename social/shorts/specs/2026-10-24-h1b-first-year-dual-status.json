@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-24",
+  "slug": "h1b-first-year-dual-status",
+  "title": "First year on H-1B? You might be dual-status",
+  "type": "service",
+  "accent": "slate",
+  "label": "H-1B · Tax",
+  "checked": "October 25, 2026",
+  "link": {
+    "path": "/international-students/",
+    "label": "Tax returns for international students and H-1B (MFA)"
+  },
+  "hook": {
+    "text": "First year on H-1B? Maybe *dual-status*",
+    "sub": "Part nonresident, part resident, one tax year."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Chris moved here on July 1 for H-1B.",
+        "That's 184 days here by Dec. 31.",
+        "So his 2026 splits into two parts."
+      ]
+    },
+    {
+      "type": "rows",
+      "kicker": "A dual-status year, generally",
+      "items": [
+        {
+          "l": "Resident on Dec. 31",
+          "r": "Form 1040",
+          "ok": true
+        },
+        {
+          "l": "Standard deduction",
+          "r": "Not allowed",
+          "ok": false
+        },
+        {
+          "l": "Joint return",
+          "r": "Only by choice",
+          "ok": false
+        }
+      ],
+      "note": "Write \"Dual-Status Return\" on top and attach a statement for the nonresident months.",
+      "dur": 7.8
+    },
+    {
+      "type": "text",
+      "kicker": "Married to a resident?",
+      "text": "You can *choose* to file jointly",
+      "sub": "Then both of you report worldwide income."
+    },
+    {
+      "type": "text",
+      "kicker": "Want it handled?",
+      "text": "We prepare *H-1B* returns",
+      "sub": "Book a call to check your first year."
+    }
+  ],
+  "cta": {
+    "big": "Comment *H1B*",
+    "url": "mfa-advisory.com/international-students",
+    "sub": "We'll DM you prices and booking."
+  },
+  "captions": {
+    "comment_word": "H1B",
+    "instagram": "Moved to the US mid-year on an H-1B? Your first tax year may be dual-status: nonresident before your residency start date, resident after.\n\n✔️ Arrived July 1 and stayed? That's 184 days by Dec. 31, enough for the 183-day test.\n✔️ Resident on Dec. 31: Form 1040 with \"Dual-Status Return\" on top, plus a statement for the nonresident part.\n✔️ In a dual-status year you can't take the standard deduction or file as head of household.\n✔️ A joint return is possible only by choosing to be treated as residents for the whole year, which means reporting worldwide income.\n\nWe prepare H-1B returns, federal plus NJ and NY (our standard 1040 pricing). Book a call to check your first year. Not available for CA, CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
+    "hashtags": [
+      "#h1b",
+      "#h1bvisa",
+      "#workinusa",
+      "#taxseason",
+      "#taxtips",
+      "#nonresident",
+      "#internationalstudents"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#h1b",
+      "#taxtips",
+      "#taxseason"
+    ],
+    "youtube_title": "First Year on H-1B? Dual-Status Tax Return Basics",
+    "youtube_description": "Arriving mid-year on H-1B often makes your first year dual-status. Resident on Dec. 31: file Form 1040 marked \"Dual-Status Return\" with a statement for the nonresident months. No standard deduction or head of household in a dual-status year; a joint return only by choosing resident treatment for both spouses. Tax information only, not immigration advice.",
+    "pinterest_title": "First Year on H-1B: Dual-Status Tax Return Basics (Form 1040, No Standard Deduction)",
+    "pinterest_description": "H-1B first year taxes: arriving mid-year often means a dual-status year. Resident on Dec. 31? File Form 1040 marked Dual-Status Return with a statement for the nonresident part. No standard deduction or head of household; a joint return only by choosing resident treatment. MFA prepares H-1B returns. Not available for CA, CT, MD or OR state returns. Tax information only, not immigration advice.",
+    "pinterest_alt": "Short video: an H-1B worker who arrived July 1 has a dual-status year; what that means for Form 1040, the standard deduction and joint filing.",
+    "pinterest_board": "Tax Prep Checklist & Tax Season Organization"
+  },
+  "sync": {
+    "product_id": null,
+    "etsy_title_phrase": null,
+    "ads_keywords": [
+      "h1b dual status tax return",
+      "first year h1b taxes"
+    ],
+    "blog": null,
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Dual-status years are most common in years of arrival/departure; resident on last day: file Form 1040 marked \"Dual-Status Return\" with a statement for the nonresident part; no standard deduction; no joint return unless married to a citizen/resident and electing; no head of household (page updated 23-Nov-2025, read 2026-10-25)",
+      "url": "https://www.irs.gov/individuals/international-taxpayers/taxation-of-dual-status-individuals"
+    },
+    {
+      "fact": "Residency starting date under the substantial presence test is generally the first day present in the US that year (read 2026-10-25)",
+      "url": "https://www.irs.gov/individuals/international-taxpayers/residency-starting-and-ending-dates"
+    },
+    {
+      "fact": "Choice to treat a nonresident spouse as resident: both report worldwide income; signed statement attached to the joint return (read 2026-10-25)",
+      "url": "https://www.irs.gov/individuals/international-taxpayers/nonresident-spouse"
+    },
+    {
+      "fact": "H-1B who meets the substantial presence test is a US resident for federal income tax; dual-status aliens file a special return (read 2026-10-24)",
+      "url": "https://www.irs.gov/individuals/taxation-of-alien-individuals-by-immigration-status-h-1b"
+    },
+    {
+      "fact": "July 1 to Dec. 31 = 184 days (31+31+30+31+30+31), which meets 183 with no prior-year days",
+      "url": "https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test"
+    }
+  ]
+}

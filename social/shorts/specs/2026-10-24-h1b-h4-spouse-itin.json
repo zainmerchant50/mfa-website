@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-24",
+  "slug": "h1b-h4-spouse-itin",
+  "title": "Spouse on H-4 with no SSN? ITIN and joint return basics",
+  "type": "service",
+  "accent": "forest",
+  "label": "H-1B · H-4 · Tax",
+  "checked": "October 25, 2026",
+  "link": {
+    "path": "/international-students/",
+    "label": "Tax returns for international students and H-1B (MFA)"
+  },
+  "hook": {
+    "text": "Spouse on H-4, no SSN? *ITIN*",
+    "sub": "How a joint tax return can still work."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Alex is on H-1B and files Form 1040.",
+        "His spouse is on H-4, with no SSN.",
+        "Can they still file jointly?"
+      ]
+    },
+    {
+      "type": "rows",
+      "kicker": "Joint return, generally",
+      "items": [
+        {
+          "l": "Spouse needs a tax ID",
+          "r": "SSN or ITIN",
+          "ok": true
+        },
+        {
+          "l": "No SSN?",
+          "r": "ITIN via Form W-7",
+          "ok": true
+        },
+        {
+          "l": "Spouse a nonresident?",
+          "r": "Can choose resident",
+          "ok": true
+        }
+      ],
+      "note": "Choosing resident means both of you report worldwide income.",
+      "dur": 7.6
+    },
+    {
+      "type": "text",
+      "kicker": "Good to know",
+      "text": "An ITIN doesn't allow *work*",
+      "sub": "It's a tax ID, nothing more."
+    },
+    {
+      "type": "text",
+      "kicker": "Want it handled?",
+      "text": "We prepare *H-1B* family returns",
+      "sub": "Book a call to check your filing status."
+    }
+  ],
+  "cta": {
+    "big": "Comment *H4*",
+    "url": "mfa-advisory.com/international-students",
+    "sub": "We'll DM you prices and booking."
+  },
+  "captions": {
+    "comment_word": "H4",
+    "instagram": "On H-1B with a spouse on H-4 who can't get a Social Security number? You can usually still file a joint return.\n\n✔️ Everyone on the return needs an SSN or an ITIN.\n✔️ A first-time ITIN application (Form W-7) is generally attached to the front of the tax return, with a passport or certified copy.\n✔️ If your spouse is a nonresident for tax, you can choose to treat them as a resident to file jointly. Then both of you report worldwide income.\n✔️ An ITIN is for tax filing only. It doesn't allow work or change immigration status.\n\nWe prepare H-1B family returns, federal plus NJ and NY, at our standard 1040 pricing. Book a call to check your filing status. Not available for CA, CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
+    "hashtags": [
+      "#h1b",
+      "#h1bvisa",
+      "#workinusa",
+      "#taxseason",
+      "#taxtips",
+      "#nonresident",
+      "#h4visa",
+      "#h4ead"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#h1b",
+      "#h4visa",
+      "#taxtips"
+    ],
+    "youtube_title": "Spouse on H-4 With No SSN? ITIN and Joint Tax Return Basics",
+    "youtube_description": "H-1B with a spouse on H-4 and no SSN: everyone on a return needs an SSN or ITIN; a first-time ITIN (Form W-7) is generally attached to the tax return; a nonresident spouse can be treated as a resident to file jointly, with both reporting worldwide income. An ITIN doesn't authorize work. Tax information only, not immigration advice.",
+    "pinterest_title": "H-4 Spouse With No SSN? ITIN (Form W-7) and Joint Return Basics for H-1B Families",
+    "pinterest_description": "H-1B and H-4 taxes: a spouse without an SSN needs an ITIN to be on a joint return. Form W-7 is generally attached to the tax return with a passport. A nonresident spouse can be treated as a resident to file jointly, and both report worldwide income. An ITIN doesn't authorize work. MFA prepares H-1B family returns. Not available for CA, CT, MD or OR state returns. Tax information only, not immigration advice.",
+    "pinterest_alt": "Short video: an H-1B worker's spouse on H-4 has no SSN; how an ITIN and the resident-spouse choice allow a joint return.",
+    "pinterest_board": "Tax Prep Checklist & Tax Season Organization"
+  },
+  "sync": {
+    "product_id": null,
+    "etsy_title_phrase": null,
+    "ads_keywords": [
+      "h4 spouse itin",
+      "h1b joint tax return"
+    ],
+    "blog": null,
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "A spouse must have an SSN or ITIN to be on a joint or separate return; if not eligible for an SSN, file Form W-7 for an ITIN; choice to treat a nonresident spouse as resident: both report worldwide income, signed statement with the joint return (read 2026-10-25)",
+      "url": "https://www.irs.gov/individuals/international-taxpayers/nonresident-spouse"
+    },
+    {
+      "fact": "Attach Form W-7 to the front of your tax return (exceptions listed); original passport or certified copy is sufficient ID (Instructions for Form W-7, read 2026-10-25)",
+      "url": "https://www.irs.gov/instructions/iw7"
+    },
+    {
+      "fact": "An ITIN doesn't authorize work in the U.S. or provide/change immigration status (read 2026-10-24)",
+      "url": "https://www.irs.gov/tin/itin/individual-taxpayer-identification-number-itin"
+    }
+  ]
+}
