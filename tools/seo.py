@@ -457,9 +457,9 @@ def _pricing_lines():
               "- International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; "
               "student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal, $129 with one state return; Social Security and Medicare "
               "refund claim (Forms 843 + 8316) $49; H-1B and other US tax residents file Form 1040 at standard tax return pricing. "
-              "No state returns for California, Connecticut, Maryland, New York or Oregon.",
+              "No state returns for California, Connecticut, Maryland or Oregon.",
               "- Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; "
-              "bookkeeping, LLC formation and quarterly estimates at the prices above. No state returns for California, Connecticut, Maryland, New York or Oregon.",
+              "bookkeeping, LLC formation and quarterly estimates at the prices above. No state returns for California, Connecticut, Maryland or Oregon.",
               "- Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts."]
     return lines
 

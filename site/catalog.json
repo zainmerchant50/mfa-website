@@ -360,7 +360,7 @@
      "@type": "Offer",
      "name": "Student package with one state return",
      "priceCurrency": "USD",
-     "description": "Form 1040-NR, Form 8843, tax treaty check and one state return (not California, Connecticut, Maryland, New York or Oregon).",
+     "description": "Form 1040-NR, Form 8843, tax treaty check and one state return (not California, Connecticut, Maryland or Oregon).",
      "itemOffered": {
       "@type": "Service",
       "name": "Student package with one state return",
@@ -395,14 +395,6 @@
       {
        "@type": "State",
        "name": "Maryland",
-       "containedInPlace": {
-        "@type": "Country",
-        "name": "United States"
-       }
-      },
-      {
-       "@type": "State",
-       "name": "New York",
        "containedInPlace": {
         "@type": "Country",
         "name": "United States"
@@ -1239,7 +1231,7 @@
     "name": "US tax returns for international students and H-1B workers",
     "url": "https://mfa-advisory.com/international-students/",
     "serviceType": "Tax preparation for international students and nonresident aliens (Form 1040-NR, Form 8843, Forms 843 and 8316)",
-    "description": "F-1 student tax return on Form 1040-NR $99, Form 8843 help $25, OPT Social Security refund $49, tax treaty check. H-1B returns too. E-filed. Federal returns for every US state. State returns for every state except California, Connecticut, Maryland, New York or Oregon.",
+    "description": "F-1 student tax return on Form 1040-NR $99, Form 8843 help $25, OPT Social Security refund $49, tax treaty check. H-1B returns too. E-filed. Federal returns for every US state. State returns for every state except California, Connecticut, Maryland or Oregon.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -1289,7 +1281,7 @@
       "@type": "Offer",
       "name": "Student package with one state return",
       "priceCurrency": "USD",
-      "description": "Form 1040-NR, Form 8843, tax treaty check and one state return (not California, Connecticut, Maryland, New York or Oregon).",
+      "description": "Form 1040-NR, Form 8843, tax treaty check and one state return (not California, Connecticut, Maryland or Oregon).",
       "itemOffered": {
        "@type": "Service",
        "name": "Student package with one state return",
@@ -1324,14 +1316,6 @@
        {
         "@type": "State",
         "name": "Maryland",
-        "containedInPlace": {
-         "@type": "Country",
-         "name": "United States"
-        }
-       },
-       {
-        "@type": "State",
-        "name": "New York",
         "containedInPlace": {
          "@type": "Country",
          "name": "United States"
@@ -1390,7 +1374,7 @@
     "name": "Taxes and bookkeeping for artists and creatives",
     "url": "https://mfa-advisory.com/artists/",
     "serviceType": "Tax preparation, bookkeeping and LLC formation for self-employed artists",
-    "description": "Schedule C tax returns, art business bookkeeping, LLC formation and quarterly estimated taxes for self-employed artists, illustrators, photographers, musicians, crafters and Etsy art sellers. Federal returns for every US state; state returns for every state except California, Connecticut, Maryland, New York or Oregon.",
+    "description": "Schedule C tax returns, art business bookkeeping, LLC formation and quarterly estimated taxes for self-employed artists, illustrators, photographers, musicians, crafters and Etsy art sellers. Federal returns for every US state; state returns for every state except California, Connecticut, Maryland or Oregon.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -1408,7 +1392,7 @@
       "@type": "Offer",
       "name": "Self-employed artist tax return (Form 1040 with Schedule C)",
       "priceCurrency": "USD",
-      "description": "Quoted up front by return type. Federal returns for every US state; state returns for every state except California, Connecticut, Maryland, New York or Oregon.",
+      "description": "Quoted up front by return type. Federal returns for every US state; state returns for every state except California, Connecticut, Maryland or Oregon.",
       "itemOffered": {
        "@type": "Service",
        "name": "Self-employed artist tax return (Form 1040 with Schedule C)",
@@ -1438,14 +1422,6 @@
        {
         "@type": "State",
         "name": "Maryland",
-        "containedInPlace": {
-         "@type": "Country",
-         "name": "United States"
-        }
-       },
-       {
-        "@type": "State",
-        "name": "New York",
         "containedInPlace": {
          "@type": "Country",
          "name": "United States"

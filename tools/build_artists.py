@@ -21,8 +21,8 @@ from build_resources import page, write, esc, BASE, cta
 URL = BASE + "/artists/"
 OG_IMG = URL + "og.png"   # rendered from content/graphics/artists-og.html (tools/render_graphics.js)
 CHECKED = "2026-10-25"
-STATES_OUT = "California, Connecticut, Maryland, New York or Oregon"
-STATE_CODES = ["CA", "CT", "MD", "NY", "OR"]
+STATES_OUT = "California, Connecticut, Maryland or Oregon"
+STATE_CODES = ["CA", "CT", "MD", "OR"]
 KEYWORDS = ["artist taxes", "tax deductions for artists", "self-employed artist tax return", "do artists need an LLC",
             "art business bookkeeping", "Etsy artist 1099-K", "tax savings for artists", "Schedule C for artists",
             "musician taxes", "photographer taxes", "art fair sales tax"]
@@ -89,7 +89,7 @@ FAQ = [
      "Selling in person can mean registering with that state and collecting its sales tax, and some events ask for your permit number. "
      "Check the revenue department for each state where you sell. Sales tax you collect from buyers and pass on to the state isn't your income."),
     ("Which state returns don't you prepare?",
-     f"We don't prepare state returns for {STATES_OUT}, the same as our other tax services. We can still do your federal return wherever you live."),
+     f"We don't prepare state returns for {STATES_OUT}, the same as our other tax services. New Jersey and New York returns are no problem, and we can do your federal return wherever you live."),
 ]
 FAQ_LINKS = {   # answer index -> (phrase in the answer, link) for the on-page version (JSON-LD keeps plain text)
     1: ("See the list of tax deductions for artists on this page.", LNK("#deductions", "See the list of tax deductions for artists") + " on this page."),
