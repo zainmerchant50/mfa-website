@@ -130,17 +130,17 @@ def build():
     body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Bookkeeping cleanup</span>
 <h1>Behind on your books? <em>We'll get you caught up.</em></h1>
 <p>Cleanup depends on how many months, accounts and transactions are involved, so we don't guess at a flat rate. Send a few details, and we'll give you a fixed quote before any work starts.</p>
-<div class="hero-btns"><a class="btn btn-gold" href="#quote">Request a quote</a><a class="btn btn-line" href="/services/book/keeping">All bookkeeping services</a></div></div></header>
+<div class="hero-btns"><a class="btn btn-gold" href="#quote">Request a quote</a><a class="btn btn-line" href="/services/#bookkeeping">All bookkeeping services</a></div></div></header>
 <main>
 <section class="wrap llc-sec" aria-labelledby="cov-h"><div class="sec-hd"><span class="eyebrow eb-dark">What cleanup covers</span><h2 id="cov-h">From a pile of transactions to books you can use.</h2></div>
 <div class="cu-list">{cov}</div>
 <p class="cu-note">Once the books are current, monthly bookkeeping keeps them that way. <a href="/llc-formation/#monthly">See how monthly bookkeeping works</a>.</p></section>
 <section class="wrap llc-sec" aria-labelledby="how-h"><div class="sec-hd"><span class="eyebrow eb-dark">How quoting works</span><h2 id="how-h">A fixed quote first. Work only after you say yes.</h2>
-<p>We review a sample of your accounts and give you a fixed quote before any work starts. The quote is the price; it doesn't grow as we go.</p></div>
+<p>You see the price before we touch your books, and the quote is the price: it doesn't grow as we go.</p></div>
 <div class="st3s">{steps}</div></section>
 {form_html()}
 {cta("Prefer to talk it through?", "Book a 30-minute call and tell us where the books stand. We'll suggest the smallest cleanup that gets you current.")}
-<section class="wrap llc-sec"><p class="disclaimer">Bookkeeping cleanup is bookkeeping work prepared for your own use. It is general accounting support, not tax or legal advice, and sending this form doesn't create a client relationship until you accept a written quote.</p></section>
+<section class="wrap llc-sec fineprint" aria-label="Fine print"><p class="disclaimer">Bookkeeping cleanup is bookkeeping work prepared for your own use. It is general accounting support, not tax or legal advice, and sending this form doesn't create a client relationship until you accept a written quote.</p></section>
 </main>'''
     svc = {"@type": "Service", "@id": url + "#service", "name": "Bookkeeping cleanup and catch-up", "url": url, "serviceType": "Bookkeeping",
            "description": desc, "provider": {"@id": seo.ORG_ID}, "areaServed": seo.area_served(),

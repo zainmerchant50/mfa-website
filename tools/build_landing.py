@@ -185,7 +185,7 @@ form textarea{min-height:84px;resize:vertical}form input:focus,form select:focus
 form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}form .btn{width:100%;margin-top:4px}
 .hp{position:absolute;left:-9999px}.f-stat{font-size:13px;margin:6px 0;color:#a33}
 .done{display:none;text-align:center;padding:30px 6px}.done.show{display:block}.done h3{font-size:28px;margin-bottom:8px}
-.fine{font-size:11px;color:var(--muted);margin-top:10px;text-align:center}
+.fine{font-size:11px;color:var(--muted);margin-top:14px;text-align:center}
 /* sections */
 .sec{padding:84px 0}.sec.alt{background:var(--paper-2)}
 .sec-hd{max-width:720px;margin-bottom:40px}.sec-hd h2{font-size:clamp(32px,4vw,46px);margin-bottom:12px}.sec-hd p{color:var(--muted);font-size:17px}

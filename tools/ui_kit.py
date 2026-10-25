@@ -67,6 +67,13 @@ UI_CSS = r"""
 .relnav span{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-right:6px}
 .relnav a{font-size:.86rem;line-height:1.3;padding:7px 13px;border:1px solid var(--hair);border-radius:999px;background:var(--paper);color:var(--ink);text-decoration:none;transition:border-color .3s}
 .relnav a:hover{border-color:var(--gold)}
+/* Footnotes and disclaimers before the footer (ui_kit.fineprint). They never sit on the footer line:
+   the last section of <main> keeps 64px+ above the footer, and a stand-alone footnote gets 48px above it. */
+main>.llc-sec:last-child{padding-bottom:72px}
+main>.tinfo:last-child{padding-bottom:40px}
+.fineprint{padding-top:48px!important;padding-bottom:72px}
+.cta-block+.fineprint{padding-top:0!important}
+.fineprint .disclaimer{margin:0!important;max-width:860px;line-height:1.7}
 /* Add-to-calendar menu */
 .kd-add{position:relative;display:inline-block}
 .kd-add>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
@@ -144,6 +151,12 @@ UI_JS = r"""<script>
 
 def _plain(s):
     return _html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
+
+
+def fineprint(text_html):
+    """Stand-alone footnote/disclaimer as the last block of <main>: muted italic .disclaimer text with proper
+    space above it and above the footer. Use this instead of a bare <section><p class="disclaimer">."""
+    return f'<section class="wrap llc-sec fineprint" aria-label="Fine print"><p class="disclaimer">{text_html}</p></section>'
 
 
 def faq_accordion(pairs, prefix="faq", heading_tag="h3"):

@@ -147,7 +147,7 @@ a.rcard:hover .go i{transform:translateX(4px)}
 .fld textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,141,63,.15)}
 .fld .hint a{color:var(--navy);border-bottom:1px solid var(--gold)}
 .ldone{max-width:980px}.ldone h2{margin-bottom:8px}.ldone a{color:var(--navy);border-bottom:1px solid var(--gold)}
-.llc-sec.faqs{margin:0 auto}.llc-sec .sources{max-width:860px;padding-bottom:40px}
+.llc-sec.faqs{margin:0 auto}.llc-sec .sources{max-width:860px;padding-bottom:0}
 .ask-hp{position:absolute!important;left:-9999px!important;height:0;width:0;opacity:0}
 .tw-s{margin-top:0}.tw-s .tbl{min-width:0}
 @media (max-width:600px){.tw-s .tbl th,.tw-s .tbl td{padding:9px 6px;font-size:.82rem}.article .tbl td{word-break:break-word}}

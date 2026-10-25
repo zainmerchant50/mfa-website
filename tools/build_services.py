@@ -120,7 +120,7 @@ def build():
 <section class="wrap llc-sec" aria-labelledby="more-h"><div class="sec-hd"><span class="eyebrow eb-dark">Where we work, and more</span><h2 id="more-h">Local pages and related pages.</h2></div>
 <nav class="sv-jump" aria-label="Local pages and related pages"><a href="/princeton-nj/">Princeton, NJ</a><a href="/union-city-nj/">Union City, NJ</a><a href="/new-york-ny/">New York City</a><a href="/llc-formation/">LLC formation in all 50 states</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup quote</a><a href="/shop/">Shop</a><a href="/resources/">Resources</a><a href="/blog/">MFA Insights</a><a href="/authors/zain-merchant/">About Zain Merchant, ACCA</a></nav></section>
 {cta("Not sure where to start?", "Tell us what's going on in a 30-minute call and we'll suggest the smallest engagement that fixes it, with a price before any work begins.")}
-<section class="wrap llc-sec"><p class="disclaimer">Merchant Financial Advisory provides accounting, bookkeeping, tax preparation and advisory services. We do not perform audits or issue audit, review or compilation reports, and we are not a law firm. Languages: English, Hindi and Urdu.</p></section>
+<section class="wrap llc-sec fineprint" aria-label="Fine print"><p class="disclaimer">Merchant Financial Advisory provides accounting, bookkeeping, tax preparation and advisory services. We do not perform audits or issue audit, review or compilation reports, and we are not a law firm. Languages: English, Hindi and Urdu.</p></section>
 </main>'''
     ld = seo.graph(url, "Services", desc, {"@type": "OfferCatalog", "@id": url + "#catalog", "name": "MFA services", "url": url,
                                             "itemListElement": [{"@id": f"{url}#{sid}"} for sid, *_ in SERVICES]},

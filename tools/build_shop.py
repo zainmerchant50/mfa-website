@@ -104,7 +104,7 @@ def build():
 <div><strong>All sales final.</strong> Because files are delivered instantly, purchases aren't refundable. Questions before you buy? Email info@mfa-advisory.com.</div>
 </div></div></section>
 {cta("Rather have it done for you?", "Book a 30-minute call. We'll handle the bookkeeping, filings or tax work, with the price agreed before we start.")}
-<section class="wrap llc-sec"><p class="disclaimer">Products are general information, not tax, legal or accounting advice, and don't create a client relationship. MFA is not affiliated with the IRS, Intuit, QuickBooks or Xero.</p></section>
+<section class="wrap llc-sec fineprint" aria-label="Fine print"><p class="disclaimer">Products are general information, not tax, legal or accounting advice, and don't create a client relationship. MFA is not affiliated with the IRS, Intuit, QuickBooks or Xero.</p></section>
 </main>
 {GJS if any(x[8] == "gumroad" for x in PRODUCTS) else ""}'''
     prods = seo.live_products()

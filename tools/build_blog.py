@@ -188,7 +188,7 @@ def help_box(p, where="top"):
             else f"If {esc(form)} still feels like a lot, we can prepare it with you or for you.")
     return f'''<aside class="helpbox helpbox-{where}" aria-label="Book a call about {esc(form)}">
   <p class="hb-h">Need help with this form? Book a call</p>
-  <p class="hb-p">{lead} Book a 30-minute call or call us at {PHONE}.</p>
+  <p class="hb-p">{lead} {"Book a 30-minute call or call us at" if where == "top" else "Pick a 30-minute slot, or phone us at"} {PHONE}.</p>
   <div class="hb-btns"><a class="btn btn-gold" href="{BOOK_CAL}" target="_blank" rel="noopener" data-conv="book">Book a call</a><a class="btn btn-line" href="tel:{TEL}" data-conv="call">Call {PHONE}</a></div>
 </aside>'''
 
