@@ -38,7 +38,7 @@ SERVICES = [
      ["Monthly categorization to a chart of accounts built for your business",
       "Bank, credit card and loan reconciliations to the statements",
       "Accounts payable and receivable tracking",
-      "Books kept in QuickBooks, Xero and Sage",
+      "Books kept in QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks",
       "Monthly P&amp;L and balance sheet with a short note on what changed",
       "Catch-up and cleanup projects for books that are months behind (quoted after we look at a sample of your accounts)"],
      "Monthly bookkeeping <strong>from $199/month</strong> for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.",

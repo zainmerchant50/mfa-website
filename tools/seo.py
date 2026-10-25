@@ -43,7 +43,7 @@ FIVERR = "https://www.fiverr.com/zainmerchant50"
 INSTAGRAM = "https://www.instagram.com/mfa_advisory/"
 GBP = "https://maps.google.com/?cid=17671016441974338457"  # Google Business Profile (verified Oct 2026)
 SAME_AS = [GBP, LINKEDIN_CO, INSTAGRAM, UPWORK, FIVERR, GUMROAD_STORE]
-TOPICS = ["Tax preparation", "Tax planning", "Bookkeeping", "Accrual accounting", "Financial reporting", "QuickBooks Online", "Xero", "Sage",
+TOPICS = ["Tax preparation", "Tax planning", "Bookkeeping", "Accrual accounting", "Financial reporting", "QuickBooks Online", "QuickBooks Desktop", "Xero", "Sage", "Wave Accounting", "FreshBooks",
           "Fractional CFO services", "LLC formation", "S corporation elections", "Form 1099 reporting", "IRS filing deadlines",
           "New Jersey taxes", "New York taxes", "Small business accounting"]
 ORG_DESC = ("Accounting, bookkeeping, tax preparation and advisory firm in Princeton, New Jersey for small and mid-sized businesses "
@@ -449,7 +449,7 @@ def _pricing_lines():
     import build_llc as L
     lines = [f"- LLC formation, {p['name']}: ${p['price']} plus the state filing fee (paid once, does not renew). {plain(p['lead'])}" for p in L.PACKAGES]
     A, M = L.ADDONS, L.MONTHLY
-    lines += [f"- Monthly bookkeeping: from ${M['price']}/month for {M['scope']}. Month to month; larger books are quoted up front. Software: QuickBooks, Xero and Sage.",
+    lines += [f"- Monthly bookkeeping: from ${M['price']}/month for {M['scope']}. Month to month; larger books are quoted up front. Software: QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks.",
               f"- Quarterly estimated tax service: ${A['quarterly']['price']} for the year (four federal and state estimate calculations with due dates).",
               f"- 1099 preparation and e-filing: ${A['f1099']['per']} per form, ${A['f1099']['min']} minimum.",
               f"- Sales tax registration: ${A['salestax']['price']} (included in Complete Launch). S corporation election (Form 2553): ${A['scorp']['price']} (included in Complete Launch).",
@@ -479,7 +479,7 @@ def build_llms(posts):
         "Not a law firm. MFA does not perform audits or issue audit, review or compilation reports. Content on the site is general information, not tax, legal or financial advice.",
         "",
         "## Services and public prices",
-        f"- [Services]({BASE}/services/): tax preparation, tax planning, bookkeeping (QuickBooks, Xero and Sage), financial reporting, fractional CFO, audit support, technical accounting, business advisory",
+        f"- [Services]({BASE}/services/): tax preparation, tax planning, bookkeeping (QuickBooks, Xero, Sage, Wave and FreshBooks), financial reporting, fractional CFO, audit support, technical accounting, business advisory",
         f"- [LLC formation in all 50 states]({BASE}/llc-formation/): $150 / $249 / $649 plus the state fee, paid once; state-by-state fees and rules",
         f"- [Bookkeeping cleanup and catch-up]({BASE}/bookkeeping-cleanup/): fixed quote request",
         f"- [International students and H-1B workers]({BASE}/international-students/): international student tax filing; Form 8843 $25, Form 1040-NR student package $99 ($129 with one state), Social Security and Medicare (FICA) refund claim $49, tax treaty check; H-1B returns at standard Form 1040 pricing",
@@ -488,7 +488,7 @@ def build_llms(posts):
         "",
         "## Local pages",
         f"- [Princeton, NJ]({BASE}/princeton-nj/): bookkeeping, accounting and tax preparation for Princeton and Mercer County",
-        f"- [Bookkeeping in Princeton, NJ]({BASE}/bookkeeping/princeton-nj/): monthly bookkeeping from $199/month in QuickBooks, Xero and Sage, flat monthly or hourly, cleanup quoted up front",
+        f"- [Bookkeeping in Princeton, NJ]({BASE}/bookkeeping/princeton-nj/): monthly bookkeeping from $199/month in QuickBooks, Xero, Sage, Wave and FreshBooks, flat monthly or hourly, cleanup quoted up front",
         f"- [Union City, NJ]({BASE}/union-city-nj/): bookkeeping, accounting and tax preparation for Union City and Hudson County",
         f"- [New York, NY]({BASE}/new-york-ny/): bookkeeping, accounting and tax preparation for the five boroughs",
         "",

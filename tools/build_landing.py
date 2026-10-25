@@ -121,7 +121,7 @@ FAQ = [
     ("Who will work on my account?", "A senior team of experienced accountants and tax professionals, led by founder Zain Merchant, a member of ACCA (the Association of Chartered Certified Accountants, UK) with Big Four audit and assurance experience. For engagements that require a licensed CPA, we partner with licensed CPAs. You get one point of contact who knows your file."),
     ("How much do you charge?", "You choose how you pay. Ongoing bookkeeping and advisory are usually a flat monthly fee, so your cost is predictable. One-off projects like cleanups and catch-up work get a project quote, and we also work on hourly contracts if you prefer to pay as you go. Bookkeeping pricing depends mainly on how many transactions you have each month, the number of accounts, the complexity of your business, and whether your books are kept on a cash or accrual basis. Every engagement is quoted up front after an initial consultation."),
     ("I'm behind on my books or haven't filed. Can you help?", "Yes. Catch-up bookkeeping and prior-year returns are a regular part of our work. We rebuild the records, reconcile every account and get your filings current."),
-    ("Do you work in QuickBooks, Xero and Sage?", "Yes. We keep books in QuickBooks, Xero and Sage. Our founder is a QuickBooks ProAdvisor, and we handle QuickBooks Online setup, cleanup and ongoing bookkeeping. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
+    ("Do you work in QuickBooks, Xero, Sage, Wave and FreshBooks?", "Yes. We keep books in QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks. Our founder is a QuickBooks ProAdvisor, and we handle QuickBooks setup, cleanup and ongoing bookkeeping in both QuickBooks Online and QuickBooks Desktop. We can also work from spreadsheets and bank statements if you don't use accounting software yet."),
     ("What should I bring to the first call?", "For bookkeeping, tell us roughly how many accounts your business has, including bank accounts, credit cards and loans (an estimate is fine). That tells us your approximate monthly transaction volume, which, together with complexity, is what drives bookkeeping pricing. If you know whether your books are on a cash or accrual basis, mention that too; if not, we'll work it out together. For tax returns, have last year's return handy if you can."),
 ]
 
@@ -331,15 +331,15 @@ def bookkeeping_page():
                          for n, p, s, t, b in PRICES)
     WHO = [f"Small businesses in {L['city']} &amp; {L['region']}", "Sole proprietors and freelancers", "Single- and multi-member LLCs",
            "S corporations", "Retail and e-commerce sellers who collect sales tax"]
-    SOFT = ["QuickBooks Online", "QuickBooks Desktop", "Xero", "Sage", "Spreadsheets and bank statements"]   # Zain, 2026-10-25: QuickBooks, Xero and Sage clients
+    SOFT = ["QuickBooks Online", "QuickBooks Desktop", "Xero", "Sage", "Wave", "FreshBooks", "Spreadsheets and bank statements"]   # Zain, 2026-10-25: QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks
     pills = lambda xs: '<div class="pills">' + "".join(f"<span>{x}</span>" for x in xs) + "</div>"
     FAQ_BK = [
         ("How much does monthly bookkeeping cost?",
          f"Monthly bookkeeping starts at ${price} a month for one bank account, one card and up to 100 transactions a month. "
          "Larger books are quoted up front after a short call, and we also work hourly if you prefer to pay as you go. "
          "Cleanup and catch-up projects get a fixed quote after we review a sample of your accounts."),
-        ("Do you work in QuickBooks, Xero and Sage?",
-         "Yes. Our founder is a QuickBooks ProAdvisor, and we keep books in QuickBooks (Online or Desktop), Xero and Sage. If you don't use accounting "
+        ("Do you work in QuickBooks, Xero, Sage, Wave and FreshBooks?",
+         "Yes. Our founder is a QuickBooks ProAdvisor, and we keep books in QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks. If you don't use accounting "
          "software yet, we can set up QuickBooks Online for you or start from your spreadsheets and bank statements."),
         ("Will my books be ready for sales tax and tax time?",
          f"Yes. We track taxable sales so the totals for your {STATE} sales tax return are ready each period, and at year-end we hand "
@@ -353,7 +353,7 @@ def bookkeeping_page():
     service = {"@type": "Service", "@id": URL + "#service", "name": f"Bookkeeping in {city}", "serviceType": "Bookkeeping",
                "url": URL, "provider": {"@id": seo.ORG_ID}, "areaServed": LOCAL_AREAS, "termsOfService": "https://mfa-advisory.com/terms.html",
                "description": seo.plain("Monthly bookkeeping: reconciliations, transaction categorizing, a monthly P&amp;L and balance sheet "
-                                        "and sales-tax-ready reports, at a flat monthly fee or hourly, in QuickBooks, Xero and Sage. Cleanup and catch-up quoted up front."),
+                                        "and sales-tax-ready reports, at a flat monthly fee or hourly, in QuickBooks, Xero, Sage, Wave and FreshBooks. Cleanup and catch-up quoted up front."),
                "offers": [seo._offer("Monthly bookkeeping", price, "Starting price per month for one bank account, one card and up to 100 transactions a month. "
                                      "Month to month; larger books are quoted up front.", unit=("MON", "month"))]}
     faq_ld = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [
@@ -486,7 +486,7 @@ def bookkeeping_page():
 <footer><div class="wrap">
   <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Accounting, tax and business solutions · {city} · Serving {L["region"]} · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
   <nav><a href="/">Main site</a><a href="/services/#bookkeeping">Services</a><a href="/{L["slug"]}/">Bookkeeping &amp; tax in {city}</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
-  <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc., Xero is a trademark of Xero Limited and Sage is a trademark of The Sage Group plc; MFA is not affiliated with or endorsed by any of them.</p>
+  <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc., Xero is a trademark of Xero Limited, Sage is a trademark of The Sage Group plc, and Wave and FreshBooks are trademarks of their respective owners; MFA is not affiliated with or endorsed by any of them.</p>
 </div></footer>
 
 <div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#quote" class="btn btn-gold">Get a quote</a></div>
@@ -600,7 +600,7 @@ page = f'''<!doctype html><html lang="en"><head>
 <footer><div class="wrap">
   <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Accounting, tax and business solutions · Princeton, NJ · Serving §CITY§ &amp; §REGION§ · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
   <nav><a href="/">Main site</a><a href="/services/">Services</a><a href="/llc-formation/">LLC formation</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a>{other_locs}<a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
-  <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc., Xero is a trademark of Xero Limited and Sage is a trademark of The Sage Group plc; MFA is not affiliated with or endorsed by any of them.</p>
+  <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc., Xero is a trademark of Xero Limited, Sage is a trademark of The Sage Group plc, and Wave and FreshBooks are trademarks of their respective owners; MFA is not affiliated with or endorsed by any of them.</p>
 </div></footer>
 
 <div class="mbar{"" if tel else " one"}">{call_btn("btn btn-line", "Call")}<a href="#book" class="btn btn-gold" data-conv="book">Book a call</a></div>
