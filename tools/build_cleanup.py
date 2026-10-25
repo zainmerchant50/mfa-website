@@ -6,13 +6,14 @@ the visitor sends a short quote request, we look at a sample of their accounts a
 before any work starts. No payment on this page.
 
 The form copies the LLC intake form (tools/build_llc.py intake_form): FormSubmit AJAX to info@mfa-advisory.com,
-honeypot field _honey, inline validation with an error summary, a mailto fallback if the send fails, a thank-you panel
-on success, and the Google Ads lead-form conversion (label rNQJCK2_kJsdEK3zpPhE) only after FormSubmit confirms.
+honeypot field _honey, inline validation with an error summary, a mailto fallback if the send fails, and, once FormSubmit
+confirms, a redirect to /contact/thanks/ (ads.contact_redirect), which fires the "Contact form submitted" conversion.
 Never "free", never "CPA", no street address, no assurance wording. Customer-facing dates: date only.
 Run via tools/build_resources.py (it calls build()).
 """
 import json
 
+import ads
 import build_blog as B
 import seo
 from build_resources import page, write, esc, BASE, cta
@@ -71,8 +72,7 @@ f.email.value=f.email.value.trim();var d=new FormData(f);d.append('page',locatio
 d.append('_subject','Bookkeeping cleanup quote request: '+f.name.value.trim()+' / '+f.months_behind.value);d.append('_captcha','false');d.append('_template','table');
 fetch('__ENDPOINT__',{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){return r.json().catch(function(){return {success:r.ok};});})
 .then(function(j){if(!j||j.success===false||j.success==='false')throw new Error((j&&j.message)||'Send failed');
-if(window.mfaLead)mfaLead('bookkeeping_cleanup',{months_behind:f.months_behind.value});
-f.hidden=true;var dn=document.getElementById('cdone');dn.hidden=false;dn.focus();dn.scrollIntoView({block:'center'});})
+try{sessionStorage.setItem('mfa_contact_sent','bookkeeping_cleanup');}catch(e){}location.href='/contact/thanks/';})
 .catch(function(err){var body=encodeURIComponent('Name: '+f.name.value+'\nEmail: '+f.email.value+'\nPhone: '+f.phone.value+'\nBusiness type: '+f.business_type.value+'\nSoftware: '+f.accounting_software.value+'\nMonths behind: '+f.months_behind.value+'\nBank + card accounts: '+f.accounts.value+'\nTransactions a month: '+f.transactions_per_month.value+'\nPayroll: '+f.payroll.value+'\nSales tax: '+f.sales_tax.value+'\nNotes: '+f.notes.value);
 showErr('<strong>We couldn’t send your request just now.</strong> Please <a href="mailto:__EMAIL__?subject='+encodeURIComponent('Bookkeeping cleanup quote request')+'&body='+body+'">email your details to __EMAIL__</a> (we’ve filled in the email for you) or call (347) 205-4468.');
 b.disabled=false;b.textContent=l;if(window.console)console.warn('Cleanup form:',err&&err.message);});});
@@ -95,7 +95,8 @@ def form_html():
     return f'''<section class="wrap llc-sec" id="quote" aria-labelledby="quote-h">
 <div class="sec-hd"><span class="eyebrow eb-dark">Request a quote</span><h2 id="quote-h">Tell us about your books.</h2>
 <p>This is a quote request, not an order. Nothing is charged, and you'll get a fixed quote from us by email before any work starts.</p></div>
-<form class="tcard lform" id="cform" novalidate>
+<form class="tcard lform" id="cform" method="POST" action="https://formsubmit.co/{B.EMAIL}" novalidate>
+{ads.next_field()}
 <p class="req-note"><span class="req">*</span> Required</p>
 <div class="form-err" id="form-err" role="alert" tabindex="-1" hidden></div>
 <div class="lgrid">
@@ -115,7 +116,6 @@ def form_html():
 <div class="lsubmit"><button class="btn btn-ink" type="submit" id="csubmit">Request my quote</button><p class="ask-st" role="status" aria-live="polite"></p></div>
 <p class="pay-note">No payment on this page. We reply by email, usually within one to three business days.</p>
 </form>
-<div class="tcard ldone" id="cdone" tabindex="-1" hidden><h2>Thanks, we have your request.</h2><p>We'll look over what you sent and email you next steps, usually within one to three business days. You'll get a fixed quote before any work starts. Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or (347) 205-4468.</p></div>
 </section>
 <script>{JS.replace("__ENDPOINT__", ENDPOINT).replace("__EMAIL__", B.EMAIL)}</script>'''
 

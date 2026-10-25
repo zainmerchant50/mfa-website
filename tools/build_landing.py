@@ -184,7 +184,6 @@ form input,form select,form textarea{width:100%;font:inherit;font-size:15px;padd
 form textarea{min-height:84px;resize:vertical}form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
 form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}form .btn{width:100%;margin-top:4px}
 .hp{position:absolute;left:-9999px}.f-stat{font-size:13px;margin:6px 0;color:#a33}
-.done{display:none;text-align:center;padding:30px 6px}.done.show{display:block}.done h3{font-size:28px;margin-bottom:8px}
 .fine{font-size:11px;color:var(--muted);margin-top:14px;text-align:center}
 /* sections */
 .sec{padding:84px 0}.sec.alt{background:var(--paper-2)}
@@ -240,7 +239,7 @@ JS = """
     d.append('source', '§SLUG§' + (s ? ' / ' + s : '') + (location.search.indexOf('gclid')>-1?' / Google Ads':''));
     fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:d})
       .then(function(r){if(!r.ok)throw 0;return r.json();})
-      .then(function(j){ if(j.success===false||j.success==='false')throw 0; f.style.display='none'; document.getElementById('ldone').classList.add('show'); if(window.mfaLead)mfaLead('landing_§SLUG§',{service:d.get('service')||''}); })
+      .then(function(j){ if(j.success===false||j.success==='false')throw 0; try{sessionStorage.setItem('mfa_contact_sent','landing_§SLUG§');}catch(e){}location.href='/contact/thanks/'; })
       .catch(function(){ st.textContent='Couldn\\'t send. Please email %s directly.'; btn.disabled=false; btn.innerHTML=label; });
   });
   document.getElementById('yr').textContent=new Date().getFullYear();
@@ -287,7 +286,8 @@ page = f'''<!doctype html><html lang="en"><head>
   <div class="hero-card" id="quote">
     <h2>Get a quote</h2>
     <p class="s">Tell us what you need. We reply within one to three business days.</p>
-    <form id="lf" novalidate>
+    <form id="lf" method="POST" action="https://formsubmit.co/{EMAIL}" novalidate>
+      {ads.next_field()}
       <div class="row"><div class="f"><label for="f-n">Name *</label><input id="f-n" name="name" autocomplete="name" required/></div>
       <div class="f"><label for="f-p">Phone</label><input id="f-p" name="phone" type="tel" autocomplete="tel"/></div></div>
       <div class="f"><label for="f-e">Email *</label><input id="f-e" name="email" type="email" autocomplete="email" required/></div>
@@ -298,7 +298,6 @@ page = f'''<!doctype html><html lang="en"><head>
       <button class="btn btn-gold" id="lbtn" type="submit">Request my quote</button>
       <p class="fine">Confidential. No obligation. We never share your details.</p>
     </form>
-    <div class="done" id="ldone"><h3>Thank you.</h3><p>We've received your request and will reply within one to three business days. Want to talk sooner? <a href="#book" style="color:var(--navy);text-decoration:underline">Pick a time on the calendar</a>.</p></div>
     <div class="rating"><b>5.0</b><div><div class="st">★★★★★</div>Average across verified reviews on Google, Upwork &amp; Fiverr</div></div>
   </div>
 </div></section>

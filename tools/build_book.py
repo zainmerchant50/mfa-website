@@ -2,8 +2,12 @@
 """Builds /book/ (Site/Hub): the booking page, moved off the home page on Zain's request (2026-10-23 02:20 ET).
 The Google Calendar appointment schedule is embedded here; every "Book" link on the site points here.
 Ad landing pages (/princeton-nj/, /union-city-nj/, /new-york-ny/) keep their own on-page calendar for conversions.
+Also builds /contact/thanks/ (build_contact_thanks, called from build()): where the general contact/quote forms
+land after a confirmed send (home, landing pages, /bookkeeping-cleanup/; see tools/ads.py). noindex, so the sitemap
+skips it; it fires the Google Ads "Contact form submitted" conversion once per send via mfaContactThanks().
 Never "free", never "CPA", no street address. Run via tools/build_resources.py (it calls build()).
 """
+import ads
 import build_blog as B
 import seo
 import ui_kit
@@ -93,7 +97,50 @@ def build():
                    {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
                        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ui_kit._plain(a)}} for q, a in FAQ]},
                    crumb=[("Home", BASE + "/"), ("Book a consultation", url)])
+    build_contact_thanks()
     return write("book", page(title, desc, url, body, ld, active="b"))
+
+
+NEXT = [
+    ("We read your message", "Our team reviews what you sent so the right person picks it up."),
+    ("We reply", "You'll hear back from us by email, or by phone if you asked for a call. If we need anything else, we'll ask then."),
+    ("You decide", "If it makes sense to work together, we send a written scope and a price agreed before any work starts. No obligation either way."),
+]
+TY_CSS = """<style>
+.ty-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:6px}
+.ty-cards .card{padding:26px;display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--hair);border-radius:16px}
+.ty-cards h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;font-weight:500;margin:0;color:var(--ink, #10233F)}
+.ty-cards p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.7;flex:1}
+.ty-cards .btn{align-self:flex-start;margin-top:6px}
+@media(max-width:860px){.ty-cards{grid-template-columns:1fr}}
+</style>"""
+
+
+def build_contact_thanks():
+    url = BASE + ads.THANKS.rstrip("/") + "/"
+    title = "Message Received | Merchant Financial Advisory"
+    desc = "Thanks for contacting Merchant Financial Advisory. We got your message and will reply soon."
+    steps = "".join(f'<div class="step"><h3>{esc(h)}</h3><p>{esc(t)}</p></div>' for h, t in NEXT)
+    body = f'''{CSS}{TY_CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Message sent</span>
+<h1>Thanks — we got your message. <em>We'll reply soon.</em></h1>
+<p>Your details reached our team. There's nothing else you need to do right now.</p>
+<div class="hero-btns"><a class="btn btn-gold" href="/book/">Book a 30-minute call</a><a class="btn btn-line" href="/resources/">Browse resources</a></div></div></header>
+<main>
+<section class="wrap llc-sec" aria-labelledby="next-h"><div class="sec-hd"><span class="eyebrow eb-dark">What happens next</span><h2 id="next-h">From your message to a clear next step</h2></div>
+<div class="bk-steps">{steps}</div></section>
+<section class="wrap llc-sec" aria-labelledby="wait-h"><div class="sec-hd"><span class="eyebrow eb-dark">While you wait</span><h2 id="wait-h">Want to move faster?</h2></div>
+<div class="ty-cards">
+<div class="card"><h3>Talk sooner</h3><p>Pick a 30-minute slot on Google Meet. Mention your message and we'll come prepared.</p><a class="btn btn-gold" href="/book/">Choose a time</a></div>
+<div class="card"><h3>Guides and calculators</h3><p>Checkers, calculators, tax calendars and checklists for small business owners.</p><a class="btn btn-line-ink" href="/resources/">Open resources</a></div>
+</div>
+<p class="bk-alt">Questions in the meantime: <a href="mailto:{B.EMAIL}">{B.EMAIL}</a> or <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>.</p></section>
+</main>
+<script>if(window.mfaContactThanks)mfaContactThanks();</script>'''
+    html = page(title, desc, url, body, None, active="b")
+    html = html.replace('<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/>',
+                        '<meta name="robots" content="noindex"/>', 1)
+    assert 'content="noindex"' in html
+    return write(ads.THANKS.strip("/"), html)
 
 
 if __name__ == "__main__":

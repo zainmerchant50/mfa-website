@@ -661,7 +661,7 @@ body.scrolled .burger{color:var(--ink)}
 }
 @media(prefers-reduced-motion:reduce){.ins,.ins-panel{transition:none}.ins-dot{animation:none}}
 </style>
-<!--ads:tag--><meta name="p:domain_verify" content="b4398f09fdd0e385c266cc687acecf36"/><script async src="https://www.googletagmanager.com/gtag/js?id=AW-18505873837"></script><script src="/assets/ads.js?v=f9baea9088"></script><!--/ads:tag-->
+<!--ads:tag--><meta name="p:domain_verify" content="b4398f09fdd0e385c266cc687acecf36"/><script async src="https://www.googletagmanager.com/gtag/js?id=AW-18505873837"></script><script src="/assets/ads.js?v=e5d25ef91e"></script><!--/ads:tag-->
 <!--nav:css--><style>
 /* ---------- Header dropdown menus + phone menu (ui_kit.nav_links / nav_mobile) ---------- */
 .dd{position:relative;display:flex;align-items:center;gap:3px}
@@ -1278,7 +1278,8 @@ body.scrolled .nav .dd-t{color:var(--ink)}
     </div>
 
     <div class="c-form reveal">
-      <form id="cform" class="f-grid" name="contact" method="POST" novalidate>
+      <form id="cform" class="f-grid" name="contact" method="POST" action="https://formsubmit.co/info@mfa-advisory.com" novalidate>
+        <input type="hidden" name="_next" value="https://mfa-advisory.com/contact/thanks/"/>
         <div class="f-f">
           <label for="f-name">First &amp; Last Name <span class="rq">*</span></label>
           <input type="text" id="f-name" name="your-name" autocomplete="name" required/>
@@ -1656,9 +1657,8 @@ body.scrolled .nav .dd-t{color:var(--ink)}
         .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
         .then(function(j){
           if(j && (j.success === false || j.success === 'false')) throw new Error('rejected');
-          f.style.display = 'none';
-          done.classList.add('show');
-          if(window.mfaLead) mfaLead('home_contact', {service: body.get('your-service') || ''});   /* Google Ads lead conversion (/assets/ads.js) */
+          /* Sent: go to /contact/thanks/, which fires the Google Ads "Contact form submitted" conversion once (tools/ads.py). */
+          try{sessionStorage.setItem('mfa_contact_sent','home_contact');}catch(e){}location.href='/contact/thanks/';
         })
         .catch(function(){
           say('Couldn\'t send. Please email info@mfa-advisory.com directly.', false);
