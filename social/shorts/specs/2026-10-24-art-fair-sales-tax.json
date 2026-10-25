@@ -7,9 +7,9 @@
   "label": "Artists · Sales tax",
   "checked": "October 24, 2026",
   "link": {
-    "path": "/shop/",
-    "anchor": "kit",
-    "label": "Online Seller Bookkeeping Sheet, with a sales tax log (MFA shop)"
+    "path": "/artists/",
+    "label": "Taxes for artists: sales tax and more (MFA)",
+    "anchor": "faqs"
   },
   "hook": {
     "text": "Selling at an art fair? *Sales tax*",
@@ -37,8 +37,8 @@
           "s": "Then file and pay it to the state."
         },
         {
-          "t": "Buy materials for resale tax-exempt",
-          "s": "Canvas that becomes the art: resale certificate ST-3. Brushes don't qualify."
+          "t": "Buy art materials without sales tax",
+          "s": "Canvas that becomes the art: give the store Form ST-3. Brushes don't count."
         }
       ],
       "dur": 9.0
@@ -51,9 +51,9 @@
     }
   ],
   "cta": {
-    "big": "Link in *bio*",
-    "url": "mfa-advisory.com/shop",
-    "sub": "Our seller sheet keeps a sales tax log."
+    "big": "Comment *FAIR*",
+    "url": "mfa-advisory.com/artists",
+    "sub": "We'll DM you the link."
   },
   "captions": {
     "comment_word": "FAIR",

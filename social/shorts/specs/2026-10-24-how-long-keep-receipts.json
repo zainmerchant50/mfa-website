@@ -35,7 +35,7 @@
      "ok": true
     },
     {
-     "l": "Income left off over 25%",
+     "l": "Left off over 25% of income",
      "r": "6 years",
      "ok": false
     },
@@ -50,7 +50,7 @@
      "ok": false
     }
    ],
-   "note": "Never filed? Keep them indefinitely."
+   "note": "Never filed? Keep them for good."
   },
   {
    "type": "list",
@@ -71,9 +71,9 @@
   }
  ],
  "cta": {
-  "big": "Link in *bio*",
-  "url": "mfa-advisory.com",
-  "sub": "Business Expense Tracker in our shop."
+  "big": "Comment *RECEIPTS*",
+  "url": "mfa-advisory.com/shop",
+  "sub": "We'll DM you the expense tracker."
  },
  "captions": {
   "comment_word": "RECEIPTS",

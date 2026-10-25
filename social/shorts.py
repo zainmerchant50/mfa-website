@@ -28,7 +28,7 @@ Spec JSON (see social/shorts/specs/ for real ones):
   link {path, anchor?, label}  -> destination page on mfa-advisory.com (UTMs are added per platform),
   hook {text, sub?}  (text supports *accent* = gold italic),
   beats [ {type: story|question|list|stat|values|rows|product|text, ...fields below, dur?} ],
-  cta {big?, url, sub?},
+  cta {big? (default "Comment *WORD*"), url, sub?},  captions.dm_reply? (default: thanks + link label + Instagram UTM link)
   captions {comment_word, instagram, hashtags[5-8], youtube_title (<=70), youtube_description,
             pinterest_title (<=100), pinterest_description (<=500), pinterest_alt, pinterest_board},
   sync {product_id?, etsy_title_phrase?, ads_keywords[], blog?, pin_ids[]}, sources [{fact, url}]
@@ -141,7 +141,7 @@ CODE_LINE = "Use code MFASITE10 for 10% off on Etsy or Gumroad."
 def instagram_caption(p):
     c = p["captions"]
     parts = [c["instagram"].strip(), "",
-             f"Comment {c['comment_word']} and we'll send you the link, or tap the link in bio ({plain_link(p)})."]
+             f"Comment {c['comment_word']} and we'll DM you the link. Or visit {plain_link(p)}."]
     if p["type"] == "product":
         parts.append(CODE_LINE)
     parts += ["", DISCLAIMER + " Names in our stories are made up.", "", " ".join(c["hashtags"])]
@@ -150,13 +150,21 @@ def instagram_caption(p):
 
 def youtube_text(p):
     c = p["captions"]
-    desc = [c["youtube_description"].strip(), "", f"{p['link']['label']}: {utm(p, 'youtube')}"]
+    desc = [f"{p['link']['label']}: {utm(p, 'youtube')}", "", c["youtube_description"].strip()]
     if p["type"] == "product":
         desc.append(CODE_LINE)
     desc += ["", "Merchant Financial Advisory: bookkeeping, tax and advisory for small businesses. Book a call: "
              f"{SITE}/book/?utm_source=youtube&utm_medium=video&utm_campaign={p['slug']}",
              "", DISCLAIMER + " Names in our stories are made up.", "", "#Shorts #SmallBusiness #Taxes"]
-    return f"TITLE ({len(c['youtube_title'])}/70)\n{c['youtube_title']}\n\nDESCRIPTION\n" + "\n".join(desc) + "\n"
+    return (f"TITLE ({len(c['youtube_title'])}/70)\n{c['youtube_title']}\n\nDESCRIPTION\n" + "\n".join(desc)
+            + f"\n\nPINNED COMMENT\n{p['link']['label']}: {utm(p, 'youtube')}\n")
+
+
+def dm_reply(p):
+    """Exact text to send people who comment the keyword on Instagram (manual DM until ManyChat exists)."""
+    c = p["captions"]
+    return c.get("dm_reply") or (f"Thanks for commenting {c['comment_word']}! {p['link']['label']}: {utm(p, 'instagram')} "
+                                 f"(General information, not tax advice.)")
 
 
 def pinterest_description(p):
@@ -342,7 +350,8 @@ def scene_html(s, i, n):
             h.append(f'<div class="sub" data-a="up" data-t="{a + .7:.3f}">{rr(s["sub"])}</div>')
     elif ty == "cta":
         h.append(f'<div class="big cta">{rich_words(s.get("big", "Link in *bio*"), a + .05, .1)}</div>')
-        h.append(f'<div class="url" data-a="pop" data-t="{a + .45:.3f}" data-d=".5">{html.escape(s["url"])}</div>')
+        cls = "url sm" if len(s["url"]) > 26 else "url"  # long page paths (e.g. /international-students) get a smaller pill
+        h.append(f'<div class="{cls}" data-a="pop" data-t="{a + .45:.3f}" data-d=".5">{html.escape(s["url"])}</div>')
         if s.get("sub"):
             h.append(f'<div class="sub c" data-a="up" data-t="{a + .8:.3f}">{rr(s["sub"])}</div>')
         h.append(f'<div class="disc" data-a="fade" data-t="{a + 1.0:.3f}">{html.escape(s.get("disc", ""))}</div>')
@@ -421,6 +430,7 @@ border:1px solid rgba(176,141,63,.5);border-radius:16px;padding:26px 28px;font-s
 .t-cta{{align-items:center;text-align:center;gap:38px}}
 .big.cta{{font-size:150px}}
 .url{{background:#B08D3F;color:#10233F;font-weight:600;font-size:50px;letter-spacing:.02em;border-radius:60px;padding:24px 48px}}
+.url.sm{{font-size:32px;padding:22px 32px;white-space:nowrap}}
 .disc{{font-size:26px;color:#BDB7A8;line-height:1.4;text-wrap:balance}}
 </style></head><body>
 <div id="glow"></div><div id="grain"></div>
@@ -612,7 +622,10 @@ def notes_md(p, scenes, total, size_mb):
   - Instagram (link in bio): `{utm(p, 'instagram')}`
   - YouTube: `{utm(p, 'youtube')}`
   - Pinterest: `{utm(p, 'pinterest')}`
-- Comment keyword: **{c['comment_word']}** → reply with `{utm(p, 'instagram')}`
+- Comment keyword: **{c['comment_word']}** (end card says "Comment {c['comment_word']}"). DM reply to copy-paste:
+  > {dm_reply(p)}
+- End card by platform: Instagram Reel = comment keyword, DM the reply above; YouTube Short = UTM link is the first
+  line of the description and the pinned comment; Pinterest video pin = the pin links to the page (PINTEREST.txt).
 - Sync: product {sy.get('product_id', '-')} · Etsy title phrase "{sy.get('etsy_title_phrase', '-')}" · Ads keywords {', '.join(sy.get('ads_keywords', [])) or '-'} · blog {sy.get('blog', '-')} · Pinterest pins {', '.join(sy.get('pin_ids', [])) or '-'}
 - Not posted anywhere yet. Zain reviews the first batch.
 
@@ -635,6 +648,7 @@ def main():
     spec, out = Path(args[0]), Path(args[1])
     p = json.loads(spec.read_text(encoding="utf-8"))
     p.setdefault("cta", {}).setdefault("disc", f"{DISCLAIMER} Names in our stories are made up.")
+    p["cta"].setdefault("big", f"Comment *{p.get('captions', {}).get('comment_word', '')}*")  # Instagram comment-to-DM
     errs = lint(p)
     if errs:
         sys.exit("SHORT REJECTED\n- " + "\n- ".join(errs))

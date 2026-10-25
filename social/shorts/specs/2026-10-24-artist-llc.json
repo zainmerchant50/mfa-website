@@ -7,8 +7,9 @@
   "label": "Artists · LLC",
   "checked": "October 25, 2026",
   "link": {
-    "path": "/llc-formation/",
-    "label": "LLC formation (MFA)"
+    "path": "/artists/",
+    "label": "Taxes for artists: do you need an LLC? (MFA)",
+    "anchor": "faqs"
   },
   "hook": {
     "text": "Do artists *need* an LLC?",
@@ -38,12 +39,12 @@
           "ok": false
         },
         {
-          "l": "A separate legal entity",
-          "r": "Yes, state law",
+          "l": "Legally separate from you",
+          "r": "Yes (state law)",
           "ok": true
         }
       ],
-      "note": "The IRS disregards a one-owner LLC for income tax unless it elects otherwise.",
+      "note": "For income tax, the IRS treats a one-owner LLC as you, unless it elects otherwise.",
       "dur": 6.8
     },
     {
@@ -72,13 +73,13 @@
     }
   ],
   "cta": {
-    "big": "Link in *bio*",
-    "url": "mfa-advisory.com",
-    "sub": "See our LLC formation page."
+    "big": "Comment *LLC*",
+    "url": "mfa-advisory.com/artists",
+    "sub": "We'll DM you the link."
   },
   "captions": {
     "comment_word": "LLC",
-    "instagram": "\"Get an LLC for the taxes\" is advice artists hear a lot. What a one-owner LLC actually does:\n\n✔️ By default the IRS disregards it for income tax. You still file Schedule C with your Form 1040.\n✔️ Self-employment tax still applies to your net earnings.\n✔️ It is a separate legal entity under state law, which is why people form one.\n✔️ An LLC can elect S corp status (Form 2553). Then you pay yourself a reasonable salary through payroll, with payroll taxes and extra costs, so it's usually worth a look only at higher profit.\n\nThinking about forming one? We form LLCs in all 50 states.",
+    "instagram": "\"Get an LLC for the taxes\" is advice artists hear a lot. What a one-owner LLC actually does:\n\n✔️ By default the IRS disregards it for income tax. You still file Schedule C with your Form 1040.\n✔️ Self-employment tax still applies to your net earnings.\n✔️ It is a separate legal entity under state law, which is why people form one.\n✔️ An LLC can elect S corp status (Form 2553). Then you pay yourself a reasonable salary through payroll, with payroll taxes and extra costs, so it's usually worth a look only at higher profit.\n\nThinking about forming one? We form LLCs in all 50 states. Our artists page has the details.",
     "hashtags": [
       "#artbusiness",
       "#artistsoninstagram",

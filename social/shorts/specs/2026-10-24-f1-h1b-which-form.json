@@ -7,8 +7,8 @@
   "label": "F-1 · H-1B · Tax",
   "checked": "October 24, 2026",
   "link": {
-    "path": "/book/",
-    "label": "Book a 30-minute call with MFA"
+    "path": "/international-students/",
+    "label": "Tax returns for international students and H-1B (MFA)"
   },
   "hook": {
     "text": "F-1 or H-1B? Check your *tax form*",
@@ -60,9 +60,9 @@
     }
   ],
   "cta": {
-    "big": "Link in *bio*",
-    "url": "mfa-advisory.com/book",
-    "sub": "Book a 30-minute call."
+    "big": "Comment *1040NR*",
+    "url": "mfa-advisory.com/international-students",
+    "sub": "We'll DM you prices and booking."
   },
   "captions": {
     "comment_word": "1040NR",

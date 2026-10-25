@@ -30,7 +30,7 @@
      "l": "transactions"
     }
    ],
-   "note": "Federal limit. Some states use lower ones."
+   "note": "Federal limit. State limits vary."
   },
   {
    "type": "rows",
@@ -73,9 +73,9 @@
   }
  ],
  "cta": {
-  "big": "Link in *bio*",
-  "url": "mfa-advisory.com",
-  "sub": "Online Seller Bookkeeping Sheet in our shop."
+  "big": "Comment *SELLER*",
+  "url": "mfa-advisory.com/shop",
+  "sub": "We'll DM you the seller sheet."
  },
  "captions": {
   "comment_word": "SELLER",

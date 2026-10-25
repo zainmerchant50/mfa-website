@@ -7,8 +7,9 @@
   "label": "Artists · Tax",
   "checked": "October 25, 2026",
   "link": {
-    "path": "/tools/quarterly-estimated-tax-calculator/",
-    "label": "Quarterly estimated tax calculator (MFA)"
+    "path": "/artists/",
+    "label": "Taxes for artists: quarterly tax (MFA)",
+    "anchor": "faqs"
   },
   "hook": {
     "text": "Paid for commissions? Set this *aside*",
@@ -61,13 +62,13 @@
     }
   ],
   "cta": {
-    "big": "Link in *bio*",
-    "url": "mfa-advisory.com",
-    "sub": "Use our quarterly tax calculator."
+    "big": "Comment *QUARTERLY*",
+    "url": "mfa-advisory.com/artists",
+    "sub": "We'll DM you the link."
   },
   "captions": {
     "comment_word": "QUARTERLY",
-    "instagram": "Commission money arrives with nothing taken out for taxes, so the bill shows up later unless you plan for it.\n\n✔️ Self-employment tax is 15.3% (Social Security and Medicare) once net earnings reach $400, on top of income tax.\n✔️ Expect to owe $1,000 or more for 2026? The IRS expects estimated payments during the year. The last 2026 payment is due Jan. 15, 2027.\n✔️ Open a separate savings account and move a set share of every commission the day it lands.\n✔️ Pay by each Form 1040-ES due date: April, June, September and January.\n\nOur quarterly tax calculator works out a number from your income and expenses.",
+    "instagram": "Commission money arrives with nothing taken out for taxes, so the bill shows up later unless you plan for it.\n\n✔️ Self-employment tax is 15.3% (Social Security and Medicare) once net earnings reach $400, on top of income tax.\n✔️ Expect to owe $1,000 or more for 2026? The IRS expects estimated payments during the year. The last 2026 payment is due Jan. 15, 2027.\n✔️ Open a separate savings account and move a set share of every commission the day it lands.\n✔️ Pay by each Form 1040-ES due date: April, June, September and January.\n\nOur artists page explains quarterly tax, with a calculator for your number.",
     "hashtags": [
       "#artbusiness",
       "#artistsoninstagram",

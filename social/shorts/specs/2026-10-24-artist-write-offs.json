@@ -7,9 +7,9 @@
   "label": "Artists · Tax",
   "checked": "October 24, 2026",
   "link": {
-    "path": "/shop/",
-    "anchor": "kit",
-    "label": "Tax Write Offs Tracker for Self Employed (MFA shop)"
+    "path": "/artists/",
+    "label": "Taxes for artists: what you can deduct (MFA)",
+    "anchor": "deductions"
   },
   "hook": {
     "text": "3 write-offs *artists* forget",
@@ -56,9 +56,9 @@
     }
   ],
   "cta": {
-    "big": "Link in *bio*",
-    "url": "mfa-advisory.com/shop",
-    "sub": "Find the write-offs tracker in our shop."
+    "big": "Comment *ARTIST*",
+    "url": "mfa-advisory.com/artists",
+    "sub": "We'll DM you the link."
   },
   "captions": {
     "comment_word": "ARTIST",

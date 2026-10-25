@@ -34,7 +34,7 @@
      "s": "It's on the bank statement, so it stays in the books."
     },
     {
-     "t": "Recategorize it as owner's draw",
+     "t": "Re-label it as owner's draw",
      "s": "Not an expense. In an S corp, ask how to book it."
     },
     {
@@ -51,9 +51,9 @@
   }
  ],
  "cta": {
-  "big": "Link in *bio*",
-  "url": "mfa-advisory.com",
-  "sub": "Bookkeeping Cleanup Checklist in our shop."
+  "big": "Comment *CLEANUP*",
+  "url": "mfa-advisory.com/shop",
+  "sub": "We'll DM you the cleanup checklist."
  },
  "captions": {
   "comment_word": "CLEANUP",

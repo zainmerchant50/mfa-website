@@ -1,6 +1,6 @@
 # MFA Social agent: daily Instagram + LinkedIn posts
 
-Last updated: 2026-10-24 by the Social/Shorts agent (Shorts content rule, batch 1 emailed, IDEAS.md backlog). Created 2026-10-22 by Hub on Zain's instruction.
+Last updated: 2026-10-25 by the content-pack agent (Shorts standing rules: plain wording, NJ/NY states, "Comment WORD" end cards, CTA by platform). Created 2026-10-22 by Hub on Zain's instruction.
 
 ## What it does
 Every weekday, the agent makes **one post** (Instagram image + LinkedIn image + both captions + sources) and saves it to
@@ -107,13 +107,41 @@ so they are encouraged and then want to follow and then buy our digital products
   every figure on its primary source on the day you render, whatever the backlog says.
 - Audiences to rotate: individuals with side income, 1099/gig workers, small business owners, Etsy/online sellers.
 
+### Standing rules (Zain, 2026-10-25: "do what works")
+**MUST (non-negotiable)**
+- Accurate facts, each verified on a primary source (irs.gov, ssa.gov, uscis.gov, nj.gov / tax.ny.gov) on the day you
+  render, listed in `sources`. If you can't verify it, cut it.
+- Plain, everyday wording a busy person reads in one second. Read every on-screen line out loud; if it sounds stiff or
+  odd, rewrite it. No jargon without a plain explanation ("businesslike", "substantiate", "expensed", "de minimis",
+  "P&L" on its own). Example: "You run it in a businesslike way" became "You run it like a real business".
+- MFA rules: never the word "free", never call MFA a CPA firm or Zain a CPA, no street address, no prices on the video.
+
+**DEFAULTS (use judgment; vary when something performs better)**
+- A curiosity hook that stops the scroll (a surprising question, a common mistake, a number), then a practical tip that
+  helps an everyday person, small business owner, artist or student today.
+- State examples: NJ or NY (our market), or no state at all and say "varies by state". No other states on screen.
+- Mix formats: story, myth vs fact, 3-step fix, "stop doing this", checklist, Q&A. Track which wins through the UTMs;
+  the weekly report should say which hooks and formats got the most views and clicks, so we do more of those.
+
+**CTA by platform (one video file serves all three)**
+- End card: "Comment *WORD*" (one keyword per short, tied to the page or product it promotes: ARTIST, LLC, 1099, 8843)
+  with the page's short URL in the pill (e.g. `mfa-advisory.com/artists`; paths over 26 characters get a smaller pill).
+  `shorts.py` defaults `cta.big` to "Comment *WORD*" from `captions.comment_word`.
+- Instagram Reels: comment-to-DM. `INSTAGRAM.txt` ends "Comment WORD and we'll DM you the link. Or visit <url>.";
+  `00_SHORT-NOTES.md` holds the exact DM reply (`captions.dm_reply`, or the default: thanks + link label + Instagram UTM
+  link) for Abiha, Zain or us to send by hand until ManyChat exists.
+- YouTube Shorts: no comment-to-DM there, so `YOUTUBE.txt` puts the UTM link on the first line of the description and
+  gives a PINNED COMMENT with the same link.
+- Pinterest video pins: the pin links to the page (`PINTEREST.txt` destination URL with UTM).
+
 ### Make one
 1. Write `social/shorts/specs/<date>-<slug>.json` (copy a 2026-10-24 spec; every field is documented at the top of
    `social/shorts.py`). Pattern, 4-7 beats between the hook and the CTA: **hook** (on screen at frame 0, ≤ 7 words, one gold
    *accent*) → **story** (2-3 short lines, invented first name, never a client) → **twist / question** → **the fix** (list,
    stat, values or rows) → **product or service** (image in `social/shorts/img/`, 1200 px JPEG of the public listing hero)
-   → **CTA** "Link in bio" + `mfa-advisory.com` pill. Never "click", "tap the link", "swipe up" or "link below" on the
-   video (nothing in a Reel is clickable); never a price on the video; no IRS logos or form look-alikes.
+   → **CTA** end card "Comment *WORD*" + the page's short URL in the pill (see "Standing rules" below). Never "click",
+   "tap the link", "swipe up" or "link below" on the video (nothing in a Reel is clickable); never a price on the video;
+   no IRS logos or form look-alikes. Not every short needs a story: vary the format (see below).
 2. Verify every figure exactly as for posts (irs.gov / ssa.gov / state site, or `data/*.json` checked within 30 days) and
    list each in `sources`. No refund or savings promises ("deduction", not "you'll save").
 3. Render: `python3 social/shorts.py social/shorts/specs/<file>.json /home/claude/mfa-hub/shorts/<date>/<slug> --frames 0,1,3,6,10,end`
@@ -168,4 +196,5 @@ so they are encouraged and then want to follow and then buy our digital products
 
 ## Comment-keyword replies
 Instagram auto-DMs need a tool such as ManyChat (not set up yet). Until then Zain's helper replies to "TRACKER", "GUIDE"
-etc. by hand with the link in `00_POST-NOTES.md`.
+etc. by hand with the link in `00_POST-NOTES.md`. For shorts, the exact DM reply text is in each `00_SHORT-NOTES.md`
+("Comment keyword" line).

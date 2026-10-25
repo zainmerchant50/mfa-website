@@ -20,7 +20,7 @@
       "type": "story",
       "lines": [
         "Jess rents a chair at a salon.",
-        "Square keeps a cut of every color.",
+        "Square takes a fee on every card payment.",
         "At tax time she listed booth rent. That's it."
       ]
     },
@@ -56,9 +56,9 @@
     }
   ],
   "cta": {
-    "big": "Link in *bio*",
+    "big": "Comment *STYLIST*",
     "url": "mfa-advisory.com/shop",
-    "sub": "Find the stylist tracker in our shop."
+    "sub": "We'll DM you the stylist tracker."
   },
   "captions": {
     "comment_word": "STYLIST",

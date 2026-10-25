@@ -6,26 +6,98 @@
   "accent": "forest",
   "label": "Bookkeeping",
   "checked": "October 24, 2026",
-  "link": {"path": "/services/", "label": "Monthly bookkeeping (MFA services)"},
-  "hook": {"text": "Month-end close in *10 steps*", "sub": "Save this for the 10th of every month."},
+  "link": {
+    "path": "/services/",
+    "label": "Monthly bookkeeping (MFA services)"
+  },
+  "hook": {
+    "text": "Month-end close in *10 steps*",
+    "sub": "Save this for the 10th of every month."
+  },
   "beats": [
-    {"type": "story", "lines": ["Dana's bank said $14,200.", "Her books said $9,050.", "Somebody was wrong."]},
-    {"type": "question", "text": "When did you last reconcile?", "dur": 2.0},
-    {"type": "list", "kicker": "Steps 1 to 5", "items": [
-      {"t": "Download every statement"}, {"t": "Categorize every transaction"}, {"t": "Reconcile each account"},
-      {"t": "Match receipts"}, {"t": "Separate personal from business"}
-    ], "dur": 4.6},
-    {"type": "list", "kicker": "Steps 6 to 10", "start": 6, "items": [
-      {"t": "Review who owes you"}, {"t": "Review what you owe"}, {"t": "Record payroll, loans and fees"},
-      {"t": "Read your P&L and balance sheet"}, {"t": "Set aside tax"}
-    ], "dur": 4.6},
-    {"type": "product", "image": "social/shorts/img/month-end-close-checklist.jpg", "kicker": "Do it yourself", "text": "Month-End Close *Checklist*", "sub": "Or let us close your books every month.", "dur": 3.2}
+    {
+      "type": "story",
+      "lines": [
+        "Dana's bank said $14,200.",
+        "Her books said $9,050.",
+        "Somebody was wrong."
+      ]
+    },
+    {
+      "type": "question",
+      "text": "When did you last reconcile?",
+      "dur": 2.0
+    },
+    {
+      "type": "list",
+      "kicker": "Steps 1 to 5",
+      "items": [
+        {
+          "t": "Download every statement"
+        },
+        {
+          "t": "Categorize every transaction"
+        },
+        {
+          "t": "Reconcile each account"
+        },
+        {
+          "t": "Match receipts"
+        },
+        {
+          "t": "Separate personal from business"
+        }
+      ],
+      "dur": 4.6
+    },
+    {
+      "type": "list",
+      "kicker": "Steps 6 to 10",
+      "start": 6,
+      "items": [
+        {
+          "t": "Review who owes you"
+        },
+        {
+          "t": "Review what you owe"
+        },
+        {
+          "t": "Record payroll, loans and fees"
+        },
+        {
+          "t": "Read your profit report and balance sheet"
+        },
+        {
+          "t": "Set aside tax"
+        }
+      ],
+      "dur": 4.6
+    },
+    {
+      "type": "product",
+      "image": "social/shorts/img/month-end-close-checklist.jpg",
+      "kicker": "Do it yourself",
+      "text": "Month-End Close *Checklist*",
+      "sub": "Or let us close your books every month.",
+      "dur": 3.2
+    }
   ],
-  "cta": {"big": "Link in *bio*", "url": "mfa-advisory.com", "sub": "Monthly bookkeeping, or the checklist in our shop."},
+  "cta": {
+    "big": "Comment *CLOSE*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you the checklist link."
+  },
   "captions": {
     "comment_word": "CLOSE",
     "instagram": "Clean monthly books are what make tax season short. Pick a day, like the 10th, and work down the list:\n\n1. Download every statement\n2. Categorize every transaction\n3. Reconcile each account\n4. Match receipts\n5. Separate personal from business\n6. Review who owes you\n7. Review what you owe\n8. Record payroll, loans and fees\n9. Read your P&L and balance sheet\n10. Set aside tax\n\nWant it done for you? Our monthly bookkeeping starts at $199 a month. Prefer to do it yourself? The Month-End Close Checklist is in our shop.",
-    "hashtags": ["#bookkeeping", "#monthendclose", "#smallbusiness", "#accounting", "#smallbusinessowner", "#quickbooks"],
+    "hashtags": [
+      "#bookkeeping",
+      "#monthendclose",
+      "#smallbusiness",
+      "#accounting",
+      "#smallbusinessowner",
+      "#quickbooks"
+    ],
     "youtube_title": "Month-End Close in 10 Steps (Small Business Bookkeeping)",
     "youtube_description": "A 10-step monthly close for small business owners: download statements, categorize, reconcile each account, match receipts, separate personal spending, review receivables and payables, record payroll, loans and fees, read your P&L and balance sheet, and set aside tax. Or have Merchant Financial Advisory close your books each month.",
     "pinterest_title": "Month End Close Checklist: 10 Steps for Small Business Bookkeeping",
@@ -33,9 +105,28 @@
     "pinterest_alt": "Short video: a business owner's bank and books don't match; then a 10-step month-end close checklist and MFA's monthly bookkeeping service.",
     "pinterest_board": "Small Business Bookkeeping Templates & Tips"
   },
-  "sync": {"product_id": "18", "etsy_title_phrase": "month end close checklist", "ads_keywords": ["bookkeeping services", "monthly bookkeeping", "bookkeeping cleanup"], "blog": "/bookkeeping-cleanup/", "pin_ids": ["p15", "p16"]},
+  "sync": {
+    "product_id": "18",
+    "etsy_title_phrase": "month end close checklist",
+    "ads_keywords": [
+      "bookkeeping services",
+      "monthly bookkeeping",
+      "bookkeeping cleanup"
+    ],
+    "blog": "/bookkeeping-cleanup/",
+    "pin_ids": [
+      "p15",
+      "p16"
+    ]
+  },
   "sources": [
-    {"fact": "10-step monthly close matches page 6 of MFA's 2026 Tax Starter Kit (practice checklist, no tax figures)", "url": "https://mfa-advisory.com/services/"},
-    {"fact": "Monthly bookkeeping from $199/month (published on /services/, approved price)", "url": "https://mfa-advisory.com/services/"}
+    {
+      "fact": "10-step monthly close matches page 6 of MFA's 2026 Tax Starter Kit (practice checklist, no tax figures)",
+      "url": "https://mfa-advisory.com/services/"
+    },
+    {
+      "fact": "Monthly bookkeeping from $199/month (published on /services/, approved price)",
+      "url": "https://mfa-advisory.com/services/"
+    }
   ]
 }

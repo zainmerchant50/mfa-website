@@ -67,12 +67,12 @@
   }
  ],
  "cta": {
-  "big": "Link in *bio*",
-  "url": "mfa-advisory.com",
-  "sub": "1099 Income Tracker in our shop."
+  "big": "Comment *INCOME*",
+  "url": "mfa-advisory.com/shop",
+  "sub": "We'll DM you the income tracker."
  },
  "captions": {
-  "comment_word": "TRACKER",
+  "comment_word": "INCOME",
   "instagram": "Myth: if no 1099 shows up, the income doesn't count.\nFact: the IRS says to report it anyway. A 1099 is just a copy of what someone paid you. The tax is on the income, not the form.\n\n✔️ Cash, Zelle, Venmo and app payouts count.\n✔️ Self-employment tax applies once your net earnings reach $400 for the year.\n✔️ Log every payment as it lands, keep the invoice with the deposit, and check your log against any 1099s you get.\n\nOur 1099 Income Tracker for Freelancers keeps every client and payment in one sheet.",
   "hashtags": [
    "#taxmyths",

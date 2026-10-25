@@ -27,7 +27,7 @@
       "type": "stat",
       "kicker": "Self-employment tax today",
       "value": "15.3%",
-      "sub": "on 92.35% of your net profit",
+      "sub": "on most of your profit (92.35% of it)",
       "dur": 2.6
     },
     {
@@ -59,13 +59,13 @@
       "image": "social/shorts/img/s-corp-vs-llc-savings-calculator.jpg",
       "kicker": "Run your numbers",
       "text": "S Corp vs LLC *Calculator*",
-      "sub": "After the extra costs, with your break-even profit."
+      "sub": "Counts the extra costs and shows your break-even."
     }
   ],
   "cta": {
-    "big": "Link in *bio*",
+    "big": "Comment *SCORP*",
     "url": "mfa-advisory.com",
-    "sub": "Try the S corp calculator, or book a call with us."
+    "sub": "We'll DM you the S corp calculator."
   },
   "captions": {
     "comment_word": "SCORP",
