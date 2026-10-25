@@ -329,7 +329,7 @@ def build_scorp():
            ("What is a reasonable salary?",
             "S corp owners who work in the business must pay themselves a reasonable wage through payroll before taking distributions. We document a range based on what similar work pays."),
            ("What happens after the election?",
-            f"You run payroll, keep books, and file Form 1120-S each year (for 2027, due {fmt_d(cal('1120-S + Schedules K-1')['date'])}). We can do all of it.")]
+            "You run payroll, keep books, and file Form 1120-S each year by the 15th day of the third month after your tax year ends (March 15 for a calendar-year business, so the 2027 return is due in March 2028). We can do all of it.")]
     srcs = src_of(("IRS Publication 509 (2027 tax calendar, draft)", s2553["source_url"]),
                   ("IRS: S corporations", "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations"),
                   ("IRS: About Form 2553", "https://www.irs.gov/forms-pubs/about-form-2553"))
