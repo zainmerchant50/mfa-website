@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-24",
+  "slug": "artist-llc",
+  "title": "Do artists need an LLC?",
+  "type": "service",
+  "accent": "slate",
+  "label": "Artists · LLC",
+  "checked": "October 25, 2026",
+  "link": {
+    "path": "/llc-formation/",
+    "label": "LLC formation (MFA)"
+  },
+  "hook": {
+    "text": "Do artists *need* an LLC?",
+    "sub": "What it changes for your taxes."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Mia's commissions doubled.",
+        "A friend said: get an LLC for taxes.",
+        "Her return barely changed."
+      ]
+    },
+    {
+      "type": "rows",
+      "kicker": "One-owner LLC, by default",
+      "items": [
+        {
+          "l": "Federal tax form",
+          "r": "Still Schedule C",
+          "ok": true
+        },
+        {
+          "l": "Self-employment tax",
+          "r": "Still applies",
+          "ok": false
+        },
+        {
+          "l": "A separate legal entity",
+          "r": "Yes, state law",
+          "ok": true
+        }
+      ],
+      "note": "The IRS disregards a one-owner LLC for income tax unless it elects otherwise.",
+      "dur": 6.8
+    },
+    {
+      "type": "list",
+      "kicker": "The S corp option",
+      "items": [
+        {
+          "t": "An LLC can elect S corp status",
+          "s": "Form 2553."
+        },
+        {
+          "t": "Then you pay yourself a reasonable salary",
+          "s": "Payroll taxes on it, plus payroll and return costs."
+        },
+        {
+          "t": "Usually worth a look only at higher profit"
+        }
+      ],
+      "dur": 6.2
+    },
+    {
+      "type": "text",
+      "kicker": "Thinking about forming one?",
+      "text": "We form LLCs in *all 50* states",
+      "sub": "Book a call or see our LLC page."
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "See our LLC formation page."
+  },
+  "captions": {
+    "comment_word": "LLC",
+    "instagram": "\"Get an LLC for the taxes\" is advice artists hear a lot. What a one-owner LLC actually does:\n\n✔️ By default the IRS disregards it for income tax. You still file Schedule C with your Form 1040.\n✔️ Self-employment tax still applies to your net earnings.\n✔️ It is a separate legal entity under state law, which is why people form one.\n✔️ An LLC can elect S corp status (Form 2553). Then you pay yourself a reasonable salary through payroll, with payroll taxes and extra costs, so it's usually worth a look only at higher profit.\n\nThinking about forming one? We form LLCs in all 50 states.",
+    "hashtags": [
+      "#artbusiness",
+      "#artistsoninstagram",
+      "#artfair",
+      "#sellingart",
+      "#selfemployed",
+      "#taxtips",
+      "#smallbusinesstaxes",
+      "#artist"
+    ],
+    "youtube_title": "Do Artists Need an LLC? What It Does and Doesn't Change for Taxes",
+    "youtube_description": "A one-owner LLC is disregarded for federal income tax by default: you still file Schedule C and owe self-employment tax. It is a separate legal entity under state law. An LLC can elect S corp status with Form 2553, but then you pay yourself a reasonable salary through payroll, so it's usually worth a look only at higher profit.",
+    "pinterest_title": "Do Artists Need an LLC? LLC vs Sole Proprietor Taxes for Artists",
+    "pinterest_description": "LLC for artists: a single-member LLC is disregarded for federal income tax by default, so you still file Schedule C and pay self-employment tax. It is a separate legal entity under state law. An LLC can elect S corp status with Form 2553, but that means a reasonable salary through payroll and extra costs, so it usually only makes sense at higher profit.",
+    "pinterest_alt": "Short video: an artist forms an LLC for taxes and her return barely changes; what a one-owner LLC changes, what it doesn't, and the S corp option.",
+    "pinterest_board": "LLC Checklist & Starting a Business"
+  },
+  "sync": {
+    "product_id": "02",
+    "etsy_title_phrase": null,
+    "ads_keywords": [
+      "do i need an llc as an artist",
+      "llc for artists"
+    ],
+    "blog": "/blog/which-tax-form-llc-corporation/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "An LLC is an entity created by state statute; a one-member LLC is treated as disregarded from its owner for income tax unless it elects corporate treatment (Form 8832) (read 2026-10-25)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/llc-filing-as-a-corporation-or-partnership"
+    },
+    {
+      "fact": "Individual-owned single-member LLC reports income and expenses on Schedule C and the owner is subject to self-employment tax; an LLC files Form 2553 to elect S corporation classification (Pub 3402, read 2026-10-25)",
+      "url": "https://www.irs.gov/publications/p3402"
+    },
+    {
+      "fact": "S corporations must pay reasonable compensation to a shareholder-employee for services; those payments are wages subject to employment taxes (read 2026-10-25)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues"
+    },
+    {
+      "fact": "MFA forms LLCs in all 50 states (site /llc-formation/ and /services/, live copy)",
+      "url": "https://mfa-advisory.com/llc-formation/"
+    }
+  ]
+}

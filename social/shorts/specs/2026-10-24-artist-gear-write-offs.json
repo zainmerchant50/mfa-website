@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-24",
+  "slug": "artist-gear-write-offs",
+  "title": "iPad, paint, shipping: what counts for artists",
+  "type": "value",
+  "accent": "plum",
+  "label": "Artists · Write-offs",
+  "checked": "October 25, 2026",
+  "link": {
+    "path": "/tools/is-it-deductible/",
+    "label": "Is It Deductible? tool (MFA)"
+  },
+  "hook": {
+    "text": "iPad, paint, shipping: *what counts?*",
+    "sub": "Everyday costs of an art business."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Jo draws commissions on an iPad.",
+        "She ships prints from Etsy every week.",
+        "She kept zero receipts last year."
+      ]
+    },
+    {
+      "type": "list",
+      "kicker": "Usually deductible (business share)",
+      "items": [
+        {
+          "t": "iPad, software, brushes, paint",
+          "s": "Items up to $2,500 each can often be expensed in year one."
+        },
+        {
+          "t": "Etsy fees and shipping labels",
+          "s": "Listing, transaction and processing fees, postage."
+        },
+        {
+          "t": "Classes for skills you already use",
+          "s": "Not training for a new career."
+        },
+        {
+          "t": "Miles to fairs, clients, supply runs",
+          "s": "2026: 72.5 cents a mile to June 30, 76 cents after."
+        }
+      ],
+      "dur": 11.0
+    },
+    {
+      "type": "text",
+      "kicker": "The habit that makes it work",
+      "text": "Snap every *receipt*",
+      "sub": "Note what it was for, the day you buy it."
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "Check any cost with our Is It Deductible? tool."
+  },
+  "captions": {
+    "comment_word": "DEDUCT",
+    "instagram": "The everyday costs of an art business add up, and most of them count. For the business-use share:\n\n✔️ iPad, software, brushes and paint. With the de minimis election, items up to $2,500 each can often be expensed the year you buy them.\n✔️ Etsy listing, transaction and processing fees, plus shipping labels and postage.\n✔️ Classes that improve skills you already use (not training for a new career).\n✔️ Miles to art fairs, client installs and supply runs: 72.5 cents a mile for Jan. 1 to June 30, 2026 and 76 cents from July 1.\n\nThe habit that makes it work: photograph every receipt and note what it was for.",
+    "hashtags": [
+      "#artbusiness",
+      "#artistsoninstagram",
+      "#artfair",
+      "#sellingart",
+      "#selfemployed",
+      "#taxtips",
+      "#smallbusinesstaxes",
+      "#artist"
+    ],
+    "youtube_title": "Artist Tax Write-Offs: iPad, Supplies, Etsy Fees, Classes, Mileage",
+    "youtube_description": "What artists with a business can usually deduct (business-use share): iPad, software and supplies (items up to $2,500 each can often be expensed under the de minimis election), Etsy fees and shipping, classes that improve skills you already use, and business miles (2026: 72.5 cents a mile Jan. 1 to June 30, 76 cents from July 1). Keep a receipt and a note for each.",
+    "pinterest_title": "Tax Deductions for Artists: iPad, Art Supplies, Etsy Fees, Classes and Mileage (2026)",
+    "pinterest_description": "Tax deductions for artists, business-use share: iPad, software, brushes and paint (items up to $2,500 can often be expensed), Etsy listing and processing fees, shipping labels, classes that improve skills you already use, and business mileage at 72.5 cents a mile to June 30, 2026 and 76 cents after. Snap every receipt and note what it was for.",
+    "pinterest_alt": "Short video: an artist who draws on an iPad and ships Etsy prints learns which everyday costs are usually deductible and to keep receipts.",
+    "pinterest_board": "Tax Write Offs & Deductions for Small Business"
+  },
+  "sync": {
+    "product_id": "13",
+    "etsy_title_phrase": "self employed tax deduction tracker",
+    "ads_keywords": [
+      "artist tax deductions",
+      "can artists write off art supplies"
+    ],
+    "blog": "/tools/is-it-deductible/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Business expenses must be ordinary (common and accepted in your field) and necessary (helpful and appropriate) (Pub 583, read 2026-10-24)",
+      "url": "https://www.irs.gov/publications/p583"
+    },
+    {
+      "fact": "De minimis safe harbor: deduct amounts up to $2,500 per invoice or item (no applicable financial statement), with an annual election statement on the return (read 2026-10-25)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations"
+    },
+    {
+      "fact": "Self-employed include education expenses on Schedule C; must maintain or improve skills needed in present work; not minimum requirements or a new trade (Topic 513, read 2026-10-25)",
+      "url": "https://www.irs.gov/taxtopics/tc513"
+    },
+    {
+      "fact": "2026 business standard mileage rate: 72.5 cents/mile Jan. 1-June 30; 76 cents/mile July 1-Dec. 31 (read 2026-10-25)",
+      "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates"
+    },
+    {
+      "fact": "1099-K gross doesn't include adjustments for fees or shipping, which are business costs (Q8, read 2026-10-24)",
+      "url": "https://www.irs.gov/newsroom/form-1099-k-faqs-general-information"
+    }
+  ]
+}

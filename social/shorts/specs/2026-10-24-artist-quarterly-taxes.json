@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-24",
+  "slug": "artist-quarterly-taxes",
+  "title": "Paid for commissions? Set this aside",
+  "type": "value",
+  "accent": "amber",
+  "label": "Artists · Tax",
+  "checked": "October 25, 2026",
+  "link": {
+    "path": "/tools/quarterly-estimated-tax-calculator/",
+    "label": "Quarterly estimated tax calculator (MFA)"
+  },
+  "hook": {
+    "text": "Paid for commissions? Set this *aside*",
+    "sub": "Nothing is withheld from art income."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Leo paints pet portraits on commission.",
+        "Clients pay him by PayPal and Venmo.",
+        "No tax comes out of any of it."
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Self-employment tax",
+      "value": "15.3%",
+      "count": {
+        "to": 15.3,
+        "suf": "%",
+        "dec": 1
+      },
+      "sub": "on top of income tax",
+      "note": "Once net earnings reach $400 for the year."
+    },
+    {
+      "type": "stat",
+      "kicker": "Next estimated tax payment",
+      "value": "Jan. 15, 2027",
+      "sub": "If you expect to owe $1,000 or more for 2026."
+    },
+    {
+      "type": "list",
+      "kicker": "A simple system",
+      "items": [
+        {
+          "t": "Open a separate savings account"
+        },
+        {
+          "t": "Move a set share of every commission",
+          "s": "The day it lands."
+        },
+        {
+          "t": "Pay by each IRS due date",
+          "s": "Form 1040-ES: April, June, September, January."
+        }
+      ],
+      "dur": 6.6
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "Use our quarterly tax calculator."
+  },
+  "captions": {
+    "comment_word": "QUARTERLY",
+    "instagram": "Commission money arrives with nothing taken out for taxes, so the bill shows up later unless you plan for it.\n\n✔️ Self-employment tax is 15.3% (Social Security and Medicare) once net earnings reach $400, on top of income tax.\n✔️ Expect to owe $1,000 or more for 2026? The IRS expects estimated payments during the year. The last 2026 payment is due Jan. 15, 2027.\n✔️ Open a separate savings account and move a set share of every commission the day it lands.\n✔️ Pay by each Form 1040-ES due date: April, June, September and January.\n\nOur quarterly tax calculator works out a number from your income and expenses.",
+    "hashtags": [
+      "#artbusiness",
+      "#artistsoninstagram",
+      "#artfair",
+      "#sellingart",
+      "#selfemployed",
+      "#taxtips",
+      "#smallbusinesstaxes",
+      "#artist"
+    ],
+    "youtube_title": "Commission Artists: How Much Tax to Set Aside + Quarterly Due Dates",
+    "youtube_description": "No tax is withheld from commission income. Self-employment tax is 15.3% once net earnings reach $400, on top of income tax. If you expect to owe $1,000 or more for 2026, pay estimated tax during the year with Form 1040-ES; the last 2026 payment is due Jan. 15, 2027. Keep a separate savings account and move a set share of every commission when it lands.",
+    "pinterest_title": "Quarterly Taxes for Artists: Setting Money Aside From Commissions (2026 Due Dates)",
+    "pinterest_description": "Quarterly estimated taxes for artists and commission work: self-employment tax is 15.3% once net earnings reach $400, on top of income tax. Expect to owe $1,000 or more? Pay Form 1040-ES estimates in April, June, September and January (last 2026 payment Jan. 15, 2027). Move a set share of every commission into a separate savings account.",
+    "pinterest_alt": "Short video: a pet-portrait artist paid by PayPal and Venmo learns about 15.3% self-employment tax, the Jan. 15, 2027 estimated payment and a simple set-aside system.",
+    "pinterest_board": "Self-Employed & 1099 Taxes"
+  },
+  "sync": {
+    "product_id": "08",
+    "etsy_title_phrase": null,
+    "ads_keywords": [
+      "quarterly taxes for artists",
+      "estimated tax commission income"
+    ],
+    "blog": "/tools/quarterly-estimated-tax-calculator/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "SE tax 15.3% (12.4% SS + 2.9% Medicare); Schedule SE when net SE earnings are $400 or more (read 2026-10-24)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    },
+    {
+      "fact": "Must generally pay 2026 estimated tax if you expect to owe at least $1,000 after withholding and credits; 2026 due dates Apr. 15, June 15, Sept. 15, 2026 and Jan. 15, 2027 (2026 Form 1040-ES, read 2026-10-24)",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
+    }
+  ]
+}
