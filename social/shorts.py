@@ -433,23 +433,24 @@ const E={{c:x=>1-Math.pow(1-x,3),b:x=>{{const c1=1.70158,c3=c1+1;return 1+c3*Mat
 const C=x=>Math.max(0,Math.min(1,x));
 const TOTAL={total};
 function fmt(v,dec){{return v.toLocaleString('en-US',{{minimumFractionDigits:dec,maximumFractionDigits:dec}})}}
+const PRE=0.3, OUT=0.22;  // crossfade: the next scene starts entering PRE s before the cut while this one fades over OUT s
 function seek(t){{
-  document.querySelectorAll('.scene').forEach(s=>{{
-    const a=+s.dataset.s,b=+s.dataset.e,last=s.dataset.last==='1';
-    if(t<a-1e-6||(!last&&t>=b)){{s.style.display='none';return}}
+  document.querySelectorAll('.scene').forEach((s,i)=>{{
+    const a=+s.dataset.s,b=+s.dataset.e,last=s.dataset.last==='1',pre=i?PRE:0,tt=t+pre;
+    if(t<a-pre-1e-6||(!last&&t>=b)){{s.style.display='none';return}}
     s.style.display='flex';
-    const o=last?0:C((t-(b-0.24))/0.24);
+    const o=last?0:C((t-(b-OUT))/OUT);
     s.style.opacity=1-o; s.style.transform='translateY('+(-46*E.c(o))+'px)';
     s.querySelectorAll('[data-a]').forEach(el=>{{
-      const t0=+el.dataset.t,d=+(el.dataset.d||0.45),p=C((t-t0)/d),k=el.dataset.a;
+      const t0=+el.dataset.t,d=+(el.dataset.d||0.45),p=C((tt-t0)/d),k=el.dataset.a;
       if(k==='pop'){{const e=E.b(p);el.style.opacity=C(p*2.6);el.style.transform='scale('+(0.55+0.45*e)+')'}}
       else if(k==='up'){{const e=E.c(p);el.style.opacity=C(p*1.4);el.style.transform='translateY('+(56*(1-e))+'px)'}}
       else if(k==='left'){{const e=E.c(p);el.style.opacity=C(p*1.4);el.style.transform='translateX('+(-90*(1-e))+'px)'}}
       else if(k==='fade'){{el.style.opacity=p}}
       else if(k==='wipe'){{el.style.clipPath='inset(0 '+(100*(1-E.c(p)))+'% 0 0)'}}
       else if(k==='zoom'){{el.style.transform='scale('+(1.07-0.07*E.c(p))+')'}}
-      else if(k==='kb'){{el.style.transform='scale('+(1.0+0.09*C((t-t0)/d))+')'}}
-      if(el.dataset.count){{const q=E.c(C((t-(+el.dataset.ct))/(+el.dataset.cd)));
+      else if(k==='kb'){{el.style.transform='scale('+(1.0+0.09*C((tt-t0)/d))+')'}}
+      if(el.dataset.count){{const q=E.c(C((tt-(+el.dataset.ct))/(+el.dataset.cd)));
         el.textContent=el.dataset.pre+fmt((+el.dataset.count)*q,+el.dataset.dec)+el.dataset.suf}}
     }});
   }});
@@ -472,6 +473,17 @@ function check(S){{  // every visible element of every scene inside the safe box
     }});
   }});
   return bad;
+}}
+function coverage(T){{  // frames where no text or image is at least 40% visible (an empty background between scenes)
+  const low=[];
+  for(let i=0;i<Math.round(T*30);i++){{const t=i/30; seek(t); let m=0;
+    document.querySelectorAll('.scene').forEach(s=>{{if(s.style.display==='none') return;
+      s.querySelectorAll('*').forEach(el=>{{
+        if(el.tagName!=='IMG'&&(el.children.length||!(el.textContent||'').trim())) return;
+        let o=1,x=el; while(x){{const v=x.style.opacity; if(v!=='') o*=parseFloat(v); if(x===s) break; x=x.parentElement}}
+        m=Math.max(m,o)}})}});
+    if(m<0.4) low.push(t.toFixed(2)+' s ('+m.toFixed(2)+')')}}
+  return low;
 }}
 seek(0);
 </script></body></html>"""
@@ -640,8 +652,9 @@ def main():
         pg.set_content(page(p, scenes, total), wait_until="load")
         pg.evaluate("document.fonts.ready")
         bad = pg.evaluate("S=>check(S)", SAFE)
+        bad += ["near-empty frame at " + x for x in pg.evaluate(f"coverage({total})")]
         if bad and "--force" not in args:
-            sys.exit("LAYOUT OUTSIDE SAFE AREA in " + str(spec) + "\n- " + "\n- ".join(bad[:20]))
+            sys.exit("LAYOUT CHECK FAILED (safe area / empty frames) in " + str(spec) + "\n- " + "\n- ".join(bad[:20]))
         for arg in (frames_arg, only):
             if arg:
                 fd = out / "frames"
