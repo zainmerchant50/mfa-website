@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-27",
+  "number": 1,
+  "slug": "S-Corp-For-2027",
+  "topic": "S corp for 2027: profit decides, Form 2553 by Mar 15, 2027 (nov-push offer: S corp switch $299)",
+  "type": "service",
+  "accent": "plum",
+  "label": "S corp for 2027 / Checklist",
+  "kicker": "Profit decides, not sales",
+  "headline": "Thinking S corp? The deadline is *Mar. 15*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Start with profit, not sales",
+      "text": "Self-employment tax is up to 15.3%, figured on 92.35% of your profit."
+    },
+    {
+      "title": "You must pay yourself a salary",
+      "text": "Owners who work in the business get a fair wage through payroll before taking distributions."
+    },
+    {
+      "title": "Count the new costs",
+      "text": "Payroll, a separate return (Form 1120-S) and cleaner books. Your tax savings must beat them."
+    },
+    {
+      "title": "File Form 2553 by Mar. 15, 2027",
+      "text": "For a calendar-year business to be an S corp for 2027. Filing early is fine."
+    }
+  ],
+  "body": [],
+  "cta_word": "SCORP",
+  "link": "mfa-advisory.com/s-corp-election",
+  "checked": "October 25, 2026",
+  "ig_caption": "Thinking about an S corp for 2027? Your sales don't decide it. Your profit does.\n\n✔️ Sole owners and single-member LLCs pay self-employment tax of up to 15.3% on 92.35% of profit.\n✔️ As an S corp, owners who work in the business must take a fair salary through payroll first. Only the rest can come out as distributions.\n✔️ Payroll, a separate return (Form 1120-S) and cleaner books cost money. The tax you save has to beat them.\n✔️ To be an S corp for 2027, a calendar-year business files Form 2553 by March 15, 2027. State rules vary, so check yours too.\n\nWe run the numbers, file Form 2553 and set your salary and payroll plan for $299, paid once.\n\nComment SCORP and we'll send you the link, or find it at mfa-advisory.com/s-corp-election\n\nGeneral information, not tax advice.\n\n#smallbusiness #taxes #taxplanning #accounting #bookkeeping #businessowner #taxtips #entrepreneur\n#scorp #scorporation #llc #selfemployed #selfemploymenttax #form2553 #njsmallbusiness #nysmallbusiness",
+  "li_caption": "An S corp is not about how much you sell. It is about how much profit is left.\n\nFour things we check before an owner switches for 2027:\n\n1. Profit. Sole owners and single-member LLCs pay self-employment tax of up to 15.3%, figured on 92.35% of net profit. That is the tax an S corp can reduce.\n2. Salary. S corp owners who work in the business must be paid a reasonable wage through payroll before taking distributions. Only the profit above that salary avoids payroll taxes.\n3. Costs. Payroll, a separate business return (Form 1120-S) and cleaner books all cost money. If the tax saved doesn't beat them, stay as you are for now.\n4. Timing. For a calendar-year business to be an S corp for 2027, Form 2553 is due by March 15, 2027. It can also be filed any time before then. State rules vary, so check yours as well.\n\nWe run the savings check with your real numbers, file Form 2553 and write down your salary and payroll plan. $299, paid once. Comment SCORP and we will send it, or see https://mfa-advisory.com/s-corp-election/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push\n\n#SCorp #SmallBusiness #TaxPlanning #LLC",
+  "sources": [
+    {
+      "fact": "Self-employment tax 15.3% (12.4% Social Security + 2.9% Medicare) on 92.35% of net earnings; Social Security part only up to the 2026 wage base (repo data/tax-figures-2026.json, checked 2026-10-20)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    },
+    {
+      "fact": "S corps must pay reasonable compensation to a shareholder-employee before non-wage distributions; non-wage distributions are not subject to employment taxes",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues"
+    },
+    {
+      "fact": "S corporation files Form 1120-S; shareholders report income on personal returns",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations"
+    },
+    {
+      "fact": "Form 2553 due no more than 2 months and 15 days after the start of the tax year it takes effect (Mar 15, 2027 for calendar 2027), or any time in the year before; an eligible entity (LLC) doesn't need Form 8832",
+      "url": "https://www.irs.gov/instructions/i2553"
+    },
+    {
+      "fact": "MFA S corp switch for 2027: $299, paid once (live offer, claude/site/nov-push.md)",
+      "url": "https://mfa-advisory.com/s-corp-election/"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:00 AM ET",
+    "instagram": "12:00 PM ET"
+  }
+}

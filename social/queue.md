@@ -9,7 +9,7 @@ Last updated: 2026-10-22 19:45 ET by Hub. Add ideas at the bottom; Blog's new gu
 | 2 | value | ~~Year-end moves before Dec 31 (Solo 401(k) setup, equipment placed in service, gifts)~~ (2026-10-26) | /blog/year-end-tax-planning-2026-key-dates/ | GUIDE |
 | 3 | service | Behind on your books? Cleanup quote before tax season | /bookkeeping-cleanup/ | CALL |
 | 4 | product | Mileage log: what the IRS wants in a log, 2026 rates 72.5¢ / 76¢ | 14 IRS Mileage Log 2026 | TRACKER |
-| 5 | value | S corp or LLC? Profit, not revenue, decides | /tools/s-corp-tax-savings-calculator/ | CALCULATOR |
+| 5 | value | ~~S corp or LLC? Profit, not revenue, decides~~ (2026-10-27, as nov-push service post → /s-corp-election/, SCORP) | /tools/s-corp-tax-savings-calculator/ | CALCULATOR |
 | 6 | product | Quarterly estimates for freelancers: Jan 15, 2027 payment | 08 1099 Self-Employed Tax Calculator | CALCULATOR |
 | 7 | value | Which tax form does my LLC file? (1065 / 1120-S / Schedule C) | /blog/which-tax-form-llc-corporation/ | GUIDE |
 | 8 | product | Month-end close in 10 steps | 18 Month-End Close Checklist | CHECKLIST |
