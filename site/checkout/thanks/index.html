@@ -9,7 +9,7 @@
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Order Confirmation | MFA"/><meta name="twitter:description" content="Your order with Merchant Financial Advisory."/><meta name="twitter:image" content="https://mfa-advisory.com/apple-touch-icon.png"/>
 <link rel="icon" href="/favicon.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="alternate" type="application/rss+xml" title="MFA Insights" href="/blog/feed.xml"/>
-<meta name="p:domain_verify" content="b4398f09fdd0e385c266cc687acecf36"/><script async src="https://www.googletagmanager.com/gtag/js?id=AW-18505873837"></script><script src="/assets/ads.js?v=e5d25ef91e"></script>
+<meta name="p:domain_verify" content="b4398f09fdd0e385c266cc687acecf36"/><script async src="https://www.googletagmanager.com/gtag/js?id=AW-18505873837"></script><script src="/assets/ads.js?v=592d3075a0"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/blog/blog.css?v=e62f983010"/><link rel="stylesheet" href="/blog/ui.css?v=4ad411a574"/>
 <link rel="stylesheet" href="/resources/resources.css?v=26d17ae291"/></head>
 <body><header class="bnav"><div class="wrap bnav-in">
@@ -30,6 +30,7 @@ b.innerHTML='<h2>What happens next</h2><ol><li>We review your details and email 
 try{if(!sessionStorage.getItem('svc-paid-'+id)){sessionStorage.setItem('svc-paid-'+id,'1');var d=new FormData();d.append('_subject','PAID: '+s.service+' ($'+s.amount+')');
 ['name','email','phone','extra','notes','service','qty'].forEach(function(k){d.append(k,s[k]||'');});d.append('amount_paid','$'+s.amount);d.append('stripe_session',id);d.append('_captcha','false');d.append('_template','table');
 fetch('https://formsubmit.co/ajax/info@mfa-advisory.com',{method:'POST',headers:{'Accept':'application/json'},body:d}).catch(function(){});}}catch(e){}
+if(window.mfaPurchase)mfaPurchase(id,s.amount);
 if(window.gtag)gtag('event','purchase',{transaction_id:id,value:s.amount,currency:'USD',items:[{item_name:s.service}]});
 }).catch(function(){fail('We couldn\u2019t reach the payment service.');});})();
 </script>

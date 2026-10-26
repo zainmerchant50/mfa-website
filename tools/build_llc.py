@@ -587,6 +587,7 @@ try{{if(!sessionStorage.getItem('llc-paid-'+id)){{sessionStorage.setItem('llc-pa
 d.append('name',s.name||'');d.append('email',s.email||'');d.append('amount_paid','$'+s.amount);d.append('package',s.package);d.append('state',s.state);d.append('llc_name',s.llc_name);d.append('activity',s.activity||'');
 d.append('monthly_bookkeeping',s.monthly_bookkeeping||'');d.append('addons',s.addons||'');d.append('state_fee_confirmed',s.state_fee_confirmed||'');d.append('stripe_session',id);d.append('_captcha','false');d.append('_template','table');
 fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).catch(function(){{}});}}}}catch(e){{}}
+if(window.mfaPurchase)mfaPurchase(id,s.amount);
 if(window.gtag)gtag('event','purchase',{{transaction_id:id,value:s.amount,currency:'USD',items:[{{item_name:'LLC formation '+s.package}}]}});
 }}).catch(function(){{fail('We couldn\u2019t reach the payment service.');}});}})();
 </script>'''

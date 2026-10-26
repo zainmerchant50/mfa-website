@@ -450,6 +450,7 @@ b.innerHTML='<h2>What happens next</h2><ol><li>We review your details and email 
 try{{if(!sessionStorage.getItem('svc-paid-'+id)){{sessionStorage.setItem('svc-paid-'+id,'1');var d=new FormData();d.append('_subject','PAID: '+s.service+' ($'+s.amount+')');
 ['name','email','phone','extra','notes','service','qty'].forEach(function(k){{d.append(k,s[k]||'');}});d.append('amount_paid','$'+s.amount);d.append('stripe_session',id);d.append('_captcha','false');d.append('_template','table');
 fetch('https://formsubmit.co/ajax/info@mfa-advisory.com',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).catch(function(){{}});}}}}catch(e){{}}
+if(window.mfaPurchase)mfaPurchase(id,s.amount);
 if(window.gtag)gtag('event','purchase',{{transaction_id:id,value:s.amount,currency:'USD',items:[{{item_name:s.service}}]}});
 }}).catch(function(){{fail('We couldn\\u2019t reach the payment service.');}});}})();
 </script>'''
