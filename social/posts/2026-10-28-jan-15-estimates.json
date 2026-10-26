@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-28",
+  "number": 1,
+  "slug": "Jan-15-Estimates",
+  "topic": "Last 2026 estimated tax payment due Jan 15, 2027: who pays, safe amounts, file-early option (nov-push offer: quarterly estimates $59 / $199)",
+  "type": "value",
+  "accent": "teal",
+  "label": "Quarterly taxes / Deadline",
+  "kicker": "Avoid the underpayment penalty",
+  "headline": "Your last 2026 tax payment is due *Jan. 15*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Who has to pay",
+      "text": "You expect to owe $1,000 or more after any withholding."
+    },
+    {
+      "title": "The safe amount",
+      "text": "At least 90% of your 2026 tax or 100% of your 2025 tax, if that's less."
+    },
+    {
+      "title": "Earned more last year? Use 110%",
+      "text": "If your 2025 AGI was over $150,000 ($75,000 married filing separately)."
+    },
+    {
+      "title": "Or file early and skip it",
+      "text": "File your 2026 return by Feb. 1, 2027, pay in full, and skip Jan. 15."
+    }
+  ],
+  "body": [],
+  "cta_word": "ESTIMATE",
+  "link": "mfa-advisory.com/quarterly-estimated-taxes",
+  "checked": "October 26, 2026",
+  "ig_caption": "Paid on a 1099 or have side income? Your last 2026 estimated tax payment is due January 15, 2027.\n\n✔️ You generally need to pay if you expect to owe $1,000 or more after withholding.\n✔️ The safe amount: at least 90% of your 2026 tax or 100% of your 2025 tax, whichever is less.\n✔️ If your 2025 AGI was over $150,000 ($75,000 married filing separately), use 110% of last year's tax.\n✔️ Or file your 2026 return by Feb. 1, 2027 and pay it all, and skip the Jan. 15 payment.\n\nNJ and NY estimates are due Jan. 15 too. We work out your federal and state payment from your real numbers for $59.\n\nComment ESTIMATE and we'll send you the link, or find it at mfa-advisory.com/quarterly-estimated-taxes\n\nGeneral information, not tax advice.\n\n#smallbusiness #taxes #taxtips #selfemployed #accounting #bookkeeping #businessowner #sidehustle\n#estimatedtaxes #quarterlytaxes #1099 #freelancer #gigworker #taxdeadline #njsmallbusiness #nysmallbusiness",
+  "li_caption": "January 15, 2027 is the last estimated tax payment for 2026. A short check now beats a penalty in April.\n\nWhat we look at before that date:\n\n1. Do you need to pay? Generally yes if you expect to owe $1,000 or more for 2026 after withholding and refundable credits. Freelancers, 1099 workers and owners with profit and no withholding usually do.\n2. The safe amount. Paying at least 90% of your 2026 tax or 100% of your 2025 tax, whichever is less, avoids the underpayment penalty.\n3. Higher income last year. If your 2025 AGI was over $150,000 ($75,000 married filing separately), the prior-year test is 110%, not 100%.\n4. The file-early option. If you file your 2026 return by February 1, 2027 and pay the full balance, you don't need the January 15 payment.\n\nNJ and NY have their own estimated payments due January 15 as well, and rules vary by state.\n\nWe work out your federal and state payment from your real numbers: $59 for the January 15 payment, or $199 for all four 2027 payments. Comment ESTIMATE and we will send it, or see https://mfa-advisory.com/quarterly-estimated-taxes/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push\n\n#EstimatedTaxes #SmallBusiness #SelfEmployed #TaxPlanning",
+  "sources": [
+    {
+      "fact": "Estimated payments generally required if you expect to owe at least $1,000 for 2026 after withholding and refundable credits, and withholding is less than the smaller of 90% of 2026 tax or 100% of 2025 tax",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
+    },
+    {
+      "fact": "110% instead of 100% if 2025 AGI was more than $150,000 ($75,000 married filing separately)",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
+    },
+    {
+      "fact": "Fourth 2026 payment due Jan 15, 2027; not required if the 2026 return is filed by Feb 1, 2027 and the full balance is paid",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
+    },
+    {
+      "fact": "Penalty avoided if you owe less than $1,000, or paid 90% current-year / 100% prior-year tax, whichever is less",
+      "url": "https://www.irs.gov/payments/underpayment-of-estimated-tax-by-individuals-penalty"
+    },
+    {
+      "fact": "NJ-1040-ES and NY IT-2105 fourth 2026 payments due Jan 15, 2027 (repo data/tax-calendar-2027.json, checked 2026-10-20)",
+      "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf"
+    },
+    {
+      "fact": "MFA quarterly estimates: $59 next payment (Jan 15, 2027, federal and state) or $199 for 2027 (live offer, claude/site/nov-push.md)",
+      "url": "https://mfa-advisory.com/quarterly-estimated-taxes/"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:00 AM ET",
+    "instagram": "12:00 PM ET"
+  }
+}
