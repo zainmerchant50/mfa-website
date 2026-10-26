@@ -1,0 +1,67 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:How to Have Your LLC Taxed as an S Corp: Form 2553 Guide
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:llc-taxed-as-s-corp-guide-0@mfa-advisory.com
+DTSTAMP:20261026T174051Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Last day to file Form 2553 for S status starting January 1\, 2027
+DESCRIPTION:That is 2 months and 15 days after the year begins. A calenda
+ r-year company can also file at any time during 2026 for a January 1\, 20
+ 27 start.\n\nDetails: https://mfa-advisory.com/blog/llc-taxed-as-s-corp-g
+ uide/\nGeneral information\, not tax advice. Merchant Financial Advisory\
+ , mfa-advisory.com
+URL:https://mfa-advisory.com/blog/llc-taxed-as-s-corp-guide/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to file Form 2553 for S status starting January 1\, 
+ 2027
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:llc-taxed-as-s-corp-guide-1@mfa-advisory.com
+DTSTAMP:20261026T174051Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Form 1120-S due for calendar-year 2026 S corporations
+DESCRIPTION:File Form 1120-S or Form 7004 for an extension. Late penalty:
+  $260 per shareholder per month\, up to 12 months.\n\nDetails: https://mf
+ a-advisory.com/blog/llc-taxed-as-s-corp-guide/\nGeneral information\, not
+  tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/llc-taxed-as-s-corp-guide/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1120-S due for calendar-year 2026 S corporations
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:llc-taxed-as-s-corp-guide-2@mfa-advisory.com
+DTSTAMP:20261026T174051Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: CBT-100S due (calendar-year 2026)
+DESCRIPTION:New Jersey has no separate S election for periods beginning o
+ n or after December 22\, 2022. Schedule SJC and proof of federal S status
+  are filed with the return.\n\nDetails: https://mfa-advisory.com/blog/llc
+ -taxed-as-s-corp-guide/\nGeneral information\, not tax advice. Merchant F
+ inancial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/llc-taxed-as-s-corp-guide/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: CBT-100S due (calendar-year 2026)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

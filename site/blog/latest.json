@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "How to Have Your LLC Taxed as an S Corp: Form 2553 Guide",
+   "url": "/blog/llc-taxed-as-s-corp-guide/",
+   "date": "2026-10-26",
+   "category": "Tax Planning",
+   "thumb": "/blog/llc-taxed-as-s-corp-guide/og.png",
+   "description": "LLC taxed as an S corp: who qualifies, the Form 2553 deadline (March 15, 2027 for a Jan. 1, 2027 start), reasonable pay and New Jersey and New York rules."
+  },
+  {
    "title": "NJ Sales Tax: How to File the ST-50 Online and Quarterly Due Dates",
    "url": "/blog/nj-sales-tax-st50-filing-guide/",
    "date": "2026-10-23",
@@ -31,14 +39,6 @@
    "category": "Tax Planning",
    "thumb": "/blog/form-1120s-s-corp-guide/og.png",
    "description": "Form 1120-S in plain English: who files, the March 15, 2027 due date, how S corp distributions are taxed, reasonable pay and the $260 per shareholder late penalty."
-  },
-  {
-   "title": "Form 1065 for LLCs: Who Files, Due Date, K-1s, Step by Step",
-   "url": "/blog/form-1065-guide-llc/",
-   "date": "2026-10-20",
-   "category": "Tax Deadlines",
-   "thumb": "/blog/form-1065-guide-llc/og.png",
-   "description": "Form 1065 for LLCs in plain English: which LLCs file it, the March 15, 2027 due date, K-1s for each member, the $260 late penalty and a step-by-step guide."
   }
  ]
 }

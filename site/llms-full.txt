@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated October 25, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated October 26, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -215,6 +215,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - 2026 Salary & Paycheck Tax Calculator (W-2): $5.49, Excel / Google Sheets. See where a 2026 paycheck goes: federal, FICA, NJ / NY / NYC tax and net pay per year and per paycheck, with a bracket-by-bracket table. Buy: https://www.etsy.com/listing/4601160748/2026-paycheck-calculator-excel-google
 - S Corp vs LLC Savings Calculator: $8.49, Excel / Google Sheets. Compare self-employment tax with S corp payroll taxes after the extra costs, see net annual savings and the break-even profit, and read the warnings before you elect. Buy: https://www.etsy.com/listing/4601163974/s-corp-vs-llc-calculator-is-an-s-corp
 - Small Business Budget + 13-Week Cash Flow Forecast (2026): $6.99, Excel + PDF. An annual budget with budget vs. actual by month and year to date, plus a rolling 13-week cash flow forecast from your recurring items, receivables and bills, with scenarios and a low-cash alert. Buy: https://www.etsy.com/listing/4601492601
+- Artist Commission Business Kit: $5.99, Excel + PDF. Commission price calculator (materials, hours, fees and a tax set-aside), invoice and deposit tracker, W-9 / 1099 check with the 2026 $2,000 rule, and a contract-points checklist for your attorney. Buy: https://www.etsy.com/listing/4603106225
 
 ### Checklists & kits
 - The 1099 Kit (2026 payments, filed in 2027): $10.49, PDF + Excel. Decide who needs a 1099, collect W-9s and file on time. Updated for the new $2,000 threshold, with a contractor tracker. Buy: https://www.etsy.com/listing/4601418995/1099-kit-2026-who-needs-a-1099-nec-w-9
@@ -252,6 +253,10 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Content Creator Bookkeeping Tracker (2026): $4.99, Excel (10 files) + PDF. Content creator bookkeeping spreadsheet 2026: payouts, brand deals, gifted products, gear and software by Schedule C line, 1099 check, quarterly set-aside. Buy: https://www.etsy.com/listing/4601517742
 - Reseller Year-End Kit: Inventory Count, COGS & 1099-K Reconciliation: $3.49, Excel + PDF. Year-end inventory count, cost of goods sold (Schedule C Part III) and a 1099-K vs. platform report vs. bank deposit reconciliation for Etsy, eBay, Amazon, Poshmark, Mercari and Shopify sellers. Buy: https://www.etsy.com/listing/4601519074
 - 2026 Tax Season Bundle: 1099 Kit + Personal Tax Organizer + Year-End Checklist: $12.99, ZIP: Excel + PDF. Everything for tax season in one download: the 1099 Kit for January filings, the Year-End Tax Checklist, and the 2026 Personal Tax Organizer for your Form 1040. Costs about $5 less than buying all three separately. Buy: https://www.etsy.com/listing/4601741304
+- Artist Tax & Sales Tracker (2026): $6.99, Excel + PDF. Bookkeeping and tax tracker for artists: cost of goods per piece, sales by channel (Etsy, website, art fairs, commissions), fees, 1099-K reconciliation, booth costs, mileage, home studio, quarterly set-aside and a Schedule C summary. Buy: https://www.etsy.com/listing/4603122836
+- Art Fair Sales Tax & Permit Planner: $4.99, Excel + PDF. Show-by-show sales tax and permit log for art fairs and craft shows, with register-by dates, official state links (NJ, NY, PA, DE, MD, CT), New Jersey ST-50 quarterly reminders and a tax-included price tag calculator. Buy: https://www.etsy.com/listing/4603101487
+- F-1 / J-1 Student Tax Checklist + Form 8843 Walkthrough (2026): $3.99, PDF + checklist sheet. Plain-English tax checklist for F-1 and J-1 students for tax year 2026: resident or nonresident (the 5-calendar-year rule), who files Form 8843 and when, Form 1040-NR vs 1040, treaty and state checks, documents and deadlines. Buy: https://www.etsy.com/listing/4603103445
+- FICA Refund Kit for F-1 / OPT Students: $5.99, PDF + Word + Excel. For F-1 (on-campus, OPT, CPT) and J-1 / M-1 students who had Social Security and Medicare withheld: when FICA shouldn’t apply, an editable employer request letter, the Form 843 + Form 8316 route in plain words, a document checklist and a claim tracker. Buy: https://www.etsy.com/listing/4603127774
 
 ### AI prompt packs
 - AI Prompts for Small Business Bookkeeping & Taxes: $4.99, PDF. 130 copy-paste AI prompts for bookkeeping, month-end close, reconciliations, Schedule C prep, quarterly estimates and 1099s, each with an expected output and a "check this" note. Buy: https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes
@@ -1007,6 +1012,7 @@ Painlessly. After a short consultation we handle the transition — requesting p
 
 ## Articles (MFA Insights)
 
+- How to Have Your LLC Taxed as an S Corp: Form 2553 Guide (2026-10-26): LLC taxed as an S corp: who qualifies, the Form 2553 deadline (March 15, 2027 for a Jan. 1, 2027 start), reasonable pay and New Jersey and New York rules. https://mfa-advisory.com/blog/llc-taxed-as-s-corp-guide/
 - NJ Sales Tax: How to File the ST-50 Online and Quarterly Due Dates (2026-10-23): How NJ sales tax filing online works: the ST-50 quarterly return, the 20th-of-the-month due dates, monthly payments over $30,000 and filing as a guest. https://mfa-advisory.com/blog/nj-sales-tax-st50-filing-guide/
 - Schedule C for Single-Member LLCs and Sole Proprietors (2026-10-23): What the Schedule C tax form is, who files it, the April 15, 2027 due date, 15.3% self-employment tax, and the deductions single-member LLCs miss. https://mfa-advisory.com/blog/schedule-c-guide-single-member-llc/
 - How to File Taxes for an LLC: Which Tax Form? Schedule C, 1065, 1120-S or 1120 (2026-10-21): How to file taxes for an LLC or corporation: Schedule C, Form 1065, 1120-S or 1120, the 2027 due date for each, and who pays the tax. https://mfa-advisory.com/blog/which-tax-form-llc-corporation/

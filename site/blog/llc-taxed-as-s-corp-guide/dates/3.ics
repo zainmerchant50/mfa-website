@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:llc-taxed-as-s-corp-guide-2@mfa-advisory.com
+DTSTAMP:20261026T174051Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: CBT-100S due (calendar-year 2026)
+DESCRIPTION:New Jersey has no separate S election for periods beginning o
+ n or after December 22\, 2022. Schedule SJC and proof of federal S status
+  are filed with the return.\n\nDetails: https://mfa-advisory.com/blog/llc
+ -taxed-as-s-corp-guide/\nGeneral information\, not tax advice. Merchant F
+ inancial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/llc-taxed-as-s-corp-guide/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: CBT-100S due (calendar-year 2026)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

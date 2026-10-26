@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+  2027
+BEGIN:VEVENT
+UID:llc-taxed-as-s-corp-guide-0@mfa-advisory.com
+DTSTAMP:20261026T174051Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Last day to file Form 2553 for S status starting January 1\, 2027
+DESCRIPTION:That is 2 months and 15 days after the year begins. A calenda
+ r-year company can also file at any time during 2026 for a January 1\, 20
+ 27 start.\n\nDetails: https://mfa-advisory.com/blog/llc-taxed-as-s-corp-g
+ uide/\nGeneral information\, not tax advice. Merchant Financial Advisory\
+ , mfa-advisory.com
+URL:https://mfa-advisory.com/blog/llc-taxed-as-s-corp-guide/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to file Form 2553 for S status starting January 1\, 
+ 2027
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
