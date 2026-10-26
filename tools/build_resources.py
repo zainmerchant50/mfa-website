@@ -175,6 +175,8 @@ def write(rel, html):
     if rel.startswith("tools/"):   # internal links: tool -> service, shop product, guide (placed just above the site footer)
         rel_html = seo.related_html(rel.split("/", 1)[1])
         html = re.sub(r"<footer\b", lambda m: rel_html + m.group(0), html, count=1) if rel_html else html
+        import tool_products
+        html = tool_products.inject(rel.split("/", 1)[1], html)
     out = SITE / rel / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
@@ -216,6 +218,7 @@ def build_hub(posts):
 <div class="chips" role="group" aria-label="Filter by type">{chips}</div></div></header>
 <main class="wrap rgroups" id="rmain">{sections}<p class="rempty" id="rempty">Nothing matches that search yet. Try another word, or <a href="/book/" style="border-bottom:1px solid var(--gold)">ask us directly</a>.</p></main>
 <p class="rnote">{esc(NOTE)} Each tool lists its official sources and the date its facts were last checked.</p>
+{__import__("tool_products").render("resources", slugs=__import__("tool_products").HUB, heading="Spreadsheets and checklists from the shop", campaign="resources-index")}
 {cta("Rather have it handled for you?", "Book a 30-minute consultation about your books, taxes or business setup, or email us at <a href='mailto:" + B.EMAIL + "' style='color:#D8B769;border-bottom:1px solid rgba(216,183,105,.5)'>" + B.EMAIL + "</a>.")}
 <script>
 (function(){{var q=document.getElementById('rq'),chips=[].slice.call(document.querySelectorAll('.chip')),f='all';
