@@ -613,6 +613,8 @@ if SP:
     page = bookkeeping_page()
 
 page = page.replace("§EYEBROW§", EYEBROW).replace("§ST§", ST).replace("§STATE§", STATE).replace("§CITY§", L["city"]).replace("§REGION§", L["region"]).replace("§SLUG§", L["slug"])
+import tool_products
+page = tool_products.inject_page(SLUG, page)   # 'Related products in our shop' (princeton-nj, new-york-ny, union-city-nj)
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(page, encoding="utf-8")
 print(f"Wrote {OUT.relative_to(ROOT)}  (phone {'ON' if tel else 'OFF'}, ads tag {ads.ADS['id']})")

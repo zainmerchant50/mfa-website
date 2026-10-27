@@ -251,5 +251,8 @@ img{max-width:100%;height:auto;display:block}
 .article .prodbox a.pb-buy:hover,.article .prodbox a.pb-buy:focus-visible{background:var(--navy,#10233F);color:#fff}
 .article .prodbox a.pb-all{display:inline-block;margin-top:14px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-2,#1B3557);border-bottom:1px solid var(--gold,#B08D3F)}
 .article .prodbox a.pb-all:hover{color:var(--gold,#B08D3F)}
+.prodbox .pb-btns{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.article .prodbox a.pb-shop{font-size:.85rem;border-bottom:1px solid var(--gold,#B08D3F);color:var(--navy,#10233F)}
+.prodbox + .prodbox{margin-top:18px}
 .prodbox + .helpbox-end{margin-top:18px}
 @media (min-width:640px){.prodbox{padding:26px 26px 22px}.article .prodbox ul.pb-list{grid-template-columns:1fr 1fr;gap:14px}}

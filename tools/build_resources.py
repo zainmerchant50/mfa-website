@@ -177,6 +177,9 @@ def write(rel, html):
         html = re.sub(r"<footer\b", lambda m: rel_html + m.group(0), html, count=1) if rel_html else html
         import tool_products
         html = tool_products.inject(rel.split("/", 1)[1], html)
+    else:
+        import tool_products
+        html = tool_products.inject_page(rel, html)
     out = SITE / rel / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")

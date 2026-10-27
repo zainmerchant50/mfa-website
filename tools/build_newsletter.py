@@ -184,6 +184,28 @@ def services_block(p, slug):
             + "</td></tr></table>")
 
 
+def shop_block(p, slug):
+    """'Related products in our shop': 2-3 live shop products (post meta first, else tool_products.BLOG_MAP), Etsy buy with UTM."""
+    import tool_products
+    items = B.post_products(p) or tool_products.blog_items(slug)
+    if not items:
+        return ""
+    rows = ""
+    for x in items:
+        if x.get("via") == "etsy":
+            sep = "&" if "?" in x["url"] else "?"
+            href = f'{x["url"]}{sep}utm_source=mfa_site&utm_medium=newsletter&utm_campaign={slug}'
+            label = "Buy on Etsy"
+        else:
+            href, label = x["url"], "Buy now"
+        rows += (f'<tr><td valign="top" style="padding:0 0 18px"><p style="margin:0 0 4px;{f(16, 23, 700, color=INK)}">{B.esc(x["name"])} <span style="color:{GOLD}">${B.esc(x["price"])}</span></p>'
+                 f'<p style="margin:0 0 10px;{f(14, 21, color=MUTED)}">{B.esc(x["blurb"])}</p>'
+                 + button(B.esc(href), label, NAVY, size=14) + '</td></tr>')
+    return (eyebrow("From the MFA shop") + h2("Related products in our shop")
+            + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{rows}</table>'
+            + para(f'<a href="{track(B.BASE + "/shop/", slug)}" style="color:{NAVY};text-decoration:underline;font-weight:700">View in shop</a>', 0, 15, 22))
+
+
 def more_articles(p, posts, slug):
     others = [x for x in posts if x["slug"] != slug][:2]
     if not others:
@@ -277,6 +299,7 @@ def build(slug, to_email=None, mailerlite=False):
         section(divider(36, 36) + inside, 0, 0, "#ffffff") if inside else "",
         section(divider(40, 36) + kd, 0, 0, "#ffffff") if (kd := keydates_block(p, post_url, slug)) else "",
         section(divider(30, 36) + faq_block + para(f'<a href="{read_url}#faqs" style="color:{NAVY};text-decoration:underline;font-weight:700">See all FAQs in the full guide</a>', 0, 15, 22), 0, 0, "#ffffff") if faq_block else "",
+        section(divider(36, 36) + sb, 0, 0, "#ffffff") if (sb := shop_block(p, slug)) else "",
         section(divider(36, 0), 0, 0, "#ffffff"),
         section(services_block(p, slug), 36, 0, "#ffffff"),
         section(divider(40, 36) + more_articles(p, posts, slug), 0, 0, "#ffffff"),

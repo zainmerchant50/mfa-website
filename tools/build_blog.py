@@ -255,6 +255,25 @@ def products_box(p):
 '''
 
 
+def related_box(p):
+    """'Related products in our shop' for posts with no catalog "products" meta (mapping: tool_products.BLOG_MAP). UTM-tagged Etsy buy."""
+    import tool_products
+    items = tool_products.blog_items(p["slug"])
+    if not items or post_products(p):
+        return ""
+    cards = "".join(f'''<li class="pb-card">
+    <span class="pb-fmt">{esc(x["format"])}</span>
+    <p class="pb-n">{esc(x["name"])}</p>
+    <p class="pb-b">{esc(x["blurb"])}</p>
+    <div class="pb-foot"><span class="pb-price">${esc(x["price"])}</span><span class="pb-btns">{tool_products.blog_buy(x, p["slug"], "blog").replace('class="btn btn-gold"', 'class="btn btn-gold pb-buy"')}<a class="pb-shop" href="/shop/">View in shop</a></span></div>
+  </li>''' for x in items)
+    return f'''<aside class="prodbox" id="shop-products" aria-label="Related products in our shop">
+  <p class="pb-h">Related products in our shop</p>
+  <ul class="pb-list">{cards}</ul>
+</aside>
+'''
+
+
 def with_help(p, body):
     """Insert the top help box right after the Executive summary box."""
     box = help_box(p, "top")
@@ -667,7 +686,7 @@ def build_post(p):
 </div></header>
 <main><article class="article">
 {ui_kit.accordionize_faqs(with_help(p, p["body"]))}
-{products_box(p)}{help_box(p, "end")}
+{products_box(p)}{related_box(p)}{help_box(p, "end")}
 {keydates_block(p)}
 {tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>
