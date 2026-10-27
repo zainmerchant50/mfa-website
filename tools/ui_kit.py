@@ -179,7 +179,7 @@ NAV = [
         ("Browse by type", [("Checkers", "/resources/#checkers"), ("Calculators", "/resources/#calculators"),
                             ("Tax calculators", "/resources/#taxcalcs"), ("Calendars", "/resources/#calendars"),
                             ("Templates & checklists", "/resources/#templates"), ("Guides", "/resources/#guides"),
-                            ("State directory", "/resources/#states")]),
+                            ("LLC fees by state", "/resources/#states")]),
         ("Popular tools", [("Quarterly estimated tax calculator", "/tools/quarterly-estimated-tax-calculator/"),
                            ("1099 tax calculator", "/tools/1099-tax-calculator/"),
                            ("Paycheck tax calculator", "/tools/paycheck-tax-calculator/"),

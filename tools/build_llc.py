@@ -484,6 +484,7 @@ def build_main():
 <section class="wrap llc-sec" id="states" aria-labelledby="dir-h"><div class="sec-hd"><span class="eyebrow eb-dark">LLC fees by state</span><h2 id="dir-h">State filing fees, all 50 states and DC.</h2>
 <p>The state's own formation fee for a domestic LLC filed online. Open a state for its annual report, tax registration, registered agent rules and official sources.</p></div>
 <ul class="st-dir">{directory}</ul>
+<p class="stnote-r">Planning beyond the filing? See the <a href="/tools/tax-deadlines-2027/">2027 business tax deadlines</a> and the <a href="/resources/#states">full resources hub</a>.</p>
 <p class="disclaimer">State facts checked against each state's official sources as of {CHECKED}. State fees change; we confirm the current fee before invoicing. {esc(LEGAL)} Educational information, not tax or legal advice.</p></section>
 </main>{picker_js()}'''
     ld = ld_service(url, "LLC formation in all 50 states", desc)

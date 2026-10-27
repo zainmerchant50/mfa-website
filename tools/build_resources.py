@@ -72,7 +72,7 @@ GROUPS = [
     ("templates", "Templates & checklists", "Ready-to-use emails, logs and checklists."),
     ("soon", "Coming soon", "Tools and templates on the way. Want one sooner? Tell us."),
     ("guides", "Guides", "In-depth MFA Insights articles, checked against IRS and state sources."),
-    ("states", "State directory", "Formation fees, annual reports and filing offices by state."),
+    ("states", "LLC formation by state", "We file in all 50 states and DC. Open a state for its fee, annual report and first-year cost."),
 ]
 TOOLS = [
     ("checkers", "Do I need to send a 1099?", "Four questions to see whether a payment needs a 1099-NEC or 1099-MISC for 2026, and what to do next.",
@@ -93,8 +93,8 @@ TOOLS = [
     ("calendars", "Business tax deadlines by entity", "Sole proprietor, partnership, S corp, C corp, employer and nonprofit calendars.", None, "cal", "deadline entity s corp partnership", ""),
     ("templates", "W-9 request email templates", "Copy-ready emails to collect W-9s from new vendors, at year-end, and as a reminder.",
      "/tools/w-9-request-email-template/", "mail", "w-9 request email vendor template", "New"),
-    ("states", "LLC formation: NJ & NY fees and first-year cost", "State filing fees, annual reports, tax registration and your first-year total, from the official state sources.",
-     "/llc-formation/", "map", "llc formation state fee annual report new jersey new york", "New"),
+    ("states", "LLC formation costs: all 50 states + DC", "State filing fees, annual reports, tax registration and your first-year total, from the official state sources.",
+     "/llc-formation/#states", "map", "llc formation state fee annual report new jersey new york", "New"),
 ]
 
 
@@ -186,6 +186,16 @@ def write(rel, html):
     return BASE + "/" + rel + "/"
 
 
+def state_strip():
+    """Links to every /llc-formation/<code>/ page, from data/llc-states.json (verified by Blog)."""
+    import json
+    d = json.load(open(Path(__file__).resolve().parent.parent / "data" / "llc-states.json", encoding="utf-8"))
+    items = "".join(f'<li><a href="/llc-formation/{c.lower()}/">{esc(d["states"][c]["name"])}</a></li>'
+                    for c in d["meta"]["order"] if c in d["states"])
+    return (f'<ul class="stlinks" aria-label="LLC formation by state">{items}</ul>'
+            '<p class="stnote">Ready to file? <a href="/llc-formation/">See packages and start your LLC</a>.</p>')
+
+
 # ------------------------------------------------------------------ hub
 def build_hub(posts):
     cards = {g[0]: [] for g in GROUPS}
@@ -208,7 +218,7 @@ def build_hub(posts):
                                f'<h3>{esc(p["title"])}</h3><span class="go">Read the guide <i>→</i></span></a>')
     sections = "".join(
         f'<section class="rgroup" id="{gid}" data-g="{gid}"><div class="rgroup-hd"><h2>{esc(name)}</h2><p>{esc(sub)}</p></div>'
-        f'<div class="rgrid">{"".join(cards[gid])}</div></section>' for gid, name, sub in GROUPS if cards[gid])
+        f'<div class="rgrid">{"".join(cards[gid])}</div>{state_strip() if gid == "states" else ""}</section>' for gid, name, sub in GROUPS if cards[gid])
     chips = '<button class="chip" type="button" data-f="all" aria-pressed="true">All</button>' + "".join(
         f'<button class="chip" type="button" data-f="{gid}" aria-pressed="false">{esc(name)}</button>' for gid, name, _ in GROUPS if cards[gid])
     desc = ("Calculators, checkers, tax calendars, templates and guides for small businesses and individuals, "
