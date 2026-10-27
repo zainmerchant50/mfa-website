@@ -43,7 +43,7 @@ if(w.mfaLead)return;
 var A={id:'%(id)s',call:'%(call)s',form:'%(form)s',book:'%(book)s',contact:'%(contact)s',purchase:'%(purchase)s'};
 w.dataLayer=w.dataLayer||[];
 if(typeof w.gtag!=='function')w.gtag=function(){w.dataLayer.push(arguments);};
-w.gtag('js',new Date());w.gtag('config',A.id);
+w.gtag('js',new Date());w.gtag('config',A.id);w.gtag('config','G-44Z5M3CQY7');
 var X=(function(){try{var q=w.location.search;if(/[?&]internal=1/.test(q))w.localStorage.setItem('mfa_internal','1');if(/[?&]internal=0/.test(q))w.localStorage.removeItem('mfa_internal');return !!w.navigator.webdriver||!/(^|\\.)mfa-advisory\\.com$/.test(w.location.hostname)||w.localStorage.getItem('mfa_internal')==='1';}catch(e){return !!w.navigator.webdriver;}})();
 function conv(k){if(X||!A[k])return;w.gtag('event','conversion',{send_to:A.id+'/'+A[k]});}
 w.mfaLead=function(form,params){conv('form');if(X)return;var p={form:form||'lead'};for(var k in params||{})p[k]=params[k];w.gtag('event','generate_lead',p);};
