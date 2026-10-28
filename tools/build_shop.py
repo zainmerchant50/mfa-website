@@ -70,8 +70,8 @@ def build():
     PRODUCTS, GROUPS = load()
     url = BASE + "/shop/"
     title = "Tax Calculators, Bookkeeping Checklists & Kits | MFA Shop"
-    desc = ("Spreadsheets, checklists and kits from MFA: 1099 and paycheck calculators, S corp savings, month-end close "
-            "and AI prompt packs. Instant download.")
+    desc = ("Spreadsheets, checklists and tax guides from MFA: 1099 and paycheck calculators, S corp savings, home office "
+            "and mileage guides. Instant download.")
     secs = []
     for gid, gname, glead in GROUPS:
         cards = []
@@ -98,7 +98,7 @@ def build():
 <section class="wrap llc-sec" aria-label="How buying works"><div class="card" style="padding:22px 24px">
 <h2 style="margin-top:0;font-size:1.4rem">How buying works</h2>
 <div class="shop-note">
-<div><strong>Secure checkout on Etsy.</strong> Buy on Etsy opens the product in our Etsy shop, which processes the payment and handles sales tax. A few items (like the AI prompt packs) check out through Gumroad on this page.</div>
+<div><strong>Secure checkout on Etsy.</strong> Buy on Etsy opens the product in our Etsy shop, which processes the payment and handles sales tax. A few items (like the AI prompt packs and tax mini-guides) check out through Gumroad on this page.</div>
 <div><strong>Instant download.</strong> Files arrive right after checkout and by email. Spreadsheets work in Excel and Google Sheets, with no macros.</div>
 <div><strong>Credited if you hire us.</strong> Bought one of our tools? Book paid work with us within 30 days and we'll credit what you paid toward your first invoice.</div>
 <div><strong>All sales final.</strong> Because files are delivered instantly, purchases aren't refundable. Questions before you buy? Email info@mfa-advisory.com.</div>

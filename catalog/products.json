@@ -1,6 +1,6 @@
 {
   "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
-  "updated": "2026-10-25 (Batch 5 launch: 34-38)",
+  "updated": "2026-10-28 (Tax mini-guides 39-43 on /shop/)",
   "store": "https://mfaadvisory.gumroad.com/",
   "groups": [
     {
@@ -12,6 +12,11 @@
       "id": "kit",
       "name": "Checklists & kits",
       "lead": "The routines a bookkeeper runs, written so you can run them yourself."
+    },
+    {
+      "id": "guide",
+      "name": "Tax mini-guides",
+      "lead": "Six-page PDFs on one deduction each, for tax year 2026."
     },
     {
       "id": "ai",
@@ -1202,6 +1207,133 @@
         "related": null
       },
       "note": "Batch 5 (Zain approved build, publish and prices 2026-10-25). Gumroad + Etsy live 2026-10-25."
+    },
+    {
+      "id": "39",
+      "slug": "home-office-deduction-2026",
+      "name": "Home Office Deduction Guide 2026",
+      "status": "live",
+      "tier": "guide",
+      "gumroad": {
+        "price": "2.99",
+        "url": "https://mfaadvisory.gumroad.com/l/home-office-deduction-2026",
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "note": "No Etsy listing yet (2026-10-28); Buy goes to Gumroad"
+      },
+      "shop": {
+        "group": "guide",
+        "blurb": "How to deduct part of your rent or mortgage interest, utilities and insurance: the two qualification tests, the $5-per-square-foot simplified method vs Form 8829, and a worked example.",
+        "format": "6-page PDF",
+        "related": {
+          "url": "/tools/home-office-deduction-calculator/",
+          "label": "Try the home office calculator"
+        }
+      },
+      "note": "Tax mini-guides (6-page PDF, tax year 2026). Zain approved adding them to the site shop 2026-10-28 14:15 ET. Gumroad live 2026-10-28."
+    },
+    {
+      "id": "40",
+      "slug": "hire-your-kid-2026",
+      "name": "Hire Your Kid Tax Guide 2026",
+      "status": "live",
+      "tier": "guide",
+      "gumroad": {
+        "price": "2.99",
+        "url": "https://mfaadvisory.gumroad.com/l/hire-your-kid-2026",
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "note": "No Etsy listing yet (2026-10-28); Buy goes to Gumroad"
+      },
+      "shop": {
+        "group": "guide",
+        "blurb": "Paying your child for real work in your business: which business types skip Social Security, Medicare and FUTA, reasonable pay and timesheets, the W-2, the Roth IRA angle and a worked example.",
+        "format": "6-page PDF",
+        "related": null
+      },
+      "note": "Tax mini-guides (6-page PDF, tax year 2026). Zain approved adding them to the site shop 2026-10-28 14:15 ET. Gumroad live 2026-10-28."
+    },
+    {
+      "id": "41",
+      "slug": "augusta-rule-2026",
+      "name": "Augusta Rule Guide 2026",
+      "status": "live",
+      "tier": "guide",
+      "gumroad": {
+        "price": "2.99",
+        "url": "https://mfaadvisory.gumroad.com/l/augusta-rule-2026",
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "note": "No Etsy listing yet (2026-10-28); Buy goes to Gumroad"
+      },
+      "shop": {
+        "group": "guide",
+        "blurb": "Section 280A(g): rent your home to your S corp or C corp for fewer than 15 days a year, leave the rent out of your income, and document fair rent and a real business purpose. Risks labeled clearly.",
+        "format": "6-page PDF",
+        "related": {
+          "url": "/tools/s-corp-tax-savings-calculator/",
+          "label": "Try the S corp savings calculator"
+        }
+      },
+      "note": "Tax mini-guides (6-page PDF, tax year 2026). Zain approved adding them to the site shop 2026-10-28 14:15 ET. Gumroad live 2026-10-28."
+    },
+    {
+      "id": "42",
+      "slug": "mileage-deduction-2026",
+      "name": "Mileage Deduction Guide 2026",
+      "status": "live",
+      "tier": "guide",
+      "gumroad": {
+        "price": "2.99",
+        "url": "https://mfaadvisory.gumroad.com/l/mileage-deduction-2026",
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "note": "No Etsy listing yet (2026-10-28); Buy goes to Gumroad"
+      },
+      "shop": {
+        "group": "guide",
+        "blurb": "The 2026 rates by date driven (72.5 cents through June 30, 76 cents from July 1), standard rate vs actual expenses, which miles count, and what your log must show, with a sample layout.",
+        "format": "6-page PDF",
+        "related": {
+          "url": "/tools/mileage-deduction-calculator/",
+          "label": "Try the mileage calculator"
+        }
+      },
+      "note": "Tax mini-guides (6-page PDF, tax year 2026). Zain approved adding them to the site shop 2026-10-28 14:15 ET. Gumroad live 2026-10-28."
+    },
+    {
+      "id": "43",
+      "slug": "self-employed-health-insurance-hsa-2026",
+      "name": "Self-Employed Health Insurance + HSA Guide 2026",
+      "status": "live",
+      "tier": "guide",
+      "gumroad": {
+        "price": "2.99",
+        "url": "https://mfaadvisory.gumroad.com/l/self-employed-health-insurance-hsa-2026",
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "note": "No Etsy listing yet (2026-10-28); Buy goes to Gumroad"
+      },
+      "shop": {
+        "group": "guide",
+        "blurb": "The self-employed health insurance deduction (who qualifies, the month-by-month spouse's-plan rule, the profit limit) and HSA basics with the 2026 limits, including the new bronze-plan rule.",
+        "format": "6-page PDF",
+        "related": {
+          "url": "/tools/1099-tax-calculator/",
+          "label": "Estimate your self-employment tax"
+        }
+      },
+      "note": "Tax mini-guides (6-page PDF, tax year 2026). Zain approved adding them to the site shop 2026-10-28 14:15 ET. Gumroad live 2026-10-28."
     }
   ]
 }

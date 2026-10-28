@@ -5,7 +5,7 @@
  "name": "Merchant Financial Advisory: services, public prices, tools and products",
  "description": "Machine-readable list of what MFA offers and what is publicly priced. Services marked 'quoted up front' have no public price.",
  "url": "https://mfa-advisory.com/catalog.json",
- "dateModified": "2026-10-27",
+ "dateModified": "2026-10-28",
  "inLanguage": "en-US",
  "provider": {
   "@type": "AccountingService",
@@ -515,7 +515,7 @@
  "dataFeedElement": [
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#tax-preparation",
@@ -568,7 +568,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#tax-planning",
@@ -621,7 +621,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#bookkeeping",
@@ -682,7 +682,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#financial-reporting",
@@ -735,7 +735,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#fractional-cfo",
@@ -788,7 +788,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#audit-support",
@@ -841,7 +841,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#technical-accounting",
@@ -894,7 +894,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/services/#business-advisory",
@@ -982,7 +982,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/llc-formation/#service",
@@ -1253,7 +1253,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/international-students/#service",
@@ -1420,7 +1420,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Service",
     "@id": "https://mfa-advisory.com/artists/#service",
@@ -1549,7 +1549,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026#product",
@@ -1622,7 +1622,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601160748/2026-paycheck-calculator-excel-google#product",
@@ -1695,7 +1695,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601163974/s-corp-vs-llc-calculator-is-an-s-corp#product",
@@ -1768,7 +1768,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601418995/1099-kit-2026-who-needs-a-1099-nec-w-9#product",
@@ -1841,7 +1841,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601137589/month-end-close-checklist-excel-google#product",
@@ -1914,7 +1914,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601446924/bookkeeping-cleanup-checklist-catch-up#product",
@@ -1987,7 +1987,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601446328/new-business-setup-checklist-llc-ein#product",
@@ -2060,7 +2060,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601136753/small-business-year-end-tax-checklist#product",
@@ -2133,7 +2133,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://mfaadvisory.gumroad.com/l/ai-prompts-small-business-bookkeeping-taxes#product",
@@ -2206,7 +2206,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://mfaadvisory.gumroad.com/l/ai-prompts-tax-preparers-bookkeepers#product",
@@ -2279,7 +2279,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601110337/1099-contractor-payment-tracker-2026#product",
@@ -2352,7 +2352,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601113193/1099-income-tracker-for-freelancers-2026#product",
@@ -2425,7 +2425,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601114741/small-business-bookkeeping-spreadsheet#product",
@@ -2498,7 +2498,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601141354/schedule-c-expense-categorization-guide#product",
@@ -2571,7 +2571,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601142854/self-employed-tax-deduction-tracker-2026#product",
@@ -2644,7 +2644,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601144570/irs-mileage-log-2026-mileage-tracker#product",
@@ -2717,7 +2717,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601119735/online-seller-bookkeeping-spreadsheet#product",
@@ -2790,7 +2790,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601158276/rental-property-tracker-spreadsheet#product",
@@ -2863,7 +2863,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601133387/rideshare-delivery-driver-tax-tracker#product",
@@ -2936,7 +2936,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601146728/quickbooks-online-chart-of-accounts#product",
@@ -3009,7 +3009,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601148092/quickbooks-online-chart-of-accounts-e#product",
@@ -3082,7 +3082,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601122895/quickbooks-online-chart-of-accounts#product",
@@ -3155,7 +3155,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601150194/quickbooks-online-chart-of-accounts#product",
@@ -3228,7 +3228,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601151054/quickbooks-online-chart-of-accounts#product",
@@ -3301,7 +3301,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601154482/quickbooks-online-chart-of-accounts#product",
@@ -3374,7 +3374,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601151892/quickbooks-online-chart-of-accounts#product",
@@ -3447,7 +3447,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601126661/quickbooks-online-chart-of-accounts#product",
@@ -3520,7 +3520,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601153624/quickbooks-online-chart-of-accounts#product",
@@ -3593,7 +3593,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601129985/tax-preparer-client-onboarding-kit#product",
@@ -3666,7 +3666,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601130859/bookkeeper-engagement-letter-kit-scope#product",
@@ -3739,7 +3739,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601131713/tax-season-client-email-templates-35#product",
@@ -3812,7 +3812,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601457443#product",
@@ -3885,7 +3885,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601484776#product",
@@ -3958,7 +3958,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601488785#product",
@@ -4031,7 +4031,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601489655#product",
@@ -4104,7 +4104,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601490377#product",
@@ -4177,7 +4177,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601491161#product",
@@ -4250,7 +4250,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601517742#product",
@@ -4323,7 +4323,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601492601#product",
@@ -4396,7 +4396,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601519074#product",
@@ -4469,7 +4469,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601741304#product",
@@ -4542,7 +4542,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4603122836#product",
@@ -4615,7 +4615,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4603101487#product",
@@ -4688,7 +4688,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4603103445#product",
@@ -4761,7 +4761,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4603127774#product",
@@ -4834,7 +4834,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4603106225#product",
@@ -4907,7 +4907,372 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/home-office-deduction-2026#product",
+    "name": "Home Office Deduction Guide 2026",
+    "description": "How to deduct part of your rent or mortgage interest, utilities and insurance: the two qualification tests, the $5-per-square-foot simplified method vs Form 8829, and a worked example.",
+    "sku": "home-office-deduction-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/home-office-deduction-2026",
+    "image": "https://mfa-advisory.com/shop/img/home-office-deduction-2026.webp",
+    "category": "Tax mini-guides",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "6-page PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "2.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/home-office-deduction-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-28",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/hire-your-kid-2026#product",
+    "name": "Hire Your Kid Tax Guide 2026",
+    "description": "Paying your child for real work in your business: which business types skip Social Security, Medicare and FUTA, reasonable pay and timesheets, the W-2, the Roth IRA angle and a worked example.",
+    "sku": "hire-your-kid-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/hire-your-kid-2026",
+    "image": "https://mfa-advisory.com/shop/img/hire-your-kid-2026.webp",
+    "category": "Tax mini-guides",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "6-page PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "2.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/hire-your-kid-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-28",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/augusta-rule-2026#product",
+    "name": "Augusta Rule Guide 2026",
+    "description": "Section 280A(g): rent your home to your S corp or C corp for fewer than 15 days a year, leave the rent out of your income, and document fair rent and a real business purpose. Risks labeled clearly.",
+    "sku": "augusta-rule-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/augusta-rule-2026",
+    "image": "https://mfa-advisory.com/shop/img/augusta-rule-2026.webp",
+    "category": "Tax mini-guides",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "6-page PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "2.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/augusta-rule-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-28",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/mileage-deduction-2026#product",
+    "name": "Mileage Deduction Guide 2026",
+    "description": "The 2026 rates by date driven (72.5 cents through June 30, 76 cents from July 1), standard rate vs actual expenses, which miles count, and what your log must show, with a sample layout.",
+    "sku": "mileage-deduction-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/mileage-deduction-2026",
+    "image": "https://mfa-advisory.com/shop/img/mileage-deduction-2026.webp",
+    "category": "Tax mini-guides",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "6-page PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "2.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/mileage-deduction-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-28",
+   "item": {
+    "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/self-employed-health-insurance-hsa-2026#product",
+    "name": "Self-Employed Health Insurance + HSA Guide 2026",
+    "description": "The self-employed health insurance deduction (who qualifies, the month-by-month spouse's-plan rule, the profit limit) and HSA basics with the 2026 limits, including the new bronze-plan rule.",
+    "sku": "self-employed-health-insurance-hsa-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/self-employed-health-insurance-hsa-2026",
+    "image": "https://mfa-advisory.com/shop/img/self-employed-health-insurance-hsa-2026.webp",
+    "category": "Tax mini-guides",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "6-page PDF"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "2.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/self-employed-health-insurance-hsa-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "1099 Contractor Tracker: Who Needs a 1099-NEC in 2026",
@@ -4922,7 +5287,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "1099 Tax Calculator 2026: Self-Employment, NJ & NY",
@@ -4937,7 +5302,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "Break-Even Calculator for Small Businesses",
@@ -4952,7 +5317,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "Do I Need to Send a 1099? 2026 Payments Checker",
@@ -4967,7 +5332,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "Home Office Deduction Calculator 2026",
@@ -4982,7 +5347,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "Tax Write-Offs for Small Business: Is It Deductible?",
@@ -4997,7 +5362,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "Mileage Deduction Calculator 2026 (IRS Standard Rates)",
@@ -5012,7 +5377,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY)",
@@ -5027,7 +5392,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "Profit Margin & Markup Calculator",
@@ -5042,7 +5407,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY",
@@ -5057,7 +5422,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "S Corp Tax Savings Calculator: Is an S Corp Worth It?",
@@ -5072,7 +5437,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "2027 Business Tax Deadlines by Entity: Fed, NJ & NY",
@@ -5087,7 +5452,7 @@
   },
   {
    "@type": "DataFeedItem",
-   "dateModified": "2026-10-27",
+   "dateModified": "2026-10-28",
    "item": {
     "@type": "WebApplication",
     "name": "W-9 Request Email Templates for Vendors",

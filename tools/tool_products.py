@@ -11,14 +11,14 @@ import re
 
 import seo
 
-# tool slug -> product slugs (order = display order)
+# tool slug -> product slugs (order = display order). Tax mini-guides (catalog 39-43) added 2026-10-28.
 MAP = {
-    "quarterly-estimated-tax-calculator": ["1099-self-employed-tax-calculator-2026", "small-business-year-end-tax-checklist", "1099-income-tracker-freelancers-2026"],
-    "1099-tax-calculator": ["1099-self-employed-tax-calculator-2026", "self-employed-tax-deduction-tracker-2026", "1099-income-tracker-freelancers-2026"],
-    "s-corp-tax-savings-calculator": ["s-corp-vs-llc-savings-calculator", "new-business-setup-checklist", "small-business-bookkeeping-spreadsheet"],
+    "quarterly-estimated-tax-calculator": ["1099-self-employed-tax-calculator-2026", "small-business-year-end-tax-checklist", "1099-income-tracker-freelancers-2026", "self-employed-health-insurance-hsa-2026"],
+    "1099-tax-calculator": ["1099-self-employed-tax-calculator-2026", "self-employed-tax-deduction-tracker-2026", "1099-income-tracker-freelancers-2026", "self-employed-health-insurance-hsa-2026"],
+    "s-corp-tax-savings-calculator": ["s-corp-vs-llc-savings-calculator", "augusta-rule-2026", "new-business-setup-checklist", "small-business-bookkeeping-spreadsheet"],
     "paycheck-tax-calculator": ["salary-paycheck-tax-calculator-2026", "2026-tax-organizer"],
-    "home-office-deduction-calculator": ["self-employed-tax-deduction-tracker-2026", "expense-categorization-guide-tracker"],
-    "mileage-deduction-calculator": ["irs-mileage-log-2026", "rideshare-delivery-driver-tax-tracker", "self-employed-tax-deduction-tracker-2026"],
+    "home-office-deduction-calculator": ["home-office-deduction-2026", "self-employed-tax-deduction-tracker-2026", "expense-categorization-guide-tracker"],
+    "mileage-deduction-calculator": ["mileage-deduction-2026", "irs-mileage-log-2026", "rideshare-delivery-driver-tax-tracker", "self-employed-tax-deduction-tracker-2026"],
     "1099-contractor-tracker": ["1099-contractor-payment-tracker-2026", "1099-kit"],
     "tax-deadlines-2027": ["small-business-year-end-tax-checklist", "tax-season-bundle-2026", "2026-tax-organizer"],
     "break-even-calculator": ["small-business-budget-13-week-cash-flow", "small-business-bookkeeping-spreadsheet"],
@@ -31,7 +31,7 @@ MAP = {
 _YE = ["small-business-year-end-tax-checklist", "tax-season-bundle-2026", "2026-tax-organizer"]
 BLOG_MAP = {
     "2027-tax-calendar": _YE,
-    "year-end-tax-planning-2026-key-dates": _YE,
+    "year-end-tax-planning-2026-key-dates": _YE + ["self-employed-health-insurance-hsa-2026"],
     "october-15-2026-tax-extension-deadline": ["2026-tax-organizer", "tax-season-bundle-2026"],
     "adoption-tax-credit-refund-2026": ["2026-tax-organizer"],
     "federal-scholarship-tax-credit-2027": ["2026-tax-organizer"],
@@ -50,8 +50,8 @@ PAGE_MAP = {
     "llc-annual-report": ["new-business-setup-checklist"],
     "llc-formation": ["new-business-setup-checklist"],
     "quarterly-estimated-taxes": ["1099-self-employed-tax-calculator-2026", "1099-income-tracker-freelancers-2026"],
-    "s-corp-election": ["s-corp-vs-llc-savings-calculator", "new-business-setup-checklist"],
-    "year-end-tax-planning": _YE,
+    "s-corp-election": ["s-corp-vs-llc-savings-calculator", "augusta-rule-2026", "new-business-setup-checklist"],
+    "year-end-tax-planning": _YE + ["hire-your-kid-2026"],
     "princeton-nj": _LOCAL, "new-york-ny": _LOCAL, "union-city-nj": _LOCAL,
 }
 # /resources/ index: a short shop strip
