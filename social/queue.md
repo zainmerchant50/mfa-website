@@ -8,7 +8,7 @@ Last updated: 2026-10-22 19:45 ET by Hub. Add ideas at the bottom; Blog's new gu
 | 1 | product | ~~1099-NEC $2,000 threshold: who needs a 1099~~ (2026-10-23) | 09 1099 Contractor Payment Tracker | TRACKER |
 | 2 | value | ~~Year-end moves before Dec 31 (Solo 401(k) setup, equipment placed in service, gifts)~~ (2026-10-26) | /blog/year-end-tax-planning-2026-key-dates/ | GUIDE |
 | 3 | service | Behind on your books? Cleanup quote before tax season | /bookkeeping-cleanup/ | CALL |
-| 4 | product | Mileage log: what the IRS wants in a log, 2026 rates 72.5¢ / 76¢ | 14 IRS Mileage Log 2026 | TRACKER |
+| 4 | product | ~~Mileage log: what the IRS wants in a log, 2026 rates 72.5¢ / 76¢~~ (2026-10-30, as value post → /tools/mileage-deduction-calculator/, MILEAGE) | 14 IRS Mileage Log 2026 | TRACKER |
 | 5 | value | ~~S corp or LLC? Profit, not revenue, decides~~ (2026-10-27, as nov-push service post → /s-corp-election/, SCORP) | /tools/s-corp-tax-savings-calculator/ | CALCULATOR |
 | 6 | product | ~~Quarterly estimates for freelancers: Jan 15, 2027 payment~~ (2026-10-28, as nov-push value post → /quarterly-estimated-taxes/, ESTIMATE) | 08 1099 Self-Employed Tax Calculator | CALCULATOR |
 | 7 | value | Which tax form does my LLC file? (1065 / 1120-S / Schedule C) | /blog/which-tax-form-llc-corporation/ | GUIDE |

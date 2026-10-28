@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-30",
+  "number": 1,
+  "slug": "Mileage-Two-Rates",
+  "topic": "2026 has two IRS business mileage rates (72.5 cents Jan 1-Jun 30, 76 cents Jul 1-Dec 31): split miles by date, leave out commuting, note the odometer on Dec 31 (Schedule C Part IV) -> mileage deduction calculator",
+  "type": "value",
+  "accent": "forest",
+  "label": "Mileage / Year-end tip",
+  "kicker": "Drive for your business?",
+  "headline": "2026 has *two* mileage rates. Split your miles.",
+  "headline_size": 74,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Jan. 1 to June 30: 72.5 cents a mile",
+      "text": "For business miles driven in the first half of 2026."
+    },
+    {
+      "title": "July 1 to Dec. 31: 76 cents a mile",
+      "text": "The IRS raised the rate mid-year, so keep the two halves apart."
+    },
+    {
+      "title": "Home to your regular workplace? Skip it",
+      "text": "That's commuting, and it doesn't count, however far you drive."
+    },
+    {
+      "title": "Write down your odometer on Dec. 31",
+      "text": "Your tax form asks for total miles: business, commuting and other."
+    }
+  ],
+  "body": [],
+  "cta_word": "MILEAGE",
+  "link": "mfa-advisory.com/tools",
+  "checked": "October 28, 2026",
+  "ig_caption": "Drive for your business? 2026 has two IRS mileage rates, so one total for the year won't work.\n\n✔️ January 1 to June 30: 72.5 cents a mile\n✔️ July 1 to December 31: 76 cents a mile\n✔️ Driving from home to your regular workplace is commuting, and it doesn't count\n✔️ Write down your odometer on December 31. Schedule C asks for your total miles, split into business, commuting and other, and whether your proof is written down\n\nExample: 3,000 business miles in each half comes to $2,175 + $2,280 = $4,455.\n\nOur mileage calculator applies both rates for you.\n\nComment MILEAGE and we'll send you the link, or find it at mfa-advisory.com/tools/mileage-deduction-calculator\n\nGeneral information, not tax advice.\n\n#smallbusiness #taxtips #selfemployed #bookkeeping #smallbusinesstips #entrepreneur #businessowner #taxseason\n#mileagelog #mileage #taxwriteoffs #1099 #gigworker #uberdriver #doordashdriver #realestateagent",
+  "li_caption": "The IRS changed the business mileage rate in the middle of 2026. Miles driven January 1 to June 30 use 72.5 cents. Miles driven July 1 to December 31 use 76 cents.\n\nSo one total for the year is not enough. Four things to do before the year closes:\n\n1. Split business miles by date: first half and second half.\n2. Leave out commuting. Driving between home and your regular workplace is personal, however far it is.\n3. Write down the odometer on December 31. Schedule C, Part IV asks for the year's miles split into business, commuting and other, and asks whether your evidence is written.\n4. Keep the log as you go. The IRS accepts a log, diary, notebook or any other written record.\n\nExample: 3,000 business miles in each half comes to $2,175 plus $2,280, or $4,455, before parking and tolls.\n\nOur mileage deduction calculator applies both rates for you. Comment MILEAGE and we will send it, or see https://mfa-advisory.com/tools/mileage-deduction-calculator/?utm_source=linkedin&utm_medium=social&utm_campaign=mileage-two-rates\n\n#SmallBusiness #SelfEmployed #TaxTips #Mileage",
+  "sources": [
+    {
+      "fact": "2026 business standard mileage rate: 72.5 cents (Jan. 1-June 30, 2026) and 76 cents (July 1-Dec. 31, 2026)",
+      "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates"
+    },
+    {
+      "fact": "Commuting between home and your main or regular workplace is a personal expense; not deductible no matter how far",
+      "url": "https://www.irs.gov/publications/p463"
+    },
+    {
+      "fact": "A log, diary, notebook or any other written record can be used to keep track of expenses",
+      "url": "https://www.irs.gov/publications/p463"
+    },
+    {
+      "fact": "Schedule C Part IV: line 44 miles for business / commuting / other; line 47a evidence to support the deduction; 47b is the evidence written",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040sc.pdf"
+    },
+    {
+      "fact": "Example math: 3,000 x $0.725 = $2,175; 3,000 x $0.76 = $2,280; total $4,455",
+      "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates"
+    },
+    {
+      "fact": "MFA Mileage Deduction Calculator 2026 applies both 2026 rates",
+      "url": "https://mfa-advisory.com/tools/mileage-deduction-calculator/"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:00 AM ET",
+    "instagram": "12:00 PM ET"
+  }
+}

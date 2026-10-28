@@ -44,5 +44,15 @@
   "cta": "FICA",
   "folder": "2026-10-29 Thu - OPT FICA Check",
   "status": "held for Zain's yes (sessions-chat rule 10); in 'Waiting for Zain OK', not emailed to Abiha"
+ },
+ {
+  "date": "2026-10-30",
+  "slug": "Mileage-Two-Rates",
+  "type": "value",
+  "topic": "2026 has two IRS mileage rates (72.5c Jan-Jun, 76c Jul-Dec): split miles, skip commuting, note odometer Dec 31 -> /tools/mileage-deduction-calculator/",
+  "product": null,
+  "cta": "MILEAGE",
+  "folder": "2026-10-30 Fri - Mileage Two Rates",
+  "status": "in Ready to Post; emailed to Abiha 2026-10-28"
  }
 ]
