@@ -4910,6 +4910,79 @@
    "dateModified": "2026-10-28",
    "item": {
     "@type": "Product",
+    "@id": "https://mfaadvisory.gumroad.com/l/tax-moves-bundle-2026#product",
+    "name": "Tax Moves Bundle 2026: 5 Plain-English Tax-Saving Guides",
+    "description": "All 5 tax mini-guides in one download: home office, hire your kid, the Augusta rule, mileage, and self-employed health insurance + HSA, each written for tax year 2026.",
+    "sku": "tax-moves-bundle-2026",
+    "url": "https://mfaadvisory.gumroad.com/l/tax-moves-bundle-2026",
+    "image": "https://mfa-advisory.com/shop/img/tax-moves-bundle-2026.webp",
+    "category": "Tax mini-guides",
+    "brand": {
+     "@type": "Brand",
+     "name": "Merchant Financial Advisory"
+    },
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Format",
+      "value": "5 six-page PDFs"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Instant download after checkout"
+     }
+    ],
+    "offers": {
+     "@type": "Offer",
+     "price": "9.99",
+     "priceCurrency": "USD",
+     "availability": "https://schema.org/InStock",
+     "url": "https://mfaadvisory.gumroad.com/l/tax-moves-bundle-2026",
+     "seller": {
+      "@id": "https://mfa-advisory.com/#organization"
+     },
+     "itemCondition": "https://schema.org/NewCondition",
+     "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+     },
+     "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+       "@type": "MonetaryAmount",
+       "value": 0,
+       "currency": "USD"
+      },
+      "shippingDestination": {
+       "@type": "DefinedRegion",
+       "addressCountry": "US"
+      },
+      "deliveryTime": {
+       "@type": "ShippingDeliveryTime",
+       "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       },
+       "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-10-28",
+   "item": {
+    "@type": "Product",
     "@id": "https://mfaadvisory.gumroad.com/l/home-office-deduction-2026#product",
     "name": "Home Office Deduction Guide 2026",
     "description": "How to deduct part of your rent or mortgage interest, utilities and insurance: the two qualification tests, the $5-per-square-foot simplified method vs Form 8829, and a worked example.",

@@ -1,6 +1,6 @@
 {
   "_about": "MFA product catalog: the single source of truth for every product's name, prices and links. /shop/ is built from it (tools/build_shop.py). Update it in the same commit as any launch or price change. Public data only: never put paid files, account numbers or keys here. Prices need Zain's yes.",
-  "updated": "2026-10-28 (Tax mini-guides 39-43 on /shop/)",
+  "updated": "2026-10-28 (Tax Moves Bundle 44 added first in Tax mini-guides on /shop/)",
   "store": "https://mfaadvisory.gumroad.com/",
   "groups": [
     {
@@ -1207,6 +1207,29 @@
         "related": null
       },
       "note": "Batch 5 (Zain approved build, publish and prices 2026-10-25). Gumroad + Etsy live 2026-10-25."
+    },
+    {
+      "id": "44",
+      "slug": "tax-moves-bundle-2026",
+      "name": "Tax Moves Bundle 2026: 5 Plain-English Tax-Saving Guides",
+      "status": "live",
+      "tier": "guide",
+      "gumroad": {
+        "price": "9.99",
+        "url": "https://mfaadvisory.gumroad.com/l/tax-moves-bundle-2026",
+        "product_id": null
+      },
+      "etsy": {
+        "allowed": true,
+        "note": "No Etsy listing yet (2026-10-28); Buy goes to Gumroad"
+      },
+      "shop": {
+        "group": "guide",
+        "blurb": "All 5 tax mini-guides in one download: home office, hire your kid, the Augusta rule, mileage, and self-employed health insurance + HSA, each written for tax year 2026.",
+        "format": "5 six-page PDFs",
+        "related": null
+      },
+      "note": "Bundle of tax mini-guides 39-43 (tax year 2026). Placed first in the Tax mini-guides group. Gumroad live 2026-10-28."
     },
     {
       "id": "39",
