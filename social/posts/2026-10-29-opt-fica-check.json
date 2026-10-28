@@ -2,7 +2,7 @@
   "date": "2026-10-29",
   "number": 1,
   "slug": "OPT-FICA-Check",
-  "topic": "F-1 / OPT students: Social Security and Medicare (7.65%) often withheld in error; how to check and get it back (nov-push offer: FICA refund claim $49 on /international-students/)",
+  "topic": "F-1 / OPT students: Social Security and Medicare (7.65%) often withheld in error; how to check and get it back (nov-push offer: FICA refund claim on /international-students/)",
   "type": "service",
   "accent": "plum",
   "label": "F-1 / OPT students / Tip",
@@ -32,8 +32,8 @@
   "cta_word": "FICA",
   "link": "mfa-advisory.com/international-students",
   "checked": "October 27, 2026",
-  "ig_caption": "On OPT or a campus job? Check your pay stub for Social Security and Medicare. Together that's 7.65% of your pay, about $1,530 on $20,000 of wages.\n\n✔️ F-1, J-1 and M-1 students who are nonresidents for tax (generally under 5 calendar years in the US) usually don't owe these on permitted work like OPT.\n✔️ Ask your payroll team first to stop it and pay it back.\n✔️ If they won't, you can claim it from the IRS on Form 843 with Form 8316.\n\nThis doesn't cover F-2 or J-2 family members, H-1B pay, or students who have become residents for tax. We prepare the full claim for $49.\n\nComment FICA and we'll send you the link, or find it at mfa-advisory.com/international-students\n\nGeneral information, not tax advice.\n\n#internationalstudents #studentsinusa #studyinusa #taxtips #taxseason #gradschool #collegelife #personalfinance\n#f1visa #optstudents #opt #cpt #nonresident #fica #socialsecurity #studentjobs",
-  "li_caption": "Many F-1 students on OPT have Social Security and Medicare taken from their pay when they don't owe it. That's 7.65% of wages, or about $1,530 on $20,000.\n\nHow to check and fix it:\n\n1. Read the pay stub. Look for Social Security (6.2%) and Medicare (1.45%), often labeled OASDI and MED.\n2. Check the status. The IRS says F-1, J-1 and M-1 students who are nonresident aliens (generally fewer than 5 calendar years in the US) are exempt on wages for permitted work, including practical training on or off campus.\n3. Ask the employer first. Payroll can stop the withholding and refund what was taken.\n4. If the employer won't refund it all, file Form 843 with the IRS, with Form 8316, the W-2, the passport visa page and the I-94.\n\nThe exemption doesn't cover F-2, J-2 or M-2 family members, H-1B wages, or students who have become residents for tax.\n\nWe prepare the Form 843 claim with Form 8316 and the document checklist for $49. Comment FICA and we will send it, or see https://mfa-advisory.com/international-students/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push\n\n#InternationalStudents #F1Visa #OPT #TaxTips",
+  "ig_caption": "On OPT or a campus job? Check your pay stub for Social Security and Medicare. Together that's 7.65% of your pay, about $1,530 on $20,000 of wages.\n\n✔️ F-1, J-1 and M-1 students who are nonresidents for tax (generally under 5 calendar years in the US) usually don't owe these on permitted work like OPT.\n✔️ Ask your payroll team first to stop it and pay it back.\n✔️ If they won't, you can claim it from the IRS on Form 843 with Form 8316.\n\nThis doesn't cover F-2 or J-2 family members, H-1B pay, or students who have become residents for tax. We can prepare the full claim for you.\n\nComment FICA and we'll send you the link, or find it at mfa-advisory.com/international-students\n\nGeneral information, not tax advice.\n\n#internationalstudents #studentsinusa #studyinusa #taxtips #taxseason #gradschool #collegelife #personalfinance\n#f1visa #optstudents #opt #cpt #nonresident #fica #socialsecurity #studentjobs",
+  "li_caption": "Many F-1 students on OPT have Social Security and Medicare taken from their pay when they don't owe it. That's 7.65% of wages, or about $1,530 on $20,000.\n\nHow to check and fix it:\n\n1. Read the pay stub. Look for Social Security (6.2%) and Medicare (1.45%), often labeled OASDI and MED.\n2. Check the status. The IRS says F-1, J-1 and M-1 students who are nonresident aliens (generally fewer than 5 calendar years in the US) are exempt on wages for permitted work, including practical training on or off campus.\n3. Ask the employer first. Payroll can stop the withholding and refund what was taken.\n4. If the employer won't refund it all, file Form 843 with the IRS, with Form 8316, the W-2, the passport visa page and the I-94.\n\nThe exemption doesn't cover F-2, J-2 or M-2 family members, H-1B wages, or students who have become residents for tax.\n\nWe prepare the Form 843 claim with Form 8316 and the document checklist for you. Comment FICA and we will send it, or see https://mfa-advisory.com/international-students/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push\n\n#InternationalStudents #F1Visa #OPT #TaxTips",
   "sources": [
     {
       "fact": "Nonresident alien students in F-1, J-1 or M-1 status (less than 5 calendar years) are generally exempt from Social Security and Medicare on wages for USCIS-allowed work, including practical training on or off campus; not for F-2/J-2/M-2, other non-exempt statuses, or students who become resident aliens; ask the employer first, then Form 843 with Form 8316",
@@ -50,10 +50,6 @@
     {
       "fact": "Employee rates: Social Security 6.2%, Medicare 1.45% (7.65% total); $20,000 x 7.65% = $1,530",
       "url": "https://www.irs.gov/taxtopics/tc751"
-    },
-    {
-      "fact": "MFA OPT / campus job Social Security refund claim (Forms 843 + 8316): $49, live pay-now offer",
-      "url": "https://mfa-advisory.com/international-students/"
     }
   ],
   "post_times": {

@@ -40,3 +40,7 @@
 # /bookkeeping/princeton-nj/ is the Princeton Bookkeeping ad landing page; the bare /bookkeeping/ has no page.
 /bookkeeping           /services/#bookkeeping   302
 /bookkeeping/          /services/#bookkeeping   302
+
+# /start/ (Pinterest + shorts fallback). Temporary until the Starter Kit page (branch start-hub) is approved. Zain 2026-10-28.
+/start     /resources/   302
+/start/    /resources/   302
