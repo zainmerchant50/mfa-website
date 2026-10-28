@@ -111,7 +111,7 @@ SERVICES = [
 ]
 
 REVIEWS = [
-    ("Merchant Financial Advisory has been outstanding in providing fractional CFO and bookkeeping services… They are responsive, professional, and truly feel like an extension of your team.", "Bilal Malik", "Google review"),
+    ("Merchant Financial Advisory has been outstanding in providing fractional CFO and bookkeeping services… They are responsive, professional, and truly feel like an extension of your team.", "B. Malik", "Google review"),
     ("He set up QuickBooks Online for my new LLC and made sure everything was organized in a way that makes sense for both day-to-day bookkeeping and year-end taxes…", "QuickBooks setup &amp; LLC tax client", "Verified review · Upwork"),
     ("He really does make the whole process insanely easy. His communication is super clear and quick, and he checks in to make sure he's actually building what you need.", "Repeat client", "Verified review · Fiverr"),
 ]
