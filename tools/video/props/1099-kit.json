@@ -1,0 +1,40 @@
+{
+  "name": "1099-kit",
+  "seconds": 15,
+  "label": "2026 payments · filed in 2027",
+  "title": [
+    "The 1099 Kit",
+    "*who gets one,*",
+    "*and how to file*"
+  ],
+  "shortTitle": [
+    "The 1099 Kit"
+  ],
+  "sub": "PDF guide + Excel tracker · instant download",
+  "bullets": [
+    "Flowchart: do I need to send a 1099?",
+    "Updated for the new 2026 reporting threshold",
+    "W-9 request email template + contractor tracker",
+    "2027 deadlines, penalties and filing steps"
+  ],
+  "images": [
+    "site/shop/img/1099-kit.webp",
+    {
+      "src": "social/shorts/img/1099-kit.jpg",
+      "crop": [
+        0.55,
+        0.1,
+        0.99,
+        0.74
+      ],
+      "width": 1100
+    }
+  ],
+  "cta": [
+    "Built by an",
+    "*accounting firm*"
+  ],
+  "ctaSub": "ACCA · over 10 years of accounting, audit and tax experience",
+  "ctaPill": "Shop MFASZ on Etsy",
+  "footer": "MERCHANT FINANCIAL ADVISORY · MFA-ADVISORY.COM"
+}

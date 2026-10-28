@@ -1,0 +1,46 @@
+{
+  "name": "s-corp-vs-llc-calculator",
+  "seconds": 15,
+  "label": "Is an S corp worth it?",
+  "title": [
+    "S Corp vs LLC",
+    "*Savings Calculator*"
+  ],
+  "sub": "Excel + Google Sheets · 2026 figures",
+  "bullets": [
+    "Self-employment tax vs S corp payroll taxes, side by side",
+    "Net annual savings after the extra S corp costs",
+    "Break-even profit table for your numbers",
+    "Reasonable-salary and election warnings before you elect"
+  ],
+  "images": [
+    "site/shop/img/s-corp-vs-llc-savings-calculator.webp",
+    {
+      "src": "social/shorts/img/s-corp-vs-llc-savings-calculator.jpg",
+      "crop": [
+        0.51,
+        0.12,
+        0.95,
+        0.68
+      ],
+      "width": 1100
+    },
+    {
+      "src": "social/shorts/img/s-corp-vs-llc-savings-calculator.jpg",
+      "crop": [
+        0.53,
+        0.725,
+        0.95,
+        0.93
+      ],
+      "width": 1100
+    }
+  ],
+  "cta": [
+    "Built by an",
+    "*accounting firm*"
+  ],
+  "ctaSub": "ACCA · over 10 years of accounting, audit and tax experience",
+  "ctaPill": "Shop MFASZ on Etsy",
+  "footer": "MERCHANT FINANCIAL ADVISORY · MFA-ADVISORY.COM"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "mfasz-shop-home",
+  "seconds": 15,
+  "label": "MFASZ on Etsy",
+  "title": [
+    "Tax and bookkeeping",
+    "spreadsheets,",
+    "*ready to use*"
+  ],
+  "shortTitle": [
+    "Shop by tax form",
+    "or *business type*"
+  ],
+  "sub": "Excel + Google Sheets · instant download",
+  "montage": true,
+  "bullets": [
+    "1099 and self-employed tax calculators",
+    "S corp vs LLC savings calculator",
+    "Bookkeeping trackers by business type",
+    "Year-end checklists and tax organizers"
+  ],
+  "images": [
+    "site/shop/img/1099-self-employed-tax-calculator-2026.webp",
+    "site/shop/img/s-corp-vs-llc-savings-calculator.webp",
+    "site/shop/img/1099-kit.webp",
+    "site/shop/img/small-business-bookkeeping-spreadsheet.webp",
+    "site/shop/img/2026-tax-organizer.webp",
+    "site/shop/img/self-employed-tax-deduction-tracker-2026.webp"
+  ],
+  "cta": [
+    "Built by an",
+    "*accounting firm*"
+  ],
+  "ctaSub": "Shop by tax form or business type.",
+  "ctaPill": "MFASZ on Etsy",
+  "footer": "MERCHANT FINANCIAL ADVISORY · MFA-ADVISORY.COM",
+  "ctaNote": "ACCA · over 10 years of accounting, audit and tax experience"
+}

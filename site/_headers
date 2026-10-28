@@ -13,6 +13,11 @@
   X-Robots-Tag: noindex
   Content-Disposition: inline
 
+# Listing / shop-home / Reels videos (tools/video): downloadable, not search pages
+/assets/videos/*
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=86400
+
 # Machine-readable files for search engines, AI assistants and agents (tools/seo.py)
 /llms.txt
   Content-Type: text/plain; charset=utf-8

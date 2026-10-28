@@ -1,0 +1,40 @@
+{
+  "name": "1099-self-employed-tax-calculator",
+  "seconds": 15,
+  "label": "Self-employed tax planner",
+  "title": [
+    "1099 Self-Employed",
+    "*Tax Calculator*"
+  ],
+  "shortTitle": [
+    "1099 Self-Employed",
+    "*Tax Calculator*"
+  ],
+  "sub": "Excel + Google Sheets · instant download",
+  "bullets": [
+    "Schedule C profit to self-employment tax, step by step",
+    "How much to set aside from every payment",
+    "The quarterly payment that avoids an underpayment penalty",
+    "2026 and 2027 due dates, plus a payment log"
+  ],
+  "images": [
+    "site/shop/img/1099-self-employed-tax-calculator-2026.webp",
+    {
+      "src": "site/shop/img/1099-self-employed-tax-calculator-2026.webp",
+      "crop": [
+        0.07,
+        0.6,
+        0.73,
+        1.0
+      ],
+      "width": 1000
+    }
+  ],
+  "cta": [
+    "Built by an",
+    "*accounting firm*"
+  ],
+  "ctaSub": "ACCA · over 10 years of accounting, audit and tax experience",
+  "ctaPill": "Shop MFASZ on Etsy",
+  "footer": "MERCHANT FINANCIAL ADVISORY · MFA-ADVISORY.COM"
+}
