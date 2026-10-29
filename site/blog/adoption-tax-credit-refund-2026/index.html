@@ -280,9 +280,12 @@ fetch('https://formsubmit.co/ajax/info@mfa-advisory.com',{method:'POST',headers:
 });})();
 </script><script>
 (function(){document.querySelectorAll('form.nl-f').forEach(function(f){var st=f.querySelector('.nl-st');
-function done(){f.hidden=true;var ok=f.parentNode.querySelector('.nl-done');if(ok)ok.hidden=false;}
+var b=f.querySelector('button'),l=b.textContent,ok=f.parentNode.querySelector('.nl-done');
+function done(){b.disabled=false;b.textContent=l;if(ok)ok.hidden=false;if(f.dataset.kind==='unsubscribe'){f.style.display='none';return;}
+f.reset();st.textContent='';if(f.email)f.email.blur();}
+f.addEventListener('input',function(){if(ok&&!ok.hidden&&f.dataset.kind!=='unsubscribe')ok.hidden=true;});
 f.addEventListener('submit',function(e){e.preventDefault();if(f._honey&&f._honey.value)return;if(!f.checkValidity()){f.reportValidity();return;}
-var b=f.querySelector('button'),l=b.textContent;b.disabled=true;b.textContent='Sending\u2026';
+b.disabled=true;b.textContent='Sending\u2026';
 var unsub=f.dataset.kind==='unsubscribe';
 function fail(){st.textContent='Couldn\u2019t send. Please email info@mfa-advisory.com with the word '+(unsub?'UNSUBSCRIBE':'SUBSCRIBE')+'.';b.disabled=false;b.textContent=l;}
 if(unsub){var d=new FormData(f);d.append('page',location.href);d.append('_captcha','false');d.append('_template','table');
