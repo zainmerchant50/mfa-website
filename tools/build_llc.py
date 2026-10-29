@@ -539,14 +539,40 @@ def build_state(code):
     tot = "".join(f'<tr><td>{esc(p["name"])}</td><td>${p["price"]}</td><td>{fee_s}</td><td><strong>${p["price"] + (fee or 0) + fx + extra:,}{news}{" + state fee" if fee is None else ""}</strong></td></tr>' for p in PACKAGES)
     srcs = sorted({u["source_url"] for u in s.values() if isinstance(u, dict) and u.get("source_url")})
     src_html = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(u.replace("https://", ""))}</a></li>' for u in srcs)
-    title = f"How Much Does an LLC Cost in {name}? | MFA"
+    # Quick answer (matches "[state] llc cost" searches; also feeds FAQ schema for Google and AI answers)
+    low_pkg = PACKAGES[0]
+    qa = []
+    if isinstance(fee, (int, float)):
+        qa.append(f"The {name} filing fee to form an LLC is ${fee + fx:,}" + (", plus newspaper publication" if news else "") + ".")
+    else:
+        qa.append(f"The {name} filing fee is confirmed when we quote and added at cost.")
+    no_ar = any("no annual report" in r.lower() for r in sr)
+    if isinstance(arf, (int, float)) and arf > 0:
+        kind = "annual LLC tax" if no_ar else ("biennial report" if freq and "bienn" in str(freq).lower() else "annual report")
+        qa.append(f"After that, the {kind} costs ${arf:,}.")
+    elif arf == 0 and due and str(due).lower().startswith("none"):
+        qa.append(f"{name} does not require an annual report.")
+    elif v(s, "biennial_statement_fee"):
+        qa.append(f"After that, the biennial statement costs ${v(s, 'biennial_statement_fee'):,}.")
+    ftax = next((r for r in sr if "$" in r and _re.search(r"franchise|llc tax", r, _re.I) and "late penalty" not in r.lower()), None)
+    if ftax:
+        qa.append("Good to know: " + ftax.rstrip(".") + ".")
+    if isinstance(fee, (int, float)):
+        qa.append(f"With MFA, the {low_pkg['name']} package is ${low_pkg['price']} plus the state fee: ${low_pkg['price'] + fee + fx + extra:,} in total to form it"
+                  + (", plus publication costs" if news else "") + ", EIN included.")
+    answer = " ".join(qa)
+    title = next(t for t in (f"{name} LLC Cost 2026: ${fee + fx:,} to File + Rules | MFA" if isinstance(fee, (int, float)) else "",
+                             f"{name} LLC Cost 2026: ${fee + fx:,} to File | MFA" if isinstance(fee, (int, float)) else "",
+                             f"How Much Does an LLC Cost in {name}? | MFA", f"{name} LLC Cost | MFA") if t and len(t) <= 60)
     desc = next(c for c in (f"{name} LLC filing fee {fee_s}, annual report, tax registration and agent rules, checked {CHECKED}. MFA forms it from $150 plus the state fee.",
                             f"{name} LLC filing fee {fee_s}, annual report and tax registration rules. MFA forms it from $150 plus the state fee.",
                             f"{name} LLC fees and rules. MFA forms it from $150 plus the state fee.") if len(c) <= 155)
     body = f'''<header class="ahead"><div class="wrap">
 <div class="crumbs"><a href="/">Home</a> / <a href="/llc-formation/">LLC formation</a> / {esc(name)}</div>
-<span class="eyebrow">{esc(name)} LLC</span><h1>Forming an LLC in {esc(name)}: fees, rules and timing</h1>
-<p class="dek">The state's own numbers, checked {d(s["filing_fee"]["checked"]) if isinstance(s.get("filing_fee"), dict) and s["filing_fee"].get("checked") else CHECKED}, and what your first-year total looks like with MFA.</p></div></header>
+<span class="eyebrow">{esc(name)} LLC cost</span><h1>How much does an LLC cost in {esc(name)}?</h1>
+<p class="dek llc-qa"><strong>{esc(answer)}</strong></p>
+<p class="dek">State figures checked {d(s["filing_fee"]["checked"]) if isinstance(s.get("filing_fee"), dict) and s["filing_fee"].get("checked") else CHECKED} against the official sources below.</p>
+<div class="hero-btns"><a class="btn btn-gold" href="/llc-formation/?state={code}#start" data-conv="form_start">Start my {esc(name)} LLC</a><a class="btn btn-line" href="/#contact">Ask a question first</a></div></div></header>
 <main><div class="tinfo"><article class="article">
 <h2>{esc(name)} LLC at a glance</h2><table class="tbl"><tbody>{tbl}</tbody></table>
 <h2>Your total with MFA</h2><div class="tbl-wrap tw-s"><table class="tbl"><thead><tr><th>Package</th><th>MFA fee</th><th>State fee</th><th>Due at formation</th></tr></thead><tbody>{tot}</tbody></table></div>
@@ -557,6 +583,8 @@ def build_state(code):
 </article></div></main>'''
     ld = seo.graph(url, f"LLC formation in {name}", desc, seo.llc_service(url, name), kind="WebPage",
                    crumb=[("Home", BASE + "/"), ("LLC formation", BASE + "/llc-formation/"), (name, url)], extra={"mainEntity": {"@id": url + "#service"}})
+    ld["@graph"].append({"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
+        {"@type": "Question", "name": f"How much does an LLC cost in {name}?", "acceptedAnswer": {"@type": "Answer", "text": answer}}]})
     return write(f"llc-formation/{code.lower()}", page(title, desc, url, body, ld, active="llc"))
 
 

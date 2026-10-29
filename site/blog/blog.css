@@ -256,3 +256,7 @@ img{max-width:100%;height:auto;display:block}
 .prodbox + .prodbox{margin-top:18px}
 .prodbox + .helpbox-end{margin-top:18px}
 @media (min-width:640px){.prodbox{padding:26px 26px 22px}.article .prodbox ul.pb-list{grid-template-columns:1fr 1fr;gap:14px}}
+
+/* 2026-10-29: answer-first heroes (LLC state pages) + tighter mobile article heads */
+.ahead .hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.ahead .llc-qa{margin-bottom:10px}.ahead .llc-qa strong{color:#fff;font-weight:500}
+@media(max-width:640px){.ahead{padding:40px 0 36px}.ahead h1{margin:10px 0 14px}}

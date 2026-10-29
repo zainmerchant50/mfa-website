@@ -316,7 +316,7 @@ f.addEventListener('submit',function(e){{e.preventDefault();if(f._honey.value)re
 var b=f.querySelector('button'),l=b.textContent;b.disabled=true;b.textContent='Sending\u2026';var d=new FormData(f);
 d.append('article',f.dataset.post);d.append('page',location.href);d.append('_subject','Blog question: '+f.dataset.post);d.append('_captcha','false');d.append('_template','table');
 fetch('{FORM_ENDPOINT}',{{method:'POST',headers:{{'Accept':'application/json'}},body:d}}).then(function(r){{if(!r.ok)throw 0;return r.json();}})
-.then(function(j){{if(j.success===false||j.success==='false')throw 0;f.hidden=true;s.querySelector('.ask-done').hidden=false;}})
+.then(function(j){{if(j.success===false||j.success==='false')throw 0;f.hidden=true;s.querySelector('.ask-done').hidden=false;if(window.mfaLead)mfaLead('blog_question');}})
 .catch(function(){{st.textContent='Couldn’t send. Please email {EMAIL} directly.';b.disabled=false;b.textContent=l;}});}});}})();
 </script>'''
 
@@ -559,6 +559,7 @@ NL_JS = """<script>
 (function(){document.querySelectorAll('form.nl-f').forEach(function(f){var st=f.querySelector('.nl-st');
 var b=f.querySelector('button'),l=b.textContent,ok=f.parentNode.querySelector('.nl-done');
 function done(){b.disabled=false;b.textContent=l;if(ok)ok.hidden=false;if(f.dataset.kind==='unsubscribe'){f.style.display='none';return;}
+try{if(window.gtag)gtag('event','sign_up',{method:'newsletter',page_path:location.pathname});}catch(e){}
 f.reset();st.textContent='';if(f.email)f.email.blur();}
 f.addEventListener('input',function(){if(ok&&!ok.hidden&&f.dataset.kind!=='unsubscribe')ok.hidden=true;});
 f.addEventListener('submit',function(e){e.preventDefault();if(f._honey&&f._honey.value)return;if(!f.checkValidity()){f.reportValidity();return;}
@@ -597,11 +598,12 @@ def nl_form(kind="subscribe", variant=""):
 <p class="nl-done" hidden>Almost done: check your inbox and click the confirmation link to join {NEWSLETTER_NAME}. (If you don't see it in a minute, check Promotions or Spam.)</p>"""
 
 
-def nl_box():
+def nl_box(h2="Get key tax dates and new articles by email",
+           text="Every new MFA Insights article, the IRS, New Jersey and New York deadlines that matter, and a calendar you can save. For individuals and small and mid-sized businesses."):
     return f"""<section class="nl-box" aria-label="Subscribe to {NEWSLETTER_NAME}">
   <span class="eyebrow">MFA Insights newsletter</span>
-  <h2>Get key tax dates and new articles by email</h2>
-  <p>Every new MFA Insights article, the IRS, New Jersey and New York deadlines that matter, and a calendar you can save. For individuals and small and mid-sized businesses.</p>
+  <h2>{h2}</h2>
+  <p>{text}</p>
   {nl_form("subscribe", "nl-dark")}
 </section>"""
 

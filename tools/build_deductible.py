@@ -401,7 +401,7 @@ def build():
   <p class="dek">Can I write this off? Search or tap something your business spends money on. You'll get a straight answer for the {meta["tax_year"]} tax year, what to keep as proof and the mistake people make most.</p>
   <div class="dd-find" role="search">
     <label class="sr" for="dd-q">Search an expense</label>
-    <div class="dd-box">{svg("search", 2)}<input type="search" id="dd-q" placeholder="Try “car”, “phone bill” or “gym”" autocomplete="off" spellcheck="false" aria-controls="dd-res" aria-describedby="dd-gen"/><button type="button" class="dd-clear" id="dd-clear" aria-label="Clear search" hidden>{svg("a-no", 2)}</button></div>
+    <div class="dd-sbox">{svg("search", 2)}<input type="search" id="dd-q" placeholder="Try “car”, “phone bill” or “gym”" autocomplete="off" spellcheck="false" aria-controls="dd-res" aria-describedby="dd-gen"/><button type="button" class="dd-clear" id="dd-clear" aria-label="Clear search" hidden>{svg("a-no", 2)}</button></div>
     <div class="dd-res" id="dd-res" hidden><p class="dd-count" id="dd-count" role="status" aria-live="polite"></p><ul id="dd-hits"></ul></div>
   </div>
   <p class="gen" id="dd-gen">{svg("info")}<span><strong>{GENERAL}</strong> Answers are written for small business owners and the self-employed.</span></p>
@@ -455,7 +455,11 @@ def build():
     extra = ('<script>document.documentElement.classList.add("dd-js")</script>' + EXTRA_CSS +
              f'<link rel="stylesheet" href="/resources/deductible.css?v={V("deductible.css")}"/>' +
              f'<link rel="alternate" type="application/json" href="/tools/{SLUG}/deductions.json" title="Is It Deductible? dataset"/>' + seo.script(ld))
-    body = (hero + main + info + sheet + data_tag +
+    nl = ('<div class="wrap nl-wrap" style="margin:8px auto 40px">' +
+          B.nl_box("Get new write-offs and tax deadlines by email",
+                   "Short emails when a deduction rule or IRS limit changes, plus the federal, New Jersey and New York dates that matter for small businesses and the self-employed.") +
+          '</div>' + B.NL_JS)
+    body = (hero + main + nl + info + sheet + data_tag +
             f'<script src="/resources/deductible.js?v={V("deductible.js")}" defer></script>' +
             cta("Not sure what you can write off?", "We can go through your expenses with you and set up your books so write-offs are tracked all year. Book a 30-minute consultation when it suits you."))
     html = f'{B.head(title, desc, URL, OG, extra)}\n<body class="dd-page">{B.nav("res")}\n{body}\n{B.FOOT}</body></html>'
