@@ -649,6 +649,28 @@ def build_newsletter_pages(posts):
     (nl / "unsubscribe" / "index.html").write_text(un, encoding="utf-8")
 
 
+def webp_imgs(p, body):
+    """Serve in-post PNG/JPG images (<img src="cover.png">) as WebP; download links keep the original file."""
+    folder = ROOT / "site" / "blog" / p["slug"]
+
+    def sub(m):
+        name = m.group(2)
+        src = folder / name
+        webp = src.with_suffix(".webp")
+        try:
+            if src.exists() and (not webp.exists() or webp.stat().st_mtime < src.stat().st_mtime):
+                from PIL import Image
+                im = Image.open(src)
+                im = im.convert("RGBA" if im.mode in ("RGBA", "LA", "P") else "RGB")
+                im.save(webp, "WEBP", quality=82, method=6)
+            if webp.exists():
+                return m.group(1) + webp.name + '"'
+        except Exception:
+            pass
+        return m.group(0)
+    return re.sub(r'(<img\b[^>]*?\bsrc=")([\w.-]+\.(?:png|jpe?g))"', sub, body)
+
+
 def build_post(p):
     A = {**AUTHOR, **p.get("author", {})}
     url = f"{BASE}/blog/{p['slug']}/"
@@ -685,7 +707,7 @@ def build_post(p):
   {share_bar(p, url, "share-dark")}
 </div></header>
 <main><article class="article">
-{ui_kit.accordionize_faqs(with_help(p, p["body"]))}
+{ui_kit.accordionize_faqs(with_help(p, webp_imgs(p, p["body"])))}
 {products_box(p)}{related_box(p)}{help_box(p, "end")}
 {keydates_block(p)}
 {tags_block(p)}
