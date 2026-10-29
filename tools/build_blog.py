@@ -711,9 +711,26 @@ def build_post(p):
                 fh.write("\r\n".join(l for l in one.split("\r\n") if not l.startswith(("X-WR-CALNAME", "REFRESH-INTERVAL", "X-PUBLISHED-TTL", "X-WR-TIMEZONE"))))
 
 
+def thumb(p):
+    """Card/list thumbnail: an 800px WebP made from the post's og image (og.png stays for social previews)."""
+    src = ROOT / "site" / "blog" / p["slug"] / p["og"]
+    webp = src.with_name(src.stem + "-card.webp")
+    try:
+        if src.exists() and (not webp.exists() or webp.stat().st_mtime < src.stat().st_mtime):
+            from PIL import Image
+            im = Image.open(src).convert("RGB")
+            im.thumbnail((800, 800))
+            im.save(webp, "WEBP", quality=80, method=6)
+        if webp.exists():
+            return f"/blog/{p['slug']}/{webp.name}"
+    except Exception:
+        pass
+    return f"/blog/{p['slug']}/{p['og']}"
+
+
 def build_index(posts):
     cards = "".join(f'''<a class="pcard" href="/blog/{p["slug"]}/">
-  <div class="thumb"><img src="/blog/{p["slug"]}/{p["og"]}" alt="{esc(p["coverAlt"])}" loading="lazy" width="1200" height="630"/></div>
+  <div class="thumb"><img src="{thumb(p)}" alt="{esc(p["coverAlt"])}" loading="lazy" decoding="async" width="1200" height="630"/></div>
   <div class="body"><span class="meta">{esc(p["category"])} · {p["dt"].strftime("%b %-d, %Y")}</span>
   <h2>{esc(p["title"])}</h2><p>{esc(p["description"])}</p><span class="more">Read the article →</span></div></a>''' for p in posts)
     desc = BLOG_DESC
@@ -772,7 +789,7 @@ def build_pages():
 
 def build_latest(posts, n=5):
     data = [{"title": p["title"], "url": f"/blog/{p['slug']}/", "date": p["date"], "category": p["category"],
-             "thumb": f"/blog/{p['slug']}/{p['og']}", "description": p["description"]} for p in posts[:n]]
+             "thumb": thumb(p), "description": p["description"]} for p in posts[:n]]
     (SITE / "blog" / "latest.json").write_text(json.dumps({"posts": data}, indent=1), encoding="utf-8")
 
 
