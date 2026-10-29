@@ -28,3 +28,4 @@ Last updated: 2026-10-22 19:45 ET by Hub. Add ideas at the bottom; Blog's new gu
 | 21 | value | Schedule C for single-member LLCs: who files, SE tax 15.3% on 92.35% | /blog/schedule-c-guide-single-member-llc/ | GUIDE |
 | 22 | value | NJ sales tax ST-50: due the 20th after each quarter, file even with zero sales, 6.625% | /blog/nj-sales-tax-st50-filing-guide/ | GUIDE |
 | 23 | service | ~~F-1 / OPT students: Social Security and Medicare withheld in error, how to get it back~~ (2026-10-29, nov-push → /international-students/, FICA) | /international-students/ | FICA |
+| 24 | service | ~~Missed Oct 15? Late-filing penalty is 10x the late-payment penalty: file now~~ (2026-11-02, nov-push → /late-tax-return/, LATE) | /late-tax-return/ | LATE |

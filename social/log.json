@@ -54,5 +54,15 @@
   "cta": "MILEAGE",
   "folder": "2026-10-30 Fri - Mileage Two Rates",
   "status": "in Ready to Post; emailed to Abiha 2026-10-28"
+ },
+ {
+  "date": "2026-11-02",
+  "slug": "Late-Return-Penalty",
+  "type": "service",
+  "topic": "Missed Oct 15: late-filing 5%/mo (max 25%) vs late-payment 0.5%/mo, file now even if you can't pay, payment plan, 3-year refund window (nov-push -> /late-tax-return/)",
+  "product": null,
+  "cta": "LATE",
+  "folder": "2026-11-02 Mon - Post - Late Return Penalty",
+  "status": "in Ready to Post; emailed to Abiha 2026-10-29"
  }
 ]

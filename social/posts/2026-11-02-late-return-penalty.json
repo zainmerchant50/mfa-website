@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-02",
+  "number": 1,
+  "slug": "Late-Return-Penalty",
+  "topic": "Missed the Oct 15 extension deadline: late-filing penalty 5%/month up to 25% vs late-payment 0.5%/month, so file now even if you can't pay; payment plan; 3-year refund window (nov-push -> /late-tax-return/)",
+  "type": "service",
+  "accent": "amber",
+  "label": "Late 2025 return / Tip",
+  "kicker": "Missed October 15? Do this first",
+  "headline": "Not filing costs *10x* more than not paying",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "File now, even if you can't pay",
+      "text": "Late filing: 5% of the unpaid tax a month, up to 25%."
+    },
+    {
+      "title": "Then pay what you can",
+      "text": "Late paying: 0.5% a month, plus interest. Much smaller."
+    },
+    {
+      "title": "Ask the IRS for time",
+      "text": "Online payment plan: 60 to 120 days, or monthly payments."
+    },
+    {
+      "title": "Owed a refund? Don't wait",
+      "text": "You generally have 3 years from the due date to claim it."
+    }
+  ],
+  "body": [],
+  "cta_word": "LATE",
+  "link": "mfa-advisory.com/late-tax-return",
+  "checked": "October 29, 2026",
+  "ig_caption": "Missed the October 15 extension deadline for your 2025 return? File as soon as you can, even if you can't pay it all.\n\n✔️ The late-filing penalty is 5% of the unpaid tax a month, up to 25%.\n✔️ The late-payment penalty is much smaller: 0.5% a month, plus interest.\n✔️ On $2,000 owed, the two together add about $100 a month while it stays unfiled.\n✔️ Can't pay in full? The IRS online payment plan gives 60 to 120 days, or monthly payments.\n✔️ Owed a refund? You generally have 3 years from the due date to claim it.\n\nWe prepare and e-file late 2025 returns. Send documents by November 20 and we file within 5 business days of having everything.\n\nComment LATE and we'll send you the link, or find it at mfa-advisory.com/late-tax-return\n\nGeneral information, not tax advice.\n\n#taxtips #taxes #personalfinance #smallbusiness #selfemployed #taxseason #moneytips #irs\n#latetaxes #taxreturn #taxpenalty #taxfiling #taxextension #paymentplan #1099 #freelancer",
+  "li_caption": "If you missed the October 15 extension deadline for your 2025 return, filing soon matters more than paying in full.\n\nWhat the IRS charges, and what to do:\n\n1. File now. The late-filing penalty is 5% of the unpaid tax for each month the return is late, up to 25%. If it is more than 60 days late, the minimum penalty is $525 or 100% of the tax owed, whichever is less.\n2. Pay what you can. The late-payment penalty is 0.5% a month, plus interest.\n3. Ask for time. The IRS online payment plan gives 60 to 120 days to pay in full, or monthly installments.\n4. Owed a refund? You generally have 3 years from the due date to claim it.\n\nExample: on $2,000 owed, the two penalties together add about $100 for each month the return stays unfiled, for up to 5 months, plus interest.\n\nWe prepare and e-file late 2025 returns, including Schedule C and NJ or NY state returns. Send documents by November 20 and we e-file within 5 business days of having everything. Comment LATE and we will send it, or see https://mfa-advisory.com/late-tax-return/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push\n\n#TaxTips #SmallBusiness #SelfEmployed #IRS",
+  "sources": [
+    {
+      "fact": "Failure-to-file penalty 5% of unpaid tax per month or part month, max 25%; reduced by the 0.5% failure-to-pay penalty in months both apply (combined 5% = $100/month on $2,000); return more than 60 days late: minimum $525 (returns due after 12/31/2025) or 100% of the tax, whichever is less",
+      "url": "https://www.irs.gov/payments/failure-to-file-penalty"
+    },
+    {
+      "fact": "Failure-to-pay penalty 0.5% of unpaid tax per month, max 25%",
+      "url": "https://www.irs.gov/payments/failure-to-pay-penalty"
+    },
+    {
+      "fact": "File all past-due returns even if you can't pay; 60-120 days more to pay via Online Payment Agreement or an installment agreement; refunds must be claimed within 3 years of the return due date",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/filing-past-due-tax-returns"
+    },
+    {
+      "fact": "MFA offer: late 2025 returns, documents by Nov 20, e-file within 5 business days of complete documents (no prices in social posts, rule 10)",
+      "url": "https://mfa-advisory.com/late-tax-return/"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:00 AM ET",
+    "instagram": "12:00 PM ET"
+  }
+}
