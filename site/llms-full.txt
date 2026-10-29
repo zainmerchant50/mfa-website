@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated October 28, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated October 29, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -108,6 +108,9 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Social Security and Medicare refund claim (Forms 843 + 8316): $49, pay online at https://mfa-advisory.com/international-students/
 - Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR: $129, pay online at https://mfa-advisory.com/international-students/
 - First-year H-1B (dual-status) tax return, federal: $249, pay online at https://mfa-advisory.com/international-students/
+- Late 2025 tax return: Form 1040, federal: $249, pay online at https://mfa-advisory.com/late-tax-return/
+- Late 2025 tax return: Form 1040 with Schedule C (self-employed or single-member LLC), federal: $399, pay online at https://mfa-advisory.com/late-tax-return/
+- Late 2025 state tax return (add-on, one state): $49, pay online at https://mfa-advisory.com/late-tax-return/
 
 ## LLC formation packages (https://mfa-advisory.com/llc-formation/)
 

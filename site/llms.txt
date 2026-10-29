@@ -16,6 +16,7 @@ Not a law firm. MFA does not perform audits or issue audit, review or compilatio
 - [S corp election for 2027](https://mfa-advisory.com/s-corp-election/): savings check, Form 2553, reasonable salary and payroll plan, $299
 - [Quarterly estimated taxes](https://mfa-advisory.com/quarterly-estimated-taxes/): federal and state payments worked out, $199 for 2027 or $59 for the next payment
 - [LLC annual report filing](https://mfa-advisory.com/llc-annual-report/): $39 plus the state fee at cost; annual report fees and due dates for all 50 states and DC
+- [Late 2025 tax return filing](https://mfa-advisory.com/late-tax-return/): missed the October 15 deadline or never filed; Form 1040 $249, with Schedule C $399, add a state $49
 - [Taxes for artists and creatives](https://mfa-advisory.com/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $199/month, LLC formation from $150 plus state fee, quarterly estimates $199/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC
 - [Machine-readable catalog](https://mfa-advisory.com/catalog.json): all services, prices, tools and products as schema.org JSON
 

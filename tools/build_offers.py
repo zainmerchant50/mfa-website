@@ -47,6 +47,9 @@ SERVICES = {
     "fica":        {"name": "Social Security and Medicare refund claim (Forms 843 + 8316)", "price": 49, "page": "/international-students/", "ask": None},
     "nr-fix":      {"name": "Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR", "price": 129, "page": "/international-students/", "ask": None},
     "dual":        {"name": "First-year H-1B (dual-status) tax return, federal", "price": 249, "page": "/international-students/", "ask": "state"},
+    "late-1040":   {"name": "Late 2025 tax return: Form 1040, federal", "price": 249, "page": "/late-tax-return/", "ask": "state"},
+    "late-schc":   {"name": "Late 2025 tax return: Form 1040 with Schedule C (self-employed or single-member LLC), federal", "price": 399, "page": "/late-tax-return/", "ask": "business"},
+    "late-state":  {"name": "Late 2025 state tax return (add-on, one state)", "price": 49, "page": "/late-tax-return/", "ask": "state"},
 }
 ASK_LABEL = {"forms": "How many?", "state": "Your state", "business": "Business name (or \"individual\")"}
 
@@ -146,7 +149,8 @@ CRED = "Your work is done by Zain Merchant and his team of tax and accounting ex
 ALSO = [("/year-end-tax-planning/", "Year-end tax planning $99"), ("/1099-filing/", "1099 filing from $20/form"),
         ("/s-corp-election/", "S corp switch $299"), ("/quarterly-estimated-taxes/", "Quarterly estimates $199/yr"),
         ("/llc-annual-report/", "LLC annual report $39"), ("/international-students/", "International students from $25"),
-        ("/llc-formation/", "LLC formation from $150"), ("/bookkeeping/princeton-nj/", "Bookkeeping from $199/mo")]
+        ("/llc-formation/", "LLC formation from $150"), ("/bookkeeping/princeton-nj/", "Bookkeeping from $199/mo"),
+        ("/late-tax-return/", "Late 2025 tax return from $249")]
 
 
 def fmt_d(iso):
@@ -434,6 +438,50 @@ def build_annual():
         offers=[("annual", "Service fee per report; the state fee is billed separately at cost.", None)])
 
 
+def build_late():
+    cards = [card("Most people", "late-1040", "federal return, paid once",
+                  "Your 2025 Form 1040 prepared from your W-2s, 1099s and other forms, checked and e-filed.",
+                  ["W-2, 1099, interest, dividends, unemployment", "Standard or itemized deductions", "Penalty and interest estimate if you owe", "E-filed within 5 business days of complete documents"]),
+             card("Self-employed or LLC", "late-schc", "federal return with Schedule C, paid once",
+                  "For freelancers, 1099 contractors and single-member LLCs: your 1040 with Schedule C and self-employment tax.",
+                  ["Business income and expenses sorted into Schedule C", "Home office, mileage and equipment checked", "Self-employment tax and QBI deduction", "E-filed within 5 business days of complete documents"], True),
+             card("Add-on", "late-state", "per state return",
+                  "Add your 2025 state return (for example New Jersey or New York) to either package.",
+                  ["Prepared with your federal return", "Resident, part-year or nonresident", "Filed at the same time"], label="Add a state return $49")]
+    incl = [("A return that's actually filed", "Prepared, reviewed and e-filed, with a copy for your records and proof the IRS accepted it."),
+            ("An honest look at what you owe", "If you owe, we show the tax, the estimated penalties and interest, and your payment options."),
+            ("Your refund, if you're owed one", "If you're due a refund, there's usually no late-filing penalty, and filing is the only way to get it."),
+            ("Payment plan help", "If you can't pay in full, we walk you through the IRS online payment plan options."),
+            ("A quick turnaround", "Send documents by November 20 and we e-file within 5 business days of having everything."),
+            ("A 2026 head start", "A short note on what to keep for your 2026 return so this doesn't happen again.")]
+    faq = [("I missed the October 15 extension deadline. Is it too late to file?",
+            "No. You can still file your 2025 return, and filing as soon as possible limits penalties and interest. The IRS says to file all returns that are due, even if you can't pay in full."),
+           ("What is the penalty for filing late?",
+            "If you owe tax, the IRS failure-to-file penalty is 5% of the unpaid tax for each month or part of a month the return is late, up to 25%. "
+            "There's also a 0.5% per month failure-to-pay penalty, plus interest. For a 2025 return filed more than 60 days late, the minimum penalty is $525 or 100% of the tax owed, whichever is less."),
+           ("What if I'm owed a refund?",
+            "If the IRS owes you money, the late-filing penalty is usually zero because it's based on unpaid tax. But you only have 3 years from the original due date to claim a refund, so don't wait."),
+           ("I can't pay what I owe. Should I still file?",
+            "Yes. Filing on time or as soon as you can stops the larger failure-to-file penalty from growing. You can ask the IRS for more time to pay or a payment plan, and we'll show you the options."),
+           ("What do I need to send?",
+            "Your W-2s and 1099s for 2025, last year's return if you have it, and, if you're self-employed, your 2025 income and expenses (bank statements are fine). We send a secure upload link after you book."),
+           ("Do you handle returns older than 2025?",
+            "Yes, but they're quoted separately because older years can't always be e-filed. Book a 30-minute call and we'll tell you the price before any work starts.")]
+    srcs = [("IRS: Failure to file penalty", "https://www.irs.gov/payments/failure-to-file-penalty"),
+            ("IRS: Filing past due tax returns", "https://www.irs.gov/taxtopics/tc153"),
+            ("IRS: Payment plans and installment agreements", "https://www.irs.gov/payments/payment-plans-installment-agreements")]
+    return build_page("late-tax-return",
+        title="Late 2025 Tax Return Filing: From $249 | MFA",
+        desc="Missed the October 15 deadline or never filed 2025? Fixed-price late tax return filing: 1040 $249, with Schedule C $399, add a state $49. E-filed fast.",
+        h1="Missed the deadline?", h1em="Let's get 2025 filed.", eyebrow="Late 2025 returns",
+        lead="Fixed-price filing for people who missed the October 15 extension deadline or never filed 2025. Send documents by November 20 and we e-file within 5 business days of having everything.",
+        keywords=["file late tax return", "missed tax extension deadline", "late tax return filing", "past due tax return help", "file 2025 taxes late", "late tax return nj"],
+        cards=cards, incl_h="Filed, with no surprises.", incl=incl, faq=faq, sources=srcs,
+        svc_name="Late tax return filing", svc_type="Tax preparation", crumb_name="Late 2025 tax return",
+        offers=[("late-1040", "Federal Form 1040 for 2025.", None), ("late-schc", "Federal Form 1040 with Schedule C for 2025.", None),
+                ("late-state", "One 2025 state return, add-on.", None)])
+
+
 def build_thanks():
     url = BASE + "/checkout/thanks/"
     body = f'''<header class="ahead"><div class="wrap"><span class="eyebrow">Order</span><h1 id="t-h">Checking your payment…</h1><p class="dek" id="t-dek">One moment.</p></div></header>
@@ -462,7 +510,7 @@ if(window.gtag)gtag('event','purchase',{{transaction_id:id,value:s.amount,curren
 def build_all():
     write_pricing()
     build_thanks()
-    return [build_yearend(), build_1099(), build_scorp(), build_quarterly(), build_annual()]
+    return [build_yearend(), build_1099(), build_scorp(), build_quarterly(), build_annual(), build_late()]
 
 
 if __name__ == "__main__":

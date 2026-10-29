@@ -103,5 +103,29 @@ export default {
   "max": 1,
   "per": false,
   "page": "/international-students/"
+ },
+ "late-1040": {
+  "name": "Late 2025 tax return: Form 1040, federal",
+  "amount": 24900,
+  "min": 1,
+  "max": 1,
+  "per": false,
+  "page": "/late-tax-return/"
+ },
+ "late-schc": {
+  "name": "Late 2025 tax return: Form 1040 with Schedule C (self-employed or single-member LLC), federal",
+  "amount": 39900,
+  "min": 1,
+  "max": 1,
+  "per": false,
+  "page": "/late-tax-return/"
+ },
+ "late-state": {
+  "name": "Late 2025 state tax return (add-on, one state)",
+  "amount": 4900,
+  "min": 1,
+  "max": 1,
+  "per": false,
+  "page": "/late-tax-return/"
  }
 };

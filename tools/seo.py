@@ -490,6 +490,7 @@ def build_llms(posts):
         f"- [S corp election for 2027]({BASE}/s-corp-election/): savings check, Form 2553, reasonable salary and payroll plan, $299",
         f"- [Quarterly estimated taxes]({BASE}/quarterly-estimated-taxes/): federal and state payments worked out, $199 for 2027 or $59 for the next payment",
         f"- [LLC annual report filing]({BASE}/llc-annual-report/): $39 plus the state fee at cost; annual report fees and due dates for all 50 states and DC",
+        f"- [Late 2025 tax return filing]({BASE}/late-tax-return/): missed the October 15 deadline or never filed; Form 1040 $249, with Schedule C $399, add a state $49",
         f"- [Taxes for artists and creatives]({BASE}/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $199/month, LLC formation from $150 plus state fee, quarterly estimates $199/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC",
         f"- [Machine-readable catalog]({BASE}/catalog.json): all services, prices, tools and products as schema.org JSON",
         "",
