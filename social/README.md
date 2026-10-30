@@ -188,10 +188,13 @@ so they are encouraged and then want to follow and then buy our digital products
   the Pinterest daily task may upload 2-3 a week from the Shorts folder, using PINTEREST.txt (title, description,
   destination URL with `utm_source=pinterest&utm_medium=video`, alt text, board). Count them in the daily cap:
   **never more than 5 pins a day in total**, images and videos together.
-- **YouTube Shorts:** not started. **Zain must create the YouTube channel himself** (we never create accounts): a Brand
-  Account channel named "Merchant Financial Advisory", handle like @mfa-advisory, logo from the project, link
-  mfa-advisory.com, and phone verification so descriptions can carry links. Once it exists, upload each short with
-  YOUTUBE.txt (title ≤ 70 characters, description with the UTM link). Until then, keep the files; don't post anywhere else.
+- **YouTube Shorts:** LIVE on the MFA-Advisory channel (Studio: studio.youtube.com/channel/UCLNPu802SdUCkrjLeIqgM_g; switch to the
+  zainmerchant@mfa-advisory.com channel, never Zain's personal one). **Zain (Oct 30): at least one Short published every week.**
+  Upload with YOUTUBE.txt (title, description with the UTM link first), "not made for kids", Visibility > Schedule (Tuesdays
+  12:00 PM ET). Scheduled as of Oct 30: Oct 30 art-fair-sales-tax, Nov 3 rideshare-miles, Nov 10 1099-2000-rule,
+  Nov 17 s-corp-yet, Nov 24 hair-stylist-write-offs, Dec 1 month-end-close. Next batch (render from specs: etsy-1099-k,
+  no-1099-still-taxable, set-aside-for-taxes, how-long-keep-receipts, personal-charge-business-card, F-1/H-1B pack)
+  must be scheduled from Dec 8 before Nov 24. Keep the queue at least 3 weeks ahead.
 - **TikTok / LinkedIn video:** not set up. The same MP4 works on both if Zain wants them later (LinkedIn: post the video
   natively with the LinkedIn-style caption; TikTok would need its own account, which Zain creates).
 
