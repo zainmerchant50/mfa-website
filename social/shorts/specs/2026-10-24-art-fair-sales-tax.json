@@ -108,5 +108,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "Art fair? *Sales tax* basics",
+    "sub": "New Jersey example"
   }
 }

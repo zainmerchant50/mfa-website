@@ -132,5 +132,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "1099s: the new *$2,000* rule",
+    "sub": "For payments made in 2026"
   }
 }

@@ -134,5 +134,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "Drivers: track your *miles*",
+    "sub": "The 2026 mileage rate"
   }
 }

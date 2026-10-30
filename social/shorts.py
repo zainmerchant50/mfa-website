@@ -696,9 +696,10 @@ def main():
             br.close()
             print(out / "frames")
             return
-        # cover: the hook once its punch-in has settled
-        pg.evaluate("seek(0.6)")
-        (out / f"{p['slug']}-cover.jpg").write_bytes(snap(0.6, type="jpeg", quality=92))
+        # cover/thumbnail: dedicated title card from social/thumbs.py (Hub 2026-10-30: platforms otherwise pick
+        # an end-card frame like "Comment LLC"). Upload it as the YouTube thumbnail and the IG/TikTok/FB cover.
+        import thumbs  # noqa: E402
+        (out / f"{p['slug']}-cover.jpg").write_bytes(thumbs.cover(p, br))
         with tempfile.TemporaryDirectory() as td:
             wav = Path(td) / "bed.wav"
             if "--no-music" not in args:

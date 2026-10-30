@@ -143,5 +143,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "Month-end close in *10 steps*",
+    "sub": "Small business bookkeeping"
   }
 }

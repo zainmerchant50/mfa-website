@@ -131,5 +131,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "Is your LLC an *S corp* yet?",
+    "sub": "Read this before you elect"
   }
 }
