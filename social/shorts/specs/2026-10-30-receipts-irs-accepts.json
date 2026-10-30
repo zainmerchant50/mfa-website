@@ -1,0 +1,125 @@
+{
+ "date": "2026-10-30",
+ "slug": "receipts-irs-accepts",
+ "checked": "October 30, 2026",
+ "title": "What makes a receipt the IRS will accept",
+ "type": "value",
+ "accent": "amber",
+ "label": "1-minute bookkeeping fix",
+ "series": "1-minute bookkeeping fix",
+ "link": {
+  "path": "/shop/",
+  "anchor": "kit",
+  "label": "Business Expense Tracker (MFA shop)"
+ },
+ "hook": {
+  "text": "Will the IRS *accept* this receipt?",
+  "sub": "What a good record shows."
+ },
+ "beats": [
+  {
+   "type": "list",
+   "kicker": "IRS: a good record shows",
+   "items": [
+    {
+     "t": "Who you paid"
+    },
+    {
+     "t": "How much, and the date"
+    },
+    {
+     "t": "Proof you paid",
+     "s": "Card or bank statement, canceled check."
+    },
+    {
+     "t": "What it was for",
+     "s": "So it's clearly business."
+    }
+   ]
+  },
+  {
+   "type": "rows",
+   "kicker": "Myth vs fact",
+   "items": [
+    {
+     "l": "Digital copies never count",
+     "r": "Myth",
+     "ok": false
+    },
+    {
+     "l": "Same rules for e-records",
+     "r": "Fact",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "The habit",
+   "items": [
+    {
+     "t": "Photo it the day you buy"
+    },
+    {
+     "t": "Add the business reason"
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/shop",
+  "sub": "We'll DM you the expense tracker."
+ },
+ "captions": {
+  "comment_word": "RECORDS",
+  "instagram": "Not every scrap of paper proves a business expense. The IRS lists what a good record shows.\n\n✔️ Who you paid, how much, and the date.\n✔️ Proof you paid: a card or bank statement, a canceled check or a receipt.\n✔️ What it was for, so it's clearly a business expense.\n✔️ Electronic records follow the same rules as paper ones.\n\nThe habit: take a photo the day you buy, and add the business reason.\n\nOur Business Expense Tracker sorts each one into its Schedule C category.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#bookkeepingtips",
+   "#receipts",
+   "#taxwriteoffs"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "Will the IRS Accept This Receipt? What a Good Record Shows",
+  "youtube_description": "IRS: supporting documents for business expenses should show who you paid, the amount, the date, proof of payment (card or bank statement, canceled check, receipt) and a description that shows the business purpose. Electronic records follow the same rules as paper. Photograph receipts the same day and note the business reason.",
+  "pinterest_title": "What Receipts Does the IRS Accept? Small Business Receipt Rules Explained",
+  "pinterest_description": "Receipt organization for small business taxes: the IRS says supporting documents should show who you paid, the amount, the date, proof of payment and the business purpose. Card statements, canceled checks, invoices and register receipts all count, and electronic records follow the same rules. Photo every receipt the day you buy.",
+  "pinterest_alt": "Short video listing what an IRS-ready receipt or record shows, with a myth vs fact on digital copies.",
+  "pinterest_board": "Small Business Bookkeeping Templates & Tips"
+ },
+ "sync": {
+  "product_id": "12",
+  "ads_keywords": [
+   "what receipts does the irs accept",
+   "receipt organization for taxes"
+  ],
+  "blog": "/tools/is-it-deductible/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Supporting documents for expenses: canceled checks/proof of payment, cash register receipts, account statements, credit card receipts and statements, invoices; they should show payee, amount, proof of payment, date and a description showing business purpose; requirements for paper records also apply to electronic records (page updated 03-Aug-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep"
+  }
+ ],
+ "character": {
+  "name": "mascot-thumbs",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Will the IRS *accept* this receipt?",
+  "sub": "What a good record shows"
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "date": "2026-10-30",
+ "slug": "contractor-or-employee",
+ "checked": "October 30, 2026",
+ "title": "Contractor or employee? How the IRS decides",
+ "type": "value",
+ "accent": "forest",
+ "label": "Owner pay 101",
+ "series": "Owner pay 101",
+ "link": {
+  "path": "/tools/do-i-need-to-send-a-1099/",
+  "label": "Do I need to send a 1099? checker (MFA)"
+ },
+ "hook": {
+  "text": "Contractor or *employee?*",
+  "sub": "The IRS looks at control."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Ben pays a helper as a contractor.",
+    "Ben sets his hours and trains him.",
+    "Is he really a contractor?"
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "What the IRS weighs",
+   "items": [
+    {
+     "t": "Control",
+     "s": "Do you decide how the work is done?"
+    },
+    {
+     "t": "Money",
+     "s": "Who pays expenses and supplies the tools?"
+    },
+    {
+     "t": "Relationship",
+     "s": "Benefits? Ongoing? Core to your business?"
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "Get it wrong",
+   "text": "You may owe the *employment taxes*",
+   "sub": "Unsure? Form SS-8 asks the IRS to decide."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our 1099 checker."
+ },
+ "captions": {
+  "comment_word": "HIRE",
+  "instagram": "Calling someone a contractor doesn't make them one. The IRS looks at the whole relationship.\n\n✔️ Control: do you decide how the work is done?\n✔️ Money: who pays the expenses and supplies the tools?\n✔️ Relationship: benefits, ongoing work, work that's core to your business?\n✔️ Treat an employee as a contractor without a reasonable basis and you may owe the employment taxes.\n✔️ Still unsure? Either side can file Form SS-8 to ask the IRS.\n\nPaying contractors this year? Our 1099 checker shows who needs a form.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#hiring",
+   "#1099",
+   "#independentcontractor"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "Contractor or Employee? How the IRS Decides",
+  "youtube_description": "The IRS looks at the right to control how work is done, using three kinds of evidence: behavioral control, financial control and the type of relationship. Misclassifying an employee without a reasonable basis can leave you owing employment taxes. Form SS-8 asks the IRS for a determination.",
+  "pinterest_title": "Independent Contractor vs Employee: How the IRS Decides (Small Business Guide)",
+  "pinterest_description": "Independent contractor vs employee for small business owners: the IRS looks at behavioral control, financial control and the type of relationship. Misclassifying a worker without a reasonable basis can mean owing employment taxes. Form SS-8 asks the IRS to decide. Check who needs a 1099 with our checker.",
+  "pinterest_alt": "Short video: a business owner's helper may be an employee, not a contractor; it shows the three IRS factors and Form SS-8.",
+  "pinterest_board": "LLC Checklist & Starting a Business"
+ },
+ "sync": {
+  "product_id": "01",
+  "ads_keywords": [
+   "independent contractor vs employee",
+   "1099 vs w2"
+  ],
+  "blog": "/blog/form-1099-preparation-guide-2026/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Worker status: right to control how services are performed; behavioral, financial and type-of-relationship evidence; misclassifying an employee without a reasonable basis can make you liable for employment taxes; Form SS-8 for a determination (page updated 19-May-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/independent-contractor-self-employed-or-employee"
+  }
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Contractor or *employee*?",
+  "sub": "How the IRS decides"
+ }
+}

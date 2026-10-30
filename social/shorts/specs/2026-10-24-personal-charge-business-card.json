@@ -1,111 +1,115 @@
 {
- "date": "2026-10-24",
- "slug": "personal-charge-business-card",
- "title": "1-minute bookkeeping fix: a personal buy on the business card",
- "type": "value",
- "accent": "teal",
- "label": "1-minute fix",
- "checked": "October 24, 2026",
- "series": "1-minute bookkeeping fix",
- "link": {
-  "path": "/shop/",
-  "anchor": "kit",
-  "label": "Bookkeeping Cleanup Checklist (MFA shop)"
- },
- "hook": {
-  "text": "Personal buy on the *business card?*",
-  "sub": "The 1-minute bookkeeping fix."
- },
- "beats": [
-  {
-   "type": "story",
-   "lines": [
-    "Maya bought groceries on the business card.",
-    "Her app filed it as \"supplies\".",
-    "Now her write-offs are wrong."
-   ]
+  "date": "2026-10-24",
+  "slug": "personal-charge-business-card",
+  "title": "1-minute bookkeeping fix: a personal buy on the business card",
+  "type": "value",
+  "accent": "teal",
+  "label": "1-minute fix",
+  "checked": "October 30, 2026",
+  "series": "1-minute bookkeeping fix",
+  "link": {
+    "path": "/shop/",
+    "anchor": "kit",
+    "label": "Bookkeeping Cleanup Checklist (MFA shop)"
   },
-  {
-   "type": "list",
-   "kicker": "The 1-minute fix",
-   "items": [
+  "hook": {
+    "text": "Personal buy on the *business card?*",
+    "sub": "The 1-minute bookkeeping fix."
+  },
+  "beats": [
     {
-     "t": "Don't delete it",
-     "s": "It's on the bank statement, so it stays in the books."
+      "type": "story",
+      "lines": [
+        "Maya bought groceries on the business card.",
+        "Her app filed it as \"supplies\".",
+        "Now her write-offs are wrong."
+      ]
     },
     {
-     "t": "Re-label it as owner's draw",
-     "s": "Not an expense. In an S corp, ask how to book it."
+      "type": "list",
+      "kicker": "The 1-minute fix",
+      "items": [
+        {
+          "t": "Don't delete it",
+          "s": "It's on the bank statement, so it stays in the books."
+        },
+        {
+          "t": "Re-label it as owner's draw",
+          "s": "Not an expense. In an S corp, ask how to book it."
+        },
+        {
+          "t": "Add a note: personal",
+          "s": "Your future self will thank you."
+        }
+      ]
     },
     {
-     "t": "Add a note: personal",
-     "s": "Your future self will thank you."
+      "type": "text",
+      "kicker": "IRS",
+      "text": "Personal expenses are generally *not deductible.*",
+      "sub": "Separate accounts make records easier."
     }
-   ]
-  },
-  {
-   "type": "text",
-   "kicker": "IRS",
-   "text": "Personal expenses are generally *not deductible.*",
-   "sub": "Separate accounts make records easier."
-  }
- ],
- "cta": {
-  "big": "Comment *CLEANUP*",
-  "url": "mfa-advisory.com/shop",
-  "sub": "We'll DM you the cleanup checklist."
- },
- "captions": {
-  "comment_word": "CLEANUP",
-  "instagram": "Bought something personal on the business card? It happens. Here's the 1-minute fix:\n\n✔️ Don't delete it. It's on the bank statement, so it has to stay in the books.\n✔️ Recategorize it as owner's draw (sole owners and most LLCs), not as an expense. S corp owners: ask your bookkeeper how to book it.\n✔️ Add a note that says personal.\n\nThe IRS says personal, living and family expenses are generally not deductible, and keeping separate business and personal accounts makes records easier.\n\nBooks already full of these? Our Bookkeeping Cleanup Checklist walks you through the catch-up.",
-  "hashtags": [
-   "#smallbusinesstips",
-   "#smallbusiness",
-   "#bookkeeping",
-   "#taxtips",
-   "#smallbusinesstaxes",
-   "#entrepreneur",
-   "#bookkeepingtips",
-   "#businessowner"
   ],
-  "youtube_title": "Personal Purchase on the Business Card? The 1-Minute Bookkeeping Fix",
-  "youtube_description": "Don't delete a personal charge on the business card: it's on the bank statement, so it stays in the books. Recategorize it as owner's draw (sole owners and most LLCs) instead of an expense, and add a note. The IRS says personal, living and family expenses are generally not deductible, and separate accounts make records easier.",
-  "pinterest_title": "Personal Purchase on a Business Credit Card? A 1-Minute Bookkeeping Fix",
-  "pinterest_description": "Bookkeeping tips for small business owners: when a personal purchase lands on the business card, don't delete it. Recategorize it as owner's draw instead of an expense and add a note. Personal expenses are generally not deductible, and separate accounts make records easier. Catch up with our bookkeeping cleanup checklist.",
-  "pinterest_alt": "Short video: a business owner's personal grocery purchase on the business card, and the three-step fix: keep it, recategorize as owner's draw, add a note.",
-  "pinterest_board": "Small Business Bookkeeping Templates & Tips",
-  "youtube_hashtags": [
-   "#shorts",
-   "#smallbusiness",
-   "#taxtips",
-   "#bookkeeping"
-  ]
- },
- "sync": {
-  "product_id": "03",
-  "etsy_title_phrase": "bookkeeping cleanup checklist",
-  "ads_keywords": [
-   "bookkeeping cleanup",
-   "catch up bookkeeping"
-  ],
-  "blog": "/bookkeeping-cleanup/",
-  "pin_ids": []
- },
- "sources": [
-  {
-   "fact": "Personal, living, or family expenses are generally not deductible; separate business and personal accounts make records easier; personal spending from business funds is still business income when earned; read 2026-10-24 (page updated 30-Sep-2026)",
-   "url": "https://irs.gov/faqs/small-business-self-employed-other-business/income-expenses/income-expenses-1"
+  "cta": {
+    "big": "Comment *CLEANUP*",
+    "url": "mfa-advisory.com/shop",
+    "sub": "We'll DM you the cleanup checklist."
   },
-  {
-   "fact": "Owner's draw treatment for sole proprietors / single-member LLCs is standard bookkeeping practice (no tax figure); S corp treatment differs, flagged on screen",
-   "url": "https://mfa-advisory.com/bookkeeping-cleanup/"
+  "captions": {
+    "comment_word": "CLEANUP",
+    "instagram": "Bought something personal on the business card? It happens. Here's the 1-minute fix:\n\n✔️ Don't delete it. It's on the bank statement, so it has to stay in the books.\n✔️ Recategorize it as owner's draw (sole owners and most LLCs), not as an expense. S corp owners: ask your bookkeeper how to book it.\n✔️ Add a note that says personal.\n\nThe IRS says personal, living and family expenses are generally not deductible, and keeping separate business and personal accounts makes records easier.\n\nBooks already full of these? Our Bookkeeping Cleanup Checklist walks you through the catch-up.",
+    "hashtags": [
+      "#smallbusinesstips",
+      "#smallbusiness",
+      "#bookkeeping",
+      "#taxtips",
+      "#smallbusinesstaxes",
+      "#entrepreneur",
+      "#bookkeepingtips",
+      "#businessowner"
+    ],
+    "youtube_title": "Personal Purchase on the Business Card? The 1-Minute Bookkeeping Fix",
+    "youtube_description": "Don't delete a personal charge on the business card: it's on the bank statement, so it stays in the books. Recategorize it as owner's draw (sole owners and most LLCs) instead of an expense, and add a note. The IRS says personal, living and family expenses are generally not deductible, and separate accounts make records easier.",
+    "pinterest_title": "Personal Purchase on a Business Credit Card? A 1-Minute Bookkeeping Fix",
+    "pinterest_description": "Bookkeeping tips for small business owners: when a personal purchase lands on the business card, don't delete it. Recategorize it as owner's draw instead of an expense and add a note. Personal expenses are generally not deductible, and separate accounts make records easier. Catch up with our bookkeeping cleanup checklist.",
+    "pinterest_alt": "Short video: a business owner's personal grocery purchase on the business card, and the three-step fix: keep it, recategorize as owner's draw, add a note.",
+    "pinterest_board": "Small Business Bookkeeping Templates & Tips",
+    "youtube_hashtags": [
+      "#shorts",
+      "#smallbusiness",
+      "#taxtips",
+      "#bookkeeping"
+    ]
+  },
+  "sync": {
+    "product_id": "03",
+    "etsy_title_phrase": "bookkeeping cleanup checklist",
+    "ads_keywords": [
+      "bookkeeping cleanup",
+      "catch up bookkeeping"
+    ],
+    "blog": "/bookkeeping-cleanup/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Personal, living, or family expenses are generally not deductible; separate business and personal accounts make records easier; personal spending from business funds is still business income when earned; read 2026-10-24 (page updated 30-Sep-2026)",
+      "url": "https://irs.gov/faqs/small-business-self-employed-other-business/income-expenses/income-expenses-1"
+    },
+    {
+      "fact": "Owner's draw treatment for sole proprietors / single-member LLCs is standard bookkeeping practice (no tax figure); S corp treatment differs, flagged on screen",
+      "url": "https://mfa-advisory.com/bookkeeping-cleanup/"
+    }
+  ],
+  "character": {
+    "name": "owner",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "mascot-thumbs"
+  },
+  "thumb": {
+    "title": "Personal buy on the *business card*",
+    "sub": "The 1-minute bookkeeping fix"
   }
- ],
- "character": {
-  "name": "owner",
-  "scene": "hook",
-  "position": "lower",
-  "corner_after": true,
-  "corner": "mascot-thumbs"
- }
 }

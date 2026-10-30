@@ -1,0 +1,129 @@
+{
+ "date": "2026-10-30",
+ "slug": "qbi-20-percent",
+ "checked": "October 30, 2026",
+ "title": "The 20% QBI deduction for business owners, explained",
+ "type": "value",
+ "accent": "forest",
+ "label": "Owner pay 101",
+ "series": "Owner pay 101",
+ "link": {
+  "path": "/blog/schedule-c-guide-single-member-llc/",
+  "label": "Schedule C guide for single-member LLCs (MFA)"
+ },
+ "hook": {
+  "text": "The *20%* deduction for owners",
+  "sub": "QBI, in 20 seconds."
+ },
+ "beats": [
+  {
+   "type": "stat",
+   "kicker": "Qualified business income deduction",
+   "value": "20%",
+   "count": {
+    "to": 20,
+    "suf": "%"
+   },
+   "sub": "of qualified business income, generally",
+   "note": "Claimed on Form 8995 or 8995-A."
+  },
+  {
+   "type": "rows",
+   "kicker": "2026 simple-form limit (taxable income)",
+   "items": [
+    {
+     "l": "Single",
+     "r": "$201,750",
+     "ok": true
+    },
+    {
+     "l": "Married filing jointly",
+     "r": "$403,500",
+     "ok": true
+    }
+   ],
+   "note": "Above these, extra limits can apply."
+  },
+  {
+   "type": "text",
+   "kicker": "New for 2026",
+   "text": "A *$400* minimum deduction",
+   "sub": "With at least $1,000 of active business income."
+  },
+  {
+   "type": "rows",
+   "kicker": "Not counted as QBI",
+   "items": [
+    {
+     "l": "W-2 wages from a job",
+     "r": "Not QBI",
+     "ok": false
+    },
+    {
+     "l": "S corp owner's salary",
+     "r": "Not QBI",
+     "ok": false
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our Schedule C guide."
+ },
+ "captions": {
+  "comment_word": "QBI",
+  "instagram": "Own a business that passes profit to your personal return? Look up the QBI deduction.\n\n✔️ Up to 20% of qualified business income, generally, on Form 8995 or 8995-A.\n✔️ For 2026, the simple form works if taxable income is at or below $201,750 (single) or $403,500 (married filing jointly). Above that, extra limits can apply.\n✔️ New for 2026: a $400 minimum deduction if you have at least $1,000 of income from businesses you actively work in.\n✔️ Wages from a job and an S corp owner's salary don't count as QBI.\n\nOur Schedule C guide shows where it fits for single-member LLCs.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#llc",
+   "#selfemployed",
+   "#qbi"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "The 20% QBI Deduction for Business Owners (2026)",
+  "youtube_description": "The qualified business income (QBI) deduction is generally up to 20% of qualified business income, claimed on Form 8995 or 8995-A. For 2026 the simple form applies at or below $201,750 of taxable income ($403,500 married filing jointly). New for 2026: a $400 minimum deduction with at least $1,000 of active QBI. W-2 wages and S corp salary aren't QBI.",
+  "pinterest_title": "QBI Deduction 2026: The 20% Qualified Business Income Deduction for Small Business Owners",
+  "pinterest_description": "QBI deduction 2026 explained: up to 20% of qualified business income for sole proprietors, LLC owners and S corp owners. The simple Form 8995 applies at or below $201,750 of taxable income ($403,500 married joint). New for 2026: a $400 minimum deduction with at least $1,000 of active business income. W-2 wages and S corp salary don't count.",
+  "pinterest_alt": "Short video explaining the 20% qualified business income deduction, the 2026 income limits and the new $400 minimum.",
+  "pinterest_board": "Small Business Tax Tips"
+ },
+ "sync": {
+  "ads_keywords": [
+   "qbi deduction",
+   "qualified business income deduction 2026"
+  ],
+  "blog": "/blog/schedule-c-guide-single-member-llc/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "2026 Form 8995 instructions (draft): deduction up to 20% of QBI; thresholds $201,750 / $403,500 MFJ; $400 minimum deduction if active QBI is at least $1,000; QBI excludes employee wages, S corp reasonable compensation and guaranteed payments; read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-dft/i8995--dft.pdf"
+  },
+  {
+   "fact": "2026: Section 179 limit $2,560,000, phase-out above $4,090,000, SUV limit $32,000; QBI threshold $201,750 (single) / $403,500 (MFJ); $400 minimum QBI deduction with at least $1,000 of QBI (Rev. Proc. 2025-32); read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+  }
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "The *20%* QBI deduction",
+  "sub": "For business owners, 2026"
+ }
+}

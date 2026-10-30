@@ -1,0 +1,117 @@
+{
+ "date": "2026-10-30",
+ "slug": "home-office-simple-vs-regular",
+ "checked": "October 30, 2026",
+ "title": "Home office deduction: simplified vs regular method",
+ "type": "value",
+ "accent": "teal",
+ "label": "Gig worker money tip",
+ "series": "Gig worker money tip",
+ "link": {
+  "path": "/tools/home-office-deduction-calculator/",
+  "label": "Home office deduction calculator (MFA)"
+ },
+ "hook": {
+  "text": "Home office: *simple* or regular?",
+  "sub": "Two IRS methods. You pick each year."
+ },
+ "beats": [
+  {
+   "type": "values",
+   "kicker": "Simplified method",
+   "items": [
+    {
+     "v": "$5",
+     "l": "per sq ft"
+    },
+    {
+     "v": "300",
+     "l": "sq ft max"
+    },
+    {
+     "v": "$1,500",
+     "l": "top deduction"
+    }
+   ],
+   "note": "No depreciation to track."
+  },
+  {
+   "type": "rows",
+   "kicker": "Regular method",
+   "items": [
+    {
+     "l": "Actual home costs x business %",
+     "r": "More records",
+     "ok": false
+    },
+    {
+     "l": "Bigger space, higher costs",
+     "r": "Can be higher",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "Either way",
+   "text": "Used *only* for business, regularly",
+   "sub": "Not shared with family or guests."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our home office calculator."
+ },
+ "captions": {
+  "comment_word": "HOMEOFFICE",
+  "instagram": "Working from home? The IRS gives you two ways to figure the home office deduction.\n\n✔️ Simplified: $5 per square foot, up to 300 sq ft, so $1,500 at most. No depreciation to track.\n✔️ Regular: your actual home costs times the business-use percentage. More records, and it can come out higher.\n✔️ Either way, the space must be used regularly and only for business.\n✔️ You can choose the method each year on your original return.\n\nRun both with our home office deduction calculator.",
+  "hashtags": [
+   "#1099",
+   "#selfemployed",
+   "#gigworker",
+   "#sidehustle",
+   "#freelancer",
+   "#homeoffice",
+   "#workfromhome",
+   "#taxtips"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#selfemployed",
+   "#gigworker",
+   "#taxtips"
+  ],
+  "youtube_title": "Home Office Deduction: Simplified vs Regular Method",
+  "youtube_description": "Simplified method: $5 per square foot up to 300 sq ft ($1,500 max), no depreciation. Regular method: actual home costs times your business-use percentage, more records, can be higher. The space must be used regularly and exclusively for business, and you can choose the method each year.",
+  "pinterest_title": "Home Office Deduction Simplified vs Regular Method: $5 per Square Foot Explained",
+  "pinterest_description": "Home office deduction for self-employed people: the simplified method is $5 per square foot up to 300 sq ft ($1,500 max) with no depreciation; the regular method uses actual costs times your business-use percentage. The space must be used regularly and exclusively for business. Compare both with a home office deduction calculator.",
+  "pinterest_alt": "Short video comparing the simplified home office deduction ($5 per square foot, 300 sq ft max) with the regular method.",
+  "pinterest_board": "Self-Employed & 1099 Taxes"
+ },
+ "sync": {
+  "product_id": "39",
+  "ads_keywords": [
+   "home office deduction",
+   "home office deduction calculator"
+  ],
+  "blog": "/tools/home-office-deduction-calculator/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Simplified option: $5 per square foot up to 300 sq ft; no depreciation or recapture; regular method uses actual expenses x business percentage with depreciation; you can choose either method each year on a timely original return; space must be used regularly and exclusively for business (page updated 02-Mar-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction"
+  }
+ ],
+ "character": {
+  "name": "worker",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Home office: *simple* or regular?",
+  "sub": "Two IRS methods, compared"
+ }
+}

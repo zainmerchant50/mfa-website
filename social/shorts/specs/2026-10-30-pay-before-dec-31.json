@@ -1,0 +1,122 @@
+{
+ "date": "2026-10-30",
+ "slug": "pay-before-dec-31",
+ "checked": "October 30, 2026",
+ "title": "Pay business bills before Dec 31? The cash-method rule",
+ "type": "value",
+ "accent": "amber",
+ "label": "Year-end tax move",
+ "series": "Year-end tax move",
+ "link": {
+  "path": "/year-end-tax-planning/",
+  "label": "Year-end tax planning (MFA)"
+ },
+ "hook": {
+  "text": "Pay it *before* Dec 31?",
+  "sub": "The timing rule for business bills."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Rosa's software renewal is due in January.",
+    "She could pay it on Dec. 30.",
+    "Does it count for 2026?"
+   ]
+  },
+  {
+   "type": "rows",
+   "kicker": "Cash method, generally",
+   "items": [
+    {
+     "l": "Paid by Dec. 31",
+     "r": "2026",
+     "ok": true
+    },
+    {
+     "l": "Same bill paid Jan. 2",
+     "r": "2027",
+     "ok": false
+    },
+    {
+     "l": "3 years paid up front",
+     "r": "Spread out",
+     "ok": false
+    }
+   ],
+   "note": "Prepaid for 12 months or less? It can usually count when paid."
+  },
+  {
+   "type": "list",
+   "kicker": "Before Dec. 31",
+   "items": [
+    {
+     "t": "Pay bills you'd pay anyway",
+     "s": "Real business costs only."
+    },
+    {
+     "t": "Keep the receipt and the date paid"
+    },
+    {
+     "t": "Don't buy just for the deduction",
+     "s": "A deduction isn't a discount."
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/year-end-tax-planning",
+  "sub": "We'll DM you our year-end planning page."
+ },
+ "captions": {
+  "comment_word": "YEAREND",
+  "instagram": "Paying a business bill on Dec. 30 instead of Jan. 2 can move the deduction into 2026.\n\n✔️ Most small businesses use the cash method: you generally deduct an expense in the year you actually pay it.\n✔️ Paid in advance for years? It's generally spread over the years it covers.\n✔️ The 12-month rule: a prepaid benefit that ends within 12 months (and by the end of next year) can usually count when paid.\n✔️ Pay what the business needs anyway. A deduction lowers taxable income; it isn't a discount.\n\nOur year-end planning page lists the moves that only count if done by Dec. 31.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#yearendtaxplanning",
+   "#selfemployed",
+   "#taxwriteoffs"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "Pay Business Bills Before Dec 31? The Cash Method Rule",
+  "youtube_description": "Under the cash method you generally deduct a business expense in the year you pay it, so a bill paid Dec. 30 counts for 2026 and the same bill paid Jan. 2 counts for 2027. Prepaid multi-year costs are spread out, except under the 12-month rule. Pay only what the business needs.",
+  "pinterest_title": "Year-End Tax Tip: Pay Business Expenses Before December 31 (Cash Method Rule)",
+  "pinterest_description": "Year-end tax planning for small business owners: under the cash method, business expenses generally count in the year you pay them. A bill paid Dec. 30 counts for 2026; paid Jan. 2, it counts for 2027. Prepaid costs follow the 12-month rule. Keep receipts and buy only what the business needs.",
+  "pinterest_alt": "Short video: a business owner decides whether to pay a January bill in December, with the cash-method timing rule and a year-end checklist.",
+  "pinterest_board": "Small Business Tax Tips"
+ },
+ "sync": {
+  "ads_keywords": [
+   "year end tax planning",
+   "year end tax tips small business"
+  ],
+  "blog": "/blog/year-end-tax-planning-2026-key-dates/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Cash method: generally deduct expenses in the tax year you actually pay them; prepaid expenses deductible only in the year they apply to, except the 12-month rule (benefit ends by the earlier of 12 months after it begins or the end of the tax year after the payment year); read 2026-10-30",
+   "url": "https://www.irs.gov/publications/p538"
+  }
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Pay bills *before* year-end?",
+  "sub": "The timing rule for business bills"
+ }
+}

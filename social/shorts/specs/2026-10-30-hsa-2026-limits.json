@@ -1,0 +1,120 @@
+{
+ "date": "2026-10-30",
+ "slug": "hsa-2026-limits",
+ "checked": "October 30, 2026",
+ "title": "HSA limits for 2026 and the new bronze plan rule",
+ "type": "value",
+ "accent": "teal",
+ "label": "Year-end tax move",
+ "series": "Year-end tax move",
+ "link": {
+  "path": "/year-end-tax-planning/",
+  "label": "Year-end tax planning (MFA)"
+ },
+ "hook": {
+  "text": "HSA limits for *2026*",
+  "sub": "Plus a new rule for bronze plans."
+ },
+ "beats": [
+  {
+   "type": "values",
+   "kicker": "2026 HSA contribution limits",
+   "items": [
+    {
+     "v": "$4,400",
+     "l": "self-only"
+    },
+    {
+     "v": "$8,750",
+     "l": "family"
+    }
+   ],
+   "note": "Age 55 or older: $1,000 more."
+  },
+  {
+   "type": "text",
+   "kicker": "New for 2026",
+   "text": "*Bronze* and catastrophic plans qualify",
+   "sub": "They now work with an HSA."
+  },
+  {
+   "type": "stat",
+   "kicker": "Last day for 2026 contributions",
+   "value": "April 15, 2027",
+   "sub": "The tax filing deadline, without extensions."
+  },
+  {
+   "type": "list",
+   "kicker": "This month",
+   "items": [
+    {
+     "t": "Check your plan is HSA-eligible"
+    },
+    {
+     "t": "See how much is in for 2026"
+    },
+    {
+     "t": "Keep your medical receipts"
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/year-end-tax-planning",
+  "sub": "We'll DM you our year-end planning page."
+ },
+ "captions": {
+  "comment_word": "HSA",
+  "instagram": "Have a health savings account? Here are the 2026 numbers.\n\n✔️ Contribution limits: $4,400 for self-only coverage, $8,750 for family coverage, plus $1,000 more if you're 55 or older.\n✔️ New for 2026: bronze and catastrophic health plans are treated as HSA-eligible.\n✔️ You can still contribute for 2026 until April 15, 2027.\n✔️ Check your plan, see what's already in for 2026, and keep your medical receipts.\n\nMore year-end moves on our year-end planning page.",
+  "hashtags": [
+   "#hsa",
+   "#healthsavingsaccount",
+   "#selfemployed",
+   "#taxtips",
+   "#smallbusiness",
+   "#yearendtaxplanning",
+   "#personalfinance"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#hsa",
+   "#taxtips",
+   "#selfemployed"
+  ],
+  "youtube_title": "HSA Contribution Limits 2026 + The New Bronze Plan Rule",
+  "youtube_description": "2026 HSA limits: $4,400 self-only and $8,750 family, plus $1,000 at age 55 or older. New for 2026, bronze and catastrophic plans are treated as HSA-eligible high deductible health plans. You can contribute for 2026 until April 15, 2027.",
+  "pinterest_title": "HSA Contribution Limits 2026: $4,400 Self-Only, $8,750 Family, and Bronze Plans",
+  "pinterest_description": "HSA contribution limits for 2026: $4,400 for self-only coverage and $8,750 for family coverage, with $1,000 more at age 55 or older. New for 2026: bronze and catastrophic health plans now qualify for an HSA. 2026 contributions are allowed until April 15, 2027.",
+  "pinterest_alt": "Short video showing the 2026 HSA contribution limits, the new bronze plan rule and the April 15, 2027 deadline.",
+  "pinterest_board": "Self-Employed & 1099 Taxes"
+ },
+ "sync": {
+  "ads_keywords": [
+   "hsa contribution limits 2026",
+   "hsa bronze plan"
+  ],
+  "blog": "/year-end-tax-planning/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "2026 HSA limits $4,400 self-only / $8,750 family, +$1,000 at 55+; bronze and catastrophic plans are treated as HDHPs; 2026 contributions allowed until April 15, 2027 (2026 Form 8889 instructions, draft); read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-dft/i8889--dft.pdf"
+  },
+  {
+   "fact": "OBBB provisions: bronze and catastrophic plans HSA-compatible from Jan. 1, 2026; non-itemizers may deduct up to $1,000 ($2,000 MFJ) of cash gifts to charity from tax year 2026, donor-advised funds and supporting organizations excluded; read 2026-10-30",
+   "url": "https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions"
+  }
+ ],
+ "character": {
+  "name": "worker",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "HSA limits for *2026*",
+  "sub": "And the new bronze plan rule"
+ }
+}

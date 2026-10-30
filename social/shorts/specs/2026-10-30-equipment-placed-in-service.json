@@ -1,0 +1,129 @@
+{
+ "date": "2026-10-30",
+ "slug": "equipment-placed-in-service",
+ "checked": "October 30, 2026",
+ "title": "Equipment write-off: ordered by Dec 31 isn't enough",
+ "type": "value",
+ "accent": "slate",
+ "label": "Year-end tax move",
+ "series": "Year-end tax move",
+ "link": {
+  "path": "/blog/section-179-bonus-depreciation-2026/",
+  "label": "Section 179 vs bonus depreciation 2026 guide (MFA)"
+ },
+ "hook": {
+  "text": "Ordered by Dec 31 isn't *enough*",
+  "sub": "Equipment write-offs for 2026."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Dev orders a new printer on Dec. 20.",
+    "It arrives and gets set up Jan. 5.",
+    "Can he write it off for 2026?"
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "IRS rule",
+   "text": "It must be *placed in service*",
+   "sub": "Ready and available to use by Dec. 31."
+  },
+  {
+   "type": "values",
+   "kicker": "2026 federal write-off limits",
+   "items": [
+    {
+     "v": "$2.56M",
+     "l": "Section 179"
+    },
+    {
+     "v": "100%",
+     "l": "bonus depreciation"
+    }
+   ],
+   "note": "Bonus: property acquired after Jan. 19, 2025. State rules can differ."
+  },
+  {
+   "type": "list",
+   "kicker": "Before Dec. 31",
+   "items": [
+    {
+     "t": "Get it delivered and set up"
+    },
+    {
+     "t": "Note the in-service date",
+     "s": "Keep the invoice with it."
+    },
+    {
+     "t": "Use it over 50% for business",
+     "s": "Needed for Section 179."
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our Section 179 guide."
+ },
+ "captions": {
+  "comment_word": "EQUIPMENT",
+  "instagram": "Buying equipment to write off for 2026? The date that matters isn't the order date.\n\n✔️ The IRS ties the deduction to the year the asset is placed in service: ready and available for its use.\n✔️ Ordered Dec. 20, set up Jan. 5? That's generally a 2027 asset.\n✔️ 2026 federal limits: Section 179 up to $2,560,000, and 100% bonus depreciation for property acquired after Jan. 19, 2025.\n✔️ Section 179 needs more than 50% business use in that first year.\n\nState rules can differ. Our Section 179 guide walks through both options.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#section179",
+   "#taxwriteoffs",
+   "#yearendtaxplanning"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "Section 179 Before Dec 31: Ordering Isn't Enough",
+  "youtube_description": "Equipment counts for the year it's placed in service, meaning ready and available for its use, not the year you order it. 2026 federal limits: Section 179 up to $2,560,000 and 100% bonus depreciation for property acquired after Jan. 19, 2025. Section 179 needs over 50% business use. State rules can differ.",
+  "pinterest_title": "Section 179 Deduction 2026: Equipment Must Be Placed in Service by December 31",
+  "pinterest_description": "Section 179 and bonus depreciation for 2026: equipment counts in the year it's placed in service, not when it's ordered. The 2026 Section 179 limit is $2,560,000 and 100% bonus depreciation is back for property acquired after Jan. 19, 2025. Set it up by Dec. 31, note the date and keep the invoice.",
+  "pinterest_alt": "Short video: a business owner orders equipment in December; it explains the placed-in-service rule and the 2026 Section 179 and bonus depreciation limits.",
+  "pinterest_board": "Tax Write Offs & Deductions for Small Business"
+ },
+ "sync": {
+  "ads_keywords": [
+   "section 179 deduction 2026",
+   "bonus depreciation 2026"
+  ],
+  "blog": "/blog/section-179-bonus-depreciation-2026/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "You place property in service when it is ready and available for a specific use; Section 179 is deducted in the year placed in service; Section 179 only if used more than 50% for business in that year (Pub 946, 2025); read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-pdf/p946.pdf"
+  },
+  {
+   "fact": "2026: Section 179 limit $2,560,000, phase-out above $4,090,000, SUV limit $32,000; QBI threshold $201,750 (single) / $403,500 (MFJ); $400 minimum QBI deduction with at least $1,000 of QBI (Rev. Proc. 2025-32); read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+  },
+  {
+   "fact": "Permanent 100% additional first-year depreciation for eligible property acquired after Jan. 19, 2025 (IR-2026-06, Jan. 14, 2026; Notice 2026-11); read 2026-10-30",
+   "url": "https://www.irs.gov/newsroom/treasury-irs-issue-guidance-on-the-additional-first-year-depreciation-deduction-amended-as-part-of-the-one-big-beautiful-bill"
+  }
+ ],
+ "character": {
+  "name": "mascot-hmm",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Section 179: *placed in service*",
+  "sub": "Ordering by Dec 31 isn't enough"
+ }
+}

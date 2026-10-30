@@ -1,0 +1,110 @@
+{
+ "date": "2026-10-30",
+ "slug": "year-end-books-checklist",
+ "checked": "October 30, 2026",
+ "title": "Year-end bookkeeping: 5 things to do before Dec 31",
+ "type": "value",
+ "accent": "plum",
+ "label": "1-minute bookkeeping fix",
+ "series": "1-minute bookkeeping fix",
+ "link": {
+  "path": "/bookkeeping-cleanup/",
+  "label": "Bookkeeping cleanup & catch-up (MFA)"
+ },
+ "hook": {
+  "text": "Do these *5 things* before Dec 31",
+  "sub": "Year-end books, in 20 seconds."
+ },
+ "beats": [
+  {
+   "type": "list",
+   "kicker": "Year-end books",
+   "items": [
+    {
+     "t": "Reconcile every account",
+     "s": "Bank, cards and loans."
+    },
+    {
+     "t": "Clear out 'uncategorized'"
+    },
+    {
+     "t": "Collect W-9s from contractors"
+    },
+    {
+     "t": "Split out personal spending"
+    },
+    {
+     "t": "Save December statements"
+    }
+   ]
+  },
+  {
+   "type": "stat",
+   "kicker": "1099-NEC due to contractors",
+   "value": "Feb. 1, 2027",
+   "sub": "Jan. 31 is a Sunday, so it moves."
+  },
+  {
+   "type": "text",
+   "kicker": "Behind on the books?",
+   "text": "Start with the *oldest* month",
+   "sub": "Then work forward."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/bookkeeping-cleanup",
+  "sub": "We'll DM you our cleanup page."
+ },
+ "captions": {
+  "comment_word": "BOOKS",
+  "instagram": "Five bookkeeping jobs to finish before the year closes:\n\n✔️ Reconcile every account: bank, cards and loans.\n✔️ Clear out 'uncategorized' transactions.\n✔️ Collect W-9s from contractors now, not in late January.\n✔️ Split out personal spending.\n✔️ Save your December statements.\n\n1099-NEC forms for 2026 payments go to contractors by Feb. 1, 2027 (Jan. 31 is a Sunday).\n\nBehind? Start with the oldest month and work forward, or ask us about a cleanup.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#bookkeepingtips",
+   "#yearend",
+   "#monthendclose"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "Year-End Bookkeeping: 5 Things to Do Before Dec 31",
+  "youtube_description": "Before Dec. 31: reconcile bank, card and loan accounts, clear uncategorized transactions, collect W-9s from contractors, split out personal spending and save December statements. 1099-NEC forms for 2026 payments are due to contractors Feb. 1, 2027. Behind? Start with the oldest month.",
+  "pinterest_title": "Year-End Bookkeeping Checklist for Small Business: 5 Things Before December 31",
+  "pinterest_description": "Year end bookkeeping checklist for small business owners: reconcile every bank, card and loan account, clear uncategorized transactions, collect W-9s from contractors, separate personal spending and save December statements. 1099-NEC forms for 2026 are due Feb. 1, 2027.",
+  "pinterest_alt": "Short video with a 5-step year-end bookkeeping checklist and the Feb. 1, 2027 1099-NEC due date.",
+  "pinterest_board": "Small Business Bookkeeping Templates & Tips"
+ },
+ "sync": {
+  "product_id": "03",
+  "ads_keywords": [
+   "year end bookkeeping checklist",
+   "bookkeeping cleanup"
+  ],
+  "blog": "/bookkeeping-cleanup/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "For tax years beginning after 2025 the 1099-NEC threshold is $2,000; card and third-party network payments go on Form 1099-K; due Jan. 31, moved to the next business day (Feb. 1, 2027) (read 2026-10-24, spec 1099-2000-rule; within 30 days)",
+   "url": "https://www.irs.gov/instructions/i1099mec"
+  }
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Year-end books: *5 things*",
+  "sub": "Do them before Dec 31"
+ }
+}

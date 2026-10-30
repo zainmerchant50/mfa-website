@@ -1,0 +1,107 @@
+{
+ "date": "2026-10-30",
+ "slug": "ai-tax-answer-check",
+ "checked": "October 30, 2026",
+ "title": "Asked AI a tax question? Check it in 3 steps",
+ "type": "value",
+ "accent": "plum",
+ "label": "Tax myth vs fact",
+ "series": "Tax myth vs fact",
+ "link": {
+  "path": "/blog/ai-in-accounting-and-tax-2026/",
+  "label": "AI in accounting and tax 2026 guide (MFA)"
+ },
+ "hook": {
+  "text": "Asked AI a *tax* question?",
+  "sub": "Check this before you trust it."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Nina asked a chatbot about her home office.",
+    "It gave a confident answer.",
+    "It was using an old year's rule."
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "IRS",
+   "text": "You're responsible for your *return*",
+   "sub": "Whoever, or whatever, prepared it."
+  },
+  {
+   "type": "list",
+   "kicker": "Check it in 3 steps",
+   "items": [
+    {
+     "t": "Ask which tax year it means"
+    },
+    {
+     "t": "Find the rule on irs.gov"
+    },
+    {
+     "t": "Check the math with your records"
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our AI and tax guide."
+ },
+ "captions": {
+  "comment_word": "CHECK",
+  "instagram": "Chatbots answer tax questions fast and sound sure of themselves. Tax rules change every year, so check before you act.\n\n✔️ The IRS says taxpayers are ultimately responsible for everything on their return, whoever prepares it.\n✔️ Its 2026 Dirty Dozen list says not to rely on AI for complex tax questions and to verify any numbers it gives you.\n✔️ Three checks: ask which tax year the answer is for, find the rule on irs.gov, and check the math against your own records.\n\nOur AI and tax guide covers where it helps and where to slow down.",
+  "hashtags": [
+   "#taxtips",
+   "#ai",
+   "#chatgpt",
+   "#smallbusiness",
+   "#selfemployed",
+   "#taxseason",
+   "#personalfinance"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#ai",
+   "#taxtips",
+   "#smallbusiness"
+  ],
+  "youtube_title": "Asked AI a Tax Question? Check It in 3 Steps",
+  "youtube_description": "The IRS says taxpayers are ultimately responsible for everything on their return, and its 2026 Dirty Dozen list says not to rely on AI for complex tax questions and to verify any numbers it provides. Check which tax year the answer is for, find the rule on irs.gov and check the math against your records.",
+  "pinterest_title": "Using AI for Tax Questions? 3 Checks Before You Trust the Answer",
+  "pinterest_description": "Using ChatGPT or other AI for tax questions: the IRS says you're responsible for your return no matter who prepares it, and to verify any calculations AI gives you. Three checks: confirm the tax year, find the rule on irs.gov, and compare the math with your own records.",
+  "pinterest_alt": "Short video: a chatbot gives a confident but outdated tax answer; it shows the IRS warning and three checks to make.",
+  "pinterest_board": "Small Business Tax Tips"
+ },
+ "sync": {
+  "ads_keywords": [
+   "ai tax help",
+   "chatgpt taxes"
+  ],
+  "blog": "/blog/ai-in-accounting-and-tax-2026/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "'Taxpayers are ultimately responsible for all the information on their income tax return' regardless of who prepares it (IRS Tax Tip 2023-19); read 2026-10-30",
+   "url": "https://www.irs.gov/newsroom/what-taxpayers-should-know-when-choosing-a-tax-professional"
+  },
+  {
+   "fact": "IR-2026-30 (Mar. 5, 2026) Dirty Dozen: taxpayers should not rely on AI-generated responses to complex tax questions and should verify any calculations or information provided by AI; read 2026-10-30",
+   "url": "https://www.irs.gov/newsroom/dirty-dozen-tax-scams-for-2026-irs-reminds-taxpayers-to-watch-out-for-dangerous-threats"
+  }
+ ],
+ "character": {
+  "name": "student",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Asked AI a *tax* question?",
+  "sub": "Check it in 3 steps"
+ }
+}

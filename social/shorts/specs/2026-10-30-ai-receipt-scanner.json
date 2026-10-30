@@ -1,0 +1,119 @@
+{
+ "date": "2026-10-30",
+ "slug": "ai-receipt-scanner",
+ "checked": "October 30, 2026",
+ "title": "AI receipt scanner: what the IRS still needs from you",
+ "type": "value",
+ "accent": "teal",
+ "label": "AI in tax",
+ "series": "1-minute bookkeeping fix",
+ "link": {
+  "path": "/blog/ai-in-accounting-and-tax-2026/",
+  "label": "AI in accounting and tax 2026 guide (MFA)"
+ },
+ "hook": {
+  "text": "AI scanned the receipt. *Enough?*",
+  "sub": "What the IRS still wants."
+ },
+ "beats": [
+  {
+   "type": "rows",
+   "kicker": "AI receipt apps",
+   "items": [
+    {
+     "l": "Read vendor, amount, date",
+     "r": "Good at",
+     "ok": true
+    },
+    {
+     "l": "Know the business reason",
+     "r": "You add it",
+     "ok": false
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "IRS: a scanned record should",
+   "items": [
+    {
+     "t": "Be clear and readable",
+     "s": "Rev. Proc. 97-22: high legibility."
+    },
+    {
+     "t": "Match the original exactly",
+     "s": "Fix any amount the AI misread."
+    },
+    {
+     "t": "Be easy to find again",
+     "s": "Stored, indexed, retrievable."
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "Good to know",
+   "text": "Same rules as *paper*",
+   "sub": "IRS: e-records follow the same requirements."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our AI in accounting guide."
+ },
+ "captions": {
+  "comment_word": "SCAN",
+  "instagram": "Receipt-scanning apps with AI save a lot of typing. They don't finish the job for you.\n\n✔️ AI is good at reading the vendor, amount and date. Check every amount against the paper.\n✔️ It can't know the business reason. Add who it was with or what it was for.\n✔️ IRS rules for scanned records (Rev. Proc. 97-22): accurate and complete, highly legible, stored so you can find and reproduce them.\n✔️ Electronic records follow the same requirements as paper ones.\n\nOur AI in accounting guide covers where AI helps and where a person still decides.",
+  "hashtags": [
+   "#ai",
+   "#aiinaccounting",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping",
+   "#receipts",
+   "#bookkeepingtips",
+   "#selfemployed"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#ai",
+   "#bookkeeping",
+   "#smallbusiness"
+  ],
+  "youtube_title": "AI Scanned Your Receipt. Is That Enough for the IRS?",
+  "youtube_description": "AI receipt apps read the vendor, amount and date well, but you add the business reason and check the amounts. IRS rules for scanned records (Rev. Proc. 97-22) require an accurate, complete, highly legible copy you can find and reproduce, and electronic records follow the same requirements as paper.",
+  "pinterest_title": "AI Receipt Scanner Apps and IRS Rules: What Your Scanned Receipts Still Need",
+  "pinterest_description": "Using an AI receipt scanner app for your small business? The IRS requires scanned records to be accurate, complete and highly legible, stored so you can find them again (Rev. Proc. 97-22). Electronic records follow the same rules as paper. Check amounts the app reads and add the business reason yourself.",
+  "pinterest_alt": "Short video: what AI receipt scanners do well, what the IRS requires for scanned records, and what you still add yourself.",
+  "pinterest_board": "Small Business Bookkeeping Templates & Tips"
+ },
+ "sync": {
+  "ads_keywords": [
+   "receipt scanner app",
+   "ai bookkeeping"
+  ],
+  "blog": "/blog/ai-in-accounting-and-tax-2026/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Rev. Proc. 97-22: an electronic storage system must ensure an accurate and complete transfer of records, index, store, preserve, retrieve and reproduce them, and reproductions must show a high degree of legibility and readability; originals may be destroyed after the taxpayer tests the system; read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-tege/rp-97-22.pdf"
+  },
+  {
+   "fact": "Supporting documents for expenses: canceled checks/proof of payment, cash register receipts, account statements, credit card receipts and statements, invoices; they should show payee, amount, proof of payment, date and a description showing business purpose; requirements for paper records also apply to electronic records (page updated 03-Aug-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep"
+  }
+ ],
+ "character": {
+  "name": "mascot-thumbs",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "AI scanned the receipt. *Enough?*",
+  "sub": "What the IRS still wants"
+ }
+}

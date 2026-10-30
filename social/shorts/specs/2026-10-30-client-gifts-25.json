@@ -1,0 +1,114 @@
+{
+ "date": "2026-10-30",
+ "slug": "client-gifts-25",
+ "checked": "October 30, 2026",
+ "title": "Client holiday gifts: only $25 per person is deductible",
+ "type": "value",
+ "accent": "burgundy",
+ "label": "Tax myth vs fact",
+ "series": "Tax myth vs fact",
+ "link": {
+  "path": "/tools/is-it-deductible/",
+  "label": "Is It Deductible? tool (MFA)"
+ },
+ "hook": {
+  "text": "Client gifts: only *$25* counts",
+  "sub": "Per person, per year."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Leah sends 10 clients a $100 gift basket.",
+    "That's $1,000 on her card.",
+    "How much can she deduct?"
+   ]
+  },
+  {
+   "type": "values",
+   "kicker": "IRS business gift limit",
+   "items": [
+    {
+     "v": "$25",
+     "l": "per client, per year"
+    },
+    {
+     "v": "$250",
+     "l": "deductible, not $1,000"
+    }
+   ],
+   "note": "10 clients x $25. Federal rule."
+  },
+  {
+   "type": "list",
+   "kicker": "Before you send gifts",
+   "items": [
+    {
+     "t": "Keep a list: who, what, cost"
+    },
+    {
+     "t": "Save the receipts"
+    },
+    {
+     "t": "Book them as gifts",
+     "s": "Not as supplies or marketing."
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our Is It Deductible? tool."
+ },
+ "captions": {
+  "comment_word": "GIFTS",
+  "instagram": "Sending clients holiday gifts? The deduction is smaller than most people think.\n\n✔️ The IRS lets you deduct no more than $25 for business gifts to each person during the year.\n✔️ Example: 10 clients, a $100 basket each. You spent $1,000; the deduction is $250.\n✔️ Keep a list of who got what and what it cost, and save the receipts.\n✔️ Record them as gifts, not as supplies or marketing.\n\nSend gifts because they're good for the relationship. Check other expenses with our Is It Deductible? tool.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#taxwriteoffs",
+   "#clientgifts",
+   "#holidaygifts"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "Client Holiday Gifts: Only $25 Per Person Is Deductible",
+  "youtube_description": "The IRS lets you deduct no more than $25 for business gifts to each person during your tax year. Ten $100 client baskets cost $1,000 but give a $250 deduction. Keep a list of who got what, save the receipts and record them as gifts.",
+  "pinterest_title": "Are Client Gifts Tax Deductible? The $25 Business Gift Limit Explained",
+  "pinterest_description": "Client holiday gift ideas and taxes: the IRS business gift deduction is limited to $25 per person per year. Ten $100 gift baskets cost $1,000 but only $250 is deductible. Keep a gift list with costs, save receipts and record gifts in their own category.",
+  "pinterest_alt": "Short video: a business owner sends ten client gift baskets and learns the $25-per-person business gift deduction limit.",
+  "pinterest_board": "Tax Write Offs & Deductions for Small Business"
+ },
+ "sync": {
+  "ads_keywords": [
+   "are client gifts tax deductible",
+   "business gift deduction limit"
+  ],
+  "blog": "/tools/is-it-deductible/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "You can deduct no more than $25 for business gifts to each person during your tax year; generally only 50% of business meal expenses unless an exception applies; employer recreational, social or similar activities (e.g., holiday parties, summer picnics) are excepted from the 50% limit (Pub 463, 2025); read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-pdf/p463.pdf"
+  }
+ ],
+ "character": {
+  "name": "mascot-wow",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Client gifts: only *$25* counts",
+  "sub": "Per person, per year"
+ }
+}

@@ -1,0 +1,111 @@
+{
+ "date": "2026-10-30",
+ "slug": "self-employed-health-insurance",
+ "checked": "October 30, 2026",
+ "title": "Self-employed health insurance deduction: who qualifies",
+ "type": "value",
+ "accent": "teal",
+ "label": "Gig worker money tip",
+ "series": "Gig worker money tip",
+ "link": {
+  "path": "/book/",
+  "label": "Book a call with MFA"
+ },
+ "hook": {
+  "text": "Self-employed? Health insurance can *count*",
+  "sub": "If you qualify."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Omar left his job to drive full-time.",
+    "Now he buys his own health plan.",
+    "Can he deduct the premiums?"
+   ]
+  },
+  {
+   "type": "rows",
+   "kicker": "Self-employed health insurance deduction",
+   "items": [
+    {
+     "l": "Your business made a profit",
+     "r": "Needed",
+     "ok": true
+    },
+    {
+     "l": "Could join a spouse's work plan",
+     "r": "Not that month",
+     "ok": false
+    },
+    {
+     "l": "Kids under 27 on the plan",
+     "r": "Can count",
+     "ok": true
+    }
+   ],
+   "note": "Limited by the profit from that business."
+  },
+  {
+   "type": "text",
+   "kicker": "Where it goes",
+   "text": "Form 1040, *Schedule 1*",
+   "sub": "You don't have to itemize."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you how to book a call."
+ },
+ "captions": {
+  "comment_word": "HEALTH",
+  "instagram": "Self-employed and paying for your own health insurance? The premiums may be deductible.\n\n✔️ You need a business profit. The deduction is limited by the profit from that business (Form 7206).\n✔️ It doesn't apply for any month you could have joined an employer-subsidized plan, including your spouse's, even if you didn't sign up.\n✔️ It can cover you, your spouse, your dependents and children under 27.\n✔️ It goes on Schedule 1 of Form 1040, so you don't have to itemize.\n\nNot sure if you qualify? Book a call and we'll check.",
+  "hashtags": [
+   "#1099",
+   "#selfemployed",
+   "#gigworker",
+   "#sidehustle",
+   "#freelancer",
+   "#healthinsurance",
+   "#uberdriver",
+   "#taxtips"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#selfemployed",
+   "#gigworker",
+   "#taxtips"
+  ],
+  "youtube_title": "Self-Employed Health Insurance Deduction: Who Qualifies",
+  "youtube_description": "Self-employed people with a business profit can often deduct health insurance premiums for themselves, a spouse, dependents and children under 27, on Schedule 1 (Form 7206). Not for any month you could join an employer-subsidized plan, including a spouse's. The deduction is limited by the profit from that business.",
+  "pinterest_title": "Self-Employed Health Insurance Deduction: Who Qualifies and the Spouse Plan Rule",
+  "pinterest_description": "Self employed health insurance deduction explained: if your business has a profit, premiums for you, your spouse, dependents and children under 27 can count, up to the profit from that business. Not for months you could join an employer-subsidized plan, including a spouse's. It goes on Schedule 1, no itemizing needed.",
+  "pinterest_alt": "Short video: a rideshare driver buys his own health plan; it explains the self-employed health insurance deduction rules.",
+  "pinterest_board": "Self-Employed & 1099 Taxes"
+ },
+ "sync": {
+  "ads_keywords": [
+   "self employed health insurance deduction",
+   "form 7206"
+  ],
+  "blog": "/book/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Self-employed health insurance deduction: Schedule C/F net profit, partners with SE earnings, >2% S corp shareholders; no deduction for any month you were eligible for an employer-subsidized plan (incl. spouse's employer); can cover children under 27; Form 7206 uses net profit from the business as a limit; Schedule 1 line 17 (2025 instructions and 2026 draft); read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-pdf/i7206.pdf"
+  }
+ ],
+ "character": {
+  "name": "driver",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Self-employed *health insurance*",
+  "sub": "Can the premiums count?"
+ }
+}

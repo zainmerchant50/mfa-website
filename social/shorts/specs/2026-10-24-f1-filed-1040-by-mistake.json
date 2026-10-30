@@ -5,7 +5,7 @@
   "type": "service",
   "accent": "plum",
   "label": "F-1 · OPT · Tax",
-  "checked": "October 25, 2026",
+  "checked": "October 30, 2026",
   "link": {
     "path": "/international-students/",
     "label": "Tax returns for international students and H-1B (MFA)"
@@ -58,11 +58,11 @@
   "cta": {
     "big": "Comment *AMEND*",
     "url": "mfa-advisory.com/international-students",
-    "sub": "We'll DM you prices and booking."
+    "sub": "We'll DM you how to book a call."
   },
   "captions": {
     "comment_word": "AMEND",
-    "instagram": "On F-1 or J-1 and filed a regular Form 1040 because your tax app didn't offer anything else? It's a common mistake, and there's a set way to fix it.\n\n✔️ File Form 1040-X, the IRS form for correcting a return.\n✔️ Attach a corrected Form 1040-NR with \"Amended\" written across the top.\n✔️ Nonresidents generally can't claim education credits, so those come off.\n✔️ Some popular tax apps don't support Form 1040-NR at all. Check before you file next year.\n\nWe prepare Form 1040-NR returns (student package with Form 8843 and a tax-treaty check: $99 federal, $129 with one state return). Book a call about fixing a past filing. Not available for CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
+    "instagram": "On F-1 or J-1 and filed a regular Form 1040 because your tax app didn't offer anything else? It's a common mistake, and there's a set way to fix it.\n\n✔️ File Form 1040-X, the IRS form for correcting a return.\n✔️ Attach a corrected Form 1040-NR with \"Amended\" written across the top.\n✔️ Nonresidents generally can't claim education credits, so those come off.\n✔️ Some popular tax apps don't support Form 1040-NR at all. Check before you file next year.\n\nWe prepare Form 1040-NR returns (student package with Form 8843 and a tax-treaty check). Book a call about fixing a past filing. Not available for CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
     "hashtags": [
       "#f1visa",
       "#internationalstudents",
@@ -120,5 +120,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "F-1 student filed a *1040*?",
+    "sub": "How the fix usually works"
   }
 }

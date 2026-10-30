@@ -5,7 +5,7 @@
   "type": "service",
   "accent": "forest",
   "label": "H-1B · H-4 · Tax",
-  "checked": "October 25, 2026",
+  "checked": "October 30, 2026",
   "link": {
     "path": "/international-students/",
     "label": "Tax returns for international students and H-1B (MFA)"
@@ -62,11 +62,11 @@
   "cta": {
     "big": "Comment *H4*",
     "url": "mfa-advisory.com/international-students",
-    "sub": "We'll DM you prices and booking."
+    "sub": "We'll DM you how to book a call."
   },
   "captions": {
     "comment_word": "H4",
-    "instagram": "On H-1B with a spouse on H-4 who can't get a Social Security number? You can usually still file a joint return.\n\n✔️ Everyone on the return needs an SSN or an ITIN.\n✔️ A first-time ITIN application (Form W-7) is generally attached to the front of the tax return, with a passport or certified copy.\n✔️ If your spouse is a nonresident for tax, you can choose to treat them as a resident to file jointly. Then both of you report worldwide income.\n✔️ An ITIN is for tax filing only. It doesn't allow work or change immigration status.\n\nWe prepare H-1B family returns, federal plus NJ and NY, at our standard 1040 pricing. Book a call to check your filing status. Not available for CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
+    "instagram": "On H-1B with a spouse on H-4 who can't get a Social Security number? You can usually still file a joint return.\n\n✔️ Everyone on the return needs an SSN or an ITIN.\n✔️ A first-time ITIN application (Form W-7) is generally attached to the front of the tax return, with a passport or certified copy.\n✔️ If your spouse is a nonresident for tax, you can choose to treat them as a resident to file jointly. Then both of you report worldwide income.\n✔️ An ITIN is for tax filing only. It doesn't allow work or change immigration status.\n\nWe prepare H-1B family returns, federal plus NJ and NY. Book a call to check your filing status. Not available for CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
     "hashtags": [
       "#h1b",
       "#h1bvisa",
@@ -120,5 +120,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "H-4 spouse with no SSN: *ITIN*",
+    "sub": "How a joint return can work"
   }
 }

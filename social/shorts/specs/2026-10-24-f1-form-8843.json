@@ -5,7 +5,7 @@
   "type": "service",
   "accent": "slate",
   "label": "F-1 · J-1 · Tax",
-  "checked": "October 24, 2026",
+  "checked": "October 30, 2026",
   "link": {
     "path": "/international-students/",
     "label": "Tax returns for international students and H-1B (MFA)"
@@ -62,11 +62,11 @@
   "cta": {
     "big": "Comment *8843*",
     "url": "mfa-advisory.com/international-students",
-    "sub": "We'll DM you prices and booking."
+    "sub": "We'll DM you how to book a call."
   },
   "captions": {
     "comment_word": "8843",
-    "instagram": "On an F-1 or J-1 visa with no U.S. income? There's still one IRS form for you.\n\n✔️ Form 8843 explains why your days as a student don't count toward U.S. tax residency.\n✔️ It's needed even with no income, and each F-2 or J-2 family member files their own.\n✔️ No 2026 income? Mail it by itself by June 15, 2027.\n✔️ Had wages or a taxable scholarship? Attach it to Form 1040-NR instead.\n\nThis is tax information only, not immigration advice. We prepare Form 8843 on its own ($25), or with your Form 1040-NR in our student package with a tax-treaty check ($99 federal, $129 with one state return). Federal plus NJ and NY returns. Book a call to start. Not available for CT, MD or OR state returns.",
+    "instagram": "On an F-1 or J-1 visa with no U.S. income? There's still one IRS form for you.\n\n✔️ Form 8843 explains why your days as a student don't count toward U.S. tax residency.\n✔️ It's needed even with no income, and each F-2 or J-2 family member files their own.\n✔️ No 2026 income? Mail it by itself by June 15, 2027.\n✔️ Had wages or a taxable scholarship? Attach it to Form 1040-NR instead.\n\nThis is tax information only, not immigration advice. We prepare Form 8843 on its own, or with your Form 1040-NR in our student package with a tax-treaty check. Federal plus NJ and NY returns. Book a call to start. Not available for CT, MD or OR state returns.",
     "hashtags": [
       "#f1visa",
       "#internationalstudents",
@@ -78,7 +78,7 @@
       "#nonresident"
     ],
     "youtube_title": "F-1 Student, No Income? You Still File Form 8843 (2026)",
-    "youtube_description": "F-1 and J-1 students (and F-2/J-2 family members) generally file Form 8843 even with no U.S. income. It explains why your days as a student are excluded from the substantial presence test. With no 2026 return to file, mail it by itself by June 15, 2027; with wages or a taxable scholarship, attach it to Form 1040-NR. MFA prepares Form 8843 ($25) and a 1040-NR student package ($99 federal, $129 with one state); book a call. Not available for CT, MD or OR state returns. Tax information only, not immigration advice.",
+    "youtube_description": "F-1 and J-1 students (and F-2/J-2 family members) generally file Form 8843 even with no U.S. income. It explains why your days as a student are excluded from the substantial presence test. With no 2026 return to file, mail it by itself by June 15, 2027; with wages or a taxable scholarship, attach it to Form 1040-NR. MFA prepares Form 8843 and a 1040-NR student package; book a call. Not available for CT, MD or OR state returns. Tax information only, not immigration advice.",
     "pinterest_title": "Form 8843 for F-1 Students: Who Files, Even With No Income, and the June 15, 2027 Deadline",
     "pinterest_description": "Form 8843 for international students on F-1 or J-1 visas: generally required even with no U.S. income, one for each F-2 or J-2 family member, due June 15, 2027 for 2026 when there is no return to file, or attached to Form 1040-NR if you had wages or a taxable scholarship. Tax information only, not immigration advice.",
     "pinterest_alt": "Short video: a new F-1 graduate student with no job learns about Form 8843, who files it, and the June 15, 2027 deadline.",
@@ -124,5 +124,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "F-1, no income? *Form 8843*",
+    "sub": "Still due, even with no income"
   }
 }

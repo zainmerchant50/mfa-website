@@ -1,0 +1,115 @@
+{
+ "date": "2026-10-30",
+ "slug": "charity-deduction-2026",
+ "checked": "October 30, 2026",
+ "title": "Don't itemize? Charity gifts can count in 2026",
+ "type": "value",
+ "accent": "amber",
+ "label": "Year-end tax move",
+ "series": "Year-end tax move",
+ "link": {
+  "path": "/year-end-tax-planning/",
+  "label": "Year-end tax planning (MFA)"
+ },
+ "hook": {
+  "text": "Don't itemize? Gifts *count* in 2026",
+  "sub": "A new charity deduction."
+ },
+ "beats": [
+  {
+   "type": "values",
+   "kicker": "New for 2026: no itemizing needed",
+   "items": [
+    {
+     "v": "$1,000",
+     "l": "single"
+    },
+    {
+     "v": "$2,000",
+     "l": "married joint"
+    }
+   ],
+   "note": "Cash gifts to qualified charities. Donor-advised funds don't count."
+  },
+  {
+   "type": "list",
+   "kicker": "Before Dec. 31",
+   "items": [
+    {
+     "t": "Give by check, card or bank transfer"
+    },
+    {
+     "t": "Keep the bank record or charity letter"
+    },
+    {
+     "t": "$250 or more? Get a written receipt",
+     "s": "From the charity, before you file."
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "Good to know",
+   "text": "Cash *gifts* only for this one",
+   "sub": "Not donated clothes or goods."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/year-end-tax-planning",
+  "sub": "We'll DM you our year-end planning page."
+ },
+ "captions": {
+  "comment_word": "GIVING",
+  "instagram": "Take the standard deduction? Starting with 2026, your charity gifts can still count.\n\n✔️ Non-itemizers can deduct up to $1,000 of cash gifts to qualified charities ($2,000 married filing jointly).\n✔️ Gifts to donor-advised funds don't count for this one, and it's for cash gifts, not donated goods.\n✔️ Give by check, card or bank transfer and keep the bank record or the charity's letter.\n✔️ $250 or more in one gift? Get a written acknowledgment from the charity.\n\nMore moves to make by Dec. 31 on our year-end planning page.",
+  "hashtags": [
+   "#charitabledonations",
+   "#givingtuesday",
+   "#taxtips",
+   "#yearendtaxplanning",
+   "#personalfinance",
+   "#smallbusiness",
+   "#taxdeductions"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#taxtips",
+   "#givingtuesday",
+   "#personalfinance"
+  ],
+  "youtube_title": "Don't Itemize? Charity Gifts Can Count Starting 2026",
+  "youtube_description": "Starting with tax year 2026, people who take the standard deduction can deduct up to $1,000 of cash gifts to qualified charities ($2,000 married filing jointly). Donor-advised funds don't qualify. Keep a bank record or the charity's letter, and get a written acknowledgment for gifts of $250 or more.",
+  "pinterest_title": "New 2026 Charitable Deduction for Non-Itemizers: $1,000 Single, $2,000 Married",
+  "pinterest_description": "Charitable donations and taxes in 2026: even if you take the standard deduction, you can deduct up to $1,000 of cash gifts to qualified charities ($2,000 married filing jointly). Donor-advised funds don't count. Keep the bank record or charity letter and get a written receipt for gifts of $250 or more.",
+  "pinterest_alt": "Short video explaining the new 2026 charitable deduction for people who don't itemize: $1,000 single, $2,000 joint, and the records to keep.",
+  "pinterest_board": "Small Business Tax Tips"
+ },
+ "sync": {
+  "ads_keywords": [
+   "charitable deduction 2026",
+   "charity deduction without itemizing"
+  ],
+  "blog": "/year-end-tax-planning/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Beginning with tax year 2026, if you don't itemize you may deduct up to $1,000 ($2,000 joint) of cash contributions to qualified organizations; monetary gifts need a bank record or written communication; $250 or more needs a contemporaneous written acknowledgment (updated 24-Sep-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/taxtopics/tc506"
+  },
+  {
+   "fact": "OBBB provisions: bronze and catastrophic plans HSA-compatible from Jan. 1, 2026; non-itemizers may deduct up to $1,000 ($2,000 MFJ) of cash gifts to charity from tax year 2026, donor-advised funds and supporting organizations excluded; read 2026-10-30",
+   "url": "https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions"
+  }
+ ],
+ "character": {
+  "name": "mascot-wow",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Charity gifts *count* in 2026",
+  "sub": "Even if you don't itemize"
+ }
+}

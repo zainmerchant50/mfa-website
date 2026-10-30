@@ -1,0 +1,129 @@
+{
+ "date": "2026-10-30",
+ "slug": "llc-myths",
+ "checked": "October 30, 2026",
+ "title": "3 LLC tax myths, busted",
+ "type": "value",
+ "accent": "burgundy",
+ "label": "Tax myth vs fact",
+ "series": "Tax myth vs fact",
+ "link": {
+  "path": "/llc-formation/",
+  "label": "LLC formation (MFA)"
+ },
+ "hook": {
+  "text": "3 *LLC* myths, busted",
+  "sub": "Tax myth vs fact."
+ },
+ "beats": [
+  {
+   "type": "rows",
+   "kicker": "Myth 1",
+   "items": [
+    {
+     "l": "An LLC cuts your taxes",
+     "r": "Myth",
+     "ok": false
+    },
+    {
+     "l": "1-owner LLC: taxed like a sole prop",
+     "r": "Fact",
+     "ok": true
+    }
+   ],
+   "note": "By default, on Schedule C. Self-employment tax still applies."
+  },
+  {
+   "type": "rows",
+   "kicker": "Myth 2",
+   "items": [
+    {
+     "l": "No EIN needed, ever",
+     "r": "Myth",
+     "ok": false
+    },
+    {
+     "l": "Most new 1-owner LLCs need one",
+     "r": "Fact",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "type": "rows",
+   "kicker": "Myth 3",
+   "items": [
+    {
+     "l": "An LLC is an S corp",
+     "r": "Myth",
+     "ok": false
+    },
+    {
+     "l": "S corp status is an election",
+     "r": "Fact",
+     "ok": true
+    }
+   ],
+   "note": "2+ owners? By default it's a partnership."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/llc-formation",
+  "sub": "We'll DM you our LLC formation page."
+ },
+ "captions": {
+  "comment_word": "LLC",
+  "instagram": "Thinking about an LLC? Three things people get wrong about taxes:\n\n✔️ Myth: an LLC cuts your taxes. Fact: a one-owner LLC is taxed like a sole proprietorship by default, on Schedule C, with self-employment tax.\n✔️ Myth: you never need an EIN. Fact: the IRS says most new single-member LLCs will need one.\n✔️ Myth: an LLC is an S corp. Fact: S corp status is a tax election. An LLC with 2 or more owners is a partnership by default.\n\nAn LLC is mainly a legal structure. We form LLCs in all 50 states and explain the tax side.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#llc",
+   "#startabusiness",
+   "#taxmyths"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "3 LLC Tax Myths, Busted",
+  "youtube_description": "Myth: an LLC cuts your taxes. Fact: a single-member LLC is taxed like a sole proprietorship by default (Schedule C, self-employment tax). Myth: no EIN needed. Fact: most new single-member LLCs need one. Myth: an LLC is an S corp. Fact: S corp status is an election; multi-member LLCs are partnerships by default.",
+  "pinterest_title": "LLC Myths: Does an LLC Lower Your Taxes? 3 LLC Tax Facts for New Business Owners",
+  "pinterest_description": "LLC tax myths for new business owners: a single-member LLC is taxed like a sole proprietorship by default on Schedule C with self-employment tax, most new single-member LLCs need an EIN, and S corp status is a separate tax election. Multi-member LLCs are partnerships by default.",
+  "pinterest_alt": "Short video busting three LLC tax myths: lower taxes, EIN, and S corp status.",
+  "pinterest_board": "LLC Checklist & Starting a Business"
+ },
+ "sync": {
+  "ads_keywords": [
+   "does an llc lower taxes",
+   "llc vs s corp"
+  ],
+  "blog": "/blog/which-tax-form-llc-corporation/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "Single-member LLC is disregarded by default; owner reports on Schedule C; owner pays self-employment tax; can elect corporation treatment with Form 8832; most new single-member LLCs will need an EIN (page updated 27-Jul-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/single-member-limited-liability-companies"
+  },
+  {
+   "fact": "A domestic LLC with at least two members is a partnership by default (Form 1065); can elect corporation treatment; an LLC that elected S status files Form 1120-S (page updated 22-Aug-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/llc-filing-as-a-corporation-or-partnership"
+  }
+ ],
+ "character": {
+  "name": "mascot-wow",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "3 *LLC* myths, busted",
+  "sub": "What an LLC changes for taxes"
+ }
+}

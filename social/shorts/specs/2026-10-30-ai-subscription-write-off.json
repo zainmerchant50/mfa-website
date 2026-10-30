@@ -1,0 +1,121 @@
+{
+ "date": "2026-10-30",
+ "slug": "ai-subscription-write-off",
+ "checked": "October 30, 2026",
+ "title": "Is your AI tool subscription a business write-off?",
+ "type": "value",
+ "accent": "amber",
+ "label": "AI in tax",
+ "series": "Tax myth vs fact",
+ "link": {
+  "path": "/tools/is-it-deductible/",
+  "label": "Is It Deductible? tool (MFA)"
+ },
+ "hook": {
+  "text": "Your AI subscription: a *write-off?*",
+  "sub": "The IRS test, in 20 seconds."
+ },
+ "beats": [
+  {
+   "type": "text",
+   "kicker": "IRS test",
+   "text": "Ordinary and *necessary*",
+   "sub": "Common in your field, helpful for your business."
+  },
+  {
+   "type": "rows",
+   "kicker": "Generally",
+   "items": [
+    {
+     "l": "Used for client work",
+     "r": "Business",
+     "ok": true
+    },
+    {
+     "l": "Used for personal stuff",
+     "r": "Personal",
+     "ok": false
+    },
+    {
+     "l": "Used for both",
+     "r": "Business share",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "Make it count",
+   "items": [
+    {
+     "t": "Pay with the business card"
+    },
+    {
+     "t": "Keep the monthly invoices"
+    },
+    {
+     "t": "Note what you use it for"
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our Is It Deductible? tool."
+ },
+ "captions": {
+  "comment_word": "DEDUCT",
+  "instagram": "Paying monthly for an AI tool? Whether it's deductible comes down to how you use it.\n\n✔️ The IRS test: a business expense must be ordinary (common and accepted in your field) and necessary (helpful and appropriate for your business).\n✔️ Used for client work, content or bookkeeping? Generally a business expense.\n✔️ Used for personal things? Personal expenses generally aren't deductible. Used for both, only the business share counts.\n✔️ Pay with the business card, keep the invoices, and note what you use it for.\n\nCheck other expenses with our Is It Deductible? tool.",
+  "hashtags": [
+   "#ai",
+   "#taxwriteoffs",
+   "#smallbusiness",
+   "#selfemployed",
+   "#taxtips",
+   "#contentcreator",
+   "#freelancer",
+   "#smallbusinesstips"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#ai",
+   "#taxtips",
+   "#smallbusiness"
+  ],
+  "youtube_title": "Is Your AI Subscription a Business Write-Off?",
+  "youtube_description": "A business expense must be ordinary (common and accepted in your field) and necessary (helpful and appropriate for your business). An AI tool used for client work is generally a business expense; personal use generally isn't deductible, and mixed use means only the business share. Keep invoices and note how you use it.",
+  "pinterest_title": "Is an AI Tool Subscription Tax Deductible? Business Write-Off Rules for Freelancers",
+  "pinterest_description": "Can you write off ChatGPT or other AI subscriptions? The IRS test is ordinary and necessary: common in your field and helpful for your business. Business use is generally deductible, personal use generally isn't, and mixed use means only the business share. Pay with the business card and keep the invoices.",
+  "pinterest_alt": "Short video applying the IRS ordinary-and-necessary test to an AI tool subscription, with business, personal and mixed use.",
+  "pinterest_board": "Tax Write Offs & Deductions for Small Business"
+ },
+ "sync": {
+  "ads_keywords": [
+   "is software tax deductible",
+   "ai subscription tax deduction"
+  ],
+  "blog": "/tools/is-it-deductible/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "IRS: 'An ordinary expense is one that is common and accepted in your industry. A necessary expense is one that is helpful and appropriate for your trade or business.'; read 2026-10-30",
+   "url": "https://itap1.for.irs.gov/owda/0/resource/Commentary_Files_Redirect_ITA/en-US/help/ordnec.html"
+  },
+  {
+   "fact": "Personal, living or family expenses are generally not deductible; separate business and personal accounts make records easier (IRS FAQ, page updated 30-Sep-2026; read 2026-10-24, within 30 days)",
+   "url": "https://irs.gov/faqs/small-business-self-employed-other-business/income-expenses/income-expenses-1"
+  }
+ ],
+ "character": {
+  "name": "artist",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "AI subscription: a *write-off*?",
+  "sub": "The IRS test, in 20 seconds"
+ }
+}

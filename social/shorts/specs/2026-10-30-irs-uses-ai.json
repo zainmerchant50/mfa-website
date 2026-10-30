@@ -1,0 +1,121 @@
+{
+ "date": "2026-10-30",
+ "slug": "irs-uses-ai",
+ "checked": "October 30, 2026",
+ "title": "Does the IRS use AI to pick audits? What GAO says",
+ "type": "value",
+ "accent": "slate",
+ "label": "AI in tax",
+ "series": "Tax myth vs fact",
+ "link": {
+  "path": "/blog/ai-in-accounting-and-tax-2026/",
+  "label": "AI in accounting and tax 2026 guide (MFA)"
+ },
+ "hook": {
+  "text": "Does the IRS use *AI?*",
+  "sub": "Yes, to help pick some audits."
+ },
+ "beats": [
+  {
+   "type": "text",
+   "kicker": "GAO, 2024",
+   "text": "AI helps the IRS *choose* some audits",
+   "sub": "From GAO report GAO-24-106449."
+  },
+  {
+   "type": "list",
+   "kicker": "Where GAO says it's used",
+   "items": [
+    {
+     "t": "Picking a sample of returns to audit"
+    },
+    {
+     "t": "Some tax credit claims",
+     "s": "Like the earned income credit."
+    },
+    {
+     "t": "Partnership returns"
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "What you control",
+   "items": [
+    {
+     "t": "Report all income",
+     "s": "1099 or not."
+    },
+    {
+     "t": "Keep records for what you deduct"
+    },
+    {
+     "t": "Keep books that match your bank"
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our AI in accounting guide."
+ },
+ "captions": {
+  "comment_word": "AUDIT",
+  "instagram": "Yes, the IRS uses AI. Here's what the government's own watchdog says it's used for.\n\n✔️ GAO (report GAO-24-106449, 2024): AI models help the IRS select a sample of returns to audit.\n✔️ The IRS also uses AI, along with manual review, to pick some tax credit claims (like the earned income credit) for audit, and AI models to help prioritize partnership returns.\n✔️ What you control: report all income (1099 or not), keep records for what you deduct, and keep books that match your bank.\n\nOur AI in accounting guide covers how AI is changing tax work on both sides.",
+  "hashtags": [
+   "#ai",
+   "#irs",
+   "#taxtips",
+   "#smallbusiness",
+   "#selfemployed",
+   "#bookkeeping",
+   "#taxaudit",
+   "#smallbusinesstips"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#ai",
+   "#irs",
+   "#taxtips"
+  ],
+  "youtube_title": "Does the IRS Use AI to Pick Audits? What GAO Says",
+  "youtube_description": "GAO reported in 2024 (GAO-24-106449) that AI models help the IRS select a sample of returns to audit, that the IRS uses AI and manual processes to pick some tax credit claims for audit, and that it uses AI models to help prioritize partnership returns. What you control: report all income, keep records and keep books that match your bank.",
+  "pinterest_title": "Does the IRS Use AI for Audits? What GAO Found and How Small Businesses Can Prepare",
+  "pinterest_description": "IRS AI audits explained: GAO reported that AI models help the IRS select a sample of returns to audit, pick some tax credit claims and prioritize partnership returns. Small business owners and freelancers can prepare the same way as always: report all income, keep records for deductions, and keep books that match the bank.",
+  "pinterest_alt": "Short video: GAO findings on how the IRS uses AI to help choose some audits, and three things taxpayers control.",
+  "pinterest_board": "Small Business Tax Tips"
+ },
+ "sync": {
+  "ads_keywords": [
+   "irs ai audit",
+   "irs audit small business"
+  ],
+  "blog": "/blog/ai-in-accounting-and-tax-2026/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "GAO WatchBlog (June 6, 2024) on GAO-24-106449: AI models are already used to help select a representative sample of returns to audit; IRS uses manual processes and AI to pick claims for credits such as the EITC for audit; IRS uses two AI models to help prioritize partnership returns for audit; read 2026-10-30",
+   "url": "https://www.gao.gov/blog/artificial-intelligence-may-help-irs-close-tax-gap"
+  },
+  {
+   "fact": "All income is taxable unless the law says otherwise, even without a Form 1099-K (Form 1099-K FAQs, page updated 03-Apr-2026; read 2026-10-24, within 30 days)",
+   "url": "https://www.irs.gov/newsroom/form-1099-k-faqs-general-information"
+  },
+  {
+   "fact": "Supporting documents for expenses: canceled checks/proof of payment, cash register receipts, account statements, credit card receipts and statements, invoices; they should show payee, amount, proof of payment, date and a description showing business purpose; requirements for paper records also apply to electronic records (page updated 03-Aug-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep"
+  }
+ ],
+ "character": {
+  "name": "mascot-hmm",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Does the IRS use *AI*?",
+  "sub": "What GAO found about audits"
+ }
+}

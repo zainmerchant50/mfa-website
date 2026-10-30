@@ -1,0 +1,123 @@
+{
+ "date": "2026-10-30",
+ "slug": "ai-tax-docs-privacy",
+ "checked": "October 30, 2026",
+ "title": "Uploading tax documents to an AI chatbot? Protect your data first",
+ "type": "value",
+ "accent": "plum",
+ "label": "AI in tax",
+ "series": "1-minute bookkeeping fix",
+ "link": {
+  "path": "/blog/ai-in-accounting-and-tax-2026/",
+  "label": "AI in accounting and tax 2026 guide (MFA)"
+ },
+ "hook": {
+  "text": "Uploading your W-2 to *AI?*",
+  "sub": "Protect your tax data first."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Leo uploaded his W-2 to a chatbot.",
+    "It showed his SSN and address.",
+    "Where does that file go now?"
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "Before you upload",
+   "items": [
+    {
+     "t": "Black out SSNs and account numbers"
+    },
+    {
+     "t": "Check the app's data settings",
+     "s": "Can it keep or train on your files?"
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "IRS tips to protect tax data",
+   "start": 3,
+   "items": [
+    {
+     "t": "Turn on multifactor login"
+    },
+    {
+     "t": "Encrypt and back up tax files"
+    },
+    {
+     "t": "Get an IP PIN",
+     "s": "Helps block filing with your SSN."
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "Tax pros, too",
+   "text": "Client data only in *secure* AI",
+   "sub": "IRS guidance, June 2026."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our AI in accounting guide."
+ },
+ "captions": {
+  "comment_word": "PRIVACY",
+  "instagram": "Thinking of uploading your W-2 or 1099 to an AI chatbot? Those forms carry your SSN, address and income.\n\n✔️ Before you upload: black out SSNs and account numbers, and check the app's data settings.\n✔️ IRS tips (IR-2026-119): turn on multifactor login, store tax records securely, encrypt and back up sensitive files, and consider an Identity Protection PIN.\n✔️ The IRS's June 2026 AI guidance tells tax pros to handle client data only in secure, approved AI and never upload sensitive data to unsecured sites. A good rule for anyone.\n\nOur AI in accounting guide covers safe ways to use AI with your finances.",
+  "hashtags": [
+   "#ai",
+   "#cybersecurity",
+   "#identitytheft",
+   "#taxtips",
+   "#taxseason",
+   "#smallbusiness",
+   "#personalfinance",
+   "#dataprivacy"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#ai",
+   "#taxtips",
+   "#cybersecurity"
+  ],
+  "youtube_title": "Uploading Your W-2 to an AI Chatbot? Protect Your Data First",
+  "youtube_description": "Tax forms carry your SSN, address and income. Black out SSNs and account numbers and check the app's data settings before uploading. IRS tips (IR-2026-119): multifactor login, secure and encrypted tax files, backups and an Identity Protection PIN. IRS June 2026 guidance tells tax pros to use only secure, approved AI for client data.",
+  "pinterest_title": "Is It Safe to Upload Tax Documents to AI? How to Protect Your W-2 and SSN",
+  "pinterest_description": "Before uploading tax documents like a W-2 or 1099 to ChatGPT or another AI tool, black out Social Security and account numbers and check the app's data settings. The IRS recommends multifactor login, encrypted and backed-up tax files and an Identity Protection PIN. Tax pros must use only secure, approved AI with client data.",
+  "pinterest_alt": "Short video: protecting your SSN and tax documents before using an AI chatbot, with IRS data-security tips.",
+  "pinterest_board": "Tax Prep Checklist & Tax Season Organization"
+ },
+ "sync": {
+  "ads_keywords": [
+   "ai tax privacy",
+   "identity protection pin"
+  ],
+  "blog": "/blog/ai-in-accounting-and-tax-2026/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "IR-2026-119 (Oct. 2, 2026): turn on multifactor authentication, store digital tax records securely, encrypt sensitive files and back them up, consider an Identity Protection PIN; read 2026-10-30",
+   "url": "https://www.irs.gov/newsroom/irs-reminder-cybersecurity-awareness-month-offers-simple-steps-to-protect-tax-data"
+  },
+  {
+   "fact": "IRS OPR Issue 2026-19 (June 24, 2026): 'Practitioners cannot rely solely on AI'; 'Practitioners must strictly handle all client data using only secure, enterprise-approved AI.' 'Never upload sensitive data to unsecured sites.'; read 2026-10-30",
+   "url": "https://www.irs.gov/pub/opr-taxpros/issue-number-2026-19-introductory-guidelines-for-responsible-ai-use-in-federal-tax-practice.pdf"
+  }
+ ],
+ "character": {
+  "name": "student",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Uploading your W-2 to *AI*?",
+  "sub": "Protect your tax data first"
+ }
+}

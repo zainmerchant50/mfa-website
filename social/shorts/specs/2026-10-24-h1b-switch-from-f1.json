@@ -5,7 +5,7 @@
   "type": "service",
   "accent": "teal",
   "label": "F-1 to H-1B · Tax",
-  "checked": "October 25, 2026",
+  "checked": "October 30, 2026",
   "link": {
     "path": "/international-students/",
     "label": "Tax returns for international students and H-1B (MFA)"
@@ -52,11 +52,11 @@
   "cta": {
     "big": "Comment *SWITCH*",
     "url": "mfa-advisory.com/international-students",
-    "sub": "We'll DM you prices and booking."
+    "sub": "We'll DM you how to book a call."
   },
   "captions": {
     "comment_word": "SWITCH",
-    "instagram": "Moved from F-1 (OPT) to H-1B this year? A few tax rules change on the switch date.\n\n✔️ Social Security and Medicare withholding starts on the day your H-1B status begins (often Oct. 1).\n✔️ Your days as an F-1 student still don't count toward the 183-day test.\n✔️ Switched Oct. 1? That's 92 days in 2026, so 2026 may still be a Form 1040-NR year. A first-year choice to be treated as a resident may apply, depending on your days.\n✔️ Next year, as an H-1B who meets the test, it's usually Form 1040.\n\nWe prepare both: student package (1040-NR + 8843 + tax-treaty check) $99 federal, $129 with one state return; H-1B Form 1040 at our standard 1040 pricing. Federal plus NJ and NY returns. Book a call to start. Not available for CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
+    "instagram": "Moved from F-1 (OPT) to H-1B this year? A few tax rules change on the switch date.\n\n✔️ Social Security and Medicare withholding starts on the day your H-1B status begins (often Oct. 1).\n✔️ Your days as an F-1 student still don't count toward the 183-day test.\n✔️ Switched Oct. 1? That's 92 days in 2026, so 2026 may still be a Form 1040-NR year. A first-year choice to be treated as a resident may apply, depending on your days.\n✔️ Next year, as an H-1B who meets the test, it's usually Form 1040.\n\nWe prepare both: student package (1040-NR + 8843 + tax-treaty check) and H-1B Form 1040. Federal plus NJ and NY returns. Book a call to start. Not available for CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
     "hashtags": [
       "#h1b",
       "#h1bvisa",
@@ -118,5 +118,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "F-1 to *H-1B* this year?",
+    "sub": "What changes on your tax return"
   }
 }

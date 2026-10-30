@@ -1,0 +1,142 @@
+{
+ "date": "2026-10-30",
+ "slug": "no-tax-on-tips",
+ "checked": "October 30, 2026",
+ "title": "No tax on tips? Not quite. Myth vs fact",
+ "type": "value",
+ "accent": "plum",
+ "label": "Tax myth vs fact",
+ "series": "Tax myth vs fact",
+ "link": {
+  "path": "/book/",
+  "label": "Book a call with MFA"
+ },
+ "hook": {
+  "text": "No tax on tips? *Not quite.*",
+  "sub": "Tax myth vs fact, for 2025 to 2028."
+ },
+ "beats": [
+  {
+   "type": "rows",
+   "kicker": "Myth vs fact",
+   "items": [
+    {
+     "l": "Tips aren't taxed at all now",
+     "r": "Myth",
+     "ok": false
+    },
+    {
+     "l": "Up to $25,000 is deductible",
+     "r": "Fact",
+     "ok": true
+    },
+    {
+     "l": "Social Security and Medicare still apply",
+     "r": "Fact",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "Who can use it, generally",
+   "items": [
+    {
+     "t": "Jobs where tips are customary",
+     "s": "Servers, bartenders, salon workers and more."
+    },
+    {
+     "t": "Voluntary tips only"
+    },
+    {
+     "t": "You need a Social Security number"
+    }
+   ]
+  },
+  {
+   "type": "rows",
+   "kicker": "Starts phasing out above (modified AGI)",
+   "items": [
+    {
+     "l": "Single",
+     "r": "$150,000",
+     "ok": false
+    },
+    {
+     "l": "Married filing jointly",
+     "r": "$300,000",
+     "ok": false
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "Self-employed?",
+   "text": "Capped at your *business profit*",
+   "sub": "Some service businesses can't use it."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you how to book a call."
+ },
+ "captions": {
+  "comment_word": "TIPS",
+  "instagram": "\"No tax on tips\" is a deduction, not a pass on all tax.\n\n✔️ For 2025 through 2028, you can deduct up to $25,000 of qualified tips a year, whether or not you itemize.\n✔️ It's for jobs where tips are customary, like servers, bartenders and salon workers. Tips must be voluntary, and you need a Social Security number.\n✔️ It starts phasing out above $150,000 of modified AGI ($300,000 joint).\n✔️ Social Security and Medicare still apply to reported tips.\n✔️ Self-employed? It can't be more than your profit from that business, and some service businesses can't use it.\n\nQuestions about your situation? Book a call.",
+  "hashtags": [
+   "#notaxontips",
+   "#hairstylist",
+   "#bartender",
+   "#server",
+   "#taxtips",
+   "#selfemployed",
+   "#boothrenter",
+   "#taxseason"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#notaxontips",
+   "#taxtips",
+   "#selfemployed"
+  ],
+  "youtube_title": "No Tax on Tips? Not Quite. Myth vs Fact",
+  "youtube_description": "For 2025 through 2028, workers in tipped occupations can deduct up to $25,000 of qualified (voluntary) tips a year, itemizing or not, with a Social Security number. It phases out above $150,000 of modified AGI ($300,000 joint). Social Security and Medicare still apply to reported tips. Self-employed: capped at the profit from that business, and some service businesses are excluded.",
+  "pinterest_title": "No Tax on Tips Explained: The $25,000 Tip Deduction, Who Qualifies and What Still Applies",
+  "pinterest_description": "No tax on tips explained for servers, bartenders, hairstylists and other tipped workers: deduct up to $25,000 of voluntary tips a year for 2025 through 2028, itemizing or not. It phases out above $150,000 of modified AGI ($300,000 joint), and Social Security and Medicare still apply. Self-employed: capped at business profit.",
+  "pinterest_alt": "Short video: myth vs fact on the no tax on tips deduction, who qualifies, the income phase-out and the self-employed cap.",
+  "pinterest_board": "Bookkeeping for Hair Stylists, Realtors & More"
+ },
+ "sync": {
+  "ads_keywords": [
+   "no tax on tips",
+   "tip deduction 2026"
+  ],
+  "blog": "/book/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "No tax on tips: maximum $25,000 a year; voluntary cash or charged tips; phases out over $150,000 MAGI ($300,000 joint); available whether or not you itemize; self-employed: can't exceed net income from that business (page updated 21-Sep-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/node/157206"
+  },
+  {
+   "fact": "Tips deduction effective 2025 through 2028; occupations customarily receiving tips as of Dec. 31, 2024; SSN required; SSTB self-employed and employees excluded (page updated 27-Aug-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers"
+  },
+  {
+   "fact": "Employers withhold Social Security and Medicare on reported tips; the new qualified tips deduction ($25,000, 2025-2028) is described for income tax withholding only (Topic 761, updated 12-Oct-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/taxtopics/tc761"
+  }
+ ],
+ "character": {
+  "name": "worker",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "No tax on tips? *Not quite*",
+  "sub": "Tax myth vs fact"
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "date": "2026-10-30",
+ "slug": "s-corp-zero-salary",
+ "checked": "October 30, 2026",
+ "title": "S corp owner taking a $0 salary? Myth vs fact",
+ "type": "value",
+ "accent": "slate",
+ "label": "Owner pay 101",
+ "series": "Owner pay 101",
+ "link": {
+  "path": "/s-corp-election/",
+  "label": "S corp election and payroll setup (MFA)"
+ },
+ "hook": {
+  "text": "S corp owner, *$0* salary?",
+  "sub": "Owner pay 101."
+ },
+ "beats": [
+  {
+   "type": "rows",
+   "kicker": "Myth vs fact",
+   "items": [
+    {
+     "l": "Take it all as distributions",
+     "r": "Myth",
+     "ok": false
+    },
+    {
+     "l": "Reasonable pay comes first",
+     "r": "Fact",
+     "ok": true
+    }
+   ],
+   "note": "IRS: if you work in it, wages before distributions."
+  },
+  {
+   "type": "list",
+   "kicker": "What the IRS looks at",
+   "items": [
+    {
+     "t": "Your duties and hours"
+    },
+    {
+     "t": "Your training and experience"
+    },
+    {
+     "t": "What others pay for similar work"
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "The fix",
+   "text": "Run *payroll* for yourself",
+   "sub": "Then take distributions on top."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you how we set up S corp payroll."
+ },
+ "captions": {
+  "comment_word": "SALARY",
+  "instagram": "S corp owner paying yourself only distributions? That's the part the IRS looks at.\n\n✔️ If you work in your S corp, the IRS expects reasonable compensation before non-wage distributions.\n✔️ What counts as reasonable: your duties and hours, your training and experience, and what comparable businesses pay for similar work.\n✔️ The salary runs through payroll with payroll taxes. Distributions come on top.\n\nNeed payroll set up for yourself? Book a call and we'll look at your numbers.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#scorp",
+   "#llc",
+   "#ownerpay"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "S Corp Owner With a $0 Salary? Reasonable Pay Explained",
+  "youtube_description": "If you work in your S corporation, the IRS expects reasonable compensation before non-wage distributions. Factors include your duties, hours, training and experience, and what comparable businesses pay for similar work. Run payroll for yourself, then take distributions on top.",
+  "pinterest_title": "S Corp Reasonable Salary: Can an S Corp Owner Take Only Distributions?",
+  "pinterest_description": "S corp owner pay explained: if you work in your S corporation, the IRS expects a reasonable salary before distributions. It looks at your duties, hours, training and experience, and what similar businesses pay. Run payroll for yourself first, then take distributions.",
+  "pinterest_alt": "Short video: myth vs fact on S corp owners taking no salary, the IRS reasonable compensation factors and the payroll fix.",
+  "pinterest_board": "LLC Checklist & Starting a Business"
+ },
+ "sync": {
+  "product_id": "19",
+  "ads_keywords": [
+   "s corp reasonable salary",
+   "s corp owner salary"
+  ],
+  "blog": "/blog/llc-taxed-as-s-corp-guide/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "S corporations must pay reasonable compensation to a shareholder-employee before non-wage distributions; factors include training and experience, duties, time and effort, what comparable businesses pay for similar services (page updated 03-Mar-2026); read 2026-10-30",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues"
+  }
+ ],
+ "character": {
+  "name": "mascot-hmm",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "S corp owner, *$0* salary?",
+  "sub": "What the IRS expects"
+ }
+}

@@ -5,7 +5,7 @@
   "type": "service",
   "accent": "teal",
   "label": "F-1 · H-1B · Tax",
-  "checked": "October 24, 2026",
+  "checked": "October 30, 2026",
   "link": {
     "path": "/international-students/",
     "label": "Tax returns for international students and H-1B (MFA)"
@@ -62,11 +62,11 @@
   "cta": {
     "big": "Comment *1040NR*",
     "url": "mfa-advisory.com/international-students",
-    "sub": "We'll DM you prices and booking."
+    "sub": "We'll DM you how to book a call."
   },
   "captions": {
     "comment_word": "1040NR",
-    "instagram": "F-1, OPT, H-1B: which federal tax form you file depends on your tax residency, not the visa name alone.\n\n✔️ F-1 and J-1 students are generally nonresidents for their first 5 calendar years: Form 1040-NR if you had income, plus Form 8843.\n✔️ H-1B workers who meet the substantial presence test (31 days this year, 183 weighted days over 3 years) are generally residents: Form 1040.\n✔️ The year you arrive or switch can be a dual-status year.\n✔️ Some popular tax apps don't support Form 1040-NR. Check before you pay.\n\nTax information only, not immigration advice. We prepare both. Student package: Form 1040-NR + 8843 + tax-treaty check, $99 federal ($129 with one state return). H-1B residents filing Form 1040: our standard 1040 pricing. Federal plus NJ and NY returns. Book a call to start. Not available for CT, MD or OR state returns.",
+    "instagram": "F-1, OPT, H-1B: which federal tax form you file depends on your tax residency, not the visa name alone.\n\n✔️ F-1 and J-1 students are generally nonresidents for their first 5 calendar years: Form 1040-NR if you had income, plus Form 8843.\n✔️ H-1B workers who meet the substantial presence test (31 days this year, 183 weighted days over 3 years) are generally residents: Form 1040.\n✔️ The year you arrive or switch can be a dual-status year.\n✔️ Some popular tax apps don't support Form 1040-NR. Check before you pay.\n\nTax information only, not immigration advice. We prepare both. Student package: Form 1040-NR + 8843 + tax-treaty check. H-1B residents: Form 1040. Federal plus NJ and NY returns. Book a call to start. Not available for CT, MD or OR state returns.",
     "hashtags": [
       "#f1visa",
       "#h1b",
@@ -78,7 +78,7 @@
       "#nonresident"
     ],
     "youtube_title": "F-1 or H-1B? Form 1040 vs 1040-NR (Tax Residency Basics)",
-    "youtube_description": "Which tax form you file depends on tax residency. F-1 and J-1 students are generally nonresident aliens for their first 5 calendar years (Form 1040-NR if you had income, plus Form 8843). H-1B workers who meet the substantial presence test are generally residents and file Form 1040. A year when your status changes can be dual-status. Some popular tax apps don't support Form 1040-NR. MFA prepares both; 1040-NR student package from $99 federal; book a call. Not available for CT, MD or OR state returns. Tax information only, not immigration advice.",
+    "youtube_description": "Which tax form you file depends on tax residency. F-1 and J-1 students are generally nonresident aliens for their first 5 calendar years (Form 1040-NR if you had income, plus Form 8843). H-1B workers who meet the substantial presence test are generally residents and file Form 1040. A year when your status changes can be dual-status. Some popular tax apps don't support Form 1040-NR. MFA prepares both; book a call. Not available for CT, MD or OR state returns. Tax information only, not immigration advice.",
     "pinterest_title": "Form 1040 vs 1040-NR for F-1, OPT and H-1B: Which Tax Form Do You File?",
     "pinterest_description": "1040 vs 1040-NR for international students and H-1B workers: F-1 and J-1 students are generally nonresidents for their first 5 calendar years and file Form 1040-NR (plus Form 8843). H-1B workers who meet the substantial presence test generally file Form 1040. The year your status changes may be dual-status. Some tax apps don't support 1040-NR. Tax information only, not immigration advice.",
     "pinterest_alt": "Short video: someone moves from OPT to H-1B and her tax app only offers Form 1040; when F-1, H-1B and change-of-status years usually use 1040-NR, 1040 or a dual-status return.",
@@ -128,5 +128,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "*1040* or 1040-NR on F-1 or H-1B?",
+    "sub": "It depends on tax residency"
   }
 }

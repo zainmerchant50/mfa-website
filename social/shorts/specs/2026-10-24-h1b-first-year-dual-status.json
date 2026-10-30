@@ -5,7 +5,7 @@
   "type": "service",
   "accent": "slate",
   "label": "H-1B · Tax",
-  "checked": "October 25, 2026",
+  "checked": "October 30, 2026",
   "link": {
     "path": "/international-students/",
     "label": "Tax returns for international students and H-1B (MFA)"
@@ -62,11 +62,11 @@
   "cta": {
     "big": "Comment *H1B*",
     "url": "mfa-advisory.com/international-students",
-    "sub": "We'll DM you prices and booking."
+    "sub": "We'll DM you how to book a call."
   },
   "captions": {
     "comment_word": "H1B",
-    "instagram": "Moved to the US mid-year on an H-1B? Your first tax year may be dual-status: nonresident before your residency start date, resident after.\n\n✔️ Arrived July 1 and stayed? That's 184 days by Dec. 31, enough for the 183-day test.\n✔️ Resident on Dec. 31: Form 1040 with \"Dual-Status Return\" on top, plus a statement for the nonresident part.\n✔️ In a dual-status year you can't take the standard deduction or file as head of household.\n✔️ A joint return is possible only by choosing to be treated as residents for the whole year, which means reporting worldwide income.\n\nWe prepare H-1B returns, federal plus NJ and NY (our standard 1040 pricing). Book a call to check your first year. Not available for CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
+    "instagram": "Moved to the US mid-year on an H-1B? Your first tax year may be dual-status: nonresident before your residency start date, resident after.\n\n✔️ Arrived July 1 and stayed? That's 184 days by Dec. 31, enough for the 183-day test.\n✔️ Resident on Dec. 31: Form 1040 with \"Dual-Status Return\" on top, plus a statement for the nonresident part.\n✔️ In a dual-status year you can't take the standard deduction or file as head of household.\n✔️ A joint return is possible only by choosing to be treated as residents for the whole year, which means reporting worldwide income.\n\nWe prepare H-1B returns, federal plus NJ and NY. Book a call to check your first year. Not available for CT, MD or OR state returns.\n\nTax information only, not immigration advice.",
     "hashtags": [
       "#h1b",
       "#h1bvisa",
@@ -127,5 +127,9 @@
     "position": "lower",
     "corner_after": true,
     "corner": "self"
+  },
+  "thumb": {
+    "title": "First H-1B year: *dual-status*?",
+    "sub": "Part nonresident, part resident"
   }
 }

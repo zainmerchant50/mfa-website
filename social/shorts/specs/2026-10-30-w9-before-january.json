@@ -1,0 +1,123 @@
+{
+ "date": "2026-10-30",
+ "slug": "w9-before-january",
+ "checked": "October 30, 2026",
+ "title": "Paid a contractor in 2026? Get the W-9 now",
+ "type": "product",
+ "accent": "amber",
+ "label": "1099 season",
+ "series": "Owner pay 101",
+ "link": {
+  "path": "/shop/",
+  "anchor": "kit",
+  "label": "The 1099 Kit (MFA shop)"
+ },
+ "hook": {
+  "text": "Paid a contractor? Get the *W-9* now",
+  "sub": "Before 1099 season starts."
+ },
+ "beats": [
+  {
+   "type": "story",
+   "lines": [
+    "Tom paid a web designer $3,000 this year.",
+    "It's late January. She won't reply.",
+    "He needs her tax ID for the 1099."
+   ]
+  },
+  {
+   "type": "values",
+   "kicker": "1099-NEC for 2026 payments",
+   "items": [
+    {
+     "v": "$2,000",
+     "l": "new threshold"
+    },
+    {
+     "v": "Feb. 1",
+     "l": "due in 2027"
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "This week",
+   "items": [
+    {
+     "t": "List everyone you paid",
+     "s": "Card and app payments go on 1099-K instead."
+    },
+    {
+     "t": "Email each one a W-9 request"
+    },
+    {
+     "t": "Save the W-9 with their invoices"
+    }
+   ]
+  },
+  {
+   "type": "product",
+   "image": "social/shorts/img/1099-kit.jpg",
+   "kicker": "All of it in one kit",
+   "text": "The 1099 *Kit*",
+   "sub": "Who needs a 1099, W-9s and a contractor tracker."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/shop",
+  "sub": "We'll DM you the 1099 Kit."
+ },
+ "captions": {
+  "comment_word": "W9",
+  "instagram": "Paid a contractor this year? Ask for the W-9 in December, while they still answer emails.\n\n✔️ For payments made in 2026, Form 1099-NEC is needed at $2,000 or more (up from $600).\n✔️ Forms go to contractors by Feb. 1, 2027 (Jan. 31 is a Sunday).\n✔️ Payments by card or payment app go on Form 1099-K instead, from the platform.\n✔️ This week: list everyone you paid, email each a W-9 request, and save the W-9 with their invoices.\n\nThe 1099 Kit covers who needs a form, W-9 collection and a contractor tracker.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#1099",
+   "#w9",
+   "#contractors"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "Paid a Contractor in 2026? Get the W-9 Now",
+  "youtube_description": "For 2026 payments, Form 1099-NEC is required at $2,000 or more, due to contractors Feb. 1, 2027. Card and payment-app payments go on Form 1099-K instead. List everyone you paid, email W-9 requests now and keep each W-9 with the invoices.",
+  "pinterest_title": "Get W-9s Before 1099 Season: 2026 1099-NEC $2,000 Threshold and Feb 1 Deadline",
+  "pinterest_description": "1099 season prep for small business owners: for payments made in 2026, Form 1099-NEC is required at $2,000 or more and due Feb. 1, 2027. Card and payment app payments go on 1099-K. Collect W-9s from contractors in December, track who you paid and keep each W-9 with the invoices.",
+  "pinterest_alt": "Short video: a business owner chases a contractor's W-9 in January; it shows the $2,000 1099-NEC threshold, the Feb. 1, 2027 deadline and the MFA 1099 Kit.",
+  "pinterest_board": "Tax Prep Checklist & Tax Season Organization"
+ },
+ "sync": {
+  "product_id": "01",
+  "etsy_title_phrase": "1099 kit 2026",
+  "ads_keywords": [
+   "w9 form",
+   "1099 nec 2026"
+  ],
+  "blog": "/blog/form-1099-preparation-guide-2026/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "For tax years beginning after 2025 the 1099-NEC threshold is $2,000; card and third-party network payments go on Form 1099-K; due Jan. 31, moved to the next business day (Feb. 1, 2027) (read 2026-10-24, spec 1099-2000-rule; within 30 days)",
+   "url": "https://www.irs.gov/instructions/i1099mec"
+  }
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Paid a contractor? Get the *W-9*",
+  "sub": "Before 1099 season starts"
+ }
+}

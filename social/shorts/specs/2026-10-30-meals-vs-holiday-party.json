@@ -1,0 +1,118 @@
+{
+ "date": "2026-10-30",
+ "slug": "meals-vs-holiday-party",
+ "checked": "October 30, 2026",
+ "title": "Business meals 50% vs the team holiday party 100%",
+ "type": "product",
+ "accent": "plum",
+ "label": "Tax write-off tip",
+ "series": "Tax myth vs fact",
+ "link": {
+  "path": "/shop/",
+  "anchor": "kit",
+  "label": "Tax Write Offs Tracker for Self Employed (MFA shop)"
+ },
+ "hook": {
+  "text": "Client lunch *50%*. Team party?",
+  "sub": "Year-end meal rules."
+ },
+ "beats": [
+  {
+   "type": "rows",
+   "kicker": "Generally, for federal tax",
+   "items": [
+    {
+     "l": "Lunch with a client",
+     "r": "50%",
+     "ok": false
+    },
+    {
+     "l": "Holiday party for your team",
+     "r": "100%",
+     "ok": true
+    }
+   ],
+   "note": "The party exception is for events mainly for your employees."
+  },
+  {
+   "type": "list",
+   "kicker": "Make each meal count",
+   "items": [
+    {
+     "t": "Keep the receipt"
+    },
+    {
+     "t": "Note who was there",
+     "s": "And the business reason."
+    },
+    {
+     "t": "Log it the same week"
+    }
+   ]
+  },
+  {
+   "type": "product",
+   "image": "social/shorts/img/self-employed-tax-deduction-tracker.jpg",
+   "kicker": "Track every write-off",
+   "text": "Tax Write Offs *Tracker*",
+   "sub": "Receipts, mileage and more, in one workbook."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/shop",
+  "sub": "We'll DM you the write-offs tracker."
+ },
+ "captions": {
+  "comment_word": "MEALS",
+  "instagram": "Business meal or holiday party? The deduction isn't the same.\n\n✔️ Business meals, like lunch with a client, are generally 50% deductible.\n✔️ A holiday party or picnic held mainly for your employees is an exception to the 50% limit.\n✔️ For every meal: keep the receipt, note who was there and the business reason, and log it the same week.\n\nOur Tax Write Offs Tracker keeps receipts, mileage, home office and more in one workbook, with a year-end summary for your tax preparer.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#taxwriteoffs",
+   "#selfemployed",
+   "#holidayparty"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#smallbusiness",
+   "#taxtips",
+   "#bookkeeping"
+  ],
+  "youtube_title": "Business Meals Are 50%. Is the Holiday Party 100%?",
+  "youtube_description": "Business meals are generally 50% deductible. A holiday party or picnic held mainly for your employees is an exception to the 50% limit. For every meal, keep the receipt, note who was there and why, and log it the same week.",
+  "pinterest_title": "Business Meal Deduction 50% vs Holiday Party: Small Business Tax Write Offs",
+  "pinterest_description": "Small business tax write offs at year-end: business meals with clients are generally 50% deductible, while a holiday party mainly for employees is an exception to the 50% limit. Keep each receipt, note who attended and the business reason, and track it in a tax write offs tracker.",
+  "pinterest_alt": "Short video comparing the 50% business meal rule with the employee holiday party exception, then the MFA Tax Write Offs Tracker.",
+  "pinterest_board": "Tax Write Offs & Deductions for Small Business"
+ },
+ "sync": {
+  "product_id": "13",
+  "etsy_title_phrase": "self employed tax deduction tracker 2026",
+  "ads_keywords": [
+   "business meal deduction",
+   "holiday party tax deduction"
+  ],
+  "blog": "/tools/is-it-deductible/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "You can deduct no more than $25 for business gifts to each person during your tax year; generally only 50% of business meal expenses unless an exception applies; employer recreational, social or similar activities (e.g., holiday parties, summer picnics) are excepted from the 50% limit (Pub 463, 2025); read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-pdf/p463.pdf"
+  }
+ ],
+ "character": {
+  "name": "mascot-thumbs",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Meals *50%*, holiday party 100%",
+  "sub": "Year-end meal rules"
+ }
+}

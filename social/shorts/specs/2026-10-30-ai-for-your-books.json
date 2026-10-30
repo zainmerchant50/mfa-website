@@ -1,0 +1,121 @@
+{
+ "date": "2026-10-30",
+ "slug": "ai-for-your-books",
+ "checked": "October 30, 2026",
+ "title": "Can AI do your bookkeeping? What it can and can't do",
+ "type": "value",
+ "accent": "slate",
+ "label": "1-minute bookkeeping fix",
+ "series": "1-minute bookkeeping fix",
+ "link": {
+  "path": "/blog/ai-in-accounting-and-tax-2026/",
+  "label": "AI in accounting and tax 2026 guide (MFA)"
+ },
+ "hook": {
+  "text": "Can AI do your *books?*",
+  "sub": "What it's good at, and what it isn't."
+ },
+ "beats": [
+  {
+   "type": "rows",
+   "kicker": "AI and your books",
+   "items": [
+    {
+     "l": "Suggest categories",
+     "r": "Good at",
+     "ok": true
+    },
+    {
+     "l": "Spot duplicates",
+     "r": "Good at",
+     "ok": true
+    },
+    {
+     "l": "Decide what's deductible",
+     "r": "Check it",
+     "ok": false
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "IRS, 2026",
+   "text": "Verify any numbers *AI* gives you",
+   "sub": "And tax pros can't rely on AI alone."
+  },
+  {
+   "type": "list",
+   "kicker": "Use it safely",
+   "items": [
+    {
+     "t": "Review before you post"
+    },
+    {
+     "t": "Keep SSNs and bank details out of chatbots"
+    },
+    {
+     "t": "A person checks the tax return"
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our AI in accounting guide."
+ },
+ "captions": {
+  "comment_word": "AI",
+  "instagram": "AI is built into most bookkeeping apps now. Use it for the busywork, and check the judgment calls.\n\n✔️ Good at: suggesting categories and spotting duplicates for you to review.\n✔️ Check it: anything about what's deductible or how much tax you owe.\n✔️ The IRS (2026 Dirty Dozen list) says not to rely on AI for complex tax questions and to verify any numbers it gives you. Its June 2026 guidance tells tax pros they can't rely on AI alone either.\n✔️ Keep Social Security numbers and bank details out of public chatbots.\n\nOur guide covers where AI helps and where a person still decides.",
+  "hashtags": [
+   "#smallbusinesstips",
+   "#smallbusiness",
+   "#bookkeeping",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#ai",
+   "#aiinaccounting",
+   "#bookkeepingtips"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#ai",
+   "#bookkeeping",
+   "#smallbusiness"
+  ],
+  "youtube_title": "Can AI Do Your Bookkeeping? What It Can and Can't Do",
+  "youtube_description": "AI in bookkeeping apps is good at suggesting categories and spotting duplicates for you to review. Check anything about deductions or tax owed: the IRS 2026 Dirty Dozen list says to verify any numbers AI gives you, and its June 2026 guidance says tax pros can't rely on AI alone. Keep SSNs and bank details out of chatbots.",
+  "pinterest_title": "AI for Small Business Bookkeeping: What It Can Do and What You Should Check",
+  "pinterest_description": "AI in accounting for small business owners: AI tools are good at suggesting transaction categories and spotting duplicates, but check anything about deductions or taxes owed. The IRS says to verify numbers from AI and not to rely on it for complex tax questions. Keep personal data out of public chatbots.",
+  "pinterest_alt": "Short video: what AI does well in bookkeeping, what to double-check, and the IRS 2026 guidance on verifying AI answers.",
+  "pinterest_board": "Small Business Bookkeeping Templates & Tips"
+ },
+ "sync": {
+  "ads_keywords": [
+   "ai bookkeeping",
+   "ai in accounting"
+  ],
+  "blog": "/blog/ai-in-accounting-and-tax-2026/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "IR-2026-30 (Mar. 5, 2026) Dirty Dozen: taxpayers should not rely on AI-generated responses to complex tax questions and should verify any calculations or information provided by AI; read 2026-10-30",
+   "url": "https://www.irs.gov/newsroom/dirty-dozen-tax-scams-for-2026-irs-reminds-taxpayers-to-watch-out-for-dangerous-threats"
+  },
+  {
+   "fact": "IRS OPR Issue 2026-19 (June 24, 2026), Introductory Guidelines for Responsible AI Use in Federal Tax Practice: practitioners cannot rely solely on AI and must review its output (checked by Blog for the AI guide; URL listed by irs.gov search 2026-10-30)",
+   "url": "https://www.irs.gov/pub/opr-taxpros/issue-number-2026-19-introductory-guidelines-for-responsible-ai-use-in-federal-tax-practice.pdf"
+  }
+ ],
+ "character": {
+  "name": "mascot-hmm",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "Can AI do your *books*?",
+  "sub": "What it can and can't do"
+ }
+}

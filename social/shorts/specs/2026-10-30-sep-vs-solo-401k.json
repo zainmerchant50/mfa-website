@@ -1,0 +1,114 @@
+{
+ "date": "2026-10-30",
+ "slug": "sep-vs-solo-401k",
+ "checked": "October 30, 2026",
+ "title": "SEP-IRA vs Solo 401(k) for the self-employed: 2026 limits",
+ "type": "value",
+ "accent": "forest",
+ "label": "Year-end tax move",
+ "series": "Year-end tax move",
+ "link": {
+  "path": "/year-end-tax-planning/",
+  "label": "Year-end tax planning (MFA)"
+ },
+ "hook": {
+  "text": "SEP-IRA or *Solo 401(k)?*",
+  "sub": "2026 limits for the self-employed."
+ },
+ "beats": [
+  {
+   "type": "list",
+   "kicker": "SEP-IRA",
+   "items": [
+    {
+     "t": "Business contributions only",
+     "s": "About 20% of your net self-employment earnings."
+    },
+    {
+     "t": "Open and fund it by your tax deadline",
+     "s": "Extensions count."
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "kicker": "Solo 401(k)",
+   "start": 3,
+   "items": [
+    {
+     "t": "Up to $24,500 as the 'employee'",
+     "s": "Plus $8,000 more at 50 or older."
+    },
+    {
+     "t": "Plus a business contribution",
+     "s": "Up to $72,000 total, before catch-up."
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "kicker": "Missed Dec. 31?",
+   "text": "No employees? A 401(k) can still be *set up*",
+   "sub": "By the filing deadline, extensions not counted."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com/year-end-tax-planning",
+  "sub": "We'll DM you our year-end planning page."
+ },
+ "captions": {
+  "comment_word": "RETIRE",
+  "instagram": "Self-employed and want to put money away for retirement before filing? Two common choices, with 2026 limits:\n\n✔️ SEP-IRA: business contributions only, about 20% of your net self-employment earnings. You can open and fund it up to your tax deadline, including extensions.\n✔️ Solo 401(k): up to $24,500 as the 'employee' ($8,000 more at 50 or older), plus a business contribution, up to $72,000 total before catch-up.\n✔️ Owners with no employees can set up a 401(k) after Dec. 31, by the filing deadline (extensions don't count).\n\nWhich one fits depends on your income. Our year-end planning page has the other deadlines.",
+  "hashtags": [
+   "#1099",
+   "#selfemployed",
+   "#gigworker",
+   "#sidehustle",
+   "#retirementplanning",
+   "#solo401k",
+   "#sepira",
+   "#taxtips"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#selfemployed",
+   "#gigworker",
+   "#taxtips"
+  ],
+  "youtube_title": "SEP-IRA vs Solo 401(k): 2026 Limits for the Self-Employed",
+  "youtube_description": "SEP-IRA: business contributions only, about 20% of net self-employment earnings, open and fund by your tax deadline including extensions. Solo 401(k): up to $24,500 as the employee ($8,000 more at 50+) plus a business contribution, up to $72,000 total before catch-up. Owners with no employees can set up a 401(k) by the filing deadline, extensions not counted.",
+  "pinterest_title": "SEP IRA vs Solo 401k for Self-Employed: 2026 Contribution Limits and Deadlines",
+  "pinterest_description": "Retirement plans for self-employed people in 2026: a SEP-IRA takes about 20% of net self-employment earnings and can be opened and funded by your tax deadline with extensions. A Solo 401(k) allows $24,500 of employee deferrals ($8,000 more at 50+) plus a business contribution, up to $72,000 total before catch-up.",
+  "pinterest_alt": "Short video comparing a SEP-IRA and a Solo 401(k) for self-employed people, with 2026 limits and setup deadlines.",
+  "pinterest_board": "Self-Employed & 1099 Taxes"
+ },
+ "sync": {
+  "ads_keywords": [
+   "sep ira vs solo 401k",
+   "solo 401k contribution limits 2026"
+  ],
+  "blog": "/year-end-tax-planning/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "2026: 415(c) defined contribution limit $72,000; 402(g) elective deferral $24,500; catch-up 50+ $8,000; ages 60-63 $11,250; compensation limit $360,000; read 2026-10-30",
+   "url": "https://www.irs.gov/retirement-plans/cola-increases-for-dollar-limitations-on-benefits-and-contributions"
+  },
+  {
+   "fact": "SEP can be set up and funded up to the return due date including extensions; self-employed SEP limit figured with a reduced rate (20% of net earnings from self-employment for a 25% plan); for 2023 and later a sole proprietor with no employees can adopt a 401(k) after year-end by the filing deadline, not counting extensions; 2026 limits table (Pub 560, 2025); read 2026-10-30",
+   "url": "https://www.irs.gov/publications/p560"
+  }
+ ],
+ "character": {
+  "name": "artist",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "SEP-IRA or *Solo 401(k)*?",
+  "sub": "2026 limits for the self-employed"
+ }
+}

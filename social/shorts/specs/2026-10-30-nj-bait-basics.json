@@ -1,0 +1,118 @@
+{
+ "date": "2026-10-30",
+ "slug": "nj-bait-basics",
+ "checked": "October 30, 2026",
+ "title": "NJ business owner? BAIT basics for partnerships and S corps",
+ "type": "value",
+ "accent": "burgundy",
+ "label": "NJ owner tip",
+ "series": "Owner pay 101",
+ "link": {
+  "path": "/blog/salt-cap-2026-nj-ny-pte-tax/",
+  "label": "SALT cap 2026, NJ BAIT and NY PTET guide (MFA)"
+ },
+ "hook": {
+  "text": "NJ business owner? Ask about *BAIT*",
+  "sub": "For partnerships and S corps."
+ },
+ "beats": [
+  {
+   "type": "text",
+   "kicker": "What it is",
+   "text": "The business pays the NJ tax *for you*",
+   "sub": "You get a credit on your NJ return."
+  },
+  {
+   "type": "rows",
+   "kicker": "Who can elect in NJ",
+   "items": [
+    {
+     "l": "Partnership or S corp",
+     "r": "Yes",
+     "ok": true
+    },
+    {
+     "l": "Single-member LLC",
+     "r": "No",
+     "ok": false
+    },
+    {
+     "l": "Sole proprietor",
+     "r": "No",
+     "ok": false
+    }
+   ]
+  },
+  {
+   "type": "stat",
+   "kicker": "Elect for 2026 by",
+   "value": "March 15, 2027",
+   "sub": "Every year. It doesn't carry over."
+  },
+  {
+   "type": "text",
+   "kicker": "Why owners ask",
+   "text": "It can work *around* the SALT cap",
+   "sub": "Ask if it helps at your income."
+  }
+ ],
+ "cta": {
+  "url": "mfa-advisory.com",
+  "sub": "We'll DM you our SALT cap and BAIT guide."
+ },
+ "captions": {
+  "comment_word": "BAIT",
+  "instagram": "Own a New Jersey partnership or S corp? Ask about BAIT before March 15.\n\n✔️ BAIT (Pass-Through Business Alternative Income Tax) lets the business pay the NJ income tax for its owners. Owners get a credit on their NJ returns.\n✔️ Partnerships, S corps and LLCs taxed as either can elect. Single-member LLCs and sole proprietors can't.\n✔️ It's an annual election: for 2026, by March 15, 2027 for calendar-year businesses.\n✔️ Federally, entity-level state tax is deducted by the business instead of counting toward each owner's SALT cap.\n\nWhether it helps depends on your income. Our SALT cap guide covers NJ BAIT and NY PTET.",
+  "hashtags": [
+   "#newjersey",
+   "#njsmallbusiness",
+   "#smallbusiness",
+   "#taxtips",
+   "#smallbusinesstaxes",
+   "#scorp",
+   "#saltcap",
+   "#businessowner"
+  ],
+  "youtube_hashtags": [
+   "#shorts",
+   "#newjersey",
+   "#smallbusiness",
+   "#taxtips"
+  ],
+  "youtube_title": "NJ Business Owners: BAIT Basics Before March 15",
+  "youtube_description": "New Jersey's Pass-Through Business Alternative Income Tax (BAIT) lets a partnership or S corp pay NJ income tax at the entity level; owners get a credit on their NJ returns. Single-member LLCs and sole proprietors can't elect. Elect each year by the original return due date: March 15, 2027 for 2026. Federally, it can work around the SALT cap.",
+  "pinterest_title": "New Jersey BAIT Explained: Pass-Through Entity Tax for Partnerships and S Corps",
+  "pinterest_description": "NJ BAIT (Pass-Through Business Alternative Income Tax) for small business owners: partnerships and S corps can pay NJ income tax at the entity level and owners claim a credit. Single-member LLCs and sole proprietors can't elect. The election is annual: for 2026, by March 15, 2027. It can help owners affected by the SALT cap.",
+  "pinterest_alt": "Short video explaining New Jersey BAIT: what it is, who can elect, the March 15, 2027 deadline and the SALT cap angle.",
+  "pinterest_board": "Small Business Tax Tips"
+ },
+ "sync": {
+  "ads_keywords": [
+   "nj bait",
+   "pass through entity tax nj"
+  ],
+  "blog": "/blog/salt-cap-2026-nj-ny-pte-tax/",
+  "pin_ids": []
+ },
+ "sources": [
+  {
+   "fact": "NJ BAIT: partnerships, NJ S corps and LLCs taxed as either may elect; single-member LLCs and sole proprietors can't; annual election by the original return due date (March 15 for calendar-year filers); members get a refundable credit (page updated 04/16/26); read 2026-10-30",
+   "url": "https://www.nj.gov/treasury/taxation/baitpte/index.shtml"
+  },
+  {
+   "fact": "Notice 2020-75: entity-level state income tax payments by a partnership or S corporation are deductible by the entity and not taken into account in applying the SALT limitation to owners; read 2026-10-30",
+   "url": "https://www.irs.gov/pub/irs-drop/n-20-75.pdf"
+  }
+ ],
+ "character": {
+  "name": "owner",
+  "scene": "hook",
+  "position": "lower",
+  "corner_after": true,
+  "corner": "self"
+ },
+ "thumb": {
+  "title": "NJ owners: what is *BAIT*?",
+  "sub": "For partnerships and S corps"
+ }
+}
