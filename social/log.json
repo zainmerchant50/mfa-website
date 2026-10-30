@@ -53,7 +53,7 @@
   "product": null,
   "cta": "MILEAGE",
   "folder": "2026-10-30 Fri - Mileage Two Rates",
-  "status": "in Ready to Post; emailed to Abiha 2026-10-28"
+  "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 12:00 PM (Typefully), Oct 30"
  },
  {
   "date": "2026-11-02",
@@ -63,6 +63,51 @@
   "product": null,
   "cta": "LATE",
   "folder": "2026-11-02 Mon - Post - Late Return Penalty",
-  "status": "in Ready to Post; emailed to Abiha 2026-10-29"
+  "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 8:30 AM (Typefully), Nov 2"
+ },
+ {
+  "date": "2026-10-31",
+  "slug": "1099-Contractor-Tracker",
+  "status": "scheduled",
+  "platforms": [
+   "instagram"
+  ],
+  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+ },
+ {
+  "date": "2026-11-01",
+  "slug": "Year-End-Moves",
+  "status": "scheduled",
+  "platforms": [
+   "instagram"
+  ],
+  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+ },
+ {
+  "date": "2026-11-03",
+  "slug": "OPT-FICA-Check",
+  "status": "scheduled",
+  "platforms": [
+   "instagram"
+  ],
+  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+ },
+ {
+  "date": "2026-11-04",
+  "slug": "S-Corp-For-2027",
+  "status": "scheduled",
+  "platforms": [
+   "instagram"
+  ],
+  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+ },
+ {
+  "date": "2026-11-05",
+  "slug": "Jan-15-Estimates",
+  "status": "scheduled",
+  "platforms": [
+   "instagram"
+  ],
+  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
  }
 ]
