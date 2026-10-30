@@ -178,6 +178,7 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-hei
 .top-act .btn{padding:12px 20px}
 /* hero */
 .hero{background:var(--navy);color:#fff;padding:64px 0 72px;position:relative;overflow:hidden}
+.price-note{margin:-6px 0 18px;font-size:15px;font-weight:600;color:var(--gold-b)}
 .hero:after{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;border:1px solid rgba(216,183,105,.18)}
 .hero-g{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
 .hero h1{font-size:clamp(38px,5vw,60px);margin-bottom:20px}
@@ -525,6 +526,7 @@ page = f'''<!doctype html><html lang="en"><head>
     <span class="eyebrow">§EYEBROW§</span>
     <h1 id="h1">{d["h1"]}</h1>
     <p class="lead" id="lead">{d["lead"]}</p>
+    <p class="price-note">Monthly bookkeeping from ${__import__("build_llc").MONTHLY["price"]}/month. Tax returns quoted up front, before we start.</p>
     <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
     <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}Ex-PwC (Big Four)</span><span>{check}5.0 on Google, Upwork &amp; Fiverr</span><span>{check}Flat-fee or hourly pricing</span></div>
   </div>
