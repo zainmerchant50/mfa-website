@@ -5,8 +5,8 @@
    secondary and the label is always text. Mobile first; the only motion is the sheet opening, and only without
    prefers-reduced-motion. */
 .dd-page{
-  --wine:#6B1A43;--wine-2:#8A2257;--wine-ink:#7B1E4A;--blush:#F8ECF2;--blush-2:#F2DCE7;
-  --line:#E7E1E4;--soft:#FAF8F6;--txt:#26252B;--sub:#5D5A63;
+  --wine:#10233F;--wine-2:#1B3557;--wine-ink:#10233F;--blush:#F5F4EF;--blush-2:#E9E6DD;
+  --line:#E4E2DC;--soft:#F5F4EF;--txt:#26252B;--sub:#5D5A63;
   --yes:#17633B;--yes-bg:#E3F1E7;--part:#7A5200;--part-bg:#FAEFD6;--no:#9C2A25;--no-bg:#F9E5E3;
 }
 .dd-page [hidden]{display:none!important}
@@ -198,3 +198,35 @@ html.dd-lock{overflow:hidden}
 .dd-page .cta-block{margin-top:10px}
 @media (max-width:699px){.dd-page .tinfo{padding:0 16px}.dd-page .tinfo .article{padding-top:14px}.dd-page .cta-block{padding:0 16px}}
 .dd-hero h1 .h1-kw{display:block;max-width:none;font-family:'Inter',system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;line-height:1.5;text-transform:uppercase;color:var(--gold-b);margin:0 0 14px}
+
+/* 2026-10-29 (Zain: "looks AI generated, the animations and the color theme"): site brand (navy, paper, gold),
+   flat surfaces, square-ish corners, no motion, no tilted decorative card. Text unchanged. */
+.dd-page *,.dd-page *:before,.dd-page *:after{animation:none!important}
+.dd-page .rv,.dd-page .faq-a-in{opacity:1!important;transform:none!important;transition:none!important}
+.dd-hero{background:var(--navy)!important;padding:40px 0 44px}
+.dd-hero:after,.dd-peek{display:none!important}
+@media (min-width:960px){.dd-hgrid{display:block}.dd-htext{max-width:760px}}
+.dd-hero h1{font-weight:400}
+.dd-sbox{border-radius:6px;box-shadow:none}
+.dd-sbox:focus-within{box-shadow:0 0 0 2px var(--gold-b)}
+.dd-res{border-radius:6px;box-shadow:0 8px 24px rgba(16,35,63,.18)}
+.hit{border-radius:4px}
+.ic{border-radius:0;background:none;color:var(--navy);width:28px;height:28px}
+.tile{border-radius:4px;transition:border-color .15s;background:#fff}
+.tile:hover{border-color:var(--navy);box-shadow:none}
+.tile:active{transform:none}
+.vb{border-radius:3px;padding:1px 7px 1px 5px;font-size:12px}
+.vb.big{border-radius:4px}
+.gi{background:none;border-radius:0;width:28px}
+.gc{border-radius:3px}
+.legend{border-radius:4px}
+.blk{border-radius:0;padding:12px 14px;background:none!important;border-left:3px solid var(--line)}
+.blk .bi{display:none}
+.proof{border-left-color:var(--navy)}
+.oops{border-left-color:var(--gold)}
+.acct{border-radius:4px}
+.dd-sheet{border-radius:8px 8px 0 0}
+@media (min-width:700px){.dd-sheet{border-radius:8px;box-shadow:0 20px 50px rgba(16,35,63,.25)}}
+.sh-x{border-radius:4px}
+.go svg,.acct>summary:before{transition:none}
+.dd-hero h1{font-size:clamp(2.4rem,7vw,3.8rem)!important;max-width:none}
