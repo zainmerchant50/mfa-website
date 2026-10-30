@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:small-business-tax-write-offs-2026-1@mfa-advisory.com
+DTSTAMP:20261030T203031Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form 1099-NEC due to contractors and the IRS
+DESCRIPTION:For 2026 payments of $2\,000 or more for services. January 31
+ \, 2027 is a Sunday\, so the due date moves to Monday\, February 1.\n\nDe
+ tails: https://mfa-advisory.com/blog/small-business-tax-write-offs-2026/\
+ nGeneral information\, not tax advice. Merchant Financial Advisory\, mfa-
+ advisory.com
+URL:https://mfa-advisory.com/blog/small-business-tax-write-offs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1099-NEC due to contractors and the IRS
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:small-business-tax-write-offs-2026-0@mfa-advisory.com
+DTSTAMP:20261030T203031Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day to place equipment in service for a 2026 write-off
+DESCRIPTION:Section 179\, bonus depreciation and the $2\,500 small-purcha
+ se rule all depend on the item being set up and ready to use by this date
+ . Ordering it isn't enough.\n\nDetails: https://mfa-advisory.com/blog/sma
+ ll-business-tax-write-offs-2026/\nGeneral information\, not tax advice. M
+ erchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/small-business-tax-write-offs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to place equipment in service for a 2026 write-off
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
