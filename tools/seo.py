@@ -42,7 +42,15 @@ UPWORK = "https://www.upwork.com/freelancers/zainmerchant50"
 FIVERR = "https://www.fiverr.com/zainmerchant50"
 INSTAGRAM = "https://www.instagram.com/mfa_advisory/"
 GBP = "https://maps.google.com/?cid=17671016441974338457"  # Google Business Profile (verified Oct 2026)
-SAME_AS = [GBP, LINKEDIN_CO, INSTAGRAM, UPWORK, FIVERR, GUMROAD_STORE]
+FACEBOOK = "https://www.facebook.com/profile.php?id=61596160376520"
+YOUTUBE = "https://www.youtube.com/channel/UCLNPu802SdUCkrjLeIqgM_g"
+TIKTOK = "https://www.tiktok.com/@mfa.advisory"
+PINTEREST = "https://www.pinterest.com/mfaadvisory/"
+YELP = "https://www.yelp.com/biz/merchant-financial-advisory-princeton"
+# Public social profiles, in the order shown in the site footer. Hub, 2026-10-30.
+SOCIAL = [("LinkedIn", LINKEDIN_CO), ("Instagram", INSTAGRAM), ("Facebook", FACEBOOK), ("YouTube", YOUTUBE),
+          ("TikTok", TIKTOK), ("Pinterest", PINTEREST), ("Google", GBP), ("Yelp", YELP)]
+SAME_AS = [GBP, LINKEDIN_CO, INSTAGRAM, FACEBOOK, YOUTUBE, TIKTOK, PINTEREST, YELP, UPWORK, FIVERR, GUMROAD_STORE]
 TOPICS = ["Tax preparation", "Tax planning", "Bookkeeping", "Accrual accounting", "Financial reporting", "QuickBooks Online", "QuickBooks Desktop", "Xero", "Sage", "Wave Accounting", "FreshBooks",
           "Fractional CFO services", "LLC formation", "S corporation elections", "Form 1099 reporting", "IRS filing deadlines",
           "New Jersey taxes", "New York taxes", "Small business accounting"]

@@ -152,9 +152,14 @@ def nav(active):
 </div></header>{ui_kit.mobile_sheet(active)}'''
 
 
+SOCIAL_ROW = ('<nav class="socs" aria-label="MFA on social media" style="flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 18px">'
+              '<span>Follow MFA:</span>' + "".join(
+                  f'<a href="{u}" target="_blank" rel="noopener noreferrer">{n}</a>' for n, u in seo.SOCIAL) + '</nav>')
+
 FOOT = f'''<footer class="bfoot"><div class="wrap">
   <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
   <nav><a href="/">Home</a><a href="/#reviews">Reviews</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+  {SOCIAL_ROW}
   <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
 </div></footer>''' + ui_kit.UI_JS
 

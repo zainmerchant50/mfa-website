@@ -6,7 +6,7 @@ METHOD:PUBLISH
  s) due for calendar-year 2026
 BEGIN:VEVENT
 UID:which-tax-form-llc-corporation-0@mfa-advisory.com
-DTSTAMP:20261025T044238Z
+DTSTAMP:20261030T195624Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:Form 1065 (multi-member LLCs) and Form 1120-S (S corporations) du
