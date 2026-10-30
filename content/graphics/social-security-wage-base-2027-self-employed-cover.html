@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="_base.css"/>
+<style>
+:root{--w:1200px;--h:1180px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.wrap{position:absolute;inset:72px 80px 64px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;font-size:70px;line-height:1;margin:30px 0 12px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-size:19px;font-weight:300;color:rgba(255,255,255,.72)}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.n{border:1px solid rgba(216,183,105,.5);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,.04)}
+.n b{display:block;font-family:Cormorant,serif;font-weight:600;font-size:46px;line-height:1;color:var(--gold-b)}
+.n span{display:block;margin-top:8px;font-size:14.5px;line-height:1.38;color:rgba(255,255,255,.85)}
+.card{margin-top:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden}
+.card .hd{background:var(--gold-b);color:var(--navy);font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:11px 22px;display:flex;justify-content:space-between}
+.ex{width:100%;border-collapse:collapse;font-size:16px;color:rgba(255,255,255,.88)}
+.ex td{padding:11px 22px;border-top:1px solid rgba(255,255,255,.1);line-height:1.4;vertical-align:top}
+.ex tr:first-child td{border-top:0}
+.ex td:first-child{font-weight:600;color:#fff;white-space:nowrap;width:150px}
+.ex td.v{text-align:right;font-family:Cormorant,serif;font-size:28px;font-weight:600;color:var(--gold-b);line-height:1}
+.ex b{color:#fff}
+.tip{margin-top:18px;background:var(--paper);color:var(--navy);border-radius:14px;padding:16px 22px;font-size:16px;line-height:1.45}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+
+</style></head><body>
+<div class="frame"></div>
+<div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights · Save this</span><span class="tag">Self-employed · 2027</span></div>
+  <h1>The 2027 <em>Social Security</em><br/>cap, at a glance</h1>
+  <p class="sub">What it means for self-employment tax on Schedule SE.</p>
+  <div class="nums">
+    <div class="n"><b>$192,300</b><span>2027 wage base<br/>(was $184,500 in 2026)</span></div>
+    <div class="n"><b>12.4%</b><span>Social Security tax, only up to the cap</span></div>
+    <div class="n"><b>2.9%</b><span>Medicare tax on all earnings, no cap</span></div>
+    <div class="n"><b>$967.20</b><span>most the higher cap adds per person</span></div>
+  </div>
+  <div class="card"><div class="hd"><span>Social Security tax, 2026 vs 2027</span><span>Change</span></div>
+    <table class="ex"><tr><td>$80,000 profit</td><td>Under the cap: $9,161.12 both years</td><td class="v">$0</td></tr>
+    <tr><td>$240,000 profit</td><td>$22,878.00 → $23,845.20 (capped both years)</td><td class="v">+$967</td></tr>
+    <tr><td>W-2 + side gig</td><td>$150,000 salary + $60,000 profit: room under the cap grows $34,500 → $42,300</td><td class="v">+$967</td></tr></table></div>
+  <div class="card"><div class="hd"><span>How to figure it</span><span>Schedule SE</span></div>
+    <table class="ex dt"><tr><td>Step 1</td><td>Net profit × 92.35% = net earnings from self-employment</td></tr>
+    <tr><td>Step 2</td><td>12.4% on net earnings up to $192,300 (less any W-2 wages)</td></tr>
+    <tr><td>Step 3</td><td>2.9% on all net earnings, plus 0.9% over $200,000 single / $250,000 joint</td></tr></table></div>
+  <div class="card"><div class="hd"><span>Dates</span><span>2027</span></div>
+    <table class="ex dt"><tr><td>Jan 1, 2027</td><td>$192,300 cap takes effect</td></tr>
+    <tr><td>Apr 15, 2027</td><td>First 2027 estimated tax payment: build in the higher cap</td></tr></table></div>
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com · info@mfa-advisory.com</b><br/>General information, not tax advice. Facts checked Oct. 29, 2026.</div>
+  </div>
+</div>
+</body></html>

@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "2027 Social Security Wage Base: $192,300 and What Self-Employed People Pay",
+   "url": "/blog/social-security-wage-base-2027-self-employed/",
+   "date": "2026-10-29",
+   "category": "Tax Planning",
+   "thumb": "/blog/social-security-wage-base-2027-self-employed/og-card.webp",
+   "description": "The 2027 Social Security wage base is $192,300, up from $184,500. What it means for self-employment tax, side gigs and 2027 estimates, with worked numbers."
+  },
+  {
    "title": "How to Have Your LLC Taxed as an S Corp: Form 2553 Guide",
    "url": "/blog/llc-taxed-as-s-corp-guide/",
    "date": "2026-10-26",
@@ -31,14 +39,6 @@
    "category": "Tax Deadlines",
    "thumb": "/blog/which-tax-form-llc-corporation/og-card.webp",
    "description": "How to file taxes for an LLC or corporation: Schedule C, Form 1065, 1120-S or 1120, the 2027 due date for each, and who pays the tax."
-  },
-  {
-   "title": "Form 1120-S and S Corp Distributions: How They're Taxed",
-   "url": "/blog/form-1120s-s-corp-guide/",
-   "date": "2026-10-20",
-   "category": "Tax Planning",
-   "thumb": "/blog/form-1120s-s-corp-guide/og-card.webp",
-   "description": "Form 1120-S in plain English: who files, the March 15, 2027 due date, how S corp distributions are taxed, reasonable pay and the $260 per shareholder late penalty."
   }
  ]
 }
