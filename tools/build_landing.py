@@ -303,8 +303,8 @@ def bookkeeping_page():
     price = build_llc.MONTHLY["price"]   # $199: Zain, 2026-10-20 (same figure as /services/)
     city = L["city"] + ", " + ST
     title = f"Bookkeeping in {city} | Flat Monthly or Hourly | MFA"
-    desc = (f"Monthly bookkeeping for {city} small businesses from ${price}/month: reconciliations, P&amp;L and balance sheet. "
-            "Flat monthly or hourly, senior team.")
+    desc = (f"Monthly bookkeeping for {city} small businesses: reconciliations, P&amp;L and balance sheet every month. "
+            "Flat monthly fee or hourly, quoted up front by a senior team.")
     ico = lambda p: f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{p}</svg>'
     INCLUDED = [
         ("Reconciliations", ico('<path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/>'),
@@ -318,8 +318,8 @@ def bookkeeping_page():
     ]
     inc_html = "".join(f'<article class="card"><span class="ic">{i}</span><h3>{t}</h3><p>{d}</p></article>' for t, i, d in INCLUDED)
     PRICES = [   # copy from /services/ (OFFERS, bookkeeping price line) and the cleanup offer; no new prices
-        ("Monthly bookkeeping", f"From ${price}", "/ month",
-         "One bank, one card, up to 100 transactions a month. Month to month; bigger books quoted up front.",
+        ("Monthly bookkeeping", "Flat fee", "per month",
+         "One fixed monthly fee, based on your accounts and transactions. Month to month, quoted up front after a short call.",
          '<a class="btn btn-gold" href="#quote">Get my quote</a>'),
         ("Hourly", "Hourly", "pay as you go",
          "Prefer not to commit to a monthly fee? We also work on hourly contracts, with the rate agreed before any work starts.",
@@ -336,8 +336,8 @@ def bookkeeping_page():
     pills = lambda xs: '<div class="pills">' + "".join(f"<span>{x}</span>" for x in xs) + "</div>"
     FAQ_BK = [
         ("How much does monthly bookkeeping cost?",
-         f"Monthly bookkeeping starts at ${price} a month for one bank account, one card and up to 100 transactions a month. "
-         "Larger books are quoted up front after a short call, and we also work hourly if you prefer to pay as you go. "
+         "Monthly bookkeeping is a flat monthly fee based on how many accounts and transactions you have. "
+         "We quote it up front after a short call, and we also work hourly if you prefer to pay as you go. "
          "Cleanup and catch-up projects get a fixed quote after we review a sample of your accounts."),
         ("Do you work in QuickBooks, Xero, Sage, Wave and FreshBooks?",
          "Yes. Our founder is a QuickBooks ProAdvisor, and we keep books in QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks. If you don't use accounting "
@@ -355,8 +355,7 @@ def bookkeeping_page():
                "url": URL, "provider": {"@id": seo.ORG_ID}, "areaServed": LOCAL_AREAS, "termsOfService": "https://mfa-advisory.com/terms.html",
                "description": seo.plain("Monthly bookkeeping: reconciliations, transaction categorizing, a monthly P&amp;L and balance sheet "
                                         "and sales-tax-ready reports, at a flat monthly fee or hourly, in QuickBooks, Xero, Sage, Wave and FreshBooks. Cleanup and catch-up quoted up front."),
-               "offers": [seo._offer("Monthly bookkeeping", price, "Starting price per month for one bank account, one card and up to 100 transactions a month. "
-                                     "Month to month; larger books are quoted up front.", unit=("MON", "month"))]}
+               }
     faq_ld = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": seo.plain(a)}} for q, a in FAQ_BK]}
     ld_bk = seo.graph(URL, f"Bookkeeping in {city}", seo.plain(desc), service, faq_ld, kind="WebPage", full_org=True, areas=LOCAL_AREAS,
@@ -410,13 +409,13 @@ def bookkeeping_page():
   <div>
     <span class="eyebrow">§EYEBROW§</span>
     <h1>Bookkeeping in {city}</h1>
-    <p class="lead">Flat monthly or hourly pricing, from a senior accounting team. Monthly bookkeeping from ${price}/month.</p>
+    <p class="lead">Flat monthly or hourly pricing, from a senior accounting team. Your price is agreed up front, before we start.</p>
     <div class="ctas">{call_btn("btn btn-gold", "Call " + esc(PHONE))}<a href="#included" class="btn btn-line">What's included</a></div>
     <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}Big Four (ex-PwC)</span><span>{check}Flat monthly or hourly</span><span>{check}Senior accounting team</span></div>
   </div>
   <div class="hero-card" id="quote">
     <h2>Get a bookkeeping quote</h2>
-    <p class="s">Four quick questions. We reply within one to three business days.</p>
+    <p class="s">Four quick questions. We reply within one business day.</p>
     <form id="lf" method="POST" action="https://formsubmit.co/{EMAIL}" novalidate>
       {ads.next_field()}<input type="hidden" name="service" value="Bookkeeping"/>
       <div class="f"><label for="f-n">Name *</label><input id="f-n" name="name" autocomplete="name" required/></div>
@@ -526,13 +525,13 @@ page = f'''<!doctype html><html lang="en"><head>
     <span class="eyebrow">§EYEBROW§</span>
     <h1 id="h1">{d["h1"]}</h1>
     <p class="lead" id="lead">{d["lead"]}</p>
-    <p class="price-note">Monthly bookkeeping from ${__import__("build_llc").MONTHLY["price"]}/month. Tax returns quoted up front, before we start.</p>
+    <p class="price-note">A clear quote before we start. We reply within one business day.</p>
     <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
     <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}Ex-PwC (Big Four)</span><span>{check}5.0 on Google, Upwork &amp; Fiverr</span><span>{check}Flat-fee or hourly pricing</span></div>
   </div>
   <div class="hero-card" id="quote">
     <h2>Get a quote</h2>
-    <p class="s">Tell us what you need. We reply within one to three business days.</p>
+    <p class="s">Tell us what you need. We reply within one business day.</p>
     <form id="lf" method="POST" action="https://formsubmit.co/{EMAIL}" novalidate>
       {ads.next_field()}
       <div class="row"><div class="f"><label for="f-n">Name *</label><input id="f-n" name="name" autocomplete="name" required/></div>

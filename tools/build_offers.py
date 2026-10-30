@@ -80,7 +80,7 @@ DIALOG = """<dialog id="svc-dlg" class="svc-dlg" aria-labelledby="svc-h"><form i
 <label class="svc-n">Anything we should know? <small>(optional)</small><textarea name="notes" rows="3" maxlength="480"></textarea></label>
 <p class="svc-tot" id="svc-tot"></p><p class="svc-err" id="svc-err" role="alert"></p>
 <button type="submit" class="btn btn-gold" id="svc-go">Continue to payment</button>
-<p class="svc-fine">Card payment by Stripe. If we review your details and can't take on the work, we refund you in full. We reply within 1–3 business days to schedule or ask for documents.</p>
+<p class="svc-fine">Card payment by Stripe. If we review your details and can't take on the work, we refund you in full. We reply within one business day to schedule or ask for documents.</p>
 </form><div id="svc-pay" hidden></div></dialog>"""
 
 DIALOG_CSS = """<style>
@@ -119,7 +119,7 @@ $('svc-extra').addEventListener('input',tot);$('svc-x').addEventListener('click'
 f.addEventListener('submit',function(e){e.preventDefault();if(!f.reportValidity())return;var fd=Object.fromEntries(new FormData(f).entries());fd.service=cur;
 var go=$('svc-go');go.disabled=true;go.textContent='Opening secure checkout…';
 if(!PK){var m=new FormData(f);m.append('service',S[cur].name);m.append('_subject','Service request (checkout off): '+S[cur].name);m.append('_captcha','false');m.append('_template','table');
-fetch('https://formsubmit.co/ajax/info@mfa-advisory.com',{method:'POST',headers:{'Accept':'application/json'},body:m}).then(function(){$('svc-err').textContent='Thanks. Card checkout is being set up, so we\\u2019ll email you a secure payment link within 1–3 business days.';}).catch(function(){$('svc-err').textContent='Something went wrong. Email info@mfa-advisory.com.';}).then(function(){go.disabled=false;go.textContent='Continue to payment';});return;}
+fetch('https://formsubmit.co/ajax/info@mfa-advisory.com',{method:'POST',headers:{'Accept':'application/json'},body:m}).then(function(){$('svc-err').textContent='Thanks. Card checkout is being set up, so we\\u2019ll email you a secure payment link within one business day.';}).catch(function(){$('svc-err').textContent='Something went wrong. Email info@mfa-advisory.com.';}).then(function(){go.disabled=false;go.textContent='Continue to payment';});return;}
 fetch('/api/svc-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fd)}).then(function(r){return r.json().then(function(j){return [r.ok,j];});}).then(function(a){
 if(!a[0]||!a[1].clientSecret)throw new Error(a[1]&&a[1].error||'x');var cs=a[1].clientSecret;return stripeReady().then(function(St){return St.initEmbeddedCheckout({fetchClientSecret:function(){return Promise.resolve(cs);}});}).then(function(c){co=c;f.hidden=true;$('svc-pay').hidden=false;c.mount('#svc-pay');});
 }).catch(function(err){$('svc-err').textContent=err&&err.message==='invalid'?'Please check the highlighted details.':'Checkout couldn\\u2019t open. Please try again, or email info@mfa-advisory.com.';}).then(function(){go.disabled=false;go.textContent='Continue to payment';});});
@@ -185,7 +185,7 @@ def build_page(slug, *, title, desc, h1, h1em, eyebrow, lead, keywords, cards, i
 <div class="hero-btns">{pay_btn(first)}<a class="btn btn-line" href="#faqs">Questions first?</a></div></div></header>
 <main>
 <section class="wrap llc-sec" id="prices" aria-labelledby="pr-h"><div class="sec-hd"><span class="eyebrow eb-dark">Pricing</span><h2 id="pr-h">One price, paid up front.</h2>
-<p>Pay online in two minutes. We reply within 1–3 business days to schedule or ask for documents. If we can't take on the work after reviewing your details, you get a full refund.</p></div>
+<p>Pay online in two minutes. We reply within one business day to schedule or ask for documents. If we can't take on the work after reviewing your details, you get a full refund.</p></div>
 <div class="of-pk">{"".join(cards)}</div></section>
 <section class="wrap llc-sec" aria-labelledby="inc-h"><div class="sec-hd"><span class="eyebrow eb-dark">What you get</span><h2 id="inc-h">{esc(incl_h)}</h2></div>
 <ul class="of-inc">{inc}</ul><p class="of-cred">{esc(CRED)}</p></section>

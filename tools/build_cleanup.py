@@ -114,7 +114,7 @@ def form_html():
 {fld("c-notes", "Anything else? (optional)", '<textarea id="c-notes" name="notes" rows="4" placeholder="What happened, what you need the books for (tax return, lender, a sale), any deadline"></textarea>', False, "Please don't include Social Security or bank account numbers. We'll ask for access securely after you accept a quote.")}
 <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 <div class="lsubmit"><button class="btn btn-ink" type="submit" id="csubmit">Request my quote</button><p class="ask-st" role="status" aria-live="polite"></p></div>
-<p class="pay-note">No payment on this page. We reply by email, usually within one to three business days.</p>
+<p class="pay-note">No payment on this page. We reply by email within one business day.</p>
 </form>
 </section>
 <script>{JS.replace("__ENDPOINT__", ENDPOINT).replace("__EMAIL__", B.EMAIL)}</script>'''

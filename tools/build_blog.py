@@ -300,7 +300,7 @@ def ask_box(p):
     """Private 'Have a question about this?' form on every post. Sent by FormSubmit to EMAIL (not published)."""
     return f'''<section class="ask" aria-label="Ask a question about this article">
   <h2>Have a question about this?</h2>
-  <p>Ask us privately. Your question goes straight to our inbox, not onto the page, and we reply by email within one to three business days. Please don't include Social Security or account numbers.</p>
+  <p>Ask us privately. Your question goes straight to our inbox, not onto the page, and we reply by email within one business day. Please don't include Social Security or account numbers.</p>
   <form class="ask-f" data-post="{esc(p["title"])}" novalidate>
     <div class="ask-row"><label>Name<input name="name" autocomplete="name" required/></label><label>Email<input name="email" type="email" autocomplete="email" required/></label></div>
     <label>Your question<textarea name="question" rows="4" required placeholder="Type your question about this article"></textarea></label>
@@ -308,7 +308,7 @@ def ask_box(p):
     <button class="btn btn-ink" type="submit">Send my question</button>
     <p class="ask-st" role="status" aria-live="polite"></p>
   </form>
-  <p class="ask-done" hidden>Thanks, your question is in. We'll reply by email within one to three business days.</p>
+  <p class="ask-done" hidden>Thanks, your question is in. We'll reply by email within one business day.</p>
 </section>
 <script>
 (function(){{var s=document.currentScript.previousElementSibling,f=s.querySelector('.ask-f'),st=s.querySelector('.ask-st');

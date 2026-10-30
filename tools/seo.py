@@ -49,7 +49,7 @@ TOPICS = ["Tax preparation", "Tax planning", "Bookkeeping", "Accrual accounting"
 ORG_DESC = ("Accounting, bookkeeping, tax preparation and advisory firm in Princeton, New Jersey for small and mid-sized businesses "
             "and individuals in New Jersey, New York City and nationwide, with LLC formation in all 50 states and a shop of "
             "digital tax and bookkeeping tools. Founded by Zain Merchant, ACCA, formerly of PwC.")
-HOURS_NOTE = "Replies to inquiries within one to three business days."
+HOURS_NOTE = "Replies to inquiries within one business day."
 
 
 # ----------------------------------------------------------------------------------------------- JSON-LD plumbing
