@@ -374,6 +374,47 @@ def llms_lines(full_text=False):
     return o
 
 
+# Email capture (Hub, 2026-10-30, Zain): visitors leave with the checklist PDF, MFA keeps the lead.
+# MailerLite form 202772412124628516 (single opt-in) → group "Write-off checklist" → automation emails the PDF.
+CK_ENDPOINT = "https://assets.mailerlite.com/jsonp/2707043/forms/202772412124628516/subscribe"
+CK_PDF = "/downloads/write-off-checklist-2026.pdf"
+
+
+def checklist_box():
+    n = len(DATA["entries"])
+    css = ("<style>.ck-box{max-width:820px;margin:8px auto 40px}.ck-f{display:grid;gap:12px}"
+           ".ck-f .nl-row{display:grid;grid-template-columns:1fr 1.4fr;gap:12px}"
+           ".ck-f label{display:grid;gap:5px;font-size:.78rem;font-weight:600}"
+           ".ck-f input{font:inherit;font-size:.95rem;padding:11px 13px;border:1px solid rgba(21,21,21,.18);border-radius:9px;background:#fff;color:#151515;width:100%}"
+           ".ck-f .btn{justify-self:start;cursor:pointer;border:0;padding:14px 26px;background:var(--gold-b,#E2C98F);color:var(--navy,#13213A)}"
+           ".ck-done a{color:var(--gold-b,#E2C98F);text-decoration:underline}"
+           "@media (max-width:560px){.ck-f .nl-row{grid-template-columns:1fr}.ck-f .btn{justify-self:stretch;justify-content:center}}</style>")
+    form = f"""<div class="wrap ck-box" id="checklist"><section class="nl-box" aria-label="Email me the write-off checklist">
+  <span class="eyebrow">Keep this handy</span>
+  <h2>Email me the {n}-expense write-off checklist</h2>
+  <p>A printable PDF of every expense on this page: Yes, Partly or Usually not, plus the proof to keep for each one. Tick off what you spent this year and hand it to whoever does your taxes.</p>
+  <form class="ck-f" novalidate>
+  <div class="nl-row"><label>First name<input name="name" autocomplete="given-name"/></label><label>Email<input name="email" type="email" autocomplete="email" required/></label></div>
+  <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"/>
+  <button class="btn" type="submit">Email me the checklist</button>
+  <p class="nl-fine">One email with the PDF now, then occasional tax-deadline reminders. Unsubscribe in one click. We never sell or share your address. <a href="/privacy.html">Privacy Policy</a>.</p>
+  <p class="nl-st" role="status" aria-live="polite"></p>
+  </form>
+  <p class="nl-done ck-done" hidden>Sent. Check your inbox in a minute (and your promotions or spam folder). You can also <a href="{CK_PDF}" target="_blank" rel="noopener">open the checklist now</a>.</p>
+</section></div>"""
+    js = """<script>(function(){var f=document.querySelector('form.ck-f');if(!f)return;var b=f.querySelector('button'),l=b.textContent,st=f.querySelector('.nl-st'),ok=document.querySelector('.ck-done');
+function done(){b.disabled=false;b.textContent=l;st.textContent='';f.hidden=true;ok.hidden=false;
+try{if(window.gtag)gtag('event','generate_lead',{method:'write_off_checklist',page_path:location.pathname});}catch(e){}}
+function fail(){b.disabled=false;b.textContent=l;st.textContent='Couldn\\u2019t send. Please email %(email)s with the word CHECKLIST.';}
+f.addEventListener('submit',function(e){e.preventDefault();if(f._honey.value)return;if(!f.checkValidity()){f.reportValidity();return;}
+b.disabled=true;b.textContent='Sending\\u2026';var m=new URLSearchParams();m.append('fields[email]',f.email.value.trim());
+if(f.name.value)m.append('fields[name]',f.name.value.trim());m.append('ml-submit','1');m.append('anticsrf','true');
+fetch('%(ml)s',{method:'POST',headers:{'Accept':'application/json'},body:m}).then(function(r){return r.json();})
+.then(function(j){if(j&&j.success===false)throw 0;done();})
+.catch(function(){fetch('%(ml)s',{method:'POST',mode:'no-cors',body:m}).then(done).catch(fail);});});})();</script>""" % {"ml": CK_ENDPOINT, "email": B.EMAIL}
+    return css + form + js
+
+
 def build():
     check_data()
     meta, E = DATA["meta"], DATA["entries"]
@@ -455,10 +496,7 @@ def build():
     extra = ('<script>document.documentElement.classList.add("dd-js")</script>' + EXTRA_CSS +
              f'<link rel="stylesheet" href="/resources/deductible.css?v={V("deductible.css")}"/>' +
              f'<link rel="alternate" type="application/json" href="/tools/{SLUG}/deductions.json" title="Is It Deductible? dataset"/>' + seo.script(ld))
-    nl = ('<div class="wrap nl-wrap" style="margin:8px auto 40px">' +
-          B.nl_box("Get new write-offs and tax deadlines by email",
-                   "Short emails when a deduction rule or IRS limit changes, plus the federal, New Jersey and New York dates that matter for small businesses and the self-employed.") +
-          '</div>' + B.NL_JS)
+    nl = checklist_box()
     body = (hero + main + nl + info + sheet + data_tag +
             f'<script src="/resources/deductible.js?v={V("deductible.js")}" defer></script>' +
             cta("Not sure what you can write off?", "We can go through your expenses with you and set up your books so write-offs are tracked all year. Book a 30-minute consultation when it suits you."))
