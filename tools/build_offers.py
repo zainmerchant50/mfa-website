@@ -145,7 +145,7 @@ CSS = """<style>
 .of-also a:hover{border-color:var(--gold)}
 </style>"""
 
-CRED = "Your work is done by Zain Merchant and his team of tax and accounting experts. Zain: CPA candidate · ACCA · Big Four (ex-PwC) · PTIN/EFIN tax preparer, over 10 years of accounting, audit and tax experience."
+CRED = "Your work is done by Zain Merchant and his team of tax and accounting experts. Zain: Big Four (ex-PwC) · PTIN/EFIN tax preparer, over 10 years of accounting, audit and tax experience."
 ALSO = [("/year-end-tax-planning/", "Year-end tax planning $99"), ("/1099-filing/", "1099 filing from $20/form"),
         ("/s-corp-election/", "S corp switch $299"), ("/quarterly-estimated-taxes/", "Quarterly estimates $199/yr"),
         ("/llc-annual-report/", "LLC annual report $39"), ("/international-students/", "International students from $25"),

@@ -411,7 +411,7 @@ def bookkeeping_page():
     <h1>Bookkeeping in {city}</h1>
     <p class="lead">Flat monthly or hourly pricing, from a senior accounting team. Monthly bookkeeping from ${price}/month.</p>
     <div class="ctas">{call_btn("btn btn-gold", "Call " + esc(PHONE))}<a href="#included" class="btn btn-line">What's included</a></div>
-    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA · Big Four (ex-PwC)</span><span>{check}Flat monthly or hourly</span><span>{check}Senior accounting team</span></div>
+    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}Big Four (ex-PwC)</span><span>{check}Flat monthly or hourly</span><span>{check}Senior accounting team</span></div>
   </div>
   <div class="hero-card" id="quote">
     <h2>Get a bookkeeping quote</h2>
@@ -450,7 +450,7 @@ def bookkeeping_page():
   </div>
   <div class="creds">
     <span class="eyebrow">Senior accounting team</span>
-    <p class="cl">CPA candidate · ACCA · Big Four (ex-PwC) · PTIN/EFIN tax preparer</p>
+    <p class="cl">Big Four (ex-PwC) · Over 10 years in accounting, audit and tax · PTIN/EFIN tax preparer</p>
     <p>Over 10 years of accounting, audit and tax experience. Your books are handled by Zain Merchant and/or a member of his team of accounting and tax professionals, with one point of contact who knows your file.</p>
     <div class="area" aria-label="Areas served">{"".join(f"<span>{c}</span>" for c in AREA)}</div>
   </div>
@@ -526,7 +526,7 @@ page = f'''<!doctype html><html lang="en"><head>
     <h1 id="h1">{d["h1"]}</h1>
     <p class="lead" id="lead">{d["lead"]}</p>
     <div class="ctas"><a href="#book" class="btn btn-gold" data-conv="book">{cal_ico}Book a 30-min call</a>{call_btn("btn btn-line", "Call " + esc(PHONE))}</div>
-    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}ACCA member</span><span>{check}Big Four experience</span><span>{check}Flat-fee or hourly pricing</span></div>
+    <div class="trust"><span>{check}QuickBooks ProAdvisor</span><span>{check}Ex-PwC (Big Four)</span><span>{check}5.0 on Google, Upwork &amp; Fiverr</span><span>{check}Flat-fee or hourly pricing</span></div>
   </div>
   <div class="hero-card" id="quote">
     <h2>Get a quote</h2>
