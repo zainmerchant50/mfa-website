@@ -1,125 +1,129 @@
 {
- "date": "2026-10-30",
- "slug": "hire-your-kids",
- "title": "Owner pay 101: hiring your kids in the family business",
- "type": "value",
- "accent": "forest",
- "label": "Owner pay 101",
- "checked": "October 30, 2026",
- "series": "Owner pay 101",
- "link": {
-  "path": "/year-end-tax-planning/",
-  "label": "Year-end tax planning (MFA)"
- },
- "hook": {
-  "text": "Pay your *kids* from the business?",
-  "sub": "The IRS rules, in 20 seconds."
- },
- "beats": [
-  {
-   "type": "story",
-   "lines": [
-    "Sam's teenage daughter edits his product photos.",
-    "Can the business pay her?"
-   ]
+  "date": "2026-10-30",
+  "slug": "hire-your-kids",
+  "title": "Owner pay 101: hiring your kids in the family business",
+  "type": "value",
+  "accent": "forest",
+  "label": "Owner pay 101",
+  "checked": "October 30, 2026",
+  "series": "Owner pay 101",
+  "link": {
+    "path": "/year-end-tax-planning/",
+    "label": "Year-end tax planning (MFA)"
   },
-  {
-   "type": "rows",
-   "kicker": "Child under 18, parent's sole proprietorship",
-   "items": [
+  "hook": {
+    "text": "Pay your *kids* from the business?",
+    "sub": "The IRS rules, in 20 seconds."
+  },
+  "beats": [
     {
-     "l": "Social Security and Medicare tax",
-     "r": "Not due",
-     "ok": true
+      "type": "story",
+      "lines": [
+        "Sam's teenage daughter edits his product photos.",
+        "Can the business pay her?"
+      ]
     },
     {
-     "l": "Federal unemployment tax (under 21)",
-     "r": "Not due",
-     "ok": true
-    }
-   ],
-   "note": "Same for a partnership owned only by the parents. Corporations pay all the usual taxes."
-  },
-  {
-   "type": "stat",
-   "kicker": "Her own standard deduction for 2026",
-   "value": "$16,100",
-   "count": {
-    "to": 16100,
-    "pre": "$",
-    "dec": 0
-   },
-   "sub": "can cover wages she earns",
-   "note": "If she has no other income. State rules vary."
-  },
-  {
-   "type": "list",
-   "kicker": "Do it right",
-   "items": [
-    {
-     "t": "Real work at a fair hourly rate",
-     "s": "What you'd pay anyone else."
+      "type": "rows",
+      "kicker": "Child under 18, parent's sole proprietorship",
+      "items": [
+        {
+          "l": "Social Security and Medicare tax",
+          "r": "Not due",
+          "ok": true
+        },
+        {
+          "l": "Federal unemployment tax (under 21)",
+          "r": "Not due",
+          "ok": true
+        }
+      ],
+      "note": "Same for a partnership owned only by the parents. Corporations pay all the usual taxes."
     },
     {
-     "t": "Timesheets and a paper trail",
-     "s": "Pay by transfer, not cash."
+      "type": "stat",
+      "kicker": "Her own standard deduction for 2026",
+      "value": "$16,100",
+      "count": {
+        "to": 16100,
+        "pre": "$",
+        "dec": 0
+      },
+      "sub": "can cover wages she earns",
+      "note": "If she has no other income. State rules vary."
+    },
+    {
+      "type": "list",
+      "kicker": "Do it right",
+      "items": [
+        {
+          "t": "Real work at a fair hourly rate",
+          "s": "What you'd pay anyone else."
+        },
+        {
+          "t": "Timesheets and a paper trail",
+          "s": "Pay by transfer, not cash."
+        }
+      ]
     }
-   ]
-  }
- ],
- "cta": {
-  "url": "mfa-advisory.com",
-  "sub": "We'll DM you our year-end planning page."
- },
- "captions": {
-  "comment_word": "PLAN",
-  "instagram": "Your kids help in the business? The IRS has specific rules for paying them.\n\n✔️ A child under 18 working for a parent's sole proprietorship (or a partnership owned only by the parents) doesn't owe Social Security or Medicare tax on those wages.\n✔️ Under 21, no federal unemployment tax either.\n✔️ If the business is a corporation, all the usual payroll taxes apply.\n✔️ The child's own 2026 standard deduction is $16,100, which can cover wages when they have no other income.\n✔️ The work has to be real and the pay reasonable. Keep timesheets and pay by transfer.\n\nState rules vary. We check whether it fits your business in a year-end planning session.",
-  "hashtags": [
-   "#smallbusiness",
-   "#familybusiness",
-   "#taxtips",
-   "#taxplanning",
-   "#smallbusinesstips",
-   "#businessowner",
-   "#entrepreneur",
-   "#yearendtaxplanning"
   ],
-  "youtube_title": "Paying Your Kids From Your Business: IRS Rules for 2026",
-  "youtube_description": "A child under 18 working for a parent's sole proprietorship (or a partnership owned only by the parents) doesn't owe Social Security or Medicare tax on those wages, and under 21 there is no federal unemployment tax. Corporations pay all the usual taxes. A child's 2026 standard deduction is $16,100. The work must be real and the pay reasonable.",
-  "pinterest_title": "Hiring Your Kids in Your Small Business: IRS Payroll Tax Rules for 2026",
-  "pinterest_description": "Can your small business pay your kids? IRS rules: a child under 18 working for a parent's sole proprietorship doesn't owe Social Security or Medicare tax, and there's no federal unemployment tax under 21. Corporations differ. The child's 2026 standard deduction is $16,100. Keep timesheets and pay a fair rate.",
-  "pinterest_alt": "Short video: IRS rules for paying your children from a family business, with the 2026 standard deduction of $16,100.",
-  "pinterest_board": "Small Business Tax Tips",
-  "youtube_hashtags": [
-   "#shorts",
-   "#smallbusiness",
-   "#taxtips",
-   "#familybusiness"
-  ]
- },
- "sync": {
-  "ads_keywords": [
-   "year end tax planning",
-   "hiring your kids tax"
-  ],
-  "blog": "/year-end-tax-planning/",
-  "pin_ids": []
- },
- "sources": [
-  {
-   "fact": "Child under 18 employed by parent's sole proprietorship or parents-only partnership: not subject to Social Security and Medicare; under 21 not subject to FUTA; corporations subject regardless of age; page updated 11-Oct-2026, read 2026-10-30",
-   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/family-employees"
+  "cta": {
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our year-end planning page."
   },
-  {
-   "fact": "2026 standard deduction single $16,100; read 2026-10-30",
-   "url": "https://www.irs.gov/pub/irs-prior/f1040es--2026.pdf"
+  "captions": {
+    "comment_word": "PLAN",
+    "instagram": "Your kids help in the business? The IRS has specific rules for paying them.\n\n✔️ A child under 18 working for a parent's sole proprietorship (or a partnership owned only by the parents) doesn't owe Social Security or Medicare tax on those wages.\n✔️ Under 21, no federal unemployment tax either.\n✔️ If the business is a corporation, all the usual payroll taxes apply.\n✔️ The child's own 2026 standard deduction is $16,100, which can cover wages when they have no other income.\n✔️ The work has to be real and the pay reasonable. Keep timesheets and pay by transfer.\n\nState rules vary. We check whether it fits your business in a year-end planning session.",
+    "hashtags": [
+      "#smallbusiness",
+      "#familybusiness",
+      "#taxtips",
+      "#taxplanning",
+      "#smallbusinesstips",
+      "#businessowner",
+      "#entrepreneur",
+      "#yearendtaxplanning"
+    ],
+    "youtube_title": "Paying Your Kids From Your Business: IRS Rules for 2026",
+    "youtube_description": "A child under 18 working for a parent's sole proprietorship (or a partnership owned only by the parents) doesn't owe Social Security or Medicare tax on those wages, and under 21 there is no federal unemployment tax. Corporations pay all the usual taxes. A child's 2026 standard deduction is $16,100. The work must be real and the pay reasonable.",
+    "pinterest_title": "Hiring Your Kids in Your Small Business: IRS Payroll Tax Rules for 2026",
+    "pinterest_description": "Can your small business pay your kids? IRS rules: a child under 18 working for a parent's sole proprietorship doesn't owe Social Security or Medicare tax, and there's no federal unemployment tax under 21. Corporations differ. The child's 2026 standard deduction is $16,100. Keep timesheets and pay a fair rate.",
+    "pinterest_alt": "Short video: IRS rules for paying your children from a family business, with the 2026 standard deduction of $16,100.",
+    "pinterest_board": "Small Business Tax Tips",
+    "youtube_hashtags": [
+      "#shorts",
+      "#smallbusiness",
+      "#taxtips",
+      "#familybusiness"
+    ]
+  },
+  "sync": {
+    "ads_keywords": [
+      "year end tax planning",
+      "hiring your kids tax"
+    ],
+    "blog": "/year-end-tax-planning/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Child under 18 employed by parent's sole proprietorship or parents-only partnership: not subject to Social Security and Medicare; under 21 not subject to FUTA; corporations subject regardless of age; page updated 11-Oct-2026, read 2026-10-30",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/family-employees"
+    },
+    {
+      "fact": "2026 standard deduction single $16,100; read 2026-10-30",
+      "url": "https://www.irs.gov/pub/irs-prior/f1040es--2026.pdf"
+    }
+  ],
+  "character": {
+    "name": "owner",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  },
+  "thumb": {
+    "title": "Pay your *kids* from the business?",
+    "sub": "IRS rules for 2026"
   }
- ],
- "character": {
-  "name": "owner",
-  "scene": "hook",
-  "position": "lower",
-  "corner_after": true,
-  "corner": "self"
- }
 }

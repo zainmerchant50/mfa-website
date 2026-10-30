@@ -1,113 +1,117 @@
 {
- "date": "2026-10-30",
- "slug": "rent-your-home-14-days",
- "title": "Tax myth vs fact: the 14-day home rental rule",
- "type": "value",
- "accent": "plum",
- "label": "Tax myth vs fact",
- "checked": "October 30, 2026",
- "series": "Tax myth vs fact",
- "link": {
-  "path": "/year-end-tax-planning/",
-  "label": "Year-end tax planning (MFA)"
- },
- "hook": {
-  "text": "Rent your home *14 days*",
-  "sub": "and skip tax on the rent?"
- },
- "beats": [
-  {
-   "type": "story",
-   "lines": [
-    "Lena rents her house for a big golf weekend.",
-    "5 nights, $4,000.",
-    "Does she report it?"
-   ]
+  "date": "2026-10-30",
+  "slug": "rent-your-home-14-days",
+  "title": "Tax myth vs fact: the 14-day home rental rule",
+  "type": "value",
+  "accent": "plum",
+  "label": "Tax myth vs fact",
+  "checked": "October 30, 2026",
+  "series": "Tax myth vs fact",
+  "link": {
+    "path": "/year-end-tax-planning/",
+    "label": "Year-end tax planning (MFA)"
   },
-  {
-   "type": "stat",
-   "kicker": "IRS rule: a home you live in, rented",
-   "value": "under 15 days",
-   "sub": "don't report the rental income",
-   "note": "And don't deduct rental expenses for those days."
+  "hook": {
+    "text": "Rent your home *14 days*",
+    "sub": "and skip tax on the rent?"
   },
-  {
-   "type": "rows",
-   "kicker": "Renting to your own company?",
-   "items": [
+  "beats": [
     {
-     "l": "Fair rent, like a real venue",
-     "r": "Needed",
-     "ok": true
+      "type": "story",
+      "lines": [
+        "Lena rents her house for a big golf weekend.",
+        "5 nights, $4,000.",
+        "Does she report it?"
+      ]
     },
     {
-     "l": "Real meetings, with notes",
-     "r": "Needed",
-     "ok": true
+      "type": "stat",
+      "kicker": "IRS rule: a home you live in, rented",
+      "value": "under 15 days",
+      "sub": "don't report the rental income",
+      "note": "And don't deduct rental expenses for those days."
     },
     {
-     "l": "Made-up days or inflated rent",
-     "r": "Red flag",
-     "ok": false
+      "type": "rows",
+      "kicker": "Renting to your own company?",
+      "items": [
+        {
+          "l": "Fair rent, like a real venue",
+          "r": "Needed",
+          "ok": true
+        },
+        {
+          "l": "Real meetings, with notes",
+          "r": "Needed",
+          "ok": true
+        },
+        {
+          "l": "Made-up days or inflated rent",
+          "r": "Red flag",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "Before you try it",
+      "text": "Get it *reviewed first.*",
+      "sub": "Entity type and records decide if it works."
     }
-   ]
+  ],
+  "cta": {
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our year-end planning page."
   },
-  {
-   "type": "text",
-   "kicker": "Before you try it",
-   "text": "Get it *reviewed first.*",
-   "sub": "Entity type and records decide if it works."
-  }
- ],
- "cta": {
-  "url": "mfa-advisory.com",
-  "sub": "We'll DM you our year-end planning page."
- },
- "captions": {
-  "comment_word": "PLAN",
-  "instagram": "The \"14-day rule\" is real, but it's narrower than social media makes it sound.\n\n✔️ IRS rule: if you use a dwelling as your home and rent it out for fewer than 15 days in the year, you don't report that rental income.\n✔️ You also don't deduct rental expenses for those days.\n✔️ Renting your home to your own company for meetings is where people get into trouble: the rent has to be fair, the meetings real and documented, and the company type matters.\n✔️ Made-up days or inflated rent are a red flag.\n\nWe check whether it fits your business in a year-end planning session.",
-  "hashtags": [
-   "#taxtips",
-   "#taxplanning",
-   "#smallbusiness",
-   "#taxmyths",
-   "#smallbusinesstips",
-   "#businessowner",
-   "#entrepreneur",
-   "#realestatetips"
+  "captions": {
+    "comment_word": "PLAN",
+    "instagram": "The \"14-day rule\" is real, but it's narrower than social media makes it sound.\n\n✔️ IRS rule: if you use a dwelling as your home and rent it out for fewer than 15 days in the year, you don't report that rental income.\n✔️ You also don't deduct rental expenses for those days.\n✔️ Renting your home to your own company for meetings is where people get into trouble: the rent has to be fair, the meetings real and documented, and the company type matters.\n✔️ Made-up days or inflated rent are a red flag.\n\nWe check whether it fits your business in a year-end planning session.",
+    "hashtags": [
+      "#taxtips",
+      "#taxplanning",
+      "#smallbusiness",
+      "#taxmyths",
+      "#smallbusinesstips",
+      "#businessowner",
+      "#entrepreneur",
+      "#realestatetips"
+    ],
+    "youtube_title": "The 14-Day Home Rental Tax Rule: What the IRS Actually Says",
+    "youtube_description": "If you use a dwelling as your home and rent it for fewer than 15 days in a year, the IRS says don't report the rental income and don't deduct rental expenses. Renting your home to your own company needs fair rent, real documented meetings and the right entity type. Get it reviewed first.",
+    "pinterest_title": "The 14-Day Rule for Renting Your Home: What the IRS Actually Says",
+    "pinterest_description": "Renting your home for fewer than 15 days a year? IRS Topic 415: don't report the rental income and don't deduct rental expenses. Renting to your own business takes fair rent, real meetings and records, and the right entity. Get it reviewed before you try it.",
+    "pinterest_alt": "Short video: the IRS rule for renting a home you live in for fewer than 15 days, and what renting to your own company requires.",
+    "pinterest_board": "Small Business Tax Tips",
+    "youtube_hashtags": [
+      "#shorts",
+      "#taxtips",
+      "#taxplanning",
+      "#smallbusiness"
+    ]
+  },
+  "sync": {
+    "ads_keywords": [
+      "year end tax planning",
+      "14 day rental rule"
+    ],
+    "blog": "/year-end-tax-planning/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Dwelling used as a residence and rented fewer than 15 days: don't report rental income or deduct rental expenses; page updated 24-Sep-2026, read 2026-10-30",
+      "url": "https://www.irs.gov/taxtopics/tc415"
+    }
   ],
-  "youtube_title": "The 14-Day Home Rental Tax Rule: What the IRS Actually Says",
-  "youtube_description": "If you use a dwelling as your home and rent it for fewer than 15 days in a year, the IRS says don't report the rental income and don't deduct rental expenses. Renting your home to your own company needs fair rent, real documented meetings and the right entity type. Get it reviewed first.",
-  "pinterest_title": "The 14-Day Rule for Renting Your Home: What the IRS Actually Says",
-  "pinterest_description": "Renting your home for fewer than 15 days a year? IRS Topic 415: don't report the rental income and don't deduct rental expenses. Renting to your own business takes fair rent, real meetings and records, and the right entity. Get it reviewed before you try it.",
-  "pinterest_alt": "Short video: the IRS rule for renting a home you live in for fewer than 15 days, and what renting to your own company requires.",
-  "pinterest_board": "Small Business Tax Tips",
-  "youtube_hashtags": [
-   "#shorts",
-   "#taxtips",
-   "#taxplanning",
-   "#smallbusiness"
-  ]
- },
- "sync": {
-  "ads_keywords": [
-   "year end tax planning",
-   "14 day rental rule"
-  ],
-  "blog": "/year-end-tax-planning/",
-  "pin_ids": []
- },
- "sources": [
-  {
-   "fact": "Dwelling used as a residence and rented fewer than 15 days: don't report rental income or deduct rental expenses; page updated 24-Sep-2026, read 2026-10-30",
-   "url": "https://www.irs.gov/taxtopics/tc415"
+  "character": {
+    "name": "mascot-wow",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  },
+  "thumb": {
+    "title": "The *14-day* home rental rule",
+    "sub": "What the IRS actually says"
   }
- ],
- "character": {
-  "name": "mascot-wow",
-  "scene": "hook",
-  "position": "lower",
-  "corner_after": true,
-  "corner": "self"
- }
 }

@@ -1,120 +1,124 @@
 {
- "date": "2026-10-30",
- "slug": "write-off-myth",
- "title": "Tax myth vs fact: a write-off still costs you money",
- "type": "value",
- "accent": "burgundy",
- "label": "Tax myth vs fact",
- "checked": "October 30, 2026",
- "series": "Tax myth vs fact",
- "link": {
-  "path": "/tools/is-it-deductible/",
-  "label": "Is It Deductible? tool (MFA)"
- },
- "hook": {
-  "text": "\"It's a *write-off.*\"",
-  "sub": "So it costs nothing... right?"
- },
- "beats": [
-  {
-   "type": "story",
-   "lines": [
-    "Maya buys a $1,000 laptop for her business.",
-    "\"It's a write-off,\" her friend says.",
-    "So the IRS pays for it?"
-   ]
+  "date": "2026-10-30",
+  "slug": "write-off-myth",
+  "title": "Tax myth vs fact: a write-off still costs you money",
+  "type": "value",
+  "accent": "burgundy",
+  "label": "Tax myth vs fact",
+  "checked": "October 30, 2026",
+  "series": "Tax myth vs fact",
+  "link": {
+    "path": "/tools/is-it-deductible/",
+    "label": "Is It Deductible? tool (MFA)"
   },
-  {
-   "type": "rows",
-   "kicker": "Myth vs fact",
-   "items": [
+  "hook": {
+    "text": "\"It's a *write-off.*\"",
+    "sub": "So it costs nothing... right?"
+  },
+  "beats": [
     {
-     "l": "The IRS pays you back $1,000",
-     "r": "Myth",
-     "ok": false
+      "type": "story",
+      "lines": [
+        "Maya buys a $1,000 laptop for her business.",
+        "\"It's a write-off,\" her friend says.",
+        "So the IRS pays for it?"
+      ]
     },
     {
-     "l": "Your taxable income drops $1,000",
-     "r": "Fact",
-     "ok": true
-    }
-   ]
-  },
-  {
-   "type": "values",
-   "kicker": "A $1,000 expense at the 22% bracket",
-   "items": [
-    {
-     "v": "$361",
-     "l": "less tax"
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "The IRS pays you back $1,000",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Your taxable income drops $1,000",
+          "r": "Fact",
+          "ok": true
+        }
+      ]
     },
     {
-     "v": "$639",
-     "l": "still spent"
+      "type": "values",
+      "kicker": "A $1,000 expense at the 22% bracket",
+      "items": [
+        {
+          "v": "$361",
+          "l": "less tax"
+        },
+        {
+          "v": "$639",
+          "l": "still spent"
+        }
+      ],
+      "note": "Self-employed: $220 income tax + $141 self-employment tax. Federal only."
+    },
+    {
+      "type": "text",
+      "kicker": "The real rule",
+      "text": "Buy it because the business *needs it.*",
+      "sub": "Not for the deduction."
     }
-   ],
-   "note": "Self-employed: $220 income tax + $141 self-employment tax. Federal only."
-  },
-  {
-   "type": "text",
-   "kicker": "The real rule",
-   "text": "Buy it because the business *needs it.*",
-   "sub": "Not for the deduction."
-  }
- ],
- "cta": {
-  "url": "mfa-advisory.com",
-  "sub": "We'll DM you our Is It Deductible? tool."
- },
- "captions": {
-  "comment_word": "DEDUCT",
-  "instagram": "\"It's a write-off\" doesn't mean it costs nothing.\n\n✔️ A deduction lowers your taxable income, not your bill dollar for dollar.\n✔️ Example: a self-employed owner in the 22% federal bracket spends $1,000 on a business laptop. Income tax drops about $220 and self-employment tax about $141 (15.3% on 92.35% of the amount).\n✔️ That's about $361 back. The other $639 is still your money.\n✔️ Spend because the business needs it, then make sure you claim it.\n\nNot sure if something counts? Our Is It Deductible? tool checks 59 common expenses.",
-  "hashtags": [
-   "#taxtips",
-   "#taxwriteoffs",
-   "#smallbusiness",
-   "#selfemployed",
-   "#smallbusinesstips",
-   "#entrepreneur",
-   "#businessowner",
-   "#taxmyths"
   ],
-  "youtube_title": "\"It's a Write-Off\" Myth: What a $1,000 Deduction Really Saves",
-  "youtube_description": "A tax write-off lowers taxable income, not your tax bill dollar for dollar. For a self-employed owner in the 22% federal bracket, a $1,000 business expense saves about $220 of income tax and $141 of self-employment tax. The other $639 is still spent. Check what counts with our Is It Deductible? tool.",
-  "pinterest_title": "What Is a Tax Write-Off Really Worth? The $1,000 Example for Self-Employed Owners",
-  "pinterest_description": "A tax write-off isn't money back from the IRS. It lowers taxable income. At the 22% federal bracket, a $1,000 business expense saves about $220 of income tax plus about $141 of self-employment tax for a self-employed owner. Check which expenses count with MFA's Is It Deductible? tool.",
-  "pinterest_alt": "Short video: myth vs fact about tax write-offs, with what a $1,000 business expense saves at the 22% bracket.",
-  "pinterest_board": "Small Business Tax Tips",
-  "youtube_hashtags": [
-   "#shorts",
-   "#taxtips",
-   "#smallbusiness",
-   "#selfemployed"
-  ]
- },
- "sync": {
-  "ads_keywords": [
-   "is it tax deductible",
-   "tax write offs small business"
-  ],
-  "blog": "/tools/is-it-deductible/",
-  "pin_ids": []
- },
- "sources": [
-  {
-   "fact": "2026 single tax rate schedule: 22% bracket ($50,400 to $105,700); read 2026-10-30",
-   "url": "https://www.irs.gov/pub/irs-prior/f1040es--2026.pdf"
+  "cta": {
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our Is It Deductible? tool."
   },
-  {
-   "fact": "Self-employment tax 15.3% on 92.35% of net earnings; read 2026-10-29",
-   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+  "captions": {
+    "comment_word": "DEDUCT",
+    "instagram": "\"It's a write-off\" doesn't mean it costs nothing.\n\n✔️ A deduction lowers your taxable income, not your bill dollar for dollar.\n✔️ Example: a self-employed owner in the 22% federal bracket spends $1,000 on a business laptop. Income tax drops about $220 and self-employment tax about $141 (15.3% on 92.35% of the amount).\n✔️ That's about $361 back. The other $639 is still your money.\n✔️ Spend because the business needs it, then make sure you claim it.\n\nNot sure if something counts? Our Is It Deductible? tool checks 59 common expenses.",
+    "hashtags": [
+      "#taxtips",
+      "#taxwriteoffs",
+      "#smallbusiness",
+      "#selfemployed",
+      "#smallbusinesstips",
+      "#entrepreneur",
+      "#businessowner",
+      "#taxmyths"
+    ],
+    "youtube_title": "\"It's a Write-Off\" Myth: What a $1,000 Deduction Really Saves",
+    "youtube_description": "A tax write-off lowers taxable income, not your tax bill dollar for dollar. For a self-employed owner in the 22% federal bracket, a $1,000 business expense saves about $220 of income tax and $141 of self-employment tax. The other $639 is still spent. Check what counts with our Is It Deductible? tool.",
+    "pinterest_title": "What Is a Tax Write-Off Really Worth? The $1,000 Example for Self-Employed Owners",
+    "pinterest_description": "A tax write-off isn't money back from the IRS. It lowers taxable income. At the 22% federal bracket, a $1,000 business expense saves about $220 of income tax plus about $141 of self-employment tax for a self-employed owner. Check which expenses count with MFA's Is It Deductible? tool.",
+    "pinterest_alt": "Short video: myth vs fact about tax write-offs, with what a $1,000 business expense saves at the 22% bracket.",
+    "pinterest_board": "Small Business Tax Tips",
+    "youtube_hashtags": [
+      "#shorts",
+      "#taxtips",
+      "#smallbusiness",
+      "#selfemployed"
+    ]
+  },
+  "sync": {
+    "ads_keywords": [
+      "is it tax deductible",
+      "tax write offs small business"
+    ],
+    "blog": "/tools/is-it-deductible/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "2026 single tax rate schedule: 22% bracket ($50,400 to $105,700); read 2026-10-30",
+      "url": "https://www.irs.gov/pub/irs-prior/f1040es--2026.pdf"
+    },
+    {
+      "fact": "Self-employment tax 15.3% on 92.35% of net earnings; read 2026-10-29",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    }
+  ],
+  "character": {
+    "name": "mascot-hmm",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  },
+  "thumb": {
+    "title": "What a *write-off* really saves",
+    "sub": "The math on a $1,000 expense"
   }
- ],
- "character": {
-  "name": "mascot-hmm",
-  "scene": "hook",
-  "position": "lower",
-  "corner_after": true,
-  "corner": "self"
- }
 }

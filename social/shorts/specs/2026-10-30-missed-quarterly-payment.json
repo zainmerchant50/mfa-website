@@ -1,114 +1,118 @@
 {
- "date": "2026-10-30",
- "slug": "missed-quarterly-payment",
- "title": "Gig worker money tip: missed a quarterly tax payment?",
- "type": "value",
- "accent": "teal",
- "label": "Gig worker tip",
- "checked": "October 30, 2026",
- "series": "Gig worker money tip",
- "link": {
-  "path": "/tools/quarterly-estimated-tax-calculator/",
-  "label": "Quarterly estimated tax calculator (MFA)"
- },
- "hook": {
-  "text": "Missed a *quarterly* payment?",
-  "sub": "Don't wait for April."
- },
- "beats": [
-  {
-   "type": "story",
-   "lines": [
-    "Priya skipped her September tax payment.",
-    "\"I'll just pay it all in April.\"",
-    "The penalty keeps counting."
-   ]
+  "date": "2026-10-30",
+  "slug": "missed-quarterly-payment",
+  "title": "Gig worker money tip: missed a quarterly tax payment?",
+  "type": "value",
+  "accent": "teal",
+  "label": "Gig worker tip",
+  "checked": "October 30, 2026",
+  "series": "Gig worker money tip",
+  "link": {
+    "path": "/tools/quarterly-estimated-tax-calculator/",
+    "label": "Quarterly estimated tax calculator (MFA)"
   },
-  {
-   "type": "text",
-   "kicker": "How the IRS penalty works",
-   "text": "It grows *every day* it's unpaid.",
-   "sub": "Paying now stops it from growing."
+  "hook": {
+    "text": "Missed a *quarterly* payment?",
+    "sub": "Don't wait for April."
   },
-  {
-   "type": "list",
-   "kicker": "The fix",
-   "items": [
+  "beats": [
     {
-     "t": "Pay the missed amount now",
-     "s": "IRS Direct Pay or your online account."
+      "type": "story",
+      "lines": [
+        "Priya skipped her September tax payment.",
+        "\"I'll just pay it all in April.\"",
+        "The penalty keeps counting."
+      ]
     },
     {
-     "t": "Make the last 2026 payment",
-     "s": "Due January 15, 2027."
+      "type": "text",
+      "kicker": "How the IRS penalty works",
+      "text": "It grows *every day* it's unpaid.",
+      "sub": "Paying now stops it from growing."
     },
     {
-     "t": "Aim for the safe amount",
-     "s": "90% of 2026 tax or 100% of 2025 tax."
+      "type": "list",
+      "kicker": "The fix",
+      "items": [
+        {
+          "t": "Pay the missed amount now",
+          "s": "IRS Direct Pay or your online account."
+        },
+        {
+          "t": "Make the last 2026 payment",
+          "s": "Due January 15, 2027."
+        },
+        {
+          "t": "Aim for the safe amount",
+          "s": "90% of 2026 tax or 100% of 2025 tax."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "Not sure how much?",
+      "text": "Our calculator *works it out.*",
+      "sub": "Federal and state."
     }
-   ]
-  },
-  {
-   "type": "text",
-   "kicker": "Not sure how much?",
-   "text": "Our calculator *works it out.*",
-   "sub": "Federal and state."
-  }
- ],
- "cta": {
-  "url": "mfa-advisory.com",
-  "sub": "We'll DM you the quarterly tax calculator."
- },
- "captions": {
-  "comment_word": "QUARTERLY",
-  "instagram": "Missed a quarterly estimated tax payment? Waiting until April makes it worse.\n\n✔️ The IRS underpayment penalty is figured on each late amount for the number of days it stays unpaid.\n✔️ Pay the missed amount now through IRS Direct Pay or your IRS online account.\n✔️ The last 2026 payment is due January 15, 2027.\n✔️ The safe amount is generally 90% of your 2026 tax or 100% of your 2025 tax, whichever is less (110% if your 2025 AGI was over $150,000).\n\nOur quarterly estimated tax calculator works out your federal and state payment.",
-  "hashtags": [
-   "#estimatedtaxes",
-   "#quarterlytaxes",
-   "#1099",
-   "#selfemployed",
-   "#gigworker",
-   "#freelancer",
-   "#taxtips",
-   "#sidehustle"
   ],
-  "youtube_title": "Missed a Quarterly Estimated Tax Payment? Do This Now",
-  "youtube_description": "The IRS underpayment penalty grows for each day a payment stays unpaid, so pay a missed quarterly estimate now instead of waiting for April. The last 2026 payment is due January 15, 2027. The safe amount is generally 90% of this year's tax or 100% of last year's (110% above $150,000 AGI).",
-  "pinterest_title": "Missed a Quarterly Estimated Tax Payment? What to Do Before January 15",
-  "pinterest_description": "Missed a quarterly estimated tax payment as a freelancer or 1099 worker? The IRS penalty grows each day it's unpaid. Pay now, make the January 15, 2027 payment, and aim for the safe amount: 90% of this year's tax or 100% of last year's. Work out your number with MFA's quarterly estimated tax calculator.",
-  "pinterest_alt": "Short video: what to do after missing a quarterly estimated tax payment, with the January 15, 2027 due date.",
-  "pinterest_board": "Self-Employed & 1099 Taxes",
-  "youtube_hashtags": [
-   "#shorts",
-   "#estimatedtaxes",
-   "#selfemployed",
-   "#taxtips"
-  ]
- },
- "sync": {
-  "product_id": "08",
-  "ads_keywords": [
-   "quarterly estimated tax calculator",
-   "missed estimated tax payment"
-  ],
-  "blog": "/tools/quarterly-estimated-tax-calculator/",
-  "pin_ids": []
- },
- "sources": [
-  {
-   "fact": "2026 estimated tax due dates incl. Jan 15, 2027; penalty applies per underpayment for days unpaid; read 2026-10-30",
-   "url": "https://www.irs.gov/pub/irs-prior/f1040es--2026.pdf"
+  "cta": {
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you the quarterly tax calculator."
   },
-  {
-   "fact": "Safe harbor 90% / 100% / 110% over $150,000 AGI (Form 1040-ES 2026 instructions); read 2026-10-30",
-   "url": "https://www.irs.gov/pub/irs-prior/f1040es--2026.pdf"
+  "captions": {
+    "comment_word": "QUARTERLY",
+    "instagram": "Missed a quarterly estimated tax payment? Waiting until April makes it worse.\n\n✔️ The IRS underpayment penalty is figured on each late amount for the number of days it stays unpaid.\n✔️ Pay the missed amount now through IRS Direct Pay or your IRS online account.\n✔️ The last 2026 payment is due January 15, 2027.\n✔️ The safe amount is generally 90% of your 2026 tax or 100% of your 2025 tax, whichever is less (110% if your 2025 AGI was over $150,000).\n\nOur quarterly estimated tax calculator works out your federal and state payment.",
+    "hashtags": [
+      "#estimatedtaxes",
+      "#quarterlytaxes",
+      "#1099",
+      "#selfemployed",
+      "#gigworker",
+      "#freelancer",
+      "#taxtips",
+      "#sidehustle"
+    ],
+    "youtube_title": "Missed a Quarterly Estimated Tax Payment? Do This Now",
+    "youtube_description": "The IRS underpayment penalty grows for each day a payment stays unpaid, so pay a missed quarterly estimate now instead of waiting for April. The last 2026 payment is due January 15, 2027. The safe amount is generally 90% of this year's tax or 100% of last year's (110% above $150,000 AGI).",
+    "pinterest_title": "Missed a Quarterly Estimated Tax Payment? What to Do Before January 15",
+    "pinterest_description": "Missed a quarterly estimated tax payment as a freelancer or 1099 worker? The IRS penalty grows each day it's unpaid. Pay now, make the January 15, 2027 payment, and aim for the safe amount: 90% of this year's tax or 100% of last year's. Work out your number with MFA's quarterly estimated tax calculator.",
+    "pinterest_alt": "Short video: what to do after missing a quarterly estimated tax payment, with the January 15, 2027 due date.",
+    "pinterest_board": "Self-Employed & 1099 Taxes",
+    "youtube_hashtags": [
+      "#shorts",
+      "#estimatedtaxes",
+      "#selfemployed",
+      "#taxtips"
+    ]
+  },
+  "sync": {
+    "product_id": "08",
+    "ads_keywords": [
+      "quarterly estimated tax calculator",
+      "missed estimated tax payment"
+    ],
+    "blog": "/tools/quarterly-estimated-tax-calculator/",
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "2026 estimated tax due dates incl. Jan 15, 2027; penalty applies per underpayment for days unpaid; read 2026-10-30",
+      "url": "https://www.irs.gov/pub/irs-prior/f1040es--2026.pdf"
+    },
+    {
+      "fact": "Safe harbor 90% / 100% / 110% over $150,000 AGI (Form 1040-ES 2026 instructions); read 2026-10-30",
+      "url": "https://www.irs.gov/pub/irs-prior/f1040es--2026.pdf"
+    }
+  ],
+  "character": {
+    "name": "driver",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  },
+  "thumb": {
+    "title": "Missed a *quarterly* tax payment?",
+    "sub": "What to do now"
   }
- ],
- "character": {
-  "name": "driver",
-  "scene": "hook",
-  "position": "lower",
-  "corner_after": true,
-  "corner": "self"
- }
 }
