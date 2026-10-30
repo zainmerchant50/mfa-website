@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="_base.css"/>
+<style>
+:root{--w:1200px;--h:1230px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.wrap{position:absolute;inset:72px 80px 64px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;font-size:64px;line-height:1;margin:30px 0 10px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-size:19px;font-weight:300;color:rgba(255,255,255,.72)}
+.q{display:flex;align-items:center;gap:16px;margin-top:26px}
+.q .n{flex:none;width:40px;height:40px;border-radius:50%;background:var(--gold-b);color:var(--navy);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+.q .t{font-size:22px;font-weight:600}
+.row{display:grid;gap:16px;margin-top:14px}
+.row.three{grid-template-columns:1fr 1fr 1fr}
+.row.two{grid-template-columns:1fr 1fr}
+.opt{background:var(--paper);color:var(--ink);border-radius:16px;padding:18px 20px}
+.opt .when{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.opt .form{font-family:Cormorant,serif;font-size:40px;color:var(--navy);line-height:1;margin:8px 0 8px}
+.opt p{font-size:14.5px;line-height:1.42;color:#2E2E2E}
+.opt p b{color:var(--navy)}
+.opt.dark{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff}
+.opt.dark .when{color:var(--gold-b)}
+.opt.dark .head{font-family:Cormorant,serif;font-size:34px;color:#fff;line-height:1.05;margin:8px 0 10px}
+.opt.dark ul{list-style:none;display:grid;gap:7px;font-size:15px;line-height:1.38;color:rgba(255,255,255,.88)}
+.opt.dark li:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold-b);margin-right:10px;vertical-align:middle}
+.box{background:var(--paper);color:var(--ink);border-radius:16px;padding:20px 24px;margin-top:22px}
+.box h3{font-size:12.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.box ol{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;padding-left:20px;font-size:14.5px;line-height:1.4}
+.box ol b{color:var(--navy)}
+.tip{margin-top:20px;background:var(--gold-b);color:var(--navy);border-radius:14px;padding:15px 22px;font-size:16px;font-weight:600;line-height:1.4}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+</style></head><body>
+<div class="frame"></div>
+<div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights · Keep-handy decision chart</span><span class="tag">Tax year 2026</span></div>
+  <h1>Paying an overseas contractor:<br/><em>which form, and is there a 1099?</em></h1>
+  <p class="sub">Two questions decide almost everything. Ask them before the first payment.</p>
+
+  <div class="q"><span class="n">1</span><span class="t">Is the person a US citizen or US resident (even if living abroad)?</span></div>
+  <div class="row three">
+    <div class="opt"><div class="when">Yes, US person</div><div class="form">Form W-9</div><p><b>1099-NEC</b> if you paid <b>$2,000+</b> in 2026. Due <b>Feb. 1, 2027</b>.</p></div>
+    <div class="opt"><div class="when">No, foreign individual</div><div class="form">Form W-8BEN</div><p>Keep it on file. <b>Don't send it to the IRS.</b> Generally valid through the end of the 3rd year after signing.</p></div>
+    <div class="opt"><div class="when">No, foreign company</div><div class="form">Form W-8BEN-E</div><p>For an agency or firm abroad. Keep it on file with the contract.</p></div>
+  </div>
+
+  <div class="q"><span class="n">2</span><span class="t">Foreign person: where is the work performed?</span></div>
+  <div class="row two">
+    <div class="opt dark"><div class="when">Entirely outside the US</div><div class="head">Foreign-source income</div><ul>
+      <li>Generally no Form 1099-NEC</li>
+      <li>No 30% withholding</li>
+      <li>No Form 1042-S</li>
+      <li>Still deductible as contract labor</li>
+    </ul></div>
+    <div class="opt dark"><div class="when">Any days worked in the US</div><div class="head">US-source income for those days</div><ul>
+      <li>30% withholding unless a treaty exempts it</li>
+      <li>Treaty exemption claimed on Form 8233</li>
+      <li>Reported on Form 1042-S</li>
+      <li>Get advice before the trip</li>
+    </ul></div>
+  </div>
+
+  <div class="box"><h3>Records to keep for every overseas contractor</h3><ol>
+    <li><b>Signed contract</b>: work, rate, contractor status</li>
+    <li><b>Invoices</b> in their or their company's name</li>
+    <li><b>Proof of payment</b>: wire, transfer or platform record</li>
+    <li><b>W-8BEN / W-8BEN-E</b> (or W-9) dated before payment 1</li>
+    <li><b>Where the work was done</b>, stated on the contract or invoice</li>
+    <li><b>Separate expense account</b> for overseas contract labor</li>
+  </ol></div>
+
+  <div class="tip">There's no special tax break for hiring abroad. The saving is the lower cost; the deduction works the same as for a US contractor.</div>
+
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com · info@mfa-advisory.com</b><br/>General information, not tax advice. Facts checked Oct. 30, 2026.</div>
+  </div>
+</div>
+</body></html>

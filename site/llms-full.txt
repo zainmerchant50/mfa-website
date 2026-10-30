@@ -1023,6 +1023,7 @@ Painlessly. After a short consultation we handle the transition — requesting p
 
 ## Articles (MFA Insights)
 
+- Hiring Overseas Contractors: W-8BEN vs. W-9, 1099 Rules and the Real Tax Picture (2026) (2026-10-30): Hiring overseas contractors to cut costs? Collect a W-8BEN, not a W-9. When a 1099 or 30% withholding applies, what you can deduct and the records to keep. https://mfa-advisory.com/blog/hiring-overseas-contractors-taxes-w8ben/
 - Small Business Tax Write-Offs for 2026: What Counts, What's Limited and the Proof to Keep (2026-10-30): Small business tax write-offs for 2026: what counts, what's limited (meals 50%, mileage, home office) and the receipts and logs to keep before Dec. 31. https://mfa-advisory.com/blog/small-business-tax-write-offs-2026/
 - 2027 Social Security Wage Base: $192,300 and What Self-Employed People Pay (2026-10-29): The 2027 Social Security wage base is $192,300, up from $184,500. What it means for self-employment tax, side gigs and 2027 estimates, with worked numbers. https://mfa-advisory.com/blog/social-security-wage-base-2027-self-employed/
 - How to Have Your LLC Taxed as an S Corp: Form 2553 Guide (2026-10-26): LLC taxed as an S corp: who qualifies, the Form 2553 deadline (March 15, 2027 for a Jan. 1, 2027 start), reasonable pay and New Jersey and New York rules. https://mfa-advisory.com/blog/llc-taxed-as-s-corp-guide/

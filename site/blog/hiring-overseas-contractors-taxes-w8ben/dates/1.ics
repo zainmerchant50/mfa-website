@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+  living abroad
+BEGIN:VEVENT
+UID:hiring-overseas-contractors-taxes-w8ben-0@mfa-advisory.com
+DTSTAMP:20261030T205853Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form 1099-NEC due for US contractors\, including US citizens livi
+ ng abroad
+DESCRIPTION:For 2026 payments of $2\,000 or more for services to a contra
+ ctor who gave you a Form W-9. January 31\, 2027 is a Sunday\, so the due 
+ date moves to Monday\, February 1. Overseas contractors on a W-8BEN who d
+ id all the work abroad generally don't get one.\n\nDetails: https://mfa-a
+ dvisory.com/blog/hiring-overseas-contractors-taxes-w8ben/\nGeneral inform
+ ation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/hiring-overseas-contractors-taxes-w8ben/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1099-NEC due for US contractors\, including US citizens 
+ living abroad
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
