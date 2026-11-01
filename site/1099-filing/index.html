@@ -49,8 +49,39 @@
 button.btn{border:0;font:inherit;cursor:pointer}
 </style><header class="bhero rhero"><div class="wrap"><span class="eyebrow">1099 season 2027</span>
 <h1>1099 filing, <em>done for you.</em></h1><p>Paid contractors $2,000 or more in 2026? We collect W-9s, prepare and e-file your Forms 1099-NEC and 1099-MISC, and send contractor copies by February 1, 2027. Early-bird: $20 per form when you prepay by December 15, 2026.</p>
-<div class="hero-btns"><button type="button" class="btn btn-gold" data-svc="f1099-early" data-conv="checkout">Book &amp; pay $20</button><a class="btn btn-line" href="#faqs">Questions first?</a></div></div></header>
+<div class="hero-btns"><a class="btn btn-gold" href="#quote" data-conv="quote">Get a 1099 quote</a><a class="btn btn-line" href="#prices">See prices</a></div></div></header>
 <main>
+<section class="wrap llc-sec" id="quote" aria-labelledby="q-h"><div class="sec-hd"><span class="eyebrow eb-dark">Start here</span>
+<h2 id="q-h">Tell us who you paid. We'll tell you what to file.</h2>
+<p>Not sure which contractors need a 1099, or how many forms that is? Send a few details. We reply within one business day with what you need to file and a fixed price. Nothing is charged on this form.</p></div>
+<form class="tcard lform" id="qform" method="POST" action="https://formsubmit.co/info@mfa-advisory.com" novalidate>
+<input type="hidden" name="_next" value="https://mfa-advisory.com/contact/thanks/"/>
+<div class="form-err" id="q-err" role="alert" tabindex="-1" hidden></div>
+<div class="lgrid">
+<div class="fld" id="w-q-name"><label for="q-name">Your name<span class="req" aria-hidden="true">*</span></label><input type="text" id="q-name" name="name" autocomplete="name" required aria-required="true"/><span class="err-msg" id="e-q-name" role="alert"></span></div>
+<div class="fld" id="w-q-email"><label for="q-email">Email<span class="req" aria-hidden="true">*</span></label><input type="email" id="q-email" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required aria-required="true"/><span class="err-msg" id="e-q-email" role="alert"></span></div>
+<div class="fld" id="w-q-phone"><label for="q-phone">Phone (optional)</label><input type="tel" id="q-phone" name="phone" autocomplete="tel" inputmode="tel"/><span class="err-msg" id="e-q-phone" role="alert"></span></div>
+<div class="fld" id="w-q-count"><label for="q-count">Contractors you paid in 2026<span class="req" aria-hidden="true">*</span></label><select id="q-count" name="contractors" required aria-required="true"><option value="">Choose one</option><option value="1 to 3">1 to 3</option><option value="4 to 10">4 to 10</option><option value="11 to 25">11 to 25</option><option value="26 to 50">26 to 50</option><option value="More than 50">More than 50</option><option value="Not sure yet">Not sure yet</option></select><span class="err-msg" id="e-q-count" role="alert"></span></div>
+<div class="fld" id="w-q-paid"><label for="q-paid">How you mostly paid them</label><select id="q-paid" name="paid_by"><option value="">Choose one (optional)</option><option value="Bank transfer, check or cash">Bank transfer, check or cash</option><option value="Card or PayPal/Venmo/Zelle (mixed)">Card or PayPal/Venmo/Zelle (mixed)</option><option value="Not sure">Not sure</option></select><span class=hint>Card and app payments usually don't need a 1099 from you.</span><span class="err-msg" id="e-q-paid" role="alert"></span></div>
+</div>
+<div class="fld" id="w-q-notes"><label for="q-notes">Anything else? (optional)</label><textarea id="q-notes" name="notes" rows="3" placeholder="Business type, deadline worries, prior-year forms you missed"></textarea><span class=hint>Please don't include Social Security or tax ID numbers here. We collect W-9s securely later.</span><span class="err-msg" id="e-q-notes" role="alert"></span></div>
+<input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+<div class="lsubmit"><button class="btn btn-gold" type="submit" id="qsubmit">Get my 1099 quote</button><p class="ask-st" role="status" aria-live="polite"></p></div>
+<p class="pay-note">Prefer to check first? Use our <a href="/tools/do-i-need-to-send-a-1099/">1099 checker</a>, or call <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>.</p>
+</form></section>
+<script>(function(){var f=document.getElementById('qform');if(!f)return;var st=f.querySelector('.ask-st'),box=document.getElementById('q-err');
+var EM=/^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$/;
+var RULES=[['q-name','Please enter your name.',function(v){return v.length>1;}],['q-email','Please enter a valid email address, like name@example.com.',function(v){return EM.test(v);}],['q-count','Please choose about how many contractors you paid.',function(v){return !!v;}]];
+function mark(id,msg){var el=document.getElementById(id),w=document.getElementById('w-'+id),e=document.getElementById('e-'+id);if(msg){w.classList.add('has-err');el.setAttribute('aria-invalid','true');el.setAttribute('aria-describedby','e-'+id);e.textContent=msg;}else{w.classList.remove('has-err');el.removeAttribute('aria-invalid');e.textContent='';}}
+function check(id){for(var i=0;i<RULES.length;i++)if(RULES[i][0]===id){var v=document.getElementById(id).value.trim(),ok=RULES[i][2](v);mark(id,ok?'':RULES[i][1]);return ok;}return true;}
+f.addEventListener('submit',function(e){e.preventDefault();if(f._honey.value)return;st.textContent='';var bad=RULES.filter(function(r){return !check(r[0]);});
+if(bad.length){box.innerHTML='<strong>Please fix '+(bad.length===1?'1 field':bad.length+' fields')+'.</strong>';box.hidden=false;document.getElementById(bad[0][0]).focus();return;}
+box.hidden=true;var b=document.getElementById('qsubmit'),l=b.textContent;b.disabled=true;b.textContent='Sending…';f.email.value=f.email.value.trim();
+var d=new FormData(f);d.append('page',location.href);d.append('_replyto',f.email.value);d.append('_subject','1099 filing quote request: '+f.name.value.trim()+' / '+f.contractors.value+' contractors');d.append('_captcha','false');d.append('_template','table');
+fetch('https://formsubmit.co/ajax/info@mfa-advisory.com',{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){return r.json().catch(function(){return {success:r.ok};});})
+.then(function(j){if(!j||j.success===false||j.success==='false')throw new Error((j&&j.message)||'Send failed');try{sessionStorage.setItem('mfa_contact_sent','1099_quote');}catch(e){}location.href='/contact/thanks/';})
+.catch(function(err){var body=encodeURIComponent('Name: '+f.name.value+'\nEmail: '+f.email.value+'\nPhone: '+f.phone.value+'\nContractors paid: '+f.contractors.value+'\nHow paid: '+f.paid_by.value+'\nNotes: '+f.notes.value);
+box.innerHTML='<strong>We couldn’t send your request just now.</strong> Please <a href="mailto:info@mfa-advisory.com?subject='+encodeURIComponent('1099 filing quote request')+'&body='+body+'">email your details</a> or call (347) 205-4468.';box.hidden=false;b.disabled=false;b.textContent=l;});});})();</script>
 <section class="wrap llc-sec" id="prices" aria-labelledby="pr-h"><div class="sec-hd"><span class="eyebrow eb-dark">Pricing</span><h2 id="pr-h">One price, paid up front.</h2>
 <p>Pay online in two minutes. We reply within one business day to schedule or ask for documents. If we can't take on the work after reviewing your details, you get a full refund.</p></div>
 <div class="of-pk"><div class="pkc card feat"><span class="pk-tag">Prepay by December 15</span><h3>1099-NEC/MISC preparation and e-filing, early-bird</h3>

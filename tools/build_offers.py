@@ -173,7 +173,7 @@ def offer_ld(sid, url, desc, unit=None):
 
 
 def build_page(slug, *, title, desc, h1, h1em, eyebrow, lead, keywords, cards, incl_h, incl, faq, sources, svc_name, svc_type,
-               offers, sections="", crumb_name=None, cta_sid=None):
+               offers, sections="", crumb_name=None, cta_sid=None, pre="", hero_btns=None):
     url = f"{BASE}/{slug}/"
     inc = "".join(f"<li>{ICO}<div><b>{esc(a)}</b><span>{esc(b)}</span></div></li>" for a, b in incl)
     faq_html = ui_kit.faq_accordion([(esc(q), a) for q, a in faq], prefix="of")
@@ -182,8 +182,9 @@ def build_page(slug, *, title, desc, h1, h1em, eyebrow, lead, keywords, cards, i
     first = cta_sid or next(iter(offers))[0]
     body = f'''{CSS}{DIALOG_CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">{esc(eyebrow)}</span>
 <h1>{esc(h1)} <em>{esc(h1em)}</em></h1><p>{lead}</p>
-<div class="hero-btns">{pay_btn(first)}<a class="btn btn-line" href="#faqs">Questions first?</a></div></div></header>
+<div class="hero-btns">{hero_btns or (pay_btn(first) + '<a class="btn btn-line" href="#faqs">Questions first?</a>')}</div></div></header>
 <main>
+{pre}
 <section class="wrap llc-sec" id="prices" aria-labelledby="pr-h"><div class="sec-hd"><span class="eyebrow eb-dark">Pricing</span><h2 id="pr-h">One price, paid up front.</h2>
 <p>Pay online in two minutes. We reply within one business day to schedule or ask for documents. If we can't take on the work after reviewing your details, you get a full refund.</p></div>
 <div class="of-pk">{"".join(cards)}</div></section>
@@ -208,6 +209,61 @@ def build_page(slug, *, title, desc, h1, h1em, eyebrow, lead, keywords, cards, i
                    crumb=[("Home", BASE + "/"), ("Services", BASE + "/services/"), (crumb_name or svc_name, url)],
                    extra={"mainEntity": {"@id": url + "#service"}})
     return write(slug, page(title, desc, url, body, ld, active="s", keywords=keywords))
+
+
+# ---------------------------------------------------------------- 1099 quote form (Hub, 2026-11-01)
+# Google Ads clicks on /1099-filing/ were payer-side but nobody paid up front (0 leads from 17 clicks). A short,
+# no-payment quote request comes first now; it reuses the cleanup form's FormSubmit AJAX + /contact/thanks/
+# redirect, so a send fires the "Contact form submitted" conversion and GA4 generate_lead.
+Q_ENDPOINT = "https://formsubmit.co/ajax/" + B.EMAIL
+Q_COUNT = ["1 to 3", "4 to 10", "11 to 25", "26 to 50", "More than 50", "Not sure yet"]
+Q_PAID = ["Bank transfer, check or cash", "Card or PayPal/Venmo/Zelle (mixed)", "Not sure"]
+Q_JS = r"""(function(){var f=document.getElementById('qform');if(!f)return;var st=f.querySelector('.ask-st'),box=document.getElementById('q-err');
+var EM=/^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$/;
+var RULES=[['q-name','Please enter your name.',function(v){return v.length>1;}],['q-email','Please enter a valid email address, like name@example.com.',function(v){return EM.test(v);}],['q-count','Please choose about how many contractors you paid.',function(v){return !!v;}]];
+function mark(id,msg){var el=document.getElementById(id),w=document.getElementById('w-'+id),e=document.getElementById('e-'+id);if(msg){w.classList.add('has-err');el.setAttribute('aria-invalid','true');el.setAttribute('aria-describedby','e-'+id);e.textContent=msg;}else{w.classList.remove('has-err');el.removeAttribute('aria-invalid');e.textContent='';}}
+function check(id){for(var i=0;i<RULES.length;i++)if(RULES[i][0]===id){var v=document.getElementById(id).value.trim(),ok=RULES[i][2](v);mark(id,ok?'':RULES[i][1]);return ok;}return true;}
+f.addEventListener('submit',function(e){e.preventDefault();if(f._honey.value)return;st.textContent='';var bad=RULES.filter(function(r){return !check(r[0]);});
+if(bad.length){box.innerHTML='<strong>Please fix '+(bad.length===1?'1 field':bad.length+' fields')+'.</strong>';box.hidden=false;document.getElementById(bad[0][0]).focus();return;}
+box.hidden=true;var b=document.getElementById('qsubmit'),l=b.textContent;b.disabled=true;b.textContent='Sending…';f.email.value=f.email.value.trim();
+var d=new FormData(f);d.append('page',location.href);d.append('_replyto',f.email.value);d.append('_subject','1099 filing quote request: '+f.name.value.trim()+' / '+f.contractors.value+' contractors');d.append('_captcha','false');d.append('_template','table');
+fetch('__ENDPOINT__',{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){return r.json().catch(function(){return {success:r.ok};});})
+.then(function(j){if(!j||j.success===false||j.success==='false')throw new Error((j&&j.message)||'Send failed');try{sessionStorage.setItem('mfa_contact_sent','1099_quote');}catch(e){}location.href='/contact/thanks/';})
+.catch(function(err){var body=encodeURIComponent('Name: '+f.name.value+'\nEmail: '+f.email.value+'\nPhone: '+f.phone.value+'\nContractors paid: '+f.contractors.value+'\nHow paid: '+f.paid_by.value+'\nNotes: '+f.notes.value);
+box.innerHTML='<strong>We couldn’t send your request just now.</strong> Please <a href="mailto:__EMAIL__?subject='+encodeURIComponent('1099 filing quote request')+'&body='+body+'">email your details</a> or call (347) 205-4468.';box.hidden=false;b.disabled=false;b.textContent=l;});});})();"""
+
+
+def quote_1099():
+    R = '<span class="req" aria-hidden="true">*</span>'
+    req = ' required aria-required="true"'
+
+    def fld(fid, label, ctrl, required=False, hint=""):
+        return (f'<div class="fld" id="w-{fid}"><label for="{fid}">{label}{R if required else ""}</label>{ctrl}'
+                f'{f"<span class=hint>{hint}</span>" if hint else ""}<span class="err-msg" id="e-{fid}" role="alert"></span></div>')
+
+    def sel(fid, name, opts, required=False, ph="Choose one"):
+        o = f'<option value="">{ph}</option>' + "".join(f'<option value="{esc(x)}">{esc(x)}</option>' for x in opts)
+        return f'<select id="{fid}" name="{name}"{req if required else ""}>{o}</select>'
+    import ads
+    return f'''<section class="wrap llc-sec" id="quote" aria-labelledby="q-h"><div class="sec-hd"><span class="eyebrow eb-dark">Start here</span>
+<h2 id="q-h">Tell us who you paid. We'll tell you what to file.</h2>
+<p>Not sure which contractors need a 1099, or how many forms that is? Send a few details. We reply within one business day with what you need to file and a fixed price. Nothing is charged on this form.</p></div>
+<form class="tcard lform" id="qform" method="POST" action="https://formsubmit.co/{B.EMAIL}" novalidate>
+{ads.next_field()}
+<div class="form-err" id="q-err" role="alert" tabindex="-1" hidden></div>
+<div class="lgrid">
+{fld("q-name", "Your name", f'<input type="text" id="q-name" name="name" autocomplete="name"{req}/>', True)}
+{fld("q-email", "Email", f'<input type="email" id="q-email" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false"{req}/>', True)}
+{fld("q-phone", "Phone (optional)", '<input type="tel" id="q-phone" name="phone" autocomplete="tel" inputmode="tel"/>')}
+{fld("q-count", "Contractors you paid in 2026", sel("q-count", "contractors", Q_COUNT, True), True)}
+{fld("q-paid", "How you mostly paid them", sel("q-paid", "paid_by", Q_PAID, False, "Choose one (optional)"), False, "Card and app payments usually don't need a 1099 from you.")}
+</div>
+{fld("q-notes", "Anything else? (optional)", '<textarea id="q-notes" name="notes" rows="3" placeholder="Business type, deadline worries, prior-year forms you missed"></textarea>', False, "Please don't include Social Security or tax ID numbers here. We collect W-9s securely later.")}
+<input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+<div class="lsubmit"><button class="btn btn-gold" type="submit" id="qsubmit">Get my 1099 quote</button><p class="ask-st" role="status" aria-live="polite"></p></div>
+<p class="pay-note">Prefer to check first? Use our <a href="/tools/do-i-need-to-send-a-1099/">1099 checker</a>, or call {TEL}.</p>
+</form></section>
+<script>{Q_JS.replace("__ENDPOINT__", Q_ENDPOINT).replace("__EMAIL__", B.EMAIL)}</script>'''
 
 
 # ---------------------------------------------------------------- pages
@@ -305,6 +361,7 @@ def build_1099():
         h1="1099 filing,", h1em="done for you.", eyebrow="1099 season 2027",
         lead=f"Paid contractors $2,000 or more in 2026? We collect W-9s, prepare and e-file your Forms 1099-NEC and 1099-MISC, and send contractor copies by {fmt_d(e['date'])}. Early-bird: $20 per form when you prepay by {EARLY_END}.",
         keywords=["1099 filing service", "1099-NEC filing", "file 1099 for contractors", "1099 preparation service", "1099-NEC 2026 $2000 threshold", "1099 e-file service small business"],
+        pre=quote_1099(), hero_btns='<a class="btn btn-gold" href="#quote" data-conv="quote">Get a 1099 quote</a>' + '<a class="btn btn-line" href="#prices">See prices</a>',
         cards=cards, incl_h="From W-9 to filed, without the January scramble.", incl=incl, faq=faq, sources=srcs,
         svc_name="1099-NEC and 1099-MISC preparation and e-filing", svc_type="Information return filing", crumb_name="1099 filing",
         offers=[("f1099-early", f"Per form, 3-form minimum, prepaid by {EARLY_END}.", ("C62", "form")),
