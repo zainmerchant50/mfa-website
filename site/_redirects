@@ -7,9 +7,9 @@
 # /services/ is a real page since 2026-10-20 (services moved off the home page).
 /service              /services/       301
 /service/*            /services/       301
-/about                /#approach       301
-/about-us             /#approach       301
-/about-us/*           /#approach       301
+/about                /authors/zain-merchant/       301
+/about-us             /authors/zain-merchant/       301
+/about-us/*           /authors/zain-merchant/       301
 /privacy-policy       /privacy.html    301
 /privacy-policy/*     /privacy.html    301
 /terms-conditions     /terms.html      301
