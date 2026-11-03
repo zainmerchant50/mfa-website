@@ -33,7 +33,7 @@ def amz(q):
 
 # (title, author, open library cover id, the hook, who it's for, search query)
 BOOKS = [
-    ("Profit First", "Mike Michalowicz", 13193805,
+    ("Profit First", "Mike Michalowicz", 14624477,
      "Take your profit first, then run the business on what's left. A few bank accounts and a simple percentage split make it happen.",
      "Owners whose sales grow but whose bank balance doesn't", "Profit First Mike Michalowicz"),
     ("The Psychology of Money", "Morgan Housel", 10389354,
