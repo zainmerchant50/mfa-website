@@ -152,26 +152,23 @@ def tool_card(t, art, why, look, tax, q):
 
 
 def build():
-    title = "MFA Picks: Money Books and Tools We Mention | MFA"
-    desc = "The finance books and small-business tools from our videos, with Amazon links."
+    title = "MFA Picks: Money Books We Recommend | MFA"
+    desc = "The finance books from our videos, with Amazon links."
     head = B.head(title, desc, URL, "https://mfa-advisory.com/apple-touch-icon.png",
                   CSS + '<meta name="robots" content="noindex,follow"/>')
     books = "".join(book_card(*b) for b in BOOKS)
-    tools = "".join(tool_card(*t) for t in TOOLS)
+    # Tools section removed (Zain, 2026-11-03 00:15: generic tool categories weren't useful). TOOLS/ART kept for
+    # specific named products later.
     body = f"""<header class="pk-hero"><div class="wrap">
 <span class="eyebrow">From our videos</span>
 <h1>MFA <em>Picks</em></h1>
-<p>The money books and small-business tools we talk about on TikTok, YouTube and Instagram, in one place.</p>
-<nav class="pk-jump" aria-label="Jump to"><a href="#books">Money books</a><a href="#tools">Tools for your business</a></nav>
+<p>The money books we talk about on TikTok, YouTube and Instagram, in one place.</p>
 <p class="pk-disc"><b>Disclosure:</b> As an Amazon Associate, MFA earns from qualifying purchases. These are affiliate links; your price doesn't change.</p>
 </div></header>
 <main>
 <section class="pk-sec" id="books" aria-labelledby="bk-h"><div class="wrap"><span class="eyebrow eb-dark">Read</span><h2 id="bk-h">Money books worth your time</h2>
 <p class="sub">The finance books people keep sharing, plus two that explain your own numbers.</p><div class="pk-grid">{books}</div></div></section>
-<section class="pk-sec" id="tools" aria-labelledby="tl-h"><div class="wrap"><span class="eyebrow eb-dark">Set up</span><h2 id="tl-h">Tools for a tidier, tax-ready business</h2>
-<p class="sub">Why each one helps, what to look for, and how it's usually treated at tax time.</p><div class="pk-grid">{tools}</div></div></section>
-<section class="pk-fine"><div class="wrap"><p>General information, not tax advice: whether an item is deductible depends on how you use it and how you deduct your
-car and home office. Amazon prices and availability change; we don't control them. Book covers via Open Library. Links checked {CHECKED}.</p></div></section>
+<section class="pk-fine"><div class="wrap"><p>General information, not tax advice. Amazon prices and availability change; we don't control them. Book covers via Open Library. Links checked {CHECKED}.</p></div></section>
 </main>"""
     html = f"""{head}
 <body>{B.nav("")}
