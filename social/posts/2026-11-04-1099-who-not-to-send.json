@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-04",
+  "number": 2,
+  "slug": "1099-Who-Not-To-Send",
+  "topic": "Who does NOT get a 1099-NEC: card/payment-app payments (1099-K), corporations (attorney exception), under $2,000, e-file at 10+ returns; due Feb 1, 2027 (LinkedIn only, Zain Nov 3)",
+  "type": "service",
+  "accent": "plum",
+  "label": "1099 season / Check",
+  "kicker": "Before you send 1099s",
+  "headline": "Not every contractor gets a *1099-NEC*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Paid by card or app checkout?",
+      "text": "The payment company reports it on a 1099-K. Not you."
+    },
+    {
+      "title": "Paid an S or C corp LLC?",
+      "text": "Generally no 1099-NEC. Attorneys are the exception."
+    },
+    {
+      "title": "Under $2,000 in 2026?",
+      "text": "Generally no form, unless you withheld backup tax."
+    },
+    {
+      "title": "10+ forms in total?",
+      "text": "You must e-file. Due Monday, Feb 1, 2027."
+    }
+  ],
+  "body": [],
+  "cta_word": "1099",
+  "link": "mfa-advisory.com/1099-filing",
+  "checked": "November 3, 2026",
+  "ig_caption": "Not every contractor you paid in 2026 gets a 1099-NEC. Before you send forms in January, check how and who you paid.\n\n1. Paid by credit card or through a payment app's business checkout? The payment company reports it on Form 1099-K. You don't put those payments on a 1099-NEC.\n2. Paid an LLC that's taxed as an S corp or C corp? Generally no 1099-NEC. The big exception: attorneys' fees are reported even when the law firm is a corporation.\n3. Paid someone less than $2,000 for the year? For 2026 payments, generally no form (unless you withheld backup tax).\n4. Filing 10 or more information returns in total (all 1099 types and W-2s combined)? You have to e-file them.\n\nThe 1099-NEC deadline is Monday, Feb 1, 2027, both to the contractor and to the IRS.\n\nQuick year-end check: pull your 2026 vendor list, mark how each one was paid, and get a W-9 from anyone you still need to file for.\n\nWe prepare and e-file 1099-NEC and 1099-MISC forms for small businesses. Comment 1099 and we'll send the details.\n\nSource: IRS Instructions for Forms 1099-MISC and 1099-NEC. General information, not tax advice.\n\nComment 1099 or see mfa-advisory.com/1099-filing\n\n#1099 #SmallBusiness #Contractors #Bookkeeping",
+  "li_caption": "Not every contractor you paid in 2026 gets a 1099-NEC. Before you send forms in January, check how and who you paid.\n\n1. Paid by credit card or through a payment app's business checkout? The payment company reports it on Form 1099-K. You don't put those payments on a 1099-NEC.\n2. Paid an LLC that's taxed as an S corp or C corp? Generally no 1099-NEC. The big exception: attorneys' fees are reported even when the law firm is a corporation.\n3. Paid someone less than $2,000 for the year? For 2026 payments, generally no form (unless you withheld backup tax).\n4. Filing 10 or more information returns in total (all 1099 types and W-2s combined)? You have to e-file them.\n\nThe 1099-NEC deadline is Monday, Feb 1, 2027, both to the contractor and to the IRS.\n\nQuick year-end check: pull your 2026 vendor list, mark how each one was paid, and get a W-9 from anyone you still need to file for.\n\nWe prepare and e-file 1099-NEC and 1099-MISC forms for small businesses. Comment 1099 and we'll send the details.\n\nSource: IRS Instructions for Forms 1099-MISC and 1099-NEC. General information, not tax advice.\n\nLink in the first comment.\n\n#1099 #SmallBusiness #Contractors #Bookkeeping",
+  "sources": [
+    {
+      "fact": "Card/payment card and certain other payments reported on 1099-K, not 1099-NEC/MISC; payments to corporations generally exempt except attorneys' fees etc.; NEC threshold $2,000 for 2026 payments; e-file if 10+ information returns aggregated (T.D. 9972); file/furnish 1099-NEC by Jan 31 (Feb 1, 2027, weekend rule)",
+      "url": "https://www.irs.gov/instructions/i1099mec"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:30 AM ET"
+  }
+}
