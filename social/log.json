@@ -149,17 +149,15 @@
  {
   "date": "2026-11-06",
   "slug": "LLC-Annual-Report",
-  "status": "scheduled",
+  "status": "linkedin scheduled; instagram NOT scheduled (needs Zain)",
   "platforms": [
-   "instagram",
    "linkedin"
   ],
   "times": {
-   "instagram": "12:00 PM ET",
-   "linkedin": "8:30 AM ET"
+   "linkedin": "8:30 AM ET (Typefully draft 11694679)"
   },
   "campaign": "nov-push",
   "link": "https://mfa-advisory.com/llc-annual-report/",
-  "note": "Social agent (Nov 4 run): myth vs fact, FinCEN BOI gone for US companies vs NJ annual report / NY biennial statement; nov-push -> /llc-annual-report/, CTA REPORT"
+  "note": "Social agent (Nov 4 run): myth vs fact, FinCEN BOI gone for US companies vs NJ annual report / NY biennial statement; nov-push -> /llc-annual-report/, CTA REPORT. Instagram/Facebook: composer filled (image + caption, IG+FB Nov 6 8:00 PM to match the Nov 4/5 image slots and Zain's Oct 30 evening times; 12 PM already holds a reel) but the Schedule click was blocked by this session's safety check; post files are in Ready to Post."
  }
 ]
