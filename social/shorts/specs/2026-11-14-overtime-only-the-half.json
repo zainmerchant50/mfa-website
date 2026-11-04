@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-14",
+  "slug": "overtime-only-the-half",
+  "title": "No tax on overtime? Only the half counts",
+  "type": "value",
+  "accent": "teal",
+  "theme": "neon",
+  "label": "Tax myth vs fact",
+  "checked": "November 3, 2026",
+  "series": "Tax myth vs fact",
+  "link": {
+    "path": "/year-end-tax-planning/",
+    "label": "Year-end tax planning (MFA)"
+  },
+  "hook": {
+    "text": "Overtime pay: only *the half* counts.",
+    "sub": "The new deduction isn't what you think."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Jordan earns $30 an hour.",
+        "Overtime pays $45 an hour.",
+        "He thinks all $45 escapes tax."
+      ]
+    },
+    {
+      "type": "values",
+      "kicker": "Per overtime hour",
+      "items": [
+        {
+          "v": "$30",
+          "l": "regular rate, taxed"
+        },
+        {
+          "v": "$15",
+          "l": "premium, deductible"
+        }
+      ],
+      "note": "Only the \"half\" in time-and-a-half counts."
+    },
+    {
+      "type": "stat",
+      "kicker": "Yearly cap, 2025 to 2028",
+      "value": "$12,500",
+      "count": {
+        "to": 12500,
+        "pre": "$",
+        "suf": ""
+      },
+      "sub": "single · $25,000 joint",
+      "note": "Phases out above $150,000 income ($300,000 joint)."
+    },
+    {
+      "type": "text",
+      "kicker": "Do this now",
+      "text": "Check your *overtime premium* on your pay stubs.",
+      "sub": "It's a deduction, so it still shows as wages."
+    }
+  ],
+  "cta": {
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our year-end tax checklist."
+  },
+  "captions": {
+    "comment_word": "OT",
+    "instagram": "\"No tax on overtime\" doesn't cover all of your overtime pay.\n\n✔️ Only the premium counts: the extra half in time-and-a-half. At $30/hour regular and $45 overtime, $15 per hour is deductible.\n✔️ Cap: $12,500 a year single, $25,000 married filing jointly, for 2025 to 2028.\n✔️ It phases out above $150,000 of income ($300,000 joint). You don't have to itemize.\n✔️ It's a deduction on your return, so your paycheck still shows the overtime as wages.\n\nSource: IRS, Working Families Tax Cuts.",
+    "hashtags": [
+      "#taxtips",
+      "#taxes2026",
+      "#personalfinance",
+      "#moneytips",
+      "#taxseason",
+      "#irs",
+      "#overtime",
+      "#taxmyths"
+    ],
+    "youtube_title": "No Tax on Overtime? Only the Half Counts (2026 Rule)",
+    "youtube_description": "The overtime deduction covers only the premium (the half in time-and-a-half): up to $12,500 single / $25,000 joint for 2025-2028, phasing out above $150,000 ($300,000 joint). Source: IRS.",
+    "pinterest_title": "No Tax on Overtime Explained: Only the Half Counts",
+    "pinterest_description": "The overtime deduction covers only the extra half of time-and-a-half pay, up to $12,500 single or $25,000 joint a year for 2025-2028, phasing out above $150,000 of income. Example: $30 regular, $45 overtime, $15 an hour deductible.",
+    "pinterest_alt": "Dark neon card: Overtime pay, only the half counts. $12,500 cap.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {
+    "ads_keywords": [
+      "no tax on overtime"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Overtime deduction: premium only; $12,500/$25,000; phase-out $150k/$300k; 2025-2028",
+      "url": "https://www.irs.gov/newsroom/working-families-tax-cuts-tax-deductions-for-working-americans-and-seniors"
+    }
+  ]
+}

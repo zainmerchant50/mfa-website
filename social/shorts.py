@@ -24,6 +24,7 @@ copyrighted audio). There is no voiceover: the on-screen text is the burned-in c
 
 Spec JSON (see social/shorts/specs/ for real ones):
   date, slug (kebab), title, type (product|value|service), accent (burgundy|amber|teal|plum|forest|slate),
+  theme? (paper|neon; omit for the classic navy look: rotate themes so the feed does not repeat),
   label (top-right, short), checked ("October 24, 2026"),
   link {path, anchor?, label}  -> destination page on mfa-advisory.com (UTMs are added per platform),
   hook {text, sub?}  (text supports *accent* = gold italic),
@@ -369,6 +370,38 @@ def scene_html(s, i, n):
             + "\n".join(x for x in h if x) + "</section>")
 
 
+
+THEMES = {  # optional spec "theme": restyles the whole reel (Hub, Nov 3: rotate looks so feeds don't repeat)
+    "paper": """
+body{color:#10233F;background:linear-gradient(170deg,#FBF8F1 0%,#F4EEE2 60%,#EADFCB 100%)}
+#glow{background:radial-gradient(circle,rgba(176,141,63,.18) 0%,transparent 65%)}
+#grain{mix-blend-mode:multiply;opacity:.25}
+.hd img{filter:brightness(0) saturate(100%) invert(12%) sepia(36%) saturate(1500%) hue-rotate(190deg) brightness(92%)}
+.lab,.kick,.qmark,.item .n,.handle{color:#8A2E2E} em{color:#8A2E2E}
+.seg{background:rgba(16,35,63,.15)} .seg i{background:#8A2E2E}
+.handle{border-top-color:rgba(138,46,46,.45)} .handle span:first-child{color:#5b6475}
+.sub{color:#1d2b44} .note,.item span,.disc{color:#4a5468} .from{color:#7b8496}
+.stat,.big{color:#10233F} .bar{background:#8A2E2E}
+.line,.item,.val,.row{background:rgba(255,255,255,.72);border-color:rgba(16,35,63,.18);box-shadow:0 10px 30px rgba(16,35,63,.08)}
+.line{border-left-color:#8A2E2E} .val span{color:#8A2E2E}
+.row i.yes{background:#10233F;color:#FBF8F1} .row i.no{border-color:#7b8496;color:#4a5468}
+.url{background:#10233F;color:#FBF8F1}
+""",
+    "neon": """
+body{background:linear-gradient(165deg,#05070d 0%,#0a0f1f 55%,#101a33 100%)}
+#glow{background:radial-gradient(circle,rgba(62,230,193,.28) 0%,rgba(62,230,193,.08) 40%,transparent 68%)}
+.big,.stat,.val b,.ptitle,.from,.item .n{font-family:Inter,sans-serif;font-weight:800;letter-spacing:-.02em}
+.big{font-size:104px} .big.hook{font-size:116px} .stat{font-size:220px}
+em{font-style:normal;color:#3EE6C1}
+.lab,.kick,.qmark,.item .n,.handle{color:#3EE6C1} .seg i{background:#3EE6C1} .bar{background:#FF5C8A}
+.line,.item,.val,.row{background:rgba(255,255,255,.05);border-color:rgba(62,230,193,.45)}
+.line{border-left-color:#FF5C8A} .val span{color:#3EE6C1}
+.row i.yes{background:#3EE6C1;color:#05070d} .url{background:#3EE6C1;color:#05070d}
+.handle{border-top-color:rgba(62,230,193,.4)}
+""",
+}
+
+
 def page(p, scenes, total):
     mid, deep = R.ACCENTS.get(p.get("accent", "slate"), R.ACCENTS["slate"])
     logo = R.b64(HERE / "assets" / "mfa-logo-white.png")
@@ -440,6 +473,7 @@ border:1px solid rgba(176,141,63,.5);border-radius:16px;padding:26px 28px;font-s
 .url{{background:#B08D3F;color:#10233F;font-weight:600;font-size:50px;letter-spacing:.02em;border-radius:60px;padding:24px 48px}}
 .url.sm{{font-size:32px;padding:22px 32px;white-space:nowrap}}
 .disc{{font-size:26px;color:#BDB7A8;line-height:1.4;text-wrap:balance}}
+{THEMES.get(p.get("theme", ""), "")}
 </style></head><body>
 <div id="glow"></div><div id="grain"></div>
 <div class="hd"><img src="data:image/png;base64,{logo}"/><div class="lab">{html.escape(p["label"])}</div></div>

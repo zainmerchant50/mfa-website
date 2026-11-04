@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-15",
+  "slug": "senior-deduction-6000",
+  "title": "Parents 65+? The extra $6,000 deduction",
+  "type": "value",
+  "accent": "forest",
+  "label": "New for 2025-2028",
+  "checked": "November 3, 2026",
+  "series": "New tax rules",
+  "link": {
+    "path": "/year-end-tax-planning/",
+    "label": "Year-end tax planning (MFA)"
+  },
+  "hook": {
+    "text": "Your parents may get an *extra $6,000.*",
+    "sub": "A new deduction if they're 65+."
+  },
+  "beats": [
+    {
+      "type": "stat",
+      "kicker": "New senior deduction",
+      "value": "$6,000",
+      "count": {
+        "to": 6000,
+        "pre": "$",
+        "suf": ""
+      },
+      "sub": "per person 65+ · $12,000 for a couple",
+      "note": "On top of the usual extra standard deduction for seniors."
+    },
+    {
+      "type": "rows",
+      "kicker": "Who gets it",
+      "items": [
+        {
+          "l": "65 by Dec 31 of the tax year",
+          "r": "Yes",
+          "ok": true
+        },
+        {
+          "l": "Takes the standard deduction",
+          "r": "Still yes",
+          "ok": true
+        },
+        {
+          "l": "Married filing separately",
+          "r": "No",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "The fine print",
+      "text": "Phases out above *$75,000* income",
+      "sub": "$150,000 married filing jointly. Years 2025 to 2028."
+    },
+    {
+      "type": "text",
+      "kicker": "Share this",
+      "text": "Send it to someone doing a *parent's taxes.*"
+    }
+  ],
+  "cta": {
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our year-end tax checklist."
+  },
+  "captions": {
+    "comment_word": "SENIOR",
+    "instagram": "Helping a parent with taxes? There's a new deduction for people 65 and older.\n\n✔️ An extra $6,000 per person who is 65 by the end of the tax year, or $12,000 for a married couple when both qualify.\n✔️ It's on top of the existing extra standard deduction for seniors, and you don't have to itemize.\n✔️ It phases out above $75,000 of income ($150,000 joint). Married couples must file jointly.\n✔️ Applies for 2025 through 2028.\n\nSave this for tax season and share it with whoever does your parents' taxes.\nSource: IRS, Working Families Tax Cuts.",
+    "hashtags": [
+      "#taxtips",
+      "#taxes2026",
+      "#personalfinance",
+      "#moneytips",
+      "#taxseason",
+      "#irs",
+      "#retirement",
+      "#seniors"
+    ],
+    "youtube_title": "New $6,000 Senior Tax Deduction (65+): Who Qualifies",
+    "youtube_description": "New for 2025-2028: an extra $6,000 deduction per person 65+ ($12,000 if both spouses qualify), on top of the usual senior standard deduction, no itemizing needed. Phases out above $75,000 ($150,000 joint); file jointly if married. Source: IRS.",
+    "pinterest_title": "$6,000 Senior Tax Deduction 2026: Who Qualifies",
+    "pinterest_description": "People 65+ can take an extra $6,000 deduction ($12,000 for a couple when both qualify) for 2025-2028, even with the standard deduction. It phases out above $75,000 of income ($150,000 joint). Save this for your parents' tax return.",
+    "pinterest_alt": "Green card: Your parents may get an extra $6,000. New senior deduction for 65+.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {
+    "ads_keywords": [
+      "senior deduction 6000"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Senior deduction $6,000 per eligible person / $12,000 couple; age 65 by year end; phase-out $75k/$150k; joint filing if married; 2025-2028",
+      "url": "https://www.irs.gov/newsroom/working-families-tax-cuts-tax-deductions-for-working-americans-and-seniors"
+    }
+  ]
+}

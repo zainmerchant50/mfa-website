@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-13",
+  "slug": "car-loan-interest-deduction",
+  "title": "New car loan interest: the deduction most buyers miss",
+  "type": "value",
+  "accent": "burgundy",
+  "theme": "paper",
+  "label": "New for 2025-2028",
+  "checked": "November 3, 2026",
+  "series": "New tax rules",
+  "link": {
+    "path": "/year-end-tax-planning/",
+    "label": "Year-end tax planning (MFA)"
+  },
+  "hook": {
+    "text": "Buying a car this *Black Friday?*",
+    "sub": "Check where it was built first."
+  },
+  "beats": [
+    {
+      "type": "stat",
+      "kicker": "New deduction, 2025 to 2028",
+      "value": "$10,000",
+      "count": {
+        "to": 10000,
+        "pre": "$",
+        "suf": ""
+      },
+      "sub": "of car loan interest a year",
+      "note": "You don't have to itemize."
+    },
+    {
+      "type": "rows",
+      "kicker": "Does your loan count?",
+      "items": [
+        {
+          "l": "Brand-new car, loan after 2024",
+          "r": "Yes",
+          "ok": true
+        },
+        {
+          "l": "Final assembly in the US",
+          "r": "Must",
+          "ok": true
+        },
+        {
+          "l": "Used car",
+          "r": "No",
+          "ok": false
+        },
+        {
+          "l": "Lease",
+          "r": "No",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "Before you sign",
+      "text": "Run the VIN in the *NHTSA decoder.*",
+      "sub": "It shows the plant where the car was built."
+    },
+    {
+      "type": "text",
+      "kicker": "The fine print",
+      "text": "Phases out above *$100,000* income",
+      "sub": "$200,000 married filing jointly. Personal use only."
+    }
+  ],
+  "cta": {
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our year-end tax checklist."
+  },
+  "captions": {
+    "comment_word": "CAR",
+    "instagram": "Buying a new car this month? The interest may be deductible.\n\n✔️ New rule for 2025 to 2028: deduct up to $10,000 of car loan interest a year, even if you take the standard deduction.\n✔️ The car must be new (original use starts with you) and have final assembly in the United States.\n✔️ Used cars and leases don't count. The loan must start after Dec 31, 2024 and be for personal use.\n✔️ It phases out above $100,000 of income ($200,000 joint). You'll need the VIN on your return.\n\nTip: check the build plant with the NHTSA VIN decoder before you sign.\nSource: IRS, Working Families Tax Cuts.",
+    "hashtags": [
+      "#taxtips",
+      "#taxes2026",
+      "#personalfinance",
+      "#moneytips",
+      "#taxseason",
+      "#irs",
+      "#carbuying",
+      "#blackfriday"
+    ],
+    "youtube_title": "New Car Loan Interest Deduction: Check This Before You Buy",
+    "youtube_description": "New for 2025-2028: up to $10,000 of car loan interest a year may be deductible, even without itemizing. New car, final assembly in the US, loan after 2024, personal use; phases out above $100,000 ($200,000 joint). Used cars and leases don't count. Source: IRS.",
+    "pinterest_title": "Car Loan Interest Deduction 2026: New Car Buyers Checklist",
+    "pinterest_description": "Buying a new car? Up to $10,000 of loan interest a year may be deductible for 2025-2028, even if you don't itemize. It must be new, built in the US, financed after 2024 and for personal use. Used cars and leases don't qualify. Check the VIN first.",
+    "pinterest_alt": "Cream card: Buying a car this Black Friday? Check where it was built first. $10,000 car loan interest deduction checklist.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {
+    "ads_keywords": [
+      "car loan interest deduction"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Up to $10,000 interest; new, US final assembly, loan after 12/31/2024, personal use; phase-out $100k/$200k; VIN; 2025-2028; no itemizing",
+      "url": "https://www.irs.gov/newsroom/working-families-tax-cuts-tax-deductions-for-working-americans-and-seniors"
+    }
+  ]
+}
