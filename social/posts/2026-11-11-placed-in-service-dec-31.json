@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-11",
+  "number": 1,
+  "slug": "Placed-In-Service-Dec-31",
+  "topic": "Section 179 / 100% bonus: asset must be placed in service by Dec 31, 2026; ordering isn't enough; 179 limit $2.56M; NJ caps 179 at $25,000 (LinkedIn, year-end)",
+  "type": "value",
+  "accent": "teal",
+  "label": "Year-end / Equipment",
+  "kicker": "Buying equipment before year-end?",
+  "headline": "Ordered isn't enough. It must be *in service.*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "In service by Dec 31, 2026",
+      "text": "Set up and ready to use, not just ordered or paid for."
+    },
+    {
+      "title": "100% bonus depreciation is back",
+      "text": "For qualifying property acquired after Jan 19, 2025."
+    },
+    {
+      "title": "Section 179 limit: $2.56 million",
+      "text": "For 2026, reduced above $4.09 million of purchases."
+    },
+    {
+      "title": "New Jersey is different",
+      "text": "NJ caps Section 179 at $25,000 and doesn't follow bonus."
+    }
+  ],
+  "body": [],
+  "cta_word": "",
+  "link": "mfa-advisory.com/blog/section-179-bonus-depreciation-2026/",
+  "checked": "November 3, 2026",
+  "ig_caption": "Buying a truck, computer or machine before Dec 31 to cut your 2026 taxes? The date that matters isn't the order date.\n\n1. The asset has to be placed in service by Dec 31, 2026: delivered, set up and ready to use. Ordered or paid for isn't enough.\n2. 100% bonus depreciation is back for qualifying property acquired after Jan 19, 2025.\n3. Section 179 for 2026 lets you expense up to $2,560,000, reduced once purchases pass $4,090,000.\n4. New Jersey doesn't follow along: NJ caps Section 179 at $25,000 and doesn't allow federal bonus depreciation, so your NJ return can look very different.\n\nOne more check before you buy: a big write-off only helps if you have the income to use it, and it lowers the basis you'll have later.\n\nSources: IRS Rev. Proc. 2025-32, IRS Notice 2026-11, IRS Publication 946. General information, not tax advice.\n\nSee mfa-advisory.com/blog/section-179-bonus-depreciation-2026/\n\n#SmallBusiness #YearEndTaxPlanning #Section179 #NewJersey",
+  "li_caption": "Buying a truck, computer or machine before Dec 31 to cut your 2026 taxes? The date that matters isn't the order date.\n\n1. The asset has to be placed in service by Dec 31, 2026: delivered, set up and ready to use. Ordered or paid for isn't enough.\n2. 100% bonus depreciation is back for qualifying property acquired after Jan 19, 2025.\n3. Section 179 for 2026 lets you expense up to $2,560,000, reduced once purchases pass $4,090,000.\n4. New Jersey doesn't follow along: NJ caps Section 179 at $25,000 and doesn't allow federal bonus depreciation, so your NJ return can look very different.\n\nOne more check before you buy: a big write-off only helps if you have the income to use it, and it lowers the basis you'll have later.\n\nSources: IRS Rev. Proc. 2025-32, IRS Notice 2026-11, IRS Publication 946. General information, not tax advice.\n\nLink in the first comment.\n\n#SmallBusiness #YearEndTaxPlanning #Section179 #NewJersey",
+  "sources": [
+    {
+      "fact": "2026 Section 179 limit $2,560,000, phase-out $4,090,000",
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+    },
+    {
+      "fact": "100% bonus for property acquired after Jan 19, 2025",
+      "url": "https://www.irs.gov/pub/irs-drop/n-26-11.pdf"
+    },
+    {
+      "fact": "Placed in service = ready and available for use",
+      "url": "https://www.irs.gov/publications/p946"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:30 AM ET"
+  }
+}

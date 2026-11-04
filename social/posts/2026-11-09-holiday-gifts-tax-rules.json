@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-09",
+  "number": 1,
+  "slug": "Holiday-Gifts-Tax-Rules",
+  "topic": "Holiday gifts: $25 per client deduction limit; employee cash/gift cards are taxable wages; small non-cash holiday gifts can be de minimis (LinkedIn, seasonal)",
+  "type": "value",
+  "accent": "burgundy",
+  "label": "Holiday season / Tip",
+  "kicker": "Before you buy holiday gifts",
+  "headline": "Holiday gifts: what the IRS *lets you deduct*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Gifts to clients: $25 each",
+      "text": "Per person, per year. Shipping and engraving don't count toward it."
+    },
+    {
+      "title": "Gift cards to employees",
+      "text": "Cash and gift cards are taxable wages. Run them through payroll."
+    },
+    {
+      "title": "A small non-cash gift",
+      "text": "A fruit basket or a book can be a non-taxable de minimis gift."
+    },
+    {
+      "title": "Hosting a holiday party?",
+      "text": "Keep receipts and the guest list with your books."
+    }
+  ],
+  "body": [],
+  "cta_word": "",
+  "link": "mfa-advisory.com/year-end-tax-planning/",
+  "checked": "November 3, 2026",
+  "ig_caption": "Planning holiday gifts for clients or your team? A few IRS rules decide what you can deduct.\n\n1. Gifts to clients and referral partners: you can deduct up to $25 per person per year. Incidental costs like engraving, packing and shipping don't count toward the $25.\n2. Cash and gift cards to employees can never count as a \"de minimis\" benefit. They're taxable wages, so run them through payroll.\n3. A small, occasional non-cash holiday gift to employees (think a fruit basket or a book) can be a non-taxable de minimis fringe benefit.\n4. Keep the receipt plus a note of who received each gift and why. That's what holds up if the deduction is ever questioned.\n\nA $200 bottle of wine for your best client is still a $25 deduction. Spend what you like, just budget the tax on the rest.\n\nSources: IRS Small Business FAQ (business gifts) and IRS de minimis fringe benefits guidance. General information, not tax advice.\n\nSee mfa-advisory.com/year-end-tax-planning/\n\n#SmallBusiness #HolidayGifts #Payroll #Bookkeeping",
+  "li_caption": "Planning holiday gifts for clients or your team? A few IRS rules decide what you can deduct.\n\n1. Gifts to clients and referral partners: you can deduct up to $25 per person per year. Incidental costs like engraving, packing and shipping don't count toward the $25.\n2. Cash and gift cards to employees can never count as a \"de minimis\" benefit. They're taxable wages, so run them through payroll.\n3. A small, occasional non-cash holiday gift to employees (think a fruit basket or a book) can be a non-taxable de minimis fringe benefit.\n4. Keep the receipt plus a note of who received each gift and why. That's what holds up if the deduction is ever questioned.\n\nA $200 bottle of wine for your best client is still a $25 deduction. Spend what you like, just budget the tax on the rest.\n\nSources: IRS Small Business FAQ (business gifts) and IRS de minimis fringe benefits guidance. General information, not tax advice.\n\nLink in the first comment.\n\n#SmallBusiness #HolidayGifts #Payroll #Bookkeeping",
+  "sources": [
+    {
+      "fact": "$25 per person per year business gift deduction; incidental costs (engraving, packing, shipping) excluded",
+      "url": "https://www.irs.gov/faqs/small-business-self-employed-other-business/income-expenses/income-expenses-8"
+    },
+    {
+      "fact": "Cash or cash equivalents never excludable; holiday gifts, books, flowers etc. can be de minimis",
+      "url": "https://www.irs.gov/government-entities/federal-state-local-governments/de-minimis-fringe-benefits"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:30 AM ET"
+  }
+}

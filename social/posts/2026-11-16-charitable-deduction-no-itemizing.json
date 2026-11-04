@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-16",
+  "number": 1,
+  "slug": "Charitable-Deduction-No-Itemizing",
+  "topic": "New for 2026: non-itemizers deduct up to $1,000 ($2,000 joint) of cash gifts to qualified charities; give by Dec 31; keep receipts (LinkedIn, giving season)",
+  "type": "value",
+  "accent": "forest",
+  "label": "Giving season / New rule",
+  "kicker": "Giving to charity this season?",
+  "headline": "New for 2026: deduct gifts *without itemizing*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Up to $1,000, or $2,000 joint",
+      "text": "Even if you take the standard deduction."
+    },
+    {
+      "title": "Cash gifts only",
+      "text": "Clothes, cars and other goods don't count for this one."
+    },
+    {
+      "title": "Qualified charities only",
+      "text": "Check the IRS Tax Exempt Organization Search first."
+    },
+    {
+      "title": "Give by Dec 31, 2026",
+      "text": "Keep the bank record or the charity's receipt."
+    }
+  ],
+  "body": [],
+  "cta_word": "",
+  "link": "mfa-advisory.com/year-end-tax-planning/",
+  "checked": "November 3, 2026",
+  "ig_caption": "Giving season is here, and 2026 brings a new rule for people who take the standard deduction.\n\n1. Beginning with tax year 2026, if you take the standard deduction you can still deduct up to $1,000 of cash gifts to charity ($2,000 if married filing jointly).\n2. It's for cash contributions only (cash, check, card), not donated goods.\n3. The charity has to be a qualified organization. You can check it in the IRS Tax Exempt Organization Search tool.\n4. Give by Dec 31, 2026 to count it on your 2026 return, and keep the bank record or written receipt.\n\nPlanning a bigger gift? If you itemize, the rules are different. That's worth a quick look before year-end.\n\nSource: IRS Tax Topic 506, Charitable contributions. General information, not tax advice.\n\nSee mfa-advisory.com/year-end-tax-planning/\n\n#GivingTuesday #TaxTips #PersonalFinance #YearEndTaxPlanning",
+  "li_caption": "Giving season is here, and 2026 brings a new rule for people who take the standard deduction.\n\n1. Beginning with tax year 2026, if you take the standard deduction you can still deduct up to $1,000 of cash gifts to charity ($2,000 if married filing jointly).\n2. It's for cash contributions only (cash, check, card), not donated goods.\n3. The charity has to be a qualified organization. You can check it in the IRS Tax Exempt Organization Search tool.\n4. Give by Dec 31, 2026 to count it on your 2026 return, and keep the bank record or written receipt.\n\nPlanning a bigger gift? If you itemize, the rules are different. That's worth a quick look before year-end.\n\nSource: IRS Tax Topic 506, Charitable contributions. General information, not tax advice.\n\nLink in the first comment.\n\n#GivingTuesday #TaxTips #PersonalFinance #YearEndTaxPlanning",
+  "sources": [
+    {
+      "fact": "Beginning 2026, non-itemizers deduct up to $1,000 ($2,000 joint) of cash contributions to certain qualified organizations",
+      "url": "https://www.irs.gov/taxtopics/tc506"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:30 AM ET"
+  }
+}
