@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-04",
+  "number": 1,
+  "slug": "1099-2000-Line",
+  "topic": "1099-NEC/MISC threshold $2,000 for 2026 payments; W-9 now; due Feb 1, 2027; backup withholding exception (nov-push -> /1099-filing/)",
+  "type": "service",
+  "accent": "teal",
+  "label": "1099 season / Tip",
+  "kicker": "Paid contractors in 2026?",
+  "headline": "The 1099 line moved to *$2,000*",
+  "headline_size": 80,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Under $2,000? No 1099-NEC",
+      "text": "Up from $600, for payments made in 2026."
+    },
+    {
+      "title": "Get the W-9 now",
+      "text": "Name, address and tax ID before the last payment."
+    },
+    {
+      "title": "Due Monday, Feb 1, 2027",
+      "text": "To the contractor and the IRS. Jan 31 is a Sunday."
+    },
+    {
+      "title": "Withheld tax? File anyway",
+      "text": "Backup withholding means a 1099, whatever the amount."
+    }
+  ],
+  "body": [],
+  "cta_word": "1099",
+  "link": "mfa-advisory.com/1099-filing",
+  "checked": "November 3, 2026",
+  "ig_caption": "Paid a contractor $1,500 this year? You may not need a 1099 for them anymore.\n\nFor payments made in 2026, the IRS reporting line for Form 1099-NEC (and 1099-MISC rents) moved from $600 to $2,000.\n\nWhat to do before year-end:\n\n1. Add up 2026 payments per contractor. $2,000 or more: a 1099-NEC is due. Under $2,000: generally no form.\n2. Get a W-9 now, before the last payment, so you have the name, address and tax ID in January.\n3. Mark the date: Monday, Feb 1, 2027. That's when the 1099-NEC goes to the contractor and the IRS (Jan 31 falls on a Sunday).\n4. One exception: if you withheld backup tax because someone didn't give you a tax ID, you file a 1099-NEC no matter how small the payment.\n\nPaid by card or PayPal? Those payments are reported by the payment company on a 1099-K, not by you on a 1099-NEC.\n\nWe prepare and e-file 1099-NEC and 1099-MISC forms for small businesses. Comment 1099 and we'll send the details.\n\nSource: IRS Instructions for Forms 1099-MISC and 1099-NEC. General information, not tax advice.\n\nComment 1099 or see mfa-advisory.com/1099-filing\n\n#1099 #SmallBusiness #Contractors #TaxTips",
+  "li_caption": "Paid a contractor $1,500 this year? You may not need a 1099 for them anymore.\n\nFor payments made in 2026, the IRS reporting line for Form 1099-NEC (and 1099-MISC rents) moved from $600 to $2,000.\n\nWhat to do before year-end:\n\n1. Add up 2026 payments per contractor. $2,000 or more: a 1099-NEC is due. Under $2,000: generally no form.\n2. Get a W-9 now, before the last payment, so you have the name, address and tax ID in January.\n3. Mark the date: Monday, Feb 1, 2027. That's when the 1099-NEC goes to the contractor and the IRS (Jan 31 falls on a Sunday).\n4. One exception: if you withheld backup tax because someone didn't give you a tax ID, you file a 1099-NEC no matter how small the payment.\n\nPaid by card or PayPal? Those payments are reported by the payment company on a 1099-K, not by you on a 1099-NEC.\n\nWe prepare and e-file 1099-NEC and 1099-MISC forms for small businesses. Comment 1099 and we'll send the details.\n\nSource: IRS Instructions for Forms 1099-MISC and 1099-NEC. General information, not tax advice.\n\nLink in the first comment.\n\n#1099 #SmallBusiness #Contractors #TaxTips",
+  "sources": [
+    {
+      "fact": "2026 payments: 1099-NEC box 1a, 1099-MISC rents/other income threshold $2,000 (may be inflation-adjusted from 2027); furnish and file 1099-NEC by Jan 31 (next business day if weekend: Feb 1, 2027); file for anyone with backup withholding regardless of amount",
+      "url": "https://www.irs.gov/instructions/i1099mec"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:30 AM ET"
+  },
+  "hold": "Do not schedule (Hub, Nov 3): the $2,000 rule already ran on IG/TikTok/YouTube; LinkedIn got 1099-Who-Not-To-Send instead."
+}
