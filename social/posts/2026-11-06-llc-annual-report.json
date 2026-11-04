@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-06",
+  "number": 1,
+  "slug": "LLC-Annual-Report",
+  "topic": "Myth vs fact for LLC owners: US companies no longer file a FinCEN BOI report (final rule Aug 2026), but the state report is still due: NJ annual report by the end of the formation month every year (revocation risk), NY biennial statement every 2 years in the formation month (past due status) (nov-push -> /llc-annual-report/)",
+  "type": "service",
+  "accent": "forest",
+  "label": "LLC owners / Myth vs fact",
+  "kicker": "Skip FinCEN. Don't skip this one.",
+  "headline": "Your LLC has a *birthday*. Don't miss it.",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Myth: you still owe FinCEN a BOI report",
+      "text": "Fact: US companies no longer file one (FinCEN, 2026)."
+    },
+    {
+      "title": "Fact: your state still wants a report",
+      "text": "Many states want one every year or two. Rules vary by state."
+    },
+    {
+      "title": "New Jersey: every year",
+      "text": "Due by the end of the month you formed. Skip it and the state can revoke your LLC."
+    },
+    {
+      "title": "New York: every 2 years",
+      "text": "Biennial statement in the month you formed, or you show as past due."
+    }
+  ],
+  "body": [],
+  "cta_word": "REPORT",
+  "link": "mfa-advisory.com/llc-annual-report",
+  "checked": "November 4, 2026",
+  "ig_caption": "Heard your LLC has to file a BOI report with FinCEN? Not anymore. FinCEN's 2026 final rule removed that report for US companies and US owners.\n\nThe filing that still catches people is the state one.\n\n✔️ New Jersey: annual report every year, due by the last day of the month your LLC was formed. Miss it and the state can revoke your LLC.\n✔️ New York: biennial statement every 2 years, in the month your LLC was formed. Skip it and your LLC shows as past due.\n✔️ Other states: rules vary by state.\n✔️ Formed in November? Your NJ report is due by November 30.\n\nWe file LLC annual reports in every state and track next year's date for you.\n\nComment REPORT and we'll send you the link, or find it at mfa-advisory.com/llc-annual-report\n\nGeneral information, not tax advice.\n\n#smallbusiness #llc #smallbusinesstips #businessowner #entrepreneur #bookkeeping #taxtips #accounting\n#llcowner #annualreport #njbusiness #nybusiness #newjerseybusiness #newyorkbusiness #goodstanding #fincen",
+  "li_caption": "If you own an LLC, one filing just went away and another one did not.\n\nMyth vs fact:\n\n1. Myth: every LLC must file a beneficial ownership (BOI) report with FinCEN. Fact: FinCEN's final rule, announced August 11, 2026, permanently removed that requirement for US companies and US persons. Foreign companies registered here still report foreign owners.\n2. Fact: your state report is still due. New Jersey wants an annual report every year by the last day of the month the LLC was formed. Failure to file can lead to revocation.\n3. Fact: New York wants a biennial statement every two years, in the calendar month the LLC was formed. An LLC that skips it shows as past due in state records, which can hold up some transactions.\n4. Other states: due dates and fees vary by state, and the state usually does not chase you. The duty to file is on the business.\n\nFormed in November? A New Jersey report is due by November 30.\n\nWe file LLC annual reports and biennial statements in every state, confirm the details first and track next year's date. Comment REPORT and we will send it.\n\nLink in the first comment.\n\n#SmallBusiness #LLC #NewJersey #NewYork #BusinessOwners",
+  "sources": [
+    {
+      "fact": "FinCEN final rule (news release Aug 11, 2026) permanently removes BOI reporting for US companies and US persons; foreign reporting companies still report foreign individuals",
+      "url": "https://www.fincen.gov/news/news-releases/fincen-permanently-ends-beneficial-ownership-reporting-requirements-millions"
+    },
+    {
+      "fact": "NJ annual report due the last day of the month the business entity was established; failure to file can result in revocation; responsibility to file is on the business even without a State notice",
+      "url": "https://business.nj.gov/pages/filings-and-accounting"
+    },
+    {
+      "fact": "NY biennial statement every two years; filing period is the calendar month the Articles of Organization were filed; not before that month; non-filers shown as past due, which may prevent certain transactions",
+      "url": "https://dos.ny.gov/biennial-statements-business-corporations-and-limited-liability-companies"
+    },
+    {
+      "fact": "MFA offer: LLC annual report filing, any state, state fee at cost, due date tracked (no prices in social posts, rule 10)",
+      "url": "https://mfa-advisory.com/llc-annual-report/"
+    }
+  ],
+  "post_times": {
+    "linkedin": "8:30 AM ET",
+    "instagram": "12:00 PM ET"
+  },
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/llc-annual-report/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push",
+    "linkedin": "https://mfa-advisory.com/llc-annual-report/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push"
+  }
+}
