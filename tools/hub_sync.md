@@ -106,7 +106,7 @@ INSERT OR REPLACE INTO links (key, label, url, updated_at) VALUES (?1, ?2, ?3, s
 --      'agent:<Name>' (the agent's main tool), or 'doc:<Name>' (label = project doc path, url NULL)
 -- params: ["campaign:Google Ads:All search campaigns", "Search campaigns", "https://ads.google.com/aw/campaigns?ocid=8595837773"]
 UPDATE calendar_items SET stats_link = ?2 WHERE id = ?1;   -- a post's stats page, e.g. the MailerLite report
--- params: ["<calendar id>", "https://dashboard.mailerlite.com/campaigns/<campaign id>/report"]
+-- params: ["<calendar id>", "https://dashboard.mailerlite.com/campaigns/<campaign id>/reports/overview"]
 ```
 URLs must be `https://`. Always put a post's live URL in `calendar_items.link` (LinkedIn: linkedin_published_url, pins: the pin URL, Meta: the permalink).
 Hub routes you can paste in notes: `/hub/ads/#platform=google-ads&range=7d`, `/hub/calendar/#item=<id>`, `/hub/leads/#lead=<id>`, `/hub/finance/#q=<id>`, `/hub/board/#agent=Ads`, `/hub/log/#agent=Ads`.

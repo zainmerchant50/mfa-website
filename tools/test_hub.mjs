@@ -177,7 +177,7 @@ await t("links: only safe https URLs pass", async () => {
 });
 await t("links: platform deep links, aliases, D1 override, unsafe override ignored", async () => {
   eq(HL.platformLink("Google Ads").url, "https://ads.google.com/aw/campaigns?ocid=8595837773");
-  eq(HL.platformLink("Instagram+Facebook").label, "Meta Business Suite"); eq(HL.platformLink("Newsletter").label, "MailerLite campaigns");
+  eq(HL.platformLink("Instagram+Facebook").label, "Meta Business Suite"); eq(HL.platformLink("Newsletter").label, "MailerLite sent campaigns");
   const L = HL.index([{ key: "campaign:Google Ads:Princeton", label: "Princeton", url: "https://ads.google.com/aw/overview?campaignId=1" }, { key: "Etsy", label: "x", url: "javascript:alert(1)" }]);
   eq(HL.campaignLink("Google Ads", "Princeton", L).url, "https://ads.google.com/aw/overview?campaignId=1");
   eq(HL.campaignLink("Google Ads", "Other", L).label, "Google Ads");

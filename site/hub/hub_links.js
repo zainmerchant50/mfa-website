@@ -29,7 +29,7 @@
     "Etsy": ["Etsy stats", "https://www.etsy.com/your/shops/me/stats"],
     "Gumroad": ["Gumroad analytics", "https://app.gumroad.com/analytics"],
     "Upwork": ["Upwork", "https://www.upwork.com/"],
-    "MailerLite": ["MailerLite campaigns", "https://dashboard.mailerlite.com/campaigns"],
+    "MailerLite": ["MailerLite sent campaigns", "https://dashboard.mailerlite.com/campaigns/status/sent"],
     "Subscribers": ["MailerLite subscribers", "https://dashboard.mailerlite.com/subscribers"],
     "QuickBooks": ["QuickBooks banking", "https://qbo.intuit.com/app/banking"],
     "Blog": ["Blog", "https://mfa-advisory.com/blog/"],

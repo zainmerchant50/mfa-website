@@ -15,20 +15,20 @@ INSERT OR REPLACE INTO links (key, label, url) VALUES
   ('Etsy', 'Etsy stats', 'https://www.etsy.com/your/shops/me/stats'),
   ('Gumroad', 'Gumroad analytics', 'https://app.gumroad.com/analytics'),
   ('Upwork', 'Upwork', 'https://www.upwork.com/'),
-  ('MailerLite', 'MailerLite campaigns', 'https://dashboard.mailerlite.com/campaigns'),
+  ('MailerLite', 'MailerLite sent campaigns', 'https://dashboard.mailerlite.com/campaigns/status/sent'),
   ('Subscribers', 'MailerLite subscribers', 'https://dashboard.mailerlite.com/subscribers'),
   ('QuickBooks', 'QuickBooks banking', 'https://qbo.intuit.com/app/banking'),
   ('Blog', 'Blog', 'https://mfa-advisory.com/blog/'),
   ('Site', 'mfa-advisory.com', 'https://mfa-advisory.com/'),
   ('Gmail', 'Gmail', 'https://mail.google.com/mail/u/0/');
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201157566380639539/report' WHERE platform = 'Newsletter' AND instr(link, 'year-end-tax-planning') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201167845274420627/report' WHERE platform = 'Newsletter' AND instr(link, '2027-tax-calendar') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201193059382200077/report' WHERE platform = 'Newsletter' AND instr(link, 'anchor') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201369743198782994/report' WHERE platform = 'Newsletter' AND instr(link, 'salt-cap') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201774394670843190/report' WHERE platform = 'Newsletter' AND instr(link, 'adoption') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201871888966747677/report' WHERE platform = 'Newsletter' AND instr(link, 'form-1065') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201894244728702828/report' WHERE platform = 'Newsletter' AND instr(link, 'form-1120s') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201977110181447210/report' WHERE platform = 'Newsletter' AND instr(link, 'which-tax-form') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/202413565836002843/report' WHERE platform = 'Newsletter' AND instr(link, 'llc-taxed-as-s-corp') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/202788499881985025/report' WHERE platform = 'Newsletter' AND instr(link, 'hiring-overseas') > 0;
-UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/202786739306103810/report' WHERE platform = 'Newsletter' AND instr(link, 'small-business-tax-write-offs') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201157566380639539/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'year-end-tax-planning') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201167845274420627/reports/overview' WHERE platform = 'Newsletter' AND instr(link, '2027-tax-calendar') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201193059382200077/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'anchor') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201369743198782994/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'salt-cap') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201774394670843190/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'adoption') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201871888966747677/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'form-1065') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201894244728702828/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'form-1120s') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/201977110181447210/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'which-tax-form') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/202413565836002843/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'llc-taxed-as-s-corp') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/202788499881985025/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'hiring-overseas') > 0;
+UPDATE calendar_items SET stats_link = 'https://dashboard.mailerlite.com/campaigns/202786739306103810/reports/overview' WHERE platform = 'Newsletter' AND instr(link, 'small-business-tax-write-offs') > 0;
