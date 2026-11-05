@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ e IRS minimum late-filing penalty
+BEGIN:VEVENT
+UID:filing-taxes-late-2025-return-0@mfa-advisory.com
+DTSTAMP:20261105T014448Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+SUMMARY:Extension filers: file your 2025 return by today to avoid the IRS
+  minimum late-filing penalty
+DESCRIPTION:60 days after the Oct. 15\, 2026 extended due date. After thi
+ s\, the failure-to-file penalty is at least $525 or 100% of the tax owed\
+ , whichever is less.\n\nDetails: https://mfa-advisory.com/blog/filing-tax
+ es-late-2025-return/\nGeneral information\, not tax advice. Merchant Fina
+ ncial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/filing-taxes-late-2025-return/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Extension filers: file your 2025 return by today to avoid the
+  IRS minimum late-filing penalty
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

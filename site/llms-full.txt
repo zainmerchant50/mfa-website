@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated November 1, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated November 4, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -1023,6 +1023,7 @@ Painlessly. After a short consultation we handle the transition — requesting p
 
 ## Articles (MFA Insights)
 
+- Filing Taxes Late: Missed Oct. 15? What to Do Now for Your 2025 Return (2026-11-04): Filing taxes late after Oct. 15? What a late 2025 return costs, why Dec. 14 matters if you extended, IRS payment plans and new automatic penalty relief. https://mfa-advisory.com/blog/filing-taxes-late-2025-return/
 - Hiring Overseas Contractors: W-8BEN vs. W-9, 1099 Rules and the Real Tax Picture (2026) (2026-10-30): Hiring overseas contractors to cut costs? Collect a W-8BEN, not a W-9. When a 1099 or 30% withholding applies, what you can deduct and the records to keep. https://mfa-advisory.com/blog/hiring-overseas-contractors-taxes-w8ben/
 - Small Business Tax Write-Offs for 2026: What Counts, What's Limited and the Proof to Keep (2026-10-30): Small business tax write-offs for 2026: what counts, what's limited (meals 50%, mileage, home office) and the receipts and logs to keep before Dec. 31. https://mfa-advisory.com/blog/small-business-tax-write-offs-2026/
 - 2027 Social Security Wage Base: $192,300 and What Self-Employed People Pay (2026-10-29): The 2027 Social Security wage base is $192,300, up from $184,500. What it means for self-employment tax, side gigs and 2027 estimates, with worked numbers. https://mfa-advisory.com/blog/social-security-wage-base-2027-self-employed/

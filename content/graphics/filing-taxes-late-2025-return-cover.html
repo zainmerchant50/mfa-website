@@ -1,0 +1,73 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="_base.css"/>
+<style>
+:root{--w:1200px;--h:1150px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.wrap{position:absolute;inset:72px 80px 64px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;font-size:64px;line-height:1;margin:30px 0 10px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-size:19px;font-weight:300;color:rgba(255,255,255,.72)}
+.lbl{font-size:12.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-b);margin:30px 0 12px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:var(--paper);color:var(--ink);border-radius:16px;padding:18px 18px 16px}
+.card .n{font-family:Cormorant,serif;font-size:50px;color:var(--navy);line-height:1}
+.card .k{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:8px 0 6px}
+.card p{font-size:14px;line-height:1.4;color:#2E2E2E}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:6px}
+.tl:before{content:"";position:absolute;left:12px;right:12px;top:11px;height:2px;background:rgba(216,183,105,.45)}
+.st{position:relative;padding-right:18px}
+.st .dot{width:24px;height:24px;border-radius:50%;background:var(--navy);border:3px solid var(--gold-b);position:relative}
+.st.hot .dot{background:var(--gold-b)}
+.st .d{font-family:Cormorant,serif;font-size:30px;color:#fff;margin:12px 0 4px;line-height:1}
+.st.hot .d{color:var(--gold-b)}
+.st p{font-size:14.5px;line-height:1.4;color:rgba(255,255,255,.85)}
+.box{background:var(--paper);color:var(--ink);border-radius:16px;padding:20px 24px;margin-top:28px}
+.box h3{font-size:12.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.box ol{display:grid;grid-template-columns:1fr 1fr;gap:9px 28px;padding-left:20px;font-size:15px;line-height:1.4}
+.box ol b{color:var(--navy)}
+.tip{margin-top:20px;background:var(--gold-b);color:var(--navy);border-radius:14px;padding:15px 22px;font-size:16px;font-weight:600;line-height:1.4}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+</style></head><body>
+<div class="frame"></div>
+<div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights · Keep-handy guide</span><span class="tag">2025 returns</span></div>
+  <h1>Filing taxes late:<br/><em>the numbers and the next steps.</em></h1>
+  <p class="sub">Missed the Oct. 15 extension deadline, or never filed for 2025? Start here.</p>
+
+  <div class="lbl">What the IRS charges</div>
+  <div class="cards">
+    <div class="card"><div class="n">5%</div><div class="k">Late filing</div><p>Of the unpaid tax, each month or part of a month. <b>Max 25%.</b></p></div>
+    <div class="card"><div class="n">0.5%</div><div class="k">Late payment</div><p>Of the unpaid tax, each month. <b>Max 25%.</b> Keeps running until paid.</p></div>
+    <div class="card"><div class="n">$525</div><div class="k">Minimum penalty</div><p>Once more than 60 days late, or 100% of the tax owed if less.</p></div>
+    <div class="card"><div class="n">7%</div><div class="k">Interest</div><p>A year, compounded daily (Oct.&ndash;Dec. 2026). Charged on penalties too.</p></div>
+  </div>
+
+  <div class="lbl">The dates that matter</div>
+  <div class="tl">
+    <div class="st"><div class="dot"></div><div class="d">Apr. 15, 2026</div><p>Original due date. Payment was due, even with an extension.</p></div>
+    <div class="st"><div class="dot"></div><div class="d">Oct. 15, 2026</div><p>Extended due date. Late-filing penalty starts after this.</p></div>
+    <div class="st hot"><div class="dot"></div><div class="d">Dec. 14, 2026</div><p><b style="color:#fff">Extension filers:</b> file by today to avoid the $525 minimum.</p></div>
+    <div class="st"><div class="dot"></div><div class="d">Apr. 2029</div><p>3-year window to claim a 2025 refund closes.</p></div>
+  </div>
+
+  <div class="box"><h3>Do this now</h3><ol>
+    <li><b>File the return</b>, even if you can't pay. It stops the 5% a month.</li>
+    <li><b>Pay what you can</b> today to shrink penalties and interest.</li>
+    <li><b>Payment plan</b> for the rest: apply online at irs.gov.</li>
+    <li><b>Clean 3-year history?</b> Automatic penalty relief may apply (2025 returns on).</li>
+    <li><b>Owed a refund?</b> Usually no late-filing penalty, but file before it expires.</li>
+    <li><b>New Jersey too:</b> 5% a month, up to 25%, plus interest.</li>
+  </ol></div>
+
+  <div class="tip">The late-filing penalty is 10 times the late-payment penalty. If you can only do one thing this week, file.</div>
+
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com · info@mfa-advisory.com</b><br/>General information, not tax advice. Facts checked Nov. 4, 2026.</div>
+  </div>
+</div>
+</body></html>

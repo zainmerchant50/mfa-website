@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "Filing Taxes Late: Missed Oct. 15? What to Do Now for Your 2025 Return",
+   "url": "/blog/filing-taxes-late-2025-return/",
+   "date": "2026-11-04",
+   "category": "Tax Deadlines",
+   "thumb": "/blog/filing-taxes-late-2025-return/og-card.webp",
+   "description": "Filing taxes late after Oct. 15? What a late 2025 return costs, why Dec. 14 matters if you extended, IRS payment plans and new automatic penalty relief."
+  },
+  {
    "title": "Hiring Overseas Contractors: W-8BEN vs. W-9, 1099 Rules and the Real Tax Picture (2026)",
    "url": "/blog/hiring-overseas-contractors-taxes-w8ben/",
    "date": "2026-10-30",
@@ -31,14 +39,6 @@
    "category": "Tax Planning",
    "thumb": "/blog/llc-taxed-as-s-corp-guide/og-card.webp",
    "description": "LLC taxed as an S corp: who qualifies, the Form 2553 deadline (March 15, 2027 for a Jan. 1, 2027 start), reasonable pay and New Jersey and New York rules."
-  },
-  {
-   "title": "NJ Sales Tax: How to File the ST-50 Online and Quarterly Due Dates",
-   "url": "/blog/nj-sales-tax-st50-filing-guide/",
-   "date": "2026-10-23",
-   "category": "Tax Deadlines",
-   "thumb": "/blog/nj-sales-tax-st50-filing-guide/og-card.webp",
-   "description": "How NJ sales tax filing online works: the ST-50 quarterly return, the 20th-of-the-month due dates, monthly payments over $30,000 and filing as a guest."
   }
  ]
 }
