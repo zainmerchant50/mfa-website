@@ -186,3 +186,6 @@ a.kpi.x .l::after{content:" \2197";color:var(--gold)}
 .grp-h .cnt{color:var(--muted);font-size:11.5px}
 .foot{font-size:11px;padding:2px 8px 6px}
 #finFilter{margin:0 0 6px}
+[hidden]{display:none!important}
+.ans .chips{min-width:0}
+.ans .chip{max-width:100%;overflow:hidden;text-overflow:ellipsis}

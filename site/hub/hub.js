@@ -100,10 +100,10 @@
         var chips = el("div", "chips"), own = el("div", "own"), inp = el("input"); inp.type = "text"; inp.maxLength = 2000; inp.placeholder = "Your answer…"; inp.setAttribute("aria-label", "Your answer");
         (item.suggestions || []).forEach(function (s) {
           var fill = /_{3}/.test(s);
-          chips.appendChild(btn("chip" + (fill ? " fill" : ""), fill ? s.replace(/\s*_{3,}\s*/, "…") : s, function () {
+          var cb = btn("chip" + (fill ? " fill" : ""), fill ? s.replace(/\s*_{3,}\s*/, "…") : s, function () {
             if (fill) { inp.value = s.replace(/\s*_{3,}\s*/, " ").trimEnd() + " "; inp.focus(); return; }
             submit(s);
-          }));
+          }); cb.title = s; chips.appendChild(cb);
         });
         var go = btn("btn-s gold", "Send", function () { var v = inp.value.trim(); if (v) submit(v); else inp.focus(); });
         inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); go.click(); } });
@@ -464,8 +464,8 @@
     var paidRows = paid.filter(function (k) { return P[k].s && (P[k].s.s || P[k].s.c); });
     pairBars($("chSpend"), paidRows.map(function (k) { return { label: k.replace(" Ads", ""), a: P[k].s.s, b: P[k].s.c, href: A({ platform: HL.slug(k), range: rk }) }; }), ["Spend " + rl, "Clicks " + rl], [money, n0], pa.ok ? null : NA(pa.build.join(", ")));
     var impr = Object.keys(P).filter(function (k) { return P[k].s && P[k].s.i; }).map(function (k) { return { label: k, value: P[k].s.i, color: COLORS[k], href: A({ platform: HL.slug(k), range: rk }) }; }).sort(function (a, b) { return b.value - a.value; });
-    var missing = Object.keys(P).filter(function (k) { return !P[k].s; }).map(function (k) { return k + " (" + P[k].na.replace(/^[^:]+: /, "") + ")"; });
-    hbars($("chImpr"), impr, { labelW: 120, empty: NA(), foot: missing.length ? "Not shown: " + missing.join(" · ") : "" });
+    var mb = Object.keys(P).filter(function (k) { return !P[k].s && P[k].naKind === "build"; }), mn = Object.keys(P).filter(function (k) { return !P[k].s && P[k].naKind === "nr"; });
+    hbars($("chImpr"), impr, { labelW: 120, empty: NA(), foot: (mb.length ? "n/a until data builds: " + mb.join(", ") : "") + (mb.length && mn.length ? " · " : "") + (mn.length ? "no " + rl + " numbers from: " + mn.join(", ") : "") });
     var calSince = (d.calSince || [])[0] && d.calSince[0].min_date;
     var top = (d.topPosts || []).filter(function (p) { return inWin(p.date, w); }).sort(function (a, b) { return b.impressions - a.impressions; }).slice(0, 10);
     hbars($("chTop"), top.map(function (p) { return { label: p.title + " · " + p.platform.replace("Instagram+Facebook", "IG/FB"), value: p.impressions, color: COLORS[p.platform] || "#B08D3F", href: HL.route("calendar", { item: p.id }) }; }), { labelW: 230, empty: calSince && !HL.covered(calSince, w.from) ? NA("calendar starts " + fmtD(calSince)) : "No post metrics in this range yet." });
