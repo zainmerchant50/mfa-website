@@ -362,10 +362,10 @@
     if (o.ref) { var cb = el("div", "pn-b"); cb.appendChild(commentBox(o.ref, o.refKind || "comment", "Comment or ask about this")); h.appendChild(cb); }
     if (o.scroll !== false) try { h.scrollIntoView({ block: "nearest" }); } catch (e) { /* old browsers */ }
   }
-  function docTag(name) { var d = HL.doc(name, LINKS); if (!d) return null; var s = el("span", "doc", "Doc: " + d); s.title = "Project doc (open it in the MFA project)"; return s; }
+  function docTag(name, short) { var d = HL.doc(name, LINKS); if (!d) return null; var s = el("span", "doc", short ? d.split("/").pop() : "Doc: " + d); s.title = "Project doc " + d + " (open it in the MFA project)"; return s; }
   // Review cell: hub detail + platform + project doc
   function reviewCell(hubHref, platformLk, docName) {
-    var w = el("div", "rev"); add(w, hl("Review", hubHref), ext(platformLk, "Open"), docName ? docTag(docName) : null); return w;
+    var w = el("div", "rev"); add(w, hl("Review", hubHref), ext(platformLk, "Open"), docName ? docTag(docName, true) : null); return w;
   }
   function filterChip(text, clearHref) { var w = el("div", "fbar"); add(w, el("span", "fchip", text), hl("Show all", clearHref)); return w; }
 

@@ -29,7 +29,7 @@ HEAD = """<!doctype html><html lang="en"><head>
 """
 FOOT = """</main></div>
 <script src="/hub/hub_links.js?v=7"></script>
-<script src="/hub/hub.js?v=7"></script>
+<script src="/hub/hub.js?v=8"></script>
 </body></html>
 """
 
