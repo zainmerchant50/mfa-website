@@ -4,7 +4,9 @@ Where: Pinterest Business, Settings, Import content, Bulk create Pins, Upload .c
 (https://www.pinterest.com/settings/bulk-create-pins/). Organic Pins only: no ads, no spend.
 
 Template: `docs/pinterest-bulk-upload-template.csv` (10 Pins drafted 2026-11-04 from the top performers: the
-"Is it deductible?" write-offs and the 1099 checklist). **Not uploaded yet.** Zain says when.
+"Is it deductible?" write-offs and the 1099 checklist). **Uploaded 2026-11-04 (Zain's yes, 23:16 ET)**, scheduled
+Nov 7-16 at 8:30 PM ET. Pinterest skipped the Nov 8 row because its image repeated the Nov 7 row's; it was re-sent
+with a different image in `docs/pinterest-bulk-upload-fix-2026-11-08.csv`.
 
 ## Column format
 
@@ -37,7 +39,8 @@ MFA Tax Guides (blog RSS auto-pins); Social (Instagram auto-pins).
 - **Spacing: one Pin per day at 8:30 PM ET.** In UTC that is 01:30 the next day while Eastern is on standard time
   (Nov to mid-March), 00:30 during daylight time. Example: 8:30 PM ET on Nov 7, 2026 = `2026-11-08T01:30:00`.
 - Before uploading, check each row against Pins already on the profile so nothing posts twice, and confirm every Media
-  URL and Link opens (200).
+  URL and Link opens (200). **Use a different Media URL on every row:** Pinterest silently drops a row whose image
+  repeats another row's.
 - Links stay on mfa-advisory.com (claimed domain). Amazon Associates links live only on /picks/, never in Pins.
 
 ## Upload steps (when Zain says go)
