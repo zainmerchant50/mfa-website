@@ -1,182 +1,247 @@
 [
- {
-  "date": "2026-10-23",
-  "slug": "1099-Contractor-Tracker",
-  "type": "product",
-  "topic": "1099-NEC $2,000 threshold",
-  "product": "09",
-  "cta": "TRACKER",
-  "folder": "2026-10-23 Fri - 1099 Contractor Tracker"
- },
- {
-  "date": "2026-10-26",
-  "slug": "Year-End-Moves",
-  "type": "value",
-  "topic": "Year-end moves with a Dec 31 cutoff",
-  "product": null,
-  "cta": "GUIDE",
-  "folder": "2026-10-26 Mon - Year-End Moves"
- },
- {
-  "date": "2026-10-27",
-  "slug": "S-Corp-For-2027",
-  "type": "service",
-  "topic": "S corp for 2027: profit decides, Form 2553 by Mar 15, 2027 (nov-push)",
-  "product": null,
-  "cta": "SCORP",
-  "folder": "2026-10-27 Tue - S Corp For 2027"
- },
- {
-  "date": "2026-10-28",
-  "slug": "Jan-15-Estimates",
-  "type": "value",
-  "topic": "Last 2026 estimated tax payment due Jan 15, 2027 (nov-push → /quarterly-estimated-taxes/)",
-  "product": null,
-  "cta": "ESTIMATE",
-  "folder": "2026-10-28 Wed - Jan 15 Estimates"
- },
- {
-  "date": "2026-10-29",
-  "slug": "OPT-FICA-Check",
-  "type": "service",
-  "topic": "F-1/OPT students: Social Security + Medicare (7.65%) withheld in error, employer first then Form 843 + 8316 (nov-push → /international-students/ $49 claim)",
-  "product": null,
-  "cta": "FICA",
-  "folder": "2026-10-29 Thu - OPT FICA Check",
-  "status": "held for Zain's yes (sessions-chat rule 10); in 'Waiting for Zain OK', not emailed to Abiha"
- },
- {
-  "date": "2026-10-30",
-  "slug": "Mileage-Two-Rates",
-  "type": "value",
-  "topic": "2026 has two IRS mileage rates (72.5c Jan-Jun, 76c Jul-Dec): split miles, skip commuting, note odometer Dec 31 -> /tools/mileage-deduction-calculator/",
-  "product": null,
-  "cta": "MILEAGE",
-  "folder": "2026-10-30 Fri - Mileage Two Rates",
-  "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 12:00 PM (Typefully), Oct 30"
- },
- {
-  "date": "2026-11-02",
-  "slug": "Late-Return-Penalty",
-  "type": "service",
-  "topic": "Missed Oct 15: late-filing 5%/mo (max 25%) vs late-payment 0.5%/mo, file now even if you can't pay, payment plan, 3-year refund window (nov-push -> /late-tax-return/)",
-  "product": null,
-  "cta": "LATE",
-  "folder": "2026-11-02 Mon - Post - Late Return Penalty",
-  "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 8:30 AM (Typefully), Nov 2"
- },
- {
-  "date": "2026-10-31",
-  "slug": "1099-Contractor-Tracker",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-01",
-  "slug": "Year-End-Moves",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-03",
-  "slug": "OPT-FICA-Check",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-04",
-  "slug": "S-Corp-For-2027",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-05",
-  "slug": "Jan-15-Estimates",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-04",
-  "slug": "1099-Who-Not-To-Send",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "note": "Hub (Zain, Nov 3 20:55: 'push another 1099 post on linkedin but dont duplicate'): new angle (1099-K card/app payments, corporations + attorney exception, under $2,000, e-file 10+, due Feb 1 2027). LinkedIn 8:30 AM ET via Typefully draft 11686771. Not for Instagram (IG already ran the $2,000 rule)."
- },
- {
-  "date": "2026-11-09",
-  "slug": "Holiday-Gifts-Tax-Rules",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688503. Not yet on Instagram."
- },
- {
-  "date": "2026-11-11",
-  "slug": "Placed-In-Service-Dec-31",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688505. Not yet on Instagram."
- },
- {
-  "date": "2026-11-16",
-  "slug": "Charitable-Deduction-No-Itemizing",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688507. Not yet on Instagram."
- },
- {
-  "date": "2026-11-06",
-  "slug": "LLC-Annual-Report",
-  "status": "linkedin scheduled; instagram NOT scheduled (needs Zain)",
-  "platforms": [
-   "linkedin"
-  ],
-  "times": {
-   "linkedin": "8:30 AM ET (Typefully draft 11694679)"
+  {
+    "date": "2026-10-23",
+    "slug": "1099-Contractor-Tracker",
+    "type": "product",
+    "topic": "1099-NEC $2,000 threshold",
+    "product": "09",
+    "cta": "TRACKER",
+    "folder": "2026-10-23 Fri - 1099 Contractor Tracker"
   },
-  "campaign": "nov-push",
-  "link": "https://mfa-advisory.com/llc-annual-report/",
-  "note": "Social agent (Nov 4 run): myth vs fact, FinCEN BOI gone for US companies vs NJ annual report / NY biennial statement; nov-push -> /llc-annual-report/, CTA REPORT. Instagram/Facebook: composer filled (image + caption, IG+FB Nov 6 8:00 PM to match the Nov 4/5 image slots and Zain's Oct 30 evening times; 12 PM already holds a reel) but the Schedule click was blocked by this session's safety check; post files are in Ready to Post."
- },
- {
-  "date": "2026-11-09",
-  "slug": "No-1099-Still-Taxable",
-  "title": "No 1099 this year? You still owe tax.",
-  "status": "scheduled",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "times": {
-   "instagram": "Mon Nov 9 5:30 PM ET (Meta Business Suite, IG+FB)",
-   "linkedin": "Tue Nov 10 6:00 PM ET (Typefully draft 11718411; Nov 9 LinkedIn already had Holiday gifts)"
+  {
+    "date": "2026-10-26",
+    "slug": "Year-End-Moves",
+    "type": "value",
+    "topic": "Year-end moves with a Dec 31 cutoff",
+    "product": null,
+    "cta": "GUIDE",
+    "folder": "2026-10-26 Mon - Year-End Moves"
   },
-  "campaign": "nov-push",
-  "link": "https://mfa-advisory.com/year-end-tax-planning/",
-  "cta_word": "PLAN",
-  "note": "Social agent (Nov 5 run): myth vs fact on side income with no 1099 (1099-NEC $2,000, 1099-K $20,000/200, $400 SE line) -> year-end tax planning session. Proven 'no tax taken out' theme. Verified in Business Suite planner (two 5:30 PM items Mon 9) and Typefully scheduled list."
- }
+  {
+    "date": "2026-10-27",
+    "slug": "S-Corp-For-2027",
+    "type": "service",
+    "topic": "S corp for 2027: profit decides, Form 2553 by Mar 15, 2027 (nov-push)",
+    "product": null,
+    "cta": "SCORP",
+    "folder": "2026-10-27 Tue - S Corp For 2027"
+  },
+  {
+    "date": "2026-10-28",
+    "slug": "Jan-15-Estimates",
+    "type": "value",
+    "topic": "Last 2026 estimated tax payment due Jan 15, 2027 (nov-push → /quarterly-estimated-taxes/)",
+    "product": null,
+    "cta": "ESTIMATE",
+    "folder": "2026-10-28 Wed - Jan 15 Estimates"
+  },
+  {
+    "date": "2026-10-29",
+    "slug": "OPT-FICA-Check",
+    "type": "service",
+    "topic": "F-1/OPT students: Social Security + Medicare (7.65%) withheld in error, employer first then Form 843 + 8316 (nov-push → /international-students/ $49 claim)",
+    "product": null,
+    "cta": "FICA",
+    "folder": "2026-10-29 Thu - OPT FICA Check",
+    "status": "held for Zain's yes (sessions-chat rule 10); in 'Waiting for Zain OK', not emailed to Abiha"
+  },
+  {
+    "date": "2026-10-30",
+    "slug": "Mileage-Two-Rates",
+    "type": "value",
+    "topic": "2026 has two IRS mileage rates (72.5c Jan-Jun, 76c Jul-Dec): split miles, skip commuting, note odometer Dec 31 -> /tools/mileage-deduction-calculator/",
+    "product": null,
+    "cta": "MILEAGE",
+    "folder": "2026-10-30 Fri - Mileage Two Rates",
+    "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 12:00 PM (Typefully), Oct 30"
+  },
+  {
+    "date": "2026-11-02",
+    "slug": "Late-Return-Penalty",
+    "type": "service",
+    "topic": "Missed Oct 15: late-filing 5%/mo (max 25%) vs late-payment 0.5%/mo, file now even if you can't pay, payment plan, 3-year refund window (nov-push -> /late-tax-return/)",
+    "product": null,
+    "cta": "LATE",
+    "folder": "2026-11-02 Mon - Post - Late Return Penalty",
+    "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 8:30 AM (Typefully), Nov 2"
+  },
+  {
+    "date": "2026-10-31",
+    "slug": "1099-Contractor-Tracker",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-01",
+    "slug": "Year-End-Moves",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-03",
+    "slug": "OPT-FICA-Check",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "S-Corp-For-2027",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-05",
+    "slug": "Jan-15-Estimates",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "1099-Who-Not-To-Send",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "note": "Hub (Zain, Nov 3 20:55: 'push another 1099 post on linkedin but dont duplicate'): new angle (1099-K card/app payments, corporations + attorney exception, under $2,000, e-file 10+, due Feb 1 2027). LinkedIn 8:30 AM ET via Typefully draft 11686771. Not for Instagram (IG already ran the $2,000 rule)."
+  },
+  {
+    "date": "2026-11-09",
+    "slug": "Holiday-Gifts-Tax-Rules",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688503. Not yet on Instagram."
+  },
+  {
+    "date": "2026-11-11",
+    "slug": "Placed-In-Service-Dec-31",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688505. Not yet on Instagram."
+  },
+  {
+    "date": "2026-11-16",
+    "slug": "Charitable-Deduction-No-Itemizing",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688507. Not yet on Instagram."
+  },
+  {
+    "date": "2026-11-06",
+    "slug": "LLC-Annual-Report",
+    "status": "linkedin scheduled; instagram NOT scheduled (needs Zain)",
+    "platforms": [
+      "linkedin"
+    ],
+    "times": {
+      "linkedin": "8:30 AM ET (Typefully draft 11694679)"
+    },
+    "campaign": "nov-push",
+    "link": "https://mfa-advisory.com/llc-annual-report/",
+    "note": "Social agent (Nov 4 run): myth vs fact, FinCEN BOI gone for US companies vs NJ annual report / NY biennial statement; nov-push -> /llc-annual-report/, CTA REPORT. Instagram/Facebook: composer filled (image + caption, IG+FB Nov 6 8:00 PM to match the Nov 4/5 image slots and Zain's Oct 30 evening times; 12 PM already holds a reel) but the Schedule click was blocked by this session's safety check; post files are in Ready to Post."
+  },
+  {
+    "date": "2026-11-09",
+    "slug": "No-1099-Still-Taxable",
+    "title": "No 1099 this year? You still owe tax.",
+    "status": "scheduled",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Mon Nov 9 5:30 PM ET (Meta Business Suite, IG+FB)",
+      "linkedin": "Tue Nov 10 6:00 PM ET (Typefully draft 11718411; Nov 9 LinkedIn already had Holiday gifts)"
+    },
+    "campaign": "nov-push",
+    "link": "https://mfa-advisory.com/year-end-tax-planning/",
+    "cta_word": "PLAN",
+    "note": "Social agent (Nov 5 run): myth vs fact on side income with no 1099 (1099-NEC $2,000, 1099-K $20,000/200, $400 SE line) -> year-end tax planning session. Proven 'no tax taken out' theme. Verified in Business Suite planner (two 5:30 PM items Mon 9) and Typefully scheduled list."
+  },
+  {
+    "date": "2026-11-13",
+    "slug": "ip-pin-before-the-tool-closes",
+    "format": "short",
+    "platforms": [
+      "tiktok"
+    ],
+    "status": "scheduled",
+    "title": "6 digits that stop anyone else from filing a tax return with your SSN.",
+    "times": {
+      "tiktok": "Fri Nov 13 5:00 PM ET (TikTok Studio)"
+    },
+    "link": "https://mfa-advisory.com/blog/year-end-tax-planning-2026-key-dates/",
+    "cta_word": "PIN",
+    "theme": "classic burgundy",
+    "note": "Reel studio Nov 5 batch: new timely topic (IR-2026-127, IP PIN tool offline mid-Nov to mid-Jan)."
+  },
+  {
+    "date": "2026-11-14",
+    "slug": "ai-art-sales-still-taxable",
+    "format": "short",
+    "platforms": [
+      "tiktok"
+    ],
+    "status": "scheduled",
+    "title": "You sold AI-made prints online and nobody took tax out.",
+    "times": {
+      "tiktok": "Sat Nov 14 5:00 PM ET (TikTok Studio)"
+    },
+    "link": "https://mfa-advisory.com/artists/",
+    "cta_word": "ART",
+    "theme": "neon teal",
+    "note": "Reel studio Nov 5 batch: proven no-tax-taken-out theme as an AI money moment (artist character)."
+  },
+  {
+    "date": "2026-11-15",
+    "slug": "holiday-side-gig-no-tax-taken-out",
+    "format": "short",
+    "platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "Holiday side gig? Nobody took tax out.",
+    "times": {
+      "tiktok": "Sun Nov 15 5:00 PM ET (TikTok Studio)",
+      "youtube": "Thu Nov 19 5:30 PM ET, \"Holiday Side Gig? Nobody Took Tax Out (Do This by Jan 15)\" https://youtube.com/shorts/226ZMCsUZDQ"
+    },
+    "link": "https://mfa-advisory.com/quarterly-estimated-taxes/",
+    "cta_word": "GIG",
+    "theme": "paper amber",
+    "note": "Reel studio Nov 5 batch: proven 1099/side-income theme (driver character)."
+  },
+  {
+    "date": "2026-11-18",
+    "slug": "irs-scam-myth-vs-fact",
+    "format": "short",
+    "platforms": [],
+    "status": "rendered, not scheduled (spare for next batch / LinkedIn in December)",
+    "title": "\"This is the IRS. Pay today.\" Myth vs fact",
+    "link": "https://mfa-advisory.com/blog/ai-in-accounting-and-tax-2026/",
+    "cta_word": "SCAM",
+    "theme": "classic plum",
+    "note": "IG+FB queue already filled to Nov 27; LinkedIn Typefully November quota taken by 8 scheduled posts."
+  }
 ]
