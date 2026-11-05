@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-15",
+  "slug": "holiday-side-gig-no-tax-taken-out",
+  "title": "Holiday side gig money: nobody took tax out",
+  "type": "value",
+  "accent": "amber",
+  "theme": "paper",
+  "label": "Side income",
+  "checked": "November 5, 2026",
+  "series": "Nobody took tax out",
+  "link": {"path": "/quarterly-estimated-taxes/", "label": "Quarterly estimated taxes (MFA)"},
+  "hook": {"text": "Holiday side gig? *Nobody* took tax out.", "sub": "Deliveries, wrapping, pop-ups, rides."},
+  "character": {"name": "driver", "scene": "hook", "position": "lower", "corner_after": true, "corner": "self"},
+  "beats": [
+    {"type": "story", "lines": ["Marcus drives deliveries in December.", "The app pays him every week.", "Not one dollar is withheld."]},
+    {"type": "stat", "kicker": "Self-employment tax starts at", "value": "$400", "count": {"to": 400, "pre": "$", "suf": ""}, "sub": "of net earnings for the year", "note": "Social Security and Medicare, on top of income tax."},
+    {"type": "values", "kicker": "December money, two dates", "items": [{"v": "Dec 31", "l": "keep every mile and receipt"}, {"v": "Jan 15", "l": "last 2026 estimate due"}]},
+    {"type": "text", "kicker": "Do this now", "text": "Move a slice of *every payout* to savings.", "sub": "Track miles from the first trip."}
+  ],
+  "cta": {"big": "Comment *GIG*", "url": "mfa-advisory.com", "sub": "We'll DM you our estimated tax guide."},
+  "captions": {
+    "comment_word": "GIG",
+    "instagram": "Picking up holiday work on an app or at pop-ups this season? That money arrives with no tax taken out.\n\n✔️ $400 or more of net self-employment earnings means self-employment tax (Social Security and Medicare) and a return to file.\n✔️ Payments from September 1 to December 31 are covered by the estimated payment due January 15, 2027.\n✔️ Keep a mileage log from the first trip and save receipts for what you buy for the work. They lower your profit.\n✔️ Easiest habit: move part of every payout into a separate savings account the day it lands.\n\nSource: IRS, Self-employment tax; Estimated tax FAQ.",
+    "hashtags": ["#sidehustle", "#gigwork", "#1099", "#deliverydriver", "#taxtips", "#selfemployed", "#holidayjobs", "#moneytips"],
+    "youtube_hashtags": ["#shorts", "#sidehustle", "#1099", "#taxtips"],
+    "youtube_title": "Holiday Side Gig? Nobody Took Tax Out (Do This by Jan 15)",
+    "youtube_description": "Holiday gig and side income usually arrives with no tax withheld. Net self-employment earnings of $400 or more mean self-employment tax. Income from September 1 to December 31 is covered by the January 15, 2027 estimated payment. Keep a mileage log and receipts. Source: IRS.",
+    "pinterest_title": "Holiday Side Gig Taxes: Nobody Took Tax Out (Set This Aside)",
+    "pinterest_description": "Holiday side gig taxes for delivery drivers, gift wrappers and pop-up sellers: $400 of net self-employment earnings means self-employment tax, and the last 2026 estimated payment is due January 15, 2027. Keep a mileage log and receipts, and move part of every payout to savings.",
+    "pinterest_alt": "Cream editorial card: Holiday side gig? Nobody took tax out.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {"ads_keywords": ["side gig taxes"], "pin_ids": []},
+  "sources": [
+    {"fact": "SE tax; file with $400+ net SE earnings", "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"},
+    {"fact": "Sept 1-Dec 31 estimate due Jan 15 of the following year", "url": "https://www.irs.gov/faqs/estimated-tax/individuals/individuals-2"}
+  ]
+}

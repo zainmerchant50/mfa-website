@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-13",
+  "slug": "ip-pin-before-the-tool-closes",
+  "title": "The 6-digit IRS code that blocks fake returns",
+  "type": "value",
+  "accent": "burgundy",
+  "label": "Deadline in 30 seconds",
+  "checked": "November 5, 2026",
+  "series": "Deadline in 30 seconds",
+  "link": {"path": "/blog/year-end-tax-planning-2026-key-dates/", "label": "Year-end tax key dates (MFA)"},
+  "hook": {"text": "*6 digits* that stop fake returns.", "sub": "The IRS tool goes offline mid-November."},
+  "beats": [
+    {"type": "stat", "kicker": "Identity Protection PIN", "value": "6 digits", "sub": "blocks anyone else from filing with your SSN or ITIN", "note": "Anyone who can verify their identity can get one."},
+    {"type": "values", "kicker": "The online tool, every year", "items": [{"v": "Nov", "l": "offline from mid-month"}, {"v": "Jan", "l": "back mid-month"}], "note": "Filing early in 2027? Request it now."},
+    {"type": "rows", "kicker": "Real or scam?", "items": [{"l": "A text asking for your IP PIN", "r": "Scam", "ok": false}, {"l": "A DM \"from the IRS\"", "r": "Scam", "ok": false}, {"l": "IRS app or your online account", "r": "Real", "ok": true}]},
+    {"type": "text", "kicker": "Do this today", "text": "Get it in the *IRS app* or your online account.", "sub": "Share it only with the person who files your return."}
+  ],
+  "cta": {"big": "Comment *PIN*", "url": "mfa-advisory.com", "sub": "We'll DM you our year-end key dates."},
+  "captions": {
+    "comment_word": "PIN",
+    "instagram": "There's a 6-digit code that stops anyone else from filing a tax return with your Social Security number.\n\n✔️ It's the IRS Identity Protection PIN (IP PIN). Anyone with an SSN or ITIN who can verify their identity can get one, even if you don't have to file.\n✔️ Get it in the IRS app or your IRS online account. A new one is issued every year.\n✔️ The online tool goes down for maintenance in mid-November and is back in mid-January. Filing early in 2027? Request yours now.\n✔️ The IRS will never call, email, text or message you on social media to ask for your IP PIN.\n\nSource: IRS, IR-2026-127 and Get an Identity Protection PIN.",
+    "hashtags": ["#taxtips", "#identitytheft", "#irs", "#taxseason", "#scamalert", "#personalfinance", "#moneytips", "#taxes2026"],
+    "youtube_hashtags": ["#shorts", "#taxtips", "#irs", "#identitytheft"],
+    "youtube_title": "The 6-Digit IRS Code That Blocks Fake Tax Returns (IP PIN)",
+    "youtube_description": "The IRS Identity Protection PIN is a six-digit number that prevents anyone else from filing a federal return with your SSN or ITIN. Get it in the IRS app or your online account. The online tool goes down for maintenance in mid-November and is back in mid-January. The IRS never calls, emails, texts or uses social media to ask for your IP PIN. Source: IRS IR-2026-127.",
+    "pinterest_title": "IRS IP PIN: The 6-Digit Code That Blocks Fake Tax Returns",
+    "pinterest_description": "How to protect your tax return from identity theft: get an IRS Identity Protection PIN in the IRS app or your online account. It's six digits, new each year, and the online tool is offline from mid-November to mid-January. The IRS never asks for it by text, email or social media.",
+    "pinterest_alt": "Navy title card: 6 digits that stop a fake tax return.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {"ads_keywords": ["irs ip pin"], "pin_ids": []},
+  "sources": [
+    {"fact": "IP PIN tool offline mid-November to mid-January; IRS never asks for IP PIN by call/email/text/social", "url": "https://www.irs.gov/newsroom/irs-reminder-take-steps-now-to-protect-tax-information"},
+    {"fact": "IP PIN is six digits, new each year, via IRS app or online account; anyone with SSN/ITIN who can verify identity", "url": "https://www.irs.gov/identity-theft-fraud-scams/get-an-identity-protection-pin"}
+  ]
+}

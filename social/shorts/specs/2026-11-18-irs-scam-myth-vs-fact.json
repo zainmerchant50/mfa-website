@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-18",
+  "slug": "irs-scam-myth-vs-fact",
+  "title": "The IRS called and wants a gift card? Myth vs fact",
+  "type": "value",
+  "accent": "plum",
+  "label": "Tax myth vs fact",
+  "checked": "November 5, 2026",
+  "series": "Tax myth vs fact",
+  "link": {"path": "/blog/ai-in-accounting-and-tax-2026/", "label": "AI in accounting and tax (MFA)"},
+  "hook": {"text": "\"This is the IRS. Pay *today.*\"", "sub": "AI voices make it sound real. Here's the tell."},
+  "character": {"name": "mascot-hmm", "scene": "hook", "position": "lower", "corner_after": false},
+  "beats": [
+    {"type": "rows", "kicker": "Myth vs fact", "items": [{"l": "IRS calls first about a bill", "r": "Myth", "ok": false}, {"l": "Pay by gift card or wire", "r": "Scam", "ok": false}, {"l": "Police will arrest you today", "r": "Scam", "ok": false}, {"l": "A letter comes in the mail first", "r": "Fact", "ok": true}]},
+    {"type": "question", "text": "Can you question the amount before you pay?"},
+    {"type": "text", "kicker": "Yes", "text": "The IRS gives you a chance to *appeal.*", "sub": "No demand for payment on the spot."},
+    {"type": "text", "kicker": "Do this", "text": "Hang up. Check your *IRS online account.*", "sub": "Report IRS-looking emails to phishing@irs.gov."}
+  ],
+  "cta": {"big": "Comment *SCAM*", "url": "mfa-advisory.com", "sub": "We'll DM you our AI and tax safety guide."},
+  "captions": {
+    "comment_word": "SCAM",
+    "instagram": "With AI voices, a fake IRS call can sound very real. The rules for spotting one haven't changed.\n\n✔️ The IRS usually starts with a letter in the mail. Even before a call or visit, you generally get several notices first.\n✔️ The IRS doesn't demand immediate payment by prepaid debit card, gift card or wire transfer.\n✔️ It doesn't threaten arrest by local police, and it lets you question or appeal what you owe.\n✔️ Not sure? Hang up and look at your IRS online account. Report IRS-looking emails to phishing@irs.gov.\n\nSave this for the next time someone in your family gets that call.\n\nSource: IRS, How to know it's really the IRS.",
+    "hashtags": ["#scamalert", "#irs", "#taxtips", "#aiscams", "#personalfinance", "#moneytips", "#taxseason", "#fraudprevention"],
+    "youtube_hashtags": ["#shorts", "#scamalert", "#irs", "#taxtips"],
+    "youtube_title": "Fake IRS Call? 4 Tells, Even With AI Voices (Myth vs Fact)",
+    "youtube_description": "The IRS generally contacts you by mail first, doesn't demand payment by gift card, prepaid debit card or wire, doesn't threaten arrest, and lets you question or appeal the amount. Hang up and check your IRS online account. Report IRS-looking emails to phishing@irs.gov. Source: IRS.",
+    "pinterest_title": "Is It Really the IRS? 4 Signs of a Tax Scam Call (Even With AI Voices)",
+    "pinterest_description": "How to spot a fake IRS call: the IRS usually writes first, never demands gift cards, prepaid debit cards or wire transfers, never threatens arrest, and lets you appeal. Hang up and check your IRS online account; report IRS-looking emails to phishing@irs.gov.",
+    "pinterest_alt": "Navy card: This is the IRS, pay today. Myth vs fact on tax scam calls.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {"ads_keywords": ["irs scam call"], "pin_ids": []},
+  "sources": [
+    {"fact": "IRS contacts by mail first; no gift card/wire demands; no arrest threats; chance to appeal; phishing@irs.gov", "url": "https://www.irs.gov/newsroom/how-to-know-its-really-the-irs-calling-or-knocking-on-your-door"}
+  ]
+}

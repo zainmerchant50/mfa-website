@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-14",
+  "slug": "ai-art-sales-still-taxable",
+  "title": "Sold AI-made designs online? It still counts",
+  "type": "value",
+  "accent": "teal",
+  "theme": "neon",
+  "label": "AI money moment",
+  "checked": "November 5, 2026",
+  "series": "Does it count?",
+  "link": {"path": "/artists/", "label": "Tax help for artists and makers (MFA)"},
+  "hook": {"text": "You sold *AI-made designs* online.", "sub": "Nobody took tax out. Now what?"},
+  "character": {"name": "artist", "scene": "hook", "position": "lower", "corner_after": true, "corner": "self"},
+  "beats": [
+    {"type": "story", "lines": ["Priya made prints with an AI tool.", "Sold them online all fall.", "No 1099-K came. \"So it's not income?\""]},
+    {"type": "rows", "kicker": "Does it count?", "items": [{"l": "Sales with no 1099-K", "r": "Counts", "ok": false}, {"l": "Under $20,000 / 200 sales", "r": "Counts", "ok": false}, {"l": "Your AI tool subscription", "r": "Expense", "ok": true}, {"l": "Platform fees and shipping", "r": "Expense", "ok": true}]},
+    {"type": "stat", "kicker": "Self-employment tax kicks in at", "value": "$400", "count": {"to": 400, "pre": "$", "suf": ""}, "sub": "of net earnings in a year"},
+    {"type": "text", "kicker": "Do this now", "text": "Track sales *minus* fees and tools.", "sub": "Set money aside before January 15."}
+  ],
+  "cta": {"big": "Comment *ART*", "url": "mfa-advisory.com/artists", "sub": "We'll DM you our artist tax guide."},
+  "captions": {
+    "comment_word": "ART",
+    "instagram": "Selling prints, stickers or designs you made with an AI tool? Nobody takes tax out of those sales.\n\n✔️ The IRS says you report all income, 1099-K or not. A 1099-K only comes once payments pass $20,000 and 200 transactions.\n✔️ Net earnings of $400 or more from self-employment means self-employment tax and a return to file.\n✔️ Your AI tool subscription, platform fees, shipping and supplies used for the business are expenses that lower your profit.\n✔️ Money arriving with nothing withheld? The last 2026 estimated payment is due January 15, 2027.\n\nSource: IRS, Understanding your Form 1099-K; Self-employment tax.",
+    "hashtags": ["#aiart", "#etsyseller", "#sidehustle", "#1099", "#taxtips", "#artistlife", "#selfemployed", "#taxes2026"],
+    "youtube_hashtags": ["#shorts", "#aiart", "#sidehustle", "#taxtips"],
+    "youtube_title": "Sold AI Art Online? No 1099-K Still Means Taxable",
+    "youtube_description": "Income from selling AI-made designs is taxable even without a Form 1099-K (issued once payments pass $20,000 and 200 transactions). Net self-employment earnings of $400 or more mean self-employment tax. Tool subscriptions, platform fees and shipping are business expenses. Last 2026 estimate: January 15, 2027. Source: IRS.",
+    "pinterest_title": "Selling AI Art Online? Taxes Explained (No 1099-K Still Counts)",
+    "pinterest_description": "Selling AI-made prints or designs? All income is taxable even without a 1099-K, which only comes once payments pass $20,000 and 200 transactions. $400 of net self-employment earnings triggers self-employment tax. Deduct AI tool subscriptions, platform fees and shipping. Pay the last 2026 estimate by January 15, 2027.",
+    "pinterest_alt": "Dark neon card: You sold AI-made designs online. Nobody took tax out.",
+    "pinterest_board": "Tax Tips for Artists and Creatives"
+  },
+  "sync": {"ads_keywords": ["selling ai art taxes"], "pin_ids": []},
+  "sources": [
+    {"fact": "1099-K over $20,000 and 200 transactions; report income with or without a 1099-K", "url": "https://www.irs.gov/businesses/understanding-your-form-1099-k"},
+    {"fact": "SE tax; must file with $400+ net SE earnings", "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"},
+    {"fact": "Sept 1-Dec 31 estimate due Jan 15 of the following year", "url": "https://www.irs.gov/faqs/estimated-tax/individuals/individuals-2"}
+  ]
+}
