@@ -34,7 +34,7 @@ def load():
 
 CSS = """<style>
 .shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;margin-top:18px}
-.shp{display:flex;flex-direction:column;padding:0;overflow:hidden}
+.shp{display:flex;flex-direction:column;padding:0;overflow:hidden;scroll-margin-top:90px}
 .shp img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;background:#F5F4EF}
 .shp-bd{display:flex;flex-direction:column;gap:8px;padding:18px 18px 20px;flex:1}
 .shp h3{font-size:1.15rem;line-height:1.25;margin:0}
@@ -79,7 +79,7 @@ def build():
             if g != gid:
                 continue
             rl = f'<p class="shp-rel"><a href="{rel[0]}">{esc(rel[1])} →</a></p>' if rel else ""
-            cards.append(f'''<article class="shp card"><img src="/shop/img/{slug}.webp" alt="{esc(name)} ({esc(fmt)})" width="400" height="400" loading="lazy"/>
+            cards.append(f'''<article class="shp card" id="{slug}"><img src="/shop/img/{slug}.webp" alt="{esc(name)} ({esc(fmt)})" width="400" height="400" loading="lazy"/>
 <div class="shp-bd"><h3>{esc(name)}</h3><p>{esc(blurb)}</p>{rl}
 <div class="shp-meta"><span class="shp-price">{price_txt(price)}</span><span class="shp-fmt">{esc(fmt)}</span></div>
 {buy_btn(gurl, via, slug)}</div></article>''')

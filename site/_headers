@@ -18,6 +18,18 @@
   X-Robots-Tag: noindex
   Cache-Control: public, max-age=86400
 
+# Pinterest Catalogs product feed (tools/build_pinterest_catalog.py): pulled daily by Pinterest, not a search page
+/feeds/*
+  X-Robots-Tag: noindex
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
+/feeds/pinterest-catalog.csv
+  Content-Type: text/csv; charset=utf-8
+
+/feeds/pinterest-catalog.xml
+  Content-Type: application/xml; charset=utf-8
+
 # Machine-readable files for search engines, AI assistants and agents (tools/seo.py)
 /llms.txt
   Content-Type: text/plain; charset=utf-8

@@ -7,10 +7,14 @@ if(typeof w.gtag!=='function')w.gtag=function(){w.dataLayer.push(arguments);};
 w.gtag('js',new Date());w.gtag('config',A.id);w.gtag('config','G-44Z5M3CQY7');
 var X=(function(){try{var q=w.location.search;if(/[?&]internal=1/.test(q))w.localStorage.setItem('mfa_internal','1');if(/[?&]internal=0/.test(q))w.localStorage.removeItem('mfa_internal');return !!w.navigator.webdriver||!/(^|\.)mfa-advisory\.com$/.test(w.location.hostname)||w.localStorage.getItem('mfa_internal')==='1';}catch(e){return !!w.navigator.webdriver;}})();
 function conv(k){if(X||!A[k])return;w.gtag('event','conversion',{send_to:A.id+'/'+A[k]});}
-w.mfaLead=function(form,params){conv('form');if(X)return;var p={form:form||'lead'};for(var k in params||{})p[k]=params[k];w.gtag('event','generate_lead',p);};
+if(!w.pintrk){w.pintrk=function(){w.pintrk.queue.push(Array.prototype.slice.call(arguments));};w.pintrk.queue=[];w.pintrk.version='3.0';
+var ps=d.createElement('script');ps.async=true;ps.src='https://s.pinimg.com/ct/core.js';var s0=d.getElementsByTagName('script')[0];if(s0&&s0.parentNode)s0.parentNode.insertBefore(ps,s0);else d.head.appendChild(ps);}
+w.pintrk('load','2614462373493');w.pintrk('page');if(!X)w.pintrk('track','pagevisit');
+function pin(ev,p){if(X)return;try{w.pintrk('track',ev,p||{});}catch(e){}}
+w.mfaLead=function(form,params){conv('form');if(X)return;var p={form:form||'lead'};for(var k in params||{})p[k]=params[k];w.gtag('event','generate_lead',p);pin('lead',{lead_type:form||'lead'});};
 w.mfaContactThanks=function(){var f=null;try{var s=w.sessionStorage;f=s.getItem('mfa_contact_sent');if(f)s.removeItem('mfa_contact_sent');}catch(e){}
-if(!f)return false;conv('contact');if(!X)w.gtag('event','generate_lead',{form:f});return true;};
-w.mfaPurchase=function(id,v){if(X||!A.purchase)return;w.gtag('event','conversion',{send_to:A.id+'/'+A.purchase,value:Number(v)||1,currency:'USD',transaction_id:String(id||'')});};
+if(!f)return false;conv('contact');if(!X)w.gtag('event','generate_lead',{form:f});pin('lead',{lead_type:f});return true;};
+w.mfaPurchase=function(id,v){if(X||!A.purchase)return;w.gtag('event','conversion',{send_to:A.id+'/'+A.purchase,value:Number(v)||1,currency:'USD',transaction_id:String(id||'')});pin('checkout',{value:Number(v)||1,currency:'USD',order_quantity:1,order_id:String(id||'')});};
 d.addEventListener('click',function(e){
 var a=e.target&&e.target.closest?e.target.closest('a[href],[data-conv]'):null;if(!a)return;
 var k=a.getAttribute('data-conv'),h=a.getAttribute('href')||'';
