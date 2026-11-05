@@ -18,7 +18,7 @@ HEAD = """<!doctype html><html lang="en"><head>
 <link rel="icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=4"/>
+<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=5"/>
 </head><body class="hub" data-page="{page}">
 <header class="hub-top"><div class="wrap">
 <a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><b>MFA Hub</b><i>Private</i></a>
@@ -28,7 +28,7 @@ HEAD = """<!doctype html><html lang="en"><head>
 <div class="wrap"><main class="hub-main">
 """
 FOOT = """</main></div>
-<script src="/hub/hub.js?v=4"></script>
+<script src="/hub/hub.js?v=5"></script>
 </body></html>
 """
 

@@ -135,3 +135,14 @@ table.mx>tbody>tr>td.w{white-space:nowrap;overflow:hidden;max-width:360px}
 table.mx>tbody>tr>td.w>.reply{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12.5px;line-height:17px}
 table.mx>thead>tr>th{padding:4px 6px}
 table.mx>tbody>tr.subrow>td{padding:6px 8px;line-height:1.4}
+/* phones: every table except the calendar matrix becomes stacked cards (label from the column name) */
+@media (max-width:600px){
+  .tw{max-height:none}
+  table.dt:not(.mx),table.dt:not(.mx)>tbody,table.dt:not(.mx)>tbody>tr,table.dt:not(.mx)>tbody>tr>td{display:block;width:auto}
+  table.dt:not(.mx)>thead{display:none}
+  table.dt:not(.mx)>tbody>tr{border-bottom:1px solid var(--h-line);padding:6px 4px}
+  table.dt:not(.mx)>tbody>tr>td{border:0;padding:2px 6px;min-width:0;max-width:none;text-align:left;white-space:normal}
+  table.dt:not(.mx)>tbody>tr>td[data-l]:not(:empty)::before{content:attr(data-l);display:inline-block;min-width:92px;margin-right:6px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  table.dt:not(.mx)>tbody>tr:nth-child(even)>td{background:transparent}
+  table.dt:not(.mx)>tbody>tr>td[data-l="#"]{display:none}
+}

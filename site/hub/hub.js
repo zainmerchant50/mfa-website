@@ -174,7 +174,7 @@
         cfg.cols.forEach(function (c) {
           var td = el("td", (c.num ? "n " : "") + (c.cls || "")), v = c.cell ? c.cell(r) : val(c, r);
           if (v instanceof Node) td.appendChild(v); else td.textContent = v === null || v === undefined ? "" : (c.num && typeof v === "number" ? n0(v) : String(v));
-          tr.appendChild(td);
+          td.setAttribute("data-l", c.l); tr.appendChild(td);
         });
         if (cfg.ref) tr.appendChild(replyCell(cfg.ref(r), colspan, cfg.reply ? { label: cfg.reply.label, kind: cfg.reply.kind, marker: cfg.reply.marker && cfg.reply.marker(r) } : null));
         bd.appendChild(tr);
