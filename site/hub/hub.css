@@ -37,7 +37,8 @@ h1.hub-h1 em{color:var(--gold);font-style:italic}
 .kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:6px}
 .kpi{background:#fff;border:1px solid var(--h-line);border-left:3px solid var(--gold-b);border-radius:6px;padding:6px 9px;min-width:0}
 .kpi .l{display:block;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.kpi .v{font:600 18px Inter,sans-serif;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1.25;white-space:nowrap}
+.kpi .v{font:600 17px Inter,sans-serif;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .v .up,.kpi .v .dn{font-size:11px}
 .kpi .s{display:block;font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .kpi.stale{border-left-color:var(--h-warn)}
 .kpi.bad{border-left-color:var(--h-bad)}
@@ -86,8 +87,8 @@ table.dt{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
 .btn-s:disabled{opacity:.55;cursor:default}
 .btn-s:focus-visible,.chip:focus-visible,.hub-nav a:focus-visible,textarea:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .ans{display:grid;gap:4px;min-width:220px}
-.ans .free{display:flex;gap:4px}
-.ans .free input{flex:1 1 auto;min-width:0;font:12.5px Inter,sans-serif;border:1px solid rgba(21,21,21,.18);border-radius:5px;padding:3px 6px}
+.ans .own{display:flex;gap:4px}
+.ans .own input{flex:1 1 auto;min-width:0;font:12.5px Inter,sans-serif;border:1px solid rgba(21,21,21,.18);border-radius:5px;padding:3px 6px}
 .ok-msg{font-size:12px;color:var(--h-ok);font-weight:600}
 .err-msg{font-size:12px;color:var(--h-bad);font-weight:600}
 .note{font-size:12px;color:var(--navy);background:var(--h-info-bg);border-radius:4px;padding:2px 6px;display:inline-block;margin-top:2px}
@@ -126,3 +127,5 @@ table.mx td.mc{white-space:nowrap;min-width:92px;font-size:11px}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px;vertical-align:0;background:var(--h-idle)}
 .dot.published{background:var(--h-ok)}.dot.scheduled{background:var(--gold)}.dot.missed{background:var(--h-bad)}
 .tw.tall{max-height:calc(100vh - 230px)}
+.dt th.c{text-align:center}
+table.mx td.mc{text-align:center}

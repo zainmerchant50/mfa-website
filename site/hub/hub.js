@@ -84,13 +84,13 @@
     return td;
   }
 
-  // ---------- one-click answers (chips + free text + 10 s undo) ----------
+  // ---------- one-click answers (chips + typed answer + 10 s undo) ----------
   function answerCell(kind, item) {
     var box = el("div", "ans");
     function render() {
       clear(box);
       if (item.status === "open") {
-        var chips = el("div", "chips"), free = el("div", "free"), inp = el("input"); inp.type = "text"; inp.maxLength = 2000; inp.placeholder = "Your answer…"; inp.setAttribute("aria-label", "Your answer");
+        var chips = el("div", "chips"), own = el("div", "own"), inp = el("input"); inp.type = "text"; inp.maxLength = 2000; inp.placeholder = "Your answer…"; inp.setAttribute("aria-label", "Your answer");
         (item.suggestions || []).forEach(function (s) {
           var fill = /_{3}/.test(s);
           chips.appendChild(btn("chip" + (fill ? " fill" : ""), fill ? s.replace(/\s*_{3,}\s*/, "…") : s, function () {
@@ -100,7 +100,7 @@
         });
         var go = btn("btn-s gold", "Send", function () { var v = inp.value.trim(); if (v) submit(v); else inp.focus(); });
         inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); go.click(); } });
-        add(free, inp, go); add(box, chips.childNodes.length ? chips : null, free);
+        add(own, inp, go); add(box, chips.childNodes.length ? chips : null, own);
       } else {
         add(box, add(el("div"), pill(item.status), " ", el("b", null, item.answer || item.zain_answer || "")));
         if (item.answered_at) box.appendChild(el("div", "muted", "Answered " + fmtD(item.answered_at, true)));
@@ -226,7 +226,7 @@
     if (series.length > 1) { var lg = el("div", "legend"); series.forEach(function (s) { var it = el("span"), sw = el("i"); sw.style.background = s.color; add(it, sw, s.name); lg.appendChild(it); }); host.appendChild(lg); }
     var W = 560, H = o.h || 170, pl = 34, pb = 18, pt = 8, max = Math.max.apply(null, totals) || 1, cw = (W - pl - 4) / days.length;
     var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "ch", role: "img", "aria-label": o.title || "column chart" });
-    [0, 0.5, 1].forEach(function (f) {
+    (max < 4 ? [0, 1] : [0, 0.5, 1]).forEach(function (f) {
       var y = pt + (H - pt - pb) * (1 - f); add(s, svg("line", { x1: pl, x2: W, y1: y, y2: y, stroke: "#e3e0d7" }));
       var t = svg("text", { x: pl - 4, y: y + 4, "text-anchor": "end" }); t.textContent = (o.fmt || n0)(max * f); s.appendChild(t);
     });
@@ -261,7 +261,7 @@
       p.today = sum(p.daily.filter(function (r) { return r.date === t; }));
       var d7 = p.daily.filter(function (r) { return r.date >= from7 && r.date <= t; }), dp = p.daily.filter(function (r) { return r.date >= pFrom && r.date <= pTo; });
       p.s7 = d7.length ? sum(d7) : win(p, addDays(t, -2), t); p.note = d7.length ? "" : (p.s7 ? "7-day total from the platform" : "");
-      p.p7 = dp.length ? sum(dp) : win(p, addDays(pTo, -2), pTo);
+      p.p7 = dp.length >= 5 ? sum(dp) : win(p, addDays(pTo, -2), pTo); // prior period counts only with full coverage
       var w30 = p.win.filter(function (r) { return r.window_days === 30; }).sort(function (a, b) { return b.date.localeCompare(a.date); })[0];
       if (!p.s7 && w30) { p.s30 = sum([w30]); p.note = "30-day total only"; p.latest = p.latest || w30.date; }
       if (!p.latest && p.win.length) p.latest = p.win.map(function (r) { return r.date; }).sort().pop();
@@ -332,14 +332,16 @@
     var P = adsModel(d.ads || []), paid = Object.keys(P).filter(function (k) { return P[k].paid; }), org = Object.keys(P).filter(function (k) { return !P[k].paid; });
     var d14 = lastDays(14), dser = function (keys, m) { return d14.map(function (dd) { return keys.reduce(function (t2, k) { return t2 + P[k].daily.filter(function (r) { return r.date === dd; }).reduce(function (a, r) { return a + (r[m] || 0); }, 0); }, 0); }); };
     var spT = 0, sp7 = 0, i7 = 0, c7 = 0, pi = 0, pc = 0, ps = 0, parts = [];
-    paid.forEach(function (k) { var p = P[k]; spT += p.today.s; if (p.s7) { sp7 += p.s7.s; i7 += p.s7.i; c7 += p.s7.c; if (p.s7.s) parts.push(k.replace(" Ads", "") + " " + money(p.s7.s)); } if (p.p7) { pi += p.p7.i; pc += p.p7.c; ps += p.p7.s; } });
+    var pFull = true;
+    paid.forEach(function (k) { var p = P[k]; spT += p.today.s; if (p.s7) { sp7 += p.s7.s; i7 += p.s7.i; c7 += p.s7.c; if (p.s7.s) parts.push(k.replace(" Ads", "") + " " + money(p.s7.s)); if (!p.p7) pFull = false; } if (p.p7) { pi += p.p7.i; pc += p.p7.c; ps += p.p7.s; } });
+    if (!pFull) { pi = pc = ps = null; }
     kpi(strip, "Ad spend today", money(spT), paid.filter(function (k) { return P[k].today.s; }).map(function (k) { return k.replace(" Ads", "") + " " + money(P[k].today.s); }).join(" · ") || "no spend logged today");
     kpi(strip, "Ad spend 7d", money(sp7), parts.join(" · "), { delta: delta(sp7, ps), spark: dser(paid, "spend") });
     kpi(strip, "Paid impressions 7d", n0(i7), "all ad platforms", { delta: delta(i7, pi), spark: dser(paid, "impressions") });
     kpi(strip, "Paid clicks 7d", n0(c7), "CTR " + pct(c7, i7), { delta: delta(c7, pc), spark: dser(paid, "clicks") });
-    kpi(strip, "CPC 7d", c7 ? money(sp7 / c7) : "—", pc ? "prior " + money(ps / pc) : "", { delta: c7 && pc ? delta(sp7 / c7, ps / pc) : null });
-    var ov = 0, op = 0, latestOrg = null; org.forEach(function (k) { if (P[k].s7) ov += P[k].s7.i; if (P[k].p7) op += P[k].p7.i; if (!latestOrg || P[k].latest > latestOrg) latestOrg = P[k].latest; });
-    kpi(strip, "Organic views 7d", n0(ov), org.length + " platforms", { delta: delta(ov, op), stale: latestOrg && latestOrg < addDays(t, -1), asOf: latestOrg, spark: dser(org, "impressions") });
+    kpi(strip, "CPC 7d", c7 ? money(sp7 / c7) : "—", pc ? "prior " + money(ps / pc) : "no full prior week yet", { delta: c7 && pc ? delta(sp7 / c7, ps / pc) : null });
+    var ov = 0, op = 0, oFull = true, latestOrg = null; org.forEach(function (k) { if (P[k].s7) { ov += P[k].s7.i; if (!P[k].p7) oFull = false; } if (P[k].p7) op += P[k].p7.i; if (!latestOrg || P[k].latest > latestOrg) latestOrg = P[k].latest; }); if (!oFull) op = null;
+    kpi(strip, "Organic views 7d", n0(ov), org.length + " platforms" + (op === null ? " · no full prior week" : ""), { delta: delta(ov, op), stale: latestOrg && latestOrg < addDays(t, -1), asOf: latestOrg, spark: dser(org, "impressions") });
     [["newsletter_active", "Subscribers"], ["fiverr_orders_30d", "Fiverr orders 30d"], ["fiverr_sales_30d", "Fiverr sales 30d"], ["etsy_orders_mtd", "Etsy orders MTD"], ["gumroad_orders_mtd", "Gumroad orders MTD"], ["upwork_orders_mtd", "Upwork MTD"], ["revenue_mtd", "Revenue MTD"]].forEach(function (x) {
       var k = K[x[0]]; if (!k) return; kpi(strip, x[1], k.value === null ? "—" : (k.unit === "$" ? money(k.value) : n0(k.value)), k.note || k.source || "", { stale: isStale(k.as_of, 36), asOf: k.as_of, title: k.label });
     });
@@ -464,7 +466,7 @@
     rows.sort(function (a, b) { var x = sv(a, CS.sort), y = sv(b, CS.sort), c = typeof x === "number" ? x - y : String(x).localeCompare(String(y)); return CS.dir === "asc" ? c : -c; });
     var tbl = el("table", "dt mx"), th = el("thead"), hr = el("tr");
     [["date", "Date"], ["title", "Content"], ["topic", "Topic"]].concat(PCOLS.map(function (p) { return [p[0], p[0], p[1]]; })).concat([["tot", "Total"]]).forEach(function (h) {
-      var c = el("th", h[0] === "date" || h[0] === "title" || h[0] === "topic" ? "" : "n", h[1]); if (h[2]) c.title = h[2] + " · impressions · clicks · engagements";
+      var c = el("th", h[0] === "date" || h[0] === "title" || h[0] === "topic" ? "" : h[0] === "tot" ? "n" : "c", h[1]); if (h[2]) c.title = h[2] + " · impressions · clicks · engagements";
       if (CS.sort === h[0]) c.setAttribute("data-dir", CS.dir);
       c.addEventListener("click", function () { if (CS.sort === h[0]) CS.dir = CS.dir === "asc" ? "desc" : "asc"; else { CS.sort = h[0]; CS.dir = h[0] === "title" || h[0] === "topic" ? "asc" : "desc"; } R.calendar(d); });
       hr.appendChild(c);
@@ -492,7 +494,8 @@
         }
         tr.appendChild(td);
       });
-      var tt = el("td", "n mono", n0(r.tot.i) + "·" + n0(r.tot.c) + "·" + n0(r.tot.e)); tr.appendChild(tt);
+      var hasM = r.its.some(function (i) { return i.impressions !== null && i.impressions !== undefined; });
+      var tt = el("td", "n mono", hasM ? n0(r.tot.i) + "·" + n0(r.tot.c) + "·" + n0(r.tot.e) : ""); tr.appendChild(tt);
       bd.appendChild(tr);
       if (open) {
         var sub = el("tr", "subrow"), c = el("td"); c.colSpan = PCOLS.length + 4; var host = el("div"); c.appendChild(host); sub.appendChild(c); bd.appendChild(sub);
