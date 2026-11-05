@@ -22,7 +22,7 @@
 /feeds/*
   X-Robots-Tag: noindex
   Access-Control-Allow-Origin: *
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=300
 
 /feeds/pinterest-catalog.csv
   Content-Type: text/csv; charset=utf-8
