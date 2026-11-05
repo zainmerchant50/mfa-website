@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import vm from "node:vm";
 // Local tests for the MFA Hub gate and API (run: node tools/test_hub.mjs). Uses a generated RSA key, no network.
 import { verifyAccessJwt, _clearCertCache } from "../functions/_shared/hub_auth.js";
 import { onRequest as middleware, hubPathCheck } from "../functions/_middleware.js";
@@ -162,6 +164,50 @@ for (const pg of ["home", "board", "calendar", "ads", "finance", "leads", "tasks
 }
 await t("log/answer/request paths are behind the gate (404 public, 403 hub host)", async () => {
   for (const p of ["/api/hub/log", "/api/hub/answer", "/api/hub/request", "/hub/log/", "/hub/tasks/"]) { eq((await run("https://mfa-advisory.com" + p)).res.status, 404); eq((await run("https://hub.mfa-advisory.com" + p)).res.status, 403); }
+});
+
+// ---------- v3 links (site/hub/hub_links.js, loaded in a sandbox) ----------
+const box = { URL, encodeURIComponent, decodeURIComponent }; box.globalThis = box; vm.createContext(box);
+vm.runInContext(readFileSync(new URL("../site/hub/hub_links.js", import.meta.url), "utf8"), box);
+const HL = box.HubLinks;
+await t("links: only safe https URLs pass", async () => {
+  for (const bad of ["javascript:alert(1)", "http://ads.google.com/", "data:text/html,x", "https://user:pw@ads.google.com/", "https://a.com/x y", "https://a.com/\"onmouseover", "//ads.google.com", "", null, 5, "https://a.com/<b>", "https://" + "a".repeat(2001)]) eq(HL.safeUrl(bad), null, String(bad));
+  eq(HL.safeUrl("https://ads.google.com/aw/campaigns?ocid=8595837773"), "https://ads.google.com/aw/campaigns?ocid=8595837773");
+  eq(HL.known("https://studio.youtube.com/x"), true); eq(HL.known("https://evil-google.com/x"), false); eq(HL.known("https://google.com.evil.io/"), false);
+});
+await t("links: platform deep links, aliases, D1 override, unsafe override ignored", async () => {
+  eq(HL.platformLink("Google Ads").url, "https://ads.google.com/aw/campaigns?ocid=8595837773");
+  eq(HL.platformLink("Instagram+Facebook").label, "Meta Business Suite"); eq(HL.platformLink("Newsletter").label, "MailerLite campaigns");
+  const L = HL.index([{ key: "campaign:Google Ads:Princeton", label: "Princeton", url: "https://ads.google.com/aw/overview?campaignId=1" }, { key: "Etsy", label: "x", url: "javascript:alert(1)" }]);
+  eq(HL.campaignLink("Google Ads", "Princeton", L).url, "https://ads.google.com/aw/overview?campaignId=1");
+  eq(HL.campaignLink("Google Ads", "Other", L).label, "Google Ads");
+  eq(HL.platformLink("Etsy", L).url, "https://www.etsy.com/your/shops/me/stats");
+  eq(HL.agentLink("Ads").label, "Google Ads"); eq(HL.agentLink("Finance").label, "QuickBooks banking"); eq(HL.agentLink("Hub"), null);
+  eq(HL.doc("Ads"), "claude/site/claude-ads-playbook.md");
+  for (const k of Object.keys(HL.DEF)) eq(!!HL.safeUrl(HL.DEF[k][1]), true, k);
+});
+await t("links: hash routes round-trip and reject junk keys", async () => {
+  eq(HL.route("ads", { platform: "google-ads", range: "7d" }), "/hub/ads/#platform=google-ads&range=7d");
+  eq(HL.route("home"), "/hub/"); eq(HL.route("evil", { a: "x" }), "/hub/#a=x"); eq(HL.route("calendar", { item: "a b&c=d" }), "/hub/calendar/#item=a%20b%26c%3Dd");
+  const h = HL.parseHash("#item=a%20b%26c%3Dd&range=7d&BAD=1&x%3Cy=2&empty=&q=%E0%A4"); eq(h.item, "a b&c=d"); eq(h.range, "7d"); eq(h.BAD, undefined); eq(h.empty, undefined); eq(h.q, undefined);
+  eq(JSON.stringify(HL.parseHash("#needs")), "{}");
+  eq(HL.matchSlug("google", ["Google Ads", "Pinterest Ads"]), "Google Ads"); eq(HL.matchSlug("pinterest", ["Pinterest", "Pinterest Ads"]), "Pinterest"); eq(HL.matchSlug("nope", ["Google Ads"]), null);
+});
+await t("links: comment refs map to hub pages; Gmail search uses the fragment and first name only", async () => {
+  eq(HL.refHref("board", "agent:Ads"), "/hub/board/#agent=Ads"); eq(HL.refHref("ads", "platform:Google-Ads"), "/hub/ads/#platform=google-ads&range=7d");
+  eq(HL.refHref("leads", "lead:l1"), "/hub/leads/#lead=l1"); eq(HL.refHref("finance", "1843-x"), "/hub/finance/#q=1843-x"); eq(HL.refHref("finance", "finance:general"), "/hub/finance/");
+  eq(HL.refHref("calendar", "2026-11-04-li"), "/hub/calendar/#item=2026-11-04-li");
+  const g = HL.gmailSearch("Benson <x@y.com>"); eq(g.startsWith("https://mail.google.com/mail/u/0/#search/"), true); eq(g.includes("?"), false); eq(g.includes("@"), false);
+});
+await t("data: every page returns the links table; board gets log lines", async () => {
+  for (const pg of ["home", "board", "calendar", "ads", "finance", "leads", "tasks"]) {
+    const db = fakeDb(); const r = await dataGet({ request: new Request("https://hub.mfa-advisory.com/api/hub/data?page=" + pg), env: { HUB_DB: db }, data: { hubEmail: EMAIL } });
+    const j = await r.json(); eq(Array.isArray(j.links), true, pg); eq(db.log.some((x) => x[0].includes("FROM links")), true, pg);
+    if (pg === "board") eq(Array.isArray(j.log), true, "board log");
+  }
+});
+await t("hub_links.js is behind the gate (404 public, 403 hub host without Access)", async () => {
+  eq((await run("https://mfa-advisory.com/hub/hub_links.js")).res.status, 404); eq((await run("https://hub.mfa-advisory.com/hub/hub_links.js")).res.status, 403);
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

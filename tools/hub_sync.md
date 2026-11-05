@@ -99,6 +99,18 @@ INSERT INTO finance_questions (id, created_at, question, suggested_answer, sugge
 ON CONFLICT(id) DO UPDATE SET question=excluded.question, suggested_answer=excluded.suggested_answer, suggestions=excluded.suggestions;
 ```
 
+## 4b. links — what "Open in platform ↗" opens (the hub falls back to the platform's main page)
+```sql
+INSERT OR REPLACE INTO links (key, label, url, updated_at) VALUES (?1, ?2, ?3, strftime('%Y-%m-%dT%H:%M:%SZ','now'));
+-- key: a platform name ("Google Ads", "Meta", "LinkedIn", "MailerLite", …), 'campaign:<platform>:<campaign>' (per-campaign deep link),
+--      'agent:<Name>' (the agent's main tool), or 'doc:<Name>' (label = project doc path, url NULL)
+-- params: ["campaign:Google Ads:All search campaigns", "Search campaigns", "https://ads.google.com/aw/campaigns?ocid=8595837773"]
+UPDATE calendar_items SET stats_link = ?2 WHERE id = ?1;   -- a post's stats page, e.g. the MailerLite report
+-- params: ["<calendar id>", "https://dashboard.mailerlite.com/campaigns/<campaign id>/report"]
+```
+URLs must be `https://`. Always put a post's live URL in `calendar_items.link` (LinkedIn: linkedin_published_url, pins: the pin URL, Meta: the permalink).
+Hub routes you can paste in notes: `/hub/ads/#platform=google-ads&range=7d`, `/hub/calendar/#item=<id>`, `/hub/leads/#lead=<id>`, `/hub/finance/#q=<id>`, `/hub/board/#agent=Ads`, `/hub/log/#agent=Ads`.
+
 ## 5. Quick check
 ```sql
 SELECT 'needs open', COUNT(*) FROM needs WHERE status='open' UNION ALL SELECT 'inbox new', (SELECT COUNT(*) FROM comments WHERE status='new')

@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS calendar_items (
   impressions INTEGER,
   clicks INTEGER,
   engagements INTEGER,
-  leads INTEGER
+  leads INTEGER,
+  stats_link TEXT    -- v3: the platform's stats page for this post (e.g. MailerLite report)
 );
 CREATE INDEX IF NOT EXISTS cal_date ON calendar_items(date);
 
@@ -92,3 +93,5 @@ CREATE TABLE IF NOT EXISTS leads (
   id TEXT PRIMARY KEY, received_at TEXT NOT NULL, first_name TEXT, email_domain TEXT, topic TEXT, source TEXT,
   status TEXT NOT NULL DEFAULT 'new', reminder_at TEXT, note TEXT, updated_at TEXT);
 CREATE TABLE IF NOT EXISTS kpis (key TEXT PRIMARY KEY, label TEXT NOT NULL, value REAL, unit TEXT, as_of TEXT, source TEXT, note TEXT);
+-- v3: outbound links the hub shows ("Open in platform"). key = platform name, 'campaign:<platform>:<campaign>', 'agent:<Name>' or 'doc:<Name>' (label = doc path).
+CREATE TABLE IF NOT EXISTS links (key TEXT PRIMARY KEY, label TEXT NOT NULL, url TEXT, updated_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')));

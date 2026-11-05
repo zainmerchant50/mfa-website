@@ -19,6 +19,7 @@ const Q = {
   log: "SELECT id, ts, agent, action, detail, link FROM log ORDER BY ts DESC, id DESC LIMIT 100",
   requests: "SELECT id, created_at, area, body, status, agent_note, updated_at FROM requests ORDER BY CASE status WHEN 'done' THEN 1 ELSE 0 END, id DESC LIMIT 500",
   allComments: "SELECT id, created_at, page, item_ref, body, kind, status, agent_note FROM comments ORDER BY id DESC LIMIT 500",
+  links: "SELECT key, label, url FROM links ORDER BY key LIMIT 500",
 };
 
 export async function onRequestGet(ctx) {
@@ -29,13 +30,13 @@ export async function onRequestGet(ctx) {
   if (!PAGES.includes(page)) return json({ ok: false, error: "unknown page" }, 400);
 
   const want = {
-    home: ["kpis", "leads", "ads", "needs", "financeOpen", "agents", "topPosts", "log", "requests"],
-    board: ["agents", "ideas", "activity", "needs"],
-    calendar: ["calendar"],
-    ads: ["ads", "kpis"],
-    finance: ["finance"],
-    leads: ["leads"],
-    tasks: ["requests", "allComments", "needs"],
+    home: ["kpis", "leads", "ads", "needs", "financeOpen", "agents", "topPosts", "log", "requests", "links"],
+    board: ["agents", "ideas", "activity", "needs", "log", "links"],
+    calendar: ["calendar", "links"],
+    ads: ["ads", "kpis", "links"],
+    finance: ["finance", "links"],
+    leads: ["leads", "links"],
+    tasks: ["requests", "allComments", "needs", "links"],
     log: ["log"],
   }[page];
   const stmts = want.map((k) => db.prepare(Q[k]));

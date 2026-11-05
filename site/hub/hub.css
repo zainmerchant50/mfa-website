@@ -146,3 +146,32 @@ table.mx>tbody>tr.subrow>td{padding:6px 8px;line-height:1.4}
   table.dt:not(.mx)>tbody>tr:nth-child(even)>td{background:transparent}
   table.dt:not(.mx)>tbody>tr>td[data-l="#"]{display:none}
 }
+/* v3: every number links somewhere */
+a.dl{color:inherit;text-decoration:underline dotted rgba(16,35,63,.35);text-underline-offset:3px}
+a.dl:hover{color:var(--h-info);text-decoration-color:currentColor}
+a.dl.b{font-weight:700;color:var(--navy)}
+a.dl.cell{display:block;text-decoration:none;color:inherit}
+a.dl.cell:hover .mono{text-decoration:underline}
+table.mx td.mc.sel{outline:2px solid var(--navy);outline-offset:-2px}
+a.kpi{display:block;color:inherit;text-decoration:none;cursor:pointer;transition:box-shadow .15s,border-color .15s}
+a.kpi:hover{box-shadow:0 1px 6px rgba(16,35,63,.15);border-color:rgba(16,35,63,.3)}
+a.kpi:focus-visible,a.dl:focus-visible,a.ext:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+a.kpi.x .l::after{content:" \2197";color:var(--gold)}
+.ch a.lnk{cursor:pointer}
+.ch a.lnk:hover rect{opacity:.78}
+.ch a.lnk:hover text{text-decoration:underline}
+.det{border-color:var(--navy);margin-bottom:8px}
+.det .pn-h h2{display:inline}
+.det .acts{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12px}
+.det .fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px 14px;padding:8px 10px;border-bottom:1px solid var(--h-line)}
+.det .f .l{display:block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.det .f .v{font-size:13px;color:var(--ink);word-break:break-word}
+.rev{display:flex;gap:8px;align-items:center;white-space:nowrap;font-size:12px}
+.doc{font-size:11px;color:var(--muted);font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+.fbar{display:flex;gap:10px;align-items:center;padding:5px 10px;background:var(--h-info-bg);font-size:12px}
+.fchip{font-weight:600;color:var(--navy)}
+.rng{display:inline-flex;gap:4px}
+.rng a.chip{text-decoration:none}
+.rng a.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.open-bar{display:inline-flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:12px;margin-left:auto}
+@media (max-width:600px){.rev{flex-wrap:wrap}.doc{white-space:normal}.open-bar{margin-left:0}}
