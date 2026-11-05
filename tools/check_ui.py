@@ -46,7 +46,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 SITE = Path(__file__).resolve().parent.parent / "site"
-SKIP = ("newsletter/issues/", "ready/", "404.html")
+SKIP = ("newsletter/issues/", "ready/", "404.html", "hub/")  # hub/: private MFA Hub app shells (noindex, behind Cloudflare Access)
 
 
 # ---------- helpers for rules 5-10 ----------
