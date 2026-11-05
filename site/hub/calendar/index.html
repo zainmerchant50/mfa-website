@@ -4,23 +4,17 @@
 <title>Content Calendar | MFA Hub</title>
 <link rel="icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=2"/>
 </head><body class="hub" data-page="calendar">
 <header class="hub-top"><div class="wrap">
-<a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><span><b>MFA Hub</b><i>Private</i></span></a>
-<nav class="hub-nav" aria-label="Hub"><a href="/hub/">Home</a><a href="/hub/board/">Agent Board</a><a href="/hub/calendar/" aria-current="page">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/">Finance</a></nav>
+<a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><b>MFA Hub</b><i>Private</i></a>
+<nav class="hub-nav" aria-label="Hub"><a href="/hub/">Home</a><a href="/hub/board/">Board</a><a href="/hub/calendar/" aria-current="page">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/">Finance</a><a href="/hub/leads/">Leads</a><a href="/hub/tasks/">Tasks</a><a href="/hub/log/">Live log</a></nav>
+<div class="hub-stat"><span class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</span><button type="button" id="refresh">Refresh</button></div>
 </div></header>
-<div class="wrap">
-<div class="hub-head"><span class="eyebrow">Content</span><h1>Content <em>Calendar</em></h1><p>Every post, pin, video, blog and newsletter with its time (ET) and results. Comment on any item to change it.</p>
-<p class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</p></div>
-<main class="hub-main">
-<section class="hub-sec"><div class="calhead"><div class="chips" role="group" aria-label="View">
-<button class="chip" type="button" id="vMonth">Month</button><button class="chip" type="button" id="vList">List</button></div></div></section>
-<section class="hub-sec" id="monthBox"><div class="calhead"><button class="hbtn line" type="button" id="prevM" aria-label="Previous month">&larr;</button>
-<h2 id="monthLabel"></h2><button class="hbtn line" type="button" id="nextM" aria-label="Next month">&rarr;</button></div>
-<div class="cal" id="calGrid"></div></section>
-<section class="hub-sec"><h2 id="calListHead"></h2><div class="grid" id="calItems"></div></section>
-</main></div>
-<script src="/hub/hub.js?v=1"></script>
+<div class="wrap"><main class="hub-main">
+<div class="kpis" id="kpis"></div>
+<section class="pn"><div class="pn-h"><h2>Content matrix</h2><span class="sub" id="calMeta"></span></div>
+<div class="slicers" id="slicers"></div><div class="tw tall" id="cal"></div></section></main></div>
+<script src="/hub/hub.js?v=2"></script>
 </body></html>

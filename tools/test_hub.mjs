@@ -4,6 +4,9 @@ import { onRequest as middleware, hubPathCheck } from "../functions/_middleware.
 import { onRequestPost as commentPost } from "../functions/api/hub/comment.js";
 import { onRequestPost as financePost } from "../functions/api/hub/finance-answer.js";
 import { onRequestGet as dataGet } from "../functions/api/hub/data.js";
+import { onRequestPost as answerPost } from "../functions/api/hub/answer.js";
+import { onRequestPost as requestPost } from "../functions/api/hub/request.js";
+import { onRequestGet as logGet } from "../functions/api/hub/log.js";
 
 let pass = 0, fail = 0;
 const t = async (name, fn) => { try { await fn(); pass++; console.log("ok   ", name); } catch (e) { fail++; console.log("FAIL ", name, "-", e.message); } };
@@ -76,9 +79,26 @@ await t("unconfigured env: valid-looking JWT still denied", async () => { const 
 await t("hubPathCheck", async () => { eq(hubPathCheck("/blog/"), false); eq(hubPathCheck("/%E0%A4%A"), true); eq(hubPathCheck("/hub"), true); });
 
 // ---------- API (CSRF + validation) with a fake D1 ----------
-function fakeDb() {
+function fakeDb(opts = {}) {
   const log = [];
-  return { log, prepare(sql) { return { bind(...a) { return { async first() { log.push([sql, a]); if (sql.startsWith("UPDATE")) return a[0] === "missing" ? null : { id: a[0], status: "new", zain_answer: a[1], answered_at: "2026-11-05T00:00:00Z" }; return { id: 1, created_at: "2026-11-05T00:00:00Z", status: "new" }; }, async all() { log.push([sql, a]); return { results: [] }; } }; }, async first() { return { n: 0 }; } }; } };
+  const stmt = (sql, a = []) => ({
+    sql, a,
+    bind(...b) { return stmt(sql, b); },
+    async first() {
+      log.push([sql, a]);
+      if (sql.startsWith("UPDATE")) {
+        if (a[0] === "missing") return null;
+        if (sql.includes("'-60 seconds'")) return opts.undoOk === false ? null : { id: a[0], status: "open" };
+        return { id: a[0], status: "new", answer: a[1], zain_answer: a[1], answered_at: "2026-11-05T00:00:00Z" };
+      }
+      if (sql.startsWith("INSERT INTO requests")) return { id: 7, created_at: "2026-11-05T00:00:00Z", area: a[0], body: a[1], status: "new" };
+      if (sql.startsWith("SELECT COUNT")) return { n: 0 };
+      return { id: 1, created_at: "2026-11-05T00:00:00Z", status: "new" };
+    },
+    async run() { log.push([sql, a]); return { success: true }; },
+    async all() { log.push([sql, a]); return { results: sql.includes("FROM log") && !sql.includes("GROUP") ? [{ id: 1, ts: "2026-11-05T00:00:00Z", agent: "Hub", action: "built", detail: "x" }] : [] }; },
+  });
+  return { log, prepare(sql) { return stmt(sql); }, async batch(list) { return Promise.all(list.map((x) => x.all())); } };
 }
 function apiCtx(url, { origin = "https://hub.mfa-advisory.com", ct = "application/json", body = {}, authedEmail = EMAIL, xh = "1", sfs } = {}) {
   const h = new Headers(); if (origin) h.set("Origin", origin); if (ct) h.set("Content-Type", ct); if (xh) h.set("X-MFA-Hub", xh); if (sfs) h.set("Sec-Fetch-Site", sfs);
@@ -99,11 +119,50 @@ await t("comment: bad page / ref / empty body rejected", async () => {
   for (const b of [{ ...okBody, page: "x" }, { ...okBody, item_ref: "a b<script>" }, { ...okBody, body: "  " }, { ...okBody, body: "x".repeat(4001) }]) { const { ctx } = apiCtx(CU, { body: b }); eq((await commentPost(ctx)).status, 400); }
   const { ctx } = apiCtx(CU, { body: "not json" }); eq((await commentPost(ctx)).status, 400);
 });
-await t("finance answer: accepted and sets status new", async () => { const { ctx, db } = apiCtx(FU, { body: { id: "1843-20260917-9b0678", answer: "Business · Advisory/Consulting Income" } }); const r = await financePost(ctx); eq(r.status, 200); eq((await r.json()).question.status, "new"); eq(db.log[0][0].includes("status = 'new'"), true); });
+await t("finance answer: accepted and sets status new", async () => { const { ctx, db } = apiCtx(FU, { body: { id: "1843-20260917-9b0678", answer: "Business · Advisory/Consulting Income" } }); const r = await financePost(ctx); eq(r.status, 200); eq((await r.json()).item.status, "new"); eq(db.log[0][0].includes("status = 'new'"), true); });
 await t("finance answer: cross-origin rejected", async () => { const { ctx, db } = apiCtx(FU, { body: { id: "x1", answer: "y" }, origin: "https://evil.example" }); eq((await financePost(ctx)).status, 403); eq(db.log.length, 0); });
 await t("finance answer: unknown id -> 404", async () => { const { ctx } = apiCtx(FU, { body: { id: "missing", answer: "y" } }); eq((await financePost(ctx)).status, 404); });
 await t("data: no Access identity -> 403", async () => { const r = await dataGet({ request: new Request("https://hub.mfa-advisory.com/api/hub/data?page=board"), env: { HUB_DB: fakeDb() }, data: {} }); eq(r.status, 403); });
 await t("data: unknown page -> 400", async () => { const r = await dataGet({ request: new Request("https://hub.mfa-advisory.com/api/hub/data?page=x"), env: { HUB_DB: fakeDb() }, data: { hubEmail: EMAIL } }); eq(r.status, 400); });
+
+// ---------- v2: chips (answer + undo), requests, log, data pages ----------
+const AU = "https://hub.mfa-advisory.com/api/hub/answer", RU = "https://hub.mfa-advisory.com/api/hub/request";
+await t("chip answer (need): same-origin accepted, status new, log line written", async () => {
+  const { ctx, db } = apiCtx(AU, { body: { kind: "need", id: "need-ads-1099", answer: "Yes, keep 1099 to Nov 15" } });
+  const r = await answerPost(ctx); eq(r.status, 200); const j = await r.json(); eq(j.item.status, "new");
+  eq(db.log[0][0].includes("UPDATE needs"), true); eq(db.log[0][1][1], "Yes, keep 1099 to Nov 15"); eq(db.log.some((x) => x[0].startsWith("INSERT INTO log")), true);
+});
+await t("chip answer (finance) updates finance_questions", async () => { const { ctx, db } = apiCtx(AU, { body: { kind: "finance", id: "1843-20260422-5899cc", answer: "Personal · Owner's Draws" } }); eq((await answerPost(ctx)).status, 200); eq(db.log[0][0].includes("UPDATE finance_questions"), true); });
+await t("chip answer: unknown kind / bad id / empty answer -> 400", async () => {
+  for (const b of [{ kind: "comments", id: "x", answer: "y" }, { kind: "need", id: "a b", answer: "y" }, { kind: "need", id: "x", answer: " " }, { kind: "need; DROP", id: "x", answer: "y" }]) { const { ctx } = apiCtx(AU, { body: b }); eq((await answerPost(ctx)).status, 400); }
+});
+await t("chip answer: unknown id -> 404", async () => { const { ctx } = apiCtx(AU, { body: { kind: "need", id: "missing", answer: "y" } }); eq((await answerPost(ctx)).status, 404); });
+await t("chip answer: cross-origin / no header / no identity -> 403, nothing written", async () => {
+  for (const o of [{ origin: "https://evil.example" }, { xh: null }, { authedEmail: null }, { ct: "text/plain" }]) { const { ctx, db } = apiCtx(AU, { body: { kind: "need", id: "x", answer: "y" }, ...o }); eq((await answerPost(ctx)).status, 403); eq(db.log.length, 0); }
+});
+await t("undo within 60 s accepted (only status new)", async () => { const { ctx, db } = apiCtx(AU, { body: { kind: "need", id: "x1", undo: true } }); eq((await answerPost(ctx)).status, 200); eq(db.log[0][0].includes("status = 'new'"), true); eq(db.log[0][0].includes("'-60 seconds'"), true); });
+await t("undo too late -> 409", async () => { const h = apiCtx(AU, { body: { kind: "need", id: "x1", undo: true } }); h.ctx.env.HUB_DB = fakeDb({ undoOk: false }); eq((await answerPost(h.ctx)).status, 409); });
+await t("request: accepted, area defaults to general, cross-origin rejected", async () => {
+  const a = apiCtx(RU, { body: { area: "bogus", body: "Make the calendar denser" } }); const r = await requestPost(a.ctx); eq(r.status, 200); eq((await r.json()).request.area, "general");
+  const b = apiCtx(RU, { body: { area: "ads", body: "x" }, origin: "https://evil.example" }); eq((await requestPost(b.ctx)).status, 403);
+  const c = apiCtx(RU, { body: { area: "ads", body: "" } }); eq((await requestPost(c.ctx)).status, 400);
+});
+await t("log GET: needs identity, returns rows, clamps limit, agent filter is bound not interpolated", async () => {
+  eq((await logGet({ request: new Request("https://hub.mfa-advisory.com/api/hub/log"), env: { HUB_DB: fakeDb() }, data: {} })).status, 403);
+  const db = fakeDb(); const r = await logGet({ request: new Request("https://hub.mfa-advisory.com/api/hub/log?limit=99999&agent=Ads%27%20OR%201%3D1"), env: { HUB_DB: db }, data: { hubEmail: EMAIL } });
+  eq(r.status, 200); const j = await r.json(); eq(j.rows.length, 1); eq(db.log[0][1][1], 200); eq(db.log[0][1][0], "Ads' OR 1=1"); eq(db.log[0][0].includes("OR 1=1"), false);
+});
+await t("finance question comment: kind 'question' stored, unknown kind falls back to comment", async () => {
+  const a = apiCtx(CU, { body: { page: "finance", item_ref: "1843-20260422-5899cc", body: "Was this the NJ LLC fee?", kind: "question" } }); eq((await commentPost(a.ctx)).status, 200); eq(a.db.log[0][1][3], "question");
+  const b = apiCtx(CU, { body: { page: "finance", item_ref: "finance:general", body: "x", kind: "drop table" } }); eq((await commentPost(b.ctx)).status, 200); eq(b.db.log[0][1][3], "comment");
+  const c = apiCtx(CU, { body: { page: "finance", item_ref: "finance:general", body: "x", kind: "question" }, origin: "https://evil.example" }); eq((await commentPost(c.ctx)).status, 403);
+});
+for (const pg of ["home", "board", "calendar", "ads", "finance", "leads", "tasks", "log"]) {
+  await t(`data page ${pg} -> 200`, async () => { const r = await dataGet({ request: new Request("https://hub.mfa-advisory.com/api/hub/data?page=" + pg), env: { HUB_DB: fakeDb() }, data: { hubEmail: EMAIL } }); eq(r.status, 200); });
+}
+await t("log/answer/request paths are behind the gate (404 public, 403 hub host)", async () => {
+  for (const p of ["/api/hub/log", "/api/hub/answer", "/api/hub/request", "/hub/log/", "/hub/tasks/"]) { eq((await run("https://mfa-advisory.com" + p)).res.status, 404); eq((await run("https://hub.mfa-advisory.com" + p)).res.status, 403); }
+});
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -4,21 +4,17 @@
 <title>Agent Board | MFA Hub</title>
 <link rel="icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=2"/>
 </head><body class="hub" data-page="board">
 <header class="hub-top"><div class="wrap">
-<a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><span><b>MFA Hub</b><i>Private</i></span></a>
-<nav class="hub-nav" aria-label="Hub"><a href="/hub/">Home</a><a href="/hub/board/" aria-current="page">Agent Board</a><a href="/hub/calendar/">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/">Finance</a></nav>
+<a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><b>MFA Hub</b><i>Private</i></a>
+<nav class="hub-nav" aria-label="Hub"><a href="/hub/">Home</a><a href="/hub/board/" aria-current="page">Board</a><a href="/hub/calendar/">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/">Finance</a><a href="/hub/leads/">Leads</a><a href="/hub/tasks/">Tasks</a><a href="/hub/log/">Live log</a></nav>
+<div class="hub-stat"><span class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</span><button type="button" id="refresh">Refresh</button></div>
 </div></header>
-<div class="wrap">
-<div class="hub-head"><span class="eyebrow">Agents</span><h1>Agent <em>Board</em></h1><p>Each agent's status, what needs you, the ideas list and recent activity. Leave a comment on any card and the agent acts on it next run.</p>
-<p class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</p></div>
-<main class="hub-main">
-<section class="hub-sec"><h2>Needs you</h2><div class="grid" id="needs"></div></section>
-<section class="hub-sec"><h2>Agents</h2><div class="grid" id="agents"></div></section>
-<section class="hub-sec"><h2>Ideas to grow MFA</h2><div class="chips" id="ideaChips" role="group" aria-label="Filter ideas"></div><div class="grid" id="ideas"></div></section>
-<section class="hub-sec"><h2>Recent activity</h2><div class="grid" id="activity"></div></section>
-</main></div>
-<script src="/hub/hub.js?v=1"></script>
+<div class="wrap"><main class="hub-main">
+<section class="pn"><div class="pn-h"><h2>Agents</h2><span class="sub" id="agentsSub">status, last run, next run, what blocks them</span></div><div class="pn-b np" id="agents"></div></section>
+<section class="pn"><div class="pn-h"><h2>Needs you</h2><span class="sub" id="needsSub">approvals and blocks from the agents</span></div><div class="pn-b np" id="needs"></div></section>
+<div class="g2"><section class="pn"><div class="pn-h"><h2>Ideas</h2><span class="sub" id="ideasSub">approve or comment on any row</span></div><div class="pn-b np" id="ideas"></div></section><section class="pn"><div class="pn-h"><h2>Activity · 30 days</h2><span class="sub" id="activitySub"></span></div><div class="pn-b np" id="activity"></div></section></div></main></div>
+<script src="/hub/hub.js?v=2"></script>
 </body></html>

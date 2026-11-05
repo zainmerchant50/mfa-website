@@ -1,6 +1,6 @@
 // Helpers for /api/hub/* (MFA Hub). The site middleware has already verified the Access JWT and
 // set ctx.data.hubEmail; every handler checks it again so a routing mistake can't open the API.
-export const PAGES = ["home", "board", "calendar", "ads", "finance"];
+export const PAGES = ["home", "board", "calendar", "ads", "finance", "leads", "tasks", "log"];
 
 export function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), {
@@ -13,7 +13,7 @@ export function authed(ctx) {
   return typeof ctx.data?.hubEmail === "string" && ctx.data.hubEmail.length > 3;
 }
 
-// CSRF: the browser must say this POST comes from this same origin, as JSON.
+// CSRF: the browser must say this POST comes from this same origin, as JSON, with our header.
 export function sameOrigin(request) {
   const url = new URL(request.url);
   const origin = request.headers.get("Origin");
@@ -43,6 +43,20 @@ export function cleanText(v, max) {
 }
 
 export const REF_RE = /^[A-Za-z0-9_:.\-+@~]{1,200}$/;
+
+// JSON array of short strings from D1 -> safe array (max 8 items, 120 chars each).
+export function parseSuggestions(s) {
+  try {
+    const a = JSON.parse(s || "[]");
+    return Array.isArray(a) ? a.filter((x) => typeof x === "string" && x.trim() && x.length <= 120).slice(0, 8) : [];
+  } catch (e) { return []; }
+}
+
+// One live-log line for something Zain did in the hub (agents write their own lines straight to D1).
+export function logStmt(db, action, detail, link = null) {
+  return db.prepare("INSERT INTO log (agent, action, detail, link) VALUES ('Zain (hub)', ?1, ?2, ?3)")
+    .bind(String(action).slice(0, 80), String(detail || "").slice(0, 400), link);
+}
 
 export async function guardPost(ctx) {
   if (!authed(ctx)) return json({ ok: false, error: "forbidden" }, 403);

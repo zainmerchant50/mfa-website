@@ -4,19 +4,19 @@
 <title>Home | MFA Hub</title>
 <link rel="icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=2"/>
 </head><body class="hub" data-page="home">
 <header class="hub-top"><div class="wrap">
-<a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><span><b>MFA Hub</b><i>Private</i></span></a>
-<nav class="hub-nav" aria-label="Hub"><a href="/hub/" aria-current="page">Home</a><a href="/hub/board/">Agent Board</a><a href="/hub/calendar/">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/">Finance</a></nav>
+<a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><b>MFA Hub</b><i>Private</i></a>
+<nav class="hub-nav" aria-label="Hub"><a href="/hub/" aria-current="page">Home</a><a href="/hub/board/">Board</a><a href="/hub/calendar/">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/">Finance</a><a href="/hub/leads/">Leads</a><a href="/hub/tasks/">Tasks</a><a href="/hub/log/">Live log</a></nav>
+<div class="hub-stat"><span class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</span><button type="button" id="refresh">Refresh</button></div>
 </div></header>
-<div class="wrap">
-<div class="hub-head"><span class="eyebrow">Merchant Financial Advisory</span><h1>Your <em>MFA Hub</em></h1><p>Everything the agents are doing, in one private place. Comments and answers you leave here go straight to the agents.</p>
-<p class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</p></div>
-<main class="hub-main">
-<section class="hub-sec"><div class="tiles" id="tiles"></div></section>
-<section class="hub-sec"><h2>Agent replies</h2><p class="muted" id="ccount"></p><div class="grid" id="replies"></div></section>
+<div class="wrap"><main class="hub-main">
+<div class="kpis" id="kpis"></div>
+<div class="g4"><section class="pn"><div class="pn-h"><h2>Spend vs clicks · 7 days</h2><span class="sub" id="chSpendSub">per ad platform</span></div><div class="pn-b" id="chSpend"></div></section><section class="pn"><div class="pn-h"><h2>Impressions · 7 days</h2><span class="sub" id="chImprSub">paid + organic</span></div><div class="pn-b" id="chImpr"></div></section><section class="pn"><div class="pn-h"><h2>Top 10 posts · 30 days</h2><span class="sub" id="chTopSub">by impressions</span></div><div class="pn-b" id="chTop"></div></section><section class="pn"><div class="pn-h"><h2>Leads per day · 30 days</h2><span class="sub" id="chLeadsSub">website forms</span></div><div class="pn-b" id="chLeads"></div></section></div>
+<div class="g2 g-main"><section class="pn"><div class="pn-h"><h2>Needs you</h2><span class="sub" id="needsSub">one click answers; Undo for 10 s</span></div><div class="pn-b np" id="needs"></div></section><section class="pn"><div class="pn-h"><h2>Live log</h2><span class="sub" id="logSub"></span><span class="sub" id="logUpd"></span></div><div class="pn-b np" id="log"></div></section></div>
+<section class="pn"><div class="pn-h"><h2>Ask the agents</h2><span class="sub" id="reqFormSub">goes to Tasks</span></div><div class="pn-b" id="reqForm"></div></section>
 </main></div>
-<script src="/hub/hub.js?v=1"></script>
+<script src="/hub/hub.js?v=2"></script>
 </body></html>

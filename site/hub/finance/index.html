@@ -4,19 +4,17 @@
 <title>Finance questions | MFA Hub</title>
 <link rel="icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=2"/>
 </head><body class="hub" data-page="finance">
 <header class="hub-top"><div class="wrap">
-<a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><span><b>MFA Hub</b><i>Private</i></span></a>
-<nav class="hub-nav" aria-label="Hub"><a href="/hub/">Home</a><a href="/hub/board/">Agent Board</a><a href="/hub/calendar/">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/" aria-current="page">Finance</a></nav>
+<a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><b>MFA Hub</b><i>Private</i></a>
+<nav class="hub-nav" aria-label="Hub"><a href="/hub/">Home</a><a href="/hub/board/">Board</a><a href="/hub/calendar/">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/" aria-current="page">Finance</a><a href="/hub/leads/">Leads</a><a href="/hub/tasks/">Tasks</a><a href="/hub/log/">Live log</a></nav>
+<div class="hub-stat"><span class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</span><button type="button" id="refresh">Refresh</button></div>
 </div></header>
-<div class="wrap">
-<div class="hub-head"><span class="eyebrow">Finance</span><h1>Finance <em>questions</em></h1><p>Bank-feed items Finance needs you to label. Type your answer (business or personal, account, purpose) and save; Finance posts it to QuickBooks on its next run.</p>
-<p class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</p></div>
-<main class="hub-main">
-<section class="hub-sec"><div class="chips" id="finChips" role="group" aria-label="Filter questions"></div></section>
-<section class="hub-sec"><div class="grid" id="fin"></div></section>
-</main></div>
-<script src="/hub/hub.js?v=1"></script>
+<div class="wrap"><main class="hub-main">
+<div class="kpis" id="kpis"></div>
+<section class="pn"><div class="pn-h"><h2>Ask Finance a question</h2><span class="sub" id="finAskSub">the Finance agent answers here</span></div><div class="pn-b" id="finAsk"></div></section>
+<section class="pn"><div class="pn-h"><h2>Bank-feed questions</h2><span class="sub" id="finSub">click a suggested answer or type your own; Ask / comment to ask about a row</span></div><div class="pn-b np" id="fin"></div></section></main></div>
+<script src="/hub/hub.js?v=2"></script>
 </body></html>

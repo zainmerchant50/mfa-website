@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS calendar_items (
   note TEXT,
   source TEXT,
   updated_at TEXT,
+  metrics_at TEXT,   -- v2: when the numbers were read
   impressions INTEGER,
   clicks INTEGER,
   engagements INTEGER,
@@ -53,17 +54,41 @@ CREATE TABLE IF NOT EXISTS finance_questions (
   answered_at TEXT,
   agent_note TEXT,
   source TEXT,
-  data TEXT NOT NULL DEFAULT '{}'
+  data TEXT NOT NULL DEFAULT '{}',
+  suggestions TEXT NOT NULL DEFAULT '[]'  -- JSON array of one-click answers (v2)
 );
 CREATE INDEX IF NOT EXISTS fin_status ON finance_questions(status);
 
 CREATE TABLE IF NOT EXISTS comments (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')),
-  page TEXT NOT NULL CHECK (page IN ('home','board','calendar','ads','finance')),
+  page TEXT NOT NULL CHECK (page IN ('home','board','calendar','ads','finance','leads','tasks','log')),
   item_ref TEXT NOT NULL,
   body TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new','seen','done')),
-  agent_note TEXT
+  agent_note TEXT,
+  kind TEXT NOT NULL DEFAULT 'comment'   -- comment | question (v2)
 );
 CREATE INDEX IF NOT EXISTS comments_status ON comments(status, created_at);
+
+-- v2 (tools/hub_migrate_v2.sql)
+CREATE TABLE IF NOT EXISTS needs (
+  id TEXT PRIMARY KEY, created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')),
+  source TEXT NOT NULL, agent TEXT, title TEXT NOT NULL, detail TEXT, ref TEXT,
+  suggestions TEXT NOT NULL DEFAULT '[]',
+  status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open','new','seen','done')),
+  answer TEXT, answered_at TEXT, agent_note TEXT);
+CREATE INDEX IF NOT EXISTS needs_status ON needs(status);
+CREATE TABLE IF NOT EXISTS log (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, ts TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')),
+  agent TEXT NOT NULL, action TEXT NOT NULL, detail TEXT, link TEXT);
+CREATE INDEX IF NOT EXISTS log_ts ON log(ts DESC);
+CREATE TABLE IF NOT EXISTS requests (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')),
+  area TEXT NOT NULL DEFAULT 'general', body TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new','seen','in_progress','done')),
+  agent_note TEXT, updated_at TEXT);
+CREATE TABLE IF NOT EXISTS leads (
+  id TEXT PRIMARY KEY, received_at TEXT NOT NULL, first_name TEXT, email_domain TEXT, topic TEXT, source TEXT,
+  status TEXT NOT NULL DEFAULT 'new', reminder_at TEXT, note TEXT, updated_at TEXT);
+CREATE TABLE IF NOT EXISTS kpis (key TEXT PRIMARY KEY, label TEXT NOT NULL, value REAL, unit TEXT, as_of TEXT, source TEXT, note TEXT);
