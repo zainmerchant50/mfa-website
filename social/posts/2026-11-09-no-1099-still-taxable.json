@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-09",
+  "number": 1,
+  "slug": "No-1099-Still-Taxable",
+  "topic": "Myth vs fact for side income: fewer people get a 1099 for 2026 (1099-NEC only at $2,000+, 1099-K only past $20,000 and 200 transactions) but all income is still reported; $400 net self-employment earnings brings SE tax 15.3%; plan before Dec 31 (nov-push -> /year-end-tax-planning/)",
+  "type": "service",
+  "accent": "amber",
+  "label": "Side income / Myth vs fact",
+  "kicker": "The forms changed. The tax didn't.",
+  "headline": "No 1099 this year? You still owe *tax*.",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Myth: no form means no tax",
+      "text": "Fact: you report all your income, form or not."
+    },
+    {
+      "title": "Fewer 1099-NECs for 2026",
+      "text": "A client only has to send one once they pay you $2,000 or more."
+    },
+    {
+      "title": "Fewer 1099-Ks too",
+      "text": "Payment apps send one past $20,000 and 200 sales."
+    },
+    {
+      "title": "The $400 line",
+      "text": "Net $400 or more from side work? Self-employment tax applies (15.3%)."
+    }
+  ],
+  "body": [],
+  "cta_word": "PLAN",
+  "link": "mfa-advisory.com/year-end-tax-planning",
+  "checked": "November 5, 2026",
+  "ig_caption": "Paid for side work this year and no 1099 showed up? The money is still taxable.\n\nFor 2026, fewer people will get a form at all:\n\n✔️ 1099-NEC: a client only has to send one once they pay you $2,000 or more.\n✔️ 1099-K: payment apps send one once you pass $20,000 and 200 sales.\n✔️ The IRS is clear: form or no form, you report the income.\n✔️ Net $400 or more from side work means self-employment tax (15.3%) on top of income tax.\n\nThe best time to plan for it is before Dec 31. In a year-end session we total your side income, check what you can still deduct and set your Jan 15 payment.\n\nComment PLAN and we'll send you the link, or find it at mfa-advisory.com/year-end-tax-planning\n\nGeneral information, not tax advice.\n\n#taxtips #sidehustle #smallbusiness #selfemployed #freelancer #entrepreneur #accounting #bookkeeping\n#1099 #1099k #gigworker #estimatedtaxes #selfemploymenttax #yearendtaxplanning #njsmallbusiness #nysmallbusiness",
+  "li_caption": "Many people with side income will get no 1099 for 2026. The income is still taxable.\n\nMyth vs fact:\n\n1. Myth: no 1099 means nothing to report. Fact: the IRS says you must report your income whether or not you receive a form.\n2. Fact: fewer 1099-NECs are coming. For payments made in 2026, a business only has to send one once it pays you $2,000 or more.\n3. Fact: fewer 1099-Ks too. Payment apps and online marketplaces only have to send one when payments pass $20,000 and 200 transactions.\n4. Fact: net earnings of $400 or more from self-employment bring self-employment tax of 15.3% (Social Security and Medicare), on top of income tax.\n\nSo the bill can arrive in April with no paper trail to warn you. Your own records are what count: deposits, app reports and invoices.\n\nDecember is the time to deal with it. In a year-end planning session we total your side income, look at what you can still deduct before Dec 31 and set the Jan 15, 2027 estimated payment if you need one.\n\nComment PLAN and we will send it.\n\nLink in the first comment.\n\n#SideIncome #SelfEmployed #SmallBusiness #TaxPlanning #1099",
+  "sources": [
+    {
+      "fact": "Whether or not you receive a Form 1099-K, you must still report any income on your tax return; 1099-K generally issued past $20,000 in more than 200 transactions",
+      "url": "https://www.irs.gov/businesses/understanding-your-form-1099-k"
+    },
+    {
+      "fact": "OBBB reinstated the 1099-K threshold: TPSOs file only if payments exceed $20,000 and transactions exceed 200",
+      "url": "https://www.irs.gov/newsroom/irs-issues-faqs-on-form-1099-k-threshold-under-the-one-big-beautiful-bill-dollar-limit-reverts-to-20000"
+    },
+    {
+      "fact": "2026 payments: 1099-NEC threshold $2,000 (checked Nov 3, 2026)",
+      "url": "https://www.irs.gov/instructions/i1099mec"
+    },
+    {
+      "fact": "SE tax 15.3% (12.4% SS + 2.9% Medicare); applies when net earnings from self-employment are $400 or more (data/tax-figures-2026.json, checked Oct 20, 2026)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    },
+    {
+      "fact": "Q4 2026 estimated tax due Jan 15, 2027 (data/tax-calendar-2027.json, checked Oct 20, 2026)",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
+    },
+    {
+      "fact": "MFA offer: year-end tax planning session (no prices in social posts)",
+      "url": "https://mfa-advisory.com/year-end-tax-planning/"
+    }
+  ],
+  "post_times": {
+    "instagram": "Mon Nov 9, 5:30 PM ET",
+    "linkedin": "Tue Nov 10, 6:00 PM ET (Nov 9 LinkedIn slot already taken)"
+  },
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/year-end-tax-planning/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push",
+    "linkedin": "https://mfa-advisory.com/year-end-tax-planning/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push"
+  }
+}

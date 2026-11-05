@@ -159,5 +159,24 @@
   "campaign": "nov-push",
   "link": "https://mfa-advisory.com/llc-annual-report/",
   "note": "Social agent (Nov 4 run): myth vs fact, FinCEN BOI gone for US companies vs NJ annual report / NY biennial statement; nov-push -> /llc-annual-report/, CTA REPORT. Instagram/Facebook: composer filled (image + caption, IG+FB Nov 6 8:00 PM to match the Nov 4/5 image slots and Zain's Oct 30 evening times; 12 PM already holds a reel) but the Schedule click was blocked by this session's safety check; post files are in Ready to Post."
+ },
+ {
+  "date": "2026-11-09",
+  "slug": "No-1099-Still-Taxable",
+  "title": "No 1099 this year? You still owe tax.",
+  "status": "scheduled",
+  "platforms": [
+   "instagram",
+   "facebook",
+   "linkedin"
+  ],
+  "times": {
+   "instagram": "Mon Nov 9 5:30 PM ET (Meta Business Suite, IG+FB)",
+   "linkedin": "Tue Nov 10 6:00 PM ET (Typefully draft 11718411; Nov 9 LinkedIn already had Holiday gifts)"
+  },
+  "campaign": "nov-push",
+  "link": "https://mfa-advisory.com/year-end-tax-planning/",
+  "cta_word": "PLAN",
+  "note": "Social agent (Nov 5 run): myth vs fact on side income with no 1099 (1099-NEC $2,000, 1099-K $20,000/200, $400 SE line) -> year-end tax planning session. Proven 'no tax taken out' theme. Verified in Business Suite planner (two 5:30 PM items Mon 9) and Typefully scheduled list."
  }
 ]
