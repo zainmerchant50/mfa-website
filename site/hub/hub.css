@@ -129,3 +129,9 @@ table.mx td.mc{white-space:nowrap;min-width:92px;font-size:11px}
 .tw.tall{max-height:calc(100vh - 230px)}
 .dt th.c{text-align:center}
 table.mx td.mc{text-align:center}
+table.mx{font-size:12.5px}
+table.mx>tbody>tr>td{padding:1px 6px;line-height:17px}
+table.mx>tbody>tr>td.w{white-space:nowrap;overflow:hidden;max-width:360px}
+table.mx>tbody>tr>td.w>.reply{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12.5px;line-height:17px}
+table.mx>thead>tr>th{padding:4px 6px}
+table.mx>tbody>tr.subrow>td{padding:6px 8px;line-height:1.4}

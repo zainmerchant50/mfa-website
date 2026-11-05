@@ -277,6 +277,10 @@
     k.title = (o.title || label) + (o.asOf ? " · as of " + fmtD(o.asOf, true) : "");
     add(k, el("span", "l", label), v, s); if (o.spark) k.appendChild(spark(o.spark)); host.appendChild(k);
   }
+  function fit(w) {
+    function go() { if (window.innerWidth < 700) { w.style.maxHeight = ""; return; } var top = w.getBoundingClientRect().top + window.scrollY; w.style.maxHeight = Math.max(320, window.innerHeight - top - 12) + "px"; }
+    go(); if (!fit.on) { fit.on = true; window.addEventListener("resize", function () { var c = $("cal"); if (c) fit(c); }); }
+  }
   function kmap(list) { var m = {}; (list || []).forEach(function (k) { m[k.key] = k; }); return m; }
 
   // ---------- shared tables ----------
@@ -510,7 +514,7 @@
     var tr2 = el("tr", "total"); add(tr2, el("td", "", "Total"), el("td", "", rows.length + " pieces · " + flat.length + " posts"), el("td"));
     PCOLS.forEach(function (p) { var s = { i: 0, c: 0, e: 0, n: 0 }; rows.forEach(function (r) { var b = r.by[p[0]]; if (b) { s.n++; s.i += b.i || 0; s.c += b.c || 0; s.e += b.e || 0; } }); tr2.appendChild(el("td", "n mono", s.n ? n0(s.i) + "·" + n0(s.c) + "·" + n0(s.e) : "")); });
     tr2.appendChild(el("td", "n mono", n0(tot.i) + "·" + n0(tot.c) + "·" + n0(tot.e))); bd.appendChild(tr2);
-    add(tbl, th, bd); var w = clear($("cal")); w.appendChild(tbl); if (!rows.length) w.appendChild(el("div", "empty", "Nothing matches these slicers."));
+    add(tbl, th, bd); var w = clear($("cal")); w.appendChild(tbl); if (!rows.length) w.appendChild(el("div", "empty", "Nothing matches these slicers.")); fit(w);
     var latestM = items.map(function (i) { return i.metrics_at || ""; }).sort().pop();
     $("calMeta").textContent = "Cells: impressions·clicks·engagements · dot: green published, gold scheduled, red missed/unconfirmed · n/a = the platform doesn't report it (hover) · " + (latestM ? "metrics as of " + fmtD(latestM, true) : "no metrics yet");
   };
