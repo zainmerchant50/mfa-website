@@ -44,6 +44,19 @@
       });
   }
 
+  // Lead tracking (Zain's yes, 2026-11-05): once a lead send is accepted (the form's thanks state), fire the
+  // Google Ads "Submit lead form" conversion + GA4 generate_lead via window.mfaLead (ads.js; it skips internal/test
+  // traffic and ignores a repeat within 5 s). Unsubscribes, blog questions and PAID notices are not leads.
+  var NOT_LEAD = /^(newsletter unsubscribe|blog question|paid)/i;
+  function trackLead(fd) {
+    try {
+      var subj = String(fd.get('_subject') || '');
+      if (NOT_LEAD.test(subj) || typeof w.mfaLead !== 'function') return;
+      var kind = (subj.split(':')[0] || 'lead').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '') || 'lead';
+      w.mfaLead(kind, { page_path: w.location.pathname });
+    } catch (e) { /* tracking must never break the form */ }
+  }
+
   function reply(ok) {
     return new Response(JSON.stringify(ok ? { success: true } : { success: false, message: 'Send failed' }),
       { status: ok ? 200 : 502, headers: { 'Content-Type': 'application/json' } });
@@ -61,7 +74,7 @@
           var done = false, left = 2;
           function fin(ok) {
             if (done) return;
-            if (ok) { done = true; resolve(reply(true)); }
+            if (ok) { done = true; trackLead(fd); resolve(reply(true)); }
             else if (--left === 0) { done = true; resolve(reply(false)); }
           }
           fs.then(fin); ml.then(fin);

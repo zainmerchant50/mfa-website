@@ -11,7 +11,12 @@ site/assets/ads.js (loaded once per page):
     → "Opened booking calendar" (secondary / observe-only in Google Ads);
   - window.mfaLead(form, params) → "Submit lead form" conversion. Call it ONLY after the /llc-formation/
     form is confirmed sent (it keeps its own thanks flow).
-  - window.mfaContactThanks() → "Contact form submitted" conversion, called on load of /contact/thanks/ only.
+  - LEAD TRACKING (Zain's yes, 2026-11-05): site/assets/forms.js calls window.mfaLead() once, the moment a lead
+    send through FormSubmit/MailerLite succeeds (the form's thanks state), for every lead form. That fires the PRIMARY
+    "Submit lead form" conversion + GA4 generate_lead. mfaLead ignores a 2nd call within 5 s (forms that also call it
+    themselves, e.g. /llc-formation/). Not leads: newsletter unsubscribes, blog questions, PAID notices.
+  - window.mfaContactThanks() → "Contact form submitted" conversion (SECONDARY / observe-only since 2026-11-05),
+    called on load of /contact/thanks/ only. It no longer sends generate_lead (forms.js already did).
     The general contact/quote forms (home contact, landing pages, /bookkeeping-cleanup/) do NOT call mfaLead:
     after FormSubmit confirms the send they run contact_redirect(form) (sets a sessionStorage flag, goes to
     /contact/thanks/). The thanks page fires once per send: the flag is consumed on first load, so a reload or a
@@ -56,9 +61,9 @@ if(!w.pintrk){w.pintrk=function(){w.pintrk.queue.push(Array.prototype.slice.call
 var ps=d.createElement('script');ps.async=true;ps.src='https://s.pinimg.com/ct/core.js';var s0=d.getElementsByTagName('script')[0];if(s0&&s0.parentNode)s0.parentNode.insertBefore(ps,s0);else d.head.appendChild(ps);}
 w.pintrk('load','%(pin)s');w.pintrk('page');if(!X)w.pintrk('track','pagevisit');
 function pin(ev,p){if(X)return;try{w.pintrk('track',ev,p||{});}catch(e){}}
-w.mfaLead=function(form,params){conv('form');if(X)return;var p={form:form||'lead'};for(var k in params||{})p[k]=params[k];w.gtag('event','generate_lead',p);pin('lead',{lead_type:form||'lead'});};
+var LT=0;w.mfaLead=function(form,params){var t=Date.now();if(t-LT<5000)return;LT=t;conv('form');if(X)return;var p={form:form||'lead'};for(var k in params||{})p[k]=params[k];w.gtag('event','generate_lead',p);pin('lead',{lead_type:form||'lead'});};
 w.mfaContactThanks=function(){var f=null;try{var s=w.sessionStorage;f=s.getItem('%(sent)s');if(f)s.removeItem('%(sent)s');}catch(e){}
-if(!f)return false;conv('contact');if(!X)w.gtag('event','generate_lead',{form:f});pin('lead',{lead_type:f});return true;};
+if(!f)return false;conv('contact');return true;};
 w.mfaPurchase=function(id,v){if(X||!A.purchase)return;w.gtag('event','conversion',{send_to:A.id+'/'+A.purchase,value:Number(v)||1,currency:'USD',transaction_id:String(id||'')});pin('checkout',{value:Number(v)||1,currency:'USD',order_quantity:1,order_id:String(id||'')});};
 d.addEventListener('click',function(e){
 var a=e.target&&e.target.closest?e.target.closest('a[href],[data-conv]'):null;if(!a)return;
@@ -75,7 +80,7 @@ VER = hashlib.sha1(JS.encode()).hexdigest()[:10]
 VERIFY = '<meta name="p:domain_verify" content="b4398f09fdd0e385c266cc687acecf36"/>'
 TAG = (VERIFY + f'<script async src="https://www.googletagmanager.com/gtag/js?id={ADS["id"]}"></script>'
        f'<script src="/assets/ads.js?v={VER}"></script>'
-       '<script src="/assets/forms.js?v=1"></script>')  # lead-form safety net (MailerLite backup), Hub 2026-11-04
+       '<script src="/assets/forms.js?v=2"></script>')  # lead-form safety net (MailerLite backup), Hub 2026-11-04
 MARKED = f"<!--ads:tag-->{TAG}<!--/ads:tag-->"
 HAND_BUILT = ["index.html", "404.html"]
 
