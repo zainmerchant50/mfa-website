@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"/><link rel="stylesheet" href="_base.css"/><style>
+:root{--w:1000px;--h:1000px}
+body{background:#0C1B31;position:relative}
+.card{position:absolute;inset:44px;border-radius:30px;border:1.5px solid rgba(216,183,105,.32);overflow:hidden;
+ background:radial-gradient(110% 90% at 100% 0%,#1B3557 0%,#12284A 50%,#0E2141 100%)}
+.in{position:absolute;left:58px;top:52px;right:58px}
+.brandline img{width:54px;height:54px;border-radius:13px}
+.brandline b{font-size:30px}.brandline i{font-size:11px}
+.pill{display:inline-block;margin-top:44px;font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+ color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;font-size:70px;line-height:1.02;margin-top:24px;color:#fff}
+h1 em{display:block;color:var(--gold-b);font-style:italic}
+.stage{position:absolute;left:-14px;right:0;bottom:-40px;height:560px;transform:scale(1.16);transform-origin:0 0}
+.sheet{position:absolute;background:var(--paper);color:var(--ink);border-radius:10px;
+ box-shadow:0 24px 60px rgba(0,0,0,.45),0 2px 6px rgba(0,0,0,.3);overflow:hidden;font-size:12px}
+.sheet .hd{background:var(--navy);color:#fff;padding:10px 14px;font-size:12px;font-weight:600;letter-spacing:.04em;display:flex;justify-content:space-between}
+.sheet .hd span{color:var(--gold-b);font-weight:700;letter-spacing:.14em;font-size:10px;text-transform:uppercase}
+.sheet h3{font-size:13px;font-weight:700;color:var(--navy);padding:12px 14px 6px}
+table{width:100%;border-collapse:collapse}
+th{background:var(--gold-b);color:var(--navy);font-size:10.5px;font-weight:700;text-align:left;padding:6px 8px;letter-spacing:.02em}
+td{padding:6px 8px;border-bottom:1px solid rgba(21,21,21,.08);font-size:11.5px;white-space:nowrap}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:nth-child(even) td{background:#F5F4EF}
+tr.tot td{font-weight:700;color:var(--navy);background:#FBF3DE;border-top:1.5px solid var(--gold)}
+.doc{padding:0 0 10px}
+.doc .t{font-family:Cormorant,serif;font-size:26px;color:var(--navy);padding:16px 18px 2px;line-height:1.05}
+.doc .t em{color:var(--gold);font-style:italic}
+.doc .s{font-size:10.5px;color:#6b6b6b;padding:0 18px 10px}
+.ck{display:flex;gap:10px;align-items:flex-start;padding:8px 18px;border-top:1px solid rgba(21,21,21,.07)}
+.ck i{flex:0 0 15px;height:15px;border:1.5px solid var(--gold);border-radius:3px;margin-top:1px;position:relative}
+.ck i.on:after{content:"";position:absolute;left:4px;top:0;width:4px;height:9px;border:solid var(--navy);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ck b{display:block;font-size:12px;color:var(--navy)}
+.ck span{display:block;font-size:10.5px;color:#555;margin-top:2px;line-height:1.35;white-space:normal}
+.tagrow{position:absolute;left:58px;bottom:40px;display:flex;gap:8px}
+.tagrow span{font-size:12px;font-weight:500;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 12px;background:rgba(12,27,49,.75)}
+.letter{padding:18px 20px;font-size:11px;line-height:1.55;color:#333}
+.letter .lh{font-weight:700;color:var(--navy);font-size:12px;margin-bottom:8px}
+.letter .ln{height:7px;background:#E7E4DA;border-radius:4px;margin:7px 0}
+.letter .ln.s{width:62%}.letter .ln.m{width:84%}
+.chip{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.08em;padding:2px 7px;border-radius:999px}
+.chip.g{background:#E3F1E6;color:#22663A}.chip.y{background:#FBF0D2;color:#8A6412}.chip.b{background:#E2E9F4;color:#1B3557}
+</style></head><body><div class="card"><div class="in"><div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div><span class="pill">Commissions · Pricing · 1099</span><h1>Artist Commission<em>Business Kit</em></h1></div><div class="stage"><div class="sheet" style="left:525px;top:40px;width:345px;transform:rotate(4deg)"><div class="hd">Invoices &amp; deposits<span>Tracker</span></div><table><tr><th>Client</th><th>Quote</th><th>Deposit</th><th>Due</th></tr><tr><td>M. Lee</td><td class="n">350.00</td><td class="n">175.00</td><td>Paid</td></tr><tr><td>Studio Nine</td><td class="n">1,200</td><td class="n">600.00</td><td>Jun 30</td></tr><tr><td>R. Patel</td><td class="n">480.00</td><td class="n">240.00</td><td>Jul 15</td></tr><tr><td>Cafe mural</td><td class="n">2,400</td><td class="n">1,200</td><td>Aug 01</td></tr></table></div><div class="sheet" style="left:72px;top:72px;width:470px;transform:rotate(-2.5deg)"><div class="hd">Commission price calculator<span>Calculator</span></div><h3>Custom pet portrait, 16 x 20 in</h3><table><tr><th>Item</th><th>Detail</th><th>Amount</th></tr><tr><td>Materials</td><td>Canvas, paint, varnish</td><td class="n">42.00</td></tr><tr><td>Your time</td><td>9 hrs x 30.00</td><td class="n">270.00</td></tr><tr><td>Card / platform fees</td><td>Card processing</td><td class="n">12.32</td></tr><tr><td>Tax set-aside</td><td>Your set-aside rate</td><td class="n">60.00</td></tr><tr><td>Shipping &amp; packing</td><td>Insured</td><td class="n">24.00</td></tr><tr class="tot"><td>Suggested quote</td><td></td><td class="n">408.32</td></tr></table></div></div><div class="tagrow"><span>Excel</span><span>PDF checklist</span><span>2026 rules</span></div></div></body></html>
