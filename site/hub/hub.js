@@ -207,11 +207,12 @@
       var v = svg("text", { x: lw + w + 5, y: y + 13, class: "v" }); v.textContent = (d.fmt || o.fmt || n0)(d.value);
       if (d.href) { var a = svg("a", { href: d.href, class: "lnk" }); add(a, svg("rect", { x: 0, y: y, width: W, height: rh, fill: "transparent" }), lab, r, v); s.appendChild(a); } else add(s, lab, r, v);
     });
-    host.appendChild(s);
+    host.appendChild(s); if (o.foot) host.appendChild(el("div", "foot muted", o.foot));
   }
-  function pairBars(host, data, names, fmts) {
+  function pairBars(host, data, names, fmts, na) {
     clear(host);
-    if (!data.length) { host.appendChild(el("div", "empty", "No paid data in the last 7 days.")); return; }
+    if (na) { host.appendChild(el("div", "empty", na)); return; }
+    if (!data.length) { host.appendChild(el("div", "empty", "No paid data in this range.")); return; }
     var lg = el("div", "legend"); [0, 1].forEach(function (i) { var it = el("span"), sw = el("i"); sw.style.background = i ? "#B08D3F" : "#10233F"; add(it, sw, names[i]); lg.appendChild(it); });
     var W = 560, lw = 110, gh = 34, H = data.length * gh + 4, ma = Math.max.apply(null, data.map(function (d) { return d.a || 0; })) || 1, mb = Math.max.apply(null, data.map(function (d) { return d.b || 0; })) || 1;
     var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "ch", role: "img", "aria-label": names.join(" vs ") });
@@ -256,26 +257,28 @@
   }
   function lastDays(n, end) { var e = end || today(), out = []; for (var i = n - 1; i >= 0; i--) out.push(addDays(e, -i)); return out; }
 
-  // ---------- ads math ----------
-  function adsModel(rows) {
-    var t = today(), from7 = addDays(t, -6), pFrom = addDays(t, -13), pTo = addDays(t, -7), P = {};
-    rows.forEach(function (r) {
-      var p = P[r.platform] = P[r.platform] || { name: r.platform, paid: /Ads$/.test(r.platform), daily: [], win: [], latest: null };
-      if (r.window_days === 1) { p.daily.push(r); if (!p.latest || r.date > p.latest) p.latest = r.date; } else p.win.push(r);
+  // ---------- ranges: Today / 7d / 30d (in the URL hash, default 7d) ----------
+  function adsModel(rows, n) { return HL.adsModel(rows || [], n || RN(), today()); }
+  function RK() { return HL.rangeKey(H.range); }
+  function RN() { return HL.RANGE[RK()]; }
+  function RL() { return RK() === "today" ? "today" : RK(); }
+  function WIN() { return HL.win(today(), RN()); }
+  function SPAN() { return RN() === 30 ? 30 : 7; } // daily charts: at least 7 bars
+  function inWin(ymd, w) { return !!ymd && ymd >= w.from && ymd <= w.to; }
+  function inPrior(ymd, w) { return !!ymd && ymd >= w.pFrom && ymd <= w.pTo; }
+  function NA(what) { return RL() + ": n/a until data builds" + (what ? " (" + what + ")" : ""); }
+  function setTitle(id, text) { var n = $(id), s = n && n.closest(".pn"), h = s && s.querySelector(".pn-h h2"); if (h) h.textContent = text; }
+  function setSub(id, node) { var s = $(id + "Sub"); if (s) { clear(s); add(s, node); } }
+  // o.drop: hash keys a range change clears (calendar: from/to); o.all: offer "All"; o.note: what the range drives
+  function rangeBar(o) {
+    o = o || {}; var h = $("rbar"); if (!h) return; clear(h);
+    var cur = o.all && H.range === "all" ? "all" : RK(), base = merge(H, {}); (o.drop || []).forEach(function (k) { delete base[k]; });
+    h.appendChild(el("span", "rl", "Range"));
+    [["today", "Today"], ["7d", "7 days"], ["30d", "30 days"]].concat(o.all ? [["all", "All"]] : []).forEach(function (x) {
+      var a = hl(x[1], "#" + HL.qs(merge(base, { range: x[0] })), "chip" + (cur === x[0] ? " on" : "")); a.setAttribute("aria-current", String(cur === x[0])); h.appendChild(a);
     });
-    function sum(list) { return list.reduce(function (s, r) { s.i += r.impressions || 0; s.c += r.clicks || 0; s.s += r.spend || 0; s.v += r.conversions || 0; s.n++; return s; }, { i: 0, c: 0, s: 0, v: 0, n: 0 }); }
-    function win(p, endFrom, endTo) { var w = p.win.filter(function (r) { return r.window_days === 7 && r.date >= endFrom && r.date <= endTo; }).sort(function (a, b) { return b.date.localeCompare(a.date); })[0]; return w ? sum([w]) : null; }
-    Object.keys(P).forEach(function (k) {
-      var p = P[k];
-      p.today = sum(p.daily.filter(function (r) { return r.date === t; }));
-      var d7 = p.daily.filter(function (r) { return r.date >= from7 && r.date <= t; }), dp = p.daily.filter(function (r) { return r.date >= pFrom && r.date <= pTo; });
-      p.s7 = d7.length ? sum(d7) : win(p, addDays(t, -2), t); p.note = d7.length ? "" : (p.s7 ? "7-day total from the platform" : "");
-      p.p7 = dp.length >= 5 ? sum(dp) : win(p, addDays(pTo, -2), pTo); // prior period counts only with full coverage
-      var w30 = p.win.filter(function (r) { return r.window_days === 30; }).sort(function (a, b) { return b.date.localeCompare(a.date); })[0];
-      if (!p.s7 && w30) { p.s30 = sum([w30]); p.note = "30-day total only"; p.latest = p.latest || w30.date; }
-      if (!p.latest && p.win.length) p.latest = p.win.map(function (r) { return r.date; }).sort().pop();
-    });
-    return P;
+    if (cur !== "all") { var w = WIN(); h.appendChild(el("span", "muted", (w.n === 1 ? fmtD(w.to) : fmtD(w.from) + " – " + fmtD(w.to)) + " · ▲▼ vs the " + (w.n === 1 ? "day before" : "prior " + w.n + " days"))); }
+    if (o.note) h.appendChild(el("span", "muted", "· " + o.note));
   }
 
   // ---------- KPI tile ----------
@@ -299,20 +302,68 @@
     (d.financeOpen || d.finance || []).forEach(function (f) { rows.push({ kind: "finance", id: f.id, src: "finance", agent: "Finance", title: f.question, detail: f.suggested_answer ? "Suggested: " + f.suggested_answer : "", item: f, ts: f.created_at, status: f.status }); });
     return rows;
   }
-  function needsTable(host, d, o) {
+  function finNeed(n) { return n.source === "finance" || n.agent === "Finance" || n.agent === "TaxSavings"; }
+  // agent approvals | finance transaction questions | other finance questions (decisions/setup)
+  function needGroups(d) {
     var rows = needsRows(d);
+    return {
+      agent: rows.filter(function (r) { return r.kind === "need" && !finNeed(r.item); }),
+      txn: rows.filter(function (r) { return r.kind === "finance" && HL.financeKind(r.item) === "txn"; }).map(function (r) { return r.item; }),
+      other: rows.filter(function (r) { return (r.kind === "need" && finNeed(r.item)) || (r.kind === "finance" && HL.financeKind(r.item) === "other"); })
+    };
+  }
+  var GROUPS = [["agent", "Agent approvals"], ["txn", "Finance · transaction questions"], ["other", "Finance · other questions"]];
+  function openCount(list) { return list.filter(function (r) { return r.status === "open"; }).length; }
+  function needsTable(host, rows, o) {
+    o = o || {};
     table(host, {
-      rows: rows, short: o && o.short, sort: { k: "o", dir: "asc" },
+      rows: rows, short: o.short, sort: { k: "o", dir: "asc" },
       selects: [{ l: "Source", k: "src" }, { l: "Status", k: "status", value: "open" }],
       cols: [
         { k: "o", l: "#", num: true, get: function (r) { return (r.status === "open" ? 0 : 1) * 1e6 + (r.kind === "finance" ? 1e5 : 0) + rows.indexOf(r); }, cell: function (r) { return String(rows.indexOf(r) + 1); } },
         { k: "src", l: "From", cls: "nw", cell: function (r) { var ref = r.item && r.item.ref, m = ref && /^agent:(.+)$/.exec(ref);
-          return hl(r.agent || r.src, r.kind === "finance" ? HL.route("finance", { q: r.id }) : m ? HL.route("board", { agent: m[1] }) : r.agent ? HL.route("board", { agent: r.agent }) : ref ? HL.refHref("home", ref) : HL.route("board")); } },
+          return hl(r.agent || r.src, r.kind === "finance" ? HL.route("finance", { group: HL.financeKind(r.item), q: r.id }) : m ? HL.route("board", { agent: m[1] }) : r.agent ? HL.route("board", { agent: r.agent }) : ref ? HL.refHref("home", ref) : HL.route("board")); } },
         { k: "title", l: "Question / approval", cls: "w", cell: function (r) { var w = el("div"); add(w, clip(r.title)); if (r.detail) w.appendChild(el("div", "muted", r.detail)); return w; } },
         { k: "status", l: "Answer", cls: "ww", cell: function (r) { return answerCell(r.kind, r.item); } }
       ],
       ref: function (r) { return r.kind === "finance" ? r.id : "need:" + r.id; },
-      empty: "Nothing is waiting on you."
+      empty: o.empty || "Nothing is waiting on you."
+    });
+  }
+  // one row per bank/card transaction: date, payee, amount, account, question, one-click answers
+  function txnTable(host, list, o) {
+    o = o || {};
+    var rows = list.map(function (f) { var x = HL.parseTxn(f.question) || {}; return { f: f, id: f.id, date: x.date || "", payee: x.payee || "", amount: x.amount === undefined ? null : x.amount, dir: x.dir || "", account: x.account || "", note: x.note || f.question || "", sugg: f.suggested_answer || "", status: f.status }; });
+    var qb = HL.platformLink("QuickBooks", LINKS);
+    table(host, {
+      rows: rows, short: o.short, sort: { k: "date", dir: "asc" },
+      selects: [{ l: "Status", k: "status", value: o.status === undefined ? "open" : o.status }, { l: "Account", k: "account" }],
+      cols: [
+        { k: "date", l: "Date", cls: "nw", cell: function (r) { return hl(r.date ? fmtD(r.date) : "—", HL.route("finance", { group: "txn", q: r.id })); } },
+        { k: "payee", l: "Payee", cls: o.full ? "nw" : "" },
+        { k: "amount", l: "Amount", num: true, cell: function (r) { return r.amount === null ? "—" : (/deposit|refund|credit/.test(r.dir) ? "+" : "") + money(r.amount); } },
+        { k: "account", l: "Account", cls: o.full ? "nw" : "" },
+        { k: "note", l: "Question", cls: o.full ? "w" : "ww", cell: function (r) { return clip(r.note); } }
+      ].concat(o.full ? [{ k: "sugg", l: "Suggested", cls: "ww" }] : []).concat([
+        { k: "status", l: "Your answer", cls: "ww", cell: function (r) { return answerCell("finance", r.f); } }
+      ]).concat(o.full ? [{ k: "qbo", l: "Open", cls: "nw", get: function () { return ""; }, cell: function () { return ext(qb, "QuickBooks") || ""; } }] : []),
+      ref: function (r) { return r.id; }, empty: o.empty || "No transaction questions here.",
+      total: function (rs) { var sp = 0, n = 0; rs.forEach(function (r) { if (r.amount !== null) { n++; sp += /deposit|refund|credit/.test(r.dir) ? 0 : r.amount; } }); return ["", rs.length + " items", money(sp)]; },
+      reply: o.full ? { head: "Ask / comment", label: "Ask / comment", kind: "question", marker: function (r) { return r.status === "open"; } } : undefined
+    });
+  }
+  // Home "Needs you": three labeled groups with counts; #group=agent|txn|other shows one
+  function needsGroups(host, d) {
+    clear(host); var G = needGroups(d), only = G[H.group] ? H.group : "";
+    if (only) { var c = merge(H, {}); delete c.group; host.appendChild(filterChip("Showing " + GROUPS.filter(function (g) { return g[0] === only; })[0][1], "#" + HL.qs(c) || "#")); }
+    GROUPS.forEach(function (g) {
+      if (only && only !== g[0]) return;
+      var list = G[g[0]], sec = el("div", "grp"), hd = el("div", "grp-h"), body = el("div");
+      add(hd, hl(g[1], "#" + HL.qs(merge(H, { group: g[0] })), "b"), el("span", "cnt", openCount(list) + " open · " + list.length + " shown"),
+        g[0] !== "agent" ? hl("Finance page →", HL.route("finance", { group: g[0] })) : null);
+      add(sec, hd, body); host.appendChild(sec);
+      if (g[0] === "txn") txnTable(body, list, { short: true, empty: "No transaction questions waiting." });
+      else needsTable(body, list, { short: true, empty: g[0] === "other" ? "No other finance questions right now." : "No agent approvals waiting." });
     });
   }
   function logTable(host, rows, agentSel) {
@@ -372,61 +423,89 @@
   // ---------- pages ----------
   var R = {};
   R.home = function (d) {
-    var K = kmap(d.kpis), t = today(), strip = clear($("kpis")), A = function (p) { return HL.route("ads", p); };
-    var L = d.leads || [], ld = function (n) { var f = addDays(t, -(n - 1)); return L.filter(function (x) { return ymdET(x.received_at) >= f; }).length; };
-    kpi(strip, "Leads today / 7d / 30d", L.filter(function (x) { return ymdET(x.received_at) === t; }).length + " / " + ld(7) + " / " + ld(30), "website forms (backup log)", { href: HL.route("leads", { range: "30d" }), spark: lastDays(14).map(function (dd) { return L.filter(function (x) { return ymdET(x.received_at) === dd; }).length; }) });
+    var K = kmap(d.kpis), t = today(), strip = clear($("kpis")), A = function (p) { return HL.route("ads", p); }, rk = RK(), rl = RL(), w = WIN();
+    rangeBar({ note: "drives the tiles, charts and links on this page" });
+    var L = d.leads || [], lin = function (x, a, b) { var y = ymdET(x.received_at); return y >= a && y <= b; };
+    var days = lastDays(SPAN());
+    var lc = L.filter(function (x) { return lin(x, w.from, w.to); }).length, lp = L.filter(function (x) { return lin(x, w.pFrom, w.pTo); }).length;
+    kpi(strip, "Leads · " + rl, String(lc), "prior " + lp + " · website forms", { delta: delta(lc, lp), href: HL.route("leads", { range: rk }), spark: days.map(function (dd) { return L.filter(function (x) { return ymdET(x.received_at) === dd; }).length; }) });
     var waiting = L.filter(function (x) { return x.status === "new" || x.status === "drafted"; }).length;
-    kpi(strip, "Lead replies", waiting ? waiting + " waiting" : "all answered", L.filter(function (x) { return x.status === "sent"; }).length + " sent", { bad: waiting > 0, href: HL.route("leads", waiting ? { status: "waiting" } : {}) });
-    var P = adsModel(d.ads || []), paid = Object.keys(P).filter(function (k) { return P[k].paid; }), org = Object.keys(P).filter(function (k) { return !P[k].paid; });
-    var d14 = lastDays(14), dser = function (keys, m) { return d14.map(function (dd) { return keys.reduce(function (t2, k) { return t2 + P[k].daily.filter(function (r) { return r.date === dd; }).reduce(function (a, r) { return a + (r[m] || 0); }, 0); }, 0); }); };
-    var spT = 0, sp7 = 0, i7 = 0, c7 = 0, pi = 0, pc = 0, ps = 0, parts = [];
-    var pFull = true;
-    paid.forEach(function (k) { var p = P[k]; spT += p.today.s; if (p.s7) { sp7 += p.s7.s; i7 += p.s7.i; c7 += p.s7.c; if (p.s7.s) parts.push(k.replace(" Ads", "") + " " + money(p.s7.s)); if (!p.p7) pFull = false; } if (p.p7) { pi += p.p7.i; pc += p.p7.c; ps += p.p7.s; } });
-    if (!pFull) { pi = pc = ps = null; }
-    kpi(strip, "Ad spend today", money(spT), paid.filter(function (k) { return P[k].today.s; }).map(function (k) { return k.replace(" Ads", "") + " " + money(P[k].today.s); }).join(" · ") || "no spend logged today", { href: A({ type: "Paid", range: "today" }) });
-    kpi(strip, "Ad spend 7d", money(sp7), parts.join(" · "), { delta: delta(sp7, ps), spark: dser(paid, "spend"), href: A({ type: "Paid", range: "7d" }) });
-    kpi(strip, "Paid impressions 7d", n0(i7), "all ad platforms", { delta: delta(i7, pi), spark: dser(paid, "impressions"), href: A({ type: "Paid", range: "7d" }) });
-    kpi(strip, "Paid clicks 7d", n0(c7), "CTR " + pct(c7, i7), { delta: delta(c7, pc), spark: dser(paid, "clicks"), href: A({ type: "Paid", range: "7d" }) });
-    kpi(strip, "CPC 7d", c7 ? money(sp7 / c7) : "—", pc ? "prior " + money(ps / pc) : "no full prior week yet", { delta: c7 && pc ? delta(sp7 / c7, ps / pc) : null, href: A({ type: "Paid", range: "7d" }) });
-    var ov = 0, op = 0, oFull = true, latestOrg = null; org.forEach(function (k) { if (P[k].s7) { ov += P[k].s7.i; if (!P[k].p7) oFull = false; } if (P[k].p7) op += P[k].p7.i; if (!latestOrg || P[k].latest > latestOrg) latestOrg = P[k].latest; }); if (!oFull) op = null;
-    kpi(strip, "Organic views 7d", n0(ov), org.length + " platforms" + (op === null ? " · no full prior week" : ""), { delta: delta(ov, op), stale: latestOrg && latestOrg < addDays(t, -1), asOf: latestOrg, spark: dser(org, "impressions"), href: A({ type: "Organic", range: "7d" }) });
+    kpi(strip, "Lead replies", waiting ? waiting + " waiting" : "all answered", L.filter(function (x) { return x.status === "sent"; }).length + " sent", { bad: waiting > 0, href: HL.route("leads", waiting ? { status: "waiting", range: "all" } : { range: "all" }) });
+    var P = adsModel(d.ads), paid = Object.keys(P).filter(function (k) { return P[k].paid; }), org = Object.keys(P).filter(function (k) { return !P[k].paid; });
+    var dser = function (keys, m) { return days.map(function (dd) { return keys.reduce(function (t2, k) { return t2 + P[k].daily.filter(function (r) { return r.date === dd; }).reduce(function (a, r) { return a + (r[m] || 0); }, 0); }, 0); }); };
+    // totals only when every platform with data at this length is covered; 'nr' platforms are left out and named
+    function agg(keys) {
+      var o = { s: 0, i: 0, c: 0, ps: 0, pi: 0, pc: 0, build: [], nr: [], parts: [], pOk: true };
+      keys.forEach(function (k) { var p = P[k]; if (p.s) { o.s += p.s.s; o.i += p.s.i; o.c += p.s.c; if (p.s.s) o.parts.push(k.replace(" Ads", "") + " " + money(p.s.s)); if (p.p) { o.ps += p.p.s; o.pi += p.p.i; o.pc += p.p.c; } else o.pOk = false; } else if (p.naKind === "build") o.build.push(k); else if (p.naKind === "nr") o.nr.push(k.replace(" Ads", "")); });
+      o.ok = !o.build.length; if (!o.pOk) o.ps = o.pi = o.pc = null; return o;
+    }
+    var pa = agg(paid), oa = agg(org), pTitle = function (o) { return o.build.length ? o.build.map(function (k) { return P[k].na; }).join("\n") : ""; };
+    var subOf = function (o, base) { return !o.ok ? NA(o.build.join(", ")) : base + (o.nr.length ? " · not in " + rl + ": " + o.nr.join(", ") : ""); };
+    var naV = function (o, v) { return o.ok ? v : "n/a"; };
+    if (rk !== "today") { var spT = 0; paid.forEach(function (k) { spT += P[k].today.s; }); kpi(strip, "Ad spend today", money(spT), paid.filter(function (k) { return P[k].today.s; }).map(function (k) { return k.replace(" Ads", "") + " " + money(P[k].today.s); }).join(" · ") || "no spend logged today yet", { href: A({ type: "Paid", range: "today" }) }); }
+    kpi(strip, "Ad spend · " + rl, naV(pa, money(pa.s)), subOf(pa, pa.parts.join(" · ")), { delta: pa.ok ? delta(pa.s, pa.ps) : null, spark: dser(paid, "spend"), href: A({ type: "Paid", range: rk }), title: pTitle(pa) || "Ad spend " + rl });
+    kpi(strip, "Paid impressions · " + rl, naV(pa, n0(pa.i)), subOf(pa, "all ad platforms"), { delta: pa.ok ? delta(pa.i, pa.pi) : null, spark: dser(paid, "impressions"), href: A({ type: "Paid", range: rk }) });
+    kpi(strip, "Paid clicks · " + rl, naV(pa, n0(pa.c)), subOf(pa, "CTR " + pct(pa.c, pa.i)), { delta: pa.ok ? delta(pa.c, pa.pc) : null, spark: dser(paid, "clicks"), href: A({ type: "Paid", range: rk }) });
+    kpi(strip, "CPC · " + rl, pa.ok && pa.c ? money(pa.s / pa.c) : pa.ok ? "—" : "n/a", pa.ok ? (pa.pc ? "prior " + money(pa.ps / pa.pc) : "no full prior " + (RN() === 1 ? "day" : rl) + " yet") : NA(), { delta: pa.ok && pa.c && pa.pc ? delta(pa.s / pa.c, pa.ps / pa.pc) : null, href: A({ type: "Paid", range: rk }) });
+    var latestOrg = null; org.forEach(function (k) { if (!latestOrg || P[k].latest > latestOrg) latestOrg = P[k].latest; });
+    kpi(strip, "Organic views · " + rl, naV(oa, n0(oa.i)), subOf(oa, org.length + " platforms" + (oa.pi === null ? " · no full prior " + rl : "")), { delta: oa.ok ? delta(oa.i, oa.pi) : null, stale: latestOrg && latestOrg < addDays(t, -1), asOf: latestOrg, spark: dser(org, "impressions"), href: A({ type: "Organic", range: rk }) });
     var KL = { newsletter_active: "Subscribers", fiverr_orders_30d: "Fiverr", fiverr_sales_30d: "Fiverr", etsy_orders_mtd: "Etsy", gumroad_orders_mtd: "Gumroad", upwork_orders_mtd: "Upwork", revenue_mtd: "QuickBooks" };
     [["newsletter_active", "Subscribers"], ["fiverr_orders_30d", "Fiverr orders 30d"], ["fiverr_sales_30d", "Fiverr sales 30d"], ["etsy_orders_mtd", "Etsy orders MTD"], ["gumroad_orders_mtd", "Gumroad orders MTD"], ["upwork_orders_mtd", "Upwork MTD"], ["revenue_mtd", "Revenue MTD"]].forEach(function (x) {
-      var k = K[x[0]]; if (!k) return; kpi(strip, x[1], k.value === null ? "—" : (k.unit === "$" ? money(k.value) : n0(k.value)), k.note || k.source || "", { stale: isStale(k.as_of, 36), asOf: k.as_of, title: k.label, ext: HL.platformLink(KL[x[0]], LINKS) });
+      var k = K[x[0]]; if (!k) return; kpi(strip, x[1], k.value === null ? "—" : (k.unit === "$" ? money(k.value) : n0(k.value)), (k.note || k.source || "") + " · fixed period", { stale: isStale(k.as_of, 36), asOf: k.as_of, title: k.label + " (the platform's own period; the range toggle doesn't change it)", ext: HL.platformLink(KL[x[0]], LINKS) });
     });
-    var fo = (d.financeOpen || []).filter(function (f) { return f.status === "open"; }).length;
-    kpi(strip, "Finance questions", fo + " open", (d.financeOpen || []).length - fo + " answered, waiting for Finance", { bad: fo > 0, href: HL.route("finance", { status: "open" }) });
+    var G = needGroups(d);
+    kpi(strip, "Transaction questions", openCount(G.txn) + " open", "bank/card items to classify", { bad: openCount(G.txn) > 0, href: "#group=txn" });
+    kpi(strip, "Other finance questions", openCount(G.other) + " open", "decisions and setup", { bad: openCount(G.other) > 0, href: "#group=other" });
     var bl = (d.agents || []).filter(function (a) { return a.status === "Blocked"; });
     kpi(strip, "Blocked agents", String(bl.length), bl.map(function (a) { return a.agent; }).join(", ") || "none", { bad: bl.length > 0, href: HL.route("board", bl.length ? { status: "Blocked" } : {}) });
-    kpi(strip, "Needs you", String(needsRows(d).filter(function (r) { return r.status === "open"; }).length), "questions and approvals below", { href: "#needs" });
-    // charts: every bar opens its rows
-    pairBars($("chSpend"), paid.filter(function (k) { return P[k].s7 && (P[k].s7.s || P[k].s7.c); }).map(function (k) { return { label: k.replace(" Ads", ""), a: P[k].s7.s, b: P[k].s7.c, href: A({ platform: HL.slug(k), range: "7d" }) }; }), ["Spend 7d", "Clicks 7d"], [money, n0]);
-    hbars($("chImpr"), Object.keys(P).filter(function (k) { return P[k].s7 && P[k].s7.i; }).map(function (k) { return { label: k, value: P[k].s7.i, color: COLORS[k], href: A({ platform: HL.slug(k), range: "7d" }) }; }).sort(function (a, b) { return b.value - a.value; }), { labelW: 120 });
-    hbars($("chTop"), (d.topPosts || []).map(function (p) { return { label: p.title + " · " + p.platform.replace("Instagram+Facebook", "IG/FB"), value: p.impressions, color: COLORS[p.platform] || "#B08D3F", href: HL.route("calendar", { item: p.id }) }; }), { labelW: 230, empty: "No post metrics yet." });
-    var days = lastDays(30), lv = {}; L.forEach(function (x) { var k = ymdET(x.received_at); lv[k] = (lv[k] || 0) + 1; });
-    columns($("chLeads"), days, [{ name: "Leads", color: "#B08D3F", vals: lv }], { h: 140, empty: "No leads in the last 30 days.", href: function (dd) { return lv[dd] ? HL.route("leads", { date: dd }) : null; } });
-    needsTable($("needs"), d, { short: false });
+    kpi(strip, "Agent approvals", openCount(G.agent) + " open", "below in Needs you", { href: "#group=agent" });
+    // charts follow the range
+    setTitle("chSpend", "Spend vs clicks · " + rl); setTitle("chImpr", "Impressions · " + rl); setTitle("chTop", "Top 10 posts · " + rl); setTitle("chLeads", "Leads per day · last " + SPAN() + " days");
+    var paidRows = paid.filter(function (k) { return P[k].s && (P[k].s.s || P[k].s.c); });
+    pairBars($("chSpend"), paidRows.map(function (k) { return { label: k.replace(" Ads", ""), a: P[k].s.s, b: P[k].s.c, href: A({ platform: HL.slug(k), range: rk }) }; }), ["Spend " + rl, "Clicks " + rl], [money, n0], pa.ok ? null : NA(pa.build.join(", ")));
+    var impr = Object.keys(P).filter(function (k) { return P[k].s && P[k].s.i; }).map(function (k) { return { label: k, value: P[k].s.i, color: COLORS[k], href: A({ platform: HL.slug(k), range: rk }) }; }).sort(function (a, b) { return b.value - a.value; });
+    var missing = Object.keys(P).filter(function (k) { return !P[k].s; }).map(function (k) { return k + " (" + P[k].na.replace(/^[^:]+: /, "") + ")"; });
+    hbars($("chImpr"), impr, { labelW: 120, empty: NA(), foot: missing.length ? "Not shown: " + missing.join(" · ") : "" });
+    var calSince = (d.calSince || [])[0] && d.calSince[0].min_date;
+    var top = (d.topPosts || []).filter(function (p) { return inWin(p.date, w); }).sort(function (a, b) { return b.impressions - a.impressions; }).slice(0, 10);
+    hbars($("chTop"), top.map(function (p) { return { label: p.title + " · " + p.platform.replace("Instagram+Facebook", "IG/FB"), value: p.impressions, color: COLORS[p.platform] || "#B08D3F", href: HL.route("calendar", { item: p.id }) }; }), { labelW: 230, empty: calSince && !HL.covered(calSince, w.from) ? NA("calendar starts " + fmtD(calSince)) : "No post metrics in this range yet." });
+    var lv = {}; L.forEach(function (x) { var k = ymdET(x.received_at); lv[k] = (lv[k] || 0) + 1; });
+    columns($("chLeads"), days, [{ name: "Leads", color: "#B08D3F", vals: lv }], { h: 140, empty: "No leads in the last " + SPAN() + " days.", href: function (dd) { return lv[dd] ? HL.route("leads", { date: dd }) : null; } });
+    needsGroups($("needs"), d);
     logTable($("log"), d.log || [], true); pollLog($("log"));
     tasksForm($("reqForm"));
   };
 
   R.board = function (d) {
-    var ag = d.agents || [];
+    var ag = d.agents || [], w = WIN(), rl = RL(), t = today(), strip = $("kpis");
+    rangeBar({ note: "drives runs, activity and ideas counts and the agent detail" });
+    var LR = d.logRecent || [], logMin = (d.logMin || [])[0] && d.logMin[0].min_ts, act = d.activity || [], ideas = d.ideas || [];
+    var minOf = function (list, k) { return list.map(function (x) { return x[k] ? ymdET(x[k]) : ""; }).filter(Boolean).sort()[0] || null; };
+    var logOk = HL.covered(logMin ? ymdET(logMin) : null, w.from), actOk = HL.covered(minOf(act, "at"), w.from), ideaOk = HL.covered(minOf(ideas, "at"), w.from);
+    var runs = {}; LR.forEach(function (r) { if (inWin(ymdET(r.ts), w)) runs[r.agent] = (runs[r.agent] || 0) + 1; });
+    if (strip) {
+      clear(strip); var bl = ag.filter(function (a) { return a.status === "Blocked"; }).length;
+      kpi(strip, "Blocked now", String(bl), ag.length + " agents", { bad: bl > 0, href: HL.route("board", { status: "Blocked", range: H.range }) });
+      var cnt = function (list, k) { return list.filter(function (x) { return x[k] && inWin(ymdET(x[k]), w); }).length; }, pcnt = function (list, k) { return list.filter(function (x) { return x[k] && inPrior(ymdET(x[k]), w); }).length; };
+      kpi(strip, "Log lines · " + rl, logOk ? String(cnt(LR, "ts")) : "n/a", logOk ? "prior " + (HL.covered(logMin ? ymdET(logMin) : null, w.pFrom) ? pcnt(LR, "ts") : "n/a") : NA("log starts " + fmtD(logMin, true)), { href: HL.route("log") });
+      kpi(strip, "Activity · " + rl, actOk ? String(cnt(act, "at")) : "n/a", actOk ? "Agent Board events" : NA("activity synced from " + fmtD(minOf(act, "at"))));
+      kpi(strip, "Ideas added · " + rl, ideaOk ? String(cnt(ideas, "at")) : "n/a", ideaOk ? ideas.length + " ideas synced" : NA(ideas.length ? "ideas synced from " + fmtD(minOf(ideas, "at")) : "no ideas synced"));
+    }
     table($("agents"), {
       rows: ag, sort: { k: "st", dir: "asc" }, selects: [{ l: "Status", k: "status", value: H.status || "" }],
       cols: [
-        { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return add(el("div"), hl(a.agent, HL.route("board", { agent: a.agent }), "b"), el("div", "muted", a.title || "")); } },
-        { k: "st", l: "Status", get: function (a) { return { Blocked: 0, Working: 1, Scheduled: 2, Idle: 3 }[a.status] + ""; }, cell: function (a) { var w = el("div"); add(w, pill(a.status)); if (isStale(a.data.updated_at || a.at, 48)) w.appendChild(el("span", "stale-tag", "no update 48h")); return w; } },
+        { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return add(el("div"), hl(a.agent, HL.route("board", { agent: a.agent, range: H.range }), "b"), el("div", "muted", a.title || "")); } },
+        { k: "st", l: "Status", get: function (a) { return { Blocked: 0, Working: 1, Scheduled: 2, Idle: 3 }[a.status] + ""; }, cell: function (a) { var x = el("div"); add(x, pill(a.status)); if (isStale(a.data.updated_at || a.at, 48)) x.appendChild(el("span", "stale-tag", "no update 48h")); return x; } },
         { k: "at", l: "Last run", cls: "nw", cell: function (a) { return hl(fmtD(a.at, true), HL.route("log", { agent: a.agent })); } },
+        { k: "runs", l: "Runs · " + rl, num: true, get: function (a) { return logOk ? (runs[a.agent] || 0) : -1; }, cell: function (a) { if (!logOk) { var s = el("span", "muted", "n/a"); s.title = NA("log starts " + fmtD(logMin, true)); return s; } return hl(String(runs[a.agent] || 0), HL.route("board", { agent: a.agent, range: H.range })); } },
         { k: "res", l: "Last result", cls: "w", get: function (a) { return a.data.last_result || ""; }, cell: function (a) { return clip(a.data.last_result || ""); } },
         { k: "next", l: "Next run", cls: "nw", get: function (a) { return a.data.next_run || ""; }, cell: function (a) { return fmtD(a.data.next_run, true); } },
         { k: "need", l: "Needs you / blocked by", cls: "w", get: function (a) { return a.data.needs_zain || ""; }, cell: function (a) { return clip(a.data.needs_zain || ""); } },
         { k: "sched", l: "Schedule", cls: "ww", get: function (a) { return a.data.schedule || ""; } },
-        { k: "rev", l: "Review", cls: "nw", get: function () { return ""; }, cell: function (a) { return reviewCell(HL.route("board", { agent: a.agent }), HL.agentLink(a.agent, LINKS), a.agent); } }
+        { k: "rev", l: "Review", cls: "nw", get: function () { return ""; }, cell: function (a) { return reviewCell(HL.route("board", { agent: a.agent, range: H.range }), HL.agentLink(a.agent, LINKS), a.agent); } }
       ], ref: function (a) { return a.id; }
     });
-    needsTable($("needs"), { needs: d.needs || [] });
-    var ideas = d.ideas || [];
+    needsTable($("needs"), needsRows({ needs: d.needs || [] }));
     table($("ideas"), {
       rows: ideas, sort: { k: "at", dir: "desc" }, selects: [{ l: "Status", k: "status" }, { l: "Owner", get: function (i) { return i.data.owner || ""; } }],
       cols: [
@@ -438,21 +517,25 @@
         { k: "up", l: "Upside", cls: "ww", get: function (i) { return i.data.upside || ""; }, cell: function (i) { return clip(i.data.upside || ""); } }
       ], ref: function (i) { return i.id; }, empty: "No ideas synced yet. Agents add them with tools/hub_sync.md."
     });
+    setTitle("activity", "Activity · " + rl);
     table($("activity"), {
-      rows: d.activity || [], short: true, sort: { k: "at", dir: "desc" }, selects: [{ l: "Agent", k: "agent" }],
-      cols: [{ k: "at", l: "Time", cls: "nw", cell: function (a) { return fmtD(a.at, true); } }, { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return a.agent ? hl(a.agent, HL.route("board", { agent: a.agent })) : ""; } }, { k: "title", l: "What happened", cls: "w" }],
-      ref: function (a) { return a.id; }
+      rows: act.filter(function (a) { return inWin(ymdET(a.at), w); }), short: true, sort: { k: "at", dir: "desc" }, selects: [{ l: "Agent", k: "agent" }],
+      cols: [{ k: "at", l: "Time", cls: "nw", cell: function (a) { return fmtD(a.at, true); } }, { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return a.agent ? hl(a.agent, HL.route("board", { agent: a.agent, range: H.range })) : ""; } }, { k: "title", l: "What happened", cls: "w" }],
+      ref: function (a) { return a.id; }, empty: actOk ? "No activity in this range." : NA("activity synced from " + fmtD(minOf(act, "at")))
     });
-    // agent drill-down: card, its log lines and activity, platform + doc
+    // agent drill-down: card + runs/activity in the range, platform + doc
     var a = H.agent && ag.filter(function (x) { return x.agent === H.agent; })[0];
     if (!H.agent) { hideDetail(); return; }
-    var runs = (d.log || []).filter(function (r) { return r.agent === H.agent; }).map(function (r) { return { ts: r.ts, what: r.action + ": " + (r.detail || ""), link: r.link }; })
-      .concat((d.activity || []).filter(function (x) { return x.agent === H.agent; }).map(function (x) { return { ts: x.at, what: x.title || "", link: null }; }));
+    var rr = LR.filter(function (r) { return r.agent === H.agent && inWin(ymdET(r.ts), w); }).map(function (r) { return { ts: r.ts, what: r.action + ": " + (r.detail || ""), link: r.link }; })
+      .concat(act.filter(function (x) { return x.agent === H.agent && inWin(ymdET(x.at), w); }).map(function (x) { return { ts: x.at, what: x.title || "", link: null }; }));
+    var close = merge(H, {}); delete close.agent;
+    var al = HL.agentLink(H.agent, LINKS);
     showDetail({
-      title: H.agent + (a ? " · " + (a.title || "") : ""), sub: a ? a.status : "not on the Agent Board", close: H.status ? { status: H.status } : {},
-      links: [hl("All log lines", HL.route("log", { agent: H.agent })), ext(HL.agentLink(H.agent, LINKS), "Open " + ((HL.agentLink(H.agent, LINKS) || {}).label || "")), docTag(H.agent)],
-      fields: a ? [["Status", a.status], ["Last run", fmtD(a.at, true)], ["Next run", fmtD(a.data.next_run, true)], ["Schedule", a.data.schedule], ["Doing now", a.data.now], ["Last result", a.data.last_result], ["Next steps", a.data.next_steps], ["Needs you", a.data.needs_zain]] : [],
-      table: { rows: runs, short: true, search: true, sort: { k: "ts", dir: "desc" }, cols: [{ k: "ts", l: "When (ET)", cls: "nw", cell: function (r) { return fmtD(r.ts, true); } }, { k: "what", l: "Run / activity", cls: "w", cell: function (r) { var w = el("div"); add(w, clip(r.what)); var l = link(r.link, "link"); if (l) w.appendChild(l); return w; } }], empty: "No runs logged for this agent in the newest 100 log lines." },
+      title: H.agent + (a ? " · " + (a.title || "") : ""), sub: (a ? a.status : "not on the Agent Board") + " · " + rl, close: close,
+      links: [hl("All log lines", HL.route("log", { agent: H.agent })), ext(al, "Open " + ((al || {}).label || "")), docTag(H.agent)],
+      fields: (a ? [["Status", a.status], ["Last run", fmtD(a.at, true)], ["Next run", fmtD(a.data.next_run, true)], ["Schedule", a.data.schedule], ["Doing now", a.data.now], ["Last result", a.data.last_result], ["Next steps", a.data.next_steps], ["Needs you", a.data.needs_zain]] : [])
+        .concat([["Runs · " + rl, logOk ? String(runs[H.agent] || 0) : NA("log starts " + fmtD(logMin, true))]]),
+      table: { rows: rr, short: true, search: true, sort: { k: "ts", dir: "desc" }, cols: [{ k: "ts", l: "When (ET)", cls: "nw", cell: function (r) { return fmtD(r.ts, true); } }, { k: "what", l: "Run / activity", cls: "w", cell: function (r) { var x = el("div"); add(x, clip(r.what)); var l = link(r.link, "link"); if (l) x.appendChild(l); return x; } }], empty: "No runs or activity logged for this agent in " + rl + "." },
       ref: a ? a.id : "agent:" + H.agent
     });
   };
@@ -474,7 +557,7 @@
   var YMD = /^\d{4}-\d{2}-\d{2}$/;
   // calendar slicers live in the URL hash (back button + shareable links)
   function csFromHash(t) {
-    CS.from = YMD.test(H.from || "") ? H.from : addDays(t, -21); CS.to = YMD.test(H.to || "") ? H.to : addDays(t, 14);
+    CS.from = YMD.test(H.from || "") ? H.from : WIN().from; CS.to = YMD.test(H.to || "") ? H.to : addDays(t, 14);
     CS.status = ["published", "scheduled", "missed"].indexOf(H.status) >= 0 ? H.status : "all";
     CS.plat = PCOLS.some(function (p) { return p[0] === H.plat; }) ? H.plat : "";
     CS.topic = H.topic || ""; CS.q = (H.q || "").toLowerCase();
@@ -509,13 +592,15 @@
     }).filter(Boolean);
     // KPI strip with sparklines (follows the slicers)
     var flat = []; rows.forEach(function (r) { flat = flat.concat(r.its); });
-    var pub = flat.filter(function (i) { return i.status === "published"; }), days = lastDays(14, CS.to < t ? CS.to : t);
+    var pub = flat.filter(function (i) { return i.status === "published"; }), days = lastDays(SPAN() === 30 ? 30 : 14, t), w = WIN(), rl = RL();
+    rangeBar({ drop: ["from", "to"], note: "drives the tiles and the matrix start date (set From/To to override)" });
+    var since = ((d.calSince || [])[0] || {}).min_date || items.map(function (i) { return i.date; }).sort()[0] || null, curOk = HL.covered(since, w.from), prevOk = HL.covered(since, w.pFrom);
     function daily(m) { var o = days.map(function (dd) { return pub.filter(function (i) { return i.date === dd; }).reduce(function (s, i) { return s + (m ? (i[m] || 0) : 1); }, 0); }); return o; }
     function per(m, a, b) { return items.filter(function (i) { return i.status === "published" && i.date >= a && i.date <= b && (!CS.plat || pcol(i.platform) === CS.plat); }).reduce(function (s, i) { return s + (m ? (i[m] || 0) : 1); }, 0); }
-    var t7 = addDays(t, -6), p0 = addDays(t, -13), p1 = addDays(t, -7), strip = clear($("kpis"));
+    var strip = clear($("kpis"));
     [["Published", null], ["Impressions", "impressions"], ["Clicks", "clicks"], ["Engagements", "engagements"], ["Leads", "leads"]].forEach(function (x) {
-      var cur = per(x[1], t7, t), prev = per(x[1], p0, p1);
-      kpi(strip, x[0] + " · last 7d", n0(cur), "prior 7d " + n0(prev), { delta: delta(cur, prev), spark: daily(x[1]), href: HL.route("calendar", { status: "published", from: t7, to: t, sort: x[1] ? "tot" : "date" }) });
+      var cur = per(x[1], w.from, w.to), prev = prevOk ? per(x[1], w.pFrom, w.pTo) : null;
+      kpi(strip, x[0] + " · " + rl, curOk ? n0(cur) : "n/a", !curOk ? NA("calendar starts " + fmtD(since)) : prevOk ? "prior " + n0(prev) : "prior " + rl + ": n/a until data builds", { delta: curOk && prevOk ? delta(cur, prev) : null, spark: daily(x[1]), href: HL.route("calendar", { range: RK(), status: "published", from: w.from, to: w.to, sort: x[1] ? "tot" : "date" }) });
     });
     kpi(strip, "Scheduled next 7d", String(items.filter(function (i) { return i.status === "scheduled" && i.date >= t && i.date <= addDays(t, 7); }).length), "in the queue", { href: HL.route("calendar", { status: "scheduled", from: t, to: addDays(t, 7), dir: "asc" }) });
     var miss = items.filter(function (i) { return cstat(i, t) !== "published" && cstat(i, t) !== "scheduled"; }).length;
@@ -532,7 +617,7 @@
     add(sl, st, sel("Platform", [["", "All platforms"]].concat(PCOLS.map(function (p) { return [p[0], p[0]]; })), CS.plat, "plat"),
       sel("Topic", [["", "All topics"]].concat(TOPICS.map(function (x) { return [x[0], x[0]]; })).concat([["Other", "Other"]]), CS.topic, "topic"),
       add(el("span", "muted"), "From "), date("From", CS.from, "from"), add(el("span", "muted"), " to "), date("To", CS.to, "to"), q,
-      btn("btn-s line", "Reset", function () { CS.open = {}; setHash({}); }));
+      btn("btn-s line", "Reset", function () { CS.open = {}; setHash(H.range ? { range: H.range } : {}); }));
     var ob = el("span", "open-bar"); add(ob, el("span", "muted", "Open: "));
     [["LinkedIn", "LinkedIn"], ["Meta", "Meta"], ["TikTok", "TikTok"], ["YouTube Shorts", "YouTube"], ["Pinterest", "Pinterest"], ["Blog", "Blog"], ["MailerLite", "MailerLite"]].forEach(function (x) { var a = ext(HL.platformLink(x[0], LINKS), x[1]); if (a) ob.appendChild(a); });
     sl.appendChild(ob);
@@ -610,116 +695,134 @@
     });
   }
 
-  var RANGES = { today: 1, "7d": 7, "14d": 14, "30d": 30 };
   R.ads = function (d) {
-    var P = adsModel(d.ads || []), t = today(), keys = Object.keys(P).sort(function (a, b) { return (P[b].paid - P[a].paid) || a.localeCompare(b); });
-    var A = function (p) { return HL.route("ads", p); }, ps = function (k) { return HL.slug(k); };
-    var rows = keys.map(function (k) { var p = P[k], s = p.s7 || p.s30 || { i: null, c: null, s: null, v: null }; return { k: k, p: p, type: p.paid ? "Paid" : "Organic", ti: p.today.n ? p.today.i : null, tc: p.today.n ? p.today.c : null, ts: p.today.n ? p.today.s : null, i: s.i, c: s.c, ctr: s.i ? s.c / s.i : null, sp: s.s, cpc: s.c && s.s ? s.s / s.c : null, v: s.v, di: p.s7 && p.p7 && p.p7.i ? (p.s7.i - p.p7.i) / p.p7.i : null, latest: p.latest }; });
-    function cellL(r, range, text) { return hl(text, A({ platform: ps(r.k), range: range })); }
+    var t = today(), rk = RK(), rl = RL(), w = WIN(), P = adsModel(d.ads), keys = Object.keys(P).sort(function (a, b) { return (P[b].paid - P[a].paid) || a.localeCompare(b); });
+    var A = function (p) { return HL.route("ads", merge({ range: rk }, p)); }, ps = function (k) { return HL.slug(k); };
+    rangeBar({ note: "drives the table, charts, daily rows and the detail panel" });
+    setTitle("plat", "Platforms · " + (rk === "today" ? "today" : "today and " + rl));
+    var rows = keys.map(function (k) { var p = P[k], s = p.s || { i: null, c: null, s: null, v: null }; return { k: k, p: p, type: p.paid ? "Paid" : "Organic", ti: p.today.n ? p.today.i : null, tc: p.today.n ? p.today.c : null, ts: p.today.n ? p.today.s : null, i: s.i, c: s.c, ctr: s.i ? s.c / s.i : null, sp: s.s, cpc: s.c && s.s ? s.s / s.c : null, v: s.v, di: p.s && p.p && p.p.i ? (p.s.i - p.p.i) / p.p.i : null, latest: p.latest }; });
+    function cellL(r, range, text) { if (r.p.na && range !== "today") { var x = el("span", "muted", "n/a"); x.title = r.p.na; return x; } return hl(text, A({ platform: ps(r.k), range: range })); }
+    var todayCols = rk === "today" ? [] : [{ k: "ti", l: "Today impr", num: true, cell: function (r) { return hl(n0(r.ti), A({ platform: ps(r.k), range: "today" })); } }, { k: "tc", l: "Today clicks", num: true, cell: function (r) { return hl(n0(r.tc), A({ platform: ps(r.k), range: "today" })); } }, { k: "ts", l: "Today $", num: true, cell: function (r) { return hl(r.ts === null ? "—" : money(r.ts), A({ platform: ps(r.k), range: "today" })); } }];
     table($("plat"), {
       rows: rows, sort: { k: "sp", dir: "desc" }, selects: [{ l: "Type", k: "type", value: H.type === "Paid" || H.type === "Organic" ? H.type : "" }], search: false,
       cols: [
-        { k: "k", l: "Platform", cls: "nw", cell: function (r) { var w = el("div"); add(w, hl(r.k, A({ platform: ps(r.k), range: "7d" }), "b")); if (r.p.note) w.appendChild(el("div", "muted", r.p.note)); return w; } },
-        { k: "type", l: "Type" },
-        { k: "ti", l: "Today impr", num: true, cell: function (r) { return cellL(r, "today", n0(r.ti)); } }, { k: "tc", l: "Today clicks", num: true, cell: function (r) { return cellL(r, "today", n0(r.tc)); } }, { k: "ts", l: "Today $", num: true, cell: function (r) { return cellL(r, "today", r.ts === null ? "—" : money(r.ts)); } },
-        { k: "i", l: "7d impr", num: true, cell: function (r) { return cellL(r, "7d", n0(r.i)); } }, { k: "di", l: "vs prior", num: true, cell: function (r) { return r.di === null ? "—" : add(el("span"), el("span", r.di >= 0 ? "up" : "dn", (r.di >= 0 ? "▲" : "▼") + Math.abs(r.di * 100).toFixed(0) + "%")); } },
-        { k: "c", l: "7d clicks", num: true, cell: function (r) { return cellL(r, "7d", n0(r.c)); } }, { k: "ctr", l: "CTR", num: true, cell: function (r) { return r.ctr === null ? "—" : (r.ctr * 100).toFixed(1) + "%"; } },
-        { k: "sp", l: "7d spend", num: true, cell: function (r) { return cellL(r, "7d", r.type === "Paid" ? money(r.sp) : "—"); } }, { k: "cpc", l: "CPC", num: true, cell: function (r) { return r.cpc === null ? "—" : money(r.cpc); } },
+        { k: "k", l: "Platform", cls: "nw", cell: function (r) { var x = el("div"); add(x, hl(r.k, A({ platform: ps(r.k) }), "b")); if (r.p.note || r.p.na) x.appendChild(el("div", "muted", r.p.na || r.p.note)); return x; } },
+        { k: "type", l: "Type" }
+      ].concat(todayCols).concat([
+        { k: "i", l: rl + " impr", num: true, cell: function (r) { return cellL(r, rk, n0(r.i)); } }, { k: "di", l: "vs prior", num: true, cell: function (r) { return r.di === null ? "—" : add(el("span"), el("span", r.di >= 0 ? "up" : "dn", (r.di >= 0 ? "▲" : "▼") + Math.abs(r.di * 100).toFixed(0) + "%")); } },
+        { k: "c", l: rl + " clicks", num: true, cell: function (r) { return cellL(r, rk, n0(r.c)); } }, { k: "ctr", l: "CTR", num: true, cell: function (r) { return r.ctr === null ? "—" : (r.ctr * 100).toFixed(1) + "%"; } },
+        { k: "sp", l: rl + " spend", num: true, cell: function (r) { return cellL(r, rk, r.type === "Paid" ? money(r.sp) : "—"); } }, { k: "cpc", l: "CPC", num: true, cell: function (r) { return r.cpc === null ? "—" : money(r.cpc); } },
         { k: "v", l: "Conv.", num: true },
-        { k: "latest", l: "Data to", cls: "nw", cell: function (r) { var w = el("span"); add(w, fmtD(r.latest)); if (!r.latest || r.latest < addDays(t, -1)) w.appendChild(el("span", "stale-tag", "stale")); return w; } },
-        { k: "rev", l: "Review", cls: "nw", get: function () { return ""; }, cell: function (r) { return reviewCell(A({ platform: ps(r.k), range: "7d" }), HL.platformLink(r.k, LINKS), r.k); } }
-      ], ref: function (r) { return "platform:" + r.k.replace(/[^A-Za-z0-9]+/g, "-"); }
+        { k: "latest", l: "Data to", cls: "nw", cell: function (r) { var x = el("span"); add(x, fmtD(r.latest)); if (!r.latest || r.latest < addDays(t, -1)) x.appendChild(el("span", "stale-tag", "stale")); return x; } },
+        { k: "rev", l: "Review", cls: "nw", get: function () { return ""; }, cell: function (r) { return reviewCell(A({ platform: ps(r.k) }), HL.platformLink(r.k, LINKS), r.k); } }
+      ]), ref: function (r) { return "platform:" + r.k.replace(/[^A-Za-z0-9]+/g, "-"); }
     });
-    var days = lastDays(14), sp = [], im = [];
+    var days = lastDays(SPAN()), sp = [], im = [];
+    setTitle("chSpend", "Spend per day · last " + SPAN() + " days"); setTitle("chImpr", "Impressions per day · last " + SPAN() + " days"); setTitle("daily", "Daily rows · " + (rk === "today" ? "today" : "last " + RN() + " days"));
     keys.forEach(function (k, i) {
       var vs = {}, vi = {}; P[k].daily.forEach(function (r) { vs[r.date] = (vs[r.date] || 0) + (r.spend || 0); vi[r.date] = (vi[r.date] || 0) + (r.impressions || 0); });
       var c = COLORS[k] || PALETTE[i % PALETTE.length]; if (P[k].paid) sp.push({ name: k, color: c, vals: vs }); im.push({ name: k, color: c, vals: vi });
     });
-    var dayHref = function (dd, name) { return A({ platform: ps(name), date: dd }); };
-    columns($("chSpend"), days, sp, { fmt: function (v) { return "$" + Math.round(v); }, empty: "No daily spend in the last 14 days.", href: dayHref });
-    columns($("chImpr"), days, im, { empty: "No daily impressions in the last 14 days.", href: dayHref });
+    var dayHref = function (dd, name) { return HL.route("ads", { platform: ps(name), date: dd, range: rk }); };
+    columns($("chSpend"), days, sp, { fmt: function (v) { return "$" + Math.round(v); }, empty: "No daily spend in the last " + SPAN() + " days.", href: dayHref });
+    columns($("chImpr"), days, im, { empty: "No daily impressions in the last " + SPAN() + " days.", href: dayHref });
     table($("daily"), {
-      rows: (d.ads || []).filter(function (r) { return r.date >= addDays(t, -30); }), sort: { k: "date", dir: "desc" }, selects: [{ l: "Platform", k: "platform" }, { l: "Window", get: function (r) { return r.window_days + "d"; } }],
-      cols: [{ k: "date", l: "Day / window end", cls: "nw", cell: function (r) { return hl(fmtD(r.date) + (r.window_days > 1 ? " (" + r.window_days + "-day total)" : ""), A({ platform: ps(r.platform), date: r.date })); } },
-        { k: "platform", l: "Platform", cls: "nw", cell: function (r) { return hl(r.platform, A({ platform: ps(r.platform), range: "30d" })); } },
-        { k: "campaign", l: "Campaign", cls: "nw", cell: function (r) { return hl(r.campaign, A({ platform: ps(r.platform), campaign: r.campaign, range: "30d" })); } },
+      rows: (d.ads || []).filter(function (r) { return r.window_days === 1 ? inWin(r.date, w) : r.date >= addDays(w.to, -2) && r.date <= w.to; }), sort: { k: "date", dir: "desc" }, selects: [{ l: "Platform", k: "platform" }, { l: "Window", get: function (r) { return r.window_days + "d"; } }],
+      cols: [{ k: "date", l: "Day / window end", cls: "nw", cell: function (r) { return hl(fmtD(r.date) + (r.window_days > 1 ? " (" + r.window_days + "-day total)" : ""), HL.route("ads", { platform: ps(r.platform), date: r.date, range: rk })); } },
+        { k: "platform", l: "Platform", cls: "nw", cell: function (r) { return hl(r.platform, A({ platform: ps(r.platform) })); } },
+        { k: "campaign", l: "Campaign", cls: "nw", cell: function (r) { return hl(r.campaign, A({ platform: ps(r.platform), campaign: r.campaign })); } },
         { k: "impressions", l: "Impr", num: true }, { k: "clicks", l: "Clicks", num: true }, { k: "spend", l: "Spend", num: true, cell: function (r) { return r.spend === null ? "—" : money(r.spend); } }, { k: "conversions", l: "Conv.", num: true }, { k: "source", l: "Source", cls: "nw" },
-        { k: "open", l: "Open", cls: "nw", get: function () { return ""; }, cell: function (r) { return ext(HL.campaignLink(r.platform, r.campaign, LINKS), "Open") || ""; } }]
+        { k: "open", l: "Open", cls: "nw", get: function () { return ""; }, cell: function (r) { return ext(HL.campaignLink(r.platform, r.campaign, LINKS), "Open") || ""; } }],
+      empty: rk === "today" ? "No rows for today yet (agents pull yesterday's numbers in the morning)." : "No rows in this range."
     });
     adsDetail(d, P, keys, t);
   };
-  // Ads drill-down: #platform=google-ads&range=7d | #date=YYYY-MM-DD | #type=Paid&range=today | &campaign=…
+  // Ads drill-down: #platform=google-ads | #date=YYYY-MM-DD | #type=Paid | &campaign=… ; the range comes from the range bar
   function adsDetail(d, P, keys, t) {
-    if (!H.platform && !H.range && !H.date && !H.campaign) { hideDetail(); return; }
-    var plat = H.platform ? HL.matchSlug(H.platform, keys) : null;
-    var from, to, label, rk = RANGES[H.range] ? H.range : "7d";
-    if (YMD.test(H.date || "")) { from = to = H.date; label = fmtD(H.date); } else { to = t; from = addDays(t, -(RANGES[rk] - 1)); label = rk === "today" ? "today" : "last " + RANGES[rk] + " days"; }
+    if (!H.platform && !H.date && !H.campaign && !H.type) { hideDetail(); return; }
+    var plat = H.platform ? HL.matchSlug(H.platform, keys) : null, rk = RK(), N = RN(), w = WIN(), oneDay = YMD.test(H.date || "");
+    var from = oneDay ? H.date : w.from, to = oneDay ? H.date : w.to, label = oneDay ? fmtD(H.date) : rk === "today" ? "today" : "last " + N + " days";
     var names = keys.filter(function (k) { return (!plat || k === plat) && (!H.type || (H.type === "Paid") === P[k].paid); });
-    var raw = (d.ads || []).filter(function (r) { return names.indexOf(r.platform) >= 0 && (!H.campaign || r.campaign === H.campaign) && r.date >= from && r.date <= to; });
-    // per platform + campaign: daily rows are summed; platforms that only report window totals use the newest window
-    var G = {}; raw.forEach(function (r) { var k = r.platform + "\u0001" + r.campaign; (G[k] = G[k] || { platform: r.platform, campaign: r.campaign, daily: [], win: [] })[r.window_days === 1 ? "daily" : "win"].push(r); });
-    if (!H.date) (d.ads || []).forEach(function (r) { // window totals that end just after the range still describe it
-      if (r.window_days > 1 && names.indexOf(r.platform) >= 0 && (!H.campaign || r.campaign === H.campaign) && r.date > to && r.date <= addDays(to, 2)) { var k = r.platform + "\u0001" + r.campaign; (G[k] = G[k] || { platform: r.platform, campaign: r.campaign, daily: [], win: [] }).win.push(r); }
+    var need = oneDay || N === 1 ? 1 : N - 1;
+    var G = {};
+    (d.ads || []).forEach(function (r) {
+      if (names.indexOf(r.platform) < 0 || (H.campaign && r.campaign !== H.campaign)) return;
+      var k = r.platform + "\u0001" + r.campaign, g = G[k] = G[k] || { platform: r.platform, campaign: r.campaign, daily: [], win: [], any: false };
+      if (r.window_days === 1) { g.any = true; if (r.date >= from && r.date <= to) g.daily.push(r); }
+      else if (!oneDay && r.window_days === N && r.date >= addDays(to, -2) && r.date <= to) g.win.push(r);
+      else if (oneDay && r.window_days > 1 && r.date === H.date) g.win.push(r);
     });
     var sum = Object.keys(G).map(function (k) {
-      var g = G[k], use = g.daily.length ? g.daily : g.win.sort(function (a, b) { return b.date.localeCompare(a.date); }).slice(0, 1);
-      var o = use.reduce(function (s, r) { s.i += r.impressions || 0; s.c += r.clicks || 0; s.s += r.spend || 0; s.v += r.conversions || 0; return s; }, { i: 0, c: 0, s: 0, v: 0 });
-      o.platform = g.platform; o.campaign = g.campaign; o.paid = P[g.platform] && P[g.platform].paid;
-      o.basis = g.daily.length ? g.daily.length + " daily row" + (g.daily.length > 1 ? "s" : "") : use.length ? use[0].window_days + "-day platform total to " + fmtD(use[0].date) : ""; return o;
+      var g = G[k], nd = {}, use = null, basis = "", ok = true;
+      g.daily.forEach(function (r) { nd[r.date] = 1; }); var nDays = Object.keys(nd).length;
+      if (nDays >= need) { use = g.daily; basis = nDays + " daily row" + (nDays > 1 ? "s" : ""); }
+      else if (g.win.length) { use = g.win.sort(function (a, b) { return b.date.localeCompare(a.date); }).slice(0, 1); basis = use[0].window_days + "-day platform total to " + fmtD(use[0].date); }
+      else { ok = false; basis = g.any ? (oneDay ? "no row for this day" : NA(nDays + " of " + N + " days in D1")) : label + ": n/a (platform gives window totals only)"; }
+      var o = (use || []).reduce(function (s, r) { s.i += r.impressions || 0; s.c += r.clicks || 0; s.s += r.spend || 0; s.v += r.conversions || 0; return s; }, { i: 0, c: 0, s: 0, v: 0 });
+      o.platform = g.platform; o.campaign = g.campaign; o.paid = P[g.platform] && P[g.platform].paid; o.basis = basis; o.ok = ok; o.build = !ok && g.any; return o;
     });
-    var T = sum.reduce(function (s, r) { s.i += r.i; s.c += r.c; s.s += r.s; s.v += r.v; return s; }, { i: 0, c: 0, s: 0, v: 0 });
-    var base = merge(H, {}); delete base.date; delete base.range;
-    var chips = el("span", "rng"); ["today", "7d", "14d", "30d"].forEach(function (x) { var a = hl(x === "today" ? "Today" : x, "#" + HL.qs(merge(base, { range: x })), "chip" + (!H.date && rk === x ? " on" : "")); chips.appendChild(a); });
-    var lk = plat ? HL.campaignLink(plat, H.campaign, LINKS) : null;
+    var T = sum.reduce(function (s, r) { if (r.ok) { s.i += r.i; s.c += r.c; s.s += r.s; s.v += r.v; } return s; }, { i: 0, c: 0, s: 0, v: 0 });
+    var build = sum.filter(function (r) { return r.build; }), left = sum.filter(function (r) { return !r.ok && !r.build; });
+    var tv = function (v) { return build.length ? "n/a" : v; };
+    var lk = plat ? HL.campaignLink(plat, H.campaign, LINKS) : null, close = { range: H.range };
+    var A2 = function (p) { return "#" + HL.qs(merge(oneDay ? { date: H.date, range: H.range } : { range: H.range }, p)); };
     showDetail({
-      title: (plat || (H.type ? H.type + " platforms" : "All platforms")) + (H.campaign ? " · " + H.campaign : "") + " · " + label, sub: from === to ? "" : fmtD(from) + " – " + fmtD(to), close: {},
-      links: [chips, lk ? ext(lk, "Open " + lk.label) : null, plat ? docTag(plat) : null],
-      fields: [["Impressions", n0(T.i)], ["Clicks", n0(T.c)], ["CTR", pct(T.c, T.i)], ["Spend", money(T.s)], ["CPC", T.c && T.s ? money(T.s / T.c) : "—"], ["Conversions", n0(T.v)]],
-      table: { rows: sum, search: false, short: true, sort: { k: "s", dir: "desc" }, empty: "No rows for " + label + " yet" + (plat ? " on " + plat : "") + ". Data may not be pulled for this day.",
+      title: (plat || (H.type ? H.type + " platforms" : "All platforms")) + (H.campaign ? " · " + H.campaign : "") + " · " + label, sub: from === to ? "" : fmtD(from) + " – " + fmtD(to), close: close,
+      links: [lk ? ext(lk, "Open " + lk.label) : null, plat ? docTag(plat) : null],
+      fields: [["Impressions", tv(n0(T.i))], ["Clicks", tv(n0(T.c))], ["CTR", tv(pct(T.c, T.i))], ["Spend", tv(money(T.s))], ["CPC", tv(T.c && T.s ? money(T.s / T.c) : "—")], ["Conversions", tv(n0(T.v))],
+        ["Totals", build.length ? NA(build.map(function (r) { return r.platform; }).join(", ")) : left.length ? "leave out " + left.map(function (r) { return r.platform; }).join(", ") + " (no " + label + " numbers)" : ""]],
+      table: { rows: sum, search: false, short: true, sort: { k: "s", dir: "desc" }, empty: "No rows for " + label + (plat ? " on " + plat : "") + " yet.",
         cols: [{ k: "platform", l: "Platform", cls: "nw", cell: function (r) { return hl(r.platform, A2({ platform: HL.slug(r.platform) })); } }, { k: "campaign", l: "Campaign", cls: "nw", cell: function (r) { return hl(r.campaign, A2({ platform: HL.slug(r.platform), campaign: r.campaign })); } },
-          { k: "i", l: "Impr", num: true }, { k: "c", l: "Clicks", num: true }, { k: "ctr", l: "CTR", num: true, get: function (r) { return r.i ? r.c / r.i : null; }, cell: function (r) { return pct(r.c, r.i); } },
-          { k: "s", l: "Spend", num: true, cell: function (r) { return r.paid ? money(r.s) : "—"; } }, { k: "cpc", l: "CPC", num: true, get: function (r) { return r.c && r.s ? r.s / r.c : null; }, cell: function (r) { return r.c && r.s ? money(r.s / r.c) : "—"; } }, { k: "v", l: "Conv.", num: true },
-          { k: "basis", l: "Basis", cls: "nw" }, { k: "open", l: "Open", cls: "nw", get: function () { return ""; }, cell: function (r) { return reviewCell(A2({ platform: HL.slug(r.platform) }), HL.campaignLink(r.platform, r.campaign, LINKS), r.platform); } }] },
+          { k: "i", l: "Impr", num: true, cell: function (r) { return r.ok ? n0(r.i) : "n/a"; } }, { k: "c", l: "Clicks", num: true, cell: function (r) { return r.ok ? n0(r.c) : "n/a"; } }, { k: "ctr", l: "CTR", num: true, get: function (r) { return r.ok && r.i ? r.c / r.i : null; }, cell: function (r) { return r.ok ? pct(r.c, r.i) : "n/a"; } },
+          { k: "s", l: "Spend", num: true, cell: function (r) { return !r.ok ? "n/a" : r.paid ? money(r.s) : "—"; } }, { k: "cpc", l: "CPC", num: true, get: function (r) { return r.ok && r.c && r.s ? r.s / r.c : null; }, cell: function (r) { return r.ok && r.c && r.s ? money(r.s / r.c) : "—"; } }, { k: "v", l: "Conv.", num: true, cell: function (r) { return r.ok ? n0(r.v) : "n/a"; } },
+          { k: "basis", l: "Basis", cls: "ww" }, { k: "open", l: "Open", cls: "nw", get: function () { return ""; }, cell: function (r) { return reviewCell(A2({ platform: HL.slug(r.platform) }), HL.campaignLink(r.platform, r.campaign, LINKS), r.platform); } }] },
       ref: plat ? "platform:" + plat.replace(/[^A-Za-z0-9]+/g, "-") : null
     });
-    function A2(p) { return "#" + HL.qs(merge(H.date ? { date: H.date } : { range: rk }, p)); }
   }
 
   R.finance = function (d) {
-    var f = d.finance || [], strip = clear($("kpis")), F = function (p) { return HL.route("finance", p); };
-    var c = function (s) { return f.filter(function (x) { return x.status === s; }).length; };
-    kpi(strip, "Waiting for you", String(c("open")), "bank-feed items", { bad: c("open") > 0, href: F({ status: "open" }) });
-    kpi(strip, "Answered here", String(c("new") + c("seen")), "Finance posts them next run", { href: F({ status: "new" }) });
-    kpi(strip, "Done", String(c("done")), "posted in QuickBooks", { href: F({ status: "done" }) });
+    var f = d.finance || [], strip = clear($("kpis")), w = WIN(), rl = RL(), F = function (p) { return HL.route("finance", p); };
+    rangeBar({ note: "drives “answered” counts; open questions always show in full" });
+    var txn = f.filter(function (x) { return HL.financeKind(x) === "txn"; }), oth = f.filter(function (x) { return HL.financeKind(x) === "other"; });
+    var needs = (d.needs || []).filter(finNeed).filter(function (n) { return n.status !== "done" || n.answered_at; });
+    var otherRows = needsRows({ needs: needs, finance: oth });
+    var open = function (list) { return list.filter(function (x) { return x.status === "open"; }).length; };
+    var answered = f.concat(needs).filter(function (x) { return x.answered_at && inWin(ymdET(x.answered_at), w); }).length;
+    kpi(strip, "Transaction questions", open(txn) + " open", txn.length + " total", { bad: open(txn) > 0, href: F({ group: "txn", range: H.range }) });
+    kpi(strip, "Other finance questions", open(otherRows) + " open", "decisions and setup", { bad: open(otherRows) > 0, href: F({ group: "other", range: H.range }) });
+    kpi(strip, "Answered · " + rl, String(answered), "by you, here on the hub");
+    kpi(strip, "Done", String(f.filter(function (x) { return x.status === "done"; }).length), "posted in QuickBooks (all time)", { href: F({ group: "txn", status: "done", range: H.range }) });
     var qb = HL.platformLink("QuickBooks", LINKS); kpi(strip, "QuickBooks", "Banking ↗", "bank feed and categories", { ext: qb });
-    var one = H.q ? f.filter(function (x) { return x.id === H.q; }) : null, host = $("fin");
-    var sv = ["open", "new", "seen", "done"].indexOf(H.status) >= 0 ? H.status : one ? "" : "open";
-    table(host, {
-      rows: one || f, sort: { k: "o", dir: "asc" }, selects: [{ l: "Status", k: "status", value: sv }, { l: "Account", get: function (x) { var m = /, ([^,(]+?••\d{4})/.exec(x.question || ""); return m ? m[1] : ""; } }],
-      cols: [
-        { k: "o", l: "#", num: true, get: function (x) { return f.indexOf(x); }, cell: function (x) { return hl(String(f.indexOf(x) + 1), F({ q: x.id })); } },
-        { k: "question", l: "Bank item", cls: "w", cell: function (x) { return clip(x.question); } },
-        { k: "suggested_answer", l: "Suggested", cls: "ww" },
-        { k: "status", l: "Your answer", cls: "ww", cell: function (x) { return answerCell("finance", x); } },
-        { k: "qbo", l: "Open", cls: "nw", get: function () { return ""; }, cell: function () { return ext(qb, "QuickBooks") || ""; } }
-      ], ref: function (x) { return x.id; }, empty: one ? "That finance item isn't in the list any more." : "No finance questions here.",
-      reply: { head: "Ask / comment", label: "Ask / comment", kind: "question", marker: function (x) { return x.status === "open"; } }
-    });
-    if (one) host.insertBefore(filterChip("Showing finance item " + H.q, F({})), host.firstChild);
-    var g = $("finAsk"); if (g) { clear(g).appendChild(commentBox("finance:general", "question", "Ask Finance anything (not tied to a row)")); }
+    var g = H.group === "txn" || H.group === "other" ? H.group : "", one = H.q || "";
+    var sec = function (id) { var n = $(id); return n && n.closest(".pn"); }, st = ["open", "new", "seen", "done"].indexOf(H.status) >= 0 ? H.status : one ? "" : "open";
+    // 1) transaction questions
+    var tList = one ? txn.filter(function (x) { return x.id === one; }) : txn, tHost = $("finTxn");
+    setTitle("finTxn", "Transaction questions · " + open(txn) + " open"); setSub("finTxn", add(el("span"), "bank/card items: date, payee, amount, account · ", hl("only these", F({ group: "txn" }))));
+    if (sec("finTxn")) sec("finTxn").hidden = g === "other" || (one && !tList.length);
+    txnTable(tHost, tList, { full: true, status: st, empty: one ? "That item isn't a transaction question." : "No transaction questions here." });
+    if (one && tList.length) tHost.insertBefore(filterChip("Showing transaction " + one, F({ group: "txn" })), tHost.firstChild);
+    // 2) other finance questions (not tied to one transaction)
+    var oList = one ? otherRows.filter(function (r) { return r.id === one; }) : otherRows, oHost = $("finOther");
+    setTitle("finOther", "Other finance questions · " + open(otherRows) + " open"); setSub("finOther", add(el("span"), "decisions and setup not tied to one transaction · ", hl("only these", F({ group: "other" }))));
+    if (sec("finOther")) sec("finOther").hidden = g === "txn" || (one && !oList.length);
+    needsTable(oHost, oList, { empty: "No other finance questions right now. Finance adds them with kind 'other' (tools/hub_sync.md)." });
+    if (g) { var c = merge(H, {}); delete c.group; delete c.q; var fb = $("finFilter"); if (fb) { clear(fb); fb.hidden = false; fb.appendChild(filterChip("Showing " + (g === "txn" ? "transaction questions" : "other finance questions") + " only", "#" + HL.qs(c))); } }
+    else { var fb2 = $("finFilter"); if (fb2) { clear(fb2); fb2.hidden = true; } }
+    var ga = $("finAsk"); if (ga) { clear(ga).appendChild(commentBox("finance:general", "question", "Ask Finance anything (not tied to a row)")); }
   };
 
   R.leads = function (d) {
-    var L = d.leads || [], t = today(), strip = clear($("kpis")), LR = function (p) { return HL.route("leads", p); };
-    var wait = function (x) { return x.status === "new" || x.status === "drafted"; };
-    kpi(strip, "Leads 7d", String(L.filter(function (x) { return ymdET(x.received_at) >= addDays(t, -6); }).length), "website forms", { href: LR({ range: "7d" }) });
-    kpi(strip, "Leads 30d", String(L.filter(function (x) { return ymdET(x.received_at) >= addDays(t, -29); }).length), "", { href: LR({ range: "30d" }) });
-    kpi(strip, "Waiting for a reply", String(L.filter(wait).length), "draft or not started", { bad: L.some(wait), href: LR({ status: "waiting" }) });
-    kpi(strip, "Replied", String(L.filter(function (x) { return x.status === "sent" || x.status === "won"; }).length), "", { href: LR({ status: "sent" }) });
+    var L = d.leads || [], t = today(), strip = clear($("kpis")), LR = function (p) { return HL.route("leads", p); }, w = WIN(), rl = RL(), all = H.range === "all";
+    rangeBar({ all: true, note: "drives the tiles and the list" });
+    var wait = function (x) { return x.status === "new" || x.status === "drafted"; }, inW = function (x) { return inWin(ymdET(x.received_at), w); }, inP = function (x) { return inPrior(ymdET(x.received_at), w); };
+    var lc = L.filter(inW).length, lp = L.filter(inP).length;
+    kpi(strip, "Leads · " + rl, String(lc), "prior " + lp + " · website forms", { delta: delta(lc, lp), href: LR({ range: RK() }) });
+    kpi(strip, "Waiting for a reply", String(L.filter(wait).length), "draft or not started (all time)", { bad: L.some(wait), href: LR({ status: "waiting", range: "all" }) });
+    kpi(strip, "Replied · " + rl, String(L.filter(function (x) { return inW(x) && (x.status === "sent" || x.status === "won"); }).length), "", { href: LR({ status: "sent", range: RK() }) });
     kpi(strip, "Gmail", "Inbox ↗", "lead emails arrive here", { ext: HL.platformLink("Gmail", LINKS) });
     var rows = L, why = "";
     if (YMD.test(H.date || "")) { rows = rows.filter(function (x) { return ymdET(x.received_at) === H.date; }); why = "received " + fmtD(H.date); }
-    else if (RANGES[H.range]) { var f0 = addDays(t, -(RANGES[H.range] - 1)); rows = rows.filter(function (x) { return ymdET(x.received_at) >= f0; }); why = "last " + RANGES[H.range] + " days"; }
+    else if (!all) { rows = rows.filter(inW); why = RK() === "today" ? "today" : "last " + RN() + " days"; }
     if (H.status === "waiting") { rows = rows.filter(wait); why = (why ? why + " · " : "") + "waiting for a reply"; }
     var host = $("leads");
     table(host, {
@@ -734,7 +837,7 @@
         { k: "gm", l: "Open", cls: "nw", get: function () { return ""; }, cell: function (x) { return link(HL.gmailSearch(x.first_name), "Gmail ↗") || ""; } }
       ], ref: function (x) { return "lead:" + x.id; }, empty: why ? "No leads for " + why + "." : "No leads logged yet."
     });
-    if (why) host.insertBefore(filterChip("Leads: " + why, LR({})), host.firstChild);
+    if (why) host.insertBefore(filterChip("Leads: " + why, LR({ range: "all" })), host.firstChild);
     var x = H.lead && L.filter(function (l) { return l.id === H.lead; })[0], close = merge(H, {}); delete close.lead;
     if (!H.lead) { hideDetail(); return; }
     if (!x) { showDetail({ title: "Lead not found", close: close }); return; }

@@ -56,7 +56,8 @@ CREATE TABLE IF NOT EXISTS finance_questions (
   agent_note TEXT,
   source TEXT,
   data TEXT NOT NULL DEFAULT '{}',
-  suggestions TEXT NOT NULL DEFAULT '[]'  -- JSON array of one-click answers (v2)
+  suggestions TEXT NOT NULL DEFAULT '[]',  -- JSON array of one-click answers (v2)
+  kind TEXT CHECK (kind IS NULL OR kind IN ('txn','other'))  -- v4: txn = one bank/card transaction, other = decisions/setup
 );
 CREATE INDEX IF NOT EXISTS fin_status ON finance_questions(status);
 

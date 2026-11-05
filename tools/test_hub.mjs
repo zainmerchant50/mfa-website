@@ -203,11 +203,45 @@ await t("data: every page returns the links table; board gets log lines", async 
   for (const pg of ["home", "board", "calendar", "ads", "finance", "leads", "tasks"]) {
     const db = fakeDb(); const r = await dataGet({ request: new Request("https://hub.mfa-advisory.com/api/hub/data?page=" + pg), env: { HUB_DB: db }, data: { hubEmail: EMAIL } });
     const j = await r.json(); eq(Array.isArray(j.links), true, pg); eq(db.log.some((x) => x[0].includes("FROM links")), true, pg);
-    if (pg === "board") eq(Array.isArray(j.log), true, "board log");
+    if (pg === "board") { eq(Array.isArray(j.logRecent), true, "board logRecent"); eq(Array.isArray(j.logMin), true, "board logMin"); }
+    if (pg === "finance") eq(Array.isArray(j.needs), true, "finance needs");
   }
 });
 await t("hub_links.js is behind the gate (404 public, 403 hub host without Access)", async () => {
   eq((await run("https://mfa-advisory.com/hub/hub_links.js")).res.status, 404); eq((await run("https://hub.mfa-advisory.com/hub/hub_links.js")).res.status, 403);
+});
+
+// ---------- v4: ranges + finance kinds ----------
+const day = (t, n) => HL.addDays(t, n);
+const T0 = "2026-11-05";
+const mk = (platform, from, to, o = {}) => { const out = []; for (let d = from; d <= to; d = day(d, 1)) out.push({ date: d, platform, campaign: "c", window_days: 1, impressions: 10, clicks: 1, spend: 2, conversions: 0, ...o }); return out; };
+await t("ranges: windows and coverage", async () => {
+  const w = HL.win(T0, 7); eq(w.from, "2026-10-30"); eq(w.to, T0); eq(w.pFrom, "2026-10-23"); eq(w.pTo, "2026-10-29");
+  const w30 = HL.win(T0, 30); eq(w30.from, "2026-10-07"); eq(w30.pTo, "2026-10-06");
+  eq(HL.rangeKey("30d"), "30d"); eq(HL.rangeKey("14d"), "7d"); eq(HL.rangeKey(undefined), "7d"); eq(HL.rangeKey("today"), "today");
+  eq(HL.covered("2026-10-08", "2026-10-07"), true); eq(HL.covered("2026-10-09", "2026-10-07"), false); eq(HL.covered(null, "2026-10-07"), false);
+});
+await t("ranges: 30d is n/a until daily rows cover it (no partial totals)", async () => {
+  const rows = mk("Google Ads", "2026-10-13", "2026-11-04");   // 23 days, like D1 today
+  const P30 = HL.adsModel(rows, 30, T0)["Google Ads"]; eq(P30.s, null); eq(P30.naKind, "build"); eq(/n\/a until data builds \(23 of 30 days/.test(P30.na), true, P30.na);
+  const P7 = HL.adsModel(rows, 7, T0)["Google Ads"]; eq(P7.s.i, 60); eq(P7.s.s, 12); eq(P7.p.i, 70);   // 6 days (today not pulled) + full prior week
+  const full = HL.adsModel(mk("Google Ads", "2026-09-01", "2026-11-04"), 30, T0)["Google Ads"]; eq(full.s.i, 290); eq(full.p.i, 300);
+  const td = HL.adsModel(rows, 1, T0)["Google Ads"]; eq(td.s, null); eq(td.na, "today: not pulled yet"); eq(td.p.i, 10);
+});
+await t("ranges: window-only platforms are 'not reported', never summed into another length", async () => {
+  const rows = [{ date: "2026-11-04", platform: "Fiverr Ads", campaign: "All gigs", window_days: 30, impressions: 649, clicks: 6, spend: 11.6, conversions: 2 },
+    { date: "2026-11-04", platform: "Pinterest Ads", campaign: "All", window_days: 7, impressions: 5086, clicks: 74, spend: 23.81, conversions: 0 }];
+  const P7 = HL.adsModel(rows, 7, T0); eq(P7["Fiverr Ads"].s, null); eq(P7["Fiverr Ads"].naKind, "nr"); eq(P7["Pinterest Ads"].s.i, 5086);
+  const P30 = HL.adsModel(rows, 30, T0); eq(P30["Fiverr Ads"].s.i, 649); eq(P30["Pinterest Ads"].s, null); eq(P30["Pinterest Ads"].naKind, "nr");
+});
+await t("finance: transaction parser and kind", async () => {
+  const a = HL.parseTxn("State of New Jersey: $146.00 spend on 2026-04-22, BofA Checking ••1843 (bank text: New Jersey) Note: NJ fee or personal?");
+  eq(a.payee, "State of New Jersey"); eq(a.amount, 146); eq(a.dir, "spend"); eq(a.date, "2026-04-22"); eq(a.account, "BofA Checking ••1843"); eq(a.note, "NJ fee or personal?");
+  const b = HL.parseTxn("Mohammed Zain Merchant: +$1,838.83 deposit on 2026-11-02, BofA Checking ••1843 (bank text: Mobile Transfer Chk) Note: transfer in");
+  eq(b.amount, 1838.83); eq(b.dir, "deposit"); eq(b.payee, "Mohammed Zain Merchant");
+  eq(HL.parseTxn("Should MFA use a calendar fiscal year?"), null);
+  eq(HL.financeKind({ question: "Create a Loan from owner account?" }), "other"); eq(HL.financeKind({ question: a ? "Tous Les Jours: $46.00 spend on 2026-11-02, Card ••1234" : "" }), "txn");
+  eq(HL.financeKind({ kind: "other", question: "Tous Les Jours: $46.00 spend on 2026-11-02, Card ••1234" }), "other"); eq(HL.financeKind({ kind: "bogus", question: "x" }), "other");
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

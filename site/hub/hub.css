@@ -175,3 +175,14 @@ a.kpi.x .l::after{content:" \2197";color:var(--gold)}
 .rng a.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
 .open-bar{display:inline-flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:12px;margin-left:auto}
 @media (max-width:600px){.rev{flex-wrap:wrap}.doc{white-space:normal}.open-bar{margin-left:0}}
+/* v4: range bar + finance groups */
+.rbar{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:0 0 6px;font-size:12px}
+.rbar .rl{font:700 10.5px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+.rbar a.chip{text-decoration:none}
+.rbar a.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.grp+.grp{border-top:2px solid var(--h-line)}
+.grp-h{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;padding:7px 10px 3px;background:#faf8f3;font-size:12px}
+.grp-h a.dl.b{font-size:12.5px;text-transform:uppercase;letter-spacing:.04em}
+.grp-h .cnt{color:var(--muted);font-size:11.5px}
+.foot{font-size:11px;padding:2px 8px 6px}
+#finFilter{margin:0 0 6px}

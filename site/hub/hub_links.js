@@ -109,6 +109,58 @@
     return n ? "https://mail.google.com/mail/u/0/#search/" + encodeURIComponent('"' + n + '"') : DEF.Gmail[1];
   }
 
+  // ---------- ranges (Today / 7d / 30d) ----------
+  var RANGE = { today: 1, "7d": 7, "30d": 30 };
+  function rangeKey(r) { return RANGE[r] ? r : "7d"; }
+  function addDays(ymd, n) { var d = new Date(ymd + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+  // current window ends today (ET date t); prior window is the same length right before it
+  function win(t, n) { return { n: n, from: addDays(t, -(n - 1)), to: t, pFrom: addDays(t, -(2 * n - 1)), pTo: addDays(t, -n) }; }
+  // a window is covered when its data starts by its 2nd day (today may not be pulled yet)
+  function covered(since, from) { return !!since && since <= addDays(from, 1); }
+  function distinct(list, k) { var o = {}; list.forEach(function (r) { o[r[k]] = 1; }); return Object.keys(o).length; }
+
+  // ads/social rows -> per platform {today, s (window), p (prior), na, naKind}. naKind 'build' = not enough daily rows yet
+  // (the number would be wrong), 'nr' = the platform doesn't report at this length (left out of totals, said so).
+  function adsModel(rows, n, t) {
+    var W = win(t, n), P = {}, need = n === 1 ? 1 : n - 1, lab = n === 1 ? "today" : n + "d";
+    (rows || []).forEach(function (r) {
+      var p = P[r.platform] = P[r.platform] || { name: r.platform, paid: /Ads$/.test(r.platform), daily: [], win: [], latest: null, since: null };
+      if (r.window_days === 1) { p.daily.push(r); if (!p.since || r.date < p.since) p.since = r.date; } else p.win.push(r);
+      if (!p.latest || r.date > p.latest) p.latest = r.date;
+    });
+    function sum(list) { return list.reduce(function (s, r) { s.i += r.impressions || 0; s.c += r.clicks || 0; s.s += r.spend || 0; s.v += r.conversions || 0; s.n++; return s; }, { i: 0, c: 0, s: 0, v: 0, n: 0 }); }
+    function wrow(p, len, a, b) { var w = p.win.filter(function (r) { return r.window_days === len && r.date >= a && r.date <= b; }).sort(function (x, y) { return y.date.localeCompare(x.date); })[0]; return w ? sum([w]) : null; }
+    Object.keys(P).forEach(function (k) {
+      var p = P[k], inW = function (a, b) { return p.daily.filter(function (r) { return r.date >= a && r.date <= b; }); };
+      p.today = sum(inW(t, t)); p.na = ""; p.naKind = ""; p.note = "";
+      var dc = inW(W.from, W.to), dp = inW(W.pFrom, W.pTo), wr;
+      if (dc.length && distinct(dc, "date") >= need) p.s = sum(dc);
+      else if (n > 1 && (wr = wrow(p, n, addDays(t, -2), t))) { p.s = wr; p.note = n + "-day total from the platform"; }
+      else {
+        p.s = null;
+        if (p.daily.length) { p.naKind = "build"; p.na = n === 1 ? "today: not pulled yet" : lab + ": n/a until data builds (" + distinct(dc, "date") + " of " + n + " days in D1)"; }
+        else if (p.win.length) { var lens = p.win.map(function (r) { return r.window_days; }).filter(function (x, i, a) { return a.indexOf(x) === i; }).join("/"); p.naKind = "nr"; p.na = lab + ": n/a (platform gives " + lens + "-day totals only)"; }
+        else { p.naKind = "build"; p.na = lab + ": no data yet"; }
+      }
+      if (dp.length && distinct(dp, "date") >= need) p.p = sum(dp);
+      else if (n > 1 && (wr = wrow(p, n, addDays(W.pTo, -2), W.pTo))) p.p = wr;
+      else p.p = null;
+    });
+    return P;
+  }
+
+  // ---------- finance question kinds ----------
+  // "<payee>: $46.00 spend on 2026-11-02, BofA Checking ••1843 (bank text: …) Note: …"
+  var TXN = /^(.{1,80}?):\s*([+-]?)\$([\d,]+(?:\.\d{2})?)\s*(spend|deposit|charge|payment|refund|credit|debit|transfer)?\s*on\s*(\d{4}-\d{2}-\d{2}),\s*([^(]*?••\s?\d{4}|[^,(]{2,40})/i;
+  function parseTxn(q) {
+    var m = TXN.exec(String(q || "")); if (!m) return null;
+    var note = /\bNote:\s*([\s\S]*)$/.exec(q), dir = (m[4] || "").toLowerCase();
+    if (m[2] === "+" && !dir) dir = "deposit";
+    return { payee: m[1].trim(), amount: Number(m[3].replace(/,/g, "")), dir: dir, date: m[5], account: m[6].trim(), note: note ? note[1].trim() : "" };
+  }
+  function financeKind(f) { if (f && (f.kind === "txn" || f.kind === "other")) return f.kind; return f && parseTxn(f.question) ? "txn" : "other"; }
+
   root.HubLinks = { safeUrl: safeUrl, known: known, host: host, index: index, platformLink: platformLink, campaignLink: campaignLink, agentLink: agentLink,
-    doc: doc, slug: slug, matchSlug: matchSlug, parseHash: parseHash, qs: qs, route: route, refHref: refHref, gmailSearch: gmailSearch, DEF: DEF };
+    doc: doc, slug: slug, matchSlug: matchSlug, parseHash: parseHash, qs: qs, route: route, refHref: refHref, gmailSearch: gmailSearch, DEF: DEF,
+    RANGE: RANGE, rangeKey: rangeKey, addDays: addDays, win: win, covered: covered, adsModel: adsModel, parseTxn: parseTxn, financeKind: financeKind };
 })(typeof window !== "undefined" ? window : globalThis);

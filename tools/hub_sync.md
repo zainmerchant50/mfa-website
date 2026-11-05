@@ -81,6 +81,12 @@ ON CONFLICT(date, platform, campaign, window_days) DO UPDATE SET impressions=exc
   conversions=excluded.conversions, source=excluded.source, updated_at=strftime('%Y-%m-%dT%H:%M:%SZ','now');
 -- Google Ads: campaign 'All search campaigns'. Organic platforms: 'Organic'. Paid platforms are named '<X> Ads'.
 ```
+**Ranges (Today / 7d / 30d on every hub page).** The analytics agent writes ONE daily row per platform per day (`window_days=1`) and
+backfills the last 30 days (60 days when it can, so the 30d "vs prior" works). A window counts only when daily rows cover at least N-1
+of its N days; until then the hub shows "30d: n/a until data builds" instead of a partial total. Use `window_days` 7 or 30 only when the
+platform gives no daily split (those platforms show "n/a" for other lengths and are named, not summed). Fiverr: add a 7-day window row if
+the dashboard offers one.
+
 KPI tiles (`as_of` = when you read it; tiles older than 36 h show "as of"):
 ```sql
 INSERT OR REPLACE INTO kpis (key, label, value, unit, as_of, source, note) VALUES (?1, ?2, NULLIF(?3,''), ?4, ?5, ?6, ?7);
@@ -93,11 +99,16 @@ VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, NULLIF(?8,''), NULLIF(?9,''), strftime('%Y-%
 ON CONFLICT(id) DO UPDATE SET status=excluded.status, reminder_at=excluded.reminder_at, note=excluded.note, updated_at=excluded.updated_at;
 -- status: new | drafted | sent | won | lost
 ```
-Finance question (Finance only; never overwrites Zain's answer):
+Finance question (Finance only; never overwrites Zain's answer). **Always set `kind`** (?6):
+- `'txn'` = tied to ONE bank/card transaction. Write the question as `<Payee>: $<amount> <spend|deposit> on <YYYY-MM-DD>, <Account ••1234> (bank text: …) Note: <the question>`
+  so the hub can show date, payee, amount and account columns.
+- `'other'` = a decision or setup item not tied to one transaction (create an account, fiscal year, invoice matching, a policy call).
+  Decisions you need from Zain can also go in `needs` with `agent='Finance'` (or TaxSavings); the hub lists both under "Other finance questions".
 ```sql
-INSERT INTO finance_questions (id, created_at, question, suggested_answer, suggestions, status, source) VALUES (?1, ?2, ?3, ?4, ?5, 'open', 'Finance Review board')
-ON CONFLICT(id) DO UPDATE SET question=excluded.question, suggested_answer=excluded.suggested_answer, suggestions=excluded.suggestions;
+INSERT INTO finance_questions (id, created_at, question, suggested_answer, suggestions, status, source, kind) VALUES (?1, ?2, ?3, ?4, ?5, 'open', 'Finance Review board', ?6)
+ON CONFLICT(id) DO UPDATE SET question=excluded.question, suggested_answer=excluded.suggested_answer, suggestions=excluded.suggestions, kind=excluded.kind;
 ```
+Hub links: `/hub/finance/#group=txn`, `/hub/finance/#group=other`, `/hub/#group=txn` (Home "Needs you").
 
 ## 4b. links — what "Open in platform ↗" opens (the hub falls back to the platform's main page)
 ```sql
