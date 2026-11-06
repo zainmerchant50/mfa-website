@@ -220,7 +220,7 @@ def service_node(desc=None):
             + f" Federal returns for every US state; state returns for every state except {STATES_EXCEPT}.",
             "provider": {"@id": seo.ORG_ID}, "areaServed": {"@type": "Country", "name": "United States"},
             "audience": {"@type": "Audience", "audienceType": "Self-employed visual artists, illustrators, photographers, musicians, crafters and Etsy art sellers"},
-            "keywords": ", ".join(KEYWORDS), "offers": offers()}
+            "offers": offers()}  # (keywords go in <meta name="keywords">; not a valid Service property)
 
 
 def build():

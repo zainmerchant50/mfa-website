@@ -262,6 +262,40 @@ def products_box(p):
 '''
 
 
+# Blog post -> the MFA service page it should send readers to (internal linking for search and AI answers, 2026-11-06).
+# A post can override with a "service" meta field (a site path). Category is the fallback. Skipped when the body already links it.
+SERVICE_LABELS = {
+    "/1099-filing/": "1099 filing service (1099-NEC and 1099-MISC)", "/late-tax-return/": "Late tax return filing",
+    "/quarterly-estimated-taxes/": "Quarterly estimated tax service", "/s-corp-election/": "S corp election (Form 2553)",
+    "/year-end-tax-planning/": "Year-end tax planning session", "/llc-formation/": "LLC formation in all 50 states",
+    "/services/#tax-preparation": "Tax preparation and filing", "/services/#tax-planning": "Tax planning and strategy",
+    "/services/#bookkeeping": "Bookkeeping and accounting", "/princeton-nj/": "Bookkeeping and tax preparation in Princeton, NJ",
+}
+SERVICE_FOR = {
+    "1099-income-filing-threshold": "/quarterly-estimated-taxes/", "2027-tax-calendar": "/quarterly-estimated-taxes/",
+    "adoption-tax-credit-refund-2026": "/services/#tax-preparation", "ai-in-accounting-and-tax-2026": "/services/#bookkeeping",
+    "federal-scholarship-tax-credit-2027": "/services/#tax-planning", "filing-taxes-late-2025-return": "/late-tax-return/",
+    "form-1065-guide-llc": "/services/#tax-preparation", "form-1099-preparation-guide-2026": "/1099-filing/",
+    "form-1120s-s-corp-guide": "/s-corp-election/", "hiring-overseas-contractors-taxes-w8ben": "/1099-filing/",
+    "llc-taxed-as-s-corp-guide": "/s-corp-election/", "nj-property-tax-relief-anchor-stay-nj-2026": "/princeton-nj/",
+    "nj-sales-tax-st50-filing-guide": "/services/#bookkeeping", "october-15-2026-tax-extension-deadline": "/late-tax-return/",
+    "salt-cap-2026-nj-ny-pte-tax": "/services/#tax-planning", "schedule-c-guide-single-member-llc": "/services/#tax-preparation",
+    "section-179-bonus-depreciation-2026": "/year-end-tax-planning/", "small-business-tax-write-offs-2026": "/year-end-tax-planning/",
+    "social-security-wage-base-2027-self-employed": "/s-corp-election/", "which-tax-form-llc-corporation": "/llc-formation/",
+    "year-end-tax-planning-2026-key-dates": "/year-end-tax-planning/",
+}
+SERVICE_BY_CATEGORY = {"Tax Planning": "/services/#tax-planning", "Tax Deadlines": "/services/#tax-preparation",
+                       "Bookkeeping": "/services/#bookkeeping"}
+
+
+def service_link(p):
+    u = p.get("service") or SERVICE_FOR.get(p["slug"]) or SERVICE_BY_CATEGORY.get(p["category"])
+    if not u or u not in SERVICE_LABELS or f'href="{u}"' in p["body"]:
+        return ""
+    return (f'<p class="svc-rel"><strong>Related MFA service:</strong> <a href="{u}">{esc(SERVICE_LABELS[u])}</a>. '
+            f'Questions first? <a href="/book/">Book a consultation</a>.</p>\n')
+
+
 def related_box(p):
     """'Related products in our shop' for posts with no catalog "products" meta (mapping: tool_products.BLOG_MAP). UTM-tagged Etsy buy."""
     import tool_products
@@ -442,8 +476,10 @@ def tags_block(p):
     kws = p.get("keywords", [])
     if not kws:
         return ""
+    cat = (f'<p class="tags-cat">Filed under <a href="{CAT_URLS[p["category"]]}">{esc(p["category"])}</a>'
+           f' · <a href="/blog/">All MFA Insights</a></p>') if p.get("category") in CAT_URLS else ""
     return ('<div class="tags"><span class="tags-k">Topics covered</span><ul>'
-            + "".join(f"<li>{esc(tag_label(k))}</li>" for k in kws) + "</ul></div>")
+            + "".join(f"<li>{esc(tag_label(k))}</li>" for k in kws) + "</ul>" + cat + "</div>")
 
 
 # ---------- Key dates (savable calendar) ----------
@@ -698,7 +734,9 @@ def build_post(p):
                  "citation": [{"@type": "CreativeWork", "name": s["title"], "url": s["url"]} for s in p["sources"]]}
     prods = post_products(p)
     ld = seo.graph(url, p["title"], mdesc, post_node, BLOG_NODE, faq_schema(p["body"]), *[seo.product_node(x) for x in prods], kind="WebPage",
-                   crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/"), (p["title"], url)], modified=p.get("updated", p["date"]),
+                   crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/")]
+                         + ([(p["category"], BASE + CAT_URLS[p["category"]])] if p["category"] in CAT_URLS else []) + [(p["title"], url)],
+                   modified=p.get("updated", p["date"]),
                    extra={"mainEntity": {"@id": url + "#article"}, "primaryImageOfPage": {"@type": "ImageObject", "url": img}})
     extra = (f'<meta property="article:published_time" content="{p["date"]}"/>'
              f'<meta property="article:modified_time" content="{p.get("updated", p["date"])}"/>'
@@ -713,7 +751,7 @@ def build_post(p):
     page = f'''{head(ttl, mdesc, url, img, extra, p.get("keywords"), "article")}
 <body>{nav("blog")}
 <header class="ahead"><div class="wrap">
-  <div class="crumbs"><a href="/">Home</a> / <a href="/blog/">Insights</a> / {esc(p["category"])}</div>
+  <div class="crumbs"><a href="/">Home</a> / <a href="/blog/">Insights</a> / {f'<a href="{CAT_URLS[p["category"]]}">{esc(p["category"])}</a>' if p["category"] in CAT_URLS else esc(p["category"])}</div>
   <span class="eyebrow">{esc(p["category"])}</span>
   <h1>{esc(p["title"])}</h1>
   <p class="dek">{esc(p["dek"])}</p>
@@ -722,7 +760,7 @@ def build_post(p):
 </div></header>
 <main><article class="article">
 {ui_kit.accordionize_faqs(with_help(p, webp_imgs(p, p["body"])))}
-{products_box(p)}{related_box(p)}{help_box(p, "end")}
+{service_link(p)}{products_box(p)}{related_box(p)}{help_box(p, "end")}
 {keydates_block(p)}
 {tags_block(p)}
 <div class="share-end"><p>Found this useful? Share it with someone who's dealing with the same thing.</p>{share_bar(p, url)}</div>
@@ -772,6 +810,14 @@ def post_summary(p):
             "author": {"@id": seo.PERSON_ID}}
 
 
+TOPIC_CATEGORY = {"Tax Filing & Deadlines": "Tax Deadlines", "Tax Planning": "Tax Planning", "Bookkeeping Best Practices": "Bookkeeping"}
+
+
+def topic_li(t):
+    c = TOPIC_CATEGORY.get(t)
+    return f'<li><a href="{CAT_URLS[c]}">{esc(t)}</a></li>' if c in CAT_URLS else f"<li>{esc(t)}</li>"
+
+
 def build_index(posts):
     cards = "".join(f'''<a class="pcard" href="/blog/{p["slug"]}/">
   <div class="thumb"><img src="{thumb(p)}" alt="{esc(p["coverAlt"])}" loading="lazy" decoding="async" width="1200" height="630"/></div>
@@ -788,12 +834,93 @@ def build_index(posts):
 <header class="bhero"><div class="wrap"><span class="eyebrow">MFA Insights</span>
 <h1>Tax, accounting &amp; QuickBooks, <em>made usable.</em></h1>
 <p>Practical guidance for individuals and small and mid-sized businesses, from filing deadlines and tax planning to accrual accounting, clean books and getting more out of QuickBooks.</p>
-<ul class="topics" aria-label="Topics we cover">{"".join(f"<li>{esc(t)}</li>" for t in TOPICS)}</ul></div></header>
+<ul class="topics" aria-label="Topics we cover">{"".join(topic_li(t) for t in TOPICS)}</ul></div></header>
 <main class="wrap plist">{cards}</main>
 <div class="wrap nl-wrap">{nl_box()}</div>
 {cta({"title": "Question from the MFA blog", "ctaHeadline": "Have a question about your taxes, books, or QuickBooks?", "ctaTopic": "your taxes, accounting, or QuickBooks setup"})}
 {FOOT}{NL_JS}</body></html>'''
     (SITE / "blog" / "index.html").write_text(page, encoding="utf-8")
+
+
+# Category pages (/blog/category/<slug>/): one per category with 2+ posts. Each post links to its category from the
+# breadcrumb and the "Topics covered" block, so readers and crawlers can browse a topic. Keyword tags stay unlinked on
+# purpose: one page per keyword would be dozens of thin pages.
+CATEGORY_INFO = {
+    "Tax Planning": ("Tax Planning Guides for Individuals & Small Business | MFA",
+                     "Plain-English tax planning guides from MFA: entity choice, estimated taxes, deductions and year-end moves for "
+                     "individuals and small businesses.",
+                     "Tax planning guides for individuals and small and mid-sized business owners: entity choice, estimated taxes, "
+                     "deductions and what to do before year end.", "/services/#tax-planning"),
+    "Tax Deadlines": ("Tax Deadlines & Filing Guides: IRS, NJ and NY | MFA",
+                      "IRS, New Jersey and New York tax deadlines, extensions and late-filing rules, with the dates to save, from "
+                      "MFA Insights.",
+                      "IRS, New Jersey and New York filing deadlines, extensions and penalties, explained with the dates you need "
+                      "to save.", "/services/#tax-preparation"),
+    "Bookkeeping": ("Bookkeeping Guides for Small Businesses | MFA Insights",
+                    "Bookkeeping guides for small businesses from MFA: clean books, write-offs, records and the routines that hold "
+                    "up at tax time.",
+                    "Bookkeeping guides for small businesses: clean books, write-offs, records and routines that hold up at tax "
+                    "time.", "/services/#bookkeeping"),
+}
+
+
+CAT_URLS = {}   # category -> page path, filled in __main__ before posts are built
+
+
+def cat_slug(c):
+    return re.sub(r"[^a-z0-9]+", "-", c.lower()).strip("-")
+
+
+def category_url(posts, c):
+    """Path of the category page, or None when the category has fewer than 2 posts (no page is built)."""
+    if c in CATEGORY_INFO and sum(1 for p in posts if p["category"] == c) >= 2:
+        return f"/blog/category/{cat_slug(c)}/"
+    return None
+
+
+def post_card(p):
+    return f'''<a class="pcard" href="/blog/{p["slug"]}/">
+  <div class="thumb"><img src="{thumb(p)}" alt="{esc(p["coverAlt"])}" loading="lazy" decoding="async" width="1200" height="630"/></div>
+  <div class="body"><span class="meta">{esc(p["category"])} · {p["dt"].strftime("%b %-d, %Y")}</span>
+  <h2>{esc(p["title"])}</h2><p>{esc(p["description"])}</p><span class="more">Read the article →</span></div></a>'''
+
+
+def build_categories(posts):
+    out = []
+    for c, (ttl, desc, intro, svc) in CATEGORY_INFO.items():
+        path = category_url(posts, c)
+        if not path:
+            continue
+        mine = [p for p in posts if p["category"] == c]
+        url = BASE + path
+        ld = seo.graph(url, ttl.split(" | ")[0], desc,
+                       {"@type": "ItemList", "@id": url + "#list", "name": f"{c} articles", "numberOfItems": len(mine),
+                        "itemListElement": [{"@type": "ListItem", "position": i, "url": f'{BASE}/blog/{p["slug"]}/', "name": p["title"]}
+                                            for i, p in enumerate(mine, 1)]},
+                       {**BLOG_NODE, "blogPost": [post_summary(p) for p in mine]},
+                       kind="CollectionPage", crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/"), (c, url)],
+                       modified=max(p.get("updated", p["date"]) for p in mine),
+                       extra={"mainEntity": {"@id": url + "#list"}, "isPartOf": {"@id": BASE + "/blog/#blog"}})
+        og = f'{BASE}/blog/{mine[0]["slug"]}/{mine[0]["og"]}'
+        others = "".join(f'<li><a href="{u}">{esc(k)}</a></li>' for k in CATEGORY_INFO
+                         for u in [category_url(posts, k)] if u and k != c)
+        kw = [c.lower(), f"{c.lower()} guides", "small business taxes", "New Jersey and New York"]
+        page = f'''{head(ttl, desc, url, og, seo.script(ld), kw)}
+<body>{nav("blog")}
+<header class="bhero"><div class="wrap"><div class="crumbs"><a href="/">Home</a> / <a href="/blog/">Insights</a> / {esc(c)}</div>
+<span class="eyebrow">MFA Insights</span>
+<h1>{esc(c)} <em>guides</em></h1>
+<p>{esc(intro)} Need it handled for you? See <a href="{svc}">our {esc(c.lower())} services</a>.</p>
+<ul class="topics" aria-label="Other topics"><li><a href="/blog/">All articles</a></li>{others}</ul></div></header>
+<main class="wrap plist">{"".join(post_card(p) for p in mine)}</main>
+<div class="wrap nl-wrap">{nl_box()}</div>
+{cta({"title": f"Question from the MFA blog: {c}", "ctaHeadline": "Have a question about your taxes, books, or QuickBooks?", "ctaTopic": "your taxes, accounting, or QuickBooks setup"})}
+{FOOT}{NL_JS}</body></html>'''
+        f = SITE / path.strip("/") / "index.html"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(page, encoding="utf-8")
+        out.append(path)
+    return out
 
 
 def build_feed(posts):
@@ -919,10 +1046,12 @@ def build_sitemap(posts, pages=()):
 
 if __name__ == "__main__":
     posts = load_posts()
+    CAT_URLS.update({c: u for c in {p["category"] for p in posts} for u in [category_url(posts, c)] if u})
     for p in posts:
         seo_lint(p)
         build_post(p)
     build_index(posts)
+    build_categories(posts)
     build_feed(posts)
     build_latest(posts)
     pages = build_pages()

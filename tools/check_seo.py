@@ -20,6 +20,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import seo as _seo  # noqa: E402  (page maps for the guides strip)
 SITE = ROOT / "site"
 BASE = "https://mfa-advisory.com"
 errs, warns = [], []
@@ -217,10 +219,12 @@ def main():
             E(rel, f"canonical {can[0]} is not the URL this file is served at ({page_url(rel)})")
         for h in set(re.findall(r'href="(/[^"#?]*)', s)):
             links.setdefault(h, rel)
-        if "/blog/" in rel and rel != "/blog/index.html" and 'property="article:tag"' not in s:
+        if re.fullmatch(r"/blog/[a-z0-9-]+/index\.html", rel) and rel != "/blog/index.html" and "/category/" not in rel and 'property="article:tag"' not in s:
             warns.append(f"{rel}: no article:tag meta")
         if 'name="keywords"' not in s:
             warns.append(f"{rel}: no meta keywords")
+        if _seo.page_guides(page_url(rel)[len(BASE):]) and _seo.GUIDES_MARK[0] not in s:
+            E(rel, "guides strip missing: run python3 tools/build_blog.py (it re-applies seo.decorate_pages) after other builders")
         if f'property="og:url" content="{can[0] if can else ""}"' not in s:
             E(rel, "og:url differs from canonical")
         blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', s, re.S)

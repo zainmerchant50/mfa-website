@@ -34,6 +34,26 @@
   },
   "areaServed": [
    {
+    "@type": "City",
+    "name": "Princeton",
+    "containedInPlace": {
+     "@type": "AdministrativeArea",
+     "name": "Mercer County",
+     "containedInPlace": {
+      "@type": "State",
+      "name": "New Jersey"
+     }
+    }
+   },
+   {
+    "@type": "AdministrativeArea",
+    "name": "Mercer County",
+    "containedInPlace": {
+     "@type": "State",
+     "name": "New Jersey"
+    }
+   },
+   {
     "@type": "State",
     "name": "New Jersey"
    },
@@ -494,6 +514,7 @@
   "worksFor": {
    "@id": "https://mfa-advisory.com/#organization"
   },
+  "description": "Zain Merchant, ACCA, is the founder and principal of Merchant Financial Advisory in Princeton, New Jersey. Before starting MFA he worked at PwC in New York on audit, SOX and internal-controls engagements.",
   "memberOf": {
    "@type": "Organization",
    "name": "ACCA",
@@ -532,6 +553,26 @@
      "@id": "https://mfa-advisory.com/#organization"
     },
     "areaServed": [
+     {
+      "@type": "City",
+      "name": "Princeton",
+      "containedInPlace": {
+       "@type": "AdministrativeArea",
+       "name": "Mercer County",
+       "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+       }
+      }
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mercer County",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New Jersey"
+      }
+     },
      {
       "@type": "State",
       "name": "New Jersey"
@@ -586,6 +627,26 @@
     },
     "areaServed": [
      {
+      "@type": "City",
+      "name": "Princeton",
+      "containedInPlace": {
+       "@type": "AdministrativeArea",
+       "name": "Mercer County",
+       "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+       }
+      }
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mercer County",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New Jersey"
+      }
+     },
+     {
       "@type": "State",
       "name": "New Jersey"
      },
@@ -638,6 +699,26 @@
      "@id": "https://mfa-advisory.com/#organization"
     },
     "areaServed": [
+     {
+      "@type": "City",
+      "name": "Princeton",
+      "containedInPlace": {
+       "@type": "AdministrativeArea",
+       "name": "Mercer County",
+       "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+       }
+      }
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mercer County",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New Jersey"
+      }
+     },
      {
       "@type": "State",
       "name": "New Jersey"
@@ -700,6 +781,26 @@
     },
     "areaServed": [
      {
+      "@type": "City",
+      "name": "Princeton",
+      "containedInPlace": {
+       "@type": "AdministrativeArea",
+       "name": "Mercer County",
+       "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+       }
+      }
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mercer County",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New Jersey"
+      }
+     },
+     {
       "@type": "State",
       "name": "New Jersey"
      },
@@ -752,6 +853,26 @@
      "@id": "https://mfa-advisory.com/#organization"
     },
     "areaServed": [
+     {
+      "@type": "City",
+      "name": "Princeton",
+      "containedInPlace": {
+       "@type": "AdministrativeArea",
+       "name": "Mercer County",
+       "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+       }
+      }
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mercer County",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New Jersey"
+      }
+     },
      {
       "@type": "State",
       "name": "New Jersey"
@@ -806,6 +927,26 @@
     },
     "areaServed": [
      {
+      "@type": "City",
+      "name": "Princeton",
+      "containedInPlace": {
+       "@type": "AdministrativeArea",
+       "name": "Mercer County",
+       "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+       }
+      }
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mercer County",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New Jersey"
+      }
+     },
+     {
       "@type": "State",
       "name": "New Jersey"
      },
@@ -859,6 +1000,26 @@
     },
     "areaServed": [
      {
+      "@type": "City",
+      "name": "Princeton",
+      "containedInPlace": {
+       "@type": "AdministrativeArea",
+       "name": "Mercer County",
+       "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+       }
+      }
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mercer County",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New Jersey"
+      }
+     },
+     {
       "@type": "State",
       "name": "New Jersey"
      },
@@ -911,6 +1072,26 @@
      "@id": "https://mfa-advisory.com/#organization"
     },
     "areaServed": [
+     {
+      "@type": "City",
+      "name": "Princeton",
+      "containedInPlace": {
+       "@type": "AdministrativeArea",
+       "name": "Mercer County",
+       "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+       }
+      }
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mercer County",
+      "containedInPlace": {
+       "@type": "State",
+       "name": "New Jersey"
+      }
+     },
      {
       "@type": "State",
       "name": "New Jersey"
@@ -1273,7 +1454,6 @@
      "@type": "Country",
      "name": "United States"
     },
-    "keywords": "international student tax filing, F-1 student tax return, 1040-NR preparer, Form 8843 help, OPT tax refund Social Security Medicare, H-1B tax return, nonresident tax treaty, tax savings for international students, J-1 tax return, FICA refund F-1 student",
     "audience": {
      "@type": "Audience",
      "audienceType": "F-1 and J-1 students, J-1 scholars and H-1B workers in the United States"
@@ -1444,7 +1624,6 @@
      "@type": "Audience",
      "audienceType": "Self-employed visual artists, illustrators, photographers, musicians, crafters and Etsy art sellers"
     },
-    "keywords": "artist taxes, tax deductions for artists, self-employed artist tax return, do artists need an LLC, art business bookkeeping, Etsy artist 1099-K, tax savings for artists, Schedule C for artists, musician taxes, photographer taxes, art fair sales tax",
     "offers": [
      {
       "@type": "Offer",

@@ -223,7 +223,6 @@ def service_node():
             "serviceType": "Tax preparation for international students and nonresident aliens (Form 1040-NR, Form 8843, Forms 843 and 8316)",
             "description": DESC + f" Federal returns for every US state. State returns for every state except {STATES_EXCEPT}.",
             "provider": {"@id": seo.ORG_ID}, "areaServed": {"@type": "Country", "name": "United States"},
-            "keywords": ", ".join(KEYWORDS),
             "audience": {"@type": "Audience", "audienceType": "F-1 and J-1 students, J-1 scholars and H-1B workers in the United States"},
             "offers": offers()}
 

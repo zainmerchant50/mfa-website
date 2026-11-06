@@ -58,6 +58,8 @@ ORG_DESC = ("Accounting, bookkeeping, tax preparation and advisory firm in Princ
             "and individuals in New Jersey, New York City and nationwide, with LLC formation in all 50 states and a shop of "
             "digital tax and bookkeeping tools. Founded by Zain Merchant, ACCA, formerly of PwC.")
 HOURS_NOTE = "Replies to inquiries within one business day."
+PERSON_DESC = ("Zain Merchant, ACCA, is the founder and principal of Merchant Financial Advisory in Princeton, New Jersey. "
+               "Before starting MFA he worked at PwC in New York on audit, SOX and internal-controls engagements.")
 
 
 # ----------------------------------------------------------------------------------------------- JSON-LD plumbing
@@ -80,7 +82,11 @@ def address():
 
 
 def area_served():
-    return [{"@type": "State", "name": "New Jersey"}, {"@type": "State", "name": "New York"},
+    # Princeton and Mercer County come first: the home base named on /princeton-nj/ ("Mercer County, including Princeton ...").
+    nj = {"@type": "State", "name": "New Jersey"}
+    return [{"@type": "City", "name": "Princeton", "containedInPlace": {"@type": "AdministrativeArea", "name": "Mercer County", "containedInPlace": nj}},
+            {"@type": "AdministrativeArea", "name": "Mercer County", "containedInPlace": nj},
+            nj, {"@type": "State", "name": "New York"},
             {"@type": "City", "name": "New York", "containedInPlace": {"@type": "State", "name": "New York"}},
             {"@type": "Country", "name": "United States"}]
 
@@ -99,6 +105,8 @@ def person():
             "jobTitle": "Founder & Principal", "url": BASE + "/authors/zain-merchant/",
             "image": LOGO, "sameAs": [LINKEDIN_ZAIN, UPWORK, FIVERR],
             "worksFor": {"@id": ORG_ID},
+            # Same facts as the visible bio on /authors/zain-merchant/ (ACCA, founder, formerly PwC New York).
+            "description": PERSON_DESC,
             "memberOf": {"@type": "Organization", "name": "ACCA", "url": "https://www.accaglobal.com/"},
             "knowsAbout": ["Tax preparation", "Tax planning", "Accrual accounting", "Bookkeeping", "QuickBooks Online",
                            "Form 1099 reporting", "Financial reporting", "Internal controls", "Audit support"],
@@ -649,9 +657,193 @@ def patch_home():
     path.write_text(s, encoding="utf-8")
 
 
+
+# ----------------------------------------------------------------------------------------------- page decorations
+# One place for two things every builder would otherwise have to repeat (run from build_all, so every build_blog.py run
+# re-applies them; they sit between markers, so re-running is idempotent and other builders' output is never edited
+# anywhere else):
+#   1. <meta name="keywords"> from the page's real topics (Google ignores it; Bing and some assistants read it; harmless).
+#   2. A "Guides on this topic" strip right after <main> on service, local and LLC pages, linking each to its best guides
+#      (service pages -> top guides; blog posts -> service pages is done in build_blog.py).
+# check_seo.py fails if a mapped page loses its strip, so a builder run on its own is caught before a push.
+KW_MARK = ("<!--seo:kw-->", "<!--/seo:kw-->")
+GUIDES_MARK = ("<!--seo:guides-->", "<!--/seo:guides-->")
+
+PAGE_KEYWORDS = {
+    "/": ["accountant Princeton NJ", "bookkeeping services New Jersey", "tax preparation NJ and NYC", "small business accounting",
+          "QuickBooks bookkeeping", "LLC formation", "fractional CFO"],
+    "/services/": ["small business accounting services", "tax preparation services", "tax planning", "monthly bookkeeping",
+                   "financial reporting", "fractional CFO", "audit support", "NJ and NYC accountant"],
+    "/llc-formation/": ["LLC formation service", "form an LLC", "LLC cost by state", "EIN and operating agreement",
+                        "single-member LLC", "LLC filing fees 2026"],
+    "/bookkeeping-cleanup/": ["bookkeeping cleanup", "catch-up bookkeeping", "behind on bookkeeping", "QuickBooks cleanup",
+                              "reconcile bank accounts", "fixed quote bookkeeping"],
+    "/1099-filing/": ["1099 filing service", "1099-NEC filing", "1099-MISC filing", "W-9 collection", "1099 deadline 2027",
+                      "file 1099s for contractors"],
+    "/late-tax-return/": ["late tax return", "file 2025 taxes late", "missed October 15 deadline", "unfiled tax return",
+                          "late filing penalty", "Form 1040 late filing"],
+    "/quarterly-estimated-taxes/": ["quarterly estimated taxes", "estimated tax payments", "1040-ES", "self-employed taxes",
+                                    "estimated tax due dates 2026", "safe harbor"],
+    "/s-corp-election/": ["S corp election", "Form 2553", "LLC taxed as S corp", "reasonable salary", "S corp deadline 2027"],
+    "/year-end-tax-planning/": ["year-end tax planning", "tax planning session", "reduce taxes before December 31",
+                                "small business tax deductions", "2026 tax planning"],
+    "/llc-annual-report/": ["LLC annual report filing", "annual report deadline", "state annual report fee",
+                            "keep LLC in good standing"],
+    "/international-students/": ["international student tax filing", "Form 8843", "1040-NR", "F-1 student taxes",
+                                 "H-1B tax return", "nonresident alien tax"],
+    "/artists/": ["artist taxes", "1099-K for artists", "Schedule C for artists", "art fair sales tax", "creative business deductions"],
+    "/princeton-nj/": ["accountant Princeton NJ", "bookkeeping Princeton NJ", "tax preparation Princeton NJ", "Mercer County accountant",
+                       "small business accountant Princeton"],
+    "/union-city-nj/": ["accountant Union City NJ", "bookkeeping Union City NJ", "tax preparation Union City NJ",
+                        "Hudson County accountant", "small business accountant Union City"],
+    "/new-york-ny/": ["accountant New York NY", "bookkeeping NYC", "tax preparation New York City", "NYC small business accountant",
+                      "New York tax preparer"],
+    "/bookkeeping/princeton-nj/": ["bookkeeping Princeton NJ", "monthly bookkeeping", "QuickBooks bookkeeper Princeton",
+                                   "small business bookkeeping NJ"],
+    "/shop/": ["tax calculator spreadsheet", "bookkeeping checklist", "1099 kit", "small business tax templates",
+               "AI prompts for bookkeeping", "tax organizer 2026"],
+    "/resources/": ["small business tax calculators", "1099 checker", "tax deadlines 2027", "bookkeeping templates",
+                    "LLC fees by state", "tax tools"],
+    "/blog/": ["small business tax tips", "tax deadlines 2026", "QuickBooks tips", "accrual accounting", "New Jersey taxes",
+               "New York taxes"],
+    "/book/": ["book a tax consultation", "accountant consultation", "bookkeeping consultation", "Princeton NJ accountant"],
+    "/newsletter/": ["tax newsletter", "tax deadline reminders", "small business tax updates", "QuickBooks tips email"],
+    "/authors/zain-merchant/": ["Zain Merchant ACCA", "accountant Princeton NJ", "MFA founder", "tax and accounting articles"],
+    "/privacy": ["privacy policy", "Merchant Financial Advisory"],
+    "/terms": ["terms of service", "Merchant Financial Advisory"],
+    "/disclaimer": ["disclaimer", "not tax advice", "Merchant Financial Advisory"],
+    "/tools/1099-contractor-tracker/": ["1099 contractor tracker", "who needs a 1099-NEC", "1099 threshold 2026", "contractor payments log"],
+    "/tools/1099-tax-calculator/": ["1099 tax calculator", "self-employment tax calculator", "how much to set aside for taxes 1099",
+                                    "1099 taxes NJ NY"],
+    "/tools/break-even-calculator/": ["break-even calculator", "break-even point", "fixed and variable costs", "small business pricing"],
+    "/tools/do-i-need-to-send-a-1099/": ["do I need to send a 1099", "1099-NEC rules 2026", "1099 threshold", "1099 for LLC"],
+    "/tools/home-office-deduction-calculator/": ["home office deduction calculator", "simplified home office deduction",
+                                                 "Form 8829", "home office deduction 2026"],
+    "/tools/is-it-deductible/": ["is it tax deductible", "small business tax write-offs", "business expense deductions",
+                                 "deductible expenses list"],
+    "/tools/mileage-deduction-calculator/": ["mileage deduction calculator", "IRS standard mileage rate 2026", "business mileage log",
+                                             "car expense deduction"],
+    "/tools/paycheck-tax-calculator/": ["paycheck tax calculator", "take-home pay calculator", "FICA withholding",
+                                        "NJ paycheck calculator", "NY paycheck calculator"],
+    "/tools/profit-margin-calculator/": ["profit margin calculator", "markup calculator", "gross margin", "pricing calculator"],
+    "/tools/quarterly-estimated-tax-calculator/": ["quarterly estimated tax calculator", "estimated tax payments 2026",
+                                                   "1040-ES calculator", "NJ estimated tax", "NY estimated tax"],
+    "/tools/s-corp-tax-savings-calculator/": ["S corp tax savings calculator", "is an S corp worth it", "S corp vs LLC",
+                                              "reasonable salary S corp"],
+    "/tools/tax-deadlines-2027/": ["2027 tax deadlines", "business tax deadlines by entity", "NJ tax deadlines 2027",
+                                   "NY tax deadlines 2027"],
+    "/tools/w-9-request-email-template/": ["W-9 request email template", "request a W-9 from a vendor", "W-9 form 2026",
+                                           "1099 vendor onboarding"],
+}
+
+_LLC_GUIDES = ["which-tax-form-llc-corporation", "schedule-c-guide-single-member-llc", "llc-taxed-as-s-corp-guide"]
+PAGE_GUIDES = {
+    "/services/": ["2027-tax-calendar", "which-tax-form-llc-corporation", "small-business-tax-write-offs-2026", "form-1099-preparation-guide-2026"],
+    "/1099-filing/": ["form-1099-preparation-guide-2026", "1099-income-filing-threshold", "hiring-overseas-contractors-taxes-w8ben"],
+    "/late-tax-return/": ["filing-taxes-late-2025-return", "october-15-2026-tax-extension-deadline"],
+    "/llc-formation/": _LLC_GUIDES,
+    "/quarterly-estimated-taxes/": ["2027-tax-calendar", "1099-income-filing-threshold", "social-security-wage-base-2027-self-employed"],
+    "/s-corp-election/": ["llc-taxed-as-s-corp-guide", "form-1120s-s-corp-guide", "social-security-wage-base-2027-self-employed"],
+    "/year-end-tax-planning/": ["year-end-tax-planning-2026-key-dates", "section-179-bonus-depreciation-2026", "small-business-tax-write-offs-2026"],
+    "/llc-annual-report/": ["which-tax-form-llc-corporation", "form-1065-guide-llc"],
+    "/bookkeeping-cleanup/": ["small-business-tax-write-offs-2026", "schedule-c-guide-single-member-llc", "ai-in-accounting-and-tax-2026"],
+    "/international-students/": ["filing-taxes-late-2025-return", "2027-tax-calendar"],
+    "/artists/": ["small-business-tax-write-offs-2026", "schedule-c-guide-single-member-llc", "1099-income-filing-threshold"],
+    "/princeton-nj/": ["nj-property-tax-relief-anchor-stay-nj-2026", "nj-sales-tax-st50-filing-guide", "salt-cap-2026-nj-ny-pte-tax", "2027-tax-calendar"],
+    "/union-city-nj/": ["nj-property-tax-relief-anchor-stay-nj-2026", "nj-sales-tax-st50-filing-guide", "salt-cap-2026-nj-ny-pte-tax", "2027-tax-calendar"],
+    "/new-york-ny/": ["salt-cap-2026-nj-ny-pte-tax", "2027-tax-calendar", "which-tax-form-llc-corporation"],
+}
+
+
+def _state_name(s):
+    m = re.search(r"<h1[^>]*>How much does an LLC cost in ([^<?]+)\?</h1>", s)
+    return _html.unescape(m.group(1)).strip() if m else None
+
+
+def page_keywords(path, s):
+    if path in PAGE_KEYWORDS:
+        return PAGE_KEYWORDS[path]
+    if re.fullmatch(r"/llc-formation/[a-z]{2}/", path):
+        st = _state_name(s)
+        if st:
+            return [f"{st} LLC cost", f"form an LLC in {st}", f"{st} LLC filing fee", f"{st} LLC requirements", "LLC formation service"]
+    return None
+
+
+def page_guides(path):
+    if path in PAGE_GUIDES:
+        return PAGE_GUIDES[path]
+    if re.fullmatch(r"/llc-formation/[a-z]{2}/", path):
+        return _LLC_GUIDES
+    return None
+
+
+def _guide_titles(posts):
+    ovr = json.loads((ROOT / "tools" / "seo_overrides.json").read_text(encoding="utf-8"))
+    return {p["slug"]: re.sub(r"\s*\|\s*MFA( Insights)?$", "", ovr.get(p["slug"], {}).get("title") or p.get("seoTitle") or p["title"])
+            for p in posts}
+
+
+GUIDES_CSS = ("<style>.mfa-guides{border-top:1px solid rgba(21,21,21,.1);background:#F5F4EF;padding:22px 0}"
+              ".mfa-guides .mg-in{max-width:1120px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}"
+              ".mfa-guides .mg-k{font:700 10px/1.4 Inter,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#B08D3F;margin-right:6px}"
+              ".mfa-guides a{font:500 .86rem/1.3 Inter,system-ui,sans-serif;padding:7px 13px;border:1px solid #B08D3F;border-radius:999px;"
+              "background:#FDFDFC;color:#10233F;text-decoration:none;transition:background .3s,color .3s,transform .3s}"
+              ".mfa-guides a:hover,.mfa-guides a:focus-visible{background:#B08D3F;color:#fff;transform:translateY(-1px)}"
+              "@media (prefers-reduced-motion:reduce){.mfa-guides a{transition:none}.mfa-guides a:hover{transform:none}}</style>")
+
+
+def guides_html(slugs, titles):
+    links = [(f"/blog/{g}/", titles[g]) for g in slugs if g in titles]
+    if not links:
+        return ""
+    li = "".join(f'<a href="{u}">{_html.escape(t)}</a>' for u, t in links)
+    return (f'{GUIDES_CSS}<nav class="mfa-guides" aria-label="Guides on this topic"><div class="mg-in">'
+            f'<span class="mg-k">Guides on this topic</span>{li}</div></nav>')
+
+
+def _set_block(s, mark, block, anchor_re, before=True):
+    """Replace the marked block, or insert it at the anchor (before/after the last match). Returns the new text."""
+    full = mark[0] + block + mark[1] if block else ""
+    if mark[0] in s:
+        return re.sub(re.escape(mark[0]) + r".*?" + re.escape(mark[1]), lambda m: full, s, count=1, flags=re.S)
+    if not block:
+        return s
+    ms = list(re.finditer(anchor_re, s, re.S))
+    if not ms:
+        return s
+    m = ms[-1]
+    i = m.start() if before else m.end()
+    return s[:i] + full + s[i:]
+
+
+def decorate_pages(posts):
+    titles = _guide_titles(posts)
+    n = 0
+    for url, f in discover_pages():
+        path = url[len(BASE):]
+        if path.startswith("/blog/") and path != "/blog/":
+            continue   # posts get keywords and tags from build_blog.py
+        s = f.read_text(encoding="utf-8")
+        t = s
+        kws = page_keywords(path, s)
+        has_own = re.search(r'<meta name="keywords"', re.sub(re.escape(KW_MARK[0]) + r".*?" + re.escape(KW_MARK[1]), "", s, flags=re.S))
+        if kws and not has_own:
+            t = _set_block(t, KW_MARK, f'<meta name="keywords" content="{_html.escape(", ".join(kws))}"/>',
+                           r'<meta name="description" content="[^"]*"\s*/?>', before=False)
+        g = page_guides(path)
+        if g:
+            t = _set_block(t, GUIDES_MARK, guides_html(g, titles), r"</main>", before=False)
+        if t != s:
+            f.write_text(t, encoding="utf-8")
+            n += 1
+    return n
+
+
 # ----------------------------------------------------------------------------------------------- everything
 def build_all(posts):
     patch_home()
+    decorate_pages(posts)
     build_robots()
     build_llms(posts)
     build_llms_full(posts)

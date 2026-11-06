@@ -202,7 +202,7 @@ def build_page(slug, *, title, desc, h1, h1em, eyebrow, lead, keywords, cards, i
 </main>{DIALOG}{dialog_js()}'''
     service = {"@type": "Service", "@id": url + "#service", "name": svc_name, "url": url, "serviceType": svc_type,
                "description": desc, "provider": {"@id": seo.ORG_ID}, "areaServed": {"@type": "Country", "name": "United States"},
-               "keywords": ", ".join(keywords), "offers": [offer_ld(s, url + "#prices", d, u) for s, d, u in offers]}
+               "offers": [offer_ld(s, url + "#prices", d, u) for s, d, u in offers]}
     faq_ld = {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ui_kit._plain(a)}} for q, a in faq]}
     ld = seo.graph(url, svc_name, desc, service, faq_ld,
