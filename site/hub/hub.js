@@ -678,9 +678,10 @@
     var ag = d.agents || [], bl = ag.filter(function (a) { return a.status === "Blocked"; }).length, act = d.activity || [], ideas = d.ideas || [];
     K("Blocked agents", null, ag.length + " agents", { count: bl, dot: bl ? "bad" : "ok", bad: bl > 0, href: HL.route("board", { status: "Blocked", range: H.range }) });
     var cnt = function (list, k) { return list.filter(function (x) { return x[k] && inWin(ymdET(x[k]), w); }).length; }, pcnt = function (list, k) { return list.filter(function (x) { return x[k] && inPrior(ymdET(x[k]), w); }).length; };
-    K("Log lines · " + rl, c.logOk ? null : "n/a", c.logOk ? "prior " + (HL.covered(c.logMin ? ymdET(c.logMin) : null, w.pFrom) ? pcnt(LR, "ts") : "n/a") : NA("log starts " + fmtD(c.logMin, true)), { count: c.logOk ? cnt(LR, "ts") : null, href: HL.route("log") });
-    K("Activity · " + rl, c.actOk ? null : "n/a", c.actOk ? "Agent Board events" : NA("activity synced from " + fmtD(c.minOf(act, "at"))), { count: c.actOk ? cnt(act, "at") : null });
-    K("Ideas added · " + rl, c.ideaOk ? null : "n/a", c.ideaOk ? ideas.length + " ideas synced" : NA(ideas.length ? "ideas synced from " + fmtD(c.minOf(ideas, "at")) : "no ideas synced"), { count: c.ideaOk ? cnt(ideas, "at") : null });
+    // a range tile only shows when the data covers the whole range (no "n/a" tiles)
+    if (c.logOk) K("Log lines · " + rl, null, HL.covered(c.logMin ? ymdET(c.logMin) : null, w.pFrom) ? "prior " + pcnt(LR, "ts") : "Live log lines", { count: cnt(LR, "ts"), href: HL.route("log") });
+    if (c.actOk) K("Activity · " + rl, null, "Agent Board events", { count: cnt(act, "at") });
+    if (c.ideaOk) K("Ideas added · " + rl, null, ideas.length + " ideas synced", { count: cnt(ideas, "at") });
   }
 
   R.board = function (d) {
