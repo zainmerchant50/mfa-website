@@ -7,8 +7,8 @@ description: Research, write, design and publish an SEO-optimized MFA Insights p
 
 Produces content for **Merchant Financial Advisory LLC** (MFA), a New Jersey **accounting, tax and business solutions provider** (never position it as only tax or only accounting) (mfa-advisory.com, info@mfa-advisory.com). The primary output is an MFA Insights blog post. The same research can be repurposed for LinkedIn, Instagram and the weekly newsletter.
 
-## Current operating rules (Zain, Oct 20 2026; these override anything below)
-- **Runs happen only when Zain asks in chat.** No scheduled tasks for the blog, ever (they kept failing). Don't create one.
+## Current operating rules (Zain, Oct 20 and Nov 6 2026; these override anything below)
+- **Cadence (Zain, Nov 6 2026; replaces the Oct 20 "on request only" rule):** 4 posts a week, at least 36 hours apart, one on the weekend. Scheduled tasks "MFA blog" run Fri 7:37 AM, Sun 7:37 AM, Mon 8:07 PM and Wed 8:37 AM ET. Each run publishes one post, with no approval step. If a run fails, it reports exactly what failed and publishes nothing half-finished.
 - **Topic:** read the project doc claude/ads-to-blog-brief.md first. Its Topic queue and guide rules win over the weekday rhythm. After publishing, append one line to its Blog log and touch nothing else there.
 - **Length and purpose:** posts carry *just enough* information (aim 600–900 words) to answer the search and then point the reader to an MFA product or service (Gumroad digital products, LLC formation, bookkeeping/tax services). Don't write exhaustive guides; the paid product is where the depth lives. Product links go in once the products are live (the site session does the site-wide product update).
 - **Wording:** describe MFA as an "accounting, tax and business solutions provider"; use "business solutions" wherever it fits naturally.
