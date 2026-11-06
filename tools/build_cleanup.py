@@ -16,6 +16,7 @@ import json
 import ads
 import build_blog as B
 import seo
+import ui_kit
 from build_resources import page, write, esc, BASE, cta
 
 ENDPOINT = "https://formsubmit.co/ajax/" + B.EMAIL
@@ -32,6 +33,24 @@ STEPS = [
     ("Send the form", "Tell us about your books: how far behind, what software, how many accounts. It takes about three minutes."),
     ("We look at a sample", "We review a sample of your accounts and give you a fixed quote before any work starts."),
     ("You decide", "If the quote works, we begin. If not, you owe nothing."),
+]
+# Visible FAQ + FAQPage JSON-LD (2026-11-06). Every answer restates facts already on this page or /services/.
+FAQ = [
+    ("How much does a bookkeeping cleanup cost?",
+     "It depends on how many months, accounts and transactions are involved, so we don't guess at a flat rate. We review a sample "
+     "of your accounts and give you a fixed quote before any work starts, and the quote is the price: it doesn't grow as we go."),
+    ("What does a bookkeeping cleanup include?",
+     "Catch-up categorization of every transaction since you fell behind, bank and credit card reconciliations to the statements, "
+     "a payables and receivables tidy-up, correct opening balances, and a short written summary of what we found and fixed."),
+    ("Does it cost anything to ask for a quote?",
+     "No. The form is a quote request, not an order, and nothing is charged. We reply by email within one business day, and if the "
+     "quote doesn't work for you, you owe nothing."),
+    ("Which accounting software do you work in?",
+     "QuickBooks Online, QuickBooks Desktop, Xero, Sage, Wave and FreshBooks. If your records are only in spreadsheets, or you "
+     "don't have a system yet, choose that on the form."),
+    ("What happens once my books are current?",
+     'Monthly bookkeeping keeps them that way: from $199/month for one bank account, one card and up to 100 transactions a month. '
+     '<a href="/services/#bookkeeping">See bookkeeping services</a>.'),
 ]
 SOFTWARE = ["QuickBooks Online", "QuickBooks Desktop", "Xero", "Sage", "Wave", "FreshBooks", "Spreadsheets only", "No system yet", "Other"]   # Zain, 2026-10-25: QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks
 MONTHS = ["1 to 3 months", "4 to 6 months", "7 to 12 months", "13 to 24 months", "More than 24 months"]
@@ -139,6 +158,7 @@ def build():
 <p>You see the price before we touch your books, and the quote is the price: it doesn't grow as we go.</p></div>
 <div class="st3s">{steps}</div></section>
 {form_html()}
+<section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><h2 id="faq-h">FAQs</h2>{ui_kit.faq_accordion([(esc(q), a) for q, a in FAQ], prefix="cu")}</section>
 {cta("Prefer to talk it through?", "Book a 30-minute call and tell us where the books stand. We'll suggest the smallest cleanup that gets you current.")}
 <section class="wrap llc-sec fineprint" aria-label="Fine print"><p class="disclaimer">Bookkeeping cleanup is bookkeeping work prepared for your own use. It is general accounting support, not tax or legal advice, and sending this form doesn't create a client relationship until you accept a written quote.</p></section>
 </main>'''
@@ -146,7 +166,11 @@ def build():
            "description": desc, "provider": {"@id": seo.ORG_ID}, "areaServed": seo.area_served(),
            "offers": {"@type": "Offer", "description": "Fixed quote after a review of a sample of your accounts, before any work starts.",
                       "availability": "https://schema.org/InStock"}}
-    ld = seo.graph(url, "Bookkeeping cleanup and catch-up", desc, svc, crumb=[("Home", BASE + "/"), ("Services", BASE + "/services/"), ("Bookkeeping cleanup", url)],
+    faq_ld = {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ui_kit._plain(a)}} for q, a in FAQ]}
+    howto = {"@type": "HowTo", "@id": url + "#how", "name": "How to get a fixed bookkeeping cleanup quote from MFA",
+             "step": [{"@type": "HowToStep", "position": i, "name": a, "text": b} for i, (a, b) in enumerate(STEPS, 1)]}
+    ld = seo.graph(url, "Bookkeeping cleanup and catch-up", desc, svc, faq_ld, howto, crumb=[("Home", BASE + "/"), ("Services", BASE + "/services/"), ("Bookkeeping cleanup", url)],
                    extra={"mainEntity": {"@id": url + "#service"}})
     return write("bookkeeping-cleanup", page(title, desc, url, body, ld, active="s"))
 

@@ -171,10 +171,13 @@ def picker_data():
     return out
 
 
-def ld_service(url, title="LLC formation", desc=""):
-    """Page graph for /llc-formation/: the firm, the LLC formation Service with its three public prices, the FAQ and the breadcrumb."""
+def ld_service(url, title="LLC formation", desc="", steps=None):
+    """Page graph for /llc-formation/: the firm, the LLC formation Service with its three public prices, the FAQ, the visible
+    "How it works" steps as HowTo, and the breadcrumb."""
     faq = {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": faq_ld(FAQ)["mainEntity"]}
-    return seo.graph(url, title, desc, seo.llc_service(url), faq, *seo.llc_addon_catalog(), kind="WebPage", full_org=True,
+    howto = {"@type": "HowTo", "@id": url + "#how", "name": "How to form an LLC with MFA",
+             "step": [{"@type": "HowToStep", "position": i, "name": a, "text": b} for i, (a, b) in enumerate(steps, 1)]} if steps else None
+    return seo.graph(url, title, desc, seo.llc_service(url), faq, howto, *seo.llc_addon_catalog(), kind="WebPage", full_org=True,
                      crumb=[("Home", BASE + "/"), ("LLC formation", url)], extra={"mainEntity": {"@id": url + "#service"}})
 
 
@@ -487,7 +490,7 @@ def build_main():
 <p class="stnote-r">Planning beyond the filing? See the <a href="/tools/tax-deadlines-2027/">2027 business tax deadlines</a> and the <a href="/resources/#states">full resources hub</a>.</p>
 <p class="disclaimer">State facts checked against each state's official sources as of {CHECKED}. State fees change; we confirm the current fee before invoicing. {esc(LEGAL)} Educational information, not tax or legal advice.</p></section>
 </main>{picker_js()}'''
-    ld = ld_service(url, "LLC formation in all 50 states", desc)
+    ld = ld_service(url, "LLC formation in all 50 states", desc, steps)
     return write("llc-formation", page(title, desc, url, body, ld, active="llc"))
 
 

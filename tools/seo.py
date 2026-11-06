@@ -482,6 +482,15 @@ def _pricing_lines():
     return lines
 
 
+def _category_lines():
+    """Blog category pages that exist (built by build_blog.build_categories), as one llms.txt line."""
+    cats = sorted((SITE / "blog" / "category").glob("*/index.html"))
+    if not cats:
+        return []
+    names = [(re.search(r"<h1>(.*?) <em>", f.read_text(encoding="utf-8")).group(1), f.parent.name) for f in cats]
+    return ["- Topics: " + ", ".join(f"[{_html.unescape(n)}]({BASE}/blog/category/{slug}/)" for n, slug in names)]
+
+
 def build_llms(posts):
     products = live_products()
     L = [
@@ -535,7 +544,7 @@ def build_llms(posts):
         "",
         "## MFA Insights (articles on IRS, New Jersey and New York tax rules and deadlines)",
         f"- [MFA Insights blog]({BASE}/blog/): all articles; [newsletter]({BASE}/newsletter/); [RSS feed]({BASE}/blog/feed.xml)",
-    ] + [f"- [{p['title']}]({BASE}/blog/{p['slug']}/): {p['description']}" for p in posts] + [
+    ] + _category_lines() + [f"- [{p['title']}]({BASE}/blog/{p['slug']}/): {p['description']}" for p in posts] + [
         "",
         "## Optional",
         f"- [Full details for assistants]({BASE}/llms-full.txt): services, prices, LLC packages and state fees, products, FAQs",
@@ -787,7 +796,7 @@ def _guide_titles(posts):
 GUIDES_CSS = ("<style>.mfa-guides{border-top:1px solid rgba(21,21,21,.1);background:#F5F4EF;padding:22px 0}"
               ".mfa-guides .mg-in{max-width:1120px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}"
               ".mfa-guides .mg-k{font:700 10px/1.4 Inter,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#B08D3F;margin-right:6px}"
-              ".mfa-guides a{font:500 .86rem/1.3 Inter,system-ui,sans-serif;padding:7px 13px;border:1px solid #B08D3F;border-radius:999px;"
+              ".mfa-guides a{font:500 .86rem/1.3 Inter,system-ui,sans-serif;padding:7px 13px;border:1px solid #B08D3F;border-radius:18px;"
               "background:#FDFDFC;color:#10233F;text-decoration:none;transition:background .3s,color .3s,transform .3s}"
               ".mfa-guides a:hover,.mfa-guides a:focus-visible{background:#B08D3F;color:#fff;transform:translateY(-1px)}"
               "@media (prefers-reduced-motion:reduce){.mfa-guides a{transition:none}.mfa-guides a:hover{transform:none}}</style>")

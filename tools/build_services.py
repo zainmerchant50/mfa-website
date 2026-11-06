@@ -9,6 +9,7 @@ import json
 
 import build_blog as B
 import seo
+import ui_kit
 from build_resources import page, write, esc, BASE, cta
 
 ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
@@ -91,6 +92,29 @@ OFFERS = [
 ]
 
 
+# Visible FAQ + FAQPage JSON-LD (2026-11-06): short, answer-first replies built only from facts already on this page.
+FAQ = [
+    ("What services does Merchant Financial Advisory offer?",
+     "Eight services from one team: tax preparation and filing, tax planning and strategy, bookkeeping and accounting, financial "
+     "reporting, fractional CFO, audit support and controls, technical accounting advisory, and systems and business advisory. "
+     "We also form LLCs in all 50 states."),
+    ("How much does monthly bookkeeping cost?",
+     "From $199/month for one bank account, one card and up to 100 transactions a month, month to month. Larger books and "
+     'cleanup projects are quoted up front. <a href="/bookkeeping-cleanup/">Request a cleanup quote</a>.'),
+    ("How much does tax preparation cost?",
+     "Tax preparation is quoted up front by return type and complexity, so you see the price before we start. "
+     '<a href="/book/">Book a 30-minute consultation</a> to get a quote.'),
+    ("Which accounting software do you work in?",
+     "QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks."),
+    ("Do you perform audits?",
+     "No. We help you get ready for your auditor with prepared-by-client schedules, internal-controls work and remediation plans, "
+     "but we don't perform audits or issue audit, review or compilation reports."),
+    ("Where are you based, and who do you work with?",
+     "Merchant Financial Advisory is in Princeton, New Jersey and works with individuals and small and mid-sized businesses in "
+     'New Jersey, New York and nationwide. See <a href="/princeton-nj/">Princeton, NJ</a> and <a href="/new-york-ny/">New York City</a>.'),
+]
+
+
 def build():
     url = BASE + "/services/"
     title = "Tax, Bookkeeping & CFO Services in NJ and NYC | MFA"
@@ -122,12 +146,16 @@ def build():
 <a class="btn btn-ink" href="/resources/">Browse resources</a></div></section>
 <section class="wrap llc-sec" aria-labelledby="more-h"><div class="sec-hd"><span class="eyebrow eb-dark">Where we work, and more</span><h2 id="more-h">Local and related pages.</h2></div>
 <nav class="sv-jump" aria-label="Local and related pages"><a href="/princeton-nj/">Princeton, NJ</a><a href="/bookkeeping/princeton-nj/">Bookkeeping in Princeton</a><a href="/union-city-nj/">Union City, NJ</a><a href="/new-york-ny/">New York City</a><a href="/llc-formation/">LLC formation in all 50 states</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup quote</a><a href="/year-end-tax-planning/">Year-end tax planning $99</a><a href="/1099-filing/">1099 filing from $20/form</a><a href="/s-corp-election/">S corp switch $299</a><a href="/quarterly-estimated-taxes/">Quarterly estimates $199/yr</a><a href="/llc-annual-report/">LLC annual report $39</a><a href="/late-tax-return/">Late 2025 tax return from $249</a><a href="/international-students/">International students &amp; H-1B</a><a href="/artists/">Artists &amp; creatives</a><a href="/shop/">Shop</a><a href="/resources/">Resources</a><a href="/blog/">MFA Insights</a><a href="/authors/zain-merchant/">About Zain Merchant, ACCA</a></nav></section>
+<section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><h2 id="faq-h">FAQs</h2>{ui_kit.faq_accordion([(esc(q), a) for q, a in FAQ], prefix="sv")}</section>
 {cta("Not sure where to start?", "Tell us what's going on in a 30-minute call and we'll suggest the smallest engagement that fixes it, with a price before any work begins.")}
 <section class="wrap llc-sec fineprint" aria-label="Fine print"><p class="disclaimer">Merchant Financial Advisory provides accounting, bookkeeping, tax preparation and advisory services. We do not perform audits or issue audit, review or compilation reports, and we are not a law firm. Languages: English, Hindi and Urdu.</p></section>
 </main>'''
     ld = seo.graph(url, "Services", desc, {"@type": "OfferCatalog", "@id": url + "#catalog", "name": "MFA services", "url": url,
                                             "itemListElement": [{"@id": f"{url}#{sid}"} for sid, *_ in SERVICES]},
-                   *seo.service_nodes(), kind="CollectionPage", full_org=True,
+                   *seo.service_nodes(),
+                   {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
+                       {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ui_kit._plain(a)}} for q, a in FAQ]},
+                   kind="CollectionPage", full_org=True,
                    crumb=[("Home", BASE + "/"), ("Services", url)])
     return write("services", page(title, desc, url, body, ld, active="s"))
 
