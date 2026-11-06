@@ -243,5 +243,26 @@
     "cta_word": "SCAM",
     "theme": "classic plum",
     "note": "IG+FB queue already filled to Nov 27; LinkedIn Typefully November quota taken by 8 scheduled posts."
+  },
+  {
+    "date": "2026-11-10",
+    "slug": "LLC-Tax-Myth",
+    "type": "service",
+    "format": "image",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "status": "scheduled",
+    "times": {
+      "instagram": "Tue Nov 10 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+      "linkedin": "Tue Dec 1 6:00 PM ET (native LinkedIn scheduler; Nov 6-30 each already have a native 7:30 PM LinkedIn video, Typefully 10/10 used)"
+    },
+    "title": "Your LLC didn't cut your tax by $1",
+    "cta_word": "SCORP",
+    "link": "https://mfa-advisory.com/s-corp-election/",
+    "file": "social/posts/2026-11-10-llc-tax-myth.json",
+    "note": "Also fixed Nov 9 No-1099 IG+FB posts, which had been scheduled with no caption (paste event not saved); captions re-added via Edit scheduled post and verified."
   }
 ]

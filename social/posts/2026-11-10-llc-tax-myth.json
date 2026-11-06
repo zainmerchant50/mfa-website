@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-10",
+  "number": 1,
+  "slug": "LLC-Tax-Myth",
+  "topic": "Myth + real dollars: forming a single-member LLC does not lower tax by default (disregarded entity, same 15.3% SE tax on 92.35% of profit: $60,000 profit = about $8,478 either way); what can change it is an S corp election (Form 2553 by Mar 15, 2027 for 2027) with a reasonable salary (nov-push -> /s-corp-election/)",
+  "type": "service",
+  "accent": "forest",
+  "label": "LLC owners / Myth vs fact",
+  "kicker": "\"Get an LLC for the taxes\"",
+  "headline": "Your LLC didn't cut your tax by *$1*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Myth: an LLC lowers your tax",
+      "text": "Fact: a one-owner LLC is taxed just like you, by default."
+    },
+    {
+      "title": "$60,000 profit, LLC or not",
+      "text": "Self-employment tax is about $8,478 either way."
+    },
+    {
+      "title": "What can change it",
+      "text": "An S corp election, with a fair salary paid through payroll."
+    },
+    {
+      "title": "For 2027: Mar 15, 2027",
+      "text": "File Form 2553 by then for the election to start Jan 1."
+    }
+  ],
+  "body": [],
+  "cta_word": "SCORP",
+  "link": "mfa-advisory.com/s-corp-election",
+  "checked": "November 6, 2026",
+  "ig_caption": "Formed an LLC to save on taxes? On its own, it doesn't change your tax bill.\n\nBy default, the IRS treats a one-owner LLC as \"disregarded\". The profit lands on your own return, same as before.\n\nReal numbers, $60,000 profit:\n✔️ Without an LLC: self-employment tax of about $8,478 (15.3% on 92.35% of profit).\n✔️ With an LLC: about $8,478, the same.\n✔️ What can change it: an S corp election. You pay yourself a fair salary through payroll, and profit paid out above that isn't hit by self-employment tax.\n✔️ The catch: payroll, a separate return, and state rules that vary.\n\nFor 2027, Form 2553 is due by Mar 15, 2027. We run the numbers first and tell you if it's worth it.\n\nComment SCORP and we'll send you the link, or find it at mfa-advisory.com/s-corp-election\n\nGeneral information, not tax advice.\n\n#smallbusiness #llc #taxtips #entrepreneur #businessowner #accounting #bookkeeping #smallbusinesstips\n#scorp #llctaxes #selfemployed #selfemploymenttax #taxplanning #freelancer #njsmallbusiness #nysmallbusiness",
+  "li_caption": "Forming an LLC does not, by itself, lower your tax bill. It is a common belief among new owners.\n\nMyth vs fact, with real numbers:\n\n1. Myth: an LLC saves tax. Fact: the IRS treats a single-member LLC as a disregarded entity by default. The profit goes on the owner's own return.\n2. Fact: on $60,000 of profit, self-employment tax is about $8,478 (15.3% on 92.35% of profit), with or without the LLC.\n3. Fact: what can change the math is an S corp election. The owner takes a reasonable salary through payroll first; profit paid out above that is not subject to employment taxes.\n4. Fact: it adds costs and work: payroll, a separate Form 1120-S return, and rules that vary by state.\n\nFor the election to start on Jan 1, 2027, Form 2553 is due by Mar 15, 2027.\n\nThe LLC is still worth having for liability and clean books. Just don't count on it for tax savings. We run an S corp savings check with your real numbers before you file anything.\n\nComment SCORP and we will send it.\n\nLink in the first comment.\n\n#SmallBusiness #LLC #SCorp #TaxPlanning #SelfEmployed",
+  "sources": [
+    {
+      "fact": "Single-member LLC is a disregarded entity by default unless it elects corporation status; a qualifying LLC that elects S corp files Form 1120-S",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/llc-filing-as-a-corporation-or-partnership"
+    },
+    {
+      "fact": "SE tax 15.3% (12.4% SS + 2.9% Medicare) on 92.35% of net earnings; $60,000 x 0.9235 x 0.153 = $8,477.73 (data/tax-figures-2026.json, checked Oct 20, 2026)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    },
+    {
+      "fact": "Form 2553: file no more than 2 months and 15 days after the beginning of the tax year the election is to take effect (calendar 2027: Mon Mar 15, 2027); eligible LLC uses Form 2553, no Form 8832 needed",
+      "url": "https://www.irs.gov/instructions/i2553"
+    },
+    {
+      "fact": "S corp must pay shareholder-employee reasonable compensation before non-wage distributions; non-wage distributions not subject to employment taxes",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues"
+    },
+    {
+      "fact": "MFA offer: S corp switch for 2027 (no prices in social posts)",
+      "url": "https://mfa-advisory.com/s-corp-election/"
+    }
+  ],
+  "post_times": {
+    "instagram": "Tue Nov 10, 5:30 PM ET (Meta Business Suite, IG+FB)",
+    "linkedin": "Tue Dec 1, 6:00 PM ET (native LinkedIn scheduler; every Nov day already has a LinkedIn post, Typefully quota full)"
+  },
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/s-corp-election/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push",
+    "linkedin": "https://mfa-advisory.com/s-corp-election/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push"
+  },
+  "li_caption_native": "Forming an LLC does not, by itself, lower your tax bill. It is a common belief among new owners.\n\nMyth vs fact, with real numbers:\n\n1. Myth: an LLC saves tax. Fact: the IRS treats a single-member LLC as a disregarded entity by default. The profit goes on the owner's own return.\n2. Fact: on $60,000 of profit, self-employment tax is about $8,478 (15.3% on 92.35% of profit), with or without the LLC.\n3. Fact: what can change the math is an S corp election. The owner takes a reasonable salary through payroll first; profit paid out above that is not subject to employment taxes.\n4. Fact: it adds costs and work: payroll, a separate Form 1120-S return, and rules that vary by state.\n\nFor the election to start on Jan 1, 2027, Form 2553 is due by Mar 15, 2027.\n\nThe LLC is still worth having for liability and clean books. Just don't count on it for tax savings. We run an S corp savings check with your real numbers before you file anything.\n\nComment SCORP and we will send it, or see https://mfa-advisory.com/s-corp-election/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push\n\n#SmallBusiness #LLC #SCorp #TaxPlanning #SelfEmployed"
+}
