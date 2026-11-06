@@ -1,0 +1,70 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:How Much Do You Have to Make on a 1099 to File Taxes in 2026?
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:1099-income-filing-threshold-0@mfa-advisory.com
+DTSTAMP:20261106T125015Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth 2026 estimated tax payment due (federal 1040-ES\, NJ-1040-
+ ES and NY IT-2105)
+DESCRIPTION:Generally needed if you expect to owe $1\,000 or more in fede
+ ral tax after withholding and credits. Federal: you can skip it if you fi
+ le your 2026 return and pay in full by Feb. 1\, 2027.\n\nDetails: https:/
+ /mfa-advisory.com/blog/1099-income-filing-threshold/\nGeneral information
+ \, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/1099-income-filing-threshold/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth 2026 estimated tax payment due (federal 1040-ES\, NJ-1
+ 040-ES and NY IT-2105)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:1099-income-filing-threshold-1@mfa-advisory.com
+DTSTAMP:20261106T125015Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Payers must send and file 2026 Forms 1099-NEC
+DESCRIPTION:Required for nonemployee pay of $2\,000 or more in 2026. Your
+  income is reportable even if you don't get one.\n\nDetails: https://mfa-
+ advisory.com/blog/1099-income-filing-threshold/\nGeneral information\, no
+ t tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/1099-income-filing-threshold/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Payers must send and file 2026 Forms 1099-NEC
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:1099-income-filing-threshold-2@mfa-advisory.com
+DTSTAMP:20261106T125015Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:2026 Form 1040 with Schedule C and Schedule SE due (NJ-1040 and N
+ Y IT-201 too)
+DESCRIPTION:Required if your 2026 net earnings from self-employment were 
+ $400 or more. Form 4868 extends the time to file\, not to pay.\n\nDetails
+ : https://mfa-advisory.com/blog/1099-income-filing-threshold/\nGeneral in
+ formation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.co
+ m
+URL:https://mfa-advisory.com/blog/1099-income-filing-threshold/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:2026 Form 1040 with Schedule C and Schedule SE due (NJ-1040 a
+ nd NY IT-201 too)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

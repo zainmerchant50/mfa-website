@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:1099-income-filing-threshold-1@mfa-advisory.com
+DTSTAMP:20261106T125015Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Payers must send and file 2026 Forms 1099-NEC
+DESCRIPTION:Required for nonemployee pay of $2\,000 or more in 2026. Your
+  income is reportable even if you don't get one.\n\nDetails: https://mfa-
+ advisory.com/blog/1099-income-filing-threshold/\nGeneral information\, no
+ t tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/1099-income-filing-threshold/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Payers must send and file 2026 Forms 1099-NEC
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

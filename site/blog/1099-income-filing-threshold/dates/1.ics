@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ 1040-ES and NY IT-2105)
+BEGIN:VEVENT
+UID:1099-income-filing-threshold-0@mfa-advisory.com
+DTSTAMP:20261106T125015Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth 2026 estimated tax payment due (federal 1040-ES\, NJ-1040-
+ ES and NY IT-2105)
+DESCRIPTION:Generally needed if you expect to owe $1\,000 or more in fede
+ ral tax after withholding and credits. Federal: you can skip it if you fi
+ le your 2026 return and pay in full by Feb. 1\, 2027.\n\nDetails: https:/
+ /mfa-advisory.com/blog/1099-income-filing-threshold/\nGeneral information
+ \, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/1099-income-filing-threshold/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth 2026 estimated tax payment due (federal 1040-ES\, NJ-1
+ 040-ES and NY IT-2105)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

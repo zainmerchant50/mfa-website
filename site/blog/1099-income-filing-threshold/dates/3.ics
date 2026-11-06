@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ and NY IT-201 too)
+BEGIN:VEVENT
+UID:1099-income-filing-threshold-2@mfa-advisory.com
+DTSTAMP:20261106T125015Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:2026 Form 1040 with Schedule C and Schedule SE due (NJ-1040 and N
+ Y IT-201 too)
+DESCRIPTION:Required if your 2026 net earnings from self-employment were 
+ $400 or more. Form 4868 extends the time to file\, not to pay.\n\nDetails
+ : https://mfa-advisory.com/blog/1099-income-filing-threshold/\nGeneral in
+ formation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.co
+ m
+URL:https://mfa-advisory.com/blog/1099-income-filing-threshold/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:2026 Form 1040 with Schedule C and Schedule SE due (NJ-1040 a
+ nd NY IT-201 too)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
