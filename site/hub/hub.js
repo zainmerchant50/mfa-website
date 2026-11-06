@@ -90,6 +90,29 @@
     if (note) { if (o.marker) td.appendChild(el("span", "pill new", "💬 reply")); var nn = el("div", "note", "Agent: " + note); nn.title = note; td.appendChild(nn); }
     return td;
   }
+  // card layout: the reply box opens inside the card, right under the item
+  function cardReply(ref, card, o) {
+    o = o || {};
+    var n = (COMMENTS[ref] || []).length, note = lastNote(ref), lab = o.label || "Reply", foot = el("div", "card-foot"), slot = null;
+    var b = btn("btn-s line reply-b", n ? lab + " (" + n + ")" : lab, function () {
+      if (slot) { card.removeChild(slot); slot = null; b.setAttribute("aria-expanded", "false"); return; }
+      slot = el("div", "card-reply"); slot.appendChild(commentBox(ref, o.kind)); card.appendChild(slot); b.setAttribute("aria-expanded", "true");
+      var ta = slot.querySelector("textarea"); if (ta) ta.focus();
+    });
+    b.setAttribute("aria-expanded", "false"); foot.appendChild(b);
+    if (note) { if (o.marker) foot.appendChild(el("span", "pill new", "💬 reply")); var nn = el("div", "note", "Agent: " + note); nn.title = note; foot.appendChild(nn); }
+    return foot;
+  }
+  // long text: show ~4 lines, then a More / Less toggle (the button only appears when the text is cut)
+  function more(node, cls) {
+    var w = el("div", "more" + (cls ? " " + cls : "")), c = el("div", "more-c");
+    var b = btn("more-b", "More", function () { var o = w.classList.toggle("open"); b.textContent = o ? "Less" : "More"; b.setAttribute("aria-expanded", String(o)); });
+    b.hidden = true; b.setAttribute("aria-expanded", "false"); c.appendChild(node); add(w, c, b); return w;
+  }
+  function fitMore(root) {
+    [].forEach.call((root || document).querySelectorAll(".more"), function (w) { if (w.classList.contains("open")) return; var c = w.firstChild, cut = c.scrollHeight > c.clientHeight + 2; w.lastChild.hidden = !cut; w.classList.toggle("cut", cut); });
+  }
+  var fitT = null; window.addEventListener("resize", function () { clearTimeout(fitT); fitT = setTimeout(function () { fitMore(); }, 150); });
 
   // ---------- one-click answers (chips + typed answer + 10 s undo) ----------
   function answerCell(kind, item) {
@@ -137,7 +160,7 @@
   function table(host, cfg) {
     clear(host);
     var st = { k: (cfg.sort || {}).k, dir: (cfg.sort || {}).dir || "desc", q: "", sel: {} };
-    var tb = el("div", "tb"), wrap = el("div", "tw" + (cfg.short ? " short" : "")), cnt = el("span", "cnt");
+    var tb = el("div", "tb"), wrap = el("div", cfg.cards ? "cw" : "tw" + (cfg.short ? " short" : "")), cnt = el("span", "cnt");
     if (cfg.search !== false) {
       var s = el("input"); s.type = "search"; s.placeholder = "Filter…"; s.setAttribute("aria-label", "Filter rows");
       s.addEventListener("input", function () { st.q = s.value.trim().toLowerCase(); draw(); }); tb.appendChild(s);
@@ -149,6 +172,14 @@
       if (f.value) { sel.value = f.value; st.sel[f.l] = f.value; }
       sel.addEventListener("change", function () { st.sel[f.l] = sel.value; draw(); }); tb.appendChild(sel);
     });
+    if (cfg.cards) { // cards have no column headers, so sorting moves into the toolbar
+      var ss = el("select"); ss.setAttribute("aria-label", "Sort by");
+      cfg.cols.forEach(function (c) { if (c.sortable !== false) ss.appendChild(new Option("Sort: " + (c.sortLabel || c.l), c.k)); });
+      if (st.k) ss.value = st.k;
+      var dirB = btn("btn-s line", "", function () { st.dir = st.dir === "asc" ? "desc" : "asc"; draw(); });
+      ss.addEventListener("change", function () { var c = cfg.cols.filter(function (x) { return x.k === ss.value; })[0]; st.k = ss.value; st.dir = c && c.num ? "desc" : "asc"; draw(); });
+      add(tb, ss, dirB);
+    }
     add(tb, cnt); add(host, tb, wrap);
     var colspan = cfg.cols.length + (cfg.ref ? 1 : 0);
     function val(c, r) { return c.get ? c.get(r) : r[c.k]; }
@@ -168,6 +199,7 @@
         });
       }
       cnt.textContent = rows.length + " of " + cfg.rows.length;
+      if (cfg.cards) { dirB.textContent = st.dir === "asc" ? "▲" : "▼"; dirB.title = st.dir === "asc" ? "Ascending (click to flip)" : "Descending (click to flip)"; dirB.setAttribute("aria-label", dirB.title); drawCards(rows); return; }
       var t = el("table", "dt"), th = el("thead"), hr = el("tr");
       cfg.cols.forEach(function (c) {
         var h = el("th", c.num ? "n" : "", c.l); if (st.k === c.k) h.setAttribute("data-dir", st.dir);
@@ -189,6 +221,33 @@
       if (cfg.total && rows.length) { var tt = el("tr", "total"); cfg.total(rows).forEach(function (x, i) { var td = el("td", cfg.cols[i] && cfg.cols[i].num ? "n" : "", x); tt.appendChild(td); }); if (cfg.ref) tt.appendChild(el("td")); bd.appendChild(tt); }
       add(t, th, bd); clear(wrap).appendChild(t);
       if (!rows.length) wrap.appendChild(el("div", "empty", cfg.empty || "Nothing here yet."));
+    }
+    // card layout (cfg.cards): one card per row. Column c.card = "head" | "meta" | "body" | "act" | false
+    // (default: w/ww columns are body text, the rest are short meta). Reply sits at the bottom of each card.
+    function role(c) { return c.card !== undefined ? c.card : /\bww?\b/.test(c.cls || "") ? "body" : "meta"; }
+    function filled(v) { return v instanceof Node ? (v.textContent.trim() !== "" || !!(v.querySelector && v.querySelector("input,button,a"))) : v !== ""; }
+    function drawCards(rows) {
+      var list = el("div", "cards");
+      rows.forEach(function (r) {
+        var card = el("article", "card"), meta = el("div", "card-meta"), body = el("div", "card-body"), act = el("div", "card-act"), head = null;
+        cfg.cols.forEach(function (c) {
+          var ro = role(c); if (!ro) return;
+          var v = c.cell ? c.cell(r) : val(c, r);
+          if (!(v instanceof Node)) v = v === null || v === undefined ? "" : (c.num && typeof v === "number" ? n0(v) : String(v));
+          if (!filled(v)) return;
+          var node = v instanceof Node ? v : el("div", null, v);
+          if (ro === "head") head = more(node, "card-head");
+          else if (ro === "meta") { var mi = el("span", "mi"); add(mi, el("span", "ml", c.l), node); meta.appendChild(mi); }
+          else if (ro === "body") { var f = el("div", "cf"); add(f, el("div", "ml", c.l), more(node)); body.appendChild(f); }
+          else if (ro === "act") act.appendChild(node);
+        });
+        add(card, head, meta.childNodes.length ? meta : null, body.childNodes.length ? body : null, act.childNodes.length ? act : null);
+        if (cfg.ref) card.appendChild(cardReply(cfg.ref(r), card, cfg.reply ? { label: cfg.reply.label, kind: cfg.reply.kind, marker: cfg.reply.marker && cfg.reply.marker(r) } : null));
+        list.appendChild(card);
+      });
+      clear(wrap).appendChild(list);
+      if (!rows.length) wrap.appendChild(el("div", "empty", cfg.empty || "Nothing here yet."));
+      fitMore(list);
     }
     draw();
   }
@@ -317,14 +376,14 @@
   function needsTable(host, rows, o) {
     o = o || {};
     table(host, {
-      rows: rows, short: o.short, sort: { k: "o", dir: "asc" },
+      rows: rows, short: o.short, cards: !!o.cards, sort: { k: "o", dir: "asc" },
       selects: [{ l: "Source", k: "src" }, { l: "Status", k: "status", value: "open" }],
       cols: [
-        { k: "o", l: "#", num: true, get: function (r) { return (r.status === "open" ? 0 : 1) * 1e6 + (r.kind === "finance" ? 1e5 : 0) + rows.indexOf(r); }, cell: function (r) { return String(rows.indexOf(r) + 1); } },
+        { k: "o", l: "#", num: true, card: false, sortLabel: "Open first", get: function (r) { return (r.status === "open" ? 0 : 1) * 1e6 + (r.kind === "finance" ? 1e5 : 0) + rows.indexOf(r); }, cell: function (r) { return String(rows.indexOf(r) + 1); } },
         { k: "src", l: "From", cls: "nw", cell: function (r) { var ref = r.item && r.item.ref, m = ref && /^agent:(.+)$/.exec(ref);
           return hl(r.agent || r.src, r.kind === "finance" ? HL.route("finance", { group: HL.financeKind(r.item), q: r.id }) : m ? HL.route("board", { agent: m[1] }) : r.agent ? HL.route("board", { agent: r.agent }) : ref ? HL.refHref("home", ref) : HL.route("board")); } },
-        { k: "title", l: "Question / approval", cls: "w", cell: function (r) { var w = el("div"); add(w, clip(r.title)); if (r.detail) w.appendChild(el("div", "muted", r.detail)); return w; } },
-        { k: "status", l: "Answer", cls: "ww", cell: function (r) { return answerCell(r.kind, r.item); } }
+        { k: "title", l: "Question / approval", cls: "w", card: "head", cell: function (r) { var w = el("div"); add(w, clip(r.title)); if (r.detail) w.appendChild(el("div", "muted", r.detail)); return w; } },
+        { k: "status", l: "Answer", cls: "ww", card: "act", sortLabel: "Status", cell: function (r) { return answerCell(r.kind, r.item); } }
       ],
       ref: function (r) { return r.kind === "finance" ? r.id : "need:" + r.id; },
       empty: o.empty || "Nothing is waiting on you."
@@ -406,7 +465,7 @@
     acts.appendChild(btn("btn-s line", "Close ✕", function () { setHash(o.close || {}); }));
     add(hd, add(el("div"), el("h2", null, o.title), o.sub ? el("span", "sub", " " + o.sub) : null), acts); h.appendChild(hd);
     if (o.fields && o.fields.length) {
-      var f = el("div", "fields"); o.fields.forEach(function (x) { if (x[1] === null || x[1] === undefined || x[1] === "") return; var c = el("div", "f"); add(c, el("span", "l", x[0]), x[1] instanceof Node ? x[1] : el("span", "v", String(x[1]))); f.appendChild(c); });
+      var f = el("div", "fields"); o.fields.forEach(function (x) { if (x[1] === null || x[1] === undefined || x[1] === "") return; var c = el("div", "f" + (typeof x[1] === "string" && x[1].length > 140 ? " wide" : "")); add(c, el("span", "l", x[0]), x[1] instanceof Node ? x[1] : el("span", "v", String(x[1]))); f.appendChild(c); });
       h.appendChild(f);
     }
     if (o.table) { var tw = el("div"); h.appendChild(tw); table(tw, o.table); }
@@ -492,26 +551,26 @@
       kpi(strip, "Ideas added · " + rl, ideaOk ? String(cnt(ideas, "at")) : "n/a", ideaOk ? ideas.length + " ideas synced" : NA(ideas.length ? "ideas synced from " + fmtD(minOf(ideas, "at")) : "no ideas synced"));
     }
     table($("agents"), {
-      rows: ag, sort: { k: "st", dir: "asc" }, selects: [{ l: "Status", k: "status", value: H.status || "" }],
+      rows: ag, cards: true, sort: { k: "st", dir: "asc" }, selects: [{ l: "Status", k: "status", value: H.status || "" }],
       cols: [
-        { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return add(el("div"), hl(a.agent, HL.route("board", { agent: a.agent, range: H.range }), "b"), el("div", "muted", a.title || "")); } },
+        { k: "agent", l: "Agent", cls: "nw", card: "head", cell: function (a) { return add(el("div"), hl(a.agent, HL.route("board", { agent: a.agent, range: H.range }), "b"), el("div", "muted", a.title || "")); } },
         { k: "st", l: "Status", get: function (a) { return { Blocked: 0, Working: 1, Scheduled: 2, Idle: 3 }[a.status] + ""; }, cell: function (a) { var x = el("div"); add(x, pill(a.status)); if (isStale(a.data.updated_at || a.at, 48)) x.appendChild(el("span", "stale-tag", "no update 48h")); return x; } },
         { k: "at", l: "Last run", cls: "nw", cell: function (a) { return hl(fmtD(a.at, true), HL.route("log", { agent: a.agent })); } },
         { k: "runs", l: "Runs · " + rl, num: true, get: function (a) { return logOk ? (runs[a.agent] || 0) : -1; }, cell: function (a) { if (!logOk) { var s = el("span", "muted", "n/a"); s.title = NA("log starts " + fmtD(logMin, true)); return s; } return hl(String(runs[a.agent] || 0), HL.route("board", { agent: a.agent, range: H.range })); } },
         { k: "res", l: "Last result", cls: "w", get: function (a) { return a.data.last_result || ""; }, cell: function (a) { return clip(a.data.last_result || ""); } },
         { k: "next", l: "Next run", cls: "nw", get: function (a) { return a.data.next_run || ""; }, cell: function (a) { return fmtD(a.data.next_run, true); } },
         { k: "need", l: "Needs you / blocked by", cls: "w", get: function (a) { return a.data.needs_zain || ""; }, cell: function (a) { return clip(a.data.needs_zain || ""); } },
-        { k: "sched", l: "Schedule", cls: "ww", get: function (a) { return a.data.schedule || ""; } },
-        { k: "rev", l: "Review", cls: "nw", get: function () { return ""; }, cell: function (a) { return reviewCell(HL.route("board", { agent: a.agent, range: H.range }), HL.agentLink(a.agent, LINKS), a.agent); } }
+        { k: "sched", l: "Schedule", cls: "ww", card: "meta", get: function (a) { return a.data.schedule || ""; } },
+        { k: "rev", l: "Review", cls: "nw", sortable: false, get: function () { return ""; }, cell: function (a) { return reviewCell(HL.route("board", { agent: a.agent, range: H.range }), HL.agentLink(a.agent, LINKS), a.agent); } }
       ], ref: function (a) { return a.id; }
     });
-    needsTable($("needs"), needsRows({ needs: d.needs || [] }));
+    needsTable($("needs"), needsRows({ needs: d.needs || [] }), { cards: true });
     table($("ideas"), {
-      rows: ideas, sort: { k: "at", dir: "desc" }, selects: [{ l: "Status", k: "status" }, { l: "Owner", get: function (i) { return i.data.owner || ""; } }],
+      rows: ideas, cards: true, sort: { k: "at", dir: "desc" }, selects: [{ l: "Status", k: "status" }, { l: "Owner", get: function (i) { return i.data.owner || ""; } }],
       cols: [
         { k: "at", l: "Added", cls: "nw", cell: function (i) { return fmtD(i.at); } },
         { k: "status", l: "Status", cell: function (i) { return pill(i.status); } },
-        { k: "title", l: "Idea", cls: "w", cell: function (i) { return clip(i.title); } },
+        { k: "title", l: "Idea", cls: "w", card: "head", cell: function (i) { return clip(i.title); } },
         { k: "owner", l: "Owner", get: function (i) { return i.data.owner || ""; }, cell: function (i) { return i.data.owner ? hl(i.data.owner, HL.route("board", { agent: i.data.owner })) : ""; } },
         { k: "prog", l: "Progress", cls: "ww", get: function (i) { return (i.data.progress || "") + (i.data.progress_note ? ": " + i.data.progress_note : ""); }, cell: function (i) { return clip((i.data.progress ? i.data.progress.replace(/_/g, " ") + ": " : "") + (i.data.progress_note || "")); } },
         { k: "up", l: "Upside", cls: "ww", get: function (i) { return i.data.upside || ""; }, cell: function (i) { return clip(i.data.upside || ""); } }
@@ -519,8 +578,8 @@
     });
     setTitle("activity", "Activity · " + rl);
     table($("activity"), {
-      rows: act.filter(function (a) { return inWin(ymdET(a.at), w); }), short: true, sort: { k: "at", dir: "desc" }, selects: [{ l: "Agent", k: "agent" }],
-      cols: [{ k: "at", l: "Time", cls: "nw", cell: function (a) { return fmtD(a.at, true); } }, { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return a.agent ? hl(a.agent, HL.route("board", { agent: a.agent, range: H.range })) : ""; } }, { k: "title", l: "What happened", cls: "w" }],
+      rows: act.filter(function (a) { return inWin(ymdET(a.at), w); }), short: true, cards: true, sort: { k: "at", dir: "desc" }, selects: [{ l: "Agent", k: "agent" }],
+      cols: [{ k: "at", l: "Time", cls: "nw", cell: function (a) { return fmtD(a.at, true); } }, { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return a.agent ? hl(a.agent, HL.route("board", { agent: a.agent, range: H.range })) : ""; } }, { k: "title", l: "What happened", cls: "w", card: "head" }],
       ref: function (a) { return a.id; }, empty: actOk ? "No activity in this range." : NA("activity synced from " + fmtD(minOf(act, "at")))
     });
     // agent drill-down: card + runs/activity in the range, platform + doc

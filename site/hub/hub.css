@@ -189,3 +189,41 @@ a.kpi.x .l::after{content:" \2197";color:var(--gold)}
 [hidden]{display:none!important}
 .ans .chips{min-width:0}
 .ans .chip{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+/* v5: card lists (Board). One card per item; reply/answer sits inside the card, under the item */
+.cw{min-width:0}
+.cards{display:grid;gap:12px;padding:12px}
+.card{background:#fff;border:1px solid var(--h-line);border-radius:8px;padding:12px 14px;display:grid;gap:8px;min-width:0;overflow-wrap:anywhere}
+.card:hover{border-color:rgba(176,141,63,.55)}
+.card-head{font-size:14px;font-weight:500;color:var(--ink);line-height:1.45}
+.card-head a.dl.b{font-size:15px}
+.card-head .clip{font-weight:600;color:var(--navy)}
+.card-head .muted{font-size:12.5px;font-weight:400;margin-top:2px}
+.card-meta{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:baseline;font-size:12.5px}
+.card .mi{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:6px;min-width:0}
+.card .ml{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.card-body{display:grid;gap:8px}
+.card .cf .ml{margin-bottom:1px}
+.card .clip{display:block;-webkit-line-clamp:unset;overflow:visible;cursor:auto}
+.card .rev{white-space:normal;flex-wrap:wrap}
+.card .doc{white-space:normal}
+.card-act{border-top:1px dashed var(--h-line);padding-top:8px}
+.card-act .ans{min-width:0;max-width:720px}
+.card-foot{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.card-foot .note{margin-top:0}
+.card-reply{border-top:1px dashed var(--h-line);padding-top:8px}
+.card-reply .cbox{max-width:none}
+.more-c{max-height:calc(4 * 1.45em);overflow:hidden}
+.more.open .more-c{max-height:none}
+.more.cut:not(.open) .more-c{-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.more-b{font:600 11.5px Inter,sans-serif;border:0;background:none;color:var(--h-info);cursor:pointer;padding:2px 0 0}
+.more-b:hover{text-decoration:underline}
+.more-b:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+/* Board page: readable column, more air between sections, one column of panels */
+body.hub[data-page="board"] .hub-main{max-width:1100px;margin:0 auto;gap:20px;padding-top:16px}
+body.hub[data-page="board"] .g2{grid-template-columns:minmax(0,1fr);gap:20px}
+body.hub[data-page="board"] .pn-h{padding:10px 14px}
+body.hub[data-page="board"] .tb{padding:8px 14px}
+body.hub[data-page="board"] .det .fields{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+body.hub[data-page="board"] .det .f .v{overflow-wrap:anywhere}
+body.hub[data-page="board"] .det .f.wide{grid-column:1/-1}
+@media (max-width:600px){.cards{padding:8px;gap:10px}.card{padding:10px 12px}.card-meta{gap:4px 12px}}
