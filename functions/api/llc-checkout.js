@@ -67,3 +67,9 @@ export async function onRequestPost({ request, env }) {
     return Response.json({ error: "stripe", message: String(e.message || e) }, { status: 424 });
   }
 }
+
+// Crawlers and link checkers GET this URL; answer with a clean 405 instead of falling through to the HTML 404 page.
+export function onRequestGet() {
+  return Response.json({ error: "method_not_allowed", hint: "POST a checkout request from the site's order form." },
+    { status: 405, headers: { Allow: "POST", "Cache-Control": "no-store", "X-Robots-Tag": "noindex" } });
+}

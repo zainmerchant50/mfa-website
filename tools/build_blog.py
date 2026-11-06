@@ -90,6 +90,8 @@ def person_ld(a):
          "worksFor": {"@id": seo.ORG_ID}}
     if a["credential"] == "ACCA":
         p["memberOf"] = {"@type": "Organization", "name": "ACCA", "url": "https://www.accaglobal.com/"}
+    if a.get("bio"):
+        p["description"] = a["bio"]   # the same bio is visible in the "About the author" box on every post
     return p
 
 
@@ -158,9 +160,9 @@ SOCIAL_ROW = ('<nav class="socs" aria-label="MFA on social media" style="flex-ba
 
 FOOT = f'''<footer class="bfoot"><div class="wrap">
   <span>© {datetime.now().year} Merchant Financial Advisory LLC · Princeton, NJ · <a href="tel:+13472054468" data-conv="call">(347) 205-4468</a> · Serving New Jersey, New York and clients nationwide</span>
-  <nav><a href="/">Home</a><a href="/#reviews">Reviews</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+  <nav><a href="/">Home</a><a href="/#reviews">Reviews</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a><a href="/blog/">Insights</a><a href="/newsletter/">Newsletter</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclaimer">Disclaimer</a><a href="/blog/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   {SOCIAL_ROW}
-  <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer.html">Disclaimer</a>.</p>
+  <p class="legal">Content on this site is general information only and is not tax, accounting, legal, or financial advice. Reading it or contacting us does not create a client relationship. See our <a href="/disclaimer">Disclaimer</a>.</p>
 </div></footer>''' + ui_kit.UI_JS
 
 
@@ -597,7 +599,7 @@ def nl_form(kind="subscribe", variant=""):
   <div class="nl-row"><label>First name<input name="name" autocomplete="given-name"/></label><label>Email<input name="email" type="email" autocomplete="email" required/></label></div>
   <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
   <button class="btn btn-gold" type="submit">Subscribe</button>
-  <p class="nl-fine">Up to 3 short emails a week. Unsubscribe from any email in one click. We never sell or share your address. <a href="/privacy.html">Privacy Policy</a>.</p>
+  <p class="nl-fine">Up to 3 short emails a week. Unsubscribe from any email in one click. We never sell or share your address. <a href="/privacy">Privacy Policy</a>.</p>
   <p class="nl-st" role="status" aria-live="polite"></p>
 </form>
 <p class="nl-done" hidden>Almost done: check your inbox and click the confirmation link to join {NEWSLETTER_NAME}. (If you don't see it in a minute, check Promotions or Spam.)</p>"""
@@ -701,7 +703,9 @@ def build_post(p):
     extra = (f'<meta property="article:published_time" content="{p["date"]}"/>'
              f'<meta property="article:modified_time" content="{p.get("updated", p["date"])}"/>'
              f'<meta property="article:section" content="{esc(p["category"])}"/>'
-             f'{seo.script(ld)}')
+             f'<meta property="article:author" content="{A["url"]}"/>'
+             + "".join(f'<meta property="article:tag" content="{esc(tag_label(k))}"/>' for k in p.get("keywords", []))
+             + f'{seo.script(ld)}')
     sources = "".join(f'<li><a href="{esc(s["url"])}" target="_blank" rel="noopener">{esc(s["title"])}</a></li>'
                       for s in p["sources"])
     nice = p["dt"].strftime("%B %-d, %Y")
@@ -760,6 +764,14 @@ def thumb(p):
     return f"/blog/{p['slug']}/{p['og']}"
 
 
+def post_summary(p):
+    """Short BlogPosting node for listing pages (blog index, author page, category pages); the full node lives on the post."""
+    u = f'{BASE}/blog/{p["slug"]}/'
+    return {"@type": "BlogPosting", "@id": u + "#article", "headline": p["title"], "url": u, "datePublished": p["date"],
+            "dateModified": p.get("updated", p["date"]), "image": u + p["og"], "articleSection": p["category"],
+            "author": {"@id": seo.PERSON_ID}}
+
+
 def build_index(posts):
     cards = "".join(f'''<a class="pcard" href="/blog/{p["slug"]}/">
   <div class="thumb"><img src="{thumb(p)}" alt="{esc(p["coverAlt"])}" loading="lazy" decoding="async" width="1200" height="630"/></div>
@@ -768,9 +780,7 @@ def build_index(posts):
     desc = BLOG_DESC
     og = f'{BASE}/blog/{posts[0]["slug"]}/{posts[0]["og"]}' if posts else BASE + "/apple-touch-icon.png"
     ldx = seo.graph(BASE + "/blog/", "MFA Insights: Tax, Accounting & QuickBooks Tips", INDEX_DESC,
-                    {**BLOG_NODE, "blogPost": [{"@type": "BlogPosting", "@id": f'{BASE}/blog/{p["slug"]}/#article', "headline": p["title"],
-                                                "url": f'{BASE}/blog/{p["slug"]}/', "datePublished": p["date"],
-                                                "image": f'{BASE}/blog/{p["slug"]}/{p["og"]}'} for p in posts]},
+                    {**BLOG_NODE, "blogPost": [post_summary(p) for p in posts]},
                     kind="CollectionPage", crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/")],
                     modified=posts[0].get("updated", posts[0]["date"]) if posts else None)
     page = f'''{head("MFA Insights: Tax, Accounting & QuickBooks Tips", INDEX_DESC, BASE + "/blog/", og, seo.script(ldx))}
@@ -805,7 +815,9 @@ def build_pages():
     for f in sorted(PAGES_DIR.glob("*.html")):
         m = re.match(r"\s*<!--meta\s*(\{.*?\})\s*-->\s*(.*)\Z", f.read_text(encoding="utf-8"), re.S)
         meta, body = json.loads(m.group(1)), m.group(2).strip()
-        url = f"{BASE}/{meta['slug']}.html"
+        # Cloudflare Pages serves privacy.html at /privacy and 308-redirects /privacy.html there, so the canonical,
+        # sitemap and every internal link use the bare path (a canonical that redirects wastes crawls and confuses AI fetchers).
+        url = f"{BASE}/{meta['slug']}"
         upd = datetime.fromisoformat(meta["updated"]).strftime("%B %-d, %Y")
         ldp = seo.graph(url, meta["title"], meta["description"], crumb=[("Home", BASE + "/"), (meta["title"], url)], modified=meta["updated"])
         page = f'''{head(meta["title"] + " | Merchant Financial Advisory", meta["description"], url, BASE + "/apple-touch-icon.png", seo.script(ldp))}
@@ -841,7 +853,7 @@ def build_author(posts):
             "accrual accounting and QuickBooks.")
     ld = seo.graph(url, f'{a["name"]}, {a["credential"]}', desc, person, crumb=[("Home", BASE + "/"), ("Insights", BASE + "/blog/"), (a["name"], url)],
                    kind="ProfilePage", extra={"mainEntity": {"@id": url + "#person"}, "about": {"@id": url + "#person"},
-                                              "hasPart": [{"@type": "BlogPosting", "headline": p["title"], "url": f'{BASE}/blog/{p["slug"]}/'} for p in mine]})
+                                              "hasPart": [post_summary(p) for p in mine]})
     li_btn = f'<a class="btn btn-gold" href="{a["linkedin"]}" target="_blank" rel="noopener me">{LI_ICON}Connect on LinkedIn</a>'
     page = f"""{head(f'{a["name"]}, ACCA | Accountant in Princeton, NJ | MFA', desc, url,
                  BASE + "/apple-touch-icon.png", seo.script(ld), None, "profile")}

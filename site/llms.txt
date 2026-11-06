@@ -162,7 +162,7 @@ Not a law firm. MFA does not perform audits or issue audit, review or compilatio
 
 ## About
 - [Zain Merchant, ACCA](https://mfa-advisory.com/authors/zain-merchant/): founder and principal, author of MFA Insights
-- [Disclaimer](https://mfa-advisory.com/disclaimer.html), [Privacy](https://mfa-advisory.com/privacy.html), [Terms](https://mfa-advisory.com/terms.html)
+- [Disclaimer](https://mfa-advisory.com/disclaimer), [Privacy](https://mfa-advisory.com/privacy), [Terms](https://mfa-advisory.com/terms)
 
 ## MFA Insights (articles on IRS, New Jersey and New York tax rules and deadlines)
 - [MFA Insights blog](https://mfa-advisory.com/blog/): all articles; [newsletter](https://mfa-advisory.com/newsletter/); [RSS feed](https://mfa-advisory.com/blog/feed.xml)

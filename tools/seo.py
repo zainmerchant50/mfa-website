@@ -240,7 +240,7 @@ def service_nodes():
         n = plain(name)
         node = {"@type": "Service", "@id": f"{BASE}/services/#{sid}", "name": n, "url": f"{BASE}/services/#{sid}",
                 "serviceType": n, "description": plain(lead) + " " + plain(price), "provider": {"@id": ORG_ID},
-                "areaServed": area_served(), "termsOfService": BASE + "/terms.html"}
+                "areaServed": area_served(), "termsOfService": BASE + "/terms"}
         if sid == "bookkeeping":
             node["offers"] = [_offer("Monthly bookkeeping", 199, "Starting price per month for one bank account, one card and up to 100 transactions a month.", unit=("MON", "month"))]
         elif sid == "business-advisory":
@@ -523,7 +523,7 @@ def build_llms(posts):
         "",
         "## About",
         f"- [Zain Merchant, ACCA]({BASE}/authors/zain-merchant/): founder and principal, author of MFA Insights",
-        f"- [Disclaimer]({BASE}/disclaimer.html), [Privacy]({BASE}/privacy.html), [Terms]({BASE}/terms.html)",
+        f"- [Disclaimer]({BASE}/disclaimer), [Privacy]({BASE}/privacy), [Terms]({BASE}/terms)",
         "",
         "## MFA Insights (articles on IRS, New Jersey and New York tax rules and deadlines)",
         f"- [MFA Insights blog]({BASE}/blog/): all articles; [newsletter]({BASE}/newsletter/); [RSS feed]({BASE}/blog/feed.xml)",

@@ -397,7 +397,7 @@ def checklist_box():
   <div class="nl-row"><label>First name<input name="name" autocomplete="given-name"/></label><label>Email<input name="email" type="email" autocomplete="email" required/></label></div>
   <input class="ask-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"/>
   <button class="btn" type="submit">Email me the checklist</button>
-  <p class="nl-fine">One email with the PDF now, then occasional tax-deadline reminders. Unsubscribe in one click. We never sell or share your address. <a href="/privacy.html">Privacy Policy</a>.</p>
+  <p class="nl-fine">One email with the PDF now, then occasional tax-deadline reminders. Unsubscribe in one click. We never sell or share your address. <a href="/privacy">Privacy Policy</a>.</p>
   <p class="nl-st" role="status" aria-live="polite"></p>
   </form>
   <p class="nl-done ck-done" hidden>Sent. Check your inbox in a minute (and your promotions or spam folder). You can also <a href="{CK_PDF}" target="_blank" rel="noopener">open the checklist now</a>.</p>

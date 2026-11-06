@@ -64,6 +64,62 @@ def walk(x, fn, path=""):
             walk(v, fn, path)
 
 
+def url_file(path):
+    """The file Cloudflare Pages serves for a site path ("/x/" -> x/index.html, "/privacy" -> privacy.html)."""
+    path = path.split("#")[0].split("?")[0]
+    if path.endswith("/"):
+        return SITE / path.lstrip("/") / "index.html"
+    f = SITE / path.lstrip("/")
+    return f if f.is_file() else SITE / (path.lstrip("/") + ".html")
+
+
+def page_url(rel):
+    """Public URL of a built file. Cloudflare Pages drops ".html" (and 308-redirects the .html form), so privacy.html is /privacy."""
+    if rel.endswith("index.html"):
+        return BASE + rel[: -len("index.html")]
+    return BASE + (rel[: -len(".html")] if rel.endswith(".html") else rel)
+
+
+def redirect_sources():
+    out = []
+    for line in (SITE / "_redirects").read_text(encoding="utf-8").splitlines():
+        if line.strip() and not line.lstrip().startswith("#"):
+            out.append(line.split()[0])
+    return out
+
+
+REQUIRED = {  # minimum fields per JSON-LD type (Google's required/recommended fields, plus what assistants need to quote us)
+    "BlogPosting": ("headline", "datePublished", "dateModified", "author", "image"),
+    "Article": ("headline", "datePublished", "dateModified", "author"),
+    "Service": ("name", "provider"),
+    "Offer": (),
+    "FAQPage": ("mainEntity",),
+    "Question": ("name", "acceptedAnswer"),
+    "Answer": ("text",),
+    "BreadcrumbList": ("itemListElement",),
+    "ListItem": ("position",),
+    "HowTo": ("name", "step"),
+    "HowToStep": ("name", "text"),
+    "Product": ("name", "offers"),
+    "WebApplication": ("name", "applicationCategory"),
+    "Person": ("name",),
+}
+
+
+def check_required(rel, j):
+    def visit(n, path):
+        t = n.get("@type")
+        if isinstance(t, str) and t in REQUIRED and not (len(n) <= 2 and "@id" in n):
+            miss = [k for k in REQUIRED[t] if n.get(k) in (None, "", [])]
+            if miss:
+                E(rel, f"JSON-LD {t} missing {', '.join(miss)}")
+            if t == "Offer" and not any(k in n for k in ("price", "priceSpecification", "description")):
+                E(rel, "JSON-LD Offer has no price, priceSpecification or description")
+            if t in ("BlogPosting", "Article") and isinstance(n.get("author"), dict) and not (n["author"].get("name") or n["author"].get("@id")):
+                E(rel, f"JSON-LD {t} author has no name")
+    walk(j, visit)
+
+
 def check_ld(rel, blocks, vocab):
     defined, refs, typed = {}, [], {}
     for b in blocks:
@@ -74,6 +130,7 @@ def check_ld(rel, blocks, vocab):
             continue
         if j.get("@context") != "https://schema.org":
             E(rel, "JSON-LD @context is not https://schema.org")
+        check_required(rel, j)
 
         def visit(n, path):
             t = n.get("@type")
@@ -111,6 +168,8 @@ def main():
     if len(smurls) != len(set(smurls)):
         E("sitemap.xml", "duplicate URLs")
     titles, descs, indexable = {}, {}, []
+    redir = redirect_sources()
+    links = {}
     for p in sorted(SITE.rglob("*.html")):
         rel = "/" + str(p.relative_to(SITE))
         s = p.read_text(encoding="utf-8")
@@ -154,6 +213,14 @@ def main():
         for k in ("twitter:card", "twitter:title", "twitter:description"):
             if f'name="{k}"' not in s:
                 E(rel, f"missing {k}")
+        if can and can[0] != page_url(rel):
+            E(rel, f"canonical {can[0]} is not the URL this file is served at ({page_url(rel)})")
+        for h in set(re.findall(r'href="(/[^"#?]*)', s)):
+            links.setdefault(h, rel)
+        if "/blog/" in rel and rel != "/blog/index.html" and 'property="article:tag"' not in s:
+            warns.append(f"{rel}: no article:tag meta")
+        if 'name="keywords"' not in s:
+            warns.append(f"{rel}: no meta keywords")
         if f'property="og:url" content="{can[0] if can else ""}"' not in s:
             E(rel, "og:url differs from canonical")
         blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', s, re.S)
@@ -179,16 +246,26 @@ def main():
     for k, v in descs.items():
         if len(v) > 1:
             E(", ".join(v), f"duplicate description: {k}")
+    # internal links: must resolve to a file or a _redirects rule; never to a URL Cloudflare redirects
+    for h, src in sorted(links.items()):
+        if h in ("/",) or h.startswith(("/cdn-cgi/", "/api/", "/u/")):
+            continue
+        if h.endswith(".html") and h != "/404.html" and not h.endswith("/index.html"):
+            E(src, f"links to {h}: Cloudflare 308-redirects .html URLs, link to {h[:-5]} instead")
+        elif h in redir:
+            warns.append(f"{src}: links to {h}, which is a redirect in _redirects")
+        elif not url_file(h).is_file() and not any(r.endswith("*") and h.startswith(r[:-1]) for r in redir):
+            E(src, f"broken internal link {h}")
     # sitemap
     for u in smurls:
         path = u[len(BASE):]
-        f = SITE / path.lstrip("/") / "index.html" if path.endswith("/") else SITE / path.lstrip("/")
+        f = url_file(path)
         if not f.exists():
             E("sitemap.xml", f"{u} has no file")
         elif "/" + str(f.relative_to(SITE)) not in indexable:
             E("sitemap.xml", f"{u} is noindex or not indexable")
     for rel in indexable:
-        u = BASE + (rel[: -len("index.html")] if rel.endswith("/index.html") else rel)
+        u = page_url(rel)
         if u not in smurls:
             E("sitemap.xml", f"indexable page {u} is missing")
     if not re.search(r"<lastmod>\d{4}-\d\d-\d\d</lastmod>", sm):
@@ -209,7 +286,7 @@ def main():
             E(name, "must start with an H1")
         for u in set(re.findall(r"\]\((https://mfa-advisory\.com[^)\s]*)\)", txt)):
             path = u[len(BASE):].split("#")[0]
-            f = SITE / path.lstrip("/") / "index.html" if path.endswith("/") else SITE / path.lstrip("/")
+            f = url_file(path)
             if path not in ("", "/") and not f.exists():
                 E(name, f"link {u} has no file")
         for banned in (r"\bfree\b", r"\bcpa firm\b", r"\bcertified\b", r"spring st"):

@@ -352,7 +352,7 @@ def bookkeeping_page():
     faq_bk = ui_kit.faq_accordion(FAQ_BK, prefix="bkfaq")
     acct_opts = "".join(f"<option>{o}</option>" for o in ["1 to 2 accounts", "3 to 4 accounts", "5 or more accounts", "Not sure yet"])
     service = {"@type": "Service", "@id": URL + "#service", "name": f"Bookkeeping in {city}", "serviceType": "Bookkeeping",
-               "url": URL, "provider": {"@id": seo.ORG_ID}, "areaServed": LOCAL_AREAS, "termsOfService": "https://mfa-advisory.com/terms.html",
+               "url": URL, "provider": {"@id": seo.ORG_ID}, "areaServed": LOCAL_AREAS, "termsOfService": "https://mfa-advisory.com/terms",
                "description": seo.plain("Monthly bookkeeping: reconciliations, transaction categorizing, a monthly P&amp;L and balance sheet "
                                         "and sales-tax-ready reports, at a flat monthly fee or hourly, in QuickBooks, Xero, Sage, Wave and FreshBooks. Cleanup and catch-up quoted up front."),
                }
@@ -485,7 +485,7 @@ def bookkeeping_page():
 
 <footer><div class="wrap">
   <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Accounting, tax and business solutions · {city} · Serving {L["region"]} · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
-  <nav><a href="/">Main site</a><a href="/services/#bookkeeping">Services</a><a href="/{L["slug"]}/">Bookkeeping &amp; tax in {city}</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup</a><a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
+  <nav><a href="/">Main site</a><a href="/services/#bookkeeping">Services</a><a href="/{L["slug"]}/">Bookkeeping &amp; tax in {city}</a><a href="/bookkeeping-cleanup/">Bookkeeping cleanup</a><a href="/blog/">Insights</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclaimer">Disclaimer</a></nav>
   <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc., Xero is a trademark of Xero Limited, Sage is a trademark of The Sage Group plc, and Wave and FreshBooks are trademarks of their respective owners; MFA is not affiliated with or endorsed by any of them.</p>
 </div></footer>
 
@@ -600,7 +600,7 @@ page = f'''<!doctype html><html lang="en"><head>
 
 <footer><div class="wrap">
   <span>© <span id="yr">2026</span> Merchant Financial Advisory LLC · Accounting, tax and business solutions · Princeton, NJ · Serving §CITY§ &amp; §REGION§ · <a href="mailto:{EMAIL}">{EMAIL}</a></span>
-  <nav><a href="/">Main site</a><a href="/services/">Services</a><a href="/llc-formation/">LLC formation</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a>{other_locs}<a href="/blog/">Insights</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a></nav>
+  <nav><a href="/">Main site</a><a href="/services/">Services</a><a href="/llc-formation/">LLC formation</a><a href="/resources/">Resources</a><a href="/shop/">Shop</a>{other_locs}<a href="/blog/">Insights</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclaimer">Disclaimer</a></nav>
   <p class="legal">Content on this page is general information only and is not tax, accounting, legal, or financial advice. Contacting us does not create a client relationship until an engagement letter is signed. QuickBooks is a trademark of Intuit Inc., Xero is a trademark of Xero Limited, Sage is a trademark of The Sage Group plc, and Wave and FreshBooks are trademarks of their respective owners; MFA is not affiliated with or endorsed by any of them.</p>
 </div></footer>
 

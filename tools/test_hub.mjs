@@ -2,7 +2,8 @@ import { readFileSync } from "node:fs";
 import vm from "node:vm";
 // Local tests for the MFA Hub gate and API (run: node tools/test_hub.mjs). Uses a generated RSA key, no network.
 import { verifyAccessJwt, _clearCertCache } from "../functions/_shared/hub_auth.js";
-import { onRequest as middleware, hubPathCheck } from "../functions/_middleware.js";
+import { onRequest as middleware, hubPathCheck, junkPath } from "../functions/_middleware.js";
+import { readdirSync, statSync } from "node:fs";
 import { onRequestPost as commentPost } from "../functions/api/hub/comment.js";
 import { onRequestPost as financePost } from "../functions/api/hub/finance-answer.js";
 import { onRequestGet as dataGet } from "../functions/api/hub/data.js";
@@ -78,6 +79,14 @@ for (const p of ["/", "/hub/", "/blog/ui.css", "/api/llc-config", "/anything"]) 
 await t("valid JWT: /hub/ served with private headers + CSP", async () => { const r = await run("https://hub.mfa-advisory.com/hub/", { jwt: JWT }); eq(r.res.status, 200); eq(r.called, true); eq(r.data.hubEmail, EMAIL); eq(r.res.headers.get("X-Robots-Tag").includes("noindex"), true); eq(r.res.headers.get("Cache-Control").includes("no-store"), true); eq(!!r.res.headers.get("Content-Security-Policy"), true); });
 await t("valid JWT: hub host root redirects to /hub/", async () => { const r = await run("https://hub.mfa-advisory.com/", { jwt: JWT }); eq(r.res.status, 302); eq(r.res.headers.get("Location"), "/hub/"); });
 await t("unconfigured env: valid-looking JWT still denied", async () => { const r = await run("https://mfa-advisory.com/hub/", { jwt: JWT, env: {} }); eq(r.res.status, 404); });
+await t("junkPath: probes get 410, never a real site file", async () => {
+  for (const p of ["/wp-json/wp/v2/wpmcp/streamable", "/wp-login.php", "/xmlrpc.php", "/wp-admin/", "/wp/", "/wordpress/", "/wp-sitemap.xml", "/.env", "/.env.backup", "/.git/config", "/.aws/credentials", "/public../.env", "/x1x1.php", "/proc/self/environ", "/api/w/a/../../etc", "/portfolio/business-growth/", "/header/sticky-header/"]) eq(junkPath(p), true, p);
+  for (const p of ["/", "/blog/", "/.well-known/security.txt", "/llc-formation/pa/", "/tools/is-it-deductible/deductions.json", "/privacy", "/hub/", "/api/llc-config", "/u/abc.def", "/wpm/"]) eq(junkPath(p), false, p);
+  const walk = (d) => readdirSync(d).flatMap((n) => statSync(d + "/" + n).isDirectory() ? walk(d + "/" + n) : [d + "/" + n]);
+  const root = new URL("../site", import.meta.url).pathname;
+  for (const f of walk(root)) { const p = f.slice(root.length); if (junkPath(p)) throw new Error("real file matched: " + p); }
+});
+await t("junk probe answered 410 without touching assets", async () => { const r = await run("https://mfa-advisory.com/wp-json/wp/v2/wpmcp/streamable"); eq(r.res.status, 410); eq(r.called, false); eq(r.res.headers.get("X-Robots-Tag"), "noindex"); });
 await t("hubPathCheck", async () => { eq(hubPathCheck("/blog/"), false); eq(hubPathCheck("/%E0%A4%A"), true); eq(hubPathCheck("/hub"), true); });
 
 // ---------- API (CSRF + validation) with a fake D1 ----------

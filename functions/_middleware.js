@@ -51,10 +51,35 @@ async function deny(ctx, onHubHost) {
   }
 }
 
+// Junk probes (Cloudflare AI Crawl Control, Nov 2026: ~1k 4xx a week, mostly these): the old WordPress site's URLs
+// (incl. a WordPress MCP endpoint, /wp-json/wp/v2/wpmcp/streamable, that some assistant client still polls), PHP
+// scanners, dotfile and path-traversal probes, and the old theme's demo pages. They get a tiny, cacheable 410 Gone so
+// crawlers drop them for good. Nothing is blocked: every real page and file is untouched. Never matches /.well-known/.
+const JUNK = new RegExp([
+  "^/(?:wp-[a-z]+|wp|wordpress|xmlrpc)(?:[/.]|$)",        // WordPress: wp-json, wp-admin, wp-login.php, wp-content, /wp/, xmlrpc.php
+  "\\.php\\d?(?:/|$)",                                    // no PHP on this site
+  "/\\.(?!well-known(?:/|$))[^/]+",                       // dotfiles and dot-dirs: /.env, /.git/, /.aws/credentials
+  "(?:^|/)\\.\\.(?:/|$)|%2e%2e|/proc/self/|^/cgi-bin/",  // path traversal and server probes
+  "^/(?:portfolio|header)/",                              // old WordPress theme demo pages (pre-Oct 2026)
+].join("|"), "i");
+
+export function junkPath(pathname) {
+  return JUNK.test(pathname);
+}
+
+const GONE_HEADERS = {
+  "Content-Type": "text/plain; charset=utf-8",
+  "Cache-Control": "public, max-age=86400",
+  "X-Robots-Tag": "noindex",
+};
+
 export async function onRequest(ctx) {
   const { request, env } = ctx;
   const url = new URL(request.url);
   const onHubHost = url.hostname.toLowerCase() === HUB_HOST;
+  if (!onHubHost && junkPath(url.pathname)) {
+    return new Response(request.method === "HEAD" ? null : "410 Gone: this URL is not part of mfa-advisory.com.\n", { status: 410, headers: GONE_HEADERS });
+  }
   if (!onHubHost && !hubPathCheck(url.pathname)) return ctx.next(); // public site: untouched
 
   try {

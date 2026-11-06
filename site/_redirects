@@ -44,3 +44,10 @@
 # /start/ (Pinterest + shorts fallback). Temporary until the Starter Kit page (branch start-hub) is approved. Zain 2026-10-28.
 /start     /resources/   302
 /start/    /resources/   302
+
+# Seen in Cloudflare AI Crawl Control 4xx (Nov 6, 2026). Junk probes (/wp-*, *.php, dotfiles, /portfolio/, /header/)
+# get a 410 from functions/_middleware.js instead; these are the ones with a real page to send people to.
+/news                  /blog/                     301
+/news/                 /blog/                     301
+/sitemap_index.xml     /sitemap.xml               301
+/services/book/keeping /services/#bookkeeping     301
