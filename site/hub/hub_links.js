@@ -160,7 +160,80 @@
   }
   function financeKind(f) { if (f && (f.kind === "txn" || f.kind === "other")) return f.kind; return f && parseTxn(f.question) ? "txn" : "other"; }
 
+  // ---------- readable text (Board cards) ----------
+  // rich(text, {head}) -> blocks [{type:"h"|"p", segs} | {type:"ul", items:[segs]}], segs = [{t, b, k}].
+  // Output is plain strings only; the page puts them on screen with textContent, so markup in agent text stays literal.
+  // One point per line: "- " lines are bullets; a line with several sentences or "; " parts becomes a bullet list.
+  // Bold: a short leading label ("Why:"), **markdown bold**, money, %, counts, dates and times (not numbers inside URLs or long IDs).
+  var ABBR = /(?:\be\.g|\bi\.e|\bvs|\betc|\bapprox|\bMrs?|\bMs|\bDr|\bSt|\bNo|\bU\.S|\bInc|\bJan|\bFeb|\bMar|\bApr|\bJun|\bJul|\bAug|\bSept?|\bOct|\bNov|\bDec)\.$/i;
+  var TOK = new RegExp([
+    "https?:\\/\\/\\S+",
+    "\\*\\*[^*\\n]+?\\*\\*",
+    "[+-]?\\$\\d[\\d,]*(?:\\.\\d+)?(?:\\s?[kKmM]\\b)?",
+    "\\b\\d{4}-\\d{2}-\\d{2}\\b",
+    "\\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\\.? \\d{1,2}(?:st|nd|rd|th)?(?:, \\d{4})?\\b",
+    "\\b\\d{1,2}:\\d{2}(?:\\s?[AaPp][Mm]\\b)?",
+    "\\b\\d{1,2}\\/\\d{1,2}(?:\\/\\d{2,4})?\\b",
+    "\\b\\d[\\d,]{0,8}(?:\\.\\d+)?(?!\\d)%?"
+  ].join("|"), "g");
+  var LABEL = /^([A-Za-z][A-Za-z0-9 '’&\/()+.-]{0,23}):\s+(?=\S)/;
+  function inline(s) {
+    var out = [], last = 0, m, lab = LABEL.exec(s);
+    if (lab) { out.push({ t: lab[1] + ":", b: true, k: "label" }, { t: " ", b: false }); s = s.slice(lab[0].length); }
+    TOK.lastIndex = 0;
+    while ((m = TOK.exec(s))) {
+      var x = m[0], i = m.index;
+      if (/^https?:/i.test(x)) continue; // URLs stay plain
+      if (/^[\d,.]+%?$/.test(x) && /[A-Za-z]-$/.test(s.slice(Math.max(0, i - 2), i))) continue; // form names: W-9, 1099-NEC's tail
+      if (i > last) out.push({ t: s.slice(last, i), b: false });
+      if (x.slice(0, 2) === "**") out.push({ t: x.slice(2, -2), b: true, k: "md" }); else out.push({ t: x, b: true, k: "num" });
+      last = i + x.length;
+    }
+    if (last < s.length) out.push({ t: s.slice(last), b: false });
+    return out;
+  }
+  function pieces(line) {
+    var out = [];
+    line.split(/;\s+/).forEach(function (part) {
+      var acc = [];
+      part.replace(/([.!?])\s+(?=["“(]?[A-Z0-9$*])/g, "$1\u0001").split("\u0001").forEach(function (x) {
+        if (acc.length && ABBR.test(acc[acc.length - 1])) acc[acc.length - 1] += " " + x; else acc.push(x);
+      });
+      acc.forEach(function (x) { x = x.replace(/[;,]\s*$/, "").trim(); if (x) out.push(x); });
+    });
+    return out;
+  }
+  function rich(text, o) {
+    o = o || {}; var blocks = [], ul = null;
+    String(text === null || text === undefined ? "" : text).replace(/\r/g, "").split("\n").forEach(function (line) {
+      line = line.trim(); if (!line) { ul = null; return; }
+      var bm = /^(?:[-*•–]|\d{1,2}[.)])\s+(.+)$/.exec(line);
+      if (bm) { if (!ul) { ul = { type: "ul", items: [] }; blocks.push(ul); } ul.items.push(inline(bm[1].trim())); return; }
+      var ps = pieces(line); if (!ps.length) return;
+      if (o.head && !blocks.length) { blocks.push({ type: "h", segs: inline(ps.shift()) }); ul = null; if (!ps.length) return; }
+      if (ps.length === 1) { blocks.push({ type: "p", segs: inline(ps[0]) }); ul = null; return; }
+      ul = { type: "ul", items: ps.map(inline) }; blocks.push(ul); ul = null;
+    });
+    return blocks;
+  }
+  // one-tap answers for a Needs-you item: the agent's own chips, else defaults by type
+  function suggestionsFor(title, list) {
+    var s = (Array.isArray(list) ? list : []).filter(function (x) { return typeof x === "string" && x.trim(); });
+    if (s.length) return s;
+    var t = String(title || "").trim();
+    if (/^(approve|ok(ay)? to|go ahead|sign off|green.?light)\b/i.test(t) || /\bapprov(e|al)\b/i.test(t)) return ["Yes, go ahead", "No", "Hold for now"];
+    return ["Yes", "No", "Tell me more"];
+  }
+  // "3d waiting" (bad after 2 days) from an ISO time; null when the time is missing or bad
+  function waitAge(iso, now) {
+    var t = new Date(iso).getTime(); if (!iso || isNaN(t)) return null;
+    var h = Math.max(0, ((now === undefined ? Date.now() : now) - t) / 36e5);
+    return { h: h, label: (h < 1 ? "<1h" : h < 24 ? Math.floor(h) + "h" : Math.floor(h / 24) + "d") + " waiting", level: h >= 48 ? "bad" : h >= 24 ? "warn" : "ok" };
+  }
+  function urgent(title, detail) { return /\b(urgent|asap|today|tonight|deadline|overdue|expir\w*|blocked|due)\b/i.test(String(title || "") + " " + String(detail || "")); }
+
   root.HubLinks = { safeUrl: safeUrl, known: known, host: host, index: index, platformLink: platformLink, campaignLink: campaignLink, agentLink: agentLink,
     doc: doc, slug: slug, matchSlug: matchSlug, parseHash: parseHash, qs: qs, route: route, refHref: refHref, gmailSearch: gmailSearch, DEF: DEF,
-    RANGE: RANGE, rangeKey: rangeKey, addDays: addDays, win: win, covered: covered, adsModel: adsModel, parseTxn: parseTxn, financeKind: financeKind };
+    RANGE: RANGE, rangeKey: rangeKey, addDays: addDays, win: win, covered: covered, adsModel: adsModel, parseTxn: parseTxn, financeKind: financeKind,
+    rich: rich, suggestionsFor: suggestionsFor, waitAge: waitAge, urgent: urgent };
 })(typeof window !== "undefined" ? window : globalThis);

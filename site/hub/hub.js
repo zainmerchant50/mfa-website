@@ -24,6 +24,24 @@
   function setHash(p) { var q = HL.qs(p); if (q !== location.hash.replace(/^#/, "")) location.hash = q; }
   function pill(s) { return el("span", "pill " + String(s || "").replace(/[^A-Za-z_]/g, ""), String(s || "—").replace(/_/g, " ")); }
   function clip(text) { var d = el("div", "clip", text || ""); d.title = "Click to expand"; d.addEventListener("click", function () { d.classList.toggle("open"); }); return d; }
+  // readable text: HubLinks.rich splits it into a headline / bullets and marks bold runs; text goes on the page via textContent only
+  function segsTo(p, list) { list.forEach(function (x) { p.appendChild(x.b ? el("strong", x.k ? "k-" + x.k : null, x.t) : document.createTextNode(x.t)); }); return p; }
+  function rich(text, o) {
+    var w = el("div", "rt" + (o && o.cls ? " " + o.cls : ""));
+    HL.rich(text, o).forEach(function (b) {
+      if (b.type === "ul") { var ul = el("ul"); b.items.forEach(function (x) { ul.appendChild(segsTo(el("li"), x)); }); w.appendChild(ul); }
+      else w.appendChild(segsTo(el(b.type === "h" ? "div" : "p", b.type === "h" ? "rt-h" : null), b.segs));
+    });
+    return w;
+  }
+  var CALM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function countUp(node, n, fmt) {
+    fmt = fmt || n0; if (CALM || !isFinite(n) || !window.requestAnimationFrame) { node.textContent = fmt(n); return; }
+    var t0 = null, dur = 750; node.textContent = fmt(0);
+    function step(ts) { if (t0 === null) t0 = ts; var k = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - k, 3); node.textContent = fmt(n * e); if (k < 1) requestAnimationFrame(step); else node.textContent = fmt(n); }
+    requestAnimationFrame(step);
+  }
+  function dot(level, title) { var d = el("span", "sdot " + level); d.setAttribute("aria-hidden", "true"); if (title) d.title = title; return d; }
 
   // ---------- formatting ----------
   function ymdET(d) { return (d instanceof Date ? d : new Date(d)).toLocaleDateString("en-CA", { timeZone: TZ }); }
@@ -49,8 +67,8 @@
 
   // ---------- API ----------
   function getJSON(url) { return fetch(url, { credentials: "same-origin", headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }); }
-  function post(path, body) {
-    return fetch(path, { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json", "X-MFA-Hub": "1" }, body: JSON.stringify(body) })
+  function post(path, body, keep) {
+    return fetch(path, { method: "POST", credentials: "same-origin", keepalive: !!keep, headers: { "Content-Type": "application/json", "X-MFA-Hub": "1" }, body: JSON.stringify(body) })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || "HTTP " + r.status); return j; }); });
   }
   function status(t, err) { var s = $("hubStatus"); if (s) { s.textContent = t || ""; s.className = "hub-status" + (err ? " err" : ""); } }
@@ -66,6 +84,7 @@
       if (c.agent_note) add(li, el("div", "note", "Agent: " + c.agent_note)); ul.appendChild(li);
     });
     var ta = el("textarea", "fld"); ta.maxLength = 4000; ta.rows = 2; ta.placeholder = ph || (kind === "question" ? "Ask Finance a question or leave a comment" : "Comment or instruction for the agents"); ta.setAttribute("aria-label", "Comment");
+    if (PAGE === "board") { ta.placeholder += " (Enter sends, Shift+Enter new line)"; ta.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); send.click(); } }); }
     var msg = el("span", ""), send = btn("btn-s", "Send", function () {
       var body = ta.value.trim(); if (!body) { msg.className = "err-msg"; msg.textContent = "Write something first."; return; }
       send.disabled = true; msg.className = "muted"; msg.textContent = "Sending…";
@@ -106,7 +125,10 @@
   // long text: show ~4 lines, then a More / Less toggle (the button only appears when the text is cut)
   function more(node, cls) {
     var w = el("div", "more" + (cls ? " " + cls : "")), c = el("div", "more-c");
-    var b = btn("more-b", "More", function () { var o = w.classList.toggle("open"); b.textContent = o ? "Less" : "More"; b.setAttribute("aria-expanded", String(o)); });
+    var b = btn("more-b", "More", function () {
+      var o = w.classList.toggle("open"); b.textContent = o ? "Less" : "More"; b.setAttribute("aria-expanded", String(o));
+      c.style.maxHeight = o ? c.scrollHeight + "px" : ""; // CSS transitions max-height for a smooth open/close
+    });
     b.hidden = true; b.setAttribute("aria-expanded", "false"); c.appendChild(node); add(w, c, b); return w;
   }
   function fitMore(root) {
@@ -114,14 +136,45 @@
   }
   var fitT = null; window.addEventListener("resize", function () { clearTimeout(fitT); fitT = setTimeout(function () { fitMore(); }, 150); });
 
+  // ---------- toasts (Board: 5 s to undo before an answer is sent) ----------
+  var PENDING = [];
+  window.addEventListener("pagehide", function () { PENDING.slice().forEach(function (f) { f(true); }); });
+  function toastHost() { var h = $("toasts"); if (!h) { h = el("div", "toasts"); h.id = "toasts"; h.setAttribute("role", "status"); h.setAttribute("aria-live", "polite"); document.body.appendChild(h); } return h; }
+  // o: {secs, onGo(keep), onUndo, ok}. With onGo it counts down with an Undo button, then runs onGo.
+  function toast(text, o) {
+    o = o || {}; var t = el("div", "toast" + (o.ok ? " ok" : "")), left = o.secs || 3, u = null, timer, fired = false;
+    t.appendChild(el("span", "toast-m", text));
+    function close() { clearInterval(timer); t.classList.add("bye"); setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 260); }
+    function go(keep) { if (fired) return; fired = true; PENDING.splice(PENDING.indexOf(go), 1); close(); o.onGo(keep); }
+    if (o.onGo) {
+      u = btn("btn-s gold", "Undo (" + left + ")", function () { if (fired) return; fired = true; PENDING.splice(PENDING.indexOf(go), 1); close(); if (o.onUndo) o.onUndo(); });
+      var bar = el("i", "toast-bar"); bar.style.animationDuration = left + "s"; add(t, u, bar); PENDING.push(go);
+    }
+    timer = setInterval(function () { left--; if (u) u.textContent = "Undo (" + left + ")"; if (left <= 0) { if (o.onGo) go(false); else close(); } }, 1000);
+    toastHost().appendChild(t); if (u) u.focus({ preventScroll: true });
+    return t;
+  }
+  function cardOut(card) {
+    if (!card || !card.parentNode) return;
+    var list = card.parentNode; card.style.height = card.offsetHeight + "px"; void card.offsetHeight; card.classList.add("out");
+    setTimeout(function () {
+      if (card.parentNode) card.parentNode.removeChild(card);
+      if (!list.querySelector(".card")) list.appendChild(el("div", "empty done-all", "All caught up. Nothing else is waiting on you here."));
+    }, CALM ? 0 : 420);
+  }
+
   // ---------- one-click answers (chips + typed answer + 10 s undo) ----------
-  function answerCell(kind, item) {
-    var box = el("div", "ans");
+  // o.quick (Board): big chips, default chips by type when the agent gave none, a text box where Enter sends,
+  // and a 5 s undo toast BEFORE the answer is posted; then the card slides away.
+  function answerCell(kind, item, o) {
+    o = o || {}; var box = el("div", "ans" + (o.quick ? " quick" : ""));
     function render() {
       clear(box);
       if (item.status === "open") {
-        var chips = el("div", "chips"), own = el("div", "own"), inp = el("input"); inp.type = "text"; inp.maxLength = 2000; inp.placeholder = "Your answer…"; inp.setAttribute("aria-label", "Your answer");
-        (item.suggestions || []).forEach(function (s) {
+        var chips = el("div", "chips"), own = el("div", "own"), inp = el(o.quick ? "textarea" : "input");
+        if (o.quick) { inp.rows = 1; inp.className = "fld"; } else inp.type = "text";
+        inp.maxLength = 2000; inp.placeholder = o.quick ? "Or type your own answer (Enter sends, Shift+Enter new line)" : "Your answer…"; inp.setAttribute("aria-label", "Your answer");
+        (o.quick ? HL.suggestionsFor(item.title || item.question, item.suggestions) : (item.suggestions || [])).forEach(function (s) {
           var fill = /_{3}/.test(s);
           var cb = btn("chip" + (fill ? " fill" : ""), fill ? s.replace(/\s*_{3,}\s*/, "…") : s, function () {
             if (fill) { inp.value = s.replace(/\s*_{3,}\s*/, " ").trimEnd() + " "; inp.focus(); return; }
@@ -129,7 +182,7 @@
           }); cb.title = s; chips.appendChild(cb);
         });
         var go = btn("btn-s gold", "Send", function () { var v = inp.value.trim(); if (v) submit(v); else inp.focus(); });
-        inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); go.click(); } });
+        inp.addEventListener("keydown", function (e) { if (e.key === "Enter" && !(o.quick && e.shiftKey) && !e.isComposing) { e.preventDefault(); go.click(); } });
         add(own, inp, go); add(box, chips.childNodes.length ? chips : null, own);
       } else {
         add(box, add(el("div"), pill(item.status), " ", el("b", null, item.answer || item.zain_answer || "")));
@@ -137,8 +190,10 @@
         if (item.agent_note) box.appendChild(el("div", "note", "Agent: " + item.agent_note));
       }
     }
+    function lock(on) { Array.prototype.forEach.call(box.querySelectorAll("button,input,textarea"), function (x) { x.disabled = on; }); }
     function submit(answer) {
-      Array.prototype.forEach.call(box.querySelectorAll("button,input"), function (x) { x.disabled = true; });
+      if (o.quick) return queue(answer);
+      lock(true);
       post("/api/hub/answer", { kind: kind, id: item.id, answer: answer }).then(function (j) {
         item.status = j.item.status; item.answer = item.zain_answer = j.item.answer; item.answered_at = j.item.answered_at; item.agent_note = null;
         clear(box); var left = 10, msg = el("span", "ok-msg", "Sent ✓ " + answer), u = btn("btn-s line", "Undo (10)");
@@ -151,6 +206,17 @@
         add(box, msg, add(el("div", "row-acts"), u));
       }).catch(function (e) { render(); box.appendChild(el("div", "err-msg", "Not sent (" + e.message + ")")); });
     }
+    function queue(answer) {
+      lock(true); var card = box.closest ? box.closest(".card") : null; if (card) card.classList.add("sending");
+      toast("Sending \u201c" + answer + "\u201d", { secs: 5,
+        onUndo: function () { if (card) card.classList.remove("sending"); lock(false); },
+        onGo: function (keep) {
+          post("/api/hub/answer", { kind: kind, id: item.id, answer: answer }, keep).then(function (j) {
+            item.status = j.item.status; item.answer = item.zain_answer = j.item.answer; item.answered_at = j.item.answered_at; item.agent_note = null;
+            toast("Sent \u2713 " + answer, { secs: 3, ok: true }); if (card) cardOut(card); else render();
+          }).catch(function (e) { if (card) card.classList.remove("sending"); render(); box.appendChild(el("div", "err-msg", "Not sent (" + e.message + ")")); });
+        } });
+    }
     render();
     return box;
   }
@@ -159,7 +225,7 @@
   // cfg: {cols:[{k,l,num,cls,get(r),cell(r)}], rows, ref(r), selects:[{k,l,get}], search:true, sort:{k,dir}, short, empty, total(rows)->[cells]}
   function table(host, cfg) {
     clear(host);
-    var st = { k: (cfg.sort || {}).k, dir: (cfg.sort || {}).dir || "desc", q: "", sel: {} };
+    var st = { k: (cfg.sort || {}).k, dir: (cfg.sort || {}).dir || "desc", q: "", sel: {} }, firstDraw = true;
     var tb = el("div", "tb"), wrap = el("div", cfg.cards ? "cw" : "tw" + (cfg.short ? " short" : "")), cnt = el("span", "cnt");
     if (cfg.search !== false) {
       var s = el("input"); s.type = "search"; s.placeholder = "Filter…"; s.setAttribute("aria-label", "Filter rows");
@@ -227,7 +293,7 @@
     function role(c) { return c.card !== undefined ? c.card : /\bww?\b/.test(c.cls || "") ? "body" : "meta"; }
     function filled(v) { return v instanceof Node ? (v.textContent.trim() !== "" || !!(v.querySelector && v.querySelector("input,button,a"))) : v !== ""; }
     function drawCards(rows) {
-      var list = el("div", "cards");
+      var list = el("div", "cards" + (firstDraw && !CALM ? " anim" : "")); firstDraw = false;
       rows.forEach(function (r) {
         var card = el("article", "card"), meta = el("div", "card-meta"), body = el("div", "card-body"), act = el("div", "card-act"), head = null;
         cfg.cols.forEach(function (c) {
@@ -243,7 +309,8 @@
         });
         add(card, head, meta.childNodes.length ? meta : null, body.childNodes.length ? body : null, act.childNodes.length ? act : null);
         if (cfg.ref) card.appendChild(cardReply(cfg.ref(r), card, cfg.reply ? { label: cfg.reply.label, kind: cfg.reply.kind, marker: cfg.reply.marker && cfg.reply.marker(r) } : null));
-        list.appendChild(card);
+        if (cfg.level) { var lv = cfg.level(r); if (lv) card.classList.add("lv-" + lv); }
+        card.style.setProperty("--i", Math.min(list.childNodes.length, 10)); list.appendChild(card);
       });
       clear(wrap).appendChild(list);
       if (!rows.length) wrap.appendChild(el("div", "empty", cfg.empty || "Nothing here yet."));
@@ -344,10 +411,30 @@
   function kpi(host, label, value, sub, o) {
     o = o || {}; var u = o.ext ? HL.safeUrl(o.ext.url) : null, k = el(o.href || u ? "a" : "div", "kpi" + (o.stale ? " stale" : "") + (o.bad ? " bad" : "") + (u && !o.href ? " x" : ""));
     if (o.href) k.href = o.href; else if (u) { k.href = u; k.target = "_blank"; k.rel = "noopener noreferrer"; }
-    var v = el("div", "v"); add(v, value instanceof Node ? value : String(value)); if (o.delta) { v.appendChild(document.createTextNode(" ")); v.appendChild(o.delta); }
+    if (o.scrollTo) { k = el("button", k.className + " go"); k.type = "button"; k.addEventListener("click", function () { var t = $(o.scrollTo); if (t) t.scrollIntoView({ behavior: CALM ? "auto" : "smooth", block: "start" }); }); }
+    if (o.dot) k.classList.add("lv-" + o.dot);
+    var v = el("div", "v"), cu = null;
+    if (o.count !== undefined && o.count !== null) { cu = el("span", "cu", (o.fmt || n0)(o.count)); add(v, cu, o.unit ? el("span", "unit", o.unit) : null); }
+    else add(v, value instanceof Node ? value : String(value));
+    if (o.delta) { v.appendChild(document.createTextNode(" ")); v.appendChild(o.delta); }
     var s = el("span", "s"); add(s, sub || ""); if (o.stale) s.appendChild(el("span", "stale-tag", o.asOf ? "as of " + fmtD(o.asOf) : "stale"));
     k.title = (o.title || label) + (o.asOf ? " · as of " + fmtD(o.asOf, true) : "") + (o.href ? " · click for the detail" : u ? " · opens " + o.ext.label : "");
-    add(k, el("span", "l", label), v, s); if (o.spark) k.appendChild(spark(o.spark)); host.appendChild(k);
+    var lab = el("span", "l"); if (o.dot) lab.appendChild(dot(o.dot)); lab.appendChild(document.createTextNode(label));
+    add(k, lab, v, s); if (o.spark) k.appendChild(spark(o.spark));
+    if (o.ring) k.appendChild(ring(o.ring.value, o.ring.goal));
+    if (o.anim) { k.classList.add("rise"); k.style.setProperty("--i", host.childNodes.length); }
+    host.appendChild(k);
+    if (cu && o.anim) countUp(cu, o.count, o.fmt);
+  }
+  // progress ring (e.g. blog posts this week vs the goal); animates from empty
+  function ring(value, goal) {
+    var r = 15, C = 2 * Math.PI * r, f = Math.max(0, Math.min(1, goal ? value / goal : 0));
+    var s = svg("svg", { viewBox: "0 0 40 40", class: "ring" + (f >= 1 ? " full" : ""), role: "img", "aria-label": value + " of " + goal });
+    var fg = svg("circle", { cx: 20, cy: 20, r: r, class: "ring-fg", "stroke-dasharray": C.toFixed(2), "stroke-dashoffset": CALM ? (C * (1 - f)).toFixed(2) : C.toFixed(2), transform: "rotate(-90 20 20)" });
+    var t = svg("text", { x: 20, y: 24, "text-anchor": "middle", class: "ring-t" }); t.textContent = Math.round(f * 100) + "%";
+    add(s, svg("circle", { cx: 20, cy: 20, r: r, class: "ring-bg" }), fg, t);
+    if (!CALM) requestAnimationFrame(function () { requestAnimationFrame(function () { fg.setAttribute("stroke-dashoffset", (C * (1 - f)).toFixed(2)); }); });
+    return s;
   }
   function fit(w) {
     function go() { if (window.innerWidth < 700) { w.style.maxHeight = ""; return; } var top = w.getBoundingClientRect().top + window.scrollY; w.style.maxHeight = Math.max(320, window.innerHeight - top - 12) + "px"; }
@@ -373,18 +460,28 @@
   }
   var GROUPS = [["agent", "Agent approvals"], ["txn", "Finance · transaction questions"], ["other", "Finance · other questions"]];
   function openCount(list) { return list.filter(function (r) { return r.status === "open"; }).length; }
+  // Board cards: open first, then urgent, then the oldest
+  function needKey(r) { var t = new Date(r.ts).getTime(); return (r.status === "open" ? 0 : 4e12) + (HL.urgent(r.title, r.detail) ? 0 : 2e12) + (isNaN(t) ? 1.9e12 : t); }
   function needsTable(host, rows, o) {
-    o = o || {};
+    o = o || {}; var C = !!o.cards;
     table(host, {
-      rows: rows, short: o.short, cards: !!o.cards, sort: { k: "o", dir: "asc" },
+      rows: rows, short: o.short, cards: C, sort: { k: "o", dir: "asc" },
       selects: [{ l: "Source", k: "src" }, { l: "Status", k: "status", value: "open" }],
+      level: C ? function (r) { if (r.status !== "open") return "ok"; var a = HL.waitAge(r.ts); return (a && a.level === "bad") || HL.urgent(r.title, r.detail) ? "bad" : "warn"; } : null,
       cols: [
-        { k: "o", l: "#", num: true, card: false, sortLabel: "Open first", get: function (r) { return (r.status === "open" ? 0 : 1) * 1e6 + (r.kind === "finance" ? 1e5 : 0) + rows.indexOf(r); }, cell: function (r) { return String(rows.indexOf(r) + 1); } },
+        { k: "o", l: "#", num: true, card: false, sortLabel: C ? "Urgent + oldest first" : "Open first", get: function (r) { return C ? needKey(r) : (r.status === "open" ? 0 : 1) * 1e6 + (r.kind === "finance" ? 1e5 : 0) + rows.indexOf(r); }, cell: function (r) { return String(rows.indexOf(r) + 1); } },
         { k: "src", l: "From", cls: "nw", cell: function (r) { var ref = r.item && r.item.ref, m = ref && /^agent:(.+)$/.exec(ref);
           return hl(r.agent || r.src, r.kind === "finance" ? HL.route("finance", { group: HL.financeKind(r.item), q: r.id }) : m ? HL.route("board", { agent: m[1] }) : r.agent ? HL.route("board", { agent: r.agent }) : ref ? HL.refHref("home", ref) : HL.route("board")); } },
-        { k: "title", l: "Question / approval", cls: "w", card: "head", cell: function (r) { var w = el("div"); add(w, clip(r.title)); if (r.detail) w.appendChild(el("div", "muted", r.detail)); return w; } },
-        { k: "status", l: "Answer", cls: "ww", card: "act", sortLabel: "Status", cell: function (r) { return answerCell(r.kind, r.item); } }
-      ],
+        { k: "title", l: "Question / approval", cls: "w", card: "head", cell: function (r) {
+          var w = el("div");
+          if (C) { add(w, rich(r.title, { head: true })); if (r.detail) w.appendChild(rich(r.detail, { cls: "rt-d" })); return w; }
+          add(w, clip(r.title)); if (r.detail) w.appendChild(el("div", "muted", r.detail)); return w; } }
+      ].concat(C ? [{ k: "ts", l: "Waiting", card: "meta", cell: function (r) {
+          if (r.status !== "open") return pill(r.status);
+          var a = HL.waitAge(r.ts), x = el("span"); if (!a) return ""; var p = el("span", "age " + a.level, a.label); p.title = "Asked " + fmtD(r.ts, true);
+          add(x, p, HL.urgent(r.title, r.detail) ? el("span", "age bad", "urgent") : null); return x; } }] : []).concat([
+        { k: "status", l: "Answer", cls: "ww", card: "act", sortLabel: "Status", cell: function (r) { return answerCell(r.kind, r.item, { quick: C }); } }
+      ]),
       ref: function (r) { return r.kind === "finance" ? r.id : "need:" + r.id; },
       empty: o.empty || "Nothing is waiting on you."
     });
@@ -465,7 +562,7 @@
     acts.appendChild(btn("btn-s line", "Close ✕", function () { setHash(o.close || {}); }));
     add(hd, add(el("div"), el("h2", null, o.title), o.sub ? el("span", "sub", " " + o.sub) : null), acts); h.appendChild(hd);
     if (o.fields && o.fields.length) {
-      var f = el("div", "fields"); o.fields.forEach(function (x) { if (x[1] === null || x[1] === undefined || x[1] === "") return; var c = el("div", "f" + (typeof x[1] === "string" && x[1].length > 140 ? " wide" : "")); add(c, el("span", "l", x[0]), x[1] instanceof Node ? x[1] : el("span", "v", String(x[1]))); f.appendChild(c); });
+      var f = el("div", "fields"); o.fields.forEach(function (x) { if (x[1] === null || x[1] === undefined || x[1] === "") return; var c = el("div", "f" + ((x[1] instanceof Node ? x[1].textContent : String(x[1])).length > 140 ? " wide" : "")); add(c, el("span", "l", x[0]), x[1] instanceof Node ? x[1] : el("span", "v", String(x[1]))); f.appendChild(c); });
       h.appendChild(f);
     }
     if (o.table) { var tw = el("div"); h.appendChild(tw); table(tw, o.table); }
@@ -535,6 +632,57 @@
     tasksForm($("reqForm"));
   };
 
+  function agentLevel(a) { return a.status === "Blocked" ? "bad" : a.data && a.data.needs_zain ? "warn" : "ok"; }
+  function failedLine(r) { return /^(blocked|fail|failed|error)$/i.test(r.action || "") || /\b(failed|error|couldn'?t|could not)\b/i.test(r.detail || ""); }
+  // the Board strip also reads the Home and Calendar feeds (same API, read only); a tile with no data is left out
+  var BX = null, STRIP_ANIM = true;
+  function boardExtras() { if (!BX) BX = Promise.all(["home", "calendar"].map(function (pg) { return getJSON("/api/hub/data?page=" + pg).catch(function () { return null; }); })); return BX; }
+  function boardStrip(strip, d, home, cal, c) {
+    var anim = STRIP_ANIM; STRIP_ANIM = false; clear(strip);
+    var t = today(), w = WIN(), rl = RL(), days7 = lastDays(7), K = function (l, v, s, o) { kpi(strip, l, v, s, merge(o || {}, { anim: anim })); };
+    var perDay = function (list, k) { return days7.map(function (dd) { return list.filter(function (x) { return x[k] && ymdET(x[k]) === dd; }).length; }); };
+    // 1. needs waiting + the oldest one's age
+    var open = (d.needs || []).filter(function (n) { return n.status === "open"; });
+    var oldest = open.map(function (n) { return HL.waitAge(n.created_at); }).filter(Boolean).sort(function (a, b) { return b.h - a.h; })[0];
+    K("Needs you", null, open.length ? (oldest ? "oldest " + oldest.label : "waiting") : "all answered", { count: open.length, dot: !open.length ? "ok" : oldest && oldest.level === "bad" ? "bad" : "warn", bad: !!(oldest && oldest.level === "bad"), scrollTo: "needs", title: "Jump to Needs you" });
+    // 2. agent log lines today: OK vs failed
+    var LR = d.logRecent || [];
+    if (LR.length || c.logMin) {
+      var lt = LR.filter(function (r) { return ymdET(r.ts) === t; }), fl = lt.filter(failedLine).length;
+      K("Agent actions today", null, fl ? fl + " failed" : "none failed", { count: lt.length - fl, unit: " OK", dot: fl ? "bad" : "ok", bad: fl > 0, href: HL.route("log"), spark: perDay(LR, "ts"), title: "Live log lines today (failed = blocked / failed / error)" });
+    }
+    // 3. blog posts this week (Mon-Sun ET) vs the 4-a-week goal
+    var blog = ((cal && cal.calendar) || []).filter(function (i) { return /^blog$/i.test(i.platform || ""); });
+    if (blog.length) {
+      var wd = new Date(t + "T12:00:00Z").getUTCDay(), mon = HL.addDays(t, -((wd + 6) % 7)), sun = HL.addDays(mon, 6);
+      var wk = blog.filter(function (i) { return i.date >= mon && i.date <= sun; }), pub = wk.filter(function (i) { return i.status === "published"; }).length, sch = wk.filter(function (i) { return i.status === "scheduled"; }).length;
+      K("Blog posts this week", null, "goal 4 · " + sch + " more scheduled", { count: pub, unit: " / 4", ring: { value: pub, goal: 4 }, dot: pub >= 4 ? "ok" : "warn", href: HL.route("calendar", { plat: "Blog", from: mon, to: sun }), title: "Published blog posts " + fmtD(mon) + " – " + fmtD(sun) });
+    }
+    // 4. leads, last 7 days vs the 7 before
+    var L = (home && home.leads) || [];
+    if (L.length) {
+      var w7 = HL.win(t, 7), lin = function (x, a, b) { var y = ymdET(x.received_at); return y >= a && y <= b; };
+      var lc = L.filter(function (x) { return lin(x, w7.from, w7.to); }).length, lp = L.filter(function (x) { return lin(x, w7.pFrom, w7.pTo); }).length;
+      K("Leads · 7 days", null, "prior 7 days: " + lp, { count: lc, delta: delta(lc, lp), href: HL.route("leads", { range: "7d" }), spark: perDay(L, "received_at") });
+    }
+    // 5. paid ad spend, 7 days (only when every paid platform has the full 7 days)
+    if (home && home.ads && home.ads.length) {
+      var P = HL.adsModel(home.ads, 7, t), paid = Object.keys(P).filter(function (k) { return P[k].paid; }), have = paid.filter(function (k) { return P[k].s; });
+      if (have.length && paid.every(function (k) { return P[k].s || P[k].naKind === "nr"; })) {
+        var sp = 0, ps = 0, pOk = true; have.forEach(function (k) { sp += P[k].s.s; if (P[k].p) ps += P[k].p.s; else pOk = false; });
+        K("Ad spend · 7 days", null, have.filter(function (k) { return P[k].s.s; }).map(function (k) { return k.replace(" Ads", "") + " " + money(P[k].s.s); }).join(" · ") || "no spend", { count: sp, fmt: money, delta: pOk ? delta(sp, ps) : null, href: HL.route("ads", { type: "Paid", range: "7d" }),
+          spark: days7.map(function (dd) { return have.reduce(function (a, k) { return a + P[k].daily.filter(function (r) { return r.date === dd; }).reduce(function (b, r) { return b + (r.spend || 0); }, 0); }, 0); }) });
+      }
+    }
+    // 6. the range-driven counts the Board always had
+    var ag = d.agents || [], bl = ag.filter(function (a) { return a.status === "Blocked"; }).length, act = d.activity || [], ideas = d.ideas || [];
+    K("Blocked agents", null, ag.length + " agents", { count: bl, dot: bl ? "bad" : "ok", bad: bl > 0, href: HL.route("board", { status: "Blocked", range: H.range }) });
+    var cnt = function (list, k) { return list.filter(function (x) { return x[k] && inWin(ymdET(x[k]), w); }).length; }, pcnt = function (list, k) { return list.filter(function (x) { return x[k] && inPrior(ymdET(x[k]), w); }).length; };
+    K("Log lines · " + rl, c.logOk ? null : "n/a", c.logOk ? "prior " + (HL.covered(c.logMin ? ymdET(c.logMin) : null, w.pFrom) ? pcnt(LR, "ts") : "n/a") : NA("log starts " + fmtD(c.logMin, true)), { count: c.logOk ? cnt(LR, "ts") : null, href: HL.route("log") });
+    K("Activity · " + rl, c.actOk ? null : "n/a", c.actOk ? "Agent Board events" : NA("activity synced from " + fmtD(c.minOf(act, "at"))), { count: c.actOk ? cnt(act, "at") : null });
+    K("Ideas added · " + rl, c.ideaOk ? null : "n/a", c.ideaOk ? ideas.length + " ideas synced" : NA(ideas.length ? "ideas synced from " + fmtD(c.minOf(ideas, "at")) : "no ideas synced"), { count: c.ideaOk ? cnt(ideas, "at") : null });
+  }
+
   R.board = function (d) {
     var ag = d.agents || [], w = WIN(), rl = RL(), t = today(), strip = $("kpis");
     rangeBar({ note: "drives runs, activity and ideas counts and the agent detail" });
@@ -542,24 +690,17 @@
     var minOf = function (list, k) { return list.map(function (x) { return x[k] ? ymdET(x[k]) : ""; }).filter(Boolean).sort()[0] || null; };
     var logOk = HL.covered(logMin ? ymdET(logMin) : null, w.from), actOk = HL.covered(minOf(act, "at"), w.from), ideaOk = HL.covered(minOf(ideas, "at"), w.from);
     var runs = {}; LR.forEach(function (r) { if (inWin(ymdET(r.ts), w)) runs[r.agent] = (runs[r.agent] || 0) + 1; });
-    if (strip) {
-      clear(strip); var bl = ag.filter(function (a) { return a.status === "Blocked"; }).length;
-      kpi(strip, "Blocked now", String(bl), ag.length + " agents", { bad: bl > 0, href: HL.route("board", { status: "Blocked", range: H.range }) });
-      var cnt = function (list, k) { return list.filter(function (x) { return x[k] && inWin(ymdET(x[k]), w); }).length; }, pcnt = function (list, k) { return list.filter(function (x) { return x[k] && inPrior(ymdET(x[k]), w); }).length; };
-      kpi(strip, "Log lines · " + rl, logOk ? String(cnt(LR, "ts")) : "n/a", logOk ? "prior " + (HL.covered(logMin ? ymdET(logMin) : null, w.pFrom) ? pcnt(LR, "ts") : "n/a") : NA("log starts " + fmtD(logMin, true)), { href: HL.route("log") });
-      kpi(strip, "Activity · " + rl, actOk ? String(cnt(act, "at")) : "n/a", actOk ? "Agent Board events" : NA("activity synced from " + fmtD(minOf(act, "at"))));
-      kpi(strip, "Ideas added · " + rl, ideaOk ? String(cnt(ideas, "at")) : "n/a", ideaOk ? ideas.length + " ideas synced" : NA(ideas.length ? "ideas synced from " + fmtD(minOf(ideas, "at")) : "no ideas synced"));
-    }
+    if (strip) boardExtras().then(function (x) { boardStrip(strip, d, x[0], x[1], { logOk: logOk, actOk: actOk, ideaOk: ideaOk, logMin: logMin, minOf: minOf }); });
     table($("agents"), {
-      rows: ag, cards: true, sort: { k: "st", dir: "asc" }, selects: [{ l: "Status", k: "status", value: H.status || "" }],
+      rows: ag, cards: true, sort: { k: "st", dir: "asc" }, selects: [{ l: "Status", k: "status", value: H.status || "" }], level: agentLevel,
       cols: [
-        { k: "agent", l: "Agent", cls: "nw", card: "head", cell: function (a) { return add(el("div"), hl(a.agent, HL.route("board", { agent: a.agent, range: H.range }), "b"), el("div", "muted", a.title || "")); } },
+        { k: "agent", l: "Agent", cls: "nw", card: "head", cell: function (a) { return add(el("div"), dot(agentLevel(a), a.status), hl(a.agent, HL.route("board", { agent: a.agent, range: H.range }), "b"), el("div", "muted", a.title || "")); } },
         { k: "st", l: "Status", get: function (a) { return { Blocked: 0, Working: 1, Scheduled: 2, Idle: 3 }[a.status] + ""; }, cell: function (a) { var x = el("div"); add(x, pill(a.status)); if (isStale(a.data.updated_at || a.at, 48)) x.appendChild(el("span", "stale-tag", "no update 48h")); return x; } },
         { k: "at", l: "Last run", cls: "nw", cell: function (a) { return hl(fmtD(a.at, true), HL.route("log", { agent: a.agent })); } },
         { k: "runs", l: "Runs · " + rl, num: true, get: function (a) { return logOk ? (runs[a.agent] || 0) : -1; }, cell: function (a) { if (!logOk) { var s = el("span", "muted", "n/a"); s.title = NA("log starts " + fmtD(logMin, true)); return s; } return hl(String(runs[a.agent] || 0), HL.route("board", { agent: a.agent, range: H.range })); } },
-        { k: "res", l: "Last result", cls: "w", get: function (a) { return a.data.last_result || ""; }, cell: function (a) { return clip(a.data.last_result || ""); } },
+        { k: "res", l: "Last result", cls: "w", get: function (a) { return a.data.last_result || ""; }, cell: function (a) { return rich(a.data.last_result || ""); } },
         { k: "next", l: "Next run", cls: "nw", get: function (a) { return a.data.next_run || ""; }, cell: function (a) { return fmtD(a.data.next_run, true); } },
-        { k: "need", l: "Needs you / blocked by", cls: "w", get: function (a) { return a.data.needs_zain || ""; }, cell: function (a) { return clip(a.data.needs_zain || ""); } },
+        { k: "need", l: "Needs you / blocked by", cls: "w", get: function (a) { return a.data.needs_zain || ""; }, cell: function (a) { return rich(a.data.needs_zain || ""); } },
         { k: "sched", l: "Schedule", cls: "ww", card: "meta", get: function (a) { return a.data.schedule || ""; } },
         { k: "rev", l: "Review", cls: "nw", sortable: false, get: function () { return ""; }, cell: function (a) { return reviewCell(HL.route("board", { agent: a.agent, range: H.range }), HL.agentLink(a.agent, LINKS), a.agent); } }
       ], ref: function (a) { return a.id; }
@@ -570,16 +711,16 @@
       cols: [
         { k: "at", l: "Added", cls: "nw", cell: function (i) { return fmtD(i.at); } },
         { k: "status", l: "Status", cell: function (i) { return pill(i.status); } },
-        { k: "title", l: "Idea", cls: "w", card: "head", cell: function (i) { return clip(i.title); } },
+        { k: "title", l: "Idea", cls: "w", card: "head", cell: function (i) { return rich(i.title, { head: true }); } },
         { k: "owner", l: "Owner", get: function (i) { return i.data.owner || ""; }, cell: function (i) { return i.data.owner ? hl(i.data.owner, HL.route("board", { agent: i.data.owner })) : ""; } },
-        { k: "prog", l: "Progress", cls: "ww", get: function (i) { return (i.data.progress || "") + (i.data.progress_note ? ": " + i.data.progress_note : ""); }, cell: function (i) { return clip((i.data.progress ? i.data.progress.replace(/_/g, " ") + ": " : "") + (i.data.progress_note || "")); } },
-        { k: "up", l: "Upside", cls: "ww", get: function (i) { return i.data.upside || ""; }, cell: function (i) { return clip(i.data.upside || ""); } }
+        { k: "prog", l: "Progress", cls: "ww", get: function (i) { return (i.data.progress || "") + (i.data.progress_note ? ": " + i.data.progress_note : ""); }, cell: function (i) { return rich((i.data.progress ? i.data.progress.replace(/_/g, " ") + ": " : "") + (i.data.progress_note || "")); } },
+        { k: "up", l: "Upside", cls: "ww", get: function (i) { return i.data.upside || ""; }, cell: function (i) { return rich(i.data.upside || ""); } }
       ], ref: function (i) { return i.id; }, empty: "No ideas synced yet. Agents add them with tools/hub_sync.md."
     });
     setTitle("activity", "Activity · " + rl);
     table($("activity"), {
       rows: act.filter(function (a) { return inWin(ymdET(a.at), w); }), short: true, cards: true, sort: { k: "at", dir: "desc" }, selects: [{ l: "Agent", k: "agent" }],
-      cols: [{ k: "at", l: "Time", cls: "nw", cell: function (a) { return fmtD(a.at, true); } }, { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return a.agent ? hl(a.agent, HL.route("board", { agent: a.agent, range: H.range })) : ""; } }, { k: "title", l: "What happened", cls: "w", card: "head" }],
+      cols: [{ k: "at", l: "Time", cls: "nw", cell: function (a) { return fmtD(a.at, true); } }, { k: "agent", l: "Agent", cls: "nw", cell: function (a) { return a.agent ? hl(a.agent, HL.route("board", { agent: a.agent, range: H.range })) : ""; } }, { k: "title", l: "What happened", cls: "w", card: "head", cell: function (a) { return rich(a.title, { head: true }); } }],
       ref: function (a) { return a.id; }, empty: actOk ? "No activity in this range." : NA("activity synced from " + fmtD(minOf(act, "at")))
     });
     // agent drill-down: card + runs/activity in the range, platform + doc
@@ -592,7 +733,7 @@
     showDetail({
       title: H.agent + (a ? " · " + (a.title || "") : ""), sub: (a ? a.status : "not on the Agent Board") + " · " + rl, close: close,
       links: [hl("All log lines", HL.route("log", { agent: H.agent })), ext(al, "Open " + ((al || {}).label || "")), docTag(H.agent)],
-      fields: (a ? [["Status", a.status], ["Last run", fmtD(a.at, true)], ["Next run", fmtD(a.data.next_run, true)], ["Schedule", a.data.schedule], ["Doing now", a.data.now], ["Last result", a.data.last_result], ["Next steps", a.data.next_steps], ["Needs you", a.data.needs_zain]] : [])
+      fields: (a ? [["Status", a.status], ["Last run", fmtD(a.at, true)], ["Next run", fmtD(a.data.next_run, true)], ["Schedule", a.data.schedule], ["Doing now", a.data.now], ["Last result", a.data.last_result], ["Next steps", a.data.next_steps], ["Needs you", a.data.needs_zain]].map(function (f) { return f[1] && f[0] !== "Status" && /Doing|result|steps|Needs/.test(f[0]) ? [f[0], rich(f[1], { cls: "v" })] : f; }) : [])
         .concat([["Runs · " + rl, logOk ? String(runs[H.agent] || 0) : NA("log starts " + fmtD(logMin, true))]]),
       table: { rows: rr, short: true, search: true, sort: { k: "ts", dir: "desc" }, cols: [{ k: "ts", l: "When (ET)", cls: "nw", cell: function (r) { return fmtD(r.ts, true); } }, { k: "what", l: "Run / activity", cls: "w", cell: function (r) { var x = el("div"); add(x, clip(r.what)); var l = link(r.link, "link"); if (l) x.appendChild(l); return x; } }], empty: "No runs or activity logged for this agent in " + rl + "." },
       ref: a ? a.id : "agent:" + H.agent
@@ -942,6 +1083,7 @@
   function load() {
     status("Loading…");
     if (PAGE === "log") { R.log(); status(""); return; }
+    if (PAGE === "board") boardExtras(); // fetched in parallel for the Board's metric tiles
     getJSON("/api/hub/data?page=" + encodeURIComponent(PAGE)).then(function (d) {
       DATA = d; LINKS = HL.index(d.links); indexComments(d.comments); R[PAGE](d);
       status("Updated " + new Date().toLocaleTimeString("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit" }) + " ET");

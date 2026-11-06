@@ -50,6 +50,23 @@ ON CONFLICT(id) DO UPDATE SET title=excluded.title, detail=excluded.detail, sugg
 When the question goes away, close it: `UPDATE needs SET status='done', agent_note=?2 WHERE id=?1;`
 Finance items keep their chips in `finance_questions.suggestions` (same JSON format).
 
+### How to write hub text (needs, board cards, ideas, activity)
+Zain reads the Board on his phone between client work. Write so he can answer in one tap:
+- **Headline first:** one line, bold if you like (`**Raise Google Ads to $18/day?**`), saying exactly what you need. Put the number up front.
+- **Then 2–4 bullets**, each on its own line starting with `- ` (in `detail`, or after the headline in `last_result` / `needs_zain`). One point per bullet. No chains of `;`.
+- **Label the bullet when it helps:** `- Why: …`, `- Cost: $36/week more`, `- Waiting on: …`, `- Deadline: Nov 15`. The hub bolds a short label before the colon, plus money, %, counts and dates.
+- **Numbers before words:** "12 clicks, $5.40 spent, 0 leads" beats "the campaign got some clicks but no leads yet".
+- **Every need gets 2–4 `suggestions`:** a yes ("Yes, go ahead"), a no ("No"), a wait ("Hold until Monday", "Ask me Nov 15"), plus 1–2 options specific to the item ("Keep $12/day", "Try $15/day", "Change to ___"). If you leave them out the hub shows "Yes, go ahead / No / Hold for now" for approvals and "Yes / No / Tell me more" for questions.
+- Keep it short: headline under ~90 characters, bullets under ~120. Links go in `link` or `ref`, not in the middle of a sentence.
+- Never write "free" in hub text.
+```text
+title:       **Raise Google Ads to $18/day for the late-return ad group?**
+detail:      - Why: 7d CTR 4.2%, 3 calls, budget ran out by 2 PM on 4 of 7 days
+             - Cost: +$42/week
+             - Deadline: decide by Nov 10 (late-filing searches peak)
+suggestions: ["Yes, go ahead", "Try $15/day", "No, keep $12", "Hold until Nov 10"]
+```
+
 ## 4. upserts — after you change a source board, write the same row here
 Agent Board card (`data` = the card's other fields as JSON) and activity:
 ```sql

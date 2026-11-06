@@ -244,5 +244,47 @@ await t("finance: transaction parser and kind", async () => {
   eq(HL.financeKind({ kind: "other", question: "Tous Les Jours: $46.00 spend on 2026-11-02, Card ••1234" }), "other"); eq(HL.financeKind({ kind: "bogus", question: "x" }), "other");
 });
 
+// ---------- Board text formatter + one-tap answers ----------
+const flat = (segs) => segs.map((s) => (s.b ? `[${s.t}]` : s.t)).join("");
+await t("text: '; ' chains and sentences become one bullet per line, headline first", async () => {
+  const b = HL.rich("Waiting on Zain to approve the budget; spend is $12.50/day, up 25% vs Nov 3. Also needs the banner copy before 2026-11-10.", { head: true });
+  eq(b[0].type, "h"); eq(flat(b[0].segs), "Waiting on Zain to approve the budget");
+  eq(b[1].type, "ul"); eq(b[1].items.length, 2);
+  eq(flat(b[1].items[0]), "spend is [$12.50]/day, up [25%] vs [Nov 3].");
+  eq(flat(b[1].items[1]), "Also needs the banner copy before [2026-11-10].");
+  eq(HL.rich("Short detail line.")[0].type, "p"); eq(HL.rich("").length, 0); eq(HL.rich(null).length, 0);
+});
+await t("text: labels, **bold**, '- ' bullets; URLs, long IDs and form names stay plain", async () => {
+  eq(flat(HL.rich("Why: W-9 missing for 1099-NEC")[0].segs), "[Why:] W-9 missing for [1099]-NEC");
+  const m = HL.rich("**Raise budget to $18**\n- CTR 4.2%\n- 12 leads in 7 days, e.g. at 9:10 AM");
+  eq(flat(m[0].segs), "[Raise budget to $18]"); eq(m[0].segs[0].k, "md"); eq(m[1].type, "ul");
+  eq(flat(m[1].items[0]), "CTR [4.2%]"); eq(flat(m[1].items[1]), "[12] leads in [7] days, e.g. at [9:10 AM]");
+  eq(flat(HL.rich("see https://ads.google.com/x?ocid=123&u=45 and ID 23019283746501928374650192837465")[0].segs), "see https://ads.google.com/x?ocid=123&u=45 and ID 23019283746501928374650192837465");
+  eq(flat(HL.rich("Waiting on Zain to approve https://a.com/x: it is long")[0].segs).startsWith("[Waiting"), false); // no label past 25 chars
+});
+await t("text: markup stays literal text (the page sets textContent only)", async () => {
+  const b = HL.rich('<img src=x onerror=alert(1)> costs $5; <script>x</script>');
+  const all = JSON.stringify(b);
+  eq(all.includes("<img src=x onerror=alert("), true); eq(all.includes("<script>x</script>"), true);
+  eq(b.every((x) => (x.segs || x.items.flat()).every((s) => typeof s.t === "string" && Object.keys(s).every((k) => ["t", "b", "k"].includes(k)))), true);
+  const hubJs = readFileSync(new URL("../site/hub/hub.js", import.meta.url), "utf8");
+  eq(/innerHTML|outerHTML|insertAdjacentHTML|document\.write/.test(hubJs), false, "hub.js must not write HTML strings");
+});
+await t("answers: agent chips win, else defaults by type", async () => {
+  eq(JSON.stringify(HL.suggestionsFor("Approve the new ad copy?", [])), JSON.stringify(["Yes, go ahead", "No", "Hold for now"]));
+  eq(JSON.stringify(HL.suggestionsFor("**Approve** raising the budget?", null)), JSON.stringify(["Yes, go ahead", "No", "Hold for now"]));
+  eq(JSON.stringify(HL.suggestionsFor("Should the blog cover OPT taxes?")), JSON.stringify(["Yes", "No", "Tell me more"]));
+  eq(JSON.stringify(HL.suggestionsFor("Approve it?", ["Keep it", " ", 5, "Pause it"])), JSON.stringify(["Keep it", "Pause it"]));
+  const hub = readFileSync(new URL("../site/hub/hub.js", import.meta.url), "utf8") + readFileSync(new URL("../site/hub/hub_links.js", import.meta.url), "utf8");
+  eq(/["'][^"'\n]*\bfree\b[^"'\n]*["']/i.test(hub), false, "no 'free' in hub UI strings");
+});
+await t("answers: wait age labels and urgency", async () => {
+  const now = Date.parse("2026-11-06T12:00:00Z");
+  eq(HL.waitAge("2026-11-06T11:30:00Z", now).label, "<1h waiting"); eq(HL.waitAge("2026-11-06T07:00:00Z", now).label, "5h waiting");
+  const d3 = HL.waitAge("2026-11-03T12:00:00Z", now); eq(d3.label, "3d waiting"); eq(d3.level, "bad");
+  eq(HL.waitAge("2026-11-05T06:00:00Z", now).level, "warn"); eq(HL.waitAge("", now), null); eq(HL.waitAge("nope", now), null);
+  eq(HL.urgent("Deadline is today"), true); eq(HL.urgent("Approve the photos?", "Why: Monday push"), false);
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
