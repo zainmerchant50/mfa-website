@@ -149,12 +149,15 @@
   {
     "date": "2026-11-06",
     "slug": "LLC-Annual-Report",
-    "status": "linkedin scheduled; instagram NOT scheduled (needs Zain)",
+    "status": "scheduled",
     "platforms": [
+      "instagram",
+      "facebook",
       "linkedin"
     ],
     "times": {
-      "linkedin": "8:30 AM ET (Typefully draft 11694679)"
+      "instagram": "Fri Nov 6 8:00 PM ET (Meta Business Suite IG+FB; verified with caption Nov 6 by Social)",
+      "linkedin": "Sun Nov 8 6:00 PM ET (Typefully draft 11694679)"
     },
     "campaign": "nov-push",
     "link": "https://mfa-advisory.com/llc-annual-report/",
