@@ -411,6 +411,13 @@ await t("render: Finance page shows a colored badge per rated item and nothing f
   eq(rows[0].textContent.includes("Wawa"), true); eq(rows[1].textContent.includes("Tous Les Jours"), true);
   const oth = P.$("finOther"); eq(oth.querySelectorAll("span.conf").map((b) => b.textContent).join(","), "Low,High", "other questions: Low first");
 });
+await t("render: Other finance questions use the Board formatter (bold, bullets, no asterisks, markup stays text)", async () => {
+  const fin = FIN.map((f) => f.id === "o-high" ? { ...f, question: "**Match the Upwork payout to INV-1042?**\n- Same customer, same amount\n- <b>Payout</b> landed Nov 4" } : f);
+  const P = hubPage("finance", { finance: { finance: fin, needs: [] } }); await P.settle();
+  const oth = P.$("finOther"), cell = oth.querySelectorAll("div.rt").filter((d) => d.textContent.includes("Upwork"))[0];
+  eq(!!cell, true); eq(oth.textContent.includes("**"), false); eq(cell.querySelector("div.rt-h strong").textContent, "Match the Upwork payout to INV-1042?");
+  eq(cell.querySelectorAll("li").length, 2); eq(cell.querySelectorAll("li")[1].textContent.includes("<b>Payout</b>"), true); eq(cell.querySelectorAll("b").length, 0);
+});
 await t("render: All / High / Med / Low chip row with counts; #conf=low shows only Low", async () => {
   const P = hubPage("finance", { finance: { finance: FIN, needs: [] } }); await P.settle();
   const bar = P.$("finConf"); eq(bar.hidden, false);

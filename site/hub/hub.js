@@ -504,7 +504,7 @@
         { k: "title", l: "Question / approval", cls: "w", card: "head", cell: function (r) {
           var w = el("div");
           if (C) { add(w, rich(r.title, { head: true })); if (r.detail) w.appendChild(rich(r.detail, { cls: "rt-d" })); return w; }
-          add(w, clip(r.title)); if (r.detail) w.appendChild(el("div", "muted", r.detail)); return w; } }
+          add(w, rich(r.title, { head: true })); if (r.detail) w.appendChild(rich(r.detail, { cls: "rt-d muted" })); return w; } }
       ].concat(C ? [{ k: "ts", l: "Waiting", card: "meta", cell: function (r) {
           if (r.status !== "open" || (r.kind === "finance" && HL.autoPosted(r.item))) return pill(r.kind === "finance" ? HL.finStatus(r.item).replace("-", "_") : r.status);
           var a = HL.waitAge(r.ts), x = el("span"); if (!a) return ""; var p = el("span", "age " + a.level, a.label); p.title = "Asked " + fmtD(r.ts, true);
