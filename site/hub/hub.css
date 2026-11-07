@@ -256,8 +256,8 @@ body.hub[data-page="board"] .det .f.wide{grid-column:1/-1}
 .ans.quick .chip{font-size:13.5px;padding:8px 16px;border-width:1.5px;min-height:38px;box-shadow:0 1px 0 rgba(16,35,63,.06);transition:background .15s,color .15s,transform .12s,box-shadow .15s}
 .ans.quick .chip:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(16,35,63,.12)}
 .ans.quick .chip:active{transform:translateY(0) scale(.98)}
-.ans.quick .chip:first-child:not(.fill){background:var(--navy);border-color:var(--navy);color:#fff}
-.ans.quick .chip:first-child:not(.fill):hover{background:var(--navy-2)}
+.ans.quick .chip:first-child:not(.fill):not(.ghost){background:var(--navy);border-color:var(--navy);color:#fff}
+.ans.quick .chip:first-child:not(.fill):not(.ghost):hover{background:var(--navy-2)}
 .ans.quick .own{align-items:flex-end}
 .ans.quick .own textarea{flex:1 1 auto;min-width:0;min-height:38px;resize:vertical;font-size:13px}
 .ans.quick .own .btn-s{min-height:38px;padding:6px 16px;white-space:nowrap;flex:0 0 auto}
@@ -299,3 +299,23 @@ body.hub[data-page="board"] .kpi .l .sdot{width:7px;height:7px;margin-right:6px;
 .ans.quick .chip:focus-visible,.toast .btn-s:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
 @media (max-width:600px){.toasts{bottom:12px}.ans.quick .chip{flex:1 1 auto;text-align:center}body.hub[data-page="board"] .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}body.hub[data-page="board"] .kpi .v{font-size:21px}}
 @media (prefers-reduced-motion:reduce){.rise,.cards.anim>.card,.toast,.sdot.bad{animation:none!important}.toast-bar{animation:none!important;transform:scaleX(.5)}.card:hover,.kpi:hover{transform:none!important}}
+/* v5: Finance confidence badges, the All/High/Med/Low chip row, auto-posted rows */
+.conf{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:2px 7px;border-radius:999px;white-space:nowrap;line-height:1.5}
+.conf::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.conf-high{background:var(--h-ok-bg);color:var(--h-ok)}
+.conf-med{background:var(--h-warn-bg);color:var(--h-warn)}
+.conf-low{background:var(--h-bad-bg);color:var(--h-bad)}
+.confwrap{background:#fff;border:1px solid var(--h-line);border-radius:8px;min-width:0}
+.confbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 10px;min-width:0}
+#needs>div>.confbar{border-bottom:1px solid var(--h-line);padding:10px 14px}
+.confbar .cl{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.confbar .chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:4px 11px;min-height:30px}
+.confbar .chip i{width:7px;height:7px;border-radius:50%;flex:none}
+.confbar .cf-high i{background:var(--h-ok)}.confbar .cf-med i{background:var(--h-warn)}.confbar .cf-low i{background:var(--h-bad)}
+.confbar .chip .n{font-weight:500;opacity:.7}
+.confbar .chip[aria-pressed="true"] i{box-shadow:0 0 0 1.5px #fff}
+.ans.ap .ap-l{color:var(--muted);font-size:12px;font-style:italic;margin-bottom:4px}
+.ans.ap .chip.ap-undo{background:#fff;border-color:rgba(21,21,21,.2);color:var(--muted);font-weight:600}
+.ans.ap .chip.ap-undo:hover{background:var(--h-row);color:var(--navy)}
+.ans.quick.ap .chip.ap-undo{font-size:12.5px;padding:5px 14px;min-height:32px;flex:0 0 auto}
+.pill.auto_posted{background:var(--h-idle-bg);color:var(--h-idle)}

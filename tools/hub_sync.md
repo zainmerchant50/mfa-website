@@ -121,11 +121,37 @@ Finance question (Finance only; never overwrites Zain's answer). **Always set `k
   so the hub can show date, payee, amount and account columns.
 - `'other'` = a decision or setup item not tied to one transaction (create an account, fiscal year, invoice matching, a policy call).
   Decisions you need from Zain can also go in `needs` with `agent='Finance'` (or TaxSavings); the hub lists both under "Other finance questions".
+**Always set `confidence`** (?7) on every finance_questions row — `'high'`, `'med'` or `'low'` (the hub shows a green / amber / red badge,
+sorts Low first and filters All / High / Med / Low; a row with no confidence gets no badge):
+- `'high'` = at least one of: a standing rule in claude/finance/decisions.md or claude/finance/zain-transactions.md covers it (cite the line);
+  OR the same payee was posted to the same account at least twice before in QuickBooks; OR it is an exact open-invoice match (same customer,
+  same amount). If two rules point to different accounts, it is not High.
+- `'med'` = likely but not certain (one earlier match, a close amount, a rule that roughly fits). Put the likely answer first in `suggestions`.
+- `'low'` = unsure. Always ask exactly ONE short question in the `Note:` part, with 2–4 `suggestions`.
 ```sql
-INSERT INTO finance_questions (id, created_at, question, suggested_answer, suggestions, status, source, kind) VALUES (?1, ?2, ?3, ?4, ?5, 'open', 'Finance Review board', ?6)
-ON CONFLICT(id) DO UPDATE SET question=excluded.question, suggested_answer=excluded.suggested_answer, suggestions=excluded.suggestions, kind=excluded.kind;
+INSERT INTO finance_questions (id, created_at, question, suggested_answer, suggestions, status, source, kind, confidence) VALUES (?1, ?2, ?3, ?4, ?5, 'open', 'Finance Review board', ?6, ?7)
+ON CONFLICT(id) DO UPDATE SET question=excluded.question, suggested_answer=excluded.suggested_answer, suggestions=excluded.suggestions, kind=excluded.kind, confidence=excluded.confidence
+  WHERE finance_questions.auto_posted_at IS NULL;
 ```
-Hub links: `/hub/finance/#group=txn`, `/hub/finance/#group=other`, `/hub/#group=txn` (Home "Needs you").
+**High rows are auto-posted** (Zain's standing yes, 2026-11-06): Finance posts a High row in QuickBooks itself, mirrors it on the Finance
+Review board, then writes it with `auto_posted_at` (the hub shows "Auto-posted <date>" and an "Undo?" chip; it stays in the default view
+for 14 days). `suggested_answer` = the account it went to; `agent_note` = why it was High (the rule line, the 2 earlier postings, or the invoice #).
+Med and Low rows are never auto-posted; they wait for Zain.
+```sql
+INSERT INTO finance_questions (id, created_at, question, suggested_answer, suggestions, status, source, kind, confidence, auto_posted_at, agent_note)
+VALUES (?1, ?2, ?3, ?4, '[]', 'done', 'Finance Review board', ?5, 'high', strftime('%Y-%m-%dT%H:%M:%SZ','now'), ?6)
+ON CONFLICT(id) DO UPDATE SET status='done', confidence='high', suggested_answer=excluded.suggested_answer, auto_posted_at=excluded.auto_posted_at,
+  agent_note=excluded.agent_note WHERE finance_questions.zain_answer IS NULL;
+```
+**"Undo auto-post"** (the hub's Undo? chip; arrives as `zain_answer='Undo auto-post'`, `status='new'` in the inbox): reverse the QuickBooks
+posting (back to For review), mirror it on the Finance Review board, then reopen the row as a Low question (one question, 2–4 chips), and
+do not auto-post that payee again until Zain answers:
+```sql
+UPDATE finance_questions SET status='open', confidence='low', auto_posted_at=NULL, zain_answer=NULL, answered_at=NULL, agent_note=?2, suggestions=?3 WHERE id=?1;
+```
+A row with `auto_posted_at` set and `status='open'` means Zain took his Undo back within 60 s: it stays posted, set `status='done'` again.
+Hub links: `/hub/finance/#group=txn`, `/hub/finance/#group=other`, `/hub/finance/#conf=low`, `/hub/finance/#status=auto-posted`, `/hub/#group=txn` (Home "Needs you").
+The Board's "Needs you" also shows the open finance questions (with the same badges and chip row).
 
 ## 4b. links — what "Open in platform ↗" opens (the hub falls back to the platform's main page)
 ```sql

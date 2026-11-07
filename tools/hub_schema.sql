@@ -57,7 +57,9 @@ CREATE TABLE IF NOT EXISTS finance_questions (
   source TEXT,
   data TEXT NOT NULL DEFAULT '{}',
   suggestions TEXT NOT NULL DEFAULT '[]',  -- JSON array of one-click answers (v2)
-  kind TEXT CHECK (kind IS NULL OR kind IN ('txn','other'))  -- v4: txn = one bank/card transaction, other = decisions/setup
+  kind TEXT CHECK (kind IS NULL OR kind IN ('txn','other')),  -- v4: txn = one bank/card transaction, other = decisions/setup
+  confidence TEXT CHECK (confidence IS NULL OR confidence IN ('high','med','low')),  -- v5: Finance's confidence (tools/hub_sync.md)
+  auto_posted_at TEXT             -- v5: when Finance auto-posted a High row in QuickBooks; NULL unless it did
 );
 CREATE INDEX IF NOT EXISTS fin_status ON finance_questions(status);
 

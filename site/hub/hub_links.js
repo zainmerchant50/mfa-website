@@ -232,8 +232,41 @@
   }
   function urgent(title, detail) { return /\b(urgent|asap|today|tonight|deadline|overdue|expir\w*|blocked|due)\b/i.test(String(title || "") + " " + String(detail || "")); }
 
+  // ---------- Finance confidence (v5: finance_questions.confidence + auto_posted_at) ----------
+  // badge: High green, Med amber, Low red; no rating = no badge. Low (and unrated) sort first: they need Zain.
+  var CONF = { high: { label: "High", rank: 2, title: "High confidence: a standing rule, a repeat payee or an exact invoice match" },
+    med: { label: "Med", rank: 1, title: "Medium confidence: likely, not certain" },
+    low: { label: "Low", rank: 0, title: "Low confidence: Finance needs your answer" } };
+  var CONF_KEYS = ["high", "med", "low"], UNDO_AUTO = "Undo auto-post";
+  function conf(x) { var c = String((x && x.confidence) || "").trim().toLowerCase(); if (c === "medium") c = "med"; return CONF[c] ? c : null; }
+  function confKey(v) { return CONF[v] ? v : ""; }
+  function confBadge(x) { var c = conf(x); return c ? { level: c, label: CONF[c].label, cls: "conf conf-" + c, title: CONF[c].title } : null; }
+  function confRank(x) { var c = conf(x); return c ? CONF[c].rank : 0; }
+  function confMatch(x, want) { return !confKey(want) || conf(x) === want; }
+  // the chip row: All / High / Med / Low with counts over the given items
+  function confChips(list, cur) {
+    var n = { all: 0, high: 0, med: 0, low: 0 }; (list || []).forEach(function (x) { n.all++; var c = conf(x); if (c) n[c]++; });
+    return [{ key: "", label: "All", n: n.all, on: !confKey(cur) }].concat(CONF_KEYS.map(function (k) { return { key: k, label: CONF[k].label, n: n[k], on: cur === k }; }));
+  }
+  function apDate(iso) { var d = new Date(iso); return d.toLocaleDateString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric" }); }
+  // auto-posted by Finance: {label: "Auto-posted Nov 6", undone: true once Zain sent "Undo auto-post"}; null when not auto-posted
+  function autoPosted(x) {
+    if (!x || !x.auto_posted_at) return null; var t = new Date(x.auto_posted_at).getTime(); if (isNaN(t)) return null;
+    var a = x.zain_answer || x.answer || "";
+    return { at: x.auto_posted_at, label: "Auto-posted " + apDate(x.auto_posted_at), undone: a === UNDO_AUTO, undo: UNDO_AUTO };
+  }
+  // status for the filter: auto-posted rows (not undone) read "auto-posted"; "open" also keeps auto-posts from the last 14 days in view
+  function finStatus(x) { var ap = autoPosted(x); return ap && !ap.undone ? "auto-posted" : (x && x.status) || ""; }
+  function finStatusMatch(x, want, now) {
+    var s = finStatus(x); if (!want) return true; if (s === want) return true;
+    if (want !== "open" || s !== "auto-posted") return false;
+    return ((now === undefined ? Date.now() : now) - new Date(x.auto_posted_at).getTime()) <= 14 * 864e5;
+  }
+
   root.HubLinks = { safeUrl: safeUrl, known: known, host: host, index: index, platformLink: platformLink, campaignLink: campaignLink, agentLink: agentLink,
     doc: doc, slug: slug, matchSlug: matchSlug, parseHash: parseHash, qs: qs, route: route, refHref: refHref, gmailSearch: gmailSearch, DEF: DEF,
     RANGE: RANGE, rangeKey: rangeKey, addDays: addDays, win: win, covered: covered, adsModel: adsModel, parseTxn: parseTxn, financeKind: financeKind,
-    rich: rich, suggestionsFor: suggestionsFor, waitAge: waitAge, urgent: urgent };
+    rich: rich, suggestionsFor: suggestionsFor, waitAge: waitAge, urgent: urgent,
+    conf: conf, confKey: confKey, confBadge: confBadge, confRank: confRank, confMatch: confMatch, confChips: confChips,
+    autoPosted: autoPosted, finStatus: finStatus, finStatusMatch: finStatusMatch, UNDO_AUTO: UNDO_AUTO };
 })(typeof window !== "undefined" ? window : globalThis);

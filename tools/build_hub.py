@@ -18,7 +18,7 @@ HEAD = """<!doctype html><html lang="en"><head>
 <link rel="icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=10"/>
+<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=11"/>
 </head><body class="hub" data-page="{page}">
 <header class="hub-top"><div class="wrap">
 <a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><b>MFA Hub</b><i>Private</i></a>
@@ -28,8 +28,8 @@ HEAD = """<!doctype html><html lang="en"><head>
 <div class="wrap"><main class="hub-main">
 """
 FOOT = """</main></div>
-<script src="/hub/hub_links.js?v=9"></script>
-<script src="/hub/hub.js?v=10"></script>
+<script src="/hub/hub_links.js?v=10"></script>
+<script src="/hub/hub.js?v=11"></script>
 </body></html>
 """
 
@@ -62,7 +62,7 @@ PAGES = {
 {pn("Daily rows · 30 days", "daily")}"""),
     "finance": ("finance/", "Finance questions", f"""<div class="rbar" id="rbar"></div><div class="kpis" id="kpis"></div>
 {pn("Ask Finance a question", "finAsk", "the Finance agent answers here", np=False)}
-<div id="finFilter" hidden></div>
+<div id="finFilter" hidden></div><div class="confwrap" id="finConf" hidden></div>
 {pn("Transaction questions", "finTxn", "bank/card items: date, payee, amount, account")}
 {pn("Other finance questions", "finOther", "decisions and setup not tied to one transaction")}"""),
     "leads": ("leads/", "Leads", f"""<div class="rbar" id="rbar"></div><div class="kpis" id="kpis"></div>

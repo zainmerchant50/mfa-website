@@ -295,5 +295,162 @@ await t("answers: wait age labels and urgency", async () => {
   eq(HL.urgent("Deadline is today"), true); eq(HL.urgent("Approve the photos?", "Why: Monday push"), false);
 });
 
+// ---------- v5: Finance confidence + auto-posted (helpers, API columns, and the real hub.js render on a small fake DOM) ----------
+await t("confidence: badge per level, nothing when unrated, aliases and junk", async () => {
+  eq(HL.confBadge({ confidence: "high" }).cls, "conf conf-high"); eq(HL.confBadge({ confidence: "high" }).label, "High");
+  eq(HL.confBadge({ confidence: "med" }).label, "Med"); eq(HL.confBadge({ confidence: "Medium" }).level, "med"); eq(HL.confBadge({ confidence: "LOW" }).cls, "conf conf-low");
+  for (const x of [{}, { confidence: null }, { confidence: "" }, { confidence: "sure" }, null]) eq(HL.confBadge(x), null, JSON.stringify(x));
+  eq(HL.confKey("low"), "low"); eq(HL.confKey("x<y"), ""); eq(HL.confKey(undefined), "");
+});
+await t("confidence: Low (and unrated) sort first, chip counts and filter", async () => {
+  const L = [{ id: "h", confidence: "high" }, { id: "m", confidence: "med" }, { id: "n" }, { id: "l", confidence: "low" }];
+  eq(L.slice().sort((a, b) => HL.confRank(a) - HL.confRank(b)).map((x) => x.id).join(""), "nlmh");
+  const c = HL.confChips(L, "med"); eq(c.map((x) => x.label + x.n).join(" "), "All4 High1 Med1 Low1"); eq(c.filter((x) => x.on).map((x) => x.key).join(), "med");
+  eq(HL.confChips(L, "").filter((x) => x.on)[0].label, "All");
+  eq(L.filter((x) => HL.confMatch(x, "low")).map((x) => x.id).join(), "l"); eq(L.filter((x) => HL.confMatch(x, "")).length, 4); eq(L.filter((x) => HL.confMatch(x, "bogus")).length, 4);
+});
+await t("auto-posted: label, undo state, status filter keeps 14 days of auto-posts with open", async () => {
+  const now = Date.parse("2026-11-06T18:00:00Z");
+  const ap = HL.autoPosted({ auto_posted_at: "2026-11-06T15:00:00Z", status: "done" }); eq(ap.label, "Auto-posted Nov 6"); eq(ap.undone, false); eq(ap.undo, "Undo auto-post");
+  eq(HL.autoPosted({ auto_posted_at: "2026-11-06T15:00:00Z", status: "new", zain_answer: "Undo auto-post" }).undone, true);
+  eq(HL.autoPosted({ status: "open" }), null); eq(HL.autoPosted({ auto_posted_at: "nope" }), null);
+  eq(HL.finStatus({ auto_posted_at: "2026-11-06T15:00:00Z", status: "done" }), "auto-posted"); eq(HL.finStatus({ status: "open" }), "open");
+  eq(HL.finStatus({ auto_posted_at: "2026-11-06T15:00:00Z", status: "new", zain_answer: "Undo auto-post" }), "new");
+  eq(HL.finStatusMatch({ auto_posted_at: "2026-11-01T15:00:00Z", status: "done" }, "open", now), true);
+  eq(HL.finStatusMatch({ auto_posted_at: "2026-10-01T15:00:00Z", status: "done" }, "open", now), false);
+  eq(HL.finStatusMatch({ auto_posted_at: "2026-10-01T15:00:00Z", status: "done" }, "auto-posted", now), true);
+  eq(HL.finStatusMatch({ status: "done" }, "open", now), false); eq(HL.finStatusMatch({ status: "done" }, "", now), true);
+});
+await t("API v5: finance rows carry confidence + auto_posted_at; answer returns them for finance only", async () => {
+  for (const pg of ["home", "finance"]) {
+    const db = fakeDb(); await dataGet({ request: new Request("https://hub.mfa-advisory.com/api/hub/data?page=" + pg), env: { HUB_DB: db }, data: { hubEmail: EMAIL } });
+    const q = db.log.filter((x) => x[0].includes("FROM finance_questions")); eq(q.length > 0, true, pg);
+    for (const x of q) eq(x[0].includes("confidence, auto_posted_at"), true, pg);
+  }
+  const a = apiCtx(AU, { body: { kind: "finance", id: "f1", answer: "Undo auto-post" } }); eq((await answerPost(a.ctx)).status, 200); eq(a.db.log[0][0].includes("answered_at, confidence, auto_posted_at"), true);
+  const b = apiCtx(AU, { body: { kind: "need", id: "n1", answer: "Yes" } }); eq((await answerPost(b.ctx)).status, 200); eq(b.db.log[0][0].includes("confidence"), false);
+  const c = apiCtx(AU, { body: { kind: "finance", id: "f1", undo: true } }); eq((await answerPost(c.ctx)).status, 200); eq(c.db.log[0][0].includes("RETURNING id, status, confidence, auto_posted_at"), true);
+  const sch = readFileSync(new URL("./hub_schema.sql", import.meta.url), "utf8"), mig = readFileSync(new URL("./hub_migrate_v5.sql", import.meta.url), "utf8");
+  for (const s of [sch, mig]) { eq(s.includes("confidence TEXT CHECK (confidence IS NULL OR confidence IN ('high','med','low'))"), true); eq(s.includes("auto_posted_at TEXT"), true); }
+});
+
+// A small fake DOM: enough of document/window for hub.js to draw a page from mock /api/hub data (text only, like the real page).
+function fakeDom() {
+  class N {
+    constructor(tag) { this.tagName = tag ? tag.toUpperCase() : null; this.childNodes = []; this.parentNode = null; this.attrs = {}; this.listeners = {}; this.style = { setProperty() {} }; this.hidden = false; this.disabled = false; this.value = ""; this._cls = new Set(); this._text = ""; }
+    get className() { return [...this._cls].join(" "); } set className(v) { this._cls = new Set(String(v).split(/\s+/).filter(Boolean)); }
+    get classList() { const s = this._cls; return { add: (...c) => c.forEach((x) => s.add(x)), remove: (...c) => c.forEach((x) => s.delete(x)), contains: (c) => s.has(c), toggle: (c, on) => { const v = on === undefined ? !s.has(c) : !!on; if (v) s.add(c); else s.delete(c); return v; } }; }
+    get id() { return this.attrs.id || ""; } set id(v) { this.attrs.id = v; }
+    get firstChild() { return this.childNodes[0] || null; } get lastChild() { return this.childNodes[this.childNodes.length - 1] || null; }
+    get nextSibling() { const p = this.parentNode; return p ? p.childNodes[p.childNodes.indexOf(this) + 1] || null : null; }
+    get textContent() { return this.tagName ? this.childNodes.map((c) => c.textContent).join("") : this._text; }
+    set textContent(v) { if (!this.tagName) { this._text = String(v); return; } this.childNodes.forEach((c) => { c.parentNode = null; }); this.childNodes = []; if (v !== "") this.appendChild(new N(null))._text = String(v); }
+    appendChild(c) { if (c.parentNode) c.parentNode.removeChild(c); c.parentNode = this; this.childNodes.push(c); return c; }
+    removeChild(c) { const i = this.childNodes.indexOf(c); if (i >= 0) this.childNodes.splice(i, 1); c.parentNode = null; return c; }
+    insertBefore(c, ref) { if (!ref) return this.appendChild(c); if (c.parentNode) c.parentNode.removeChild(c); c.parentNode = this; this.childNodes.splice(this.childNodes.indexOf(ref), 0, c); return c; }
+    setAttribute(k, v) { if (k === "class") this.className = v; else this.attrs[k] = String(v); } getAttribute(k) { return k === "class" ? this.className : this.attrs[k] === undefined ? null : this.attrs[k]; }
+    addEventListener(e, f) { (this.listeners[e] = this.listeners[e] || []).push(f); }
+    dispatch(e, ev = {}) { (this.listeners[e] || []).forEach((f) => f({ preventDefault() {}, key: "", ...ev })); }
+    click() { if (!this.disabled) this.dispatch("click"); }
+    focus() {} scrollIntoView() {} getBoundingClientRect() { return { top: 0, left: 0, width: 0, height: 0 }; }
+    get offsetHeight() { return 0; } get scrollHeight() { return 0; } get clientHeight() { return 0; }
+    get options() { return this.childNodes; }
+    matches(sel) { return sel.split(",").some((s) => matchChain(this, s.trim().split(/\s+/))); }
+    closest(sel) { let n = this; while (n && n.tagName) { if (n.matches(sel)) return n; n = n.parentNode; } return null; }
+    querySelectorAll(sel) { const out = []; const walk = (n) => n.childNodes.forEach((c) => { if (c.tagName) { if (c.matches(sel)) out.push(c); walk(c); } }); walk(this); return out; }
+    querySelector(sel) { return this.querySelectorAll(sel)[0] || null; }
+  }
+  const one = (n, s) => { const m = /^([a-z0-9]*)((?:\.[\w-]+)*)(?:\[([\w-]+)="([^"]*)"\])?$/i.exec(s); if (!m) throw new Error("selector " + s);
+    return (!m[1] || n.tagName === m[1].toUpperCase()) && (m[2] ? m[2].slice(1).split(".") : []).every((c) => n._cls.has(c)) && (!m[3] || n.getAttribute(m[3]) === m[4]); };
+  const matchChain = (n, parts) => { if (!one(n, parts[parts.length - 1])) return false; let rest = parts.slice(0, -1), p = n.parentNode; while (rest.length && p && p.tagName) { if (one(p, rest[rest.length - 1])) rest = rest.slice(0, -1); p = p.parentNode; } return !rest.length; };
+  const html = new N("html"), body = html.appendChild(new N("body"));
+  const document = { body, documentElement: html, createElement: (t) => new N(t), createElementNS: (ns, t) => new N(t), createTextNode: (t) => { const x = new N(null); x._text = String(t); return x; },
+    getElementById: (id) => findId(body, id), querySelector: (s) => body.querySelector(s) };
+  const findId = (n, id) => { for (const c of n.childNodes) { if (!c.tagName) continue; if (c.attrs.id === id) return c; const f = findId(c, id); if (f) return f; } return null; };
+  function Option(text, value) { const o = new N("option"); o.textContent = text; o.value = value; return o; }
+  return { N, document, body, Option };
+}
+// a hub page shell like tools/build_hub.py: sections with .pn-h h2 + #<id>Sub
+function hubPage(page, mock, hash = "") {
+  mock = JSON.parse(JSON.stringify(mock)); // hub.js updates the items it renders; every page gets its own copy
+  const D = fakeDom(), { document, body, N } = D, main = new N("main"), mk = (tag, cls, id, parent) => { const n = new N(tag); if (cls) n.className = cls; if (id) n.id = id; (parent || main).appendChild(n); return n; };
+  body.setAttribute("data-page", page); mk("span", "hub-status", "hubStatus", body); main.className = "hub-main"; body.appendChild(main);
+  mk("div", "rbar", "rbar"); mk("div", "kpis", "kpis");
+  const pn = (id) => { const s = mk("section", "pn"), h = mk("div", "pn-h", null, s); mk("h2", null, null, h); mk("span", "sub", id + "Sub", h); return mk("div", "pn-b", id, s); };
+  if (page === "finance") { pn("finAsk"); mk("div", null, "finFilter").hidden = true; mk("div", "confwrap", "finConf").hidden = true; pn("finTxn"); pn("finOther"); }
+  if (page === "board") { pn("agents"); pn("needs"); pn("ideas"); pn("activity"); }
+  const posts = [], location = { hash, reload() {} };
+  const fetch = async (url, o = {}) => {
+    const u = String(url), json = (j) => ({ ok: true, status: 200, json: async () => j });
+    if (o.method === "POST") { const b = JSON.parse(o.body); posts.push([u, b]); return json({ ok: true, item: { id: b.id, status: b.undo ? "open" : "new", answer: b.answer || null, answered_at: new Date().toISOString() } }); }
+    const pg = /page=(\w+)/.exec(u); return json({ ok: true, page: pg && pg[1], links: [], comments: [], ...(mock[pg && pg[1]] || {}) });
+  };
+  const win = { document, location, fetch, Node: N, Option: D.Option, URL, encodeURIComponent, decodeURIComponent, setTimeout, clearTimeout, setInterval: () => 0, clearInterval() {}, innerWidth: 1440, innerHeight: 900, scrollY: 0,
+    matchMedia: () => ({ matches: true }), addEventListener() {}, console };
+  win.window = win; win.globalThis = win; vm.createContext(win);
+  vm.runInContext(readFileSync(new URL("../site/hub/hub_links.js", import.meta.url), "utf8"), win);
+  vm.runInContext(readFileSync(new URL("../site/hub/hub.js", import.meta.url), "utf8"), win);
+  const $ = (id) => document.getElementById(id);
+  return { $, posts, location, settle: async () => { for (let i = 0; i < 20; i++) await new Promise((r) => setImmediate(r)); } };
+}
+const apAt = new Date(Date.now() - 2 * 864e5).toISOString();
+const apLabel = "Auto-posted " + new Date(apAt).toLocaleDateString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric" });
+const FQ = (id, payee, date, conf, o = {}) => ({ id, created_at: "2026-11-05T12:00:00Z", question: `${payee}: $46.00 spend on ${date}, Card ••1234 (bank text: ${payee}) Note: business or personal?`, suggested_answer: "Business · Meals", suggestions: ["Business · Meals", "Personal"], status: "open", zain_answer: null, answered_at: null, agent_note: null, kind: "txn", confidence: conf, auto_posted_at: null, ...o });
+const FIN = [FQ("t-low", "Tous Les Jours", "2026-11-02", "low"), FQ("t-med", "Staples", "2026-10-30", "med"), FQ("t-none", "Wawa", "2026-10-15", null),
+  FQ("t-ap", "Adobe", "2026-11-03", "high", { status: "done", auto_posted_at: apAt, suggested_answer: "Business · Software", agent_note: "Rule: decisions.md, Adobe = Software" }),
+  FQ("t-old-ap", "Zoom", "2026-09-03", "high", { status: "done", auto_posted_at: "2026-09-04T12:00:00Z" }),
+  { ...FQ("o-high", "x", "2026-11-01", "high"), kind: "other", question: "Match the Upwork payout to INV-1042?", suggestions: ["Yes, match it", "No"] },
+  { ...FQ("o-low", "x", "2026-11-01", "low"), kind: "other", question: "Create a Loan from owner account?", suggestions: ["Yes", "No"] }];
+const rowsOf = (host) => host.querySelectorAll("tbody tr").filter((r) => !r._cls.has("total"));
+await t("render: Finance page shows a colored badge per rated item and nothing for unrated", async () => {
+  const P = hubPage("finance", { finance: { finance: FIN, needs: [] } }); await P.settle();
+  const tx = P.$("finTxn"), rows = rowsOf(tx);
+  eq(rows.length, 4, "open + recent auto-post (the 60-day-old auto-post is out of the default view)");
+  const badge = (r) => { const b = r.querySelector("span.conf"); return b ? b.className + "=" + b.textContent : "-"; };
+  eq(rows.map(badge).join(" | "), "- | conf conf-low=Low | conf conf-med=Med | conf conf-high=High", "Low/unrated first, then Med, then High");
+  eq(rows[0].textContent.includes("Wawa"), true); eq(rows[1].textContent.includes("Tous Les Jours"), true);
+  const oth = P.$("finOther"); eq(oth.querySelectorAll("span.conf").map((b) => b.textContent).join(","), "Low,High", "other questions: Low first");
+});
+await t("render: All / High / Med / Low chip row with counts; #conf=low shows only Low", async () => {
+  const P = hubPage("finance", { finance: { finance: FIN, needs: [] } }); await P.settle();
+  const bar = P.$("finConf"); eq(bar.hidden, false);
+  const chips = bar.querySelectorAll("button.chip"); eq(chips.map((c) => c.textContent).join(" "), "All6 High2 Med1 Low2");
+  eq(chips[0].getAttribute("aria-pressed"), "true"); chips[3].click(); eq(P.location.hash, "conf=low");
+  const L = hubPage("finance", { finance: { finance: FIN, needs: [] } }, "#conf=low"); await L.settle();
+  eq(L.$("finConf").querySelector('button[aria-pressed="true"]').textContent, "Low2");
+  eq(rowsOf(L.$("finTxn")).map((r) => r.querySelector("span.conf").textContent).join(), "Low"); eq(L.$("finOther").querySelectorAll("span.conf").map((b) => b.textContent).join(), "Low");
+  const E = hubPage("finance", { finance: { finance: FIN, needs: [] } }, "#conf=med"); await E.settle(); eq(E.$("finOther").textContent.includes("No Med confidence questions here."), true);
+});
+await t("render: auto-posted rows show 'Auto-posted <date>' muted, one Undo? chip that sends 'Undo auto-post'", async () => {
+  const P = hubPage("finance", { finance: { finance: FIN, needs: [] } }); await P.settle();
+  const row = rowsOf(P.$("finTxn")).filter((r) => r.textContent.includes("Adobe"))[0], ans = row.querySelector("div.ans");
+  eq(ans._cls.has("ap"), true); eq(ans.querySelector("div.ap-l").textContent, apLabel);
+  const chips = ans.querySelectorAll("button.chip"); eq(chips.length, 1); eq(chips[0].textContent, "Undo?"); eq(chips[0]._cls.has("ghost"), true);
+  eq(ans.querySelector("div.note").textContent, "Agent: Rule: decisions.md, Adobe = Software");
+  chips[0].click(); await P.settle();
+  eq(P.posts.length, 1); eq(P.posts[0][0], "/api/hub/answer"); eq(JSON.stringify(P.posts[0][1]), JSON.stringify({ kind: "finance", id: "t-ap", answer: "Undo auto-post" }));
+  eq(ans.textContent.includes("Sent ✓ Undo auto-post"), true);
+  const open = rowsOf(P.$("finTxn")).filter((r) => r.textContent.includes("Staples"))[0].querySelector("div.ans");
+  eq(open._cls.has("ap"), false); eq(open.querySelectorAll("button.chip").map((c) => c.textContent).join(), "Business · Meals,Personal", "normal rows keep their one-tap chips");
+  const U = hubPage("finance", { finance: { finance: FIN.map((f) => f.id === "t-ap" ? { ...f, status: "new", zain_answer: "Undo auto-post" } : f), needs: [] } }, "#status=new"); await U.settle();
+  const ua = rowsOf(U.$("finTxn")).filter((r) => r.textContent.includes("Adobe"))[0];
+  eq(ua ? ua.querySelector("div.ap-l").textContent : "", apLabel + " · undo asked"); eq(ua.querySelectorAll("button.chip").length, 0);
+  const S = hubPage("finance", { finance: { finance: FIN, needs: [] } }, "#status=auto-posted"); await S.settle();
+  eq(rowsOf(S.$("finTxn")).map((r) => /Adobe|Zoom/.exec(r.textContent)[0]).sort().join(), "Adobe,Zoom", "status=auto-posted lists every auto-post");
+});
+await t("render: Board finance cards get badges, the chip row, Low first, and quick Undo? on auto-posts", async () => {
+  const fo = FIN.filter((f) => f.id !== "t-old-ap").map((f) => f.id === "t-ap" ? { ...f, status: "seen" } : f);
+  const P = hubPage("board", { board: { agents: [], ideas: [], activity: [], logRecent: [], logMin: [], needs: [{ id: "n1", created_at: "2026-11-05T12:00:00Z", source: "agent", agent: "Ads", title: "Approve the new ad copy?", detail: "", suggestions: [], status: "open" }] }, home: { financeOpen: fo }, calendar: { calendar: [] } });
+  await P.settle();
+  const nh = P.$("needs"), cards = nh.querySelectorAll("article.card");
+  eq(cards.length, 7, "1 agent approval + 6 finance cards");
+  eq(nh.querySelector("div.confbar").querySelectorAll("button.chip").map((c) => c.textContent).join(" "), "All7 High2 Med1 Low2");
+  const lv = cards.map((c) => { const b = c.querySelector("span.conf"); return b ? b.textContent : "-"; });
+  eq(lv.indexOf("Med") > lv.lastIndexOf("Low"), true, lv.join()); eq(lv.indexOf("High") > lv.indexOf("Med"), true, lv.join());
+  const ap = cards.filter((c) => c.textContent.includes("Adobe"))[0]; eq(ap.querySelector("div.ap-l").textContent, apLabel); eq(ap.querySelectorAll("button.chip").map((c) => c.textContent).join(), "Undo?");
+  const L = hubPage("board", { board: { agents: [], ideas: [], activity: [], logRecent: [], logMin: [], needs: [] }, home: { financeOpen: fo }, calendar: { calendar: [] } }, "#conf=high"); await L.settle();
+  eq(L.$("needs").querySelectorAll("article.card").map((c) => c.querySelector("span.conf").textContent).join(), "High,High");
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

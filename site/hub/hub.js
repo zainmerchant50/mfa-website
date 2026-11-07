@@ -42,6 +42,18 @@
     requestAnimationFrame(step);
   }
   function dot(level, title) { var d = el("span", "sdot " + level); d.setAttribute("aria-hidden", "true"); if (title) d.title = title; return d; }
+  // Finance confidence badge (High green / Med amber / Low red); nothing when the row has no rating
+  function confEl(item) { var b = HL.confBadge(item); if (!b) return ""; var s = el("span", b.cls, b.label); s.title = b.title; return s; }
+  // All / High / Med / Low chip row; the choice lives in the hash (#conf=low) so it survives a re-draw
+  function confBar(host, items, cur) {
+    clear(host); host.hidden = false; var w = el("div", "confbar"); w.setAttribute("role", "group"); w.setAttribute("aria-label", "Filter by confidence");
+    w.appendChild(el("span", "cl", "Confidence"));
+    HL.confChips(items, cur).forEach(function (c) {
+      var b = btn("chip cf" + (c.key ? " cf-" + c.key : ""), "", function () { var p = merge(H, { conf: c.key }); if (!c.key) delete p.conf; setHash(p); });
+      if (c.key) b.appendChild(el("i")); add(b, c.label, el("span", "n", String(c.n))); b.setAttribute("aria-pressed", String(c.on)); w.appendChild(b);
+    });
+    host.appendChild(w); return w;
+  }
 
   // ---------- formatting ----------
   function ymdET(d) { return (d instanceof Date ? d : new Date(d)).toLocaleDateString("en-CA", { timeZone: TZ }); }
@@ -170,6 +182,15 @@
     o = o || {}; var box = el("div", "ans" + (o.quick ? " quick" : ""));
     function render() {
       clear(box);
+      var ap = kind === "finance" ? HL.autoPosted(item) : null;
+      box.classList.toggle("ap", !!ap);
+      if (ap) { // Finance posted it on its own (High): muted note + one "Undo?" chip that sends "Undo auto-post"
+        var apl = el("div", "ap-l", ap.label + (ap.undone ? " \u00b7 undo asked" : "")); apl.title = "Finance posted this in QuickBooks on its own (High confidence)"; box.appendChild(apl);
+        if (!ap.undone) { var uc = el("div", "chips"), ub = btn("chip ghost ap-undo", "Undo?", function () { submit(ap.undo); }); ub.title = "Sends \u201c" + ap.undo + "\u201d to Finance"; uc.appendChild(ub); box.appendChild(uc); }
+        else { add(box, add(el("div"), pill(item.status))); if (item.answered_at) box.appendChild(el("div", "muted", "Answered " + fmtD(item.answered_at, true))); }
+        if (item.agent_note) box.appendChild(el("div", "note", "Agent: " + item.agent_note));
+        return;
+      }
       if (item.status === "open") {
         var chips = el("div", "chips"), own = el("div", "own"), inp = el(o.quick ? "textarea" : "input");
         if (o.quick) { inp.rows = 1; inp.className = "fld"; } else inp.type = "text";
@@ -233,8 +254,9 @@
     }
     (cfg.selects || []).forEach(function (f) {
       var vals = {}; cfg.rows.forEach(function (r) { var v = f.get ? f.get(r) : r[f.k]; if (v !== null && v !== undefined && v !== "") vals[v] = 1; });
+      if (f.value && f.match) vals[f.value] = 1;
       var sel = el("select"); sel.setAttribute("aria-label", f.l); sel.appendChild(new Option(f.l + ": all", ""));
-      Object.keys(vals).sort().forEach(function (v) { sel.appendChild(new Option(v, v)); });
+      Object.keys(vals).sort().forEach(function (v) { sel.appendChild(new Option((f.labels && f.labels[v]) || v, v)); });
       if (f.value) { sel.value = f.value; st.sel[f.l] = f.value; }
       sel.addEventListener("change", function () { st.sel[f.l] = sel.value; draw(); }); tb.appendChild(sel);
     });
@@ -251,7 +273,7 @@
     function val(c, r) { return c.get ? c.get(r) : r[c.k]; }
     function draw() {
       var rows = cfg.rows.filter(function (r) {
-        for (var i = 0; i < (cfg.selects || []).length; i++) { var f = cfg.selects[i], want = st.sel[f.l]; if (want && String(f.get ? f.get(r) : r[f.k]) !== want) return false; }
+        for (var i = 0; i < (cfg.selects || []).length; i++) { var f = cfg.selects[i], want = st.sel[f.l]; if (want && !(f.match ? f.match(r, want) : String(f.get ? f.get(r) : r[f.k]) === want)) return false; }
         if (!st.q) return true;
         return cfg.cols.some(function (c) { var v = val(c, r); return v !== null && v !== undefined && String(v).toLowerCase().indexOf(st.q) >= 0; });
       });
@@ -461,23 +483,30 @@
   var GROUPS = [["agent", "Agent approvals"], ["txn", "Finance · transaction questions"], ["other", "Finance · other questions"]];
   function openCount(list) { return list.filter(function (r) { return r.status === "open"; }).length; }
   // Board cards: open first, then urgent, then the oldest
-  function needKey(r) { var t = new Date(r.ts).getTime(); return (r.status === "open" ? 0 : 4e12) + (HL.urgent(r.title, r.detail) ? 0 : 2e12) + (isNaN(t) ? 1.9e12 : t); }
+  // ... and within open: Low (or unrated) confidence before Med before High
+  function needKey(r) { var t = new Date(r.ts).getTime(); return (r.status === "open" ? 0 : 8e13) + HL.confRank(r.item) * 1e13 + (HL.urgent(r.title, r.detail) ? 0 : 2e12) + (isNaN(t) ? 1.9e12 : t); }
+  // status filter: finance rows read "auto-posted" when Finance posted them; "open" keeps the last 14 days of auto-posts in view
+  function finStatusSel(rows, getItem, value) {
+    var anyAp = rows.some(function (r) { var it = getItem(r); return !!HL.autoPosted(it); });
+    return { l: "Status", k: "status", value: value, get: function (r) { return HL.finStatus(getItem(r)); }, match: function (r, w) { return HL.finStatusMatch(getItem(r), w); }, labels: anyAp ? { open: "open + auto-posts" } : null };
+  }
   function needsTable(host, rows, o) {
     o = o || {}; var C = !!o.cards;
     table(host, {
       rows: rows, short: o.short, cards: C, sort: { k: "o", dir: "asc" },
-      selects: [{ l: "Source", k: "src" }, { l: "Status", k: "status", value: "open" }],
+      selects: [{ l: "Source", k: "src" }, finStatusSel(rows, function (r) { return r.kind === "finance" ? r.item : { status: r.status }; }, "open")],
       level: C ? function (r) { if (r.status !== "open") return "ok"; var a = HL.waitAge(r.ts); return (a && a.level === "bad") || HL.urgent(r.title, r.detail) ? "bad" : "warn"; } : null,
       cols: [
-        { k: "o", l: "#", num: true, card: false, sortLabel: C ? "Urgent + oldest first" : "Open first", get: function (r) { return C ? needKey(r) : (r.status === "open" ? 0 : 1) * 1e6 + (r.kind === "finance" ? 1e5 : 0) + rows.indexOf(r); }, cell: function (r) { return String(rows.indexOf(r) + 1); } },
+        { k: "o", l: "#", num: true, card: false, sortLabel: C ? "Urgent + oldest first" : "Open first", get: function (r) { return C ? needKey(r) : (r.status === "open" ? 0 : 1) * 1e7 + HL.confRank(r.item) * 1e6 + (r.kind === "finance" ? 1e5 : 0) + rows.indexOf(r); }, cell: function (r) { return String(rows.indexOf(r) + 1); } },
         { k: "src", l: "From", cls: "nw", cell: function (r) { var ref = r.item && r.item.ref, m = ref && /^agent:(.+)$/.exec(ref);
           return hl(r.agent || r.src, r.kind === "finance" ? HL.route("finance", { group: HL.financeKind(r.item), q: r.id }) : m ? HL.route("board", { agent: m[1] }) : r.agent ? HL.route("board", { agent: r.agent }) : ref ? HL.refHref("home", ref) : HL.route("board")); } },
+        { k: "conf", l: "Confidence", cls: "nw", card: "meta", sortLabel: "Confidence (Low first)", get: function (r) { return String(HL.confRank(r.item)); }, cell: function (r) { return confEl(r.item); } },
         { k: "title", l: "Question / approval", cls: "w", card: "head", cell: function (r) {
           var w = el("div");
           if (C) { add(w, rich(r.title, { head: true })); if (r.detail) w.appendChild(rich(r.detail, { cls: "rt-d" })); return w; }
           add(w, clip(r.title)); if (r.detail) w.appendChild(el("div", "muted", r.detail)); return w; } }
       ].concat(C ? [{ k: "ts", l: "Waiting", card: "meta", cell: function (r) {
-          if (r.status !== "open") return pill(r.status);
+          if (r.status !== "open" || (r.kind === "finance" && HL.autoPosted(r.item))) return pill(r.kind === "finance" ? HL.finStatus(r.item).replace("-", "_") : r.status);
           var a = HL.waitAge(r.ts), x = el("span"); if (!a) return ""; var p = el("span", "age " + a.level, a.label); p.title = "Asked " + fmtD(r.ts, true);
           add(x, p, HL.urgent(r.title, r.detail) ? el("span", "age bad", "urgent") : null); return x; } }] : []).concat([
         { k: "status", l: "Answer", cls: "ww", card: "act", sortLabel: "Status", cell: function (r) { return answerCell(r.kind, r.item, { quick: C }); } }
@@ -492,19 +521,20 @@
     var rows = list.map(function (f) { var x = HL.parseTxn(f.question) || {}; return { f: f, id: f.id, date: x.date || "", payee: x.payee || "", amount: x.amount === undefined ? null : x.amount, dir: x.dir || "", account: x.account || "", note: x.note || f.question || "", sugg: f.suggested_answer || "", status: f.status }; });
     var qb = HL.platformLink("QuickBooks", LINKS);
     table(host, {
-      rows: rows, short: o.short, sort: { k: "date", dir: "asc" },
-      selects: [{ l: "Status", k: "status", value: o.status === undefined ? "open" : o.status }, { l: "Account", k: "account" }],
+      rows: rows, short: o.short, sort: { k: "conf", dir: "asc" },
+      selects: [finStatusSel(rows, function (r) { return r.f; }, o.status === undefined ? "open" : o.status), { l: "Account", k: "account" }],
       cols: [
         { k: "date", l: "Date", cls: "nw", cell: function (r) { return hl(r.date ? fmtD(r.date) : "—", HL.route("finance", { group: "txn", q: r.id })); } },
+        { k: "conf", l: "Conf.", cls: "nw", sortLabel: "Confidence (Low first)", get: function (r) { return HL.confRank(r.f) + "|" + (r.date || "9999"); }, cell: function (r) { return confEl(r.f); } },
         { k: "payee", l: "Payee", cls: o.full ? "nw" : "" },
         { k: "amount", l: "Amount", num: true, cell: function (r) { return r.amount === null ? "—" : (/deposit|refund|credit/.test(r.dir) ? "+" : "") + money(r.amount); } },
-        { k: "account", l: "Account", cls: o.full ? "nw" : "" },
+        { k: "account", l: "Account" },
         { k: "note", l: "Question", cls: o.full ? "w" : "ww", cell: function (r) { return clip(r.note); } }
       ].concat(o.full ? [{ k: "sugg", l: "Suggested", cls: "ww" }] : []).concat([
         { k: "status", l: "Your answer", cls: "ww", cell: function (r) { return answerCell("finance", r.f); } }
       ]).concat(o.full ? [{ k: "qbo", l: "Open", cls: "nw", get: function () { return ""; }, cell: function () { return ext(qb, "QuickBooks") || ""; } }] : []),
       ref: function (r) { return r.id; }, empty: o.empty || "No transaction questions here.",
-      total: function (rs) { var sp = 0, n = 0; rs.forEach(function (r) { if (r.amount !== null) { n++; sp += /deposit|refund|credit/.test(r.dir) ? 0 : r.amount; } }); return ["", rs.length + " items", money(sp)]; },
+      total: function (rs) { var sp = 0, n = 0; rs.forEach(function (r) { if (r.amount !== null) { n++; sp += /deposit|refund|credit/.test(r.dir) ? 0 : r.amount; } }); return ["", "", rs.length + " items", money(sp)]; },
       reply: o.full ? { head: "Ask / comment", label: "Ask / comment", kind: "question", marker: function (r) { return r.status === "open"; } } : undefined
     });
   }
@@ -706,7 +736,13 @@
         { k: "rev", l: "Review", cls: "nw", sortable: false, get: function () { return ""; }, cell: function (a) { return reviewCell(HL.route("board", { agent: a.agent, range: H.range }), HL.agentLink(a.agent, LINKS), a.agent); } }
       ], ref: function (a) { return a.id; }
     });
-    needsTable($("needs"), needsRows({ needs: d.needs || [] }), { cards: true });
+    var nHost = $("needs");
+    if (nHost) boardExtras().then(function (x) {
+      var rows = needsRows({ needs: d.needs || [], financeOpen: (x[0] && x[0].financeOpen) || [] }), cf = HL.confKey(H.conf), bar = el("div"), list = el("div");
+      clear(nHost); add(nHost, bar, list);
+      if (rows.some(function (r) { return r.kind === "finance"; })) confBar(bar, rows.filter(function (r) { return r.status === "open" || (r.kind === "finance" && HL.autoPosted(r.item)); }).map(function (r) { return r.item; }), cf);
+      needsTable(list, cf ? rows.filter(function (r) { return HL.confMatch(r.item, cf); }) : rows, { cards: true, empty: cf ? "Nothing at " + HL.confBadge({ confidence: cf }).label + " confidence is waiting." : null });
+    });
     table($("ideas"), {
       rows: ideas, cards: true, sort: { k: "at", dir: "desc" }, selects: [{ l: "Status", k: "status" }, { l: "Owner", get: function (i) { return i.data.owner || ""; } }],
       cols: [
@@ -995,18 +1031,22 @@
     kpi(strip, "Done", String(f.filter(function (x) { return x.status === "done"; }).length), "posted in QuickBooks (all time)", { href: F({ group: "txn", status: "done", range: H.range }) });
     var qb = HL.platformLink("QuickBooks", LINKS); kpi(strip, "QuickBooks", "Banking ↗", "bank feed and categories", { ext: qb });
     var g = H.group === "txn" || H.group === "other" ? H.group : "", one = H.q || "";
-    var sec = function (id) { var n = $(id); return n && n.closest(".pn"); }, st = ["open", "new", "seen", "done"].indexOf(H.status) >= 0 ? H.status : one ? "" : "open";
+    var sec = function (id) { var n = $(id); return n && n.closest(".pn"); }, st = ["open", "new", "seen", "done", "auto-posted"].indexOf(H.status) >= 0 ? H.status : one ? "" : "open";
+    // confidence chips (All / High / Med / Low): counts over what the status view shows; Low sorts first in both lists
+    var cf = HL.confKey(H.conf), cHost = $("finConf"), byConf = function (x) { return HL.confMatch(x, cf); };
+    if (cHost) { if (one) { clear(cHost); cHost.hidden = true; } else confBar(cHost, f.filter(function (x) { return (g ? HL.financeKind(x) === g : true) && HL.finStatusMatch(x, st); }), cf); }
+    if (one) cf = "";
     // 1) transaction questions
-    var tList = one ? txn.filter(function (x) { return x.id === one; }) : txn, tHost = $("finTxn");
+    var tList = one ? txn.filter(function (x) { return x.id === one; }) : txn.filter(byConf), tHost = $("finTxn");
     setTitle("finTxn", "Transaction questions · " + open(txn) + " open"); setSub("finTxn", add(el("span"), "bank/card items: date, payee, amount, account · ", hl("only these", F({ group: "txn" }))));
     if (sec("finTxn")) sec("finTxn").hidden = g === "other" || (one && !tList.length);
-    txnTable(tHost, tList, { full: true, status: st, empty: one ? "That item isn't a transaction question." : "No transaction questions here." });
+    txnTable(tHost, tList, { full: true, status: st, empty: one ? "That item isn't a transaction question." : cf ? "No " + HL.confBadge({ confidence: cf }).label + " confidence transactions here." : "No transaction questions here." });
     if (one && tList.length) tHost.insertBefore(filterChip("Showing transaction " + one, F({ group: "txn" })), tHost.firstChild);
     // 2) other finance questions (not tied to one transaction)
-    var oList = one ? otherRows.filter(function (r) { return r.id === one; }) : otherRows, oHost = $("finOther");
+    var oList = one ? otherRows.filter(function (r) { return r.id === one; }) : otherRows.filter(function (r) { return byConf(r.item); }), oHost = $("finOther");
     setTitle("finOther", "Other finance questions · " + open(otherRows) + " open"); setSub("finOther", add(el("span"), "decisions and setup not tied to one transaction · ", hl("only these", F({ group: "other" }))));
     if (sec("finOther")) sec("finOther").hidden = g === "txn" || (one && !oList.length);
-    needsTable(oHost, oList, { empty: "No other finance questions right now. Finance adds them with kind 'other' (tools/hub_sync.md)." });
+    needsTable(oHost, oList, { empty: cf ? "No " + HL.confBadge({ confidence: cf }).label + " confidence questions here." : "No other finance questions right now. Finance adds them with kind 'other' (tools/hub_sync.md)." });
     if (g) { var c = merge(H, {}); delete c.group; delete c.q; var fb = $("finFilter"); if (fb) { clear(fb); fb.hidden = false; fb.appendChild(filterChip("Showing " + (g === "txn" ? "transaction questions" : "other finance questions") + " only", "#" + HL.qs(c))); } }
     else { var fb2 = $("finFilter"); if (fb2) { clear(fb2); fb2.hidden = true; } }
     var ga = $("finAsk"); if (ga) { clear(ga).appendChild(commentBox("finance:general", "question", "Ask Finance anything (not tied to a row)")); }
