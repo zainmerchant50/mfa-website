@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:internet-deduction-business-use-0@mfa-advisory.com
+DTSTAMP:20261108T125013Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth 2026 estimated tax payment due (federal 1040-ES)
+DESCRIPTION:Generally needed if you expect to owe $1\,000 or more for 202
+ 6 after withholding and refundable credits. You can skip it if you file y
+ our 2026 return and pay in full by Feb. 1\, 2027.\n\nDetails: https://mfa
+ -advisory.com/blog/internet-deduction-business-use/\nGeneral information\
+ , not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/internet-deduction-business-use/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth 2026 estimated tax payment due (federal 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated November 6, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated November 8, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -1023,6 +1023,7 @@ Painlessly. After a short consultation we handle the transition — requesting p
 
 ## Articles (MFA Insights)
 
+- Can I Deduct My Home Internet for Business? 2026 Rules (2026-11-08): Can I deduct my home internet for business? Yes, the business-use share if you're self-employed. How to figure it, W-2 employee limits, NJ and NY rules. https://mfa-advisory.com/blog/internet-deduction-business-use/
 - How Much Do You Have to Make on a 1099 to File Taxes in 2026? (2026-11-06): How much do you have to make on a 1099 to file taxes? $400 of net self-employment earnings. Why the $2,000 1099 rule doesn't decide it, plus 2026 dates. https://mfa-advisory.com/blog/1099-income-filing-threshold/
 - Filing Taxes Late: Missed Oct. 15? What to Do Now for Your 2025 Return (2026-11-04): Filing taxes late after Oct. 15? What a late 2025 return costs, why Dec. 14 matters if you extended, IRS payment plans and new automatic penalty relief. https://mfa-advisory.com/blog/filing-taxes-late-2025-return/
 - Hiring Overseas Contractors: W-8BEN vs. W-9, 1099 Rules and the Real Tax Picture (2026) (2026-10-30): Hiring overseas contractors to cut costs? Collect a W-8BEN, not a W-9. When a 1099 or 30% withholding applies, what you can deduct and the records to keep. https://mfa-advisory.com/blog/hiring-overseas-contractors-taxes-w8ben/
