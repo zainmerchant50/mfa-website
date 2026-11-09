@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-19",
+  "slug": "donations-count-without-itemizing",
+  "title": "Myth: donations only count if you itemize",
+  "type": "value",
+  "accent": "forest",
+  "theme": "paper",
+  "label": "Myth vs fact",
+  "checked": "November 9, 2026",
+  "series": "Myth vs fact",
+  "link": {"path": "/year-end-tax-planning/", "label": "Year-end tax planning (MFA)"},
+  "hook": {"text": "\"Donations only count if you *itemize*.\"", "sub": "Not anymore. Myth vs fact."},
+  "beats": [
+    {"type": "stat", "kicker": "New for 2026: no itemizing needed", "value": "$1,000", "count": {"to": 1000, "pre": "$", "suf": ""}, "sub": "of cash gifts to qualified charities", "note": "$2,000 if you file jointly."},
+    {"type": "rows", "kicker": "Does it count?", "items": [{"l": "Cash gift to a qualified charity", "r": "Counts", "ok": true}, {"l": "Card or bank transfer to one", "r": "Counts", "ok": true}, {"l": "Money to a friend's fundraiser", "r": "No", "ok": false}, {"l": "Bags of clothes or goods", "r": "Not this one", "ok": false}]},
+    {"type": "text", "kicker": "Giving Tuesday is December 1", "text": "Check the charity, then *keep the record*.", "sub": "A bank record or written receipt."}
+  ],
+  "cta": {"big": "Comment *GIVE*", "url": "mfa-advisory.com", "sub": "We'll DM you our year-end checklist."},
+  "captions": {
+    "comment_word": "GIVE",
+    "instagram": "Myth: a donation only helps your taxes if you itemize.\nFact: starting with tax year 2026, you can deduct cash gifts to qualified charities without itemizing.\n\n✔️ Up to $1,000, or $2,000 if you file jointly.\n✔️ Cash means cash, check, card or bank transfer to a qualified organization. Check it with the IRS Tax Exempt Organization Search.\n✔️ Gifts to individuals, including a friend's fundraiser page, are not deductible.\n✔️ Keep a bank record or a written receipt from the charity.\n\nGiving Tuesday is December 1. Gifts made by December 31 count for 2026.\n\nSource: IRS Topic 506, Charitable contributions. General information, not advice for your situation.",
+    "hashtags": ["#givingtuesday", "#charity", "#taxtips", "#donations", "#yearend", "#moneytips", "#personalfinance", "#taxes2026"],
+    "youtube_hashtags": ["#shorts", "#givingtuesday", "#taxtips", "#charity"],
+    "youtube_title": "Donations Without Itemizing? New 2026 Deduction Explained",
+    "youtube_description": "Starting with tax year 2026, people who take the standard deduction can deduct up to $1,000 ($2,000 joint) of cash contributions to qualified charities. Gifts to individuals are not deductible, and noncash gifts don't qualify for this one. Keep a bank record or receipt. Giving Tuesday is December 1; gifts by December 31 count for 2026. Source: IRS Topic 506.",
+    "pinterest_title": "Donations Without Itemizing: The New 2026 Charity Deduction",
+    "pinterest_description": "New for tax year 2026: deduct up to $1,000 ($2,000 joint) of cash gifts to qualified charities without itemizing. Gifts to individuals don't count. Keep a bank record or receipt. Give by December 31 for 2026.",
+    "pinterest_alt": "Cream editorial card: Donations only count if you itemize? Myth vs fact.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {"ads_keywords": ["charitable deduction without itemizing"], "pin_ids": []},
+  "sources": [
+    {"fact": "From tax year 2026, non-itemizers may deduct up to $1,000 ($2,000 joint) of cash contributions to qualified organizations; gifts to individuals not deductible", "url": "https://www.irs.gov/taxtopics/tc506"}
+  ]
+}

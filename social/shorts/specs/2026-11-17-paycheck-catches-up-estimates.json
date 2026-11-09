@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-17",
+  "slug": "paycheck-catches-up-estimates",
+  "title": "Behind on estimates? Your paycheck can catch you up",
+  "type": "value",
+  "accent": "teal",
+  "theme": "neon",
+  "label": "Deadline money moment",
+  "checked": "November 9, 2026",
+  "series": "Nobody took tax out",
+  "link": {
+    "path": "/quarterly-estimated-taxes/",
+    "label": "Quarterly estimated taxes (MFA)"
+  },
+  "hook": {
+    "text": "Skipped estimates? Your *paycheck* can catch up."
+  },
+  "character": {
+    "name": "worker",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Dana has a day job and freelance clients.",
+        "The client money had no tax taken out.",
+        "She skipped the summer estimates."
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "IRS rule for withholding",
+      "value": "1/4",
+      "sub": "counted as paid on each due date",
+      "note": "Even if it comes out of December paychecks."
+    },
+    {
+      "type": "values",
+      "kicker": "Two moves before year end",
+      "items": [
+        {
+          "v": "New W-4",
+          "l": "extra withholding on the last paychecks"
+        },
+        {
+          "v": "Jan 15",
+          "l": "last 2026 estimate due"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "Do this this week",
+      "text": "Ask payroll how many *paychecks* are left.",
+      "sub": "Then size the extra withholding."
+    }
+  ],
+  "cta": {
+    "big": "Comment *W4*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our estimated tax guide."
+  },
+  "captions": {
+    "comment_word": "W4",
+    "instagram": "Day job plus side income, and you skipped the estimated payments this year? Your paycheck can help you catch up.\n\n✔️ The IRS treats federal tax withheld from your pay as paid in equal parts on each estimate due date, unless you show otherwise. Extra withholding in December counts toward the earlier dates too.\n✔️ Give your employer a new Form W-4 with an extra amount per paycheck for the rest of the year.\n✔️ Still short? The last 2026 estimated payment is due January 15, 2027.\n✔️ Check how many paychecks are left before you pick the amount.\n\nSource: IRS, Instructions for Form 2210; Estimated tax FAQ. General information, not advice for your situation.",
+    "hashtags": [
+      "#sidehustle",
+      "#1099",
+      "#taxtips",
+      "#estimatedtaxes",
+      "#w4",
+      "#freelancer",
+      "#moneytips",
+      "#taxes2026"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#taxtips",
+      "#sidehustle",
+      "#1099"
+    ],
+    "youtube_title": "Skipped Estimated Taxes? Your Paycheck Can Catch You Up (W-4)",
+    "youtube_description": "Behind on 2026 estimated tax payments with a day job plus side income? The IRS treats federal income tax withheld from wages as paid in equal amounts on each estimate due date unless you show otherwise, so extra withholding on a new Form W-4 late in the year counts toward the earlier dates. The last 2026 estimated payment is due January 15, 2027. Source: IRS Form 2210 instructions.",
+    "pinterest_title": "Behind on Estimated Taxes? Use Your W-4 to Catch Up Before Year End",
+    "pinterest_description": "Skipped estimated tax payments on side income? Federal tax withheld from your paycheck counts as paid evenly on each due date, so a new W-4 with extra withholding late in the year helps cover earlier quarters. Last 2026 estimate: January 15, 2027.",
+    "pinterest_alt": "Dark neon card: Skipped your estimates? Your paycheck can catch up.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {
+    "ads_keywords": [
+      "missed estimated tax payment"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Withheld federal income tax considered paid one-fourth on each payment due date unless you show otherwise",
+      "url": "https://www.irs.gov/instructions/i2210"
+    },
+    {
+      "fact": "Sept 1-Dec 31 estimate due Jan 15 of the following year",
+      "url": "https://www.irs.gov/faqs/estimated-tax/individuals/individuals-2"
+    }
+  ],
+  "thumb": {
+    "title": "Behind on estimates? Use your *paycheck*.",
+    "sub": "W-4 catch-up before year end"
+  }
+}

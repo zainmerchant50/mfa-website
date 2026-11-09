@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-20",
+  "slug": "craft-fair-cash-box-counts",
+  "title": "Holiday craft fair? Your cash box counts",
+  "type": "value",
+  "accent": "plum",
+  "theme": "neon",
+  "label": "Artists and makers",
+  "checked": "November 9, 2026",
+  "series": "Does it count?",
+  "link": {"path": "/artists/", "label": "Tax help for artists and makers (MFA)"},
+  "hook": {"text": "Holiday craft fair? Your *cash box* counts.", "sub": "Nobody took tax out of it."},
+  "character": {"name": "artist", "scene": "hook", "position": "lower", "corner_after": true, "corner": "self"},
+  "beats": [
+    {"type": "story", "lines": ["Lena sells mugs at three December markets.", "Cash, app payments, a card reader.", "No form shows up for most of it."]},
+    {"type": "rows", "kicker": "Does it count?", "items": [{"l": "Cash sales at the table", "r": "Income", "ok": false}, {"l": "App payments with no 1099-K", "r": "Income", "ok": false}, {"l": "Booth fees", "r": "Expense", "ok": true}, {"l": "Clay, glaze, packaging", "r": "Expense", "ok": true}]},
+    {"type": "stat", "kicker": "Self-employment tax starts at", "value": "$400", "count": {"to": 400, "pre": "$", "suf": ""}, "sub": "of net earnings in a year"},
+    {"type": "text", "kicker": "After each market", "text": "Write down sales *and* costs that night.", "sub": "Set part of the cash aside before January 15."}
+  ],
+  "cta": {"big": "Comment *ART*", "url": "mfa-advisory.com/artists", "sub": "We'll DM you our artist tax guide."},
+  "captions": {
+    "comment_word": "ART",
+    "instagram": "Selling at holiday craft fairs and markets this season? The cash box, the card reader and the app payments are all income, with nothing taken out for tax.\n\n✔️ The IRS says you report all income, whether or not a Form 1099-K arrives.\n✔️ Net self-employment earnings of $400 or more mean self-employment tax and a return to file.\n✔️ Booth fees, materials, packaging and card reader fees are business expenses that lower your profit.\n✔️ After each market, write down sales and costs the same night, and set part of the money aside for the January 15, 2027 estimate.\n\nSource: IRS, Understanding your Form 1099-K; Self-employment tax. General information, not advice for your situation.",
+    "hashtags": ["#craftfair", "#holidaymarket", "#makers", "#handmade", "#artistlife", "#sidehustle", "#taxtips", "#smallbusiness"],
+    "youtube_hashtags": ["#shorts", "#craftfair", "#artistlife", "#taxtips"],
+    "youtube_title": "Selling at a Holiday Craft Fair? Your Cash Box Counts (Taxes)",
+    "youtube_description": "Cash, card reader and app sales at holiday craft fairs are all income, with or without a Form 1099-K. Net self-employment earnings of $400 or more mean self-employment tax. Booth fees, materials and packaging are business expenses. Track sales and costs after each market and set money aside for the January 15, 2027 estimate. Source: IRS.",
+    "pinterest_title": "Craft Fair Taxes: Your Cash Box Counts (What to Track)",
+    "pinterest_description": "Selling at holiday craft fairs? Cash and app sales are income even without a 1099-K. $400 of net self-employment earnings means self-employment tax. Booth fees, materials and packaging are expenses. Track each market and set money aside for January 15, 2027.",
+    "pinterest_alt": "Dark neon card: Holiday craft fair? Your cash box counts.",
+    "pinterest_board": "Tax Tips for Artists and Creatives"
+  },
+  "sync": {"ads_keywords": ["craft fair taxes"], "pin_ids": []},
+  "sources": [
+    {"fact": "Report all income with or without a 1099-K", "url": "https://www.irs.gov/businesses/understanding-your-form-1099-k"},
+    {"fact": "SE tax; must file with $400+ net SE earnings", "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"},
+    {"fact": "Sept 1-Dec 31 estimate due Jan 15 of the following year", "url": "https://www.irs.gov/faqs/estimated-tax/individuals/individuals-2"}
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-18",
+  "slug": "2027-tax-numbers-are-out",
+  "title": "The 2027 tax numbers are out",
+  "type": "value",
+  "accent": "slate",
+  "label": "New IRS numbers",
+  "checked": "November 9, 2026",
+  "series": "Number reveal",
+  "link": {
+    "path": "/blog/2027-tax-calendar/",
+    "label": "2027 tax calendar (MFA)"
+  },
+  "hook": {
+    "text": "The *2027* tax numbers just came out.",
+    "sub": "IRS release, November 5, 2026."
+  },
+  "character": {
+    "name": "mascot-wow",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": false
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "2027 standard deduction",
+      "items": [
+        {
+          "l": "Single",
+          "r": "$16,600",
+          "ok": true
+        },
+        {
+          "l": "Married, joint",
+          "r": "$33,200",
+          "ok": true
+        },
+        {
+          "l": "Head of household",
+          "r": "$24,925",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Gift to anyone in 2027, no gift tax return",
+      "value": "$20,000",
+      "count": {
+        "to": 20000,
+        "pre": "$",
+        "suf": ""
+      },
+      "sub": "per person you give to",
+      "note": "Up from $19,000."
+    },
+    {
+      "type": "stat",
+      "kicker": "Health FSA from your paycheck",
+      "value": "$3,500",
+      "count": {
+        "to": 3500,
+        "pre": "$",
+        "suf": ""
+      },
+      "sub": "for plan years starting in 2027"
+    },
+    {
+      "type": "text",
+      "kicker": "Keep in mind",
+      "text": "Your 2026 return still uses *2026* numbers.",
+      "sub": "2027 numbers are for next year's paychecks and plans."
+    }
+  ],
+  "cta": {
+    "big": "Comment *2027*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our 2027 tax calendar."
+  },
+  "captions": {
+    "comment_word": "2027",
+    "instagram": "The IRS released the 2027 tax numbers on November 5. The ones most people will notice:\n\n✔️ Standard deduction: $16,600 single, $33,200 married filing jointly, $24,925 head of household.\n✔️ Annual gift exclusion: $20,000 per person you give to (up from $19,000).\n✔️ Health FSA paycheck limit: $3,500.\n✔️ These are for tax year 2027. The return you file next spring still uses the 2026 numbers.\n\nSave this for open enrollment and your 2027 planning.\n\nSource: IRS news release IR-2026-133. General information, not advice for your situation.",
+    "hashtags": [
+      "#taxes2027",
+      "#taxtips",
+      "#standarddeduction",
+      "#irs",
+      "#moneytips",
+      "#personalfinance",
+      "#fsa",
+      "#taxseason"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#taxes2027",
+      "#taxtips",
+      "#irs"
+    ],
+    "youtube_title": "2027 Tax Numbers Are Out: Standard Deduction, Gift Limit, FSA",
+    "youtube_description": "The IRS released tax year 2027 inflation adjustments on November 5, 2026 (IR-2026-133). Standard deduction: $16,600 single, $33,200 married filing jointly, $24,925 head of household. Annual gift exclusion: $20,000. Health FSA salary reduction limit: $3,500. Your 2026 return still uses 2026 figures.",
+    "pinterest_title": "2027 Tax Numbers: Standard Deduction, Gift Exclusion and FSA Limit",
+    "pinterest_description": "IRS 2027 inflation adjustments: standard deduction $16,600 single, $33,200 married filing jointly, $24,925 head of household; annual gift exclusion $20,000; health FSA limit $3,500. Your 2026 return still uses 2026 numbers.",
+    "pinterest_alt": "Navy card: The 2027 tax numbers just came out.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {
+    "ads_keywords": [
+      "2027 standard deduction"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "2027 standard deduction, gift exclusion $20,000 (from $19,000), health FSA $3,500",
+      "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts"
+    }
+  ]
+}
