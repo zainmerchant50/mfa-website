@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-12",
+  "number": 1,
+  "slug": "W9-Before-Dec-31",
+  "topic": "Deadline money moment, 1099 theme: get a W-9 from every contractor paid $2,000+ in 2026 before the last payment; no tax ID means 24% backup withholding ($720 on a $3,000 payment) and the payer can owe what it didn't hold back; 1099-NEC due Mon Feb 1, 2027 (nov-push -> /1099-filing/)",
+  "type": "service",
+  "accent": "amber",
+  "label": "1099 season / Before Dec 31",
+  "kicker": "Paid a contractor $2,000+?",
+  "headline": "No W-9 on file? Hold back *24%*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "$2,000 or more in 2026",
+      "text": "That contractor gets a 1099-NEC. The old line was $600."
+    },
+    {
+      "title": "Ask for a W-9 now",
+      "text": "Name, address and tax ID, before the last payment of the year."
+    },
+    {
+      "title": "No tax ID? Hold back 24%",
+      "text": "That's $720 on a $3,000 payment. Skip it and you can owe it."
+    },
+    {
+      "title": "1099-NEC due Mon, Feb 1",
+      "text": "Copies go to the contractor and the IRS. Jan 31, 2027 is a Sunday."
+    }
+  ],
+  "body": [],
+  "cta_word": "1099",
+  "link": "mfa-advisory.com/1099-filing",
+  "checked": "November 9, 2026",
+  "ig_caption": "Paid a contractor $2,000 or more this year? Get their W-9 before you pay them again.\n\nThe W-9 gives you their name, address and tax ID. You need all three for the 1099-NEC in January.\n\nWhy it matters before Dec 31:\n✔️ For 2026, the 1099-NEC line is $2,000 (it used to be $600).\n✔️ No tax ID from the contractor? The IRS expects you to hold back 24% of the payment. That's $720 on a $3,000 invoice.\n✔️ If you were supposed to hold it back and didn't, you can end up owing it.\n✔️ The 1099-NEC is due Monday, Feb 1, 2027, to the contractor and the IRS.\n\nSend us your contractor list and we file the 1099s.\n\nComment 1099 and we'll send you the link, or find it at mfa-advisory.com/1099-filing\n\nGeneral information, not tax advice.\n\n#smallbusiness #taxtips #bookkeeping #smallbusinesstips #businessowner #accounting #entrepreneur #smallbusinesstaxes\n#1099 #1099nec #w9 #contractors #freelancer #selfemployed #njsmallbusiness #nysmallbusiness",
+  "li_caption": "If you paid a contractor $2,000 or more in 2026, the time to get their Form W-9 is now, before the last payment of the year.\n\nWhat owners should know before Dec 31:\n\n1. The 1099-NEC reporting line for 2026 is $2,000 of nonemployee compensation. It was $600.\n2. The W-9 gives you the contractor's legal name, address and taxpayer ID. You need all three to file.\n3. If a contractor does not give you a tax ID, payments are subject to backup withholding at 24%. On a $3,000 payment, that is $720 held back and sent to the IRS.\n4. If you were required to withhold and did not, you may be liable for the amount you did not collect.\n5. The 1099-NEC is due to the contractor and the IRS by Monday, Feb 1, 2027, because Jan 31 falls on a Sunday. There is no automatic extension.\n\nCollecting W-9s in December is far easier than chasing them in late January. We file 1099-NECs for small businesses: send us the contractor list and the W-9s, and we handle the forms.\n\nComment 1099 and we will send it.\n\nLink in the first comment.\n\n#SmallBusiness #1099 #Bookkeeping #TaxPlanning #Contractors",
+  "sources": [
+    {
+      "fact": "1099-NEC: report nonemployee compensation of $2,000 or more; threshold increased to $2,000 for tax years beginning after 2025; file and furnish by Jan 31, next business day if weekend/holiday (Jan 31, 2027 = Sunday -> Mon Feb 1, 2027)",
+      "url": "https://www.irs.gov/pub/irs-pdf/i1099mec.pdf"
+    },
+    {
+      "fact": "Backup withholding rate is 24%; applies when payee fails to furnish a TIN; if you fail to collect required backup withholding you may become liable for the uncollected amount ($3,000 x 24% = $720)",
+      "url": "https://www.irs.gov/instructions/iw9"
+    },
+    {
+      "fact": "Nonemployee compensation subject to backup withholding if payee has not provided a TIN; no automatic 30-day extension for Form 1099-NEC",
+      "url": "https://www.irs.gov/newsroom/what-businesses-need-to-know-about-reporting-nonemployee-compensation-and-backup-withholding-to-the-irs"
+    },
+    {
+      "fact": "MFA offer: 1099-NEC/MISC filing (no prices in social posts)",
+      "url": "https://mfa-advisory.com/1099-filing/"
+    }
+  ],
+  "post_times": {
+    "instagram": "Thu Nov 12, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+    "linkedin": "Wed Dec 2, 6:00 PM ET (Typefully draft 11804302, first comment = UTM link; Nov 9-30 and Dec 1 already have a LinkedIn post)"
+  },
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/1099-filing/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push",
+    "linkedin": "https://mfa-advisory.com/1099-filing/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push"
+  }
+}

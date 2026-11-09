@@ -267,5 +267,27 @@
     "link": "https://mfa-advisory.com/s-corp-election/",
     "file": "social/posts/2026-11-10-llc-tax-myth.json",
     "note": "Also fixed Nov 9 No-1099 IG+FB posts, which had been scheduled with no caption (paste event not saved); captions re-added via Edit scheduled post and verified."
+  },
+  {
+    "date": "2026-11-12",
+    "slug": "W9-Before-Dec-31",
+    "type": "service",
+    "format": "image",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "status": "scheduled",
+    "times": {
+      "instagram": "Thu Nov 12 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+      "linkedin": "Wed Dec 2 6:00 PM ET (Typefully draft 11804302; first comment = UTM link)"
+    },
+    "title": "No W-9 on file? Hold back 24%",
+    "campaign": "nov-push",
+    "cta_word": "1099",
+    "link": "https://mfa-advisory.com/1099-filing/",
+    "file": "social/posts/2026-11-12-w9-before-dec-31.json",
+    "note": "Social agent (Nov 9 run): Nov 11 skipped (Veterans Day). Proven 1099 'no tax taken out' theme as a deadline money moment: W-9 before the last payment, 24% backup withholding ($720 on $3,000), 1099-NEC due Mon Feb 1, 2027 -> 1099 filing. LinkedIn native list full Nov 9-Dec 1; Typefully used for Dec 2 (Dec quota)."
   }
 ]
