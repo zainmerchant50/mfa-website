@@ -239,13 +239,18 @@
     "date": "2026-11-18",
     "slug": "irs-scam-myth-vs-fact",
     "format": "short",
-    "platforms": [],
-    "status": "rendered, not scheduled (spare for next batch / LinkedIn in December)",
+    "platforms": [
+      "youtube"
+    ],
+    "status": "scheduled",
     "title": "\"This is the IRS. Pay today.\" Myth vs fact",
     "link": "https://mfa-advisory.com/blog/ai-in-accounting-and-tax-2026/",
     "cta_word": "SCAM",
     "theme": "classic plum",
-    "note": "IG+FB queue already filled to Nov 27; LinkedIn Typefully November quota taken by 8 scheduled posts."
+    "note": "IG+FB queue already filled to Nov 27; LinkedIn Typefully November quota taken by 8 scheduled posts.",
+    "times": {
+      "youtube": "Mon Nov 23 5:30 PM ET, \"Fake IRS Call? 4 Tells, Even With AI Voices (Myth vs Fact)\" https://youtube.com/shorts/euwwV-Uudbc"
+    }
   },
   {
     "date": "2026-11-10",
@@ -289,5 +294,77 @@
     "link": "https://mfa-advisory.com/1099-filing/",
     "file": "social/posts/2026-11-12-w9-before-dec-31.json",
     "note": "Social agent (Nov 9 run): Nov 11 skipped (Veterans Day). Proven 1099 'no tax taken out' theme as a deadline money moment: W-9 before the last payment, 24% backup withholding ($720 on $3,000), 1099-NEC due Mon Feb 1, 2027 -> 1099 filing. LinkedIn native list full Nov 9-Dec 1; Typefully used for Dec 2 (Dec quota)."
+  },
+  {
+    "date": "2026-11-17",
+    "slug": "paycheck-catches-up-estimates",
+    "format": "short",
+    "platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "Skipped estimates? Your paycheck can catch up.",
+    "times": {
+      "tiktok": "Tue Nov 17 5:00 PM ET (TikTok Studio), caption starts \"Day job plus side income, and you skipped the estimated payments this year?\"",
+      "youtube": "Sun Nov 22 5:30 PM ET, \"Skipped Estimated Taxes? Your Paycheck Can Catch You Up (W-4)\" https://youtube.com/shorts/vahaZqKOoxE"
+    },
+    "link": "https://mfa-advisory.com/quarterly-estimated-taxes/",
+    "theme": "neon teal, worker character",
+    "hook": "story + rule reveal",
+    "note": "Reel studio Nov 9 batch; proven deadline money moment (Jan 15); IRS i2210 withholding treated as paid 1/4 per due date"
+  },
+  {
+    "date": "2026-11-18",
+    "slug": "2027-tax-numbers-are-out",
+    "format": "short",
+    "platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "The 2027 tax numbers just came out.",
+    "times": {
+      "tiktok": "Wed Nov 18 5:00 PM ET (TikTok Studio)",
+      "youtube": "Sat Nov 21 5:30 PM ET, \"2027 Tax Numbers Are Out: Standard Deduction, Gift Limit, FSA\" https://youtube.com/shorts/qzLCIglb9eY"
+    },
+    "link": "https://mfa-advisory.com/blog/2027-tax-calendar/",
+    "theme": "classic slate, mascot",
+    "hook": "number reveal",
+    "note": "IR-2026-133 (Nov 5): std deduction $16,600/$33,200/$24,925; gift exclusion $20,000; FSA $3,500"
+  },
+  {
+    "date": "2026-11-19",
+    "slug": "donations-count-without-itemizing",
+    "format": "short",
+    "platforms": [
+      "tiktok"
+    ],
+    "status": "scheduled",
+    "title": "\"Donations only count if you itemize.\" Myth vs fact",
+    "times": {
+      "tiktok": "Thu Nov 19 5:00 PM ET (TikTok Studio)"
+    },
+    "link": "https://mfa-advisory.com/year-end-tax-planning/",
+    "theme": "paper forest",
+    "hook": "myth vs fact + does it count rows",
+    "note": "Not on YouTube: YouTube already has the Nov 12 charity Short. IRS Topic 506."
+  },
+  {
+    "date": "2026-11-20",
+    "slug": "craft-fair-cash-box-counts",
+    "format": "short",
+    "platforms": [
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "Selling at a Holiday Craft Fair? Your Cash Box Counts (Taxes)",
+    "times": {
+      "youtube": "Fri Nov 20 5:30 PM ET https://youtube.com/shorts/PibSU4KQE8c"
+    },
+    "link": "https://mfa-advisory.com/artists/",
+    "theme": "neon plum, artist character",
+    "hook": "story + does it count rows",
+    "note": "proven artist/commission topic, Nov 20-24 Shorts slot per social-plan-nov"
   }
 ]
