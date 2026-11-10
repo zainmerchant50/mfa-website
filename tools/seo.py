@@ -651,7 +651,7 @@ def patch_home():
     s = path.read_text(encoding="utf-8")
     faq = home_faq(s)
     url = BASE + "/"
-    ld = graph(url, "Merchant Financial Advisory | Accounting & Tax, Princeton NJ",
+    ld = graph(url, "Accounting Advisory Services, Tax & Bookkeeping | MFA",
                plain(re.search(r'<meta name="description" content="(.*?)"', s, re.S).group(1)),
                {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
                    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]} if faq else None,
@@ -679,7 +679,7 @@ KW_MARK = ("<!--seo:kw-->", "<!--/seo:kw-->")
 GUIDES_MARK = ("<!--seo:guides-->", "<!--/seo:guides-->")
 
 PAGE_KEYWORDS = {
-    "/": ["accountant Princeton NJ", "bookkeeping services New Jersey", "tax preparation NJ and NYC", "small business accounting",
+    "/": ["accounting advisory services", "accountant Princeton NJ", "bookkeeping services New Jersey", "tax preparation NJ and NYC", "small business accounting",
           "QuickBooks bookkeeping", "LLC formation", "fractional CFO"],
     "/services/": ["small business accounting services", "tax preparation services", "tax planning", "monthly bookkeeping",
                    "financial reporting", "fractional CFO", "audit support", "NJ and NYC accountant"],
