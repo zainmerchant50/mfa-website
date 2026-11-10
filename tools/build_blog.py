@@ -283,6 +283,7 @@ SERVICE_FOR = {
     "section-179-bonus-depreciation-2026": "/year-end-tax-planning/", "small-business-tax-write-offs-2026": "/year-end-tax-planning/",
     "social-security-wage-base-2027-self-employed": "/s-corp-election/", "which-tax-form-llc-corporation": "/llc-formation/",
     "year-end-tax-planning-2026-key-dates": "/year-end-tax-planning/", "internet-deduction-business-use": "/year-end-tax-planning/",
+    "month-end-close-checklist-small-business": "/services/#bookkeeping",
 }
 SERVICE_BY_CATEGORY = {"Tax Planning": "/services/#tax-planning", "Tax Deadlines": "/services/#tax-preparation",
                        "Bookkeeping": "/services/#bookkeeping"}

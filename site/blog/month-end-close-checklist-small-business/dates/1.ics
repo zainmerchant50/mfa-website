@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:month-end-close-checklist-small-business-0@mfa-advisory.com
+DTSTAMP:20261110T012451Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth 2026 estimated tax payment due (federal 1040-ES)
+DESCRIPTION:You can skip it if you file your 2026 return and pay the enti
+ re balance by Feb. 1\, 2027. A closed December makes the number easy to f
+ igure.\n\nDetails: https://mfa-advisory.com/blog/month-end-close-checklis
+ t-small-business/\nGeneral information\, not tax advice. Merchant Financi
+ al Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/month-end-close-checklist-small-busines
+ s/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth 2026 estimated tax payment due (federal 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

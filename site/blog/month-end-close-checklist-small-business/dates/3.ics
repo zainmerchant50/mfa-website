@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:month-end-close-checklist-small-business-2@mfa-advisory.com
+DTSTAMP:20261110T012451Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form 1099-NEC due to contractors and the IRS (2026 payments)
+DESCRIPTION:For nonemployee pay of $2\,000 or more in 2026. January 31\, 
+ 2027 is a Sunday\, so the due date moves to Monday\, February 1.\n\nDetai
+ ls: https://mfa-advisory.com/blog/month-end-close-checklist-small-busines
+ s/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/month-end-close-checklist-small-busines
+ s/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1099-NEC due to contractors and the IRS (2026 payments)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

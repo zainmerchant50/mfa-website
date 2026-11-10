@@ -1,0 +1,70 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Month-End Close Checklist for Small Business: 8 Steps (2026)
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:month-end-close-checklist-small-business-0@mfa-advisory.com
+DTSTAMP:20261110T012451Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth 2026 estimated tax payment due (federal 1040-ES)
+DESCRIPTION:You can skip it if you file your 2026 return and pay the enti
+ re balance by Feb. 1\, 2027. A closed December makes the number easy to f
+ igure.\n\nDetails: https://mfa-advisory.com/blog/month-end-close-checklis
+ t-small-business/\nGeneral information\, not tax advice. Merchant Financi
+ al Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/month-end-close-checklist-small-busines
+ s/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth 2026 estimated tax payment due (federal 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:month-end-close-checklist-small-business-1@mfa-advisory.com
+DTSTAMP:20261110T012451Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:NJ: ST-50 sales tax return due for October to December 2026
+DESCRIPTION:Quarterly return for all New Jersey sales tax filers. Reconci
+ le sales tax collected in your books to the return.\n\nDetails: https://m
+ fa-advisory.com/blog/month-end-close-checklist-small-business/\nGeneral i
+ nformation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.c
+ om
+URL:https://mfa-advisory.com/blog/month-end-close-checklist-small-busines
+ s/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: ST-50 sales tax return due for October to December 2026
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:month-end-close-checklist-small-business-2@mfa-advisory.com
+DTSTAMP:20261110T012451Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form 1099-NEC due to contractors and the IRS (2026 payments)
+DESCRIPTION:For nonemployee pay of $2\,000 or more in 2026. January 31\, 
+ 2027 is a Sunday\, so the due date moves to Monday\, February 1.\n\nDetai
+ ls: https://mfa-advisory.com/blog/month-end-close-checklist-small-busines
+ s/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/month-end-close-checklist-small-busines
+ s/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1099-NEC due to contractors and the IRS (2026 payments)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
