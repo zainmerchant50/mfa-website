@@ -366,5 +366,26 @@
     "theme": "neon plum, artist character",
     "hook": "story + does it count rows",
     "note": "proven artist/commission topic, Nov 20-24 Shorts slot per social-plan-nov"
+  },
+  {
+    "date": "2026-11-13",
+    "slug": "Dec-31-Or-April-15",
+    "title": "Some 2026 tax moves can wait till April",
+    "status": "scheduled",
+    "format": "image",
+    "type": "service",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Fri Nov 13, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+      "linkedin": "Thu Dec 3, 6:00 PM ET (Typefully draft 11829851, first comment = UTM link; Nov 10-Dec 2 each already have a LinkedIn post)"
+    },
+    "link": "https://mfa-advisory.com/year-end-tax-planning/",
+    "utm_campaign": "nov-push",
+    "cta_word": "PLAN",
+    "folder": "Ready to Post/2026-11-13 Fri - Dec 31 or April 15"
   }
 ]

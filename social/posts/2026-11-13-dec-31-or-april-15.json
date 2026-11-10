@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-13",
+  "number": 1,
+  "slug": "Dec-31-Or-April-15",
+  "topic": "Myth vs fact, year-end deadline: not every 2026 tax move ends Dec 31. Done by Dec 31: equipment in service, charity gifts paid/mailed. Can wait to Apr 15, 2027: IRA ($7,500) and HSA ($4,400 self-only / $8,750 family) contributions for 2026. SEP-IRA: return due date incl. extensions (nov-push -> /year-end-tax-planning/)",
+  "type": "service",
+  "accent": "teal",
+  "label": "Year-end / Myth vs fact",
+  "kicker": "Not every deadline is Dec 31",
+  "headline": "Some 2026 tax moves can wait till *April*",
+  "headline_size": 72,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Must be done by Dec 31",
+      "text": "Equipment in use. Gifts to charity paid or mailed."
+    },
+    {
+      "title": "IRA: until Apr 15, 2027",
+      "text": "Up to $7,500 for 2026 ($8,600 if you're 50 or older)."
+    },
+    {
+      "title": "HSA: until Apr 15, 2027",
+      "text": "Up to $4,400 for self-only cover, $8,750 for family."
+    },
+    {
+      "title": "SEP-IRA: even later",
+      "text": "Up to your return due date, extension included."
+    }
+  ],
+  "body": [],
+  "cta_word": "PLAN",
+  "link": "mfa-advisory.com/year-end-tax-planning",
+  "checked": "November 10, 2026",
+  "ig_caption": "Think every tax move for 2026 has to happen by Dec 31? Some can wait until April.\n\nMyth vs fact:\n✔️ Must be done by Dec 31: equipment has to be in use, and gifts to charity paid (a check counts the day you mail it).\n✔️ Can wait: IRA money for 2026 can go in until Apr 15, 2027. The limit is $7,500, or $8,600 if you're 50 or older.\n✔️ Can wait: HSA money for 2026, also until Apr 15, 2027 with an HSA-eligible plan. $4,400 self-only, $8,750 family.\n✔️ Can wait even longer: a SEP-IRA, up to your return due date, extension included.\n\nIn a year-end session we split your list: before Dec 31, and before April.\n\nComment PLAN and we'll send you the link, or find it at mfa-advisory.com/year-end-tax-planning\n\nGeneral information, not tax advice.\n\n#taxtips #smallbusiness #selfemployed #entrepreneur #accounting #bookkeeping #businessowner #smallbusinesstips\n#yearendtaxplanning #taxplanning #ira #hsa #sepira #retirementsavings #njsmallbusiness #nysmallbusiness",
+  "li_caption": "Not every tax move for 2026 has to happen by Dec 31. Mixing them up leads to rushed December decisions.\n\nMyth vs fact:\n\n1. Must be done by Dec 31: business equipment has to be placed in service, meaning ready and available for use, not just ordered.\n2. Must be done by Dec 31: charitable gifts have to be made. A check counts on the date you mail it.\n3. Can wait: IRA contributions for 2026 can be made until the return due date, Apr 15, 2027, not including extensions. The 2026 limit is $7,500, plus $1,100 at age 50 or older.\n4. Can wait: HSA contributions for 2026 are also allowed until Apr 15, 2027, for people with HSA-eligible coverage. The limits are $4,400 self-only and $8,750 family.\n5. Can wait longer: a SEP-IRA can be set up and funded up to the return due date, including extensions.\n\nThe useful step this month: split the list into what must happen this year and what can wait for final numbers. That is what we do in a year-end planning session, using your real figures.\n\nComment PLAN and we will send it.\n\nLink in the first comment.\n\n#TaxPlanning #SmallBusiness #SelfEmployed #Retirement #YearEnd",
+  "sources": [
+    {
+      "fact": "2026 IRA contribution limit $7,500; catch-up age 50+ $1,100 ($8,600 total); 401(k) $24,500",
+      "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"
+    },
+    {
+      "fact": "IRA contributions for a year can be made by the due date of the return, not including extensions (2026 -> Thu Apr 15, 2027)",
+      "url": "https://www.irs.gov/publications/p590a"
+    },
+    {
+      "fact": "2026 HSA limits: $4,400 self-only, $8,750 family (Rev. Proc. 2025-19 sec. 2.01)",
+      "url": "https://www.irs.gov/irb/2025-21_IRB"
+    },
+    {
+      "fact": "HSA contributions for a year can be made through April 15 of the next year (Pub 969: 2025 through April 15, 2026)",
+      "url": "https://www.irs.gov/publications/p969"
+    },
+    {
+      "fact": "SEP: contributions by the due date (including extensions) of the return; a SEP can be set up as late as that due date",
+      "url": "https://www.irs.gov/publications/p560"
+    },
+    {
+      "fact": "Charitable contribution made at unconditional delivery; a mailed check is delivered on the date mailed",
+      "url": "https://www.irs.gov/publications/p526"
+    },
+    {
+      "fact": "Placed in service = ready and available for a specific use",
+      "url": "https://www.irs.gov/publications/p946"
+    },
+    {
+      "fact": "MFA offer: year-end tax planning session (no prices in social posts)",
+      "url": "https://mfa-advisory.com/year-end-tax-planning/"
+    }
+  ],
+  "post_times": {
+    "instagram": "Fri Nov 13, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+    "linkedin": "Thu Dec 3, 6:00 PM ET (Typefully draft 11829851, first comment = UTM link; Nov 10-Dec 2 each already have a LinkedIn post)"
+  },
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/year-end-tax-planning/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push",
+    "linkedin": "https://mfa-advisory.com/year-end-tax-planning/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push"
+  }
+}
