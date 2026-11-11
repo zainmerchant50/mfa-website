@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated November 10, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated November 11, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -1023,6 +1023,7 @@ Painlessly. After a short consultation we handle the transition — requesting p
 
 ## Articles (MFA Insights)
 
+- What Is an LLC and What Are Its Tax Advantages? (2026) (2026-11-11): LLC tax advantages explained: how an LLC is taxed by default, why it doesn't cut self-employment tax alone, when an S corp helps, and NJ and NY fees. https://mfa-advisory.com/blog/llc-tax-advantages-explained/
 - Month-End Close Checklist for Small Business: 8 Steps (2026) (2026-11-09): A month-end close checklist for small business: 8 steps to close your books each month, from bank reconciliation to locking the month in QuickBooks Online. https://mfa-advisory.com/blog/month-end-close-checklist-small-business/
 - Can I Deduct My Home Internet for Business? 2026 Rules (2026-11-08): Can I deduct my home internet for business? Yes, the business-use share if you're self-employed. How to figure it, W-2 employee limits, NJ and NY rules. https://mfa-advisory.com/blog/internet-deduction-business-use/
 - How Much Do You Have to Make on a 1099 to File Taxes in 2026? (2026-11-06): How much do you have to make on a 1099 to file taxes? $400 of net self-employment earnings. Why the $2,000 1099 rule doesn't decide it, plus 2026 dates. https://mfa-advisory.com/blog/1099-income-filing-threshold/

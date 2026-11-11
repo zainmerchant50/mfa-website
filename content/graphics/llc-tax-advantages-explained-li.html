@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8"/><link rel="stylesheet" href="_base.css"/><style>
+:root{--w:1080px;--h:1350px}
+body{background:radial-gradient(120% 80% at 100% 0%,#1B3557 0%,#10233F 55%,#0C1B31 100%);position:relative}
+.wrap{position:absolute;inset:70px 64px 60px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--navy);background:var(--gold-b);padding:9px 16px;border-radius:999px}
+h1{font-family:Cormorant,serif;font-weight:400;line-height:1;margin:28px 0 12px;font-size:72px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{font-weight:300;color:rgba(255,255,255,.75);font-size:19px}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.step{border:1px solid rgba(216,183,105,.45);border-radius:14px;padding:14px 16px;color:rgba(255,255,255,.86);font-size:16px;line-height:1.4;background:rgba(255,255,255,.03)}
+.step i{display:block;font-style:normal;font-family:Cormorant,serif;font-size:30px;line-height:1;color:var(--gold-b);margin-bottom:6px}
+.step b{color:#fff;font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+.step.lock{background:var(--gold-b);color:var(--navy);border-color:var(--gold-b)}
+.step.lock i,.step.lock b{color:var(--navy)}
+.cols{display:grid;grid-template-columns:1fr;gap:16px;margin-top:22px}
+.card{border-radius:16px;overflow:hidden}
+.card.a{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+.card.b{background:var(--paper);color:var(--navy)}
+.card .hd{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:12px;padding:11px 20px;display:flex;justify-content:space-between}
+.card.a .hd{background:var(--gold-b);color:var(--navy)}
+.card.b .hd{background:var(--navy-2);color:var(--gold-b)}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 20px;border-top:1px solid rgba(255,255,255,.12);font-size:15px}
+.card.b .row{border-top:1px solid rgba(16,35,63,.1)}
+.row:first-child{border-top:0}
+.row b{font-family:Cormorant,serif;font-size:27px;font-weight:500;line-height:1;white-space:nowrap}
+.card.a .row b{color:var(--gold-b)}
+.row span small{display:block;font-size:12.5px;opacity:.7;margin-top:2px}
+.rows{padding:6px 0 8px}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .r{text-align:right;font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.foot .r b{color:#fff;font-weight:600;font-size:15px}
+.step i{display:inline-block;font-size:26px;margin:0 10px 4px 0;vertical-align:-2px}.step b{display:inline}.step b::after{content:"";display:block;height:4px}.step{padding:12px 18px}.cols{margin-top:18px;gap:14px}.row{padding:9px 20px}.steps{margin-top:24px}
+</style></head><body><div class="frame"></div><div class="wrap">
+  <div class="top"><span class="eyebrow">MFA Insights &middot; Save this</span><span class="tag">Tax planning 2026&ndash;27</span></div>
+  <h1>LLC tax advantages,<br/><em>explained in one page</em></h1>
+  <p class="sub">An LLC is a state legal structure, not a tax status. You pick the tax status.</p>
+  <div class="steps">
+    <div class="step"><i>1</i><b>One owner (default)</b>Taxed like a sole proprietor. Schedule C on your Form 1040.</div>
+    <div class="step"><i>2+</i><b>Two or more owners</b>Taxed like a partnership. Form 1065 plus a K-1 for each owner.</div>
+    <div class="step lock"><i>S</i><b>Elect S corp</b>Form 2553 by Mar. 15, 2027 for a Jan. 1, 2027 start. Owner pay on payroll.</div>
+    <div class="step"><i>C</i><b>Elect corporation</b>Form 8832. The company pays its own income tax.</div>
+  </div>
+  <div class="cols">
+    <div class="card a"><div class="hd"><span>Same tax by default</span><span>IRS</span></div><div class="rows">
+      <div class="row"><span>Self-employment tax<small>On 92.35% of net profit</small></span><b>15.3%</b></div>
+      <div class="row"><span>On $60,000 of profit<small>With or without an LLC</small></span><b>&asymp;$8,478</b></div>
+      <div class="row"><span>QBI deduction<small>Sole props, partnerships, S corps</small></span><b>Up to 20%</b></div>
+      <div class="row"><span>LLC-level income tax<small>Default LLC: profit passes to owners</small></span><b>None</b></div></div></div>
+    <div class="card b"><div class="hd"><span>New Jersey &amp; New York costs</span><span>Plan for 2027</span></div><div class="rows">
+      <div class="row"><span>NJ LLC annual report<small>Every year</small></span><b>$75</b></div>
+      <div class="row"><span>NJ partnership filing fee<small>3+ owners, NJ income; due Apr. 15</small></span><b>$150/owner</b></div>
+      <div class="row"><span>NY IT-204-LL filing fee<small>By NY-source gross income; due Mar. 15</small></span><b>$25&ndash;$4,500</b></div>
+      <div class="row"><span>NYC unincorporated business tax<small>Filing starts above $95,000 gross income</small></span><b>4%</b></div></div></div>
+  </div>
+  <div class="foot">
+    <div class="brandline"><img src="logo.png"/><span><b>Merchant</b><i>Financial Advisory</i></span></div>
+    <div class="r"><b>mfa-advisory.com &middot; (347) 205-4468</b><br/>General information, not tax advice. Facts checked Nov. 11, 2026.</div>
+  </div>
+</div></body></html>

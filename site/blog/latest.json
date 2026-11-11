@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "What Is an LLC and What Are Its Tax Advantages? (2026)",
+   "url": "/blog/llc-tax-advantages-explained/",
+   "date": "2026-11-11",
+   "category": "Tax Planning",
+   "thumb": "/blog/llc-tax-advantages-explained/og-card.webp",
+   "description": "LLC tax advantages explained: how an LLC is taxed by default, why it doesn't cut self-employment tax alone, when an S corp helps, and NJ and NY fees."
+  },
+  {
    "title": "Month-End Close Checklist for Small Business: 8 Steps (2026)",
    "url": "/blog/month-end-close-checklist-small-business/",
    "date": "2026-11-09",
@@ -31,14 +39,6 @@
    "category": "Tax Deadlines",
    "thumb": "/blog/filing-taxes-late-2025-return/og-card.webp",
    "description": "Filing taxes late after Oct. 15? What a late 2025 return costs, why Dec. 14 matters if you extended, IRS payment plans and new automatic penalty relief."
-  },
-  {
-   "title": "Hiring Overseas Contractors: W-8BEN vs. W-9, 1099 Rules and the Real Tax Picture (2026)",
-   "url": "/blog/hiring-overseas-contractors-taxes-w8ben/",
-   "date": "2026-10-30",
-   "category": "Tax Planning",
-   "thumb": "/blog/hiring-overseas-contractors-taxes-w8ben/og-card.webp",
-   "description": "Hiring overseas contractors to cut costs? Collect a W-8BEN, not a W-9. When a 1099 or 30% withholding applies, what you can deduct and the records to keep."
   }
  ]
 }

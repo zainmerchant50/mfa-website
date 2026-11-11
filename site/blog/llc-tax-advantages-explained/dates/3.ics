@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ 26)
+BEGIN:VEVENT
+UID:llc-tax-advantages-explained-2@mfa-advisory.com
+DTSTAMP:20261111T135830Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: NJ-1065 and partnership filing fee due (calendar-year 2026)
+DESCRIPTION:$150 per owner for LLCs taxed as partnerships with more than 
+ two owners and New Jersey-source income\, up to $250\,000.\n\nDetails: ht
+ tps://mfa-advisory.com/blog/llc-tax-advantages-explained/\nGeneral inform
+ ation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/llc-tax-advantages-explained/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: NJ-1065 and partnership filing fee due (calendar-year 202
+ 6)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
