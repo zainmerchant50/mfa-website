@@ -1,0 +1,131 @@
+{
+  "date": "2026-11-25",
+  "slug": "can-ai-keep-your-receipts",
+  "title": "Can AI keep your receipts? What the IRS still wants",
+  "type": "value",
+  "accent": "forest",
+  "label": "AI and your taxes",
+  "checked": "November 12, 2026",
+  "series": "AI: can and can't",
+  "link": {
+    "path": "/bookkeeping/",
+    "label": "Bookkeeping for small businesses (MFA)"
+  },
+  "hook": {
+    "text": "Can *AI* keep your receipts for the IRS?",
+    "sub": "What it can do, and what it can't."
+  },
+  "character": {
+    "name": "mascot-wow",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": false
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "AI receipt apps",
+      "items": [
+        {
+          "l": "Scan and read a receipt",
+          "r": "Can",
+          "ok": true
+        },
+        {
+          "l": "Sort it into a category",
+          "r": "Can",
+          "ok": true
+        },
+        {
+          "l": "Know the business reason",
+          "r": "Can't",
+          "ok": false
+        },
+        {
+          "l": "Prove it if the IRS asks",
+          "r": "You do",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "The IRS wants",
+      "text": "Receipts, invoices and paid bills that *support* each entry.",
+      "sub": "For meals and travel, write down who and why."
+    },
+    {
+      "type": "stat",
+      "kicker": "Keep records generally for",
+      "value": "3 years",
+      "count": {
+        "to": 3,
+        "pre": "",
+        "suf": " years"
+      },
+      "sub": "from the date you filed",
+      "note": "Longer in some cases, like unreported income."
+    },
+    {
+      "type": "text",
+      "kicker": "Best of both",
+      "text": "Let AI scan. *You* add the note.",
+      "sub": "A human check before tax time."
+    }
+  ],
+  "cta": {
+    "big": "Comment *BOOKS*",
+    "url": "mfa-advisory.com/bookkeeping",
+    "sub": "We'll DM you our bookkeeping checklist."
+  },
+  "captions": {
+    "comment_word": "BOOKS",
+    "instagram": "Can AI keep your receipts for the IRS? Partly.\n\n✔️ AI apps can scan a receipt, read the amount and date, and suggest a category.\n✔️ They can't know the business reason. For meals and travel, write down who you met and why.\n✔️ The IRS wants supporting documents for your entries: receipts, invoices, paid bills, deposit slips.\n✔️ Keep records generally for 3 years from the date you filed, and longer in some cases.\n\nLet AI do the scanning, add your note, and have a human review the books before tax time.\n\nSource: IRS, What kind of records should I keep; How long should I keep records; Publication 463. General information, not advice for your situation.",
+    "hashtags": [
+      "#ai",
+      "#bookkeeping",
+      "#receipts",
+      "#smallbusiness",
+      "#taxtips",
+      "#selfemployed",
+      "#aitools",
+      "#taxes2026"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#ai",
+      "#bookkeeping",
+      "#taxtips"
+    ],
+    "youtube_title": "Can AI Keep Your Receipts for the IRS? What It Can and Can't Do",
+    "youtube_description": "AI receipt apps can scan receipts and suggest categories, but they can't know the business reason. The IRS wants supporting documents such as receipts, invoices and paid bills, and for meals and travel you should note who and why. Keep records generally for 3 years from the date you filed, longer in some cases. Sources: IRS recordkeeping pages and Publication 463.",
+    "pinterest_title": "Can AI Keep Your Receipts for the IRS? What It Can and Can't Do",
+    "pinterest_description": "AI apps can scan receipts and sort categories, but the IRS still wants supporting documents and, for meals and travel, who and why. Keep records generally for 3 years from the date you filed. Let AI scan, add your note, and review before tax time.",
+    "pinterest_alt": "Navy card: Can AI keep your receipts for the IRS?",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "ai receipt app taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Supporting documents: sales slips, paid bills, invoices, receipts, deposit slips",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep"
+    },
+    {
+      "fact": "Keep records 3 years generally; longer in some cases",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/how-long-should-i-keep-records"
+    },
+    {
+      "fact": "Business purpose records for meals/travel; $25 gift limit",
+      "url": "https://www.irs.gov/publications/p463"
+    }
+  ],
+  "thumb": {
+    "title": "Can *AI* keep your receipts?",
+    "sub": "What the IRS still wants"
+  }
+}

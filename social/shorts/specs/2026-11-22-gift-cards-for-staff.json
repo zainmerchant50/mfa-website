@@ -1,0 +1,120 @@
+{
+  "date": "2026-11-22",
+  "slug": "gift-cards-for-staff",
+  "title": "Holiday gift cards for staff count as pay",
+  "type": "value",
+  "accent": "burgundy",
+  "label": "Holiday quiz",
+  "checked": "November 12, 2026",
+  "series": "Quiz",
+  "link": {
+    "path": "/blog/small-business-tax-write-offs-2026/",
+    "label": "Small business tax write-offs for 2026 (MFA)"
+  },
+  "hook": {
+    "text": "A $50 *gift card* for your team. Taxable?",
+    "sub": "Quick holiday quiz for business owners."
+  },
+  "character": {
+    "name": "mascot-hmm",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "mascot-thumbs"
+  },
+  "beats": [
+    {
+      "type": "question",
+      "text": "A gift card \"no matter how little\": wages or a small perk?"
+    },
+    {
+      "type": "text",
+      "kicker": "IRS answer",
+      "text": "Gift cards and cash are *always wages*.",
+      "sub": "Run them through payroll."
+    },
+    {
+      "type": "rows",
+      "kicker": "Holiday gifts: what counts?",
+      "items": [
+        {
+          "l": "Gift card or cash to staff",
+          "r": "Wages",
+          "ok": false
+        },
+        {
+          "l": "Holiday ham or fruit basket to staff",
+          "r": "Small perk",
+          "ok": true
+        },
+        {
+          "l": "Holiday party for the team",
+          "r": "Business cost",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Gifts to clients: deduction cap per person",
+      "value": "$25",
+      "count": {
+        "to": 25,
+        "pre": "$",
+        "suf": ""
+      },
+      "sub": "a year, under IRS gift rules"
+    }
+  ],
+  "cta": {
+    "big": "Comment *GIFT*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our write-offs guide."
+  },
+  "captions": {
+    "comment_word": "GIFT",
+    "instagram": "Quiz: you hand each employee a gift card for the holidays. Taxable?\nYes. The IRS says cash and cash equivalents like gift cards, no matter how little, are never a de minimis perk. They are wages and go through payroll.\n\n✔️ Gift cards or cash to staff: wages.\n✔️ A holiday ham, turkey or fruit basket now and then: usually a small de minimis perk.\n✔️ A holiday party for the team: a business expense.\n✔️ Gifts to clients: you can deduct no more than $25 per person for the year.\n\nPlanning gifts this year? Decide before payroll closes in December.\n\nSource: IRS Publication 15-B; Publication 463. General information, not advice for your situation.",
+    "hashtags": [
+      "#smallbusiness",
+      "#businessowner",
+      "#taxtips",
+      "#payroll",
+      "#holidaygifts",
+      "#employer",
+      "#yearend",
+      "#taxes2026"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#smallbusiness",
+      "#taxtips",
+      "#payroll"
+    ],
+    "youtube_title": "Holiday Gift Cards for Employees Are Taxable Wages (IRS Rule)",
+    "youtube_description": "Gift cards and cash given to employees, no matter how small, are never a de minimis fringe benefit; they are wages and go through payroll. Occasional holiday turkeys or fruit baskets are usually de minimis. A team holiday party is a business expense. Business gifts to clients are deductible up to $25 per person per year. Source: IRS Publications 15-B and 463.",
+    "pinterest_title": "Holiday Gift Cards for Employees: Taxable Wages (IRS Rule)",
+    "pinterest_description": "Giving staff gift cards this holiday season? The IRS treats gift cards and cash as wages, no matter how small. Occasional holiday food gifts are usually de minimis. Client gifts are deductible up to $25 per person a year.",
+    "pinterest_alt": "Navy card: A gift card for your team. Taxable? Holiday quiz.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "employee gift cards taxable"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Cash and cash equivalents incl. gift cards never excludable as de minimis; holiday turkey/ham example",
+      "url": "https://www.irs.gov/publications/p15b"
+    },
+    {
+      "fact": "Business gifts deduction limited to $25 per person per year",
+      "url": "https://www.irs.gov/publications/p463"
+    }
+  ],
+  "thumb": {
+    "title": "Staff gift cards are *taxable*.",
+    "sub": "Holiday gifts: the IRS rule"
+  }
+}

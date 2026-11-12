@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-20",
+  "slug": "bought-dec-31-not-deducted",
+  "title": "Bought it Dec 31? That alone doesn't count",
+  "type": "value",
+  "accent": "amber",
+  "theme": "neon",
+  "label": "Myth vs fact",
+  "checked": "November 12, 2026",
+  "series": "Myth vs fact",
+  "link": {
+    "path": "/blog/section-179-bonus-depreciation-2026/",
+    "label": "Section 179 and bonus depreciation for 2026 (MFA)"
+  },
+  "hook": {
+    "text": "\"Buy it by *Dec 31* and it's a 2026 write-off.\"",
+    "sub": "Half true. Myth vs fact."
+  },
+  "character": {
+    "name": "owner",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Sam orders a new laptop and camera on Dec 30.",
+        "They ship in the first week of January.",
+        "Sam plans to deduct both for 2026."
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "The IRS rule",
+      "text": "It counts when it's *placed in service*.",
+      "sub": "Ready and available for use, not just paid for."
+    },
+    {
+      "type": "rows",
+      "kicker": "Does it count for 2026?",
+      "items": [
+        {
+          "l": "Paid Dec 30, set up Dec 31",
+          "r": "Yes",
+          "ok": true
+        },
+        {
+          "l": "Paid Dec 30, arrives Jan 4",
+          "r": "2027",
+          "ok": false
+        },
+        {
+          "l": "Ordered, still on backorder",
+          "r": "2027",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Small items: per invoice or item up to",
+      "value": "$2,500",
+      "count": {
+        "to": 2500,
+        "pre": "$",
+        "suf": ""
+      },
+      "sub": "can be expensed under the de minimis safe harbor",
+      "note": "For businesses without audited financial statements."
+    }
+  ],
+  "cta": {
+    "big": "Comment *DEC31*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our year-end equipment guide."
+  },
+  "captions": {
+    "comment_word": "DEC31",
+    "instagram": "Myth: buy business equipment by December 31 and it's a 2026 write-off.\nFact: the IRS starts the deduction when the property is placed in service, meaning ready and available for its use. Paying for it is not enough.\n\n✔️ Paid and set up by Dec 31: counts for 2026.\n✔️ Paid in December but delivered in January: it belongs to 2027.\n✔️ Small purchases: the de minimis safe harbor lets many businesses expense items up to $2,500 per invoice or item.\n✔️ Keep the receipt and a note of the date you started using it.\n\nOrdering this month? Check the delivery date first.\n\nSource: IRS Publication 946; IRS tangible property regulations FAQ. General information, not advice for your situation.",
+    "hashtags": [
+      "#smallbusiness",
+      "#taxtips",
+      "#yearend",
+      "#section179",
+      "#writeoffs",
+      "#selfemployed",
+      "#businessowner",
+      "#taxes2026"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#taxtips",
+      "#smallbusiness",
+      "#section179"
+    ],
+    "youtube_title": "Bought Equipment Dec 31? Why It May Not Count for 2026 (Taxes)",
+    "youtube_description": "The IRS lets you start deducting business equipment when it is placed in service, meaning ready and available for use, not when you pay for it. Paid in December but delivered in January means it belongs to 2027. Many small businesses can expense items up to $2,500 per invoice or item under the de minimis safe harbor. Source: IRS Publication 946 and tangible property regulations FAQ.",
+    "pinterest_title": "Year-End Equipment Purchases: Placed in Service by Dec 31",
+    "pinterest_description": "Buying business equipment before year end? The deduction starts when it is placed in service (ready and available for use), not when you pay. Delivered in January means 2027. Small items up to $2,500 per invoice or item can often be expensed under the de minimis safe harbor.",
+    "pinterest_alt": "Dark neon card: Buy it by Dec 31 and it's a 2026 write-off? Myth vs fact.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "section 179 deadline"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Placed in service = ready and available for a specific use; depreciation begins when placed in service",
+      "url": "https://www.irs.gov/publications/p946"
+    },
+    {
+      "fact": "De minimis safe harbor up to $2,500 per invoice or item without an AFS",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/tangible-property-final-regulations"
+    }
+  ],
+  "thumb": {
+    "title": "Bought it Dec 31? Not *always* 2026.",
+    "sub": "The placed-in-service rule"
+  }
+}
