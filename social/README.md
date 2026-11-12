@@ -1,6 +1,6 @@
 # MFA Social agent: daily Instagram + LinkedIn posts
 
-Last updated: 2026-10-25 by the content-pack agent (Shorts standing rules: plain wording, NJ/NY states, "Comment WORD" end cards, CTA by platform). Created 2026-10-22 by Hub on Zain's instruction.
+Last updated: 2026-11-12 by Social (niche posts rule, Zain). Previous: 2026-10-25 by the content-pack agent (Shorts standing rules: plain wording, NJ/NY states, "Comment WORD" end cards, CTA by platform). Created 2026-10-22 by Hub on Zain's instruction.
 
 ## What it does
 Every weekday, the agent makes **one post** (Instagram image + LinkedIn image + both captions + sources) and saves it to
@@ -39,6 +39,20 @@ there must already be fact-checked and ready to post. Nobody reviews it after yo
      subject = subject.txt, htmlBody = body.html, body = body.txt, no attachments. Each caption sits alone in a box so she
      can copy it straight into LinkedIn / Instagram.
 10. Update the agent dashboard (see `claude/site/agent-dashboard.md` in the project) with what was made and the next idea.
+
+## NICHE POSTS (Zain, 2026-11-12, overrides the mix below where they clash)
+- **3 of every 5 weekday image posts are niche-specific**, rotating between the two niches that have a page:
+  **artists** (link `mfa-advisory.com/artists`, e.g. CTA ARTIST) and **international students / visa holders**
+  (F-1, OPT, H-1B; link `mfa-advisory.com/international-students`, e.g. CTA 8843, FICA). Alternate them so neither
+  runs twice in a row. Check `social/log.json` for the last 5 posts before picking.
+- Each niche post is still a real tip first (one money problem that niche has, plain words, a verified number or
+  date), then the page. International-student posts count toward the Nov push live-offer rule (that page is a live
+  pay-now offer); add utm_campaign=nov-push on both niches until Nov 30.
+- **Foreign-owned US LLC owners and short-term rental hosts: NOT yet** (Zain, Nov 12: wait for their pages). Start
+  them once Site builds a page for each; until then, no posts for those two niches.
+- The other 2 of 5 stay on the proven general topics (year-end moves, 1099, paying your kids, Jan 15 estimates).
+- Niche facts: Pub 519 / Form 8843 instructions / irs.gov foreign student pages for students; Schedule C, 1099-K
+  and state sales tax pages (NJ/NY) for artists. Never tag or target by nationality; name the visa or tax situation.
 
 ## Content mix (per 5 weekdays)
 - 2 **product posts** (layout `product`): a real screenshot of one of our trackers/checklists from `social/products/<id>/`
