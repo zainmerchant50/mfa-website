@@ -387,5 +387,26 @@
     "utm_campaign": "nov-push",
     "cta_word": "PLAN",
     "folder": "Ready to Post/2026-11-13 Fri - Dec 31 or April 15"
+  },
+  {
+    "date": "2026-11-16",
+    "slug": "Pay-Your-Kids-Before-Dec-31",
+    "title": "Your child can earn $16,100 with no income tax",
+    "status": "scheduled",
+    "format": "image",
+    "type": "service",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Mon Nov 16, 5:30 PM ET (Meta Business Suite, IG+FB; verified in Planner)",
+      "linkedin": "Fri Dec 4, 6:00 PM ET (Typefully draft 11874633, first comment = UTM link; Nov 16-Dec 3 each already have a LinkedIn post; Typefully quota now 10/10)"
+    },
+    "link": "https://mfa-advisory.com/year-end-tax-planning/",
+    "utm_campaign": "nov-push",
+    "cta_word": "KIDS",
+    "folder": "Ready to Post/2026-11-16 Mon - Pay Your Kids Before Dec 31"
   }
 ]
