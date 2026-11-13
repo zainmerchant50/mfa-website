@@ -51,3 +51,47 @@
 /news/                 /blog/                     301
 /sitemap_index.xml     /sitemap.xml               301
 /services/book/keeping /services/#bookkeeping     301
+
+# Seen in Cloudflare 4xx (Nov 13, 2026): links cut short when shared on social (meta-externalagent), and a guessed sitemap name.
+/blog/sma                                   /blog/small-business-tax-write-offs-2026/           301
+/blog/social-security                       /blog/social-security-wage-base-2027-self-employed/ 301
+/blog/social-security-wage-base-2027-self-emp /blog/social-security-wage-base-2027-self-employed/ 301
+/sitemaps.xml                               /sitemap.xml                                        301
+
+# BEGIN download-name redirects (tools/seo.py build_download_redirects; do not edit by hand)
+/blog/1099-income-filing-threshold/MFA-1099-Income-Filing-Threshold.pdf  /blog/1099-income-filing-threshold/1099-income-filing-threshold.pdf  301
+/blog/1099-income-filing-threshold/MFA-1099-Income-Filing-Threshold.png  /blog/1099-income-filing-threshold/cover.png  301
+/blog/2027-tax-calendar/MFA-2027-Tax-Calendar.png  /blog/2027-tax-calendar/cover.png  301
+/blog/adoption-tax-credit-refund-2026/MFA-Adoption-Tax-Credit-2026.png  /blog/adoption-tax-credit-refund-2026/cover.png  301
+/blog/ai-in-accounting-and-tax-2026/MFA-AI-in-Accounting-and-Tax-2026.png  /blog/ai-in-accounting-and-tax-2026/cover.png  301
+/blog/business-tax-return-deadline-late/MFA-Business-Tax-Deadlines-Late-Filing.pdf  /blog/business-tax-return-deadline-late/business-tax-return-deadline-late.pdf  301
+/blog/business-tax-return-deadline-late/MFA-Business-Tax-Deadlines-Late-Filing.png  /blog/business-tax-return-deadline-late/cover.png  301
+/blog/federal-scholarship-tax-credit-2027/MFA-Federal-Scholarship-Tax-Credit-2027.png  /blog/federal-scholarship-tax-credit-2027/cover.png  301
+/blog/filing-taxes-late-2025-return/MFA-Filing-Taxes-Late-2025.png  /blog/filing-taxes-late-2025-return/cover.png  301
+/blog/form-1065-guide-llc/MFA-Form-1065-Guide-for-LLCs.pdf  /blog/form-1065-guide-llc/form-1065-guide-llc.pdf  301
+/blog/form-1065-guide-llc/MFA-Form-1065-Guide-for-LLCs.png  /blog/form-1065-guide-llc/cover.png  301
+/blog/form-1099-preparation-guide-2026/MFA-Form-1099-Flowchart-2026.png  /blog/form-1099-preparation-guide-2026/cover.png  301
+/blog/form-1120s-s-corp-guide/MFA-Form-1120-S-Guide.pdf  /blog/form-1120s-s-corp-guide/form-1120s-s-corp-guide.pdf  301
+/blog/form-1120s-s-corp-guide/MFA-Form-1120-S-Guide.png  /blog/form-1120s-s-corp-guide/cover.png  301
+/blog/hiring-overseas-contractors-taxes-w8ben/MFA-Overseas-Contractor-Forms.png  /blog/hiring-overseas-contractors-taxes-w8ben/cover.png  301
+/blog/internet-deduction-business-use/MFA-Internet-Deduction-Business-Use.pdf  /blog/internet-deduction-business-use/internet-deduction-business-use.pdf  301
+/blog/internet-deduction-business-use/MFA-Internet-Deduction-Business-Use.png  /blog/internet-deduction-business-use/cover.png  301
+/blog/llc-tax-advantages-explained/MFA-LLC-Tax-Advantages-Guide.pdf  /blog/llc-tax-advantages-explained/llc-tax-advantages-explained.pdf  301
+/blog/llc-tax-advantages-explained/MFA-LLC-Tax-Advantages-Guide.png  /blog/llc-tax-advantages-explained/cover.png  301
+/blog/llc-taxed-as-s-corp-guide/MFA-LLC-Taxed-as-S-Corp-Guide.pdf  /blog/llc-taxed-as-s-corp-guide/llc-taxed-as-s-corp-guide.pdf  301
+/blog/llc-taxed-as-s-corp-guide/MFA-LLC-Taxed-as-S-Corp-Guide.png  /blog/llc-taxed-as-s-corp-guide/cover.png  301
+/blog/month-end-close-checklist-small-business/MFA-Month-End-Close-Checklist.pdf  /blog/month-end-close-checklist-small-business/month-end-close-checklist-small-business.pdf  301
+/blog/month-end-close-checklist-small-business/MFA-Month-End-Close-Checklist.png  /blog/month-end-close-checklist-small-business/cover.png  301
+/blog/nj-property-tax-relief-anchor-stay-nj-2026/MFA-NJ-Property-Tax-Relief-2026.png  /blog/nj-property-tax-relief-anchor-stay-nj-2026/cover.png  301
+/blog/nj-sales-tax-st50-filing-guide/MFA-NJ-Sales-Tax-ST-50-Guide.pdf  /blog/nj-sales-tax-st50-filing-guide/nj-sales-tax-st50-filing-guide.pdf  301
+/blog/nj-sales-tax-st50-filing-guide/MFA-NJ-Sales-Tax-ST-50-Guide.png  /blog/nj-sales-tax-st50-filing-guide/cover.png  301
+/blog/october-15-2026-tax-extension-deadline/MFA-Oct-15-2026-Extension-Guide.png  /blog/october-15-2026-tax-extension-deadline/cover.png  301
+/blog/salt-cap-2026-nj-ny-pte-tax/MFA-SALT-Cap-2026.png  /blog/salt-cap-2026-nj-ny-pte-tax/cover.png  301
+/blog/schedule-c-guide-single-member-llc/MFA-Schedule-C-Guide.pdf  /blog/schedule-c-guide-single-member-llc/schedule-c-guide-single-member-llc.pdf  301
+/blog/schedule-c-guide-single-member-llc/MFA-Schedule-C-Guide.png  /blog/schedule-c-guide-single-member-llc/cover.png  301
+/blog/section-179-bonus-depreciation-2026/MFA-Section-179-vs-Bonus-2026.png  /blog/section-179-bonus-depreciation-2026/cover.png  301
+/blog/small-business-tax-write-offs-2026/MFA-Small-Business-Write-Offs-2026.png  /blog/small-business-tax-write-offs-2026/cover.png  301
+/blog/which-tax-form-llc-corporation/MFA-Which-Tax-Form-Does-My-Business-File.pdf  /blog/which-tax-form-llc-corporation/which-tax-form-llc-corporation.pdf  301
+/blog/which-tax-form-llc-corporation/MFA-Which-Tax-Form-Does-My-Business-File.png  /blog/which-tax-form-llc-corporation/cover.png  301
+/blog/year-end-tax-planning-2026-key-dates/MFA-Year-End-Tax-Calendar-2026.png  /blog/year-end-tax-planning-2026-key-dates/cover.png  301
+# END download-name redirects

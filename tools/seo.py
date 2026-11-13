@@ -849,11 +849,40 @@ def decorate_pages(posts):
     return n
 
 
+# ------------------------------------------------------------------------------------- download-name redirects
+DL_MARK = ("# BEGIN download-name redirects (tools/seo.py build_download_redirects; do not edit by hand)",
+           "# END download-name redirects")
+
+
+def build_download_redirects():
+    """Crawlers (bingbot, AI bots) request <a href="cover.png" download="MFA-Nice-Name.png"> as the nice name and get a
+    404 (Cloudflare, Nov 2026). 301 each nice name to the real file. Rewrites one marked block in site/_redirects."""
+    f = SITE / "_redirects"
+    rows = []
+    for page in sorted(SITE.glob("**/index.html")):
+        folder = page.parent
+        rel = "/" + folder.relative_to(SITE).as_posix() + "/"
+        if rel == "/./":
+            rel = "/"
+        for href, dl in re.findall(r'<a\b[^>]*\bhref="([^"/:#?]+)"[^>]*\bdownload="([^"/]+)"', page.read_text(encoding="utf-8")):
+            if dl != href and (folder / href).is_file() and not (folder / dl).exists():
+                rows.append(f"{rel}{dl}  {rel}{href}  301")
+    rows = sorted(set(rows))
+    block = DL_MARK[0] + "\n" + "\n".join(rows) + ("\n" if rows else "") + DL_MARK[1]
+    s = f.read_text(encoding="utf-8")
+    pat = re.escape(DL_MARK[0]) + r".*?" + re.escape(DL_MARK[1])
+    t = re.sub(pat, lambda m: block, s, flags=re.S) if re.search(pat, s, flags=re.S) else s.rstrip("\n") + "\n\n" + block + "\n"
+    if t != s:
+        f.write_text(t, encoding="utf-8")
+    return len(rows)
+
+
 # ----------------------------------------------------------------------------------------------- everything
 def build_all(posts):
     patch_home()
     decorate_pages(posts)
     build_robots()
+    build_download_redirects()
     build_llms(posts)
     build_llms_full(posts)
     build_catalog(posts)
