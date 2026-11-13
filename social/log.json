@@ -460,5 +460,27 @@
   "theme": "classic forest, mascot",
   "hook": "AI can/can't rows",
   "note": "Rendered Nov 12 run; NOT uploaded: Chrome extension could not read tiktok.com / studio.youtube.com pages (no file input ref) and PC folder access was denied, so the MP4s could not reach the PC."
+ },
+ {
+  "date": "2026-11-17",
+  "slug": "F1-Year-Six-Resident",
+  "format": "image",
+  "type": "service",
+  "platforms": [
+   "instagram",
+   "facebook",
+   "linkedin"
+  ],
+  "status": "scheduled",
+  "title": "Year 6 on F-1? You may be a resident",
+  "times": {
+   "instagram": "2026-11-17 5:30 PM ET",
+   "linkedin": "2026-12-05 6:00 PM ET (Typefully 11901725)"
+  },
+  "link": "https://mfa-advisory.com/international-students/",
+  "utm_campaign": "nov-push",
+  "cta_word": "F1",
+  "niche": "international students",
+  "folder": "Ready to Post/2026-11-17 Tue - F-1 Year Six Can Change Your Taxes"
  }
 ]

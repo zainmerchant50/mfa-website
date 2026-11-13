@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-17",
+  "number": 1,
+  "slug": "F1-Year-Six-Resident",
+  "topic": "International students niche (Zain Nov 12 niche rule; nov-push live offer /international-students/): F-1 students are exempt individuals for their first 5 calendar years (any part of a year counts); from year 6 days count toward the 183-day test and they usually become resident aliens (unless they establish no intent to reside permanently + visa compliance); residents file 1040 and lose the F-1 FICA exemption; nonresidents file 1040-NR + 8843. Wrong-form fix offer.",
+  "type": "service",
+  "accent": "plum",
+  "label": "F-1 / OPT students / Residency",
+  "kicker": "On F-1 since 2021 or earlier?",
+  "headline": "Year 6 on F-1? You may be a *resident*",
+  "headline_size": 74,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Years 1 to 5: days don't count",
+      "text": "F-1 students are usually exempt from the IRS 183-day test."
+    },
+    {
+      "title": "Any part of a year counts",
+      "text": "Arrived in December 2021? That was year one of the 5."
+    },
+    {
+      "title": "Year 6: your days count",
+      "text": "Pass the 183-day test and you're usually a resident for tax."
+    },
+    {
+      "title": "Resident: Form 1040 and FICA",
+      "text": "Social Security and Medicare apply to OPT pay. Nonresidents file 1040-NR and 8843."
+    }
+  ],
+  "body": [],
+  "cta_word": "F1",
+  "link": "mfa-advisory.com/international-students",
+  "checked": "November 13, 2026",
+  "ig_caption": "On an F-1 visa since 2021 or earlier? 2026 may be the year your tax status changes.\n\n✔️ For your first 5 calendar years, F-1 students usually don't count their days toward the IRS 183-day test, so most stay nonresidents.\n✔️ Any part of a year counts as one of the 5. Arrived in December 2021? That was year one.\n✔️ In year 6, your days count. Pass the 183-day test and you're usually a resident for tax (narrow exceptions apply).\n✔️ Residents file Form 1040, and Social Security and Medicare apply to OPT pay. Nonresidents file Form 8843, plus Form 1040-NR if they had US income.\n\nFiled the wrong form for an earlier year? An amended return can fix it.\n\nComment F1 and we'll send you the link, or find it at mfa-advisory.com/international-students\n\nGeneral information, not tax advice.\n\n#internationalstudents #studentsinusa #studyinusa #nonresident #taxtips #taxseason #personalfinance #moneytips\n#f1visa #optstudents #f1students #stemopt #opt #h1b #form8843 #1040nr",
+  "li_caption": "Many international students assume they stay nonresidents for tax as long as they hold an F-1 visa. The IRS rule runs on calendar years, and year 6 is where it often changes.\n\n1. F-1 students are usually exempt individuals for their first 5 calendar years, so their days don't count toward the 183-day substantial presence test.\n2. Any part of a calendar year counts as one of the 5. A student who arrived in December 2021 used 2021 as year one.\n3. From year 6, the days count. Meeting the 183-day test usually makes the student a resident alien for tax, unless they establish they don't intend to live in the US permanently and have complied with their visa.\n4. Resident aliens file Form 1040 and report worldwide income, and the F-1 exemption from Social Security and Medicare tax no longer applies to their wages, including OPT pay.\n5. Nonresidents file Form 8843, plus Form 1040-NR if they have US income to report.\n\nIf the wrong return went in for an earlier year, an amended return can fix it. We check residency and prepare the right forms.\n\nComment F1 and we will send it.\n\nLink in the first comment.\n\n#InternationalStudents #F1Visa #OPT #TaxResidency #Nonresident",
+  "sources": [
+    {
+      "fact": "Exempt individuals include students temporarily present under F, J, M or Q visas; not exempt as a student in the current year if exempt as teacher/trainee/student for any part of more than 5 calendar years unless no intent to reside permanently + visa compliance; 183-day formula; residents file 1040, nonresidents 1040-NR (Topic 851, updated 09-Nov-2026, read 2026-11-13)",
+      "url": "https://www.irs.gov/taxtopics/tc851"
+    },
+    {
+      "fact": "F-1 nonresident alien students exempt from Social Security and Medicare tax; exemption does not apply to F-1 students who become resident aliens; less than 5 calendar years generally nonresident, more than 5 generally resident if SPT met (updated 18-Aug-2026, read 2026-11-13)",
+      "url": "https://www.irs.gov/individuals/international-taxpayers/foreign-student-liability-for-social-security-and-medicare-taxes"
+    },
+    {
+      "fact": "Form 8843 filed by exempt individuals (students) to exclude days of presence (Pub 519)",
+      "url": "https://www.irs.gov/publications/p519"
+    },
+    {
+      "fact": "MFA offer: international students page incl. wrong-form fix (no prices in social posts)",
+      "url": "https://mfa-advisory.com/international-students/"
+    }
+  ],
+  "post_times": {
+    "instagram": "Tue Nov 17, 5:30 PM ET (Meta Business Suite, IG+FB; verified in Content > Scheduled with caption)",
+    "linkedin": "Sat Dec 5, 6:00 PM ET (Typefully draft 11901725, first comment = UTM link; Nov 13-Dec 4 each already have a LinkedIn post; Typefully quota now 10/10)"
+  },
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/international-students/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push",
+    "linkedin": "https://mfa-advisory.com/international-students/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push"
+  }
+}
