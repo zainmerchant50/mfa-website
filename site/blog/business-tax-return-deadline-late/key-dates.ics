@@ -1,0 +1,122 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:When Is a Business Tax Return Due\, and What If You Missed I
+ t?
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-0@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Form 1065 and Form 1120-S due for calendar-year 2026
+DESCRIPTION:File the return or Form 7004 for a six-month extension. Late 
+ penalty for returns due in 2027: $260 per partner or shareholder per mont
+ h\, up to 12 months.\n\nDetails: https://mfa-advisory.com/blog/business-t
+ ax-return-deadline-late/\nGeneral information\, not tax advice. Merchant 
+ Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1065 and Form 1120-S due for calendar-year 2026
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-1@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:NY: Form CT-3-S due (calendar-year S corporations)
+DESCRIPTION:File within 2½ months after the year ends\, or request six m
+ ore months with Form CT-5.4 and pay the estimated tax.\n\nDetails: https:
+ //mfa-advisory.com/blog/business-tax-return-deadline-late/\nGeneral infor
+ mation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NY: Form CT-3-S due (calendar-year S corporations)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-2@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Form 1120 due for calendar-year 2026 C corporations
+DESCRIPTION:Form 7004 gives six more months to file\, not to pay. Minimum
+  late-filing penalty for returns due in 2027: the smaller of $535 or the 
+ tax due.\n\nDetails: https://mfa-advisory.com/blog/business-tax-return-de
+ adline-late/\nGeneral information\, not tax advice. Merchant Financial Ad
+ visory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1120 due for calendar-year 2026 C corporations
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-3@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NY: Form CT-3 due (calendar-year C corporations)
+DESCRIPTION:Form CT-5 gives a six-month extension if the properly estimat
+ ed tax is paid by April 15.\n\nDetails: https://mfa-advisory.com/blog/bus
+ iness-tax-return-deadline-late/\nGeneral information\, not tax advice. Me
+ rchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NY: Form CT-3 due (calendar-year C corporations)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-4@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NJ: CBT-100S due (calendar-year 2026)
+DESCRIPTION:The 15th day of the month after the federal due month. A six-
+ month extension needs Form CBT-200-T and at least 90% of the tax paid.\n\
+ nDetails: https://mfa-advisory.com/blog/business-tax-return-deadline-late
+ /\nGeneral information\, not tax advice. Merchant Financial Advisory\, mf
+ a-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: CBT-100S due (calendar-year 2026)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-5@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:NJ: CBT-100 due (calendar-year 2026)
+DESCRIPTION:The 15th day of the month after the federal due month\; May 1
+ 5\, 2027 is a Saturday\, so it moves to Monday.\n\nDetails: https://mfa-a
+ dvisory.com/blog/business-tax-return-deadline-late/\nGeneral information\
+ , not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: CBT-100 due (calendar-year 2026)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -284,6 +284,7 @@ SERVICE_FOR = {
     "social-security-wage-base-2027-self-employed": "/s-corp-election/", "which-tax-form-llc-corporation": "/llc-formation/",
     "year-end-tax-planning-2026-key-dates": "/year-end-tax-planning/", "internet-deduction-business-use": "/year-end-tax-planning/",
     "month-end-close-checklist-small-business": "/services/#bookkeeping",
+    "business-tax-return-deadline-late": "/late-tax-return/",
 }
 SERVICE_BY_CATEGORY = {"Tax Planning": "/services/#tax-planning", "Tax Deadlines": "/services/#tax-preparation",
                        "Bookkeeping": "/services/#bookkeeping"}

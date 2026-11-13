@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-2@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Form 1120 due for calendar-year 2026 C corporations
+DESCRIPTION:Form 7004 gives six more months to file\, not to pay. Minimum
+  late-filing penalty for returns due in 2027: the smaller of $535 or the 
+ tax due.\n\nDetails: https://mfa-advisory.com/blog/business-tax-return-de
+ adline-late/\nGeneral information\, not tax advice. Merchant Financial Ad
+ visory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1120 due for calendar-year 2026 C corporations
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-3@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:NY: Form CT-3 due (calendar-year C corporations)
+DESCRIPTION:Form CT-5 gives a six-month extension if the properly estimat
+ ed tax is paid by April 15.\n\nDetails: https://mfa-advisory.com/blog/bus
+ iness-tax-return-deadline-late/\nGeneral information\, not tax advice. Me
+ rchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NY: Form CT-3 due (calendar-year C corporations)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

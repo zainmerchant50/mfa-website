@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-5@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:NJ: CBT-100 due (calendar-year 2026)
+DESCRIPTION:The 15th day of the month after the federal due month\; May 1
+ 5\, 2027 is a Saturday\, so it moves to Monday.\n\nDetails: https://mfa-a
+ dvisory.com/blog/business-tax-return-deadline-late/\nGeneral information\
+ , not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NJ: CBT-100 due (calendar-year 2026)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-0@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Form 1065 and Form 1120-S due for calendar-year 2026
+DESCRIPTION:File the return or Form 7004 for a six-month extension. Late 
+ penalty for returns due in 2027: $260 per partner or shareholder per mont
+ h\, up to 12 months.\n\nDetails: https://mfa-advisory.com/blog/business-t
+ ax-return-deadline-late/\nGeneral information\, not tax advice. Merchant 
+ Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Form 1065 and Form 1120-S due for calendar-year 2026
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

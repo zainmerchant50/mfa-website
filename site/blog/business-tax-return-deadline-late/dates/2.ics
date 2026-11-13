@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:business-tax-return-deadline-late-1@mfa-advisory.com
+DTSTAMP:20261113T125803Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:NY: Form CT-3-S due (calendar-year S corporations)
+DESCRIPTION:File within 2½ months after the year ends\, or request six m
+ ore months with Form CT-5.4 and pay the estimated tax.\n\nDetails: https:
+ //mfa-advisory.com/blog/business-tax-return-deadline-late/\nGeneral infor
+ mation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/business-tax-return-deadline-late/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NY: Form CT-3-S due (calendar-year S corporations)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

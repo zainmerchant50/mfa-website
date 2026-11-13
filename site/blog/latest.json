@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "When Is a Business Tax Return Due, and What If You Missed It?",
+   "url": "/blog/business-tax-return-deadline-late/",
+   "date": "2026-11-13",
+   "category": "Tax Deadlines",
+   "thumb": "/blog/business-tax-return-deadline-late/og-card.webp",
+   "description": "Business tax return deadline missed? 2025 due dates for Forms 1120, 1120-S and 1065, late penalties ($255 per owner a month), relief, NJ and NY rules."
+  },
+  {
    "title": "What Is an LLC and What Are Its Tax Advantages? (2026)",
    "url": "/blog/llc-tax-advantages-explained/",
    "date": "2026-11-11",
@@ -31,14 +39,6 @@
    "category": "Tax Planning",
    "thumb": "/blog/1099-income-filing-threshold/og-card.webp",
    "description": "How much do you have to make on a 1099 to file taxes? $400 of net self-employment earnings. Why the $2,000 1099 rule doesn't decide it, plus 2026 dates."
-  },
-  {
-   "title": "Filing Taxes Late: Missed Oct. 15? What to Do Now for Your 2025 Return",
-   "url": "/blog/filing-taxes-late-2025-return/",
-   "date": "2026-11-04",
-   "category": "Tax Deadlines",
-   "thumb": "/blog/filing-taxes-late-2025-return/og-card.webp",
-   "description": "Filing taxes late after Oct. 15? What a late 2025 return costs, why Dec. 14 matters if you extended, IRS payment plans and new automatic penalty relief."
   }
  ]
 }
