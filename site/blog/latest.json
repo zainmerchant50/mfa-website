@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "How Long to Keep Business Records for Taxes (2026)",
+   "url": "/blog/how-long-to-keep-business-records/",
+   "date": "2026-11-15",
+   "category": "Bookkeeping",
+   "thumb": "/blog/how-long-to-keep-business-records/og-card.webp",
+   "description": "How long to keep business records: the IRS 3, 4, 6 and 7-year rules, payroll and asset records, NJ's 4-year window, NY's 3 years, and when to shred."
+  },
+  {
    "title": "When Is a Business Tax Return Due, and What If You Missed It?",
    "url": "/blog/business-tax-return-deadline-late/",
    "date": "2026-11-13",
@@ -31,14 +39,6 @@
    "category": "Tax Planning",
    "thumb": "/blog/internet-deduction-business-use/og-card.webp",
    "description": "Can I deduct my home internet for business? Yes, the business-use share if you're self-employed. How to figure it, W-2 employee limits, NJ and NY rules."
-  },
-  {
-   "title": "How Much Do You Have to Make on a 1099 to File Taxes in 2026?",
-   "url": "/blog/1099-income-filing-threshold/",
-   "date": "2026-11-06",
-   "category": "Tax Planning",
-   "thumb": "/blog/1099-income-filing-threshold/og-card.webp",
-   "description": "How much do you have to make on a 1099 to file taxes? $400 of net self-employment earnings. Why the $2,000 1099 rule doesn't decide it, plus 2026 dates."
   }
  ]
 }
