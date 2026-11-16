@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-30",
+  "slug": "rental-ready-to-rent-dec-31",
+  "lane": "realestate",
+  "title": "Bought a rental in 2026? Ready to rent decides it",
+  "type": "value",
+  "accent": "amber",
+  "theme": "paper",
+  "label": "Rental Tax Check",
+  "checked": "November 16, 2026",
+  "series": "Rental Tax Check",
+  "link": {
+    "path": "/book/",
+    "label": "Book a call about your rental (MFA)"
+  },
+  "hook": {
+    "text": "Bought a rental in 2026? *Dec\u00a031* matters.",
+    "sub": "When depreciation actually starts."
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Leo closes on a rental condo in November.",
+        "Renovation runs into January.",
+        "He plans to depreciate it on his 2026 return."
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "The IRS rule",
+      "text": "Depreciation starts when it's *ready and available* to rent.",
+      "sub": "A tenant doesn't have to move in yet."
+    },
+    {
+      "type": "rows",
+      "kicker": "Counts for 2026?",
+      "items": [
+        {
+          "l": "Listed and ready by Dec 31",
+          "r": "Yes",
+          "ok": true
+        },
+        {
+          "l": "Still under renovation Dec 31",
+          "r": "2027",
+          "ok": false
+        },
+        {
+          "l": "The land under it",
+          "r": "Never",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "The building is spread over",
+      "value": "27.5 yrs",
+      "sub": "for a residential rental",
+      "note": "Split the price between land and building."
+    }
+  ],
+  "cta": {
+    "big": "Comment *RENTAL*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our rental checklist + a call link."
+  },
+  "captions": {
+    "comment_word": "RENTAL",
+    "instagram": "Bought a rental in 2026? The date it's ready to rent decides when depreciation starts, not the closing date.\n\n✔️ The IRS says you place a rental in service when it's ready and available for rent. A tenant doesn't have to have moved in.\n✔️ Listed and ready by Dec 31: depreciation can start on your 2026 return.\n✔️ Still under renovation on Dec 31: it starts in 2027.\n✔️ Land is never depreciated, so split the price between land and building.\n✔️ A residential rental building is depreciated over 27.5 years.\n\nKeep the listing date and photos as proof.\nSend this to a friend who just bought a rental.\n\nSource: IRS Publication 527. General information, not advice for your situation.",
+    "hashtags": [
+      "#realestateinvesting",
+      "#rentalproperty",
+      "#shorttermrental",
+      "#airbnbhost",
+      "#landlord",
+      "#depreciation",
+      "#taxtips",
+      "#taxes2026"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#rentalproperty",
+      "#realestateinvesting",
+      "#taxtips"
+    ],
+    "youtube_title": "Bought a Rental in 2026? When Depreciation Starts (Placed in Service)",
+    "youtube_description": "Rental property is placed in service when it's ready and available for rent, even if no tenant has moved in. Ready by December 31 means depreciation can start for 2026; still under renovation means it starts later. Land can't be depreciated, so allocate the purchase price between land and building. Residential rental property is depreciated over 27.5 years under GDS. Source: IRS Publication 527.",
+    "pinterest_title": "Bought a Rental in 2026? When Depreciation Starts",
+    "pinterest_description": "Depreciation on a rental starts when it's ready and available for rent, not at closing. Ready by Dec 31 = 2026. Land isn't depreciated; residential buildings use 27.5 years. Source: IRS Pub 527.",
+    "pinterest_alt": "Cream card: Bought a rental in 2026? Dec 31 matters.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "rental property placed in service depreciation"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Placed in service when ready and available for rent; land not depreciable; residential rental GDS 27.5 years",
+      "url": "https://www.irs.gov/pub/irs-pdf/p527.pdf"
+    }
+  ],
+  "thumb": {
+    "title": "New rental? *Ready to rent* starts it.",
+    "sub": "Depreciation and Dec 31"
+  }
+}

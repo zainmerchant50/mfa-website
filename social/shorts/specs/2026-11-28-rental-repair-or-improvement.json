@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-28",
+  "slug": "rental-repair-or-improvement",
+  "lane": "realestate",
+  "title": "Rental repair or improvement?",
+  "type": "value",
+  "accent": "burgundy",
+  "label": "Rental Tax Check",
+  "checked": "November 16, 2026",
+  "series": "Rental Tax Check",
+  "link": {
+    "path": "/book/",
+    "label": "Book a call about your rental (MFA)"
+  },
+  "hook": {
+    "text": "Repair or *improvement*?",
+    "sub": "Rental owners: it changes this year's write-off."
+  },
+  "character": {
+    "name": "mascot-hmm",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "mascot-thumbs"
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Repair: deduct this year",
+      "items": [
+        {
+          "l": "Fix a leaky faucet",
+          "r": "Repair",
+          "ok": true
+        },
+        {
+          "l": "Patch a hole in the wall",
+          "r": "Repair",
+          "ok": true
+        },
+        {
+          "l": "Repaint between tenants",
+          "r": "Usually a repair",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "rows",
+      "kicker": "Improvement: spread it out",
+      "items": [
+        {
+          "l": "New roof",
+          "r": "Improvement",
+          "ok": false
+        },
+        {
+          "l": "Full kitchen remodel",
+          "r": "Improvement",
+          "ok": false
+        },
+        {
+          "l": "Add a bedroom",
+          "r": "Improvement",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Improvements to a residential rental are depreciated over",
+      "value": "27.5 yrs",
+      "sub": "instead of one big deduction",
+      "note": "Betterment, restoration or adaptation = improvement."
+    }
+  ],
+  "cta": {
+    "big": "Comment *RENTAL*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our rental checklist + a call link."
+  },
+  "captions": {
+    "comment_word": "RENTAL",
+    "instagram": "Own a rental? Repair or improvement decides how much you write off this year.\n\n✔️ Repairs keep the property in working order: a leaky faucet, a patched wall, paint between tenants. Generally deductible in the year you pay.\n✔️ Improvements make it better, restore it or adapt it to a new use: a new roof, a full kitchen remodel, an added bedroom. These are depreciated, and for a residential rental that means over 27.5 years.\n✔️ Keep invoices that say what the work was. A vague \"repairs\" line is hard to defend.\n\nDoing work before Dec 31? Sort it first.\nSend this to a friend who owns a rental.\n\nSource: IRS Publication 527. General information, not advice for your situation.",
+    "hashtags": [
+      "#realestateinvesting",
+      "#rentalproperty",
+      "#landlord",
+      "#airbnbhost",
+      "#taxtips",
+      "#depreciation",
+      "#realestatetaxes",
+      "#taxes2026"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#rentalproperty",
+      "#landlord",
+      "#taxtips"
+    ],
+    "youtube_title": "Rental Property: Repair or Improvement? (Deduct Now vs 27.5 Years)",
+    "youtube_description": "Repairs that keep a rental in working order (fixing a leak, patching a wall, repainting) are generally deductible in the year paid. Improvements (betterments, restorations or adaptations such as a new roof, a kitchen remodel or an added bedroom) must be capitalized and depreciated; residential rental property is depreciated over 27.5 years under GDS. Keep invoices that describe the work. Source: IRS Publication 527.",
+    "pinterest_title": "Rental Property Repair or Improvement? The IRS Difference",
+    "pinterest_description": "Rental owners: repairs are generally deducted the year you pay; improvements like a new roof or remodel are depreciated over 27.5 years for residential rentals. Source: IRS Publication 527.",
+    "pinterest_alt": "Navy card: Repair or improvement? Rental owners quiz.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "rental property repairs vs improvements"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Repairs generally deductible; improvements (betterment, restoration, adaptation) capitalized; residential rental GDS 27.5 years",
+      "url": "https://www.irs.gov/pub/irs-pdf/p527.pdf"
+    }
+  ],
+  "thumb": {
+    "title": "Rental: repair or *improvement*?",
+    "sub": "Deduct now or over 27.5 years"
+  }
+}

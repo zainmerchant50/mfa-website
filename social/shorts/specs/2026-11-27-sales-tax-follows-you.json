@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-27",
+  "slug": "sales-tax-follows-you",
+  "lane": "ecommerce",
+  "title": "Myth: you only owe sales tax in your home state",
+  "type": "value",
+  "accent": "teal",
+  "theme": "paper",
+  "label": "Myth vs fact",
+  "checked": "November 16, 2026",
+  "series": "Shopify Books in 30s",
+  "link": {
+    "path": "/bookkeeping-cleanup/",
+    "label": "Bookkeeping cleanup for online sellers (MFA)"
+  },
+  "hook": {
+    "text": "\"I only charge sales tax in *my* state.\"",
+    "sub": "Online sellers: myth vs fact."
+  },
+  "character": {
+    "name": "owner",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  },
+  "beats": [
+    {
+      "type": "story",
+      "lines": [
+        "Maya runs a Shopify store from Texas.",
+        "Black Friday orders ship to all 50 states.",
+        "She has never filed in New Jersey."
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "The fact",
+      "text": "Sales tax can follow your *sales*.",
+      "sub": "Many states count out-of-state sellers once sales pass a line."
+    },
+    {
+      "type": "stat",
+      "kicker": "New Jersey example: sales into NJ over",
+      "value": "$100,000",
+      "count": {
+        "to": 100000,
+        "pre": "$",
+        "suf": ""
+      },
+      "sub": "or 200+ orders in the current or prior year",
+      "note": "Then you register, collect and file in NJ."
+    },
+    {
+      "type": "rows",
+      "kicker": "Who collects?",
+      "items": [
+        {
+          "l": "Sales on Etsy or Amazon",
+          "r": "Usually the marketplace",
+          "ok": true
+        },
+        {
+          "l": "Sales on your own Shopify site",
+          "r": "You",
+          "ok": false
+        },
+        {
+          "l": "Each state's line",
+          "r": "Check every state",
+          "ok": false
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Comment *BOOKS*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our seller checklist + a call link."
+  },
+  "captions": {
+    "comment_word": "BOOKS",
+    "instagram": "Myth: you only charge sales tax in your home state.\nFact: once your sales into another state pass that state's line, you may have to register, collect and file there too.\n\n✔️ New Jersey example: more than $100,000 of sales into NJ, or 200 or more separate NJ sales, in the current or prior calendar year.\n✔️ Sales through a marketplace like Etsy or Amazon: the marketplace generally collects for you.\n✔️ Sales on your own Shopify site: that part is on you.\n✔️ Every state sets its own line, so check each state you ship to.\n\nBig holiday season? Look at your sales by state before January.\nSend this to a friend who sells on Shopify.\n\nSource: NJ Division of Taxation, Remote Sellers. General information, not advice for your situation.",
+    "hashtags": [
+      "#shopify",
+      "#ecommerce",
+      "#etsyseller",
+      "#salestax",
+      "#smallbusiness",
+      "#onlinebusiness",
+      "#bookkeeping",
+      "#taxes2026"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#shopify",
+      "#salestax",
+      "#ecommerce"
+    ],
+    "youtube_title": "Shopify Sellers: Sales Tax Can Follow You to Other States",
+    "youtube_description": "Myth: you only collect sales tax in your home state. Fact: many states require out-of-state sellers to register and collect once sales into the state pass a threshold. New Jersey example: more than $100,000 of NJ sales or 200 or more separate NJ transactions in the current or prior calendar year. Marketplace facilitators like Etsy and Amazon generally collect on marketplace sales; sales on your own site are your responsibility. Every state sets its own threshold. Source: NJ Division of Taxation, Remote Sellers.",
+    "pinterest_title": "Online Sellers: Sales Tax Can Follow You to Other States",
+    "pinterest_description": "Selling on Shopify? Many states make out-of-state sellers collect sales tax once sales pass a line. New Jersey: over $100,000 or 200+ transactions a year. Marketplaces usually collect for marketplace sales.",
+    "pinterest_alt": "Cream card: I only charge sales tax in my state. Myth vs fact for online sellers.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "ecommerce sales tax nexus"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "NJ remote seller thresholds $100,000 / 200 transactions, current or prior calendar year; marketplace facilitators collect on marketplace sales",
+      "url": "https://www.nj.gov/treasury/taxation/remotesellers.shtml"
+    }
+  ],
+  "thumb": {
+    "title": "Sales tax can *follow* your sales.",
+    "sub": "Online sellers: myth vs fact"
+  }
+}

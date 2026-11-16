@@ -134,7 +134,9 @@ def lint(p):
 # ----------------------------------------------------------------------------------------------- links + captions
 def utm(p, source):
     lk = p["link"]
-    url = f"{SITE}{lk['path']}?utm_source={source}&utm_medium=video&utm_campaign={p['slug']}"
+    # niche lanes (niche-views-plan.md §6): utm_campaign=<lane>, utm_content=<slug>
+    camp = f"{p['lane']}&utm_content={p['slug']}" if p.get("lane") else p["slug"]
+    url = f"{SITE}{lk['path']}?utm_source={source}&utm_medium=video&utm_campaign={camp}"
     return url + (f"#{lk['anchor']}" if lk.get("anchor") else "")
 
 

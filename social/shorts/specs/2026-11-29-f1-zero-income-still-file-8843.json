@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-29",
+  "slug": "f1-zero-income-still-file-8843",
+  "lane": "students",
+  "title": "Earned $0 on F-1? You still file one form",
+  "type": "value",
+  "accent": "plum",
+  "theme": "neon",
+  "label": "F-1 Tax in 30s",
+  "checked": "November 16, 2026",
+  "series": "F-1 Tax in 30s",
+  "link": {
+    "path": "/international-students/",
+    "label": "Tax help for international students (MFA)"
+  },
+  "hook": {
+    "text": "Earned *$0* on F-1 this year?",
+    "sub": "You may still owe the IRS one form."
+  },
+  "character": {
+    "name": "student",
+    "scene": "hook",
+    "position": "lower",
+    "corner_after": true,
+    "corner": "self"
+  },
+  "beats": [
+    {
+      "type": "text",
+      "kicker": "The form",
+      "text": "Form *8843*",
+      "sub": "A statement, not a tax bill. It explains why your days in the US don't count yet."
+    },
+    {
+      "type": "rows",
+      "kicker": "Who files it?",
+      "items": [
+        {
+          "l": "F-1 or J-1 student, no US income",
+          "r": "8843 alone",
+          "ok": true
+        },
+        {
+          "l": "Student with US wages",
+          "r": "8843 + 1040-NR",
+          "ok": true
+        },
+        {
+          "l": "Spouse or child on F-2 / J-2",
+          "r": "Their own 8843",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "No US wages? 2026 forms are due",
+      "value": "June 15",
+      "sub": "2027, mailed to the IRS in Austin, TX",
+      "note": "With wages, file with your 1040-NR by April 15."
+    }
+  ],
+  "cta": {
+    "big": "Comment *F1*",
+    "url": "mfa-advisory.com",
+    "sub": "We'll DM you our student tax checklist."
+  },
+  "captions": {
+    "comment_word": "F1",
+    "instagram": "On F-1 or J-1 and earned nothing in the US this year? You may still need to file one form.\n\n✔️ Form 8843 is a statement, not a tax bill. It tells the IRS why your days in the US don't count toward residency yet.\n✔️ No US income: file Form 8843 by itself. For 2026, that's due June 15, 2027, mailed to the IRS in Austin, TX.\n✔️ US wages: attach it to your Form 1040-NR, due April 15, 2027.\n✔️ A spouse or child on F-2 or J-2 files their own.\n\nSend this to a friend on F-1.\n\nSource: IRS Form 8843 and Form 1040-NR instructions. Tax information only; for visa or work questions, check with your DSO or an immigration attorney. General information, not advice for your situation.",
+    "hashtags": [
+      "#internationalstudent",
+      "#f1visa",
+      "#f1student",
+      "#form8843",
+      "#studentvisa",
+      "#taxtips",
+      "#usataxes",
+      "#taxes2026"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#f1visa",
+      "#internationalstudent",
+      "#taxtips"
+    ],
+    "youtube_title": "Earned $0 on F-1? You May Still File Form 8843 (2026 Deadline)",
+    "youtube_description": "Nonresident students and scholars on F, J, M or Q visas file Form 8843 to exclude their days of presence from the substantial presence test. With no US income, mail Form 8843 by itself by the Form 1040-NR due date: June 15, 2027 for tax year 2026 if you had no wages subject to withholding. With US wages, attach it to Form 1040-NR, due April 15, 2027. Dependents file their own. Source: IRS Form 8843 and Form 1040-NR instructions. Tax information only, not immigration advice.",
+    "pinterest_title": "F-1 Student With No Income? You May Still File Form 8843",
+    "pinterest_description": "International students on F-1 or J-1 file Form 8843 even with no US income. For 2026: June 15, 2027 if no wages; with wages, attach it to the 1040-NR by April 15, 2027.",
+    "pinterest_alt": "Dark card: Earned $0 on F-1 this year? Form 8843.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "form 8843 f1 student no income"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Form 8843 for F/J/M/Q students; mail alone to Austin TX 73301-0215 if no return required, by 1040-NR due date",
+      "url": "https://www.irs.gov/pub/irs-pdf/f8843.pdf"
+    },
+    {
+      "fact": "1040-NR due 15th day of 4th month with wages subject to withholding, else 15th day of 6th month",
+      "url": "https://www.irs.gov/pub/irs-pdf/i1040nr.pdf"
+    }
+  ],
+  "thumb": {
+    "title": "$0 income on F-1? Still *Form 8843*.",
+    "sub": "International students"
+  }
+}
