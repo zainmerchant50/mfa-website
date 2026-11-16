@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-18",
+  "number": 1,
+  "slug": "Shopify-Payout-Not-Revenue",
+  "topic": "Sprint 1 e-commerce sellers (niche-views-plan v2, lane: ecommerce): Form 1099-K box 1a is the gross amount, not adjusted for fees, refunds, shipping, discounts; payouts are net, so booking payouts understates sales and the IRS sees the gross; fees and refunds are deductible from the gross; TPSOs report over $20,000 and over 200 transactions, payment cards have no threshold; report all income with or without a 1099-K. Before/after example. -> /bookkeeping-cleanup/ (nationwide catch-up quote, book a call).",
+  "type": "service",
+  "accent": "teal",
+  "label": "Online sellers / Bookkeeping",
+  "kicker": "Selling on Shopify, Etsy or Amazon?",
+  "headline": "Your Shopify payout isn't your *revenue*",
+  "headline_size": 76,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Your 1099-K shows the gross",
+      "text": "Sales before fees, refunds and shipping come out."
+    },
+    {
+      "title": "Your payout is a net number",
+      "text": "Fees, refunds and timing make it smaller than sales."
+    },
+    {
+      "title": "Book the sales, then the costs",
+      "text": "Fees and refunds come off the gross, so record each one."
+    },
+    {
+      "title": "No 1099-K? Sales still count",
+      "text": "You report every sale, form or no form."
+    }
+  ],
+  "body": [],
+  "cta_word": "BOOKS",
+  "link": "mfa-advisory.com/bookkeeping-cleanup",
+  "checked": "November 16, 2026",
+  "ig_caption": "Selling on Shopify, Etsy or Amazon? The money that hits your bank is not your sales number.\n\nExample: you sold $10,000, refunded $500 and paid $300 in fees. Your payouts add up to $9,200, but a Form 1099-K reports the $10,000 gross.\n\n✔️ Form 1099-K shows gross sales, before fees, refunds and shipping come out.\n✔️ Book only payouts and your sales look smaller than what the IRS sees.\n✔️ Record sales at the gross, then fees and refunds as their own lines. That way you're not taxed on money you never kept.\n✔️ No 1099-K? Every sale still counts.\n\nBefore Dec 31, match your 2026 payouts to your sales report.\n\nComment BOOKS and we'll send you the link, or find it at mfa-advisory.com/bookkeeping-cleanup\n\nSend this to a friend who sells online.\n\nGeneral information, not tax advice.\n\n#smallbusiness #bookkeeping #taxtips #smallbusinesstips #entrepreneur #accounting #businessowner #bookkeepingtips\n#shopifyseller #etsyseller #amazonseller #onlineseller #ecommerce #1099k #ecommercebusiness #sellersofinstagram",
+  "li_caption": "An online store's bank deposits are not its revenue. Mixing the two up is an easy way for e-commerce books to go wrong.\n\nA simple example: $10,000 of sales, $500 refunded and $300 in platform and card fees. The payouts total $9,200. Form 1099-K reports the $10,000.\n\n1. Form 1099-K reports the gross amount, with no adjustment for fees, refunds, shipping or discounts.\n2. Payouts are net and often land days after the sale, so books built from bank deposits understate sales and mix up the timing.\n3. The fix is to record gross sales from the platform report, then fees and refunds as separate lines. The IRS says these amounts can come off the gross, so they are not taxed.\n4. Payment apps and marketplaces report when sales pass $20,000 and 200 transactions. Card processors have no minimum. Either way, all sales are reported, with or without a form.\n\nBefore Dec 31, match the 2026 payout totals to the sales report for each platform. If the books are behind, we can catch them up before tax season.\n\nComment BOOKS and we will send it.\n\nLink in the first comment.\n\n#Ecommerce #Shopify #Bookkeeping #SmallBusiness #Form1099K",
+  "sources": [
+    {
+      "fact": "TPSO reports when gross payments exceed $20,000 AND transactions exceed 200; gross amount determined without regard to credits, cash equivalents, discounts, fees, refunded amounts, shipping amounts (Instructions for Form 1099-K (12/2026), read 2026-11-16)",
+      "url": "https://www.irs.gov/instructions/i1099k"
+    },
+    {
+      "fact": "Gross payment amount isn't adjusted for fees, credits, refunds, shipping, cash equivalents, discounts; 'These items are not taxable income. You can deduct them from the gross amount.'; you must report your income; use books and records to report all gross receipts (What to do with Form 1099-K, updated 27-Jul-2026, read 2026-11-16)",
+      "url": "https://www.irs.gov/businesses/what-to-do-with-form-1099-k"
+    },
+    {
+      "fact": "No threshold for payment card transactions; TPSO $20,000 / 200 reinstated by OBBB (Form 1099-K FAQs: General information, updated 03-Apr-2026, read 2026-11-16)",
+      "url": "https://www.irs.gov/newsroom/form-1099-k-faqs-general-information"
+    },
+    {
+      "fact": "$10,000 / $500 / $300 example is an illustration, not a client or statistic",
+      "url": "https://www.irs.gov/businesses/what-to-do-with-form-1099-k"
+    },
+    {
+      "fact": "MFA offer: bookkeeping cleanup and catch-up, fixed quote, nationwide (no prices in social posts)",
+      "url": "https://mfa-advisory.com/bookkeeping-cleanup/"
+    }
+  ],
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push&utm_content=ecommerce",
+    "linkedin": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push&utm_content=ecommerce"
+  },
+  "post_times": {
+    "instagram": "Wed Nov 18, 5:30 PM ET (Meta Business Suite, IG+FB; verified in Content > Scheduled with caption)",
+    "linkedin": "Sun Dec 6, 6:00 PM ET (Typefully draft 11963995, first comment = UTM link; Typefully Dec 2-5 + native through Dec 1 already hold LinkedIn posts)"
+  }
+}
