@@ -171,3 +171,11 @@ SELECT 'needs open', COUNT(*) FROM needs WHERE status='open' UNION ALL SELECT 'i
  + (SELECT COUNT(*) FROM needs WHERE status='new') + (SELECT COUNT(*) FROM finance_questions WHERE status='new') + (SELECT COUNT(*) FROM requests WHERE status='new')
 UNION ALL SELECT 'past scheduled (must be 0)', COUNT(*) FROM calendar_items WHERE status='scheduled' AND date < date('now','-5 hours');
 ```
+
+## Deadlines (v6, Today page) — Zain 2026-11-16: the hub is for operations, not finances
+- Table `deadlines` (id, due YYYY-MM-DD ET, title, area, owner, status open|done|dropped, link, note). Shown on /hub/ "Deadlines & follow-ups" (next 14 days, overdue first).
+- Add a row for every dated operational item you own: lead follow-ups, client filing dates, ad-test end/review dates, PR deadlines, sprint verdicts, page launches.
+  `INSERT OR REPLACE INTO deadlines (id, due, title, area, owner, link, note) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)`
+- When it's done: `UPDATE deadlines SET status='done', updated_at=strftime('%Y-%m-%dT%H:%M:%SZ','now') WHERE id=?1`.
+- Calendar: every scheduled post on every channel needs its own calendar_items row (the Today grid turns red when a scheduled channel has an empty day). Blog, Pinterest and Newsletter publish live and show grey when empty.
+- No money on the Today page: don't add spend or revenue items to deadlines.

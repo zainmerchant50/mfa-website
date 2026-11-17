@@ -1,23 +1,23 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,nofollow,noarchive"/><meta name="referrer" content="no-referrer"/>
-<title>Home | MFA Hub</title>
+<title>Today | MFA Hub</title>
 <link rel="icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=11"/>
+<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=12"/>
 </head><body class="hub" data-page="home">
 <header class="hub-top"><div class="wrap">
 <a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><b>MFA Hub</b><i>Private</i></a>
-<nav class="hub-nav" aria-label="Hub"><a href="/hub/" aria-current="page">Home</a><a href="/hub/board/">Board</a><a href="/hub/calendar/">Calendar</a><a href="/hub/ads/">Ads</a><a href="/hub/finance/">Finance</a><a href="/hub/leads/">Leads</a><a href="/hub/tasks/">Tasks</a><a href="/hub/log/">Live log</a></nav>
+<nav class="hub-nav" aria-label="Hub"><a href="/hub/" aria-current="page">Today</a><a href="/hub/board/">Agents</a><a href="/hub/calendar/">Calendar</a><a href="/hub/leads/">Leads</a><a href="/hub/tasks/">Tasks</a><a href="/hub/ads/">Ads</a><a href="/hub/log/">Live log</a></nav>
 <div class="hub-stat"><span class="hub-status" id="hubStatus" role="status" aria-live="polite">Loading…</span><button type="button" id="refresh">Refresh</button></div>
 </div></header>
 <div class="wrap"><main class="hub-main">
-<div class="rbar" id="rbar"></div><div class="kpis" id="kpis"></div>
-<div class="g4"><section class="pn"><div class="pn-h"><h2>Spend vs clicks · 7 days</h2><span class="sub" id="chSpendSub">per ad platform</span></div><div class="pn-b" id="chSpend"></div></section><section class="pn"><div class="pn-h"><h2>Impressions · 7 days</h2><span class="sub" id="chImprSub">paid + organic</span></div><div class="pn-b" id="chImpr"></div></section><section class="pn"><div class="pn-h"><h2>Top 10 posts · 30 days</h2><span class="sub" id="chTopSub">by impressions</span></div><div class="pn-b" id="chTop"></div></section><section class="pn"><div class="pn-h"><h2>Leads per day · 30 days</h2><span class="sub" id="chLeadsSub">website forms</span></div><div class="pn-b" id="chLeads"></div></section></div>
+<div class="rbar" id="rbar" hidden></div><div class="kpis" id="kpis"></div>
+<div class="g2 g-main today"><div class="stack"><section class="pn"><div class="pn-h"><h2>Next 7 days · every channel</h2><span class="sub" id="chmSub">click a cell for the posts · red = nothing scheduled</span></div><div class="pn-b np" id="chm"></div></section><section class="pn"><div class="pn-h"><h2>Lead pipeline</h2><span class="sub" id="pipeSub">by stage · days since first contact</span></div><div class="pn-b np" id="pipe"></div></section><section class="pn"><div class="pn-h"><h2>Agents</h2><span class="sub" id="aglSub">what each one is doing · last run</span></div><div class="pn-b np" id="agl"></div></section></div><section class="pn"><div class="pn-h"><h2>Deadlines & follow-ups</h2><span class="sub" id="dlsSub">next 14 days · hover for notes</span></div><div class="pn-b np" id="dls"></div></section></div>
 <div class="g2 g-main"><section class="pn"><div class="pn-h"><h2>Needs you</h2><span class="sub" id="needsSub">one click answers; Undo for 10 s</span></div><div class="pn-b np" id="needs"></div></section><section class="pn"><div class="pn-h"><h2>Live log</h2><span class="sub" id="logSub"></span><span class="sub" id="logUpd"></span></div><div class="pn-b np" id="log"></div></section></div>
 <section class="pn"><div class="pn-h"><h2>Ask the agents</h2><span class="sub" id="reqFormSub">goes to Tasks</span></div><div class="pn-b" id="reqForm"></div></section>
 </main></div>
 <script src="/hub/hub_links.js?v=10"></script>
-<script src="/hub/hub.js?v=11"></script>
+<script src="/hub/hub.js?v=12"></script>
 </body></html>

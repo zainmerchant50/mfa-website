@@ -98,3 +98,9 @@ CREATE TABLE IF NOT EXISTS leads (
 CREATE TABLE IF NOT EXISTS kpis (key TEXT PRIMARY KEY, label TEXT NOT NULL, value REAL, unit TEXT, as_of TEXT, source TEXT, note TEXT);
 -- v3: outbound links the hub shows ("Open in platform"). key = platform name, 'campaign:<platform>:<campaign>', 'agent:<Name>' or 'doc:<Name>' (label = doc path).
 CREATE TABLE IF NOT EXISTS links (key TEXT PRIMARY KEY, label TEXT NOT NULL, url TEXT, updated_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')));
+-- v6: operations deadlines (Today page). See tools/hub_migrate_v6.sql.
+CREATE TABLE IF NOT EXISTS deadlines (
+  id TEXT PRIMARY KEY, due TEXT NOT NULL, title TEXT NOT NULL, area TEXT, owner TEXT,
+  status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open','done','dropped')),
+  link TEXT, note TEXT, updated_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')));
+CREATE INDEX IF NOT EXISTS deadlines_due ON deadlines(due);

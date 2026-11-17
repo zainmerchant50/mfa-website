@@ -8,8 +8,9 @@ from anywhere on the public site, so tools/seo.py keeps them out of the sitemap 
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent / "site"
-NAV = [("", "Home"), ("board/", "Board"), ("calendar/", "Calendar"), ("ads/", "Ads"), ("finance/", "Finance"),
-       ("leads/", "Leads"), ("tasks/", "Tasks"), ("log/", "Live log")]
+# Zain 2026-11-16: "my focus is on operations not the finances" -> Finance left out of the menu (page still at /hub/finance/).
+NAV = [("", "Today"), ("board/", "Agents"), ("calendar/", "Calendar"), ("leads/", "Leads"), ("tasks/", "Tasks"),
+       ("ads/", "Ads"), ("log/", "Live log")]
 
 HEAD = """<!doctype html><html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -18,7 +19,7 @@ HEAD = """<!doctype html><html lang="en"><head>
 <link rel="icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=11"/>
+<link rel="stylesheet" href="/blog/blog.css"/><link rel="stylesheet" href="/hub/hub.css?v=12"/>
 </head><body class="hub" data-page="{page}">
 <header class="hub-top"><div class="wrap">
 <a class="hub-brand" href="/hub/"><img src="/apple-touch-icon.png" alt=""/><b>MFA Hub</b><i>Private</i></a>
@@ -29,7 +30,7 @@ HEAD = """<!doctype html><html lang="en"><head>
 """
 FOOT = """</main></div>
 <script src="/hub/hub_links.js?v=10"></script>
-<script src="/hub/hub.js?v=11"></script>
+<script src="/hub/hub.js?v=12"></script>
 </body></html>
 """
 
@@ -44,8 +45,8 @@ def chart(title, cid, sub=""):
 
 
 PAGES = {
-    "home": ("", "Home", f"""<div class="rbar" id="rbar"></div><div class="kpis" id="kpis"></div>
-<div class="g4">{chart("Spend vs clicks · 7 days", "chSpend", "per ad platform")}{chart("Impressions · 7 days", "chImpr", "paid + organic")}{chart("Top 10 posts · 30 days", "chTop", "by impressions")}{chart("Leads per day · 30 days", "chLeads", "website forms")}</div>
+    "home": ("", "Today", f"""<div class="rbar" id="rbar" hidden></div><div class="kpis" id="kpis"></div>
+<div class="g2 g-main today"><div class="stack">{pn("Next 7 days · every channel", "chm", "click a cell for the posts · red = nothing scheduled")}{pn("Lead pipeline", "pipe", "by stage · days since first contact")}{pn("Agents", "agl", "what each one is doing · last run")}</div>{pn("Deadlines & follow-ups", "dls", "next 14 days · hover for notes")}</div>
 <div class="g2 g-main">{pn("Needs you", "needs", "one click answers; Undo for 10 s")}{pn("Live log", "log", "", extra='<span class="sub" id="logUpd"></span>')}</div>
 {pn("Ask the agents", "reqForm", "goes to Tasks", np=False)}
 """),
