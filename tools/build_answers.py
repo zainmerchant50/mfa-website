@@ -28,9 +28,24 @@ S1A = ("IRS: Schedule 1-A (Form 1040), Additional Deductions", "https://www.irs.
 ES = ("IRS: Form 1040-ES, Estimated Tax for Individuals (2026)", "https://www.irs.gov/pub/irs-pdf/f1040es.pdf")
 T425 = ("IRS: Topic 425, Passive activities, losses and credits", "https://www.irs.gov/taxtopics/tc425")
 
+I2553 = ("IRS: Instructions for Form 2553", "https://www.irs.gov/instructions/i2553")
+SCOMP = ("IRS: S corporation compensation and medical insurance issues",
+         "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues")
+SCORP = ("IRS: S corporations", "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations")
+K1099 = ("IRS: Form 1099-K threshold reverts to $20,000 (FAQs)",
+         "https://www.irs.gov/newsroom/irs-issues-faqs-on-form-1099-k-threshold-under-the-one-big-beautiful-bill-dollar-limit-reverts-to-20000")
+KUND = ("IRS: Understanding your Form 1099-K", "https://www.irs.gov/businesses/understanding-your-form-1099-k")
+NJREM = ("NJ Division of Taxation: Remote sellers", "https://www.nj.gov/treasury/taxation/remotesellers.shtml")
+I5472 = ("IRS: Instructions for Form 5472", "https://www.irs.gov/instructions/i5472")
+BOI = ("FinCEN: Beneficial ownership information reporting", "https://www.fincen.gov/boi")
+CAL27 = ("MFA: 2027 tax calendar (federal, NJ, NY)", "https://mfa-advisory.com/tools/2027-tax-calendar/")
+
 LANES = [("booth", "Booth renters and beauty pros", "/booth-renters/", "Booth renter taxes"),
          ("airbnb", "Airbnb and short-term rental hosts", "/rental-property-taxes/", "Rental property taxes"),
-         ("landlord", "Landlords", "/rental-property-taxes/", "Rental property taxes")]
+         ("landlord", "Landlords and real estate investors", "/rental-property-taxes/", "Rental property taxes"),
+         ("scorp", "S corp and LLC owners", "/s-corp-election/", "S corp election"),
+         ("ecom", "Online sellers (Etsy, Shopify, Amazon)", "/bookkeeping-cleanup/", "Bookkeeping for online sellers"),
+         ("foreign", "Foreign-owned US LLCs", "/llc-formation/", "LLC formation and compliance")]
 
 # slug, lane, question, answer (40-60 words, plain text), facts [(k, v)], detail html, tool (href, label) or None, sources
 ANSWERS = [
@@ -142,7 +157,85 @@ ANSWERS = [
       ("Last month's rent paid upfront", "Advance rent, income when received"), ("Source", "IRS Publication 527")],
      "<p>Keep deposits in a separate account or ledger line so they don't get counted as rent by mistake.</p>",
      None, [P527]),
+    ("s-corp-election-deadline-2027", "scorp", "When is the deadline to elect S corp status for 2027?",
+     "For an LLC or corporation on the calendar year, file Form 2553 by March 15, 2027 for the election to start January 1, 2027. "
+     "The rule is no more than 2 months and 15 days after the start of the tax year. File later and the election usually starts in 2028, "
+     "unless you qualify for late-election relief.",
+     [("Form", "2553, Election by a Small Business Corporation"), ("Deadline for 2027", "March 15, 2027"),
+      ("Rule", "Within 2 months and 15 days of the tax year start"), ("Who signs", "Every shareholder (LLC members)"),
+      ("Missed it", "Late-election relief may be available")],
+     "<p>An LLC can elect S corp tax treatment without changing its state registration. Before you elect, compare the payroll tax "
+     "you save with the extra cost of payroll and a separate Form 1120-S return.</p>",
+     ("/tools/s-corp-tax-savings-calculator/", "S corp tax savings calculator"), [I2553, CAL27]),
+    ("do-s-corp-owners-have-to-take-a-salary", "scorp", "Do S corp owners have to pay themselves a salary?",
+     "Yes, if you work in the business. The IRS requires an S corporation to pay a shareholder who provides services reasonable "
+     "compensation as W-2 wages before taking non-wage distributions. Wages carry Social Security and Medicare tax; distributions "
+     "don't, which is where the savings come from and why the IRS watches salaries.",
+     [("Rule", "Reasonable compensation before distributions"), ("Paid as", "W-2 wages through payroll"),
+      ("Taxes on wages", "Social Security and Medicare, plus income tax withholding"), ("Distributions", "No payroll tax"),
+      ("Risk", "IRS can reclassify distributions as wages")],
+     "<p>Reasonable means what you'd pay someone else to do your job: think duties, hours and what similar businesses pay. "
+     "Write down how you set the number and review it each year.</p>",
+     ("/tools/s-corp-tax-savings-calculator/", "S corp tax savings calculator"), [SCOMP, SCORP]),
+    ("when-is-form-1120-s-due-2027", "scorp", "When is the 2026 S corp return (Form 1120-S) due?",
+     "March 15, 2027 for a calendar-year S corporation, together with a Schedule K-1 for each shareholder. Form 7004 extends the "
+     "filing deadline six months, to September 15, 2027. The S corp itself usually pays no federal income tax; owners report "
+     "their share of profit on their own returns.",
+     [("Return", "Form 1120-S plus Schedules K-1"), ("Due", "March 15, 2027"), ("Extension", "Form 7004, to September 15, 2027"),
+      ("Owners report", "K-1 income on their personal returns"), ("Partnerships (Form 1065)", "Same dates")],
+     "<p>Owners can't file their personal return until they have their K-1, so filing the 1120-S on time keeps everyone's April "
+     "deadline realistic. New Jersey and New York have their own S corp filings.</p>",
+     ("/tools/2027-tax-calendar/", "2027 tax calendar"), [SCORP, CAL27]),
+    ("is-my-1099-k-amount-my-income", "ecom", "Is the amount on my 1099-K my income?",
+     "No. A 1099-K shows the gross payments processed for you, before platform fees, refunds, shipping and sales tax are taken out. "
+     "You report your gross sales, then deduct fees, refunds and other costs as business expenses. Your payouts, which arrive net, "
+     "won't match the form, and that's expected.",
+     [("1099-K shows", "Gross payments, before fees and refunds"), ("Your payouts", "Net of fees and refunds"),
+      ("You report", "Gross sales, then expenses and returns"), ("Where", "Schedule C for most sellers")],
+     "<p>Book each payout as gross sales, then the fees and refunds as separate lines. That way your books tie to the 1099-K "
+     "and to your bank deposits, and the IRS sees the same total it was sent.</p>",
+     None, [KUND, K1099]),
+    ("when-do-online-sellers-get-a-1099-k", "ecom", "When do online sellers get a 1099-K?",
+     "Payment platforms and marketplaces such as Etsy, Shopify and Amazon must send a 1099-K when your payments for the year exceed "
+     "$20,000 and you have more than 200 transactions, the threshold restored by the One Big Beautiful Bill Act. Below that you may "
+     "get no form, but every sale is still income you report.",
+     [("Threshold", "Over $20,000 and over 200 transactions"), ("Sent by", "Payment platforms and marketplaces"),
+      ("No form?", "Sales are still taxable income"), ("Check", "Form totals against your own records")],
+     "<p>If a 1099-K is wrong, for example personal transfers included, ask the issuer to correct it and keep records showing "
+     "what the payments were.</p>",
+     None, [K1099, KUND]),
+    ("do-online-sellers-collect-nj-sales-tax", "ecom", "Do online sellers have to collect NJ sales tax?",
+     "Yes, once your sales into New Jersey exceed $100,000 or reach 200 separate transactions in the current or prior year, you must "
+     "register, collect and remit New Jersey sales tax. Sales through a marketplace like Etsy or Amazon are different: the marketplace "
+     "collects and remits the tax for those.",
+     [("Threshold", "Over $100,000 in sales or 200+ transactions into NJ"), ("Period", "Current or prior calendar year"),
+      ("Marketplace sales", "The marketplace collects the tax"), ("Your own site", "You collect once over the threshold")],
+     "<p>Selling through your own Shopify store and a marketplace? Track the two channels separately, because only your own-site "
+     "sales are your responsibility. Other states have their own thresholds.</p>",
+     None, [NJREM]),
+    ("does-a-foreign-owned-llc-file-form-5472", "foreign", "Does a foreign-owned US LLC file Form 5472?",
+     "Yes. A US single-member LLC owned by a foreign person files Form 5472 attached to a pro forma Form 1120 for any year it has "
+     "reportable transactions with its owner, including money put in or taken out. The penalty for not filing is $25,000, plus more "
+     "if it stays unfiled after an IRS notice.",
+     [("Forms", "Form 5472 with a pro forma Form 1120"), ("Who", "Foreign-owned US single-member LLCs"),
+      ("Reportable", "Transactions with the owner, including contributions and distributions"), ("Penalty", "$25,000 per form, more after 90 days"),
+      ("Due", "With the pro forma 1120: April 15 for calendar-year; Form 7004 extends")],
+     "<p>Only a few lines of the Form 1120 are filled in, but the LLC also needs an EIN and records of every transaction with the owner. "
+     "Missing it is one of the costliest mistakes foreign founders make.</p>",
+     None, [I5472]),
+    ("does-a-foreign-owned-llc-file-a-boi-report", "foreign", "Does a foreign-owned US LLC file a BOI report?",
+     "No, not under FinCEN's current rule. Companies formed in the United States are exempt from beneficial ownership information "
+     "reporting, whoever owns them, so a US LLC with a foreign owner doesn't file. Only companies formed abroad and registered to do "
+     "business in a US state still report.",
+     [("US-formed LLC", "Exempt, even with a foreign owner"), ("Still report", "Foreign companies registered in a US state"),
+      ("Rule", "FinCEN, finalized August 2026"), ("Still required", "IRS filings such as Form 5472")],
+     "<p>BOI rules have changed several times since 2024. The IRS filings don't change with them, so a foreign-owned LLC still files "
+     "Form 5472 every year it has transactions with its owner.</p>",
+     None, [BOI, I5472]),
 ]
+
+
+PRICE = {"scorp": "/s-corp-election/#prices", "ecom": "/bookkeeping-cleanup/#quote", "foreign": "/book/"}
 
 
 def url(slug):
@@ -150,23 +243,51 @@ def url(slug):
 
 
 CSS = """<style>
-.ans{max-width:820px;margin:0 auto;padding:0 24px}
-.ans-box{background:#faf7f0;border:1px solid rgba(176,141,63,.35);border-left:4px solid var(--gold,#b08d3f);border-radius:14px;padding:18px 20px;margin:8px 0 22px}
-.ans-box p{margin:0;font-size:1.06rem;line-height:1.6}
-.ans-box .lbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy,#0f2340);margin-bottom:6px}
-.ans table{width:100%;border-collapse:collapse;margin:6px 0 22px;font-size:.95rem}
-.ans th,.ans td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(21,21,21,.1);vertical-align:top}
-.ans th{width:38%;color:var(--navy,#0f2340);font-weight:600}
-.ans h2{font-size:1.25rem;margin:26px 0 10px}
-.ans .ans-next{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 20px}
-.ans .sources ul{padding-left:18px}.ans .sources li{margin:4px 0}
-.ans-idx{max-width:var(--maxw,1180px);margin:0 auto;padding:0 24px}
-.ans-lane{margin:0 0 30px}.ans-lane h2{font-size:1.3rem;margin:0 0 12px}
-.ans-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.ans-list a{display:block;background:#fff;border:1px solid rgba(21,21,21,.1);border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink,#151515);height:100%}
-.ans-list a:hover{border-color:var(--gold,#b08d3f)}
-.ans-list b{display:block;color:var(--navy,#0f2340);margin-bottom:4px}.ans-list span{font-size:.9rem;color:var(--muted,#666);font-weight:300}
-@media(max-width:720px){.ans-list{grid-template-columns:1fr}.ans th{width:44%}}
+.ans-main{padding:48px 0 24px}
+.ans-lay{max-width:var(--maxw,1180px);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+.ans-art{min-width:0;font-size:1.02rem;line-height:1.65;color:var(--ink)}
+.ans-art h2{font-size:1.3rem;margin:34px 0 12px;color:var(--navy)}
+.ans-art p{margin:0 0 14px}
+.ans-box{background:#fff;border:1px solid rgba(176,141,63,.35);border-left:5px solid var(--gold,#b08d3f);border-radius:16px;padding:22px 24px;box-shadow:0 10px 30px rgba(15,35,64,.06)}
+.ans-box .lbl{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.ans-box p{margin:0;font-size:1.12rem;line-height:1.6}
+.ans-facts{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid rgba(21,21,21,.1);border-radius:14px;overflow:hidden;font-size:.96rem}
+.ans-facts th,.ans-facts td{text-align:left;padding:12px 16px;border-bottom:1px solid rgba(21,21,21,.08);vertical-align:top}
+.ans-facts tr:last-child th,.ans-facts tr:last-child td{border-bottom:0}
+.ans-facts th{width:36%;background:#faf8f3;color:var(--navy);font-weight:600}
+.ans-art a{color:var(--navy);border-bottom:1px solid var(--gold)}
+.ans-rel{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.ans-rel a{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#fff;border:1px solid rgba(21,21,21,.1);border-radius:12px;padding:12px 16px;color:var(--navy);border-bottom-width:1px;font-weight:500;text-decoration:none}
+.ans-rel a:hover{border-color:var(--gold)}
+.ans-rel a::after{content:"\\2192";color:var(--gold)}
+.ans-src{margin-top:30px;padding-top:18px;border-top:1px solid rgba(21,21,21,.1);font-size:.88rem;color:var(--muted)}
+.ans-src h2{font-size:1rem;margin:0 0 8px}
+.ans-src ul{margin:0 0 8px;padding-left:18px}
+.ans-side{position:sticky;top:96px;display:grid;gap:16px}
+.ans-card{background:var(--navy,#0f2340);color:#fff;border-radius:18px;padding:22px}
+.ans-card .lbl{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.ans-card h3{color:#fff;font-size:1.2rem;margin:8px 0 8px}
+.ans-card p{color:rgba(255,255,255,.8);font-size:.92rem;margin:0 0 14px;font-weight:300}
+.ans-card .btn{width:100%;justify-content:center;margin-top:8px}
+.ans-card .btn-line{color:#fff;border-color:rgba(255,255,255,.4)}
+.ans-tool{background:#fff;border:1px solid rgba(21,21,21,.1);border-radius:18px;padding:18px 20px}
+.ans-tool .lbl{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ans-tool a{display:block;margin-top:6px;color:var(--navy);font-weight:600}
+.ans-idx{max-width:var(--maxw,1180px);margin:0 auto;padding:40px 24px 10px}
+.ans-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 30px}
+.ans-jump a{border:1px solid rgba(21,21,21,.14);border-radius:999px;padding:8px 14px;font-size:.88rem;color:var(--navy);background:#fff;text-decoration:none}
+.ans-jump a:hover{border-color:var(--gold)}
+.ans-lane{margin:0 0 40px;scroll-margin-top:96px}
+.ans-lane-hd{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid rgba(21,21,21,.1);padding-bottom:10px;margin-bottom:16px}
+.ans-lane-hd h2{font-size:1.35rem;margin:0;color:var(--navy)}
+.ans-lane-hd a{font-size:.9rem;color:var(--navy);border-bottom:1px solid var(--gold);white-space:nowrap;text-decoration:none}
+.ans-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ans-list a{display:block;background:#fff;border:1px solid rgba(21,21,21,.1);border-radius:16px;padding:18px 20px;text-decoration:none;color:var(--ink);height:100%;transition:border-color .2s,box-shadow .2s}
+.ans-list a:hover{border-color:var(--gold);box-shadow:0 8px 24px rgba(15,35,64,.08)}
+.ans-list b{display:block;color:var(--navy);margin-bottom:6px;font-size:1.02rem}
+.ans-list span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:.9rem;color:var(--muted);font-weight:300;line-height:1.55}
+@media(max-width:900px){.ans-lay{grid-template-columns:1fr;gap:28px}.ans-side{position:static}}
+@media(max-width:720px){.ans-list{grid-template-columns:1fr}.ans-facts th{width:42%}.ans-lay,.ans-idx{padding-left:16px;padding-right:16px}.ans-main{padding-top:32px}.ans-lane-hd{flex-direction:column;gap:4px}}
 </style>"""
 
 
@@ -184,26 +305,25 @@ def build_one(a, nice):
     slug, lane, q, ans, facts, detail, tool, srcs = a
     ln = next(x for x in LANES if x[0] == lane)
     u = url(slug)
-    rows = "".join(f"<tr><th scope=\"row\">{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in facts)
+    rows = "".join(f'<tr><th scope="row">{esc(k)}</th><td>{esc(v)}</td></tr>' for k, v in facts)
     src = "".join(f'<li><a href="{esc(s[1])}" target="_blank" rel="noopener">{esc(s[0])}</a></li>' for s in srcs)
-    btns = (f'<a class="btn btn-gold" href="{ln[2]}#get-price">Get my price</a>'
-            + (f'<a class="btn btn-ink" href="{tool[0]}">Try the {esc(tool[1])}</a>' if tool else "")
-            + f'<a class="btn btn-line" href="{ln[2]}">{esc(ln[3])}</a>')
-    others = [x for x in ANSWERS if x[1] == lane and x[0] != slug][:3]
+    others = [x for x in ANSWERS if x[1] == lane and x[0] != slug][:4]
     more = "".join(f'<li><a href="/answers/{x[0]}/">{esc(x[2])}</a></li>' for x in others)
+    tool_html = (f'<div class="ans-tool"><span class="lbl">Try it with your numbers</span><a href="{tool[0]}">{esc(tool[1])} →</a></div>' if tool else "")
     body = f'''{CSS}<header class="bhero"><div class="wrap"><span class="eyebrow">Tax answers · {esc(ln[1])}</span>
-<h1>{esc(q)}</h1><p>Short answer first, checked against IRS sources on {nice}.</p></div></header>
-<main><article class="ans">
+<h1>{esc(q)}</h1><p>Short answer first, checked against official sources on {nice}.</p></div></header>
+<main class="ans-main"><div class="ans-lay"><article class="ans-art">
 <div class="ans-box"><span class="lbl">Short answer</span><p>{esc(ans)}</p></div>
-<h2>Key facts</h2><table><tbody>{rows}</tbody></table>
+<h2>Key facts</h2><table class="ans-facts"><tbody>{rows}</tbody></table>
 <h2>What else to know</h2>{detail}
-<div class="ans-next">{btns}</div>
-<h2>Related questions</h2><ul>{more}<li><a href="/answers/">All tax answers</a></li></ul>
-<section class="sources"><h2>Sources</h2><ul>{src}</ul><p class="factline">Checked against the sources above on {nice}.</p></section>
+<h2>Related questions</h2><ul class="ans-rel">{more}<li><a href="/answers/">All tax answers</a></li></ul>
+<section class="ans-src"><h2>Sources</h2><ul>{src}</ul><p>Checked against the sources above on {nice}. General information, not tax advice for your situation.</p></section>
 </article>
-{cta("Want this applied to your return?", "Book a 30-minute call or phone <a href=\"tel:+13472054468\" data-conv=\"call\">(347) 205-4468</a>. We quote before any work starts.")}
-{ui_kit.fineprint("General information, not tax advice for your situation. Reading this page doesn't create a client relationship.")}
-</main>'''
+<aside class="ans-side"><div class="ans-card"><span class="lbl">{esc(ln[1])}</span><h3>Want this handled for you?</h3>
+<p>Tell us what you need and we'll email a fixed quote within one business day.</p>
+<a class="btn btn-gold" href="{PRICE.get(lane, ln[2] + '#get-price')}">Get my price</a><a class="btn btn-line" href="{ln[2]}">{esc(ln[3])}</a></div>{tool_html}</aside>
+</div></main>
+{cta("Want this applied to your return?", "Book a 30-minute call or phone <a href='tel:+13472054468' data-conv='call'>(347) 205-4468</a>. We quote before any work starts.")}'''
     d = desc_of(ans)
     faq = {"@type": "FAQPage", "@id": u + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}}]}
     ld = seo.graph(u, q, d, faq, crumb=[("Home", BASE + "/"), ("Tax answers", BASE + "/answers/"), (q, u)])
@@ -212,21 +332,26 @@ def build_one(a, nice):
 
 def build_index(nice):
     u = BASE + "/answers/"
-    lanes = ""
+    jump, lanes = "", ""
     for key, name, href, label in LANES:
-        items = "".join(f'<li><a href="/answers/{a[0]}/"><b>{esc(a[2])}</b><span>{esc(desc_of(a[3]))}</span></a></li>' for a in ANSWERS if a[1] == key)
-        lanes += f'<section class="ans-lane" aria-label="{esc(name)}"><h2>{esc(name)}</h2><ul class="ans-list">{items}</ul><p><a href="{href}">{esc(label)} →</a></p></section>'
-    title = "Tax Answers for Booth Renters, Hosts & Landlords | MFA"
-    d = "Short, sourced answers to the tax questions booth renters, Airbnb hosts and landlords ask most, checked against IRS publications."
+        lst = [a for a in ANSWERS if a[1] == key]
+        if not lst:
+            continue
+        jump += f'<a href="#{key}">{esc(name)} ({len(lst)})</a>'
+        items = "".join(f'<li><a href="/answers/{a[0]}/"><b>{esc(a[2])}</b><span>{esc(desc_of(a[3]))}</span></a></li>' for a in lst)
+        lanes += (f'<section class="ans-lane" id="{key}" aria-labelledby="h-{key}"><div class="ans-lane-hd"><h2 id="h-{key}">{esc(name)}</h2>'
+                  f'<a href="{href}">{esc(label)} →</a></div><ul class="ans-list">{items}</ul></section>')
+    title = "Tax Answers for Small Business Owners & Investors | MFA"
+    d = ("Short, sourced answers to the tax questions booth renters, Airbnb hosts, landlords, S corp owners, online sellers and foreign LLC owners ask most.")
     body = f'''{CSS}<header class="bhero"><div class="wrap"><span class="eyebrow">Tax answers</span>
-<h1>Tax answers, <em>short and sourced.</em></h1><p>The questions our niche clients ask most, each answered in a few sentences first, then the facts and the IRS source. Checked {nice}.</p></div></header>
-<main><div class="ans-idx">{lanes}</div>
+<h1>Tax answers, <em>short and sourced.</em></h1><p>{len(ANSWERS)} questions our clients ask most. Each page gives the answer in a few sentences, then the key facts and the official source. Checked {nice}.</p></div></header>
+<main><div class="ans-idx"><nav class="ans-jump" aria-label="Jump to a topic">{jump}</nav>{lanes}</div>
 {cta("Have a question that isn't here?", "Book a 30-minute call or email us. We answer before we quote.")}
 </main>'''
     items = [{"@type": "ListItem", "position": i + 1, "url": url(a[0]), "name": a[2]} for i, a in enumerate(ANSWERS)]
     ld = seo.graph(u, "Tax answers", d, {"@type": "ItemList", "@id": u + "#list", "itemListElement": items},
                    crumb=[("Home", BASE + "/"), ("Tax answers", u)], kind="CollectionPage")
-    return write("answers", page(title, d, u, body, ld, active="res", keywords=["tax answers", "booth renter taxes", "Airbnb host taxes", "landlord taxes"]))
+    return write("answers", page(title, d, u, body, ld, active="res", keywords=["tax answers", "booth renter taxes", "Airbnb host taxes", "landlord taxes", "S corp questions", "1099-K", "Form 5472"]))
 
 
 def build():

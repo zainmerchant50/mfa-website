@@ -149,7 +149,7 @@ CRED = "Your work is done by Zain Merchant and his team of tax and accounting ex
 ALSO = [("/year-end-tax-planning/", "Year-end tax planning $99"), ("/1099-filing/", "1099 filing from $20/form"),
         ("/s-corp-election/", "S corp switch $299"), ("/quarterly-estimated-taxes/", "Quarterly estimates $199/yr"),
         ("/llc-annual-report/", "LLC annual report $39"), ("/international-students/", "International students from $25"),
-        ("/llc-formation/", "LLC formation from $150"), ("/bookkeeping/princeton-nj/", "Bookkeeping from $199/mo"),
+        ("/llc-formation/", "LLC formation from $150"), ("/bookkeeping/princeton-nj/", "Bookkeeping from $300/mo"),
         ("/late-tax-return/", "Late 2025 tax return from $249")]
 
 

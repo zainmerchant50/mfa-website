@@ -2,7 +2,7 @@
 """Builds /services/ (Site session). Moved off the home page at Zain's request (2026-10-20 20:54).
 
 Only Zain-approved prices appear: LLC formation from $150 (+ state fee; raised from $99 by Zain 2026-10-20), Complete Launch $649,
-monthly bookkeeping from $199/month (Zain, 2026-10-20). Everything else says "quoted up front".
+monthly bookkeeping from $300/month (Zain, 2026-10-20). Everything else says "quoted up front".
 Never "free", never "CPA", no street address. Customer-facing dates: date only.
 """
 import json
@@ -42,7 +42,7 @@ SERVICES = [
       "Books kept in QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks",
       "Monthly P&amp;L and balance sheet with a short note on what changed",
       "Catch-up and cleanup projects for books that are months behind (quoted after we look at a sample of your accounts)"],
-     "Monthly bookkeeping <strong>from $199/month</strong> for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.",
+     "Monthly bookkeeping <strong>from $300/month</strong> for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.",
      [("/bookkeeping-cleanup/", "Request a bookkeeping cleanup quote"), ("/llc-formation/#monthly", "How monthly bookkeeping works"), ("/tools/1099-contractor-tracker/", "1099 contractor tracker")]),
     ("financial-reporting", "Financial Reporting",
      "P&amp;L, balance sheet and cash flow prepared for management use, plus the dashboards that turn them into decisions.",
@@ -87,7 +87,7 @@ SERVICES = [
 
 OFFERS = [
     ("LLC formation", "From $150", "+ state fee, paid once", "Formation $150, Business Setup $249, Complete Launch $649 with your first month of bookkeeping.", "/llc-formation/", "See packages"),
-    ("Monthly bookkeeping", "From $199", "/ month", "One bank, one card, up to 100 transactions a month. Month to month; bigger books quoted up front.", "/llc-formation/#monthly", "How it works"),
+    ("Monthly bookkeeping", "From $300", "/ month", "One bank, one card, up to 100 transactions a month. Month to month; bigger books quoted up front.", "/llc-formation/#monthly", "How it works"),
     ("Tax preparation", "Quoted", "up front", "Individual and business returns, federal and state. You see the price before we start.", "/book/", "Get a quote"),
 ]
 
@@ -99,7 +99,7 @@ FAQ = [
      "reporting, fractional CFO, audit support and controls, technical accounting advisory, and systems and business advisory. "
      "We also form LLCs in all 50 states."),
     ("How much does monthly bookkeeping cost?",
-     "From $199/month for one bank account, one card and up to 100 transactions a month, month to month. Larger books and "
+     "From $300/month for one bank account, one card and up to 100 transactions a month, month to month. Larger books and "
      'cleanup projects are quoted up front. <a href="/bookkeeping-cleanup/">Request a cleanup quote</a>.'),
     ("How much does tax preparation cost?",
      "Tax preparation is quoted up front by return type and complexity, so you see the price before we start. "
@@ -118,7 +118,7 @@ FAQ = [
 def build():
     url = BASE + "/services/"
     title = "Tax, Bookkeeping & CFO Services in NJ and NYC | MFA"
-    desc = ("Tax preparation, bookkeeping from $199/month, fractional CFO, audit support and LLC formation from $150. "
+    desc = ("Tax preparation, bookkeeping from $300/month, fractional CFO, audit support and LLC formation from $150. "
             "Princeton, NJ; New York City; clients nationwide.")
     jump = "".join(f'<a href="#{sid}">{name}</a>' for sid, name, *_ in SERVICES)
     offers = "".join(f'''<div class="pkc card{" feat" if i == 1 else ""}"><span class="pk-tag">{esc(n)}</span>

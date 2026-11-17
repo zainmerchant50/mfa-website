@@ -4,7 +4,7 @@ lash and brow artists and other chair renters (self-employed beauty pros).
 
 Rule 25 (Zain 2026-11-16 21:39): every niche gets its own page. Zain 22:05: TikTok/IG/Pinterest niche reels for
 "airbnb hosts, rental properties, booth rentals, those small businesses".
-No new prices: tax returns quoted up front; bookkeeping from $199/month; quarterly estimates link to the approved page.
+No new prices: tax returns quoted up front; bookkeeping from $300/month; quarterly estimates link to the approved page.
 Facts checked on irs.gov on CHECKED (SOURCES). Never "free", never "CPA", no street address.
 Run via tools/build_resources.py (it calls build()).
 """
@@ -39,7 +39,7 @@ SERVICES = [
      ["Booth rent, products and tools sorted", "Card, app and cash income matched to your 1099-K and 1099-NEC forms",
       "Tips reported and the tips deduction checked", "Self-employment tax worked out"],
      "/book/", "Get a quote", True),
-    ("All year", "Bookkeeping for beauty pros", "From $199", "/ month",
+    ("All year", "Bookkeeping for beauty pros", "From $300", "/ month",
      "Monthly books so you always know what you made after booth rent and products.",
      ["Income tracked by payment app and cash", "Booth rent, supplies and education logged", "Mileage and phone business share",
       "Year-end package ready for your return"],
@@ -131,7 +131,7 @@ def service_node():
             "description": DESC, "provider": {"@id": seo.ORG_ID}, "areaServed": {"@type": "Country", "name": "United States"},
             "audience": {"@type": "Audience", "audienceType": "Salon booth renters, barbers, nail, lash and brow technicians"},
             "offers": [o("Booth renter tax return (Schedule C + SE)", None, "Quoted up front by return type.", url=URL + "#services"),
-                       o("Bookkeeping for booth renters", 199, "Monthly bookkeeping from $199/month.", url=BASE + "/services/#bookkeeping")]}
+                       o("Bookkeeping for booth renters", 300, "Monthly bookkeeping from $300/month.", url=BASE + "/services/#bookkeeping")]}
 
 
 def build():

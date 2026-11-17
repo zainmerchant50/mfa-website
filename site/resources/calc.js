@@ -865,4 +865,38 @@
     }
     wire(run);
   };
+
+  /* 2027 tax calendar, month by month (Site, 2026-11-17): the months are in the HTML; this filters, highlights and makes .ics files */
+  MFA.pages.cal2027 = function () {
+    var EV = D.ev, JN = { federal: 'IRS', NJ: 'NJ', NY: 'NY' };
+    function ev(i) { var e = EV[i]; return { date: e.date, title: JN[e.j] + ': ' + e.form + ' – ' + e.what, note: e.note, uid: 'mfa-cal2027-' + i + '@mfa-advisory.com', url: D.page_url }; }
+    function checked(cls) { return [].slice.call(document.querySelectorAll('.' + cls)).filter(function (c) { return c.checked; }).map(function (c) { return c.value; }); }
+    var shown = [];
+    function run() {
+      var ents = checked('f-ent'), js = checked('f-j'), ty = sel('f-ty'), today = todayISO(); shown = [];
+      [].slice.call(document.querySelectorAll('.ce li')).forEach(function (li) {
+        var okE = li.getAttribute('data-ents').split(' ').some(function (x) { return ents.indexOf(x) >= 0; });
+        var t = li.getAttribute('data-ty'), okT = ty === 'all' || t === ty || t === 'both';
+        var ok = okE && js.indexOf(li.getAttribute('data-j')) >= 0 && okT; li.hidden = !ok;
+        if (ok) shown.push(+li.querySelector('.ce-add').getAttribute('data-i'));
+      });
+      [].slice.call(document.querySelectorAll('.cm')).forEach(function (m) {
+        var on = {}; [].slice.call(m.querySelectorAll('.ce li')).forEach(function (li) { if (!li.hidden) on[li.getAttribute('data-date')] = 1; });
+        [].slice.call(m.querySelectorAll('.cm-d')).forEach(function (d) { d.classList.toggle('on', !!on[d.getAttribute('data-date')]); });
+        m.querySelector('.cm-none').hidden = Object.keys(on).length > 0;
+      });
+      var n26 = shown.filter(function (i) { return EV[i].ty !== '2027'; }).length, next = null;
+      shown.forEach(function (i) { if (EV[i].date >= today && (!next || EV[i].date < next.date)) next = EV[i]; });
+      setText('k-count', String(shown.length)); setText('k-2026', String(n26));
+      setText('k-next', next ? fmtDate(next.date, { month: 'short', day: 'numeric', year: 'numeric' }) : '—');
+      setText('rsub', next ? 'Next: ' + JN[next.j] + ' ' + next.form + ', ' + next.what + '.' : 'No upcoming dates for these filters.');
+    }
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('.ce-add') : null;
+      if (b) { var i = +b.getAttribute('data-i'); MFA.download('mfa-2027-' + EV[i].date + '.ics', MFA.ics([ev(i)], 'MFA 2027 tax calendar'), 'text/calendar'); }
+    });
+    $('c-all').addEventListener('click', function () { if (shown.length) MFA.download('mfa-2027-tax-calendar.ics', MFA.ics(shown.map(ev), 'MFA 2027 tax calendar'), 'text/calendar'); });
+    $('c-print').addEventListener('click', function () { window.print(); });
+    wire(run);
+  };
 })();

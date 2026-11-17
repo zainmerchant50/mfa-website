@@ -56,7 +56,7 @@ PACKAGES = [
                "S corp election (Form 2553) filed if it fits, with salary guidance",
                "Sales tax registration and filing calendar, if you sell taxable goods or services",
                "First month of bookkeeping: one bank, one card, up to 100 transactions, first P&amp;L",
-               "Then continue monthly from $199/month, if you want (optional, month to month)",
+               "Then continue monthly from $300/month, if you want (optional, month to month)",
                "Our DIY guides and checklists included",
                "30-day check-in call"]},
 ]
@@ -67,13 +67,13 @@ ROWS = [  # (feature, formation, setup, launch)
     ("State tax registration", 0, 1, 1), ("QuickBooks Online setup", 0, 1, 1), ("Onboarding call", 0, 1, 1),
     ("S corp election (Form 2553), if it fits", 0, 0, 1), ("Sales tax registration", 0, 0, 1),
     ("First month of bookkeeping", 0, 0, 1), ("DIY guides and checklists", 0, 0, 1),
-    ("Monthly bookkeeping after that", "Optional add-on", "Optional add-on", "Optional, from $199/mo"), ("Renews every year?", "No", "No", "No"),
+    ("Monthly bookkeeping after that", "Optional add-on", "Optional add-on", "Optional, from $300/mo"), ("Renews every year?", "No", "No", "No"),
 ]
 
 ICO_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
 
 
-MONTHLY = {"price": 199, "scope": "one bank account, one credit card, up to 100 transactions a month",
+MONTHLY = {"price": 300, "scope": "one bank account, one credit card, up to 100 transactions a month",
            "items": ["Transactions categorized to your chart of accounts every month",
                      "Bank and credit card accounts reconciled to the statements",
                      "Monthly P&amp;L and balance sheet, with a short note on what changed",
@@ -86,9 +86,9 @@ MONTHLY = {"price": 199, "scope": "one bank account, one credit card, up to 100 
 # is priced here; anything bigger is quoted. Billed monthly by Stripe, first charge 30 days after checkout.
 ADDONS = {
     # Price = base (covers 2 accounts, up to 100 txns) + per extra account + volume add-on. Over 4 accounts or 200 txns: quoted.
-    # Base $199 and the quote line (over 4 accounts / 200 txns) are Zain's (2026-10-20 23:28). The +$50/account and
+    # Base $300 (Zain 2026-11-17; was $199 from 2026-10-20) and the quote line (over 4 accounts / 200 txns) are Zain's (2026-10-20 23:28). The +$50/account and
     # +$100 for 101-200 txns steps are the Hub's proposal, flagged to Zain for confirmation.
-    "bk": {"name": "Monthly bookkeeping", "base": 199, "incl_accounts": 2, "per_account": 50, "max_accounts": 4, "trial_days": 30,
+    "bk": {"name": "Monthly bookkeeping", "base": 300, "incl_accounts": 2, "per_account": 50, "max_accounts": 4, "trial_days": 30,
            "tiers": [{"id": "100", "max": 100, "label": "up to 100 transactions/mo", "add": 0},
                      {"id": "200", "max": 200, "label": "101 to 200 transactions/mo", "add": 100}]},
     "f1099": {"name": "1099 preparation and e-filing", "per": 25, "min": 75},
@@ -414,7 +414,7 @@ FAQ = [
     ("Is there anything that renews or bills me later?",
      "No. Each package is a one-time fee plus the state's filing fee at cost. Monthly bookkeeping is optional: it starts only if you ask for it, runs month to month, and you can stop anytime."),
     ("What happens after the first month of bookkeeping?",
-     "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $199 a month for up to two accounts (for example one bank account and one credit card) and up to 100 transactions a month. Each extra account adds $50 a month and 101 to 200 transactions add $100 a month. More than four accounts or 200 transactions a month is quoted up front. If you'd rather stop, you keep your QuickBooks file and everything we set up."),
+     "Complete Launch includes your first month. At the 30-day check-in we review it with you. If you want to continue, monthly bookkeeping starts at $300 a month for up to two accounts (for example one bank account and one credit card) and up to 100 transactions a month. Each extra account adds $50 a month and 101 to 200 transactions add $100 a month. More than four accounts or 200 transactions a month is quoted up front. If you'd rather stop, you keep your QuickBooks file and everything we set up."),
     ("How do I pay?",
      "By card or bank account at checkout on this page, powered by Stripe. You pay one total: your package plus your state's filing fee at cost, shown as separate lines on your receipt. We check the name and file right after. If we can't file, we refund you in full; state fees can't be refunded once the state accepts the filing."),
     ("Which states do you form LLCs in?",
@@ -579,7 +579,7 @@ def build_state(code):
 <main><div class="tinfo"><article class="article">
 <h2>{esc(name)} LLC at a glance</h2><table class="tbl"><tbody>{tbl}</tbody></table>
 <h2>Your total with MFA</h2><div class="tbl-wrap tw-s"><table class="tbl"><thead><tr><th>Package</th><th>MFA fee</th><th>State fee</th><th>Due at formation</th></tr></thead><tbody>{tot}</tbody></table></div>
-<p>MFA fees are one-time and never renew. {"Publication costs vary and are quoted at cost. " if pub else ""}See <a href="/llc-formation/#packages">what each package includes</a>, or add <a href="/llc-formation/#monthly">monthly bookkeeping from $199/month</a>.</p>
+<p>MFA fees are one-time and never renew. {"Publication costs vary and are quoted at cost. " if pub else ""}See <a href="/llc-formation/#packages">what each package includes</a>, or add <a href="/llc-formation/#monthly">monthly bookkeeping from $300/month</a>.</p>
 <p><a class="btn btn-ink" href="/llc-formation/?state={code}#start">Start my {esc(name)} LLC</a></p>
 <section class="sources"><h2>Sources</h2><ul>{src_html}</ul>
 <p class="disclaimer">Facts checked against the official sources above as of {CHECKED}. State fees change; we confirm the current fee before invoicing. {esc(LEGAL)} Educational information, not tax or legal advice.</p></section>

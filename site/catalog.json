@@ -228,10 +228,10 @@
       },
       "url": "https://mfa-advisory.com/llc-formation/#monthly"
      },
-     "price": "199",
+     "price": "300",
      "priceSpecification": {
       "@type": "UnitPriceSpecification",
-      "price": "199",
+      "price": "300",
       "priceCurrency": "USD",
       "unitCode": "MON",
       "unitText": "month"
@@ -694,7 +694,7 @@
     "name": "Bookkeeping & Accounting",
     "url": "https://mfa-advisory.com/services/#bookkeeping",
     "serviceType": "Bookkeeping & Accounting",
-    "description": "Transactions, reconciliations, bills and invoices (AP/AR) and a monthly close, so your books are ready to use all year, not just at year-end. Monthly bookkeeping from $199/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.",
+    "description": "Transactions, reconciliations, bills and invoices (AP/AR) and a monthly close, so your books are ready to use all year, not just at year-end. Monthly bookkeeping from $300/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -754,10 +754,10 @@
         "@id": "https://mfa-advisory.com/#organization"
        }
       },
-      "price": "199",
+      "price": "300",
       "priceSpecification": {
        "@type": "UnitPriceSpecification",
-       "price": "199",
+       "price": "300",
        "priceCurrency": "USD",
        "unitCode": "MON",
        "unitText": "month"
@@ -1679,10 +1679,10 @@
        },
        "url": "https://mfa-advisory.com/llc-formation/#monthly"
       },
-      "price": "199",
+      "price": "300",
       "priceSpecification": {
        "@type": "UnitPriceSpecification",
-       "price": "199",
+       "price": "300",
        "priceCurrency": "USD",
        "unitCode": "MON",
        "unitText": "month"
@@ -1772,7 +1772,7 @@
       "@type": "Offer",
       "name": "Rental property bookkeeping",
       "priceCurrency": "USD",
-      "description": "Monthly bookkeeping from $199/month.",
+      "description": "Monthly bookkeeping from $300/month.",
       "itemOffered": {
        "@type": "Service",
        "name": "Rental property bookkeeping",
@@ -1781,7 +1781,7 @@
        },
        "url": "https://mfa-advisory.com/services/#bookkeeping"
       },
-      "price": "199",
+      "price": "300",
       "url": "https://mfa-advisory.com/services/#bookkeeping"
      }
     ]
@@ -1828,7 +1828,7 @@
       "@type": "Offer",
       "name": "Bookkeeping for booth renters",
       "priceCurrency": "USD",
-      "description": "Monthly bookkeeping from $199/month.",
+      "description": "Monthly bookkeeping from $300/month.",
       "itemOffered": {
        "@type": "Service",
        "name": "Bookkeeping for booth renters",
@@ -1837,7 +1837,7 @@
        },
        "url": "https://mfa-advisory.com/services/#bookkeeping"
       },
-      "price": "199",
+      "price": "300",
       "url": "https://mfa-advisory.com/services/#bookkeeping"
      }
     ]
@@ -5662,6 +5662,21 @@
     "name": "1099 Tax Calculator 2026: Self-Employment, NJ & NY",
     "url": "https://mfa-advisory.com/tools/1099-tax-calculator/",
     "description": "Estimate the self-employment tax, federal income tax and NJ or NY tax on your 1099 income, plus the share of every payment to set aside.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    }
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-11-17",
+   "item": {
+    "@type": "WebApplication",
+    "name": "2027 Tax Calendar: Federal, NJ & NY Dates by Month",
+    "url": "https://mfa-advisory.com/tools/2027-tax-calendar/",
+    "description": "Every 2027 tax deadline by month: 2026 returns, 1099s, W-2s, estimated taxes, payroll and sales tax, federal, New Jersey and New York.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
     "provider": {

@@ -3,7 +3,7 @@
 
 Zain approved the page in chat on 2026-11-16 ("go ahead on the rental property page"; standing rule the same night:
 a new niche gets its own page without asking). Real estate / STR lane (rule 24, sprint 1).
-No new prices: tax preparation is "quoted up front" and monthly bookkeeping is "from $199/month" (both already approved,
+No new prices: tax preparation is "quoted up front" and monthly bookkeeping is "from $300/month" (both already approved,
 see build_services.py). Every fact in the FAQ was checked on irs.gov (or the NJ/NY sources the Nov 16 rental post uses)
 on CHECKED and is listed in SOURCES. Never "free", never "CPA", no street address.
 Run via tools/build_resources.py (it calls build()).
@@ -40,7 +40,7 @@ SERVICES = [
      ["Rental income and expenses sorted and checked", "Depreciation schedule set up or reviewed",
       "Repairs vs improvements and safe-harbor elections", "Passive loss limits applied"],
      "/book/", "Get a quote", True),
-    ("All year", "Rental property bookkeeping", "From $199", "/ month",
+    ("All year", "Rental property bookkeeping", "From $300", "/ month",
      "Monthly books for your rentals, so tax season is a review, not a scramble.",
      ["Income and expenses tracked by property", "Bank and card reconciliations", "Repairs and improvements kept separate",
       "Year-end package ready for your return"],
@@ -138,7 +138,7 @@ def service_node():
             "description": DESC, "provider": {"@id": seo.ORG_ID}, "areaServed": {"@type": "Country", "name": "United States"},
             "audience": {"@type": "Audience", "audienceType": "Landlords and short-term rental hosts"},
             "offers": [o("Rental property tax return (Schedule E or Schedule C)", None, "Quoted up front by return type.", url=URL + "#services"),
-                       o("Rental property bookkeeping", 199, "Monthly bookkeeping from $199/month.", url=BASE + "/services/#bookkeeping")]}
+                       o("Rental property bookkeeping", 300, "Monthly bookkeeping from $300/month.", url=BASE + "/services/#bookkeeping")]}
 
 
 def build():

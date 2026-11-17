@@ -4,7 +4,7 @@
 Zain, 2026-10-25: "can we add tags to SEO for international students and art folks' tax filings and their tax savings."
 For freelance and self-employed visual artists, illustrators, photographers, musicians, crafters and Etsy art sellers.
 No new prices: every price here is an existing public price (Schedule C returns are quoted up front like every tax return;
-monthly bookkeeping from $199/month; LLC formation from $150 plus the state fee; quarterly estimated tax service $199 for the
+monthly bookkeeping from $300/month; LLC formation from $150 plus the state fee; quarterly estimated tax service $199 for the
 year). Shop products are pulled from catalog/products.json (status "live" only). Every tax fact was checked on irs.gov on
 CHECKED and is listed in SOURCES; sales tax stays general and points to each state's revenue department.
 Never "free", never "CPA" (except the approved credential line), no street address, no partner or software vendor names.

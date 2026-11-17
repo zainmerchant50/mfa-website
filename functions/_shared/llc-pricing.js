@@ -427,7 +427,7 @@ export default {
  "addons": {
   "bk": {
    "name": "Monthly bookkeeping",
-   "base": 199,
+   "base": 300,
    "incl_accounts": 2,
    "per_account": 50,
    "max_accounts": 4,

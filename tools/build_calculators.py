@@ -242,6 +242,9 @@ reg("tax-deadlines-2027", "2027 business tax deadlines by entity", "Calendar",
     "Every 2027 federal, NJ and NY deadline for your entity type, with add-to-calendar files.", "cal", "calendars",
     "tax deadlines 2027 calendar entity s corp partnership c corp employer nonprofit sales tax ics")
 # niche calculators (Site, 2026-11-17, niche-growth-plan #2): built in build_niche_calcs.py, registered here so the hub lists them
+reg("2027-tax-calendar", "2027 tax calendar", "Calendar",
+    "Every 2027 federal, NJ and NY date month by month: 2026 returns, 1099s, W-2s, 2027 estimates, payroll and sales tax.", "cal", "calendars",
+    "2027 tax calendar month by month deadlines 2026 return estimated tax 1099 w-2 payroll sales tax nj ny ics printable")
 reg("no-tax-on-tips-calculator", "No tax on tips calculator", "Calculator",
     "Estimate the 2025–2028 deduction for qualified tips: the $25,000 cap, the income phase-out and the rules for self-employed tips.", "calc", "taxcalcs",
     "no tax on tips deduction calculator schedule 1-a qualified tips stylist barber server bartender")
@@ -261,12 +264,13 @@ RELATED = {
     "mileage-deduction-calculator": ["home-office-deduction-calculator", "1099-tax-calculator", "quarterly-estimated-tax-calculator"],
     "1099-contractor-tracker": ["tax-deadlines-2027", "1099-tax-calculator", "quarterly-estimated-tax-calculator"],
     "tax-deadlines-2027": ["quarterly-estimated-tax-calculator", "1099-contractor-tracker", "s-corp-tax-savings-calculator"],
+    "2027-tax-calendar": ["tax-deadlines-2027", "quarterly-estimated-tax-calculator", "1099-contractor-tracker"],
     "no-tax-on-tips-calculator": ["1099-tax-calculator", "quarterly-estimated-tax-calculator", "airbnb-host-tax-checker"],
     "airbnb-host-tax-checker": ["rental-depreciation-calculator", "1099-tax-calculator", "quarterly-estimated-tax-calculator"],
     "rental-depreciation-calculator": ["airbnb-host-tax-checker", "quarterly-estimated-tax-calculator", "1099-tax-calculator"],
 }
 
-SUPERSEDED = ["Self-employment (1099) tax calculator", "Quarterly estimated tax calculator", "S corp vs LLC savings estimator",
+SUPERSEDED = ["2027 tax calendar", "Self-employment (1099) tax calculator", "Quarterly estimated tax calculator", "S corp vs LLC savings estimator",
               "Home office deduction calculator", "Mileage deduction calculator", "Business tax deadlines by entity"]
 
 
@@ -656,4 +660,4 @@ def build_deadlines():
 
 def build_all():
     import build_niche_calcs as N
-    return [build_quarterly(), build_1099calc(), build_scorp(), build_tracker(), build_paycheck(), build_home(), build_mileage(), build_deadlines()] + N.build_all()
+    return [build_quarterly(), build_1099calc(), build_scorp(), build_tracker(), build_paycheck(), build_home(), build_mileage(), build_deadlines()] + N.build_all() + [__import__("build_calendar_2027").build()]

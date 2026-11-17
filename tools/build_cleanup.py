@@ -49,7 +49,7 @@ FAQ = [
      "QuickBooks Online, QuickBooks Desktop, Xero, Sage, Wave and FreshBooks. If your records are only in spreadsheets, or you "
      "don't have a system yet, choose that on the form."),
     ("What happens once my books are current?",
-     'Monthly bookkeeping keeps them that way: from $199/month for one bank account, one card and up to 100 transactions a month. '
+     'Monthly bookkeeping keeps them that way: from $300/month for one bank account, one card and up to 100 transactions a month. '
      '<a href="/services/#bookkeeping">See bookkeeping services</a>.'),
 ]
 SOFTWARE = ["QuickBooks Online", "QuickBooks Desktop", "Xero", "Sage", "Wave", "FreshBooks", "Spreadsheets only", "No system yet", "Other"]   # Zain, 2026-10-25: QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks

@@ -34,7 +34,7 @@ Year-round planning on your real numbers: entity elections, estimated payments, 
 Page: https://mfa-advisory.com/services/#tax-planning
 
 ### Bookkeeping & Accounting
-Transactions, reconciliations, bills and invoices (AP/AR) and a monthly close, so your books are ready to use all year, not just at year-end. Pricing: Monthly bookkeeping from $199/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.
+Transactions, reconciliations, bills and invoices (AP/AR) and a monthly close, so your books are ready to use all year, not just at year-end. Pricing: Monthly bookkeeping from $300/month for one bank account, one card and up to 100 transactions a month. Larger books and cleanup projects are quoted up front.
 - Monthly categorization to a chart of accounts built for your business
 - Bank, credit card and loan reconciliations to the statements
 - Accounts payable and receivable tracking
@@ -87,15 +87,15 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - LLC formation, Formation: $150 plus the state filing fee (paid once, does not renew). Your LLC filed, with the EIN and paperwork you need on day one.
 - LLC formation, Formation + Business Setup: $249 plus the state filing fee (paid once, does not renew). Everything in Formation, plus the tax and books setup most new owners miss.
 - LLC formation, Complete Launch: $649 plus the state filing fee (paid once, does not renew). Everything in Business Setup, plus your elections, sales tax and first month of books.
-- Monthly bookkeeping: from $199/month for one bank account, one credit card, up to 100 transactions a month. Month to month; larger books are quoted up front. Software: QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks.
+- Monthly bookkeeping: from $300/month for one bank account, one credit card, up to 100 transactions a month. Month to month; larger books are quoted up front. Software: QuickBooks (Online and Desktop), Xero, Sage, Wave and FreshBooks.
 - Quarterly estimated tax service: $199 for the year (four federal and state estimate calculations with due dates).
 - 1099 preparation and e-filing: $25 per form, $75 minimum.
 - Sales tax registration: $99 (included in Complete Launch). S corporation election (Form 2553): $149 (included in Complete Launch).
 - Bookkeeping cleanup and catch-up: fixed quote after a review of a sample of your accounts (https://mfa-advisory.com/bookkeeping-cleanup/).
 - International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal, $129 with one state return; Social Security and Medicare refund claim (Forms 843 + 8316) $49; wrong-form fix $129; first-year H-1B dual-status return $249; H-1B and other US tax residents file Form 1040 at standard tax return pricing. State returns for every state except Connecticut, Maryland and Oregon.
 - Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; bookkeeping, LLC formation and quarterly estimates at the prices above. State returns for every state except Connecticut, Maryland and Oregon.
-- Landlords and short-term rental hosts (https://mfa-advisory.com/rental-property-taxes/): rental property tax returns (Schedule E, or Schedule C for rentals with substantial services) quoted up front; depreciation, repairs vs improvements, passive loss limits; rental bookkeeping from $199/month.
-- Booth renters and beauty pros (https://mfa-advisory.com/booth-renters/): Schedule C + SE tax returns for salon booth renters, barbers, nail, lash and brow techs quoted up front; tips reporting and the tips deduction; quarterly estimates; bookkeeping from $199/month.
+- Landlords and short-term rental hosts (https://mfa-advisory.com/rental-property-taxes/): rental property tax returns (Schedule E, or Schedule C for rentals with substantial services) quoted up front; depreciation, repairs vs improvements, passive loss limits; rental bookkeeping from $300/month.
+- Booth renters and beauty pros (https://mfa-advisory.com/booth-renters/): Schedule C + SE tax returns for salon booth renters, barbers, nail, lash and brow techs quoted up front; tips reporting and the tips deduction; quarterly estimates; bookkeeping from $300/month.
 - Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts.
 - Year-end tax planning session (60 minutes + written action list): $99, pay online at https://mfa-advisory.com/year-end-tax-planning/
 - 1099-NEC/MISC preparation and e-filing, early-bird (per form): $20 per form/person, pay online at https://mfa-advisory.com/1099-filing/
@@ -137,7 +137,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - S corp election (Form 2553) filed if it fits, with salary guidance
 - Sales tax registration and filing calendar, if you sell taxable goods or services
 - First month of bookkeeping: one bank, one card, up to 100 transactions, first P&L
-- Then continue monthly from $199/month, if you want (optional, month to month)
+- Then continue monthly from $300/month, if you want (optional, month to month)
 - Our DIY guides and checklists included
 - 30-day check-in call
 
@@ -201,6 +201,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 
 - 1099 Contractor Tracker: Who Needs a 1099-NEC in 2026: Track vendors, W-9s and payments, see who needs a 1099-NEC at the 2026 $2,000 threshold, and export to CSV. Data stays in your browser. https://mfa-advisory.com/tools/1099-contractor-tracker/
 - 1099 Tax Calculator 2026: Self-Employment, NJ & NY: Estimate the self-employment tax, federal income tax and NJ or NY tax on your 1099 income, plus the share of every payment to set aside. https://mfa-advisory.com/tools/1099-tax-calculator/
+- 2027 Tax Calendar: Federal, NJ & NY Dates by Month: Every 2027 tax deadline by month: 2026 returns, 1099s, W-2s, estimated taxes, payroll and sales tax, federal, New Jersey and New York. https://mfa-advisory.com/tools/2027-tax-calendar/
 - Airbnb Host Tax Checker: 14-Day Rule, Schedule C or E: Check how the IRS treats your Airbnb or short-term rental: the 14-day rule, personal-use days, Schedule C or E, and the share of expenses you can deduct. https://mfa-advisory.com/tools/airbnb-host-tax-checker/
 - Break-Even Calculator for Small Businesses: Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal. https://mfa-advisory.com/tools/break-even-calculator/
 - Do I Need to Send a 1099? 2026 Payments Checker: Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines. https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/
@@ -1040,6 +1041,30 @@ Up to $25,000 a year, if you actively participate in managing the rental. The al
 
 **Is a security deposit taxable rental income?**
 Not when you get it, if you may have to return it. It becomes income in the year you keep any of it, for example for damage or unpaid rent. A deposit that will be used as the last month's rent is advance rent, which is income in the year you receive it. https://mfa-advisory.com/answers/is-a-security-deposit-taxable-income/
+
+**When is the deadline to elect S corp status for 2027?**
+For an LLC or corporation on the calendar year, file Form 2553 by March 15, 2027 for the election to start January 1, 2027. The rule is no more than 2 months and 15 days after the start of the tax year. File later and the election usually starts in 2028, unless you qualify for late-election relief. https://mfa-advisory.com/answers/s-corp-election-deadline-2027/
+
+**Do S corp owners have to pay themselves a salary?**
+Yes, if you work in the business. The IRS requires an S corporation to pay a shareholder who provides services reasonable compensation as W-2 wages before taking non-wage distributions. Wages carry Social Security and Medicare tax; distributions don't, which is where the savings come from and why the IRS watches salaries. https://mfa-advisory.com/answers/do-s-corp-owners-have-to-take-a-salary/
+
+**When is the 2026 S corp return (Form 1120-S) due?**
+March 15, 2027 for a calendar-year S corporation, together with a Schedule K-1 for each shareholder. Form 7004 extends the filing deadline six months, to September 15, 2027. The S corp itself usually pays no federal income tax; owners report their share of profit on their own returns. https://mfa-advisory.com/answers/when-is-form-1120-s-due-2027/
+
+**Is the amount on my 1099-K my income?**
+No. A 1099-K shows the gross payments processed for you, before platform fees, refunds, shipping and sales tax are taken out. You report your gross sales, then deduct fees, refunds and other costs as business expenses. Your payouts, which arrive net, won't match the form, and that's expected. https://mfa-advisory.com/answers/is-my-1099-k-amount-my-income/
+
+**When do online sellers get a 1099-K?**
+Payment platforms and marketplaces such as Etsy, Shopify and Amazon must send a 1099-K when your payments for the year exceed $20,000 and you have more than 200 transactions, the threshold restored by the One Big Beautiful Bill Act. Below that you may get no form, but every sale is still income you report. https://mfa-advisory.com/answers/when-do-online-sellers-get-a-1099-k/
+
+**Do online sellers have to collect NJ sales tax?**
+Yes, once your sales into New Jersey exceed $100,000 or reach 200 separate transactions in the current or prior year, you must register, collect and remit New Jersey sales tax. Sales through a marketplace like Etsy or Amazon are different: the marketplace collects and remits the tax for those. https://mfa-advisory.com/answers/do-online-sellers-collect-nj-sales-tax/
+
+**Does a foreign-owned US LLC file Form 5472?**
+Yes. A US single-member LLC owned by a foreign person files Form 5472 attached to a pro forma Form 1120 for any year it has reportable transactions with its owner, including money put in or taken out. The penalty for not filing is $25,000, plus more if it stays unfiled after an IRS notice. https://mfa-advisory.com/answers/does-a-foreign-owned-llc-file-form-5472/
+
+**Does a foreign-owned US LLC file a BOI report?**
+No, not under FinCEN's current rule. Companies formed in the United States are exempt from beneficial ownership information reporting, whoever owns them, so a US LLC with a foreign owner doesn't file. Only companies formed abroad and registered to do business in a US state still report. https://mfa-advisory.com/answers/does-a-foreign-owned-llc-file-a-boi-report/
 
 ## Frequently asked questions
 

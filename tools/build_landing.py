@@ -300,7 +300,7 @@ def bookkeeping_page():
     """/bookkeeping/princeton-nj/: the Princeton Bookkeeping ad group's landing page.
     Prices are the site's published ones only (/services/ OFFERS and build_llc.MONTHLY); nothing new."""
     import build_llc
-    price = build_llc.MONTHLY["price"]   # $199: Zain, 2026-10-20 (same figure as /services/)
+    price = build_llc.MONTHLY["price"]   # $300: Zain, 2026-11-17 (was $199) (same figure as /services/)
     city = L["city"] + ", " + ST
     title = f"Bookkeeping in {city} | Flat Monthly or Hourly | MFA"
     desc = (f"Monthly bookkeeping for {city} small businesses: reconciliations, P&amp;L and balance sheet every month. "

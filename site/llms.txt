@@ -17,14 +17,14 @@ Not a law firm. MFA does not perform audits or issue audit, review or compilatio
 - [Quarterly estimated taxes](https://mfa-advisory.com/quarterly-estimated-taxes/): federal and state payments worked out, $199 for 2027 or $59 for the next payment
 - [LLC annual report filing](https://mfa-advisory.com/llc-annual-report/): $39 plus the state fee at cost; annual report fees and due dates for all 50 states and DC
 - [Late 2025 tax return filing](https://mfa-advisory.com/late-tax-return/): missed the October 15 deadline or never filed; Form 1040 $249, with Schedule C $399, add a state $49
-- [Taxes for artists and creatives](https://mfa-advisory.com/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $199/month, LLC formation from $150 plus state fee, quarterly estimates $199/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC
-- [Rental property taxes for landlords and short-term rental hosts](https://mfa-advisory.com/rental-property-taxes/): Schedule E tax returns (quoted up front), rental bookkeeping from $199/month, depreciation over 27.5 years, repairs vs improvements, the 14-day rule, passive loss allowance
-- [Booth renter taxes for stylists, barbers, nail and lash techs](https://mfa-advisory.com/booth-renters/): Schedule C tax returns (quoted up front), booth rent deduction, self-employment tax 15.3%, cash and app tips, no tax on tips (2025–2028), quarterly estimates, bookkeeping from $199/month
+- [Taxes for artists and creatives](https://mfa-advisory.com/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $300/month, LLC formation from $150 plus state fee, quarterly estimates $199/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC
+- [Rental property taxes for landlords and short-term rental hosts](https://mfa-advisory.com/rental-property-taxes/): Schedule E tax returns (quoted up front), rental bookkeeping from $300/month, depreciation over 27.5 years, repairs vs improvements, the 14-day rule, passive loss allowance
+- [Booth renter taxes for stylists, barbers, nail and lash techs](https://mfa-advisory.com/booth-renters/): Schedule C tax returns (quoted up front), booth rent deduction, self-employment tax 15.3%, cash and app tips, no tax on tips (2025–2028), quarterly estimates, bookkeeping from $300/month
 - [Machine-readable catalog](https://mfa-advisory.com/catalog.json): all services, prices, tools and products as schema.org JSON
 
 ## Local pages
 - [Princeton, NJ](https://mfa-advisory.com/princeton-nj/): bookkeeping, accounting and tax preparation for Princeton and Mercer County
-- [Bookkeeping in Princeton, NJ](https://mfa-advisory.com/bookkeeping/princeton-nj/): monthly bookkeeping from $199/month in QuickBooks, Xero, Sage, Wave and FreshBooks, flat monthly or hourly, cleanup quoted up front
+- [Bookkeeping in Princeton, NJ](https://mfa-advisory.com/bookkeeping/princeton-nj/): monthly bookkeeping from $300/month in QuickBooks, Xero, Sage, Wave and FreshBooks, flat monthly or hourly, cleanup quoted up front
 - [Union City, NJ](https://mfa-advisory.com/union-city-nj/): bookkeeping, accounting and tax preparation for Union City and Hudson County
 - [New York, NY](https://mfa-advisory.com/new-york-ny/): bookkeeping, accounting and tax preparation for the five boroughs
 
@@ -32,6 +32,7 @@ Not a law firm. MFA does not perform audits or issue audit, review or compilatio
 - [Resources hub](https://mfa-advisory.com/resources/): all tools, calendars, templates and guides
 - [1099 Contractor Tracker: Who Needs a 1099-NEC in 2026](https://mfa-advisory.com/tools/1099-contractor-tracker/): Track vendors, W-9s and payments, see who needs a 1099-NEC at the 2026 $2,000 threshold, and export to CSV. Data stays in your browser.
 - [1099 Tax Calculator 2026: Self-Employment, NJ & NY](https://mfa-advisory.com/tools/1099-tax-calculator/): Estimate the self-employment tax, federal income tax and NJ or NY tax on your 1099 income, plus the share of every payment to set aside.
+- [2027 Tax Calendar: Federal, NJ & NY Dates by Month](https://mfa-advisory.com/tools/2027-tax-calendar/): Every 2027 tax deadline by month: 2026 returns, 1099s, W-2s, estimated taxes, payroll and sales tax, federal, New Jersey and New York.
 - [Airbnb Host Tax Checker: 14-Day Rule, Schedule C or E](https://mfa-advisory.com/tools/airbnb-host-tax-checker/): Check how the IRS treats your Airbnb or short-term rental: the 14-day rule, personal-use days, Schedule C or E, and the share of expenses you can deduct.
 - [Break-Even Calculator for Small Businesses](https://mfa-advisory.com/tools/break-even-calculator/): Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal.
 - [Do I Need to Send a 1099? 2026 Payments Checker](https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/): Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines.
@@ -61,6 +62,14 @@ Not a law firm. MFA does not perform audits or issue audit, review or compilatio
 - [Is a new roof on a rental a repair or improvement?](https://mfa-advisory.com/answers/is-a-new-roof-on-a-rental-a-repair-or-improvement/): A new roof is an improvement. You add it to the property's basis and depreciate it over 27.5 years.
 - [Can a rental property loss offset my W-2 income?](https://mfa-advisory.com/answers/can-a-rental-loss-offset-w2-income/): Up to $25,000 a year, if you actively participate in managing the rental.
 - [Is a security deposit taxable rental income?](https://mfa-advisory.com/answers/is-a-security-deposit-taxable-income/): Not when you get it, if you may have to return it. It becomes income in the year you keep any of it, for example for damage or unpaid rent.
+- [When is the deadline to elect S corp status for 2027?](https://mfa-advisory.com/answers/s-corp-election-deadline-2027/): For an LLC or corporation on the calendar year, file Form 2553 by March 15, 2027 for the election to start January 1, 2027.
+- [Do S corp owners have to pay themselves a salary?](https://mfa-advisory.com/answers/do-s-corp-owners-have-to-take-a-salary/): Yes, if you work in the business. The IRS requires an S corporation to pay a shareholder who provides services reasonable compensation as W-2 wages…
+- [When is the 2026 S corp return (Form 1120-S) due?](https://mfa-advisory.com/answers/when-is-form-1120-s-due-2027/): March 15, 2027 for a calendar-year S corporation, together with a Schedule K-1 for each shareholder.
+- [Is the amount on my 1099-K my income?](https://mfa-advisory.com/answers/is-my-1099-k-amount-my-income/): No. A 1099-K shows the gross payments processed for you, before platform fees, refunds, shipping and sales tax are taken out.
+- [When do online sellers get a 1099-K?](https://mfa-advisory.com/answers/when-do-online-sellers-get-a-1099-k/): Payment platforms and marketplaces such as Etsy, Shopify and Amazon must send a 1099-K when your payments for the year exceed $20,000 and you have more…
+- [Do online sellers have to collect NJ sales tax?](https://mfa-advisory.com/answers/do-online-sellers-collect-nj-sales-tax/): Yes, once your sales into New Jersey exceed $100,000 or reach 200 separate transactions in the current or prior year, you must register, collect and…
+- [Does a foreign-owned US LLC file Form 5472?](https://mfa-advisory.com/answers/does-a-foreign-owned-llc-file-form-5472/): Yes. A US single-member LLC owned by a foreign person files Form 5472 attached to a pro forma Form 1120 for any year it has reportable transactions…
+- [Does a foreign-owned US LLC file a BOI report?](https://mfa-advisory.com/answers/does-a-foreign-owned-llc-file-a-boi-report/): No, not under FinCEN's current rule. Companies formed in the United States are exempt from beneficial ownership information reporting, whoever owns…
 
 ## Is It Deductible? (2026 business expense deductions, one line per expense)
 - [Is it tax deductible? 2026 business write-off finder](https://mfa-advisory.com/tools/is-it-deductible/): search 59 common business expenses; verdict, rule, limits, records to keep and the IRS source for each

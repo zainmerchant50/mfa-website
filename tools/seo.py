@@ -9,7 +9,7 @@ One place for everything that tells search engines, AI assistants and shopping/r
 
 Rules this module enforces (they come from the MFA project rules and from Google's structured-data policies):
   * only facts that are already on the site: no reviews, ratings, awards, founding years or credentials that aren't published;
-  * public prices only: LLC formation $150 / $249 / $649 + state fee, add-ons, bookkeeping from $199/month,
+  * public prices only: LLC formation $150 / $249 / $649 + state fee, add-ons, bookkeeping from $300/month,
     quarterly estimate service $199/year, everything else "quoted up front";
   * no street address anywhere (Princeton, New Jersey only); never "CPA firm", never "certified", never the word "free".
 
@@ -250,7 +250,7 @@ def service_nodes():
                 "serviceType": n, "description": plain(lead) + " " + plain(price), "provider": {"@id": ORG_ID},
                 "areaServed": area_served(), "termsOfService": BASE + "/terms"}
         if sid == "bookkeeping":
-            node["offers"] = [_offer("Monthly bookkeeping", 199, "Starting price per month for one bank account, one card and up to 100 transactions a month.", unit=("MON", "month"))]
+            node["offers"] = [_offer("Monthly bookkeeping", 300, "Starting price per month for one bank account, one card and up to 100 transactions a month.", unit=("MON", "month"))]
         elif sid == "business-advisory":
             node["offers"] = llc_packages()
         else:
@@ -319,6 +319,7 @@ def product_node(p):
 # ----------------------------------------------------------------------------------------------- related links (internal linking)
 # Tool slug -> (services anchor ids, shop product slugs, blog slugs). Rendered as a small "Related" strip on each tool page.
 RELATED = {
+    "2027-tax-calendar": (["tax-preparation"], ["1099-kit"], ["2027-tax-calendar", "year-end-tax-planning-2026-key-dates"]),
     "no-tax-on-tips-calculator": (["tax-preparation"], [], ["small-business-tax-write-offs-2026"]),
     "airbnb-host-tax-checker": (["tax-preparation"], [], ["rental-property-repairs-vs-improvements-2026"]),
     "rental-depreciation-calculator": (["tax-preparation"], [], ["rental-property-repairs-vs-improvements-2026", "section-179-bonus-depreciation-2026"]),
@@ -483,9 +484,9 @@ def _pricing_lines():
               "- Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; "
               "bookkeeping, LLC formation and quarterly estimates at the prices above. State returns for every state except Connecticut, Maryland and Oregon.",
               "- Landlords and short-term rental hosts (https://mfa-advisory.com/rental-property-taxes/): rental property tax returns (Schedule E, or Schedule C "
-              "for rentals with substantial services) quoted up front; depreciation, repairs vs improvements, passive loss limits; rental bookkeeping from $199/month.",
+              "for rentals with substantial services) quoted up front; depreciation, repairs vs improvements, passive loss limits; rental bookkeeping from $300/month.",
               "- Booth renters and beauty pros (https://mfa-advisory.com/booth-renters/): Schedule C + SE tax returns for salon booth renters, barbers, nail, lash and brow techs "
-              "quoted up front; tips reporting and the tips deduction; quarterly estimates; bookkeeping from $199/month.",
+              "quoted up front; tips reporting and the tips deduction; quarterly estimates; bookkeeping from $300/month.",
               "- Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts."]
     import build_offers as O
     lines += [f"- {v['name']}: ${v['price']}" + (" per form/person" if 'min' in v else "") + f", pay online at {BASE}{v['page']}" for v in O.SERVICES.values()]
@@ -526,14 +527,14 @@ def build_llms(posts):
         f"- [Quarterly estimated taxes]({BASE}/quarterly-estimated-taxes/): federal and state payments worked out, $199 for 2027 or $59 for the next payment",
         f"- [LLC annual report filing]({BASE}/llc-annual-report/): $39 plus the state fee at cost; annual report fees and due dates for all 50 states and DC",
         f"- [Late 2025 tax return filing]({BASE}/late-tax-return/): missed the October 15 deadline or never filed; Form 1040 $249, with Schedule C $399, add a state $49",
-        f"- [Taxes for artists and creatives]({BASE}/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $199/month, LLC formation from $150 plus state fee, quarterly estimates $199/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC",
-        f"- [Rental property taxes for landlords and short-term rental hosts]({BASE}/rental-property-taxes/): Schedule E tax returns (quoted up front), rental bookkeeping from $199/month, depreciation over 27.5 years, repairs vs improvements, the 14-day rule, passive loss allowance",
-        f"- [Booth renter taxes for stylists, barbers, nail and lash techs]({BASE}/booth-renters/): Schedule C tax returns (quoted up front), booth rent deduction, self-employment tax 15.3%, cash and app tips, no tax on tips (2025–2028), quarterly estimates, bookkeeping from $199/month",
+        f"- [Taxes for artists and creatives]({BASE}/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $300/month, LLC formation from $150 plus state fee, quarterly estimates $199/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC",
+        f"- [Rental property taxes for landlords and short-term rental hosts]({BASE}/rental-property-taxes/): Schedule E tax returns (quoted up front), rental bookkeeping from $300/month, depreciation over 27.5 years, repairs vs improvements, the 14-day rule, passive loss allowance",
+        f"- [Booth renter taxes for stylists, barbers, nail and lash techs]({BASE}/booth-renters/): Schedule C tax returns (quoted up front), booth rent deduction, self-employment tax 15.3%, cash and app tips, no tax on tips (2025–2028), quarterly estimates, bookkeeping from $300/month",
         f"- [Machine-readable catalog]({BASE}/catalog.json): all services, prices, tools and products as schema.org JSON",
         "",
         "## Local pages",
         f"- [Princeton, NJ]({BASE}/princeton-nj/): bookkeeping, accounting and tax preparation for Princeton and Mercer County",
-        f"- [Bookkeeping in Princeton, NJ]({BASE}/bookkeeping/princeton-nj/): monthly bookkeeping from $199/month in QuickBooks, Xero, Sage, Wave and FreshBooks, flat monthly or hourly, cleanup quoted up front",
+        f"- [Bookkeeping in Princeton, NJ]({BASE}/bookkeeping/princeton-nj/): monthly bookkeeping from $300/month in QuickBooks, Xero, Sage, Wave and FreshBooks, flat monthly or hourly, cleanup quoted up front",
         f"- [Union City, NJ]({BASE}/union-city-nj/): bookkeeping, accounting and tax preparation for Union City and Hudson County",
         f"- [New York, NY]({BASE}/new-york-ny/): bookkeeping, accounting and tax preparation for the five boroughs",
         "",
@@ -730,6 +731,7 @@ PAGE_KEYWORDS = {
     "/rental-property-taxes/": ["rental property tax preparation", "Schedule E help", "landlord taxes", "short-term rental taxes",
                                 "rental property depreciation"],
     "/booth-renters/": ["booth renter taxes", "salon booth rental", "barber taxes", "nail tech taxes", "no tax on tips"],
+    "/tools/2027-tax-calendar/": ["2027 tax calendar", "2027 tax deadlines", "tax due dates 2027", "estimated tax due dates 2027", "NJ NY tax deadlines 2027"],
     "/answers/": ["tax answers", "booth renter tax questions", "Airbnb host tax questions", "landlord tax questions"],
     "/tools/no-tax-on-tips-calculator/": ["no tax on tips calculator", "qualified tips deduction", "Schedule 1-A tips", "tips deduction for stylists"],
     "/tools/airbnb-host-tax-checker/": ["Airbnb 14-day rule", "Airbnb Schedule C or E", "short-term rental taxes", "personal use days rental"],
