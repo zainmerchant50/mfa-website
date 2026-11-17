@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import vm from "node:vm";
 // Local tests for the MFA Hub gate and API (run: node tools/test_hub.mjs). Uses a generated RSA key, no network.
 import { verifyAccessJwt, _clearCertCache } from "../functions/_shared/hub_auth.js";
-import { onRequest as middleware, hubPathCheck, junkPath } from "../functions/_middleware.js";
+import { onRequest as middleware, hubPathCheck, junkPath, truncatedMatch } from "../functions/_middleware.js";
 import { readdirSync, statSync } from "node:fs";
 import { onRequestPost as commentPost } from "../functions/api/hub/comment.js";
 import { onRequestPost as financePost } from "../functions/api/hub/finance-answer.js";
@@ -79,6 +79,28 @@ for (const p of ["/", "/hub/", "/blog/ui.css", "/api/llc-config", "/anything"]) 
 await t("valid JWT: /hub/ served with private headers + CSP", async () => { const r = await run("https://hub.mfa-advisory.com/hub/", { jwt: JWT }); eq(r.res.status, 200); eq(r.called, true); eq(r.data.hubEmail, EMAIL); eq(r.res.headers.get("X-Robots-Tag").includes("noindex"), true); eq(r.res.headers.get("Cache-Control").includes("no-store"), true); eq(!!r.res.headers.get("Content-Security-Policy"), true); });
 await t("valid JWT: hub host root redirects to /hub/", async () => { const r = await run("https://hub.mfa-advisory.com/", { jwt: JWT }); eq(r.res.status, 302); eq(r.res.headers.get("Location"), "/hub/"); });
 await t("unconfigured env: valid-looking JWT still denied", async () => { const r = await run("https://mfa-advisory.com/hub/", { jwt: JWT, env: {} }); eq(r.res.status, 404); });
+await t("truncatedMatch: cut-short links map to exactly one sitemap page", async () => {
+  const P = ["/", "/blog/", "/blog/month-end-close-checklist-small-business/", "/blog/rental-property-repairs-vs-improvements-2026/", "/blog/social-security-wage-base-2027-self-employed/", "/blog/small-business-tax-write-offs-2026/", "/blog/small-business-bookkeeping/", "/rental-property-taxes/", "/answers/", "/answers/new-roof-repair-or-improvement/"];
+  eq(truncatedMatch("/blog/month-end-close-checklis", P), "/blog/month-end-close-checklist-small-business/");
+  eq(truncatedMatch("/blog/rental-property-", P), "/blog/rental-property-repairs-vs-improvements-2026/");
+  eq(truncatedMatch("/blog/rental-property-repairs-vs-improvemen/", P), "/blog/rental-property-repairs-vs-improvements-2026/");
+  eq(truncatedMatch("/rental-property-tax", P), "/rental-property-taxes/");
+  eq(truncatedMatch("/blog/small-business-", P), null, "ambiguous");
+  eq(truncatedMatch("/blog/sm", P), null, "too short");
+  eq(truncatedMatch("/blog/zzz-nothing", P), null);
+  eq(truncatedMatch("/blog/month-end-close-checklist-small-business/extra", P), null, "deeper path");
+  eq(truncatedMatch("/answers/new-roof<script>", P), null);
+  eq(truncatedMatch("/ans", P), null, "short path");
+});
+await t("middleware: public 404 on a cut-short link -> 301, other 404s stay 404", async () => {
+  const SM = '<urlset><url><loc>https://mfa-advisory.com/blog/month-end-close-checklist-small-business/</loc></url><url><loc>https://mfa-advisory.com/blog/</loc></url></urlset>';
+  const A = { fetch: async (req) => new URL(req.url).pathname === "/sitemap.xml" ? new Response(SM, { status: 200 }) : new Response("nf", { status: 404 }) };
+  const go = (u, method = "GET") => middleware({ request: new Request(u, { method }), env: { ...ENV, ASSETS: A }, data: {}, next: async () => new Response("<html>MFA 404 page</html>", { status: 404 }) });
+  let r = await go("https://mfa-advisory.com/blog/month-end-close-checklis?utm_source=x");
+  eq(r.status, 301); eq(r.headers.get("Location"), "/blog/month-end-close-checklist-small-business/?utm_source=x");
+  eq((await go("https://mfa-advisory.com/blog/nothing-here")).status, 404);
+  eq((await go("https://mfa-advisory.com/blog/month-end-close-checklis", "POST")).status, 404);
+});
 await t("junkPath: probes get 410, never a real site file", async () => {
   for (const p of ["/wp-json/wp/v2/wpmcp/streamable", "/wp-login.php", "/xmlrpc.php", "/wp-admin/", "/wp/", "/wordpress/", "/wp-sitemap.xml", "/.env", "/.env.backup", "/.git/config", "/.aws/credentials", "/public../.env", "/x1x1.php", "/proc/self/environ", "/api/w/a/../../etc", "/portfolio/business-growth/", "/header/sticky-header/"]) eq(junkPath(p), true, p);
   for (const p of ["/", "/blog/", "/.well-known/security.txt", "/llc-formation/pa/", "/tools/is-it-deductible/deductions.json", "/privacy", "/hub/", "/api/llc-config", "/u/abc.def", "/wpm/"]) eq(junkPath(p), false, p);

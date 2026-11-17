@@ -1,4 +1,4 @@
-// Site-wide Pages middleware. Only job: keep the private MFA Hub private.
+// Site-wide Pages middleware. Main job: keep the private MFA Hub private (also: 410 for junk probes, 301 for cut-short links).
 // - Any request on hub.mfa-advisory.com, and any /hub* or /api/hub* path on any host, needs a valid
 //   Cloudflare Access JWT (Cf-Access-Jwt-Assertion) for HUB_ALLOWED_EMAIL. See functions/_shared/hub_auth.js.
 // - Without one: 404 (the normal site 404 page) on public hosts, 403 on the hub host. Fails closed.
@@ -73,6 +73,41 @@ const GONE_HEADERS = {
   "X-Robots-Tag": "noindex",
 };
 
+// Cut-short links (AI-SEO, Nov 17 2026): social apps and link previews (meta-externalagent) cut long URLs, e.g.
+// /blog/month-end-close-checklis or /blog/rental-property-. When a public GET/HEAD would 404 and the path's last
+// segment is the start of exactly ONE page in sitemap.xml, send a 301 to that page. Real pages never reach this
+// (it runs only on a 404), and an ambiguous or very short stub still gets the normal 404.
+let _paths = null, _pathsAt = 0;
+async function sitemapPaths(env, base) {
+  if (_paths && Date.now() - _pathsAt < 600000) return _paths;
+  const r = await env.ASSETS.fetch(new Request(new URL("/sitemap.xml", base)));
+  if (!r.ok) return [];
+  const xml = await r.text();
+  _paths = [...xml.matchAll(/<loc>https?:\/\/[^/<]+(\/[^<]*)<\/loc>/g)].map(m => m[1]);
+  _pathsAt = Date.now();
+  return _paths;
+}
+
+export function truncatedMatch(pathname, paths) {
+  const p = pathname.replace(/\/+$/, "");
+  const last = p.slice(p.lastIndexOf("/") + 1);
+  if (last.length < 3 || p.length < 6 || /[^a-z0-9\-/]/i.test(p)) return null;
+  const hits = paths.filter(c => c.startsWith(p) && /^[^/]+\/$/.test(c.slice(p.length)));
+  return hits.length === 1 ? hits[0] : null;
+}
+
+async function publicPage(ctx) {
+  const res = await ctx.next();
+  const m = ctx.request.method;
+  if (res.status !== 404 || (m !== "GET" && m !== "HEAD")) return res;
+  try {
+    const url = new URL(ctx.request.url);
+    const to = truncatedMatch(url.pathname, await sitemapPaths(ctx.env, url));
+    if (to) return new Response(null, { status: 301, headers: { Location: to + url.search, "Cache-Control": "public, max-age=3600" } });
+  } catch (e) { /* fall through to the normal 404 */ }
+  return res;
+}
+
 export async function onRequest(ctx) {
   const { request, env } = ctx;
   const url = new URL(request.url);
@@ -80,7 +115,7 @@ export async function onRequest(ctx) {
   if (!onHubHost && junkPath(url.pathname)) {
     return new Response(request.method === "HEAD" ? null : "410 Gone: this URL is not part of mfa-advisory.com.\n", { status: 410, headers: GONE_HEADERS });
   }
-  if (!onHubHost && !hubPathCheck(url.pathname)) return ctx.next(); // public site: untouched
+  if (!onHubHost && !hubPathCheck(url.pathname)) return publicPage(ctx); // public site: untouched unless it would 404
 
   try {
     const res = await verifyAccessJwt(request.headers.get("Cf-Access-Jwt-Assertion"), env);
