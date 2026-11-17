@@ -13,6 +13,7 @@ from datetime import date
 import re
 
 import build_blog as B
+import lead_box
 import seo
 import ui_kit
 from build_resources import page, write, esc, BASE, cta
@@ -103,6 +104,7 @@ SOURCES = [
 ]
 
 CSS = """<style>
+.cmp-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}.rp-cmp{min-width:640px}.rp-cmp td,.rp-cmp th{vertical-align:top}
 .rp-who{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:6px}
 .rp-who .card{padding:22px 24px;background:#fff;border:1px solid var(--hair);border-radius:16px}
 .rp-who h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem;color:var(--navy);margin:0 0 6px}
@@ -167,6 +169,20 @@ def build():
 <section class="wrap llc-sec" aria-labelledby="how-h"><div class="sec-hd"><span class="eyebrow eb-dark">How it works</span><h2 id="how-h">How rental property tax prep works with us.</h2></div>
 <div class="rp-steps">{steps}</div>
 <p class="rp-cred">Your return is prepared by Zain Merchant and his team of tax and accounting experts. Zain: ACCA · Big Four (ex-PwC) · PTIN/EFIN tax preparer.</p></section>
+<section class="wrap llc-sec" id="compare" aria-labelledby="cmp-h"><div class="sec-hd"><span class="eyebrow eb-dark">Compare</span><h2 id="cmp-h">Schedule E or Schedule C: which form does my rental go on?</h2>
+<p>How you rent decides the form, whether self-employment tax applies and what can limit a loss (IRS Topic 415 and Publication 527).</p></div>
+<div class="cmp-tw"><table class="tbl rp-cmp"><thead><tr><th>How you rent</th><th>Form</th><th>Self-employment tax</th><th>What to watch</th></tr></thead><tbody>
+<tr><td>Long-term rental (tenant with a lease)</td><td>Schedule E</td><td>No</td><td>Loss up to $25,000 against other income if you actively participate; phases out from $100,000 to $150,000 of MAGI</td></tr>
+<tr><td>Short-term rental, space only</td><td>Schedule E</td><td>No</td><td>Passive loss rules; short average stays can change how a loss is treated</td></tr>
+<tr><td>Short-term rental with hotel-style services (cleaning during stays, linens, meals)</td><td>Schedule C</td><td>Usually yes</td><td>Treated like a business, not a rental</td></tr>
+<tr><td>Your home, rented fewer than 15 days</td><td>Not reported</td><td>No</td><td>No rental expenses deducted either</td></tr>
+<tr><td>Your home, rented 15 days or more</td><td>Schedule E or C</td><td>Only on Schedule C</td><td>Expenses split by days and limited to rental income</td></tr>
+</tbody></table></div>
+<p class="rp-note">Work it out for your property: <a href="/tools/airbnb-host-tax-checker/">Airbnb host tax checker</a> · <a href="/tools/rental-depreciation-calculator/">rental depreciation calculator</a> · <a href="/answers/">short tax answers for hosts and landlords</a></p></section>
+{lead_box.lead_box("Rental property taxes", "page-rental", "Get your rental property price.",
+    "Tell us about your properties and we'll email a fixed quote within one business day.",
+    [("tax-return", "Tax return for my rental(s)"), ("bookkeeping", "Monthly rental bookkeeping"), ("cleanup", "Catch-up on past years or missed depreciation"), ("question", "A quick question first")],
+    ["Long-term rentals, Airbnb and Vrbo", "NJ, NY and nationwide", "Price confirmed before any work starts"])}
 <section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">Rental property tax questions</h2></div>{faq}</section>
 <section class="wrap llc-sec" aria-labelledby="src-h"><div class="sec-hd"><span class="eyebrow eb-dark">Sources</span><h2 id="src-h">Checked against the IRS.</h2></div>
 <div class="rp-src"><div class="sources"><ul>{src}</ul><p class="factline">Facts checked against the pages above on {nice}.</p></div></div></section>

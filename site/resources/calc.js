@@ -771,4 +771,98 @@
     });
     wire(run);
   };
+
+  /* =====================================================================
+   * Niche calculators (Site, 2026-11-17): no tax on tips, Airbnb host checker, rental depreciation
+   * Rules: Schedule 1-A Part II; IRS Topic 415; Publication 527 (checked 2026-11-17).
+   * ===================================================================== */
+  MFA.pages.tips = function () {
+    function run() {
+      var T = D.tips, st = sel('t-status'), occ = sel('t-occ'), w2 = num('t-w2'), se = num('t-se'), np = blank('t-np') ? se : num('t-np');
+      var magi = num('t-magi'), rate = parseFloat(sel('t-rate')) || 0, outs = ['k-ded', 'k-save', 'k-qual', 'k-cut'];
+      if (!w2 && !se) { dash(outs); setText('rsub', 'Enter your tips to see the deduction.'); setText('rnote', '');
+        renderRows('math', [['Enter your tips above', '—', 'Each line of Schedule 1-A will show here.']]); return; }
+      if (st === 'separate') { dash(outs); setMoney('k-ded', 0); setText('rsub', 'Married filing separately can’t take this deduction.');
+        setText('rnote', 'Married couples must file a joint return to claim the qualified tips deduction.');
+        renderRows('math', [['Filing status', 'Not eligible', 'Married filing separately is excluded']]); return; }
+      if (occ === 'no') { dash(outs); setMoney('k-ded', 0); setText('rsub', 'Tips only qualify in an occupation on the IRS tipped list.');
+        setText('rnote', 'Check the IRS list under Sources. If your job is close to one on the list, ask us.');
+        renderRows('math', [['Occupation', 'Not eligible', 'Not on the IRS list of tipped occupations']]); return; }
+      var seQ = Math.min(se, Math.max(0, np)), qual = w2 + seQ, capped = Math.min(qual, T.cap);
+      var th = st === 'joint' ? T.th_joint : T.th_single, over = Math.max(0, magi - th), cut = Math.floor(over / T.step) * T.cut;
+      var ded = Math.max(0, capped - cut), save = ded * rate;
+      setMoney('k-ded', ded); setMoney('k-save', save); setMoney('k-qual', capped); setMoney('k-cut', cut);
+      setText('rsub', 'Estimated deduction of ' + money(ded) + (rate ? ', about ' + money(save) + ' less federal income tax at ' + pct(rate, 0) + '.' : '.'));
+      setText('rnote', (occ === 'unsure' ? 'Check that your job is on the IRS tipped occupations list before you claim this. ' : '') +
+        'Social Security and Medicare (or self-employment) tax still applies to all tips. Valid Social Security number required.');
+      var rows = [
+        ['Tips on W-2 or Form 4137', money(w2), 'Schedule 1-A lines 1 to 3'],
+        ['Self-employed tips', money(se), 'Tips from your own clients'],
+        ['Self-employed tips allowed', money(seQ), 'Limited to that business’s net profit (' + money(Math.max(0, np)) + ')'],
+        ['Qualified tips', money(qual), 'W-2 tips plus allowed self-employed tips'],
+        ['After the $25,000 cap', money(capped), 'Line 7: the smaller of qualified tips or ' + money(T.cap)],
+        ['MAGI over ' + money(th), money(over), 'Line 10'],
+        ['Reduction', money(cut), 'Lines 11 and 12: $' + T.cut + ' for each full $' + T.step.toLocaleString('en-US') + ' over'],
+        ['Tips deduction', money(ded), 'Line 13, not below zero', 'tot']];
+      if (rate) rows.push(['Rough federal income tax saved', money(save), money(ded) + ' × ' + pct(rate, 0) + ' bracket (estimate only)']);
+      renderRows('math', rows);
+    }
+    wire(run);
+  };
+
+  MFA.pages.airbnb = function () {
+    function run() {
+      var R = num('a-rent'), P = num('a-pers'), inc = num('a-inc'), exp = num('a-exp'), svc = sel('a-svc') === 'yes';
+      var outs = ['k-form', 'k-home', 'k-share', 'k-ded'];
+      if (!R) { dash(outs); setText('rsub', 'Enter the days it was rented to see your answer.'); setText('rnote', '');
+        renderRows('math', [['Enter your rental days above', '—', 'Each test will show here.']]); return; }
+      var limit = Math.max(14, R * 0.10), home = P > limit, share = R / (R + P), skip = R < 15 && home;
+      var form = skip ? 'Don’t report it' : (svc ? 'Schedule C' : 'Schedule E');
+      setText('k-form', form); setText('k-home', home ? 'Yes' : 'No'); setText('k-share', skip ? '—' : pct(share, 1));
+      var ded = 0, dedTxt = '—';
+      if (exp && !skip) { ded = exp * share; if (home && inc) ded = Math.min(ded, inc); dedTxt = money(ded); }
+      setText('k-ded', skip ? '$0' : dedTxt);
+      var sub, note;
+      if (skip) { sub = 'Rented fewer than 15 days and used as your home: you don’t report the rental income.'; note = 'You also can’t deduct rental expenses. Mortgage interest and property taxes may still count as itemized deductions.'; }
+      else if (home) { sub = 'Used as a home: report the income on ' + form + ' and deduct only the rental share of expenses.'; note = 'Because it is your home, rental expenses can’t be more than rental income (no rental loss). Extra expenses may carry forward.'; }
+      else { sub = 'A rental property: report the income on ' + form + (P ? ' and split expenses by days.' : '.'); note = 'A rental loss may be limited by the passive activity rules. Ask us about the $25,000 allowance.'; }
+      if (svc && !skip) note += ' Schedule C income is usually subject to self-employment tax.';
+      setText('rsub', sub); setText('rnote', note);
+      var rows = [
+        ['Days rented at a fair price', String(R), ''],
+        ['Personal-use days', String(P), 'Includes family stays and below-market rentals'],
+        ['Personal-use limit', String(+limit.toFixed(1)) + ' days', 'Greater of 14 days or 10% of rental days'],
+        ['Used as a home?', home ? 'Yes' : 'No', home ? 'Personal days are over the limit' : 'Personal days are within the limit'],
+        ['14-day rule applies?', skip ? 'Yes' : 'No', 'Applies only when used as a home and rented fewer than 15 days'],
+        ['Rental share of expenses', skip ? '—' : pct(share, 1), R + ' rental days ÷ ' + (R + P) + ' total days used'],
+        ['Form', form, svc ? 'Hotel-style services move it to Schedule C' : 'No substantial services: Schedule E', 'tot']];
+      if (exp && !skip) rows.push(['Expenses you can deduct', money(ded), money(exp) + ' × ' + pct(share, 1) + (home && inc ? ', capped at rental income of ' + money(inc) : '')]);
+      renderRows('math', rows);
+    }
+    wire(run);
+  };
+
+  MFA.pages.deprec = function () {
+    function run() {
+      var price = num('d-price'), land = num('d-land'), imp = num('d-imp'), m = parseInt(sel('d-month'), 10) || 1, y = Math.round(num('d-year')) || 2026;
+      var outs = ['k-y1', 'k-full', 'k-basis', 'k-end'];
+      if (!price) { dash(outs); setText('rsub', 'Enter the purchase price to see your schedule.'); setText('rnote', '');
+        renderRows('math', [['Enter your property above', '—', 'Your year-by-year schedule will show here.']]); return; }
+      var basis = price + imp - land;
+      if (basis <= 0) { dash(outs); setText('rsub', 'The land value is more than the price. Check your numbers.'); renderRows('math', [['Depreciable basis', money(0), 'Land is not depreciated']]); return; }
+      var full = basis / 27.5, left = basis, rows = [], yr = y, first = full * (12 - m + 0.5) / 12, amt = [];
+      while (left > 0.005) { var a = yr === y ? first : Math.min(full, left); amt.push([yr, a]); left -= a; yr++; }
+      var end = amt[amt.length - 1][0];
+      setMoney('k-y1', first, true); setMoney('k-full', full, true); setMoney('k-basis', basis); setText('k-end', String(end));
+      setText('rsub', money(basis) + ' of building basis over 27.5 years, starting ' + ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][m - 1] + ' ' + y + '.');
+      setText('rnote', 'Each year’s amount goes on Schedule E (Form 4562 in the first year). When you sell, depreciation is taxed back (recaptured).');
+      rows.push(['Depreciable basis', money(basis), money(price) + (imp ? ' + ' + money(imp) + ' improvements' : '') + ' − ' + money(land) + ' land']);
+      rows.push([String(amt[0][0]) + ' (first year)', money(amt[0][1], true), (12 - m + 0.5) + ' months ÷ 12 × ' + money(full, true)]);
+      if (amt.length > 2) rows.push([amt[1][0] + '–' + amt[amt.length - 2][0] + ' (each year)', money(full, true), money(basis) + ' ÷ 27.5']);
+      rows.push([String(end) + ' (last year)', money(amt[amt.length - 1][1], true), 'What is left of the basis']);
+      rows.push(['Total over ' + amt.length + ' tax years', money(basis), '', 'tot']);
+      renderRows('math', rows);
+    }
+    wire(run);
+  };
 })();

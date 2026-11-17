@@ -12,6 +12,7 @@ from datetime import date
 import re
 
 import build_blog as B
+import lead_box
 import seo
 import ui_kit
 from build_resources import page, write, esc, BASE, cta
@@ -96,6 +97,7 @@ SOURCES = [
 ]
 
 CSS = """<style>
+.cmp-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}.br-cmp{min-width:560px}.br-cmp td,.br-cmp th{vertical-align:top;text-align:left}.br-cmp tbody th{font-size:.88rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--navy);border-top:0;border-bottom:1px solid rgba(21,21,21,.1)}@media(max-width:720px){.br-cmp{min-width:0;table-layout:fixed;font-size:.84rem}.br-cmp th,.br-cmp td{padding:9px 6px}}
 .br-who{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:6px}
 .br-who .card{padding:22px 24px;background:#fff;border:1px solid var(--hair);border-radius:16px}
 .br-who h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem;color:var(--navy);margin:0 0 6px}
@@ -160,6 +162,21 @@ def build():
 <section class="wrap llc-sec" aria-labelledby="how-h"><div class="sec-hd"><span class="eyebrow eb-dark">How it works</span><h2 id="how-h">How booth renter tax prep works with us.</h2></div>
 <div class="br-steps">{steps}</div>
 <p class="br-cred">Your return is prepared by Zain Merchant and his team of tax and accounting experts. Zain: ACCA · Big Four (ex-PwC) · PTIN/EFIN tax preparer.</p></section>
+<section class="wrap llc-sec" id="compare" aria-labelledby="cmp-h"><div class="sec-hd"><span class="eyebrow eb-dark">Compare</span><h2 id="cmp-h">Booth renter or salon employee: how are taxes different?</h2>
+<p>The same chair, two very different tax returns.</p></div>
+<div class="cmp-tw"><table class="tbl br-cmp"><thead><tr><th></th><th>Booth renter</th><th>Salon employee</th></tr></thead><tbody>
+<tr><th scope="row">Tax form</th><td>Schedule C and Schedule SE</td><td>W-2 from the salon</td></tr>
+<tr><th scope="row">Social Security and Medicare</th><td>You pay all 15.3% as self-employment tax</td><td>7.65% withheld; the salon pays the other 7.65%</td></tr>
+<tr><th scope="row">Income tax</th><td>Nothing withheld: pay quarterly estimates</td><td>Withheld from each paycheck</td></tr>
+<tr><th scope="row">Booth rent, supplies, tools</th><td>Deductible on Schedule C</td><td>Generally not deductible on your federal return</td></tr>
+<tr><th scope="row">Tips</th><td>Business income; tips deduction up to your net profit</td><td>Reported to the salon, on your W-2; tips deduction applies</td></tr>
+<tr><th scope="row">Prices, hours, clients</th><td>You decide</td><td>The salon decides</td></tr>
+</tbody></table></div>
+<p class="br-note">Run your numbers: <a href="/tools/no-tax-on-tips-calculator/">no tax on tips calculator</a> · <a href="/tools/quarterly-estimated-tax-calculator/">quarterly estimated tax calculator</a> · <a href="/answers/">short tax answers for booth renters</a></p></section>
+{lead_box.lead_box("Booth renter taxes", "page-booth", "Get your booth renter price.",
+    "Tell us what you do and how you get paid, and we'll email a fixed quote within one business day.",
+    [("tax-return", "Tax return (Schedule C)"), ("estimates", "Quarterly estimated taxes"), ("bookkeeping", "Monthly bookkeeping"), ("question", "A quick question first")],
+    ["Stylists, barbers, nail, lash and brow techs", "Tips, booth rent and self-employment tax handled together", "Price confirmed before any work starts"])}
 <section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">Booth renter tax questions</h2></div>{faq}</section>
 <section class="wrap llc-sec" aria-labelledby="src-h"><div class="sec-hd"><span class="eyebrow eb-dark">Sources</span><h2 id="src-h">Checked against the IRS.</h2></div>
 <div class="br-src"><div class="sources"><ul>{src}</ul><p class="factline">Facts checked against the pages above on {nice}.</p></div></div></section>

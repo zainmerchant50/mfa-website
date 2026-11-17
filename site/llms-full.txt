@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated November 16, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated November 17, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -201,14 +201,17 @@ Page: https://mfa-advisory.com/services/#business-advisory
 
 - 1099 Contractor Tracker: Who Needs a 1099-NEC in 2026: Track vendors, W-9s and payments, see who needs a 1099-NEC at the 2026 $2,000 threshold, and export to CSV. Data stays in your browser. https://mfa-advisory.com/tools/1099-contractor-tracker/
 - 1099 Tax Calculator 2026: Self-Employment, NJ & NY: Estimate the self-employment tax, federal income tax and NJ or NY tax on your 1099 income, plus the share of every payment to set aside. https://mfa-advisory.com/tools/1099-tax-calculator/
+- Airbnb Host Tax Checker: 14-Day Rule, Schedule C or E: Check how the IRS treats your Airbnb or short-term rental: the 14-day rule, personal-use days, Schedule C or E, and the share of expenses you can deduct. https://mfa-advisory.com/tools/airbnb-host-tax-checker/
 - Break-Even Calculator for Small Businesses: Find your break-even point in sales and units from monthly fixed costs, price and variable cost. For product and service businesses, with a profit goal. https://mfa-advisory.com/tools/break-even-calculator/
 - Do I Need to Send a 1099? 2026 Payments Checker: Four questions show whether a 2026 payment needs a Form 1099-NEC or 1099-MISC: the $2,000 threshold, card and corporation exceptions, and deadlines. https://mfa-advisory.com/tools/do-i-need-to-send-a-1099/
 - Home Office Deduction Calculator 2026: Compare the simplified ($5 per square foot, up to 300) and regular home office deduction methods for 2026 side by side. https://mfa-advisory.com/tools/home-office-deduction-calculator/
 - Tax Write-Offs for Small Business: Is It Deductible?: Tax write-offs for small business, 2026: search 59 everyday expenses for a plain answer, what proof to keep and the mistake to avoid. https://mfa-advisory.com/tools/is-it-deductible/
 - Mileage Deduction Calculator 2026 (IRS Standard Rates): Calculate your 2026 business mileage deduction with the IRS standard rates, including the split between the January to June and July to December rates. https://mfa-advisory.com/tools/mileage-deduction-calculator/
+- No Tax on Tips Calculator (2025–2028 Deduction): Estimate the no tax on tips deduction: up to $25,000 of qualified tips, the $150,000 phase-out and the rules for booth renters. https://mfa-advisory.com/tools/no-tax-on-tips-calculator/
 - Paycheck Tax Calculator 2026 (Federal, FICA, NJ & NY): Estimate W-2 take-home pay per paycheck after federal income tax, Social Security, Medicare and New Jersey or New York tax. https://mfa-advisory.com/tools/paycheck-tax-calculator/
 - Profit Margin & Markup Calculator: Calculate gross profit margin and markup from cost and price, or the selling price for a target margin or markup. Includes a margin vs. markup guide. https://mfa-advisory.com/tools/profit-margin-calculator/
 - Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY: Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the penalty-safe amount. https://mfa-advisory.com/tools/quarterly-estimated-tax-calculator/
+- Rental Property Depreciation Calculator (27.5 Years): Calculate rental property depreciation over 27.5 years: depreciable basis without the land, the mid-month first year and a year-by-year schedule. https://mfa-advisory.com/tools/rental-depreciation-calculator/
 - S Corp Tax Savings Calculator: Is an S Corp Worth It?: Compare self-employment tax as an LLC with payroll taxes as an S corporation. See annual savings after costs and the break-even profit. https://mfa-advisory.com/tools/s-corp-tax-savings-calculator/
 - 2027 Business Tax Deadlines by Entity: Fed, NJ & NY: Every 2027 federal, New Jersey and New York tax deadline for sole proprietors, partnerships, S and C corporations, employers and nonprofits. https://mfa-advisory.com/tools/tax-deadlines-2027/
 - W-9 Request Email Templates for Vendors: Copy-ready W-9 request emails for new vendors, year-end 1099 prep and reminders. Personalize the names and deadline, then copy with one click. https://mfa-advisory.com/tools/w-9-request-email-template/
@@ -999,6 +1002,44 @@ Source: IRS Instructions for Schedule C (Form 1040) (2025) https://www.irs.gov/i
 Also: IRS Publication 526 (2025), Charitable Contributions https://www.irs.gov/publications/p526
 Also: IRS Publication 6196 (10-2026), Charitable Contribution Deduction Tips for Non-Itemizers https://www.irs.gov/pub/irs-pdf/p6196.pdf
 Page: https://mfa-advisory.com/tools/is-it-deductible/#charitable-contributions
+
+## Tax answers (https://mfa-advisory.com/answers/)
+
+**Do salon booth renters pay self-employment tax?**
+Yes. A booth renter runs their own business, so the profit goes on Schedule C and self-employment tax of 15.3% applies once net earnings are $400 or more. That is 12.4% for Social Security and 2.9% for Medicare. Nobody withholds it, so most booth renters pay quarterly estimated tax. https://mfa-advisory.com/answers/do-booth-renters-pay-self-employment-tax/
+
+**Is booth rent tax deductible?**
+Yes. If you rent a chair, booth or suite to run your own beauty business, the rent is a business expense you deduct on Schedule C. So are the supplies, tools, license renewals and education you pay for. Keep the lease or receipts, because the deduction lowers both income tax and self-employment tax. https://mfa-advisory.com/answers/is-booth-rent-tax-deductible/
+
+**Do hairstylists qualify for no tax on tips?**
+Yes. Barbers, hairstylists, cosmetologists, nail techs, lash and brow techs and makeup artists are on the IRS tipped occupations list. For 2025 through 2028 you can deduct up to $25,000 of qualified tips. The deduction shrinks above $150,000 of modified AGI ($300,000 joint). Booth renters qualify too, up to their net profit. https://mfa-advisory.com/answers/do-hairstylists-qualify-for-no-tax-on-tips/
+
+**When are 2026 estimated tax payments due?**
+The four 2026 federal estimated tax payments are due April 15, June 15 and September 15, 2026, and January 15, 2027. Self-employed people, booth renters and landlords generally pay them if they expect to owe $1,000 or more for the year, because no employer withholds tax for them. https://mfa-advisory.com/answers/estimated-tax-due-dates-2026/
+
+**Do I report Airbnb income under 15 days?**
+Not if the place is also your home. If you use a dwelling as a home and rent it for fewer than 15 days in the year, you don't report the rental income or deduct rental expenses. From 15 rental days on, you report all of it and split expenses between rental and personal use. https://mfa-advisory.com/answers/do-i-report-airbnb-income-under-15-days/
+
+**Is Airbnb income reported on Schedule C or Schedule E?**
+Most hosts use Schedule E. If you provide substantial services mainly for guests' convenience, such as regular cleaning during stays, changing linens or maid service, the income goes on Schedule C instead, like a hotel. Schedule C income is usually also subject to 15.3% self-employment tax. https://mfa-advisory.com/answers/airbnb-income-schedule-c-or-schedule-e/
+
+**How many personal days can an Airbnb host use?**
+Up to 14 days or 10% of the days it was rented at a fair price, whichever is more. Go over that and the IRS treats the rental as your home: you still deduct the rental share of expenses, but they can't be more than your rental income, so the rental can't show a loss. https://mfa-advisory.com/answers/airbnb-personal-use-days-limit/
+
+**How many years do you depreciate a rental property?**
+27.5 years for a residential rental building, using the mid-month convention. Divide the building's basis by 27.5 for each full year; the first and last years are partial. Land is never depreciated, so take its value out of the price before you start. https://mfa-advisory.com/answers/how-many-years-to-depreciate-rental-property/
+
+**When does depreciation start on a rental property?**
+When the property is placed in service, meaning ready and available to rent, not when the first tenant moves in. A house listed for rent in March starts depreciating in March even if it stays empty until June. Depreciation stops when you have recovered its cost or take it out of service. https://mfa-advisory.com/answers/when-does-rental-property-depreciation-start/
+
+**Is a new roof on a rental a repair or improvement?**
+A new roof is an improvement. You add it to the property's basis and depreciate it over 27.5 years. Fixing a leak or replacing a few shingles is a repair, deducted in the year you pay. Items costing $2,500 or less per invoice or item can be deducted under the de minimis safe harbor if you elect it. https://mfa-advisory.com/answers/is-a-new-roof-on-a-rental-a-repair-or-improvement/
+
+**Can a rental property loss offset my W-2 income?**
+Up to $25,000 a year, if you actively participate in managing the rental. The allowance phases out as modified AGI goes from $100,000 to $150,000, and married couples filing separately get less. Losses you can't use carry forward to future years or until you sell. https://mfa-advisory.com/answers/can-a-rental-loss-offset-w2-income/
+
+**Is a security deposit taxable rental income?**
+Not when you get it, if you may have to return it. It becomes income in the year you keep any of it, for example for damage or unpaid rent. A deposit that will be used as the last month's rent is advance rent, which is income in the year you receive it. https://mfa-advisory.com/answers/is-a-security-deposit-taxable-income/
 
 ## Frequently asked questions
 

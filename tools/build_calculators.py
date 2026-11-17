@@ -190,7 +190,7 @@ def data_script(d):
     return '<script type="application/json" id="calc-data">' + json.dumps(d, separators=(",", ":")).replace("</", "<\\/") + "</script>"
 
 
-def build_page(slug, title, desc, eyebrow, h1, dek, grid, below, info, data, init, f, cta_head, cta_text, extra_src=(), extra_note="", extra_checked=(), callout=True, llc=False):
+def build_page(slug, title, desc, eyebrow, h1, dek, grid, below, info, data, init, f, cta_head, cta_text, extra_src=(), extra_note="", extra_checked=(), callout=True, llc=False, lead=""):
     url = f"{BASE}/tools/{slug}/"
     data = dict(data, page_url=url)
     ld = json.dumps(clean_ld(tool_ld(PAGES[slug]["name"], url, desc)))
@@ -199,7 +199,7 @@ def build_page(slug, title, desc, eyebrow, h1, dek, grid, below, info, data, ini
             f'<main><div class="tool">{grid}</div><div class="tstack">{below}</div>'
             f'<div class="tinfo"><article class="article">{info}{also_useful(slug)}'
             f'{"<!-- product-callout:" + slug + " -->" if callout else ""}'
-            f'{sources_block(f, extra_src, extra_note, extra_checked)}</article></div></main>' +
+            f'{sources_block(f, extra_src, extra_note, extra_checked)}</article></div>{lead}</main>' +
             data_script(data) + f'<script src="/resources/calc.js?v={JS_V}"></script><script>MFA.init("{init}");</script>' +
             cta(cta_head, cta_text))
     html = f'{head}\n<body>{B.nav("res")}\n{body}\n{B.FOOT}</body></html>'
@@ -241,6 +241,16 @@ reg("1099-contractor-tracker", "1099 contractor tracker", "Tracker",
 reg("tax-deadlines-2027", "2027 business tax deadlines by entity", "Calendar",
     "Every 2027 federal, NJ and NY deadline for your entity type, with add-to-calendar files.", "cal", "calendars",
     "tax deadlines 2027 calendar entity s corp partnership c corp employer nonprofit sales tax ics")
+# niche calculators (Site, 2026-11-17, niche-growth-plan #2): built in build_niche_calcs.py, registered here so the hub lists them
+reg("no-tax-on-tips-calculator", "No tax on tips calculator", "Calculator",
+    "Estimate the 2025–2028 deduction for qualified tips: the $25,000 cap, the income phase-out and the rules for self-employed tips.", "calc", "taxcalcs",
+    "no tax on tips deduction calculator schedule 1-a qualified tips stylist barber server bartender")
+reg("airbnb-host-tax-checker", "Airbnb host tax checker", "Checker",
+    "Rental days and personal days in, answer out: the 14-day rule, Schedule C or E, and the share of expenses you can deduct.", "home", "taxcalcs",
+    "airbnb host taxes 14 day rule short term rental schedule c or e personal use days vacation home")
+reg("rental-depreciation-calculator", "Rental property depreciation calculator", "Calculator",
+    "Yearly depreciation for a residential rental over 27.5 years, with the mid-month first year and land taken out.", "home", "taxcalcs",
+    "rental property depreciation calculator 27.5 years mid month residential macrs land value")
 
 RELATED = {
     "quarterly-estimated-tax-calculator": ["1099-tax-calculator", "tax-deadlines-2027", "s-corp-tax-savings-calculator"],
@@ -251,6 +261,9 @@ RELATED = {
     "mileage-deduction-calculator": ["home-office-deduction-calculator", "1099-tax-calculator", "quarterly-estimated-tax-calculator"],
     "1099-contractor-tracker": ["tax-deadlines-2027", "1099-tax-calculator", "quarterly-estimated-tax-calculator"],
     "tax-deadlines-2027": ["quarterly-estimated-tax-calculator", "1099-contractor-tracker", "s-corp-tax-savings-calculator"],
+    "no-tax-on-tips-calculator": ["1099-tax-calculator", "quarterly-estimated-tax-calculator", "airbnb-host-tax-checker"],
+    "airbnb-host-tax-checker": ["rental-depreciation-calculator", "1099-tax-calculator", "quarterly-estimated-tax-calculator"],
+    "rental-depreciation-calculator": ["airbnb-host-tax-checker", "quarterly-estimated-tax-calculator", "1099-tax-calculator"],
 }
 
 SUPERSEDED = ["Self-employment (1099) tax calculator", "Quarterly estimated tax calculator", "S corp vs LLC savings estimator",
@@ -642,4 +655,5 @@ def build_deadlines():
 
 
 def build_all():
-    return [build_quarterly(), build_1099calc(), build_scorp(), build_tracker(), build_paycheck(), build_home(), build_mileage(), build_deadlines()]
+    import build_niche_calcs as N
+    return [build_quarterly(), build_1099calc(), build_scorp(), build_tracker(), build_paycheck(), build_home(), build_mileage(), build_deadlines()] + N.build_all()

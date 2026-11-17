@@ -319,6 +319,9 @@ def product_node(p):
 # ----------------------------------------------------------------------------------------------- related links (internal linking)
 # Tool slug -> (services anchor ids, shop product slugs, blog slugs). Rendered as a small "Related" strip on each tool page.
 RELATED = {
+    "no-tax-on-tips-calculator": (["tax-preparation"], [], ["small-business-tax-write-offs-2026"]),
+    "airbnb-host-tax-checker": (["tax-preparation"], [], ["rental-property-repairs-vs-improvements-2026"]),
+    "rental-depreciation-calculator": (["tax-preparation"], [], ["rental-property-repairs-vs-improvements-2026", "section-179-bonus-depreciation-2026"]),
     "do-i-need-to-send-a-1099": (["tax-preparation"], ["1099-kit"], ["form-1099-preparation-guide-2026"]),
     "1099-contractor-tracker": (["tax-preparation"], ["1099-kit"], ["form-1099-preparation-guide-2026"]),
     "w-9-request-email-template": (["tax-preparation"], ["1099-kit"], ["form-1099-preparation-guide-2026"]),
@@ -338,6 +341,9 @@ RELATED = {
 # Tool slug -> audience pages to link from the tool's "Related on MFA" strip (internal links, 2026-10-25).
 _ART, _INTL = ("/artists/", "Taxes for artists & creatives"), ("/international-students/", "International student tax filing")
 RELATED_PAGES = {
+    "no-tax-on-tips-calculator": [("/booth-renters/", "Booth renter taxes")],
+    "airbnb-host-tax-checker": [("/rental-property-taxes/", "Rental property taxes")],
+    "rental-depreciation-calculator": [("/rental-property-taxes/", "Rental property taxes")],
     "is-it-deductible": [_ART], "home-office-deduction-calculator": [_ART], "mileage-deduction-calculator": [_ART],
     "1099-tax-calculator": [_ART], "quarterly-estimated-tax-calculator": [_ART], "s-corp-tax-savings-calculator": [_ART],
     "paycheck-tax-calculator": [_INTL], "tax-deadlines-2027": [_INTL, _ART],
@@ -535,6 +541,10 @@ def build_llms(posts):
         f"- [Resources hub]({BASE}/resources/): all tools, calendars, templates and guides",
     ] + [f"- [{t}]({u}): {d}" for t, u, d in _tools()] + [
         "",
+        "## Tax answers (short, sourced answers for booth renters, Airbnb hosts and landlords)",
+        f"- [All tax answers]({BASE}/answers/)",
+    ] + _answers() + [
+        "",
         "## Is It Deductible? (2026 business expense deductions, one line per expense)",
         f"- [Is it tax deductible? 2026 business write-off finder]({BASE}/tools/is-it-deductible/): search {len(_deductible(False))} common business expenses; verdict, rule, limits, records to keep and the IRS source for each",
         f"- [Dataset (JSON)]({BASE}/tools/is-it-deductible/deductions.json): the same entries as structured data. Cite with a link to the page.",
@@ -614,6 +624,10 @@ def build_llms_full(posts):
     o += ["## Is It Deductible? 2026 business expense deductions (" + BASE + "/tools/is-it-deductible/)", "",
           "Educational information only, not tax, legal or accounting advice. Written for sole proprietors and single-member LLCs filing Schedule C. "
           "Dataset: " + BASE + "/tools/is-it-deductible/deductions.json (cite with a link to the page).", ""] + _deductible(True)
+    o += ["## Tax answers (" + BASE + "/answers/)", ""]
+    import build_answers as BA
+    for a in BA.ANSWERS:
+        o += [f"**{a[2]}**", a[3] + f" {BA.url(a[0])}", ""]
     o += ["## Frequently asked questions", ""]
     for q, a in _faq_home():
         o += [f"**{q}**", a, ""]
@@ -624,6 +638,11 @@ def build_llms_full(posts):
 
 
 # ----------------------------------------------------------------------------------------------- catalog.json (agent-readable)
+def _answers():
+    import build_answers as BA
+    return [f"- [{a[2]}]({BA.url(a[0])}): {BA.desc_of(a[3])}" for a in BA.ANSWERS]
+
+
 def audience_services():
     """Service nodes for the audience pages (/international-students/, /artists/), same as each page's own JSON-LD."""
     import build_intl
@@ -711,6 +730,10 @@ PAGE_KEYWORDS = {
     "/rental-property-taxes/": ["rental property tax preparation", "Schedule E help", "landlord taxes", "short-term rental taxes",
                                 "rental property depreciation"],
     "/booth-renters/": ["booth renter taxes", "salon booth rental", "barber taxes", "nail tech taxes", "no tax on tips"],
+    "/answers/": ["tax answers", "booth renter tax questions", "Airbnb host tax questions", "landlord tax questions"],
+    "/tools/no-tax-on-tips-calculator/": ["no tax on tips calculator", "qualified tips deduction", "Schedule 1-A tips", "tips deduction for stylists"],
+    "/tools/airbnb-host-tax-checker/": ["Airbnb 14-day rule", "Airbnb Schedule C or E", "short-term rental taxes", "personal use days rental"],
+    "/tools/rental-depreciation-calculator/": ["rental property depreciation calculator", "27.5 year depreciation", "mid-month convention", "residential rental depreciation"],
     "/artists/": ["artist taxes", "1099-K for artists", "Schedule C for artists", "art fair sales tax", "creative business deductions"],
     "/princeton-nj/": ["accountant Princeton NJ", "bookkeeping Princeton NJ", "tax preparation Princeton NJ", "Mercer County accountant",
                        "small business accountant Princeton"],
