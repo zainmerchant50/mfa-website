@@ -5,7 +5,7 @@ dates for 2026 tax returns but also include relevant dates for 2027 as well" (si
 Month-by-month view of every date in data/tax-calendar-2027.json (all entities merged, verified by Blog against the IRS draft
 Pub 509 for 2027, NJ and NY sources). Everything is in the HTML (SEO / AI answers); JS only filters, highlights and makes
 .ics files (MFA.pages.cal2027 in site/resources/calc.js). Each date is tagged "2026 return" or "2027 tax year".
-The printable PDF product is rendered from the same data by tools/products/render_calendar_2027.py.
+The printable PDF product is rendered from the same data by tools/render_calendar_2027.py.
 Registered in build_calculators.py (reg + RELATED). Never "free", never "CPA", no prices.
 """
 import calendar as pycal
