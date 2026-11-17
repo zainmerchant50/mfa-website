@@ -46,7 +46,7 @@ def chart(title, cid, sub=""):
 
 PAGES = {
     "home": ("", "Today", f"""<div class="rbar" id="rbar" hidden></div><div class="kpis" id="kpis"></div>
-<div class="g2 g-main today"><div class="stack">{pn("Next 7 days · every channel", "chm", "click a cell for the posts · red = nothing scheduled")}{pn("Lead pipeline", "pipe", "by stage · days since first contact")}{pn("Agents", "agl", "what each one is doing · last run")}</div>{pn("Deadlines & follow-ups", "dls", "next 14 days · hover for notes")}</div>
+<div class="g2 g-main today"><div class="stack">{pn("Next 7 days · every channel", "chm", "click a cell for the posts · red = nothing scheduled")}{pn("Niche lanes · next 14 days", "lanes", "posts per niche across channels")}{pn("Lead pipeline", "pipe", "by stage · days since first contact")}{pn("Agents", "agl", "what each one is doing · last run")}</div><div class="stack">{pn("Deadlines & follow-ups", "dls", "next 14 days · hover for notes")}{pn("Search & AI visibility", "srch", "Google, Bing, AI assistants · updated by AI-SEO")}</div></div>
 <div class="g2 g-main">{pn("Needs you", "needs", "one click answers; Undo for 10 s")}{pn("Live log", "log", "", extra='<span class="sub" id="logUpd"></span>')}</div>
 {pn("Ask the agents", "reqForm", "goes to Tasks", np=False)}
 """),

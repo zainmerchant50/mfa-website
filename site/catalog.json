@@ -1791,6 +1791,62 @@
    "@type": "DataFeedItem",
    "dateModified": "2026-11-16",
    "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/booth-renters/#service",
+    "name": "Taxes and bookkeeping for booth renters and beauty pros",
+    "url": "https://mfa-advisory.com/booth-renters/",
+    "serviceType": "Tax preparation and bookkeeping for self-employed booth renters (Schedule C, Schedule SE, tips, estimated taxes)",
+    "description": "Tax returns, bookkeeping and quarterly taxes for salon booth renters, barbers, nail and lash techs. Schedule C, tips, booth rent deductions.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": {
+     "@type": "Country",
+     "name": "United States"
+    },
+    "audience": {
+     "@type": "Audience",
+     "audienceType": "Salon booth renters, barbers, nail, lash and brow technicians"
+    },
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Booth renter tax return (Schedule C + SE)",
+      "priceCurrency": "USD",
+      "description": "Quoted up front by return type.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Booth renter tax return (Schedule C + SE)",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/booth-renters/#services"
+      },
+      "url": "https://mfa-advisory.com/booth-renters/#services"
+     },
+     {
+      "@type": "Offer",
+      "name": "Bookkeeping for booth renters",
+      "priceCurrency": "USD",
+      "description": "Monthly bookkeeping from $199/month.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Bookkeeping for booth renters",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/services/#bookkeeping"
+      },
+      "price": "199",
+      "url": "https://mfa-advisory.com/services/#bookkeeping"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-11-16",
+   "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026#product",
     "name": "1099 Self-Employed Tax Calculator & Quarterly Planner (2026)",

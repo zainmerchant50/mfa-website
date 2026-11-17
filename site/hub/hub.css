@@ -348,3 +348,8 @@ table.chm td.live{background:#F2F3F5;color:#9AA1AD}
 @media (max-width:760px){.pipe{grid-template-columns:repeat(3,minmax(0,1fr))}.dl-list li{grid-template-columns:70px 1fr}.dl-list .da{grid-column:2}.ag-list li{grid-template-columns:12px 80px 1fr}.ag-list .ag-at{grid-column:3}}
 .today .stack{display:grid;gap:16px;align-content:start;min-width:0}
 .dl-list li{padding:5px 10px}.dl-list .dt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.lanes{display:grid;gap:6px}.lane{display:grid;grid-template-columns:110px 1fr 170px;gap:10px;align-items:center;font-size:.84rem}
+.lane .ln{font-weight:600;color:var(--navy,#10233F);text-transform:capitalize}.lane .lt{background:#F2F0EA;border-radius:6px;height:12px;overflow:hidden}
+.lane .lb{display:block;height:100%;background:var(--gold,#B08D3F);border-radius:6px}.lane .lc{font-size:.76rem;color:var(--muted,#5b6475)}
+.kpis.mini{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){.lane{grid-template-columns:90px 1fr}.lane .lc{grid-column:2}}

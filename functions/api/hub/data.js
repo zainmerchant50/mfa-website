@@ -25,7 +25,7 @@ const Q = {
   links: "SELECT key, label, url FROM links ORDER BY key LIMIT 500",
   // v6 Today page (operations): dated items + the next two weeks of content across every channel
   deadlines: "SELECT id, due, title, area, owner, status, link, note, updated_at FROM deadlines WHERE status = 'open' OR due >= date('now','-3 days') ORDER BY due, id LIMIT 300",
-  calNext: "SELECT id, date, time, platform, title, status, link FROM calendar_items WHERE date >= date('now','-1 day') AND date <= date('now','+15 days') ORDER BY date, time LIMIT 1000",
+  calNext: "SELECT id, date, time, platform, title, status, link, note FROM calendar_items WHERE date >= date('now','-1 day') AND date <= date('now','+15 days') ORDER BY date, time LIMIT 1000",
 };
 
 export async function onRequestGet(ctx) {

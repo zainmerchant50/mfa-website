@@ -697,6 +697,21 @@
       al.appendChild(li);
     });
     ah.appendChild(al);
+    // niche lanes: calendar notes carry "lane: <niche>"
+    var lh = clear($("lanes")), LN = {}, end14 = addDays(t, 14);
+    C.forEach(function (r) { if (r.date < t || r.date > end14) return; var m = /lane:\s*([a-z0-9 \-\/]+)/i.exec(r.note || ""); var k = m ? m[1].trim().toLowerCase() : "general"; (LN[k] = LN[k] || { n: 0, ch: {} }).n++; var c = chOf(r.platform); if (c) LN[k].ch[c] = 1; });
+    var lk = Object.keys(LN).sort(function (a, b) { return LN[b].n - LN[a].n; }), lmax = lk.length ? LN[lk[0]].n : 1, lw = el("div", "lanes");
+    lk.forEach(function (k) { var row = el("div", "lane"), bar = el("span", "lb"); bar.style.width = Math.max(4, Math.round(LN[k].n / lmax * 100)) + "%"; add(row, el("span", "ln", k), add(el("span", "lt"), bar), el("span", "lc", LN[k].n + " · " + Object.keys(LN[k].ch).join(", "))); lw.appendChild(row); });
+    if (!lk.length) lw.appendChild(el("p", "empty", "No posts tagged with a lane yet."));
+    lh.appendChild(lw);
+    // search & AI visibility tiles (kpis search_*)
+    var K = kmap(d.kpis), sh = clear($("srch")), sg = el("div", "kpis mini");
+    [["search_google_clicks_28d", "https://search.google.com/search-console"], ["search_google_impr_28d", null], ["search_google_pos_28d", null], ["search_bing_clicks_28d", "https://www.bing.com/webmasters"], ["search_organic_sessions_28d", null], ["search_ai_referrals_28d", null], ["search_copilot_cited", null]].forEach(function (x) {
+      var k = K[x[0]]; if (!k) return;
+      kpi(sg, k.label, k.value === null || k.value === undefined ? "n/a" : n0(k.value), k.note || k.source || "", { stale: isStale(k.as_of, 24 * 8), asOf: k.as_of, bad: k.value === null, ext: x[1] ? { url: x[1], label: k.source } : null });
+    });
+    if (!sg.childNodes.length) sg.appendChild(el("p", "empty", "No search numbers yet; the AI-SEO run fills these Tue + Fri."));
+    sh.appendChild(sg);
     needsGroups($("needs"), d, true);   // Today: agent approvals only (finance lives on /hub/finance/)
     logTable($("log"), d.log || [], true); pollLog($("log"));
     tasksForm($("reqForm"));
