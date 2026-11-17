@@ -143,7 +143,7 @@ def build():
 <p class="pk-price"><b>{esc(price)}</b><span>{esc(note)}</span></p><p class="pk-lead">{esc(lead)}</p><ul class="pk-list">{lis}</ul>
 <a class="btn {"btn-gold" if feat else "btn-ink"}" href="{href}"{conv}>{esc(btn)}</a></div>''')
     steps = "".join(f'<div class="step"><h3>{esc(h)}</h3><p>{p}</p></div>' for h, p in STEPS)
-    faq = ui_kit.faq_accordion([(esc(q), a) for q, a in FAQ], prefix="rp")
+    faq = ui_kit.faq_accordion([(esc(q), a) for q, a in FAQ], prefix="br")
     src = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(t)}</a></li>' for t, u in SOURCES)
     body = f'''{CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Booth renters &amp; beauty pros</span>
 <h1>Booth renter taxes <em>for stylists, barbers and nail techs.</em></h1>
