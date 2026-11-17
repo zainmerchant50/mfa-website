@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ tions
+BEGIN:VEVENT
+UID:rental-property-repairs-vs-improvements-2026-1@mfa-advisory.com
+DTSTAMP:20261117T011314Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:2026 Form 1040 with Schedule E due\; attach safe harbor elections
+DESCRIPTION:The de minimis and small taxpayer safe harbor elections are s
+ tatements attached to your timely filed 2026 return. File Form 4868 by th
+ is date for an automatic six-month extension to file (not to pay).\n\nDet
+ ails: https://mfa-advisory.com/blog/rental-property-repairs-vs-improvemen
+ ts-2026/\nGeneral information\, not tax advice. Merchant Financial Adviso
+ ry\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/rental-property-repairs-vs-improvements
+ -2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:2026 Form 1040 with Schedule E due\; attach safe harbor elect
+ ions
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

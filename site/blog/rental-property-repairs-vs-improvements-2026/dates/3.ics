@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:rental-property-repairs-vs-improvements-2026-2@mfa-advisory.com
+DTSTAMP:20261117T011314Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271016
+SUMMARY:Extended 2026 Form 1040 due (if you filed Form 4868)
+DESCRIPTION:Safe harbor election statements can go on the timely filed ex
+ tended return.\n\nDetails: https://mfa-advisory.com/blog/rental-property-
+ repairs-vs-improvements-2026/\nGeneral information\, not tax advice. Merc
+ hant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/rental-property-repairs-vs-improvements
+ -2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Extended 2026 Form 1040 due (if you filed Form 4868)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

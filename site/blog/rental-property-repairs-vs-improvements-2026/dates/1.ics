@@ -1,0 +1,30 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ n service
+BEGIN:VEVENT
+UID:rental-property-repairs-vs-improvements-2026-0@mfa-advisory.com
+DTSTAMP:20261117T011314Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day to pay 2026 rental repairs and place improvements in ser
+ vice
+DESCRIPTION:Cash-basis landlords generally deduct rental expenses in the 
+ year paid. Depreciation on an improvement starts when it is placed in ser
+ vice\, so work finished after December 31 lands in 2027.\n\nDetails: http
+ s://mfa-advisory.com/blog/rental-property-repairs-vs-improvements-2026/\n
+ General information\, not tax advice. Merchant Financial Advisory\, mfa-a
+ dvisory.com
+URL:https://mfa-advisory.com/blog/rental-property-repairs-vs-improvements
+ -2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to pay 2026 rental repairs and place improvements in
+  service
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
