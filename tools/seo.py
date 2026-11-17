@@ -476,6 +476,8 @@ def _pricing_lines():
               "State returns for every state except Connecticut, Maryland and Oregon.",
               "- Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; "
               "bookkeeping, LLC formation and quarterly estimates at the prices above. State returns for every state except Connecticut, Maryland and Oregon.",
+              "- Landlords and short-term rental hosts (https://mfa-advisory.com/rental-property-taxes/): rental property tax returns (Schedule E, or Schedule C "
+              "for rentals with substantial services) quoted up front; depreciation, repairs vs improvements, passive loss limits; rental bookkeeping from $199/month.",
               "- Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts."]
     import build_offers as O
     lines += [f"- {v['name']}: ${v['price']}" + (" per form/person" if 'min' in v else "") + f", pay online at {BASE}{v['page']}" for v in O.SERVICES.values()]
@@ -517,6 +519,7 @@ def build_llms(posts):
         f"- [LLC annual report filing]({BASE}/llc-annual-report/): $39 plus the state fee at cost; annual report fees and due dates for all 50 states and DC",
         f"- [Late 2025 tax return filing]({BASE}/late-tax-return/): missed the October 15 deadline or never filed; Form 1040 $249, with Schedule C $399, add a state $49",
         f"- [Taxes for artists and creatives]({BASE}/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $199/month, LLC formation from $150 plus state fee, quarterly estimates $199/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC",
+        f"- [Rental property taxes for landlords and short-term rental hosts]({BASE}/rental-property-taxes/): Schedule E tax returns (quoted up front), rental bookkeeping from $199/month, depreciation over 27.5 years, repairs vs improvements, the 14-day rule, passive loss allowance",
         f"- [Machine-readable catalog]({BASE}/catalog.json): all services, prices, tools and products as schema.org JSON",
         "",
         "## Local pages",
@@ -622,7 +625,8 @@ def audience_services():
     """Service nodes for the audience pages (/international-students/, /artists/), same as each page's own JSON-LD."""
     import build_intl
     import build_artists
-    return [build_intl.service_node(), build_artists.service_node()]
+    import build_rental
+    return [build_intl.service_node(), build_artists.service_node(), build_rental.service_node()]
 
 
 def build_catalog(posts):
@@ -700,6 +704,8 @@ PAGE_KEYWORDS = {
                             "keep LLC in good standing"],
     "/international-students/": ["international student tax filing", "Form 8843", "1040-NR", "F-1 student taxes",
                                  "H-1B tax return", "nonresident alien tax"],
+    "/rental-property-taxes/": ["rental property tax preparation", "Schedule E help", "landlord taxes", "short-term rental taxes",
+                                "rental property depreciation"],
     "/artists/": ["artist taxes", "1099-K for artists", "Schedule C for artists", "art fair sales tax", "creative business deductions"],
     "/princeton-nj/": ["accountant Princeton NJ", "bookkeeping Princeton NJ", "tax preparation Princeton NJ", "Mercer County accountant",
                        "small business accountant Princeton"],
@@ -758,6 +764,7 @@ PAGE_GUIDES = {
     "/bookkeeping-cleanup/": ["small-business-tax-write-offs-2026", "schedule-c-guide-single-member-llc", "ai-in-accounting-and-tax-2026"],
     "/international-students/": ["filing-taxes-late-2025-return", "2027-tax-calendar"],
     "/artists/": ["small-business-tax-write-offs-2026", "schedule-c-guide-single-member-llc", "1099-income-filing-threshold"],
+    "/rental-property-taxes/": ["rental-property-repairs-vs-improvements-2026", "section-179-bonus-depreciation-2026", "how-long-to-keep-business-records"],
     "/princeton-nj/": ["nj-property-tax-relief-anchor-stay-nj-2026", "nj-sales-tax-st50-filing-guide", "salt-cap-2026-nj-ny-pte-tax", "2027-tax-calendar"],
     "/union-city-nj/": ["nj-property-tax-relief-anchor-stay-nj-2026", "nj-sales-tax-st50-filing-guide", "salt-cap-2026-nj-ny-pte-tax", "2027-tax-calendar"],
     "/new-york-ny/": ["salt-cap-2026-nj-ny-pte-tax", "2027-tax-calendar", "which-tax-form-llc-corporation"],
