@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:mfa-advisory.com)",
+      "WebFetch(domain:www.mfa-advisory.com)",
+      "WebFetch(domain:hub.mfa-advisory.com)",
+      "WebFetch(domain:irs.gov)",
+      "WebFetch(domain:www.irs.gov)"
+    ]
+  }
+}
