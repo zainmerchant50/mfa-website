@@ -466,6 +466,27 @@
   "file": "social/posts/2026-11-18-shopify-payout-not-revenue.json"
  },
  {
+  "date": "2026-11-19",
+  "slug": "Rental-Loss-25000-Limit",
+  "title": "Rental loss? Only up to $25,000 offsets pay",
+  "lane": "realestate",
+  "format": "image",
+  "status": "scheduled",
+  "platforms": [
+   "instagram",
+   "facebook",
+   "linkedin"
+  ],
+  "times": {
+   "instagram": "Thu Nov 19, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+   "linkedin": "Mon Dec 7, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts; Typefully 10/10)"
+  },
+  "link": "https://mfa-advisory.com/rental-property-taxes/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push&utm_content=real-estate",
+  "cta_word": "RENTAL",
+  "file": "social/posts/2026-11-19-rental-loss-25000-limit.json",
+  "agent": "Social"
+ },
+ {
   "date": "2026-11-24",
   "slug": "401k-limit-2027",
   "title": "2027 401(k) Limit Is $25,500: New Catch-Up and IRA Numbers",

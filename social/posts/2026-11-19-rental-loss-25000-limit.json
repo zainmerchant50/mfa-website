@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-19",
+  "number": 1,
+  "slug": "Rental-Loss-25000-Limit",
+  "topic": "Sprint 1 real estate lane (rule 24, lane: realestate), myth vs fact: 'my rental loss cuts the tax on my W-2 pay'. Fact (Pub 925): rental real estate is passive; with active participation (10%+ owner, approve tenants, set rent, approve spending) up to $25,000 of loss can offset nonpassive income; the allowance drops by 50% of MAGI over $100,000 and is gone at $150,000 (MFS: $12,500 if apart all year, none if lived together); disallowed loss carries forward; real estate professionals (750+ hours) follow different rules. Example MAGI $130,000, $15,000 loss: $10,000 now, $5,000 carried forward. -> /rental-property-taxes/ (Get my price quote box).",
+  "type": "service",
+  "accent": "forest",
+  "label": "Rental owners / Real estate",
+  "kicker": "Own a rental and a day job?",
+  "headline": "Rental loss? Only up to *$25,000* offsets pay",
+  "headline_size": 72,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Up to $25,000 a year",
+      "text": "If you help run it: approve tenants, set rent, OK repairs."
+    },
+    {
+      "title": "It shrinks after $100,000",
+      "text": "50 cents less for each dollar of modified AGI over $100,000."
+    },
+    {
+      "title": "Gone at $150,000",
+      "text": "The loss isn't lost. It carries forward to later years."
+    },
+    {
+      "title": "Example: $130,000 income",
+      "text": "A $15,000 loss: $10,000 counts now, $5,000 carries forward."
+    }
+  ],
+  "body": [],
+  "cta_word": "RENTAL",
+  "link": "mfa-advisory.com/rental-property-taxes",
+  "checked": "November 17, 2026",
+  "ig_caption": "Myth: a rental loss always cuts the tax on your paycheck.\nFact: the IRS treats most rentals as passive, so the loss you can use against W-2 pay has a limit.\n\n✔️ If you help run the rental (approve tenants, set rent, OK repairs), up to $25,000 of loss can offset other income.\n✔️ That amount drops by 50 cents for each dollar of modified AGI over $100,000.\n✔️ At $150,000 it's gone. The loss isn't lost; it carries forward.\n\nExample: income of $130,000 and a $15,000 rental loss. $10,000 counts this year, $5,000 waits.\n\nBefore Dec 31, run your 2026 rental numbers so April has no surprises.\n\nComment RENTAL and we'll send you the link, or find it at mfa-advisory.com/rental-property-taxes\n\nSend this to a friend who owns a rental.\n\nGeneral information, not tax advice.\n\n#realestateinvesting #landlord #taxtips #rentalproperty #realestate #smallbusiness #accounting #taxplanning\n#rentalpropertytaxes #landlordtips #passiveincome #realestateinvestor #airbnbhost #scheduleE #depreciation #propertyowner",
+  "li_caption": "A rental that shows a loss on paper does not always lower the tax on a W-2 salary. Many owners learn this in April.\n\nThe IRS treats most rental real estate as a passive activity. Passive losses generally offset only passive income, with one important exception.\n\n1. Owners who actively participate (at least 10% ownership and real decisions such as approving tenants, setting rent and approving repairs) can use up to $25,000 of rental loss against other income.\n2. The $25,000 drops by 50% of modified AGI over $100,000 and is gone at $150,000. Married filing separately has lower limits.\n3. Loss that can't be used is not lost. It carries forward to later years.\n4. Real estate professionals who meet the 750-hour test follow different rules.\n\nExample: modified AGI of $130,000 and a $15,000 rental loss. $10,000 offsets other income this year; $5,000 carries forward.\n\nBefore Dec 31, run the 2026 rental numbers so the return holds no surprises. We work with landlords and short-term rental hosts on exactly this.\n\nComment RENTAL and we will send it.\n\nLink in the first comment.\n\n#RealEstate #RentalProperty #Landlords #TaxPlanning #RealEstateInvesting",
+  "sources": [
+    {
+      "fact": "Active participation: up to $25,000 of rental real estate loss against nonpassive income; reduced by 50% of MAGI over $100,000; generally none at $150,000+ ($12,500/$50,000/$75,000 MFS if lived apart all year; none if lived together); active participation = 10% by value + management decisions such as approving new tenants, setting rental terms, approving expenditures; disallowed loss carries over to the next year; real estate professionals >750 hours (Pub 925, 2025 edition, read 2026-11-17; IRC 469(i) amounts are fixed, not inflation-indexed)",
+      "url": "https://www.irs.gov/publications/p925"
+    },
+    {
+      "fact": "$130,000 / $15,000 example is an illustration (25,000 - 50% x 30,000 = 10,000), not a client or statistic",
+      "url": "https://www.irs.gov/publications/p925"
+    },
+    {
+      "fact": "MFA page for landlords and STR hosts with 'Get my price' quote box (no prices in social posts)",
+      "url": "https://mfa-advisory.com/rental-property-taxes/"
+    }
+  ],
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/rental-property-taxes/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push&utm_content=real-estate",
+    "linkedin": "https://mfa-advisory.com/rental-property-taxes/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push&utm_content=real-estate"
+  },
+  "post_times": {
+    "instagram": "Thu Nov 19, 5:30 PM ET (Meta Business Suite, IG+FB; both copies in Content > Scheduled with the caption)",
+    "linkedin": "Mon Dec 7, 6:00 PM ET (native LinkedIn scheduler, link in body; Typefully Nov quota 10/10, Nov 17-Dec 6 each already hold a LinkedIn post)"
+  },
+  "li_caption_native": "A rental that shows a loss on paper does not always lower the tax on a W-2 salary. Many owners learn this in April.\n\nThe IRS treats most rental real estate as a passive activity. Passive losses generally offset only passive income, with one important exception.\n\n1. Owners who actively participate (at least 10% ownership and real decisions such as approving tenants, setting rent and approving repairs) can use up to $25,000 of rental loss against other income.\n2. The $25,000 drops by 50% of modified AGI over $100,000 and is gone at $150,000. Married filing separately has lower limits.\n3. Loss that can't be used is not lost. It carries forward to later years.\n4. Real estate professionals who meet the 750-hour test follow different rules.\n\nExample: modified AGI of $130,000 and a $15,000 rental loss. $10,000 offsets other income this year; $5,000 carries forward.\n\nBefore Dec 31, run the 2026 rental numbers so the return holds no surprises. We work with landlords and short-term rental hosts on exactly this.\n\nComment RENTAL and we will send it, or see https://mfa-advisory.com/rental-property-taxes/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push&utm_content=real-estate\n\n#RealEstate #RentalProperty #Landlords #TaxPlanning #RealEstateInvesting"
+}
