@@ -1,0 +1,120 @@
+{
+  "date": "2026-11-19",
+  "slug": "stream-it-write-it-off",
+  "lane": "creators",
+  "title": "You stream it. Can you write it off?",
+  "type": "value",
+  "accent": "plum",
+  "theme": "vice",
+  "label": "Creator Tax Check",
+  "checked": "November 18, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "You stream it. Can you *write it off?*",
+    "sub": "New game week: the creator tax part."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"I play it on stream, so it's a business expense\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Streaming is a business run to make a profit",
+          "r": "Can deduct",
+          "ok": true
+        },
+        {
+          "l": "Only the business-use share counts",
+          "r": "Fact",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "kicker": "All of this is income, 1099 or not",
+      "items": [
+        {
+          "t": "Tips, subs and bits"
+        },
+        {
+          "t": "Ad share and memberships"
+        },
+        {
+          "t": "Sponsor deals and gifted products"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Self-employment tax starts at",
+      "value": "$400",
+      "sub": "of net profit, at 15.3%",
+      "note": "Log payouts, save receipts, track business use."
+    }
+  ],
+  "cta": {
+    "big": "Comment *STREAM*",
+    "url": "mfa-advisory.com",
+    "sub": "Ask your creator tax question."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "GTA 6 week. You stream it. Can you write it off? 🎮\n\nMyth: \"I play it on stream, so the game is a business expense.\"\nFact: only if streaming is a business you run to make a profit, and only the business-use share. Playing for fun is personal.\n\n✔️ Every tip, sub, bit, ad share and sponsor dollar is income, 1099 or not.\n✔️ Gifted products you get in exchange for content count too.\n✔️ Self-employment tax starts at $400 of net profit.\n\nSources: IRS hobby vs business factors, Topic 420, Topic 554. Not affiliated with Rockstar Games or Take-Two.",
+    "hashtags": [
+      "#GTA6",
+      "#streamer",
+      "#contentcreator",
+      "#twitchstreamer",
+      "#creatoreconomy",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#GTA6",
+      "#creatortaxes",
+      "#streamer"
+    ],
+    "youtube_title": "Streaming GTA 6? Can You Write the Game Off? (Creator Taxes)",
+    "youtube_description": "Myth: if you play it on stream, the game is a business expense. Fact: only if streaming is a business you run to make a profit, and only the business-use share. Tips, subs, bits, ad share, sponsor deals and gifted products received for content are income, 1099 or not, and self-employment tax applies at $400 of net profit. Sources: IRS hobby vs business factors; IRS Topic 420; IRS Topic 554. General information, not advice for your situation. Not affiliated with Rockstar Games or Take-Two.",
+    "pinterest_title": "Streamers: Can You Write Off the Game You Play on Stream?",
+    "pinterest_description": "Only if streaming is a business run for profit, and only the business-use share. Tips, subs, sponsor deals and gifted products are income. Self-employment tax starts at $400 of net profit. Source: IRS.",
+    "pinterest_alt": "Sunset purple card: You stream it. Can you write it off?",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes",
+      "content creator taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Hobby vs business: profit motive factors; hobby income still reported",
+      "url": "https://www.irs.gov/newsroom/heres-how-to-tell-the-difference-between-a-hobby-and-a-business-for-tax-purposes"
+    },
+    {
+      "fact": "Goods or services received in exchange are income at fair market value",
+      "url": "https://www.irs.gov/taxtopics/tc420"
+    },
+    {
+      "fact": "SE tax 15.3%; applies at $400 net earnings",
+      "url": "https://www.irs.gov/taxtopics/tc554"
+    }
+  ],
+  "thumb": {
+    "title": "Stream it. *Write it off?*",
+    "sub": "Creator taxes, new game week"
+  }
+}

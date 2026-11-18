@@ -24,7 +24,7 @@ copyrighted audio). There is no voiceover: the on-screen text is the burned-in c
 
 Spec JSON (see social/shorts/specs/ for real ones):
   date, slug (kebab), title, type (product|value|service), accent (burgundy|amber|teal|plum|forest|slate),
-  theme? (paper|neon; omit for the classic navy look: rotate themes so the feed does not repeat),
+  theme? (paper|neon|vice; omit for the classic navy look: rotate themes so the feed does not repeat),
   label (top-right, short), checked ("October 24, 2026"),
   link {path, anchor?, label}  -> destination page on mfa-advisory.com (UTMs are added per platform),
   hook {text, sub?}  (text supports *accent* = gold italic),
@@ -388,6 +388,19 @@ body{color:#10233F;background:linear-gradient(170deg,#FBF8F1 0%,#F4EEE2 60%,#EAD
 .line{border-left-color:#8A2E2E} .val span{color:#8A2E2E}
 .row i.yes{background:#10233F;color:#FBF8F1} .row i.no{border-color:#7b8496;color:#4a5468}
 .url{background:#10233F;color:#FBF8F1}
+""",
+    "vice": """
+body{background:linear-gradient(172deg,#1c0638 0%,#4a1170 30%,#a8237f 58%,#ee4a7c 78%,#ff9447 94%,#ffc15e 100%)}
+#glow{background:radial-gradient(circle,rgba(255,193,94,.45) 0%,rgba(238,74,124,.18) 42%,transparent 70%)}
+.big,.stat,.val b,.ptitle,.from,.item .n{font-family:Inter,sans-serif;font-weight:900;font-style:italic;letter-spacing:-.02em;text-transform:uppercase;text-shadow:5px 5px 0 #1c0638}
+.big{font-size:100px} .big.hook{font-size:112px} .stat{font-size:200px}
+em{font-style:italic;color:#29f0dc;text-shadow:5px 5px 0 #1c0638,0 0 30px rgba(41,240,220,.5)}
+.lab,.kick,.qmark,.item .n,.handle{color:#29f0dc} .seg i{background:#29f0dc} .bar{background:#ff5c9e}
+.line,.item,.val,.row{background:rgba(28,6,56,.62);border-color:rgba(41,240,220,.6)}
+.line{border-left-color:#ff5c9e} .val span{color:#29f0dc}
+.row i.yes{background:#29f0dc;color:#1c0638} .row i.no{border-color:#ff5c9e;color:#ffd3e3}
+.url{background:#29f0dc;color:#1c0638}
+.handle{border-top-color:rgba(41,240,220,.5)}
 """,
     "neon": """
 body{background:linear-gradient(165deg,#05070d 0%,#0a0f1f 55%,#101a33 100%)}
