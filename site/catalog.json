@@ -1847,6 +1847,62 @@
    "@type": "DataFeedItem",
    "dateModified": "2026-11-18",
    "item": {
+    "@type": "Service",
+    "@id": "https://mfa-advisory.com/content-creator-taxes/#service",
+    "name": "Taxes and bookkeeping for content creators and streamers",
+    "url": "https://mfa-advisory.com/content-creator-taxes/",
+    "serviceType": "Tax preparation and bookkeeping for self-employed content creators (Schedule C, Schedule SE, 1099-K, estimated taxes)",
+    "description": "Tax returns, bookkeeping and quarterly taxes for streamers, YouTubers, TikTokers and influencers. Hobby vs business, gear, sponsors.",
+    "provider": {
+     "@id": "https://mfa-advisory.com/#organization"
+    },
+    "areaServed": {
+     "@type": "Country",
+     "name": "United States"
+    },
+    "audience": {
+     "@type": "Audience",
+     "audienceType": "Streamers, YouTubers, TikTok creators, influencers and podcasters"
+    },
+    "offers": [
+     {
+      "@type": "Offer",
+      "name": "Content creator tax return (Schedule C + SE)",
+      "priceCurrency": "USD",
+      "description": "Quoted up front by return type.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Content creator tax return (Schedule C + SE)",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/content-creator-taxes/#services"
+      },
+      "url": "https://mfa-advisory.com/content-creator-taxes/#services"
+     },
+     {
+      "@type": "Offer",
+      "name": "Bookkeeping for content creators",
+      "priceCurrency": "USD",
+      "description": "Monthly bookkeeping from $300/month.",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Bookkeeping for content creators",
+       "provider": {
+        "@id": "https://mfa-advisory.com/#organization"
+       },
+       "url": "https://mfa-advisory.com/services/#bookkeeping"
+      },
+      "price": "300",
+      "url": "https://mfa-advisory.com/services/#bookkeeping"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "DataFeedItem",
+   "dateModified": "2026-11-18",
+   "item": {
     "@type": "Product",
     "@id": "https://www.etsy.com/listing/4601136037/1099-self-employed-tax-calculator-2026#product",
     "name": "1099 Self-Employed Tax Calculator & Quarterly Planner (2026)",

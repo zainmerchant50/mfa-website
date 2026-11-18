@@ -475,6 +475,8 @@ if __name__ == "__main__":
     urls.append(build_rental.build())
     import build_booth  # noqa: E402  (/booth-renters/, salon booth renters & beauty pros; Zain 2026-11-16)
     urls.append(build_booth.build())
+    import build_creators  # noqa: E402  (/content-creator-taxes/, streamers/YouTubers/influencers; Zain 2026-11-18)
+    urls.append(build_creators.build())
     import build_answers  # noqa: E402  (/answers/ Q&A library for Copilot/AI search; Zain 2026-11-17 "add the website features")
     urls.extend(build_answers.build())
     import build_offers  # noqa: E402  (fixed-price services with pay-now checkout; Zain 2026-10-25 standing price approval)
