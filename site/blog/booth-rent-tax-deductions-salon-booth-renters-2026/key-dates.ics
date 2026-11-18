@@ -1,0 +1,72 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Booth Rent and Taxes: What Salon Booth Renters Can Deduct (2
+ 026)
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:booth-rent-tax-deductions-salon-booth-renters-2026-0@mfa-advisory.com
+DTSTAMP:20261118T140049Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day to pay 2026 booth renter expenses for a 2026 deduction
+DESCRIPTION:Cash-basis booth renters generally deduct expenses in the yea
+ r paid. Rent paid in advance for 2027 is deducted in 2027\, the year it a
+ pplies to.\n\nDetails: https://mfa-advisory.com/blog/booth-rent-tax-deduc
+ tions-salon-booth-renters-2026/\nGeneral information\, not tax advice. Me
+ rchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/booth-rent-tax-deductions-salon-booth-r
+ enters-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to pay 2026 booth renter expenses for a 2026 deducti
+ on
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:booth-rent-tax-deductions-salon-booth-renters-2026-1@mfa-advisory.com
+DTSTAMP:20261118T140049Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:4th 2026 estimated tax payment due (Form 1040-ES)
+DESCRIPTION:Not needed if you file your 2026 return by February 1\, 2027 
+ and pay the entire balance due with it.\n\nDetails: https://mfa-advisory.
+ com/blog/booth-rent-tax-deductions-salon-booth-renters-2026/\nGeneral inf
+ ormation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/booth-rent-tax-deductions-salon-booth-r
+ enters-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:4th 2026 estimated tax payment due (Form 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:booth-rent-tax-deductions-salon-booth-renters-2026-2@mfa-advisory.com
+DTSTAMP:20261118T140049Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:2026 Form 1040 with Schedule C and Schedule SE due\; 1st 2027 est
+ imate due
+DESCRIPTION:File Form 4868 by this date for an automatic six-month extens
+ ion to file\, not to pay.\n\nDetails: https://mfa-advisory.com/blog/booth
+ -rent-tax-deductions-salon-booth-renters-2026/\nGeneral information\, not
+  tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/booth-rent-tax-deductions-salon-booth-r
+ enters-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:2026 Form 1040 with Schedule C and Schedule SE due\; 1st 2027
+  estimate due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+ ion
+BEGIN:VEVENT
+UID:booth-rent-tax-deductions-salon-booth-renters-2026-0@mfa-advisory.com
+DTSTAMP:20261118T140049Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day to pay 2026 booth renter expenses for a 2026 deduction
+DESCRIPTION:Cash-basis booth renters generally deduct expenses in the yea
+ r paid. Rent paid in advance for 2027 is deducted in 2027\, the year it a
+ pplies to.\n\nDetails: https://mfa-advisory.com/blog/booth-rent-tax-deduc
+ tions-salon-booth-renters-2026/\nGeneral information\, not tax advice. Me
+ rchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/booth-rent-tax-deductions-salon-booth-r
+ enters-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to pay 2026 booth renter expenses for a 2026 deducti
+ on
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

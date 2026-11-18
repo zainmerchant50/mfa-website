@@ -244,6 +244,7 @@ img{max-width:100%;height:auto;display:block}
 .helpbox{background:var(--navy,#10233F);color:#fff;border-radius:14px;padding:22px 26px;margin:0 0 34px;box-shadow:0 10px 30px rgba(16,35,63,.12)}
 .helpbox .hb-h{font-family:var(--serif,Georgia,serif);font-size:1.35rem;line-height:1.25;margin:0 0 6px;color:#fff}
 .helpbox .hb-p{margin:0 0 14px;color:rgba(255,255,255,.82)}
+.helpbox .hb-p a{color:var(--gold-b,#D8B769);text-decoration-color:rgba(216,183,105,.6)}
 .helpbox .hb-btns{display:flex;flex-wrap:wrap;gap:10px}
 .helpbox .btn-line{color:#fff;border-color:rgba(255,255,255,.45)}
 .helpbox-end{margin:34px 0}
