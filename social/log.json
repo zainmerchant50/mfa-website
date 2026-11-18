@@ -644,5 +644,24 @@
   "file": "social/shorts/specs/2026-11-30-rental-ready-to-rent-dec-31.json",
   "agent": "Reel studio",
   "batch": "2026-11-16"
+ },
+ {
+  "date": "2026-11-20",
+  "slug": "Estimate-Safe-Harbor-Last-Year",
+  "title": "Last year's tax can be your safe number",
+  "lane": "general",
+  "format": "image",
+  "status": "scheduled",
+  "platforms": [
+   "linkedin"
+  ],
+  "times": {
+   "linkedin": "Tue Dec 8, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts)",
+   "instagram": "not posted: 5:30 PM IG+FB photo slot dropped from Nov 20 (Zain, Nov 17 11:29); reel brief sent to Reel studio"
+  },
+  "link": "https://mfa-advisory.com/quarterly-estimated-taxes/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push&utm_content=estimates",
+  "cta": "ESTIMATE",
+  "file": "social/posts/2026-11-20-estimate-safe-harbor-last-year.json",
+  "agent": "Social"
  }
 ]

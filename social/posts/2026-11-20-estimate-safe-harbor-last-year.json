@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-20",
+  "number": 1,
+  "slug": "Estimate-Safe-Harbor-Last-Year",
+  "topic": "Nov push live offer (quarterly estimates, /quarterly-estimated-taxes/), lane: general, myth vs fact: 'you have to guess this year's income exactly to pay estimates right'. Fact (IRS Estimated taxes page + Pub 505 2026): most people avoid the underpayment penalty if they owe under $1,000, or paid at least 90% of the 2026 tax, or 100% of the tax on the 2025 return (110% if 2025 AGI was over $150,000, $75,000 MFS). Last 2026 payment due January 15, 2027 (skip it if the 2026 return is filed by Jan 31, 2027 and fully paid). Example: 2025 tax $8,000 -> $2,000 a quarter. LinkedIn only: the 5:30 PM IG+FB photo slot is dropped from Nov 20 (Zain, Nov 17 11:29); reel brief sent to Reel studio.",
+  "type": "value",
+  "accent": "teal",
+  "label": "Self-employed / Estimated tax",
+  "kicker": "Guessing your Jan 15 payment?",
+  "headline": "Last year's tax can be your *safe* number",
+  "headline_size": 72,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Pay 100% of last year's tax",
+      "text": "Spread over the four payments. Most people avoid the penalty."
+    },
+    {
+      "title": "110% if income was higher",
+      "text": "If 2025 AGI was over $150,000 ($75,000 married filing separately)."
+    },
+    {
+      "title": "Or 90% of this year's tax",
+      "text": "Whichever is smaller. Owe under $1,000? No penalty."
+    },
+    {
+      "title": "Last 2026 payment: Jan 15",
+      "text": "Example: $8,000 tax for 2025 means $2,000 a quarter."
+    }
+  ],
+  "body": [],
+  "cta_word": "ESTIMATE",
+  "link": "mfa-advisory.com/quarterly-estimated-taxes",
+  "checked": "November 18, 2026",
+  "ig_caption": "Myth: to pay estimated tax right, you have to guess this year's income exactly.\nFact: the IRS gives you a safe number you already know: last year's tax.\n\n✔️ Pay at least 100% of the tax on your 2025 return, spread over the four payments, and most people avoid the underpayment penalty.\n✔️ If your 2025 AGI was over $150,000 ($75,000 married filing separately), use 110%.\n✔️ Or pay 90% of your 2026 tax, whichever is smaller. Owe under $1,000 after withholding? No penalty.\n\nExample: your 2025 tax was $8,000. Paying $2,000 a quarter covers you, even if 2026 was a bigger year. You settle the rest in April.\n\nThe last 2026 payment is due January 15, 2027. State rules vary (NJ and NY have their own).\n\nComment ESTIMATE and we'll send you the link, or find it at mfa-advisory.com/quarterly-estimated-taxes\n\nGeneral information, not tax advice.\n\n#taxtips #smallbusiness #selfemployed #accounting #taxplanning #entrepreneur #independentcontractor #businessowner\n#estimatedtaxes #quarterlytaxes #1099 #sidehustle #irs #taxseason #gigworker #solopreneur",
+  "li_caption": "Many self-employed owners skip estimated tax payments because they can't predict this year's income. The IRS rules give a simpler starting point.\n\nMost people avoid the underpayment penalty if any one of these is true:\n\n1. They owe less than $1,000 after withholding and credits.\n2. They paid at least 90% of the tax for the current year.\n3. They paid at least 100% of the tax shown on last year's return, spread over the four payment dates. If last year's AGI was over $150,000 ($75,000 married filing separately), the figure is 110%.\n\nOption 3 uses a number you already know. Example: 2025 tax of $8,000 means $2,000 a quarter covers the penalty test, even if 2026 profit doubled. The balance is due in April.\n\nThe last 2026 payment is due January 15, 2027. Filing the 2026 return by January 31 and paying in full also works. State rules differ; New Jersey and New York set their own.\n\nWe set up 2027 estimates for business owners so each payment is planned, not guessed.\n\nComment ESTIMATE and we will send it.\n\nLink in the first comment.\n\n#EstimatedTaxes #SmallBusiness #SelfEmployed #TaxPlanning #Entrepreneurs",
+  "sources": [
+    {
+      "fact": "Individuals generally must pay estimated tax if they expect to owe $1,000 or more; most avoid the penalty if they owe less than $1,000 after withholding and credits, or paid at least 90% of the current-year tax or 100% of the prior-year tax, whichever is smaller (IRS Estimated taxes page, read 2026-11-18)",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes"
+    },
+    {
+      "fact": "Higher income taxpayers: if 2025 AGI was more than $150,000 ($75,000 if 2026 status is married filing separately), substitute 110% for 100%; fourth 2026 payment due January 15, 2027; if the 2026 return is filed by January 31, 2027 and the rest of the tax is paid, the January 15 payment is not needed (Pub 505 (2026), read 2026-11-18)",
+      "url": "https://www.irs.gov/publications/p505"
+    },
+    {
+      "fact": "NJ-1040-ES and NY IT-2105 fourth 2026 payments also due Jan 15, 2027 (repo data/tax-calendar-2027.json, checked 2026-10-20)",
+      "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040esi.pdf"
+    },
+    {
+      "fact": "$8,000 / $2,000 a quarter example is an illustration (100% of prior-year tax / 4), not a client or statistic",
+      "url": "https://www.irs.gov/publications/p505"
+    },
+    {
+      "fact": "MFA live offer page: quarterly estimated taxes (no prices in social posts)",
+      "url": "https://mfa-advisory.com/quarterly-estimated-taxes/"
+    }
+  ],
+  "utm_links": {
+    "instagram": "https://mfa-advisory.com/quarterly-estimated-taxes/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push&utm_content=estimates",
+    "linkedin": "https://mfa-advisory.com/quarterly-estimated-taxes/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push&utm_content=estimates"
+  },
+  "post_times": {
+    "instagram": "Not posted: the 5:30 PM IG+FB photo slot is dropped from Nov 20 (Zain, Nov 17 11:29); idea sent to Reel studio as a reel brief",
+    "linkedin": "Tue Dec 8, 6:00 PM ET (native LinkedIn scheduler, link in body, image attached; verified in View all scheduled posts; Typefully 10/10 until Dec 1, Nov 20-Dec 7 each already hold a LinkedIn post)"
+  },
+  "li_caption_native": "Many self-employed owners skip estimated tax payments because they can't predict this year's income. The IRS rules give a simpler starting point.\n\nMost people avoid the underpayment penalty if any one of these is true:\n\n1. They owe less than $1,000 after withholding and credits.\n2. They paid at least 90% of the tax for the current year.\n3. They paid at least 100% of the tax shown on last year's return, spread over the four payment dates. If last year's AGI was over $150,000 ($75,000 married filing separately), the figure is 110%.\n\nOption 3 uses a number you already know. Example: 2025 tax of $8,000 means $2,000 a quarter covers the penalty test, even if 2026 profit doubled. The balance is due in April.\n\nThe last 2026 payment is due January 15, 2027. Filing the 2026 return by January 31 and paying in full also works. State rules differ; New Jersey and New York set their own.\n\nWe set up 2027 estimates for business owners so each payment is planned, not guessed.\n\nComment ESTIMATE and we will send it, or see https://mfa-advisory.com/quarterly-estimated-taxes/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push&utm_content=estimates\n\n#EstimatedTaxes #SmallBusiness #SelfEmployed #TaxPlanning #Entrepreneurs"
+}
