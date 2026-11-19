@@ -9,8 +9,8 @@
   "checked": "November 16, 2026",
   "series": "Rental Tax Check",
   "link": {
-    "path": "/book/",
-    "label": "Book a call about your rental (MFA)"
+    "path": "/rental-property-taxes/",
+    "label": "Rental property taxes (MFA)"
   },
   "hook": {
     "text": "Repair or *improvement*?",

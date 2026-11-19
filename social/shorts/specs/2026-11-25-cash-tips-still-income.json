@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-25",
+  "slug": "cash-tips-still-income",
+  "lane": "booth-renters",
+  "title": "Myth: cash tips aren't income.",
+  "type": "value",
+  "accent": "amber",
+  "theme": "paper",
+  "label": "Booth Renter Tax Check",
+  "checked": "November 19, 2026",
+  "series": "Myth vs Fact",
+  "link": {
+    "path": "/tools/no-tax-on-tips-calculator/",
+    "label": "No tax on tips calculator (MFA)"
+  },
+  "hook": {
+    "text": "Myth: *cash tips* aren't income.",
+    "sub": "Stylists, barbers, nail and lash techs."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"Cash tips don't count\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Cash and card tips go on your return",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "\"No tax on tips\" means skip reporting",
+          "r": "Myth",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "The new tips deduction, up to",
+      "value": "$25,000",
+      "sub": "a year, tax years 2025 to 2028",
+      "note": "No itemizing needed. Valid SSN required."
+    },
+    {
+      "type": "list",
+      "kicker": "Booth renter? Your limit",
+      "items": [
+        {
+          "t": "Capped at your business's net income",
+          "s": "before this deduction"
+        },
+        {
+          "t": "Phases out over $150,000 MAGI",
+          "s": "$300,000 joint"
+        },
+        {
+          "t": "Log tips every day, cash too"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Comment *TIPS*",
+    "url": "mfa-advisory.com",
+    "sub": "Try the no tax on tips calculator."
+  },
+  "captions": {
+    "comment_word": "TIPS",
+    "instagram": "Myth: cash tips aren't income. ✂️ Stylists, barbers, nail and lash techs, this one's for you.\n\nFact: cash and card tips both go on your return. The new \"no tax on tips\" deduction works off tips you report, so skipping them can cost you the deduction.\n\n✔️ Deduction up to $25,000 a year for tax years 2025 to 2028, with or without itemizing.\n✔️ Booth renter? It can't be more than your business's net income before the deduction.\n✔️ Phases out over $150,000 MAGI ($300,000 joint). Valid SSN needed; married couples file jointly.\n✔️ Log tips every day, cash included.\n\nComment TIPS or try our no tax on tips calculator (link in bio).\n\nSource: IRS newsroom, \"What the No Tax on Tips deduction means for you\"; IRS Topic 761. General information, not advice for your situation.",
+    "hashtags": [
+      "#boothrenter",
+      "#hairstylist",
+      "#barber",
+      "#nailtech",
+      "#lashtech",
+      "#notaxontips",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#notaxontips",
+      "#boothrenter",
+      "#taxtips"
+    ],
+    "youtube_title": "Cash Tips Aren't Income? Booth Renter Myth vs Fact (No Tax on Tips)",
+    "youtube_description": "Myth: cash tips aren't income. Fact: cash and card tips go on your return, and the no tax on tips deduction is figured from tips you report. The deduction is up to $25,000 a year for tax years 2025 through 2028, available whether you itemize or not, needs a valid SSN, and phases out above $150,000 MAGI ($300,000 joint). For self-employed booth renters it can't exceed the net income of the business where the tips were earned. Sources: IRS newsroom; IRS Topic 761. General information, not advice for your situation.",
+    "pinterest_title": "Booth Renters: Cash Tips Still Go on Your Return",
+    "pinterest_description": "The no tax on tips deduction (up to $25,000, 2025 to 2028) works off reported tips. Self-employed: capped at your business's net income. Source: IRS.",
+    "pinterest_alt": "Cream card: Myth: cash tips aren't income.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "no tax on tips booth renter",
+      "cash tips taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "$25,000 max; 2025-2028; phase-out $150k/$300k; self-employed limited to net income of the business; itemize or not; SSN; joint",
+      "url": "https://www.irs.gov/newsroom/what-the-no-tax-on-tips-deduction-means-for-you"
+    },
+    {
+      "fact": "Tips reported as income",
+      "url": "https://www.irs.gov/taxtopics/tc761"
+    }
+  ],
+  "thumb": {
+    "title": "Myth: *cash tips* aren't income.",
+    "sub": "Booth renters, read this"
+  }
+}

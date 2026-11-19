@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-23",
+  "slug": "streaming-pc-business-share",
+  "lane": "creators",
+  "title": "New streaming PC. Is it a write-off?",
+  "type": "value",
+  "accent": "teal",
+  "theme": "vice",
+  "label": "Creator Tax Check",
+  "checked": "November 19, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Built a new *streaming PC* this month?",
+    "sub": "Read this before you call it a write-off."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"The whole PC is a write-off\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Only the business-use share counts",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "Gaming for fun on it is personal use",
+          "r": "Fact",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "text": "Ordered Dec 30, set up Jan 3? It counts in *2027.*"
+    },
+    {
+      "type": "list",
+      "kicker": "Before Dec 31",
+      "items": [
+        {
+          "t": "Set it up and put it to work",
+          "s": "placed in service = ready to use"
+        },
+        {
+          "t": "Keep the receipt and the date"
+        },
+        {
+          "t": "Log stream hours vs personal hours"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Section 179 needs more than",
+      "value": "50%",
+      "sub": "business use",
+      "note": "Streaming has to be a business run for profit."
+    }
+  ],
+  "cta": {
+    "big": "Comment *STREAM*",
+    "url": "mfa-advisory.com",
+    "sub": "Ask your creator tax question."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Built a new streaming PC this month? 🎮 Read this before you call it a write-off.\n\nMyth: \"The whole PC is a business expense.\"\nFact: only the business-use share counts, and only if streaming is a business you run to make a profit. Gaming for fun on the same PC is personal use.\n\n✔️ It counts the year it's placed in service: set up and ready to use. Ordered Dec 30 but set up Jan 3 means 2027.\n✔️ Keep the receipt and the date it went live.\n✔️ Log stream hours vs personal hours.\n\nComment STREAM with your creator tax question.\n\nSource: IRS Publication 946. General information, not advice for your situation.",
+    "hashtags": [
+      "#streamer",
+      "#contentcreator",
+      "#streamingsetup",
+      "#gamingpc",
+      "#creatoreconomy",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#creatortaxes",
+      "#gamingpc"
+    ],
+    "youtube_title": "New Streaming PC: Is It a Tax Write-Off? (Business-Use Share)",
+    "youtube_description": "Myth: the whole streaming PC is a write-off. Fact: only the business-use share counts, and only if streaming is a business run to make a profit; gaming for fun on the same computer is personal use. Property is depreciated starting the year it is placed in service, meaning ready and available for use, not when you order it. Section 179 needs more than 50% business use. Keep the receipt, the setup date and a log of stream vs personal hours. Source: IRS Publication 946. General information, not advice for your situation.",
+    "pinterest_title": "Streamers: Is Your New Gaming PC a Write-Off?",
+    "pinterest_description": "Only the business-use share counts, and it counts the year it's set up and in use. Section 179 needs more than 50% business use. Source: IRS Pub 946.",
+    "pinterest_alt": "Sunset card: New streaming PC. Is it a write-off?",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes",
+      "streaming pc tax deduction"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Placed in service = ready and available for a specific use; business-use part only; Section 179 needs >50% business use",
+      "url": "https://www.irs.gov/publications/p946"
+    },
+    {
+      "fact": "Hobby vs business profit motive",
+      "url": "https://www.irs.gov/newsroom/heres-how-to-tell-the-difference-between-a-hobby-and-a-business-for-tax-purposes"
+    }
+  ],
+  "thumb": {
+    "title": "New *streaming PC.*",
+    "sub": "Is it a write-off?"
+  }
+}
