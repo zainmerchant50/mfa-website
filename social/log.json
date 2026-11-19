@@ -663,5 +663,25 @@
   "cta": "ESTIMATE",
   "file": "social/posts/2026-11-20-estimate-safe-harbor-last-year.json",
   "agent": "Social"
+ },
+ {
+  "date": "2026-11-23",
+  "slug": "Count-Inventory-Dec-31",
+  "title": "Unsold stock on Dec 31 isn't a 2026 write-off",
+  "lane": "ecommerce",
+  "format": "image",
+  "status": "scheduled",
+  "platforms": [
+   "linkedin"
+  ],
+  "time": "Wed Dec 9, 6:00 PM ET",
+  "times": {
+   "linkedin": "Wed Dec 9, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts)",
+   "instagram": "not posted: IG+FB photo slot dropped from Nov 20; reel brief sent to Reel studio"
+  },
+  "link": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=linkedin&utm_medium=social&utm_campaign=ecommerce&utm_content=inventory-dec-31",
+  "cta": "BOOKS",
+  "file": "social/posts/2026-11-23-count-inventory-dec-31.json",
+  "agent": "Social"
  }
 ]

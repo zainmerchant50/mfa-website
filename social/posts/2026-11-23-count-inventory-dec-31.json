@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-23",
+  "number": 1,
+  "slug": "Count-Inventory-Dec-31",
+  "topic": "Rule 24 sprint 1 e-commerce lane (Comment BOOKS -> /bookkeeping-cleanup/, utm_campaign=ecommerce), myth vs fact with a Dec 31 deadline hook: 'Every dollar of stock I bought in 2026 is a 2026 write-off.' Fact (IRS Pub 334 (2025), Cost of Goods Sold + Schedule C lines 35-42): cost of goods sold = beginning inventory + purchases and other costs - inventory at end of year; the closing inventory is subtracted and the remainder is cost of goods sold. Small business taxpayers may skip keeping an inventory, but then treat it as non-incidental materials and supplies (cost deducted when the items are used or sold) or follow their books. Example: $0 at the start, $30,000 of stock bought, $8,000 still on the shelf Dec 31 -> $22,000 cost of goods sold for 2026. LinkedIn only (5:30 PM IG+FB photo slot dropped from Nov 20); reel brief sent to Reel studio.",
+  "type": "value",
+  "accent": "forest",
+  "label": "Online sellers / Inventory",
+  "kicker": "Selling on Shopify, Etsy or Amazon?",
+  "headline": "Unsold stock on Dec 31 isn't a *2026* write-off",
+  "headline_size": 68,
+  "layout": "list",
+  "items": [
+    {
+      "title": "Myth: all stock you bought counts",
+      "text": "You deduct the cost of the goods you sold, not every purchase."
+    },
+    {
+      "title": "Count what's left on Dec 31",
+      "text": "That ending inventory is subtracted. It carries into 2027."
+    },
+    {
+      "title": "Example: $30,000 bought",
+      "text": "Started at $0? $8,000 left means $22,000 cost of goods sold."
+    },
+    {
+      "title": "Smaller sellers have options",
+      "text": "Simpler methods exist, but unsold stock still waits until it sells."
+    }
+  ],
+  "body": [],
+  "cta_word": "BOOKS",
+  "link": "mfa-advisory.com/bookkeeping-cleanup",
+  "checked": "November 19, 2026",
+  "ig_caption": "Myth: every dollar of stock you bought in 2026 is a 2026 write-off.\nFact: you deduct the cost of the goods you sold. What's still on the shelf on Dec 31 waits.\n\n✔️ Cost of goods sold = stock at the start of the year + what you bought - stock left at year end.\n✔️ Example: $0 at the start, $30,000 bought, $8,000 left on Dec 31. Your 2026 cost of goods sold is $22,000, not $30,000.\n✔️ Smaller sellers can use simpler methods, but unsold stock still waits until it sells.\n\nCount what's left on Dec 31 (warehouse, garage and Amazon FBA) and write the number down.\n\nComment BOOKS and we'll send you the link, or find it at mfa-advisory.com/bookkeeping-cleanup\n\nGeneral information, not tax advice.\n\n#onlineseller #ecommerce #shopifyseller #etsyseller #amazonseller #inventory #bookkeeping #smallbusiness",
+  "li_caption": "Many online sellers expect every dollar of stock bought this year to reduce this year's taxable profit. The IRS cost of goods sold rules work differently.\n\nYou deduct the cost of what you sold. Stock still on hand on December 31 is subtracted and carries into next year.\n\n1. Start with inventory at the beginning of the year.\n2. Add purchases and other product costs.\n3. Subtract inventory at the end of the year. The remainder is cost of goods sold.\n\nExample: a seller starts 2026 with no stock, buys $30,000 of products and has $8,000 left on December 31. Cost of goods sold for 2026 is $22,000, not $30,000. The $8,000 is deducted when those items sell.\n\nSmaller businesses can choose simpler inventory methods, but unsold stock generally still waits until it is sold.\n\nBefore December 31, plan a count of everything on hand: home, storage unit and marketplace warehouses such as Amazon FBA. Write down the quantity and cost.\n\nWe set up and clean up books for online sellers so inventory and cost of goods sold match the tax return.\n\nComment BOOKS and we will send it.\n\nLink in the first comment.\n\n#Ecommerce #OnlineSellers #SmallBusiness #Bookkeeping #Inventory",
+  "sources": [
+    {
+      "fact": "Cost of goods sold: beginning inventory plus purchases and other costs, minus inventory at end of year (Schedule C line 41 subtracted from line 40 gives line 42); the remainder is cost of goods sold during the tax year (IRS Pub 334 (2025), Cost of Goods Sold, read 2026-11-19)",
+      "url": "https://www.irs.gov/publications/p334"
+    },
+    {
+      "fact": "Small business taxpayers (average annual gross receipts at or under the indexed threshold for the 3 prior years) may choose not to keep an inventory and instead treat inventory as non-incidental materials and supplies or follow their books (IRS Pub 334 (2025), read 2026-11-19)",
+      "url": "https://www.irs.gov/publications/p334"
+    },
+    {
+      "fact": "$30,000 / $8,000 / $22,000 example is an illustration of the formula, not a client or statistic",
+      "url": "https://www.irs.gov/instructions/i1040sc"
+    },
+    {
+      "fact": "MFA page: bookkeeping cleanup (no prices in social posts)",
+      "url": "https://mfa-advisory.com/bookkeeping-cleanup/"
+    }
+  ],
+  "utm_links": {
+    "linkedin": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=linkedin&utm_medium=social&utm_campaign=ecommerce&utm_content=inventory-dec-31",
+    "instagram": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=instagram&utm_medium=video&utm_campaign=ecommerce&utm_content=inventory-dec-31"
+  },
+  "post_times": {
+    "instagram": "Not posted: IG+FB photo slot dropped from Nov 20 (Zain, Nov 17 11:29); reel brief sent to Reel studio",
+    "linkedin": "Wed Dec 9, 6:00 PM ET (native LinkedIn scheduler, link in body, image attached; verified in View all scheduled posts; Typefully 10/10 until Dec 1; Nov 19-Dec 8 each already hold a LinkedIn post)"
+  },
+  "li_caption_native": "Many online sellers expect every dollar of stock bought this year to reduce this year's taxable profit. The IRS cost of goods sold rules work differently.\n\nYou deduct the cost of what you sold. Stock still on hand on December 31 is subtracted and carries into next year.\n\n1. Start with inventory at the beginning of the year.\n2. Add purchases and other product costs.\n3. Subtract inventory at the end of the year. The remainder is cost of goods sold.\n\nExample: a seller starts 2026 with no stock, buys $30,000 of products and has $8,000 left on December 31. Cost of goods sold for 2026 is $22,000, not $30,000. The $8,000 is deducted when those items sell.\n\nSmaller businesses can choose simpler inventory methods, but unsold stock generally still waits until it is sold.\n\nBefore December 31, plan a count of everything on hand: home, storage unit and marketplace warehouses such as Amazon FBA. Write down the quantity and cost.\n\nWe set up and clean up books for online sellers so inventory and cost of goods sold match the tax return.\n\nComment BOOKS and we will send it, or see https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=linkedin&utm_medium=social&utm_campaign=ecommerce&utm_content=inventory-dec-31\n\n#Ecommerce #OnlineSellers #SmallBusiness #Bookkeeping #Inventory"
+}
