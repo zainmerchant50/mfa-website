@@ -148,7 +148,7 @@ def build():
                              "We file the returns, make the payments on time and remind you before each deadline.",
                              [("tax-return", "2026 tax return"), ("estimates", "Quarterly estimated taxes for 2027"), ("payroll-1099", "1099s, W-2s or payroll filings"),
                               ("bookkeeping", "Monthly bookkeeping"), ("question", "A quick question first")],
-                             ["A fixed quote before any work starts", "Federal, New Jersey and New York"], sticky=False)
+                             ["A fixed quote before any work starts", "Federal, New Jersey and New York"], sticky=False, example="For example: single-member LLC in NJ, paying quarterly estimates")
     return C.build_page(slug, "2027 Tax Calendar: Federal, NJ & NY Dates by Month",
                         "Every 2027 tax deadline by month: 2026 returns, 1099s, W-2s, estimated taxes, payroll and sales tax, federal, New Jersey and New York.",
                         "2027 tax calendar", "2027 tax calendar",

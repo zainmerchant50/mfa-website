@@ -61,7 +61,7 @@ def build_tips():
                              "We prepare returns for stylists, barbers, nail techs and other tipped workers, employee or booth renter.",
                              [("tax-return", "Tax return with the tips deduction"), ("booth-renter", "Booth renter taxes and quarterly estimates"),
                               ("bookkeeping", "Monthly bookkeeping"), ("question", "A quick question first")],
-                             ["A fixed quote before any work starts", "Tips, booth rent and self-employment tax handled together"], calc=True)
+                             ["A fixed quote before any work starts", "Tips, booth rent and self-employment tax handled together"], calc=True, example="For example: hairstylist, about $12,000 in tips a year")
     return C.build_page(slug, "No Tax on Tips Calculator (2025–2028 Deduction)",
                         "Estimate the no tax on tips deduction: up to $25,000 of qualified tips, the $150,000 phase-out and the rules for booth renters.",
                         "No tax on tips", "No tax on tips calculator",

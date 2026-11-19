@@ -181,7 +181,8 @@ def build():
 {lead_box.lead_box("Content creator taxes", "page-creators", "Get your creator tax price.",
     "Tell us which platforms pay you and what you create, and we'll email a fixed quote within one business day.",
     [("tax-return", "Tax return (Schedule C)"), ("estimates", "Quarterly estimated taxes"), ("bookkeeping", "Monthly bookkeeping"), ("question", "A quick question first")],
-    ["Streamers, YouTubers, TikTokers, influencers and podcasters", "Payouts, sponsors, gear and self-employment tax handled together", "Price confirmed before any work starts"])}
+    ["Streamers, YouTubers, TikTokers, influencers and podcasters", "Payouts, sponsors, gear and self-employment tax handled together", "Price confirmed before any work starts"],
+    example="For example: Twitch + YouTube, about $3,000 a month in sponsors")}
 <section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">Content creator tax questions</h2></div>{faq}</section>
 <section class="wrap llc-sec" aria-labelledby="src-h"><div class="sec-hd"><span class="eyebrow eb-dark">Sources</span><h2 id="src-h">Checked against the IRS.</h2></div>
 <div class="br-src"><div class="sources"><ul>{src}</ul><p class="factline">Facts checked against the pages above on {nice}.</p></div></div></section>

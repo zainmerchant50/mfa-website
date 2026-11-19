@@ -176,7 +176,8 @@ def build():
 {lead_box.lead_box("Booth renter taxes", "page-booth", "Get your booth renter price.",
     "Tell us what you do and how you get paid, and we'll email a fixed quote within one business day.",
     [("tax-return", "Tax return (Schedule C)"), ("estimates", "Quarterly estimated taxes"), ("bookkeeping", "Monthly bookkeeping"), ("question", "A quick question first")],
-    ["Stylists, barbers, nail, lash and brow techs", "Tips, booth rent and self-employment tax handled together", "Price confirmed before any work starts"])}
+    ["Stylists, barbers, nail, lash and brow techs", "Tips, booth rent and self-employment tax handled together", "Price confirmed before any work starts"],
+    example="For example: I rent a chair in a NJ salon and get paid in cash and Square")}
 <section class="wrap llc-sec faqs" id="faqs" aria-labelledby="faq-h"><div class="sec-hd"><span class="eyebrow eb-dark">Questions</span><h2 id="faq-h">Booth renter tax questions</h2></div>{faq}</section>
 <section class="wrap llc-sec" aria-labelledby="src-h"><div class="sec-hd"><span class="eyebrow eb-dark">Sources</span><h2 id="src-h">Checked against the IRS.</h2></div>
 <div class="br-src"><div class="sources"><ul>{src}</ul><p class="factline">Facts checked against the pages above on {nice}.</p></div></div></section>
