@@ -14,10 +14,14 @@
     "label": "Content creator taxes (MFA)"
   },
   "hook": {
-    "text": "You stream it. Can you *write it off?*",
-    "sub": "New game week: the creator tax part."
+    "text": "Played *GTA VI* yet?",
+    "sub": "Streaming it? Read this before tax time."
   },
   "beats": [
+    {
+      "type": "question",
+      "text": "You stream it. Can you *write it off?*"
+    },
     {
       "type": "rows",
       "kicker": "Myth vs fact",
@@ -69,7 +73,7 @@
   },
   "captions": {
     "comment_word": "STREAM",
-    "instagram": "GTA 6 week. You stream it. Can you write it off? 🎮\n\nMyth: \"I play it on stream, so the game is a business expense.\"\nFact: only if streaming is a business you run to make a profit, and only the business-use share. Playing for fun is personal.\n\n✔️ Every tip, sub, bit, ad share and sponsor dollar is income, 1099 or not.\n✔️ Gifted products you get in exchange for content count too.\n✔️ Self-employment tax starts at $400 of net profit.\n\nSources: IRS hobby vs business factors, Topic 420, Topic 554. Not affiliated with Rockstar Games or Take-Two.",
+    "instagram": "Played GTA VI yet? 🎮 If you're streaming it, read this before tax time.\n\nMyth: \"I play it on stream, so the game is a business expense.\"\nFact: only if streaming is a business you run to make a profit, and only the business-use share. Playing for fun is personal.\n\n✔️ Every tip, sub, bit, ad share and sponsor dollar is income, 1099 or not.\n✔️ Gifted products you get in exchange for content count too.\n✔️ Self-employment tax starts at $400 of net profit.\n\nSources: IRS hobby vs business factors, Topic 420, Topic 554. Not affiliated with Rockstar Games or Take-Two.",
     "hashtags": [
       "#GTA6",
       "#streamer",
@@ -85,7 +89,7 @@
       "#creatortaxes",
       "#streamer"
     ],
-    "youtube_title": "Streaming GTA 6? Can You Write the Game Off? (Creator Taxes)",
+    "youtube_title": "Played GTA VI Yet? Streamers, Can You Write It Off?",
     "youtube_description": "Myth: if you play it on stream, the game is a business expense. Fact: only if streaming is a business you run to make a profit, and only the business-use share. Tips, subs, bits, ad share, sponsor deals and gifted products received for content are income, 1099 or not, and self-employment tax applies at $400 of net profit. Sources: IRS hobby vs business factors; IRS Topic 420; IRS Topic 554. General information, not advice for your situation. Not affiliated with Rockstar Games or Take-Two.",
     "pinterest_title": "Streamers: Can You Write Off the Game You Play on Stream?",
     "pinterest_description": "Only if streaming is a business run for profit, and only the business-use share. Tips, subs, sponsor deals and gifted products are income. Self-employment tax starts at $400 of net profit. Source: IRS.",
@@ -114,7 +118,7 @@
     }
   ],
   "thumb": {
-    "title": "Stream it. *Write it off?*",
-    "sub": "Creator taxes, new game week"
+    "title": "Played *GTA VI* yet?",
+    "sub": "Streamers: read this before tax time"
   }
 }
