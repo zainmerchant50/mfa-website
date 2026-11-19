@@ -1,687 +1,754 @@
 [
- {
-  "date": "2026-10-23",
-  "slug": "1099-Contractor-Tracker",
-  "type": "product",
-  "topic": "1099-NEC $2,000 threshold",
-  "product": "09",
-  "cta": "TRACKER",
-  "folder": "2026-10-23 Fri - 1099 Contractor Tracker"
- },
- {
-  "date": "2026-10-26",
-  "slug": "Year-End-Moves",
-  "type": "value",
-  "topic": "Year-end moves with a Dec 31 cutoff",
-  "product": null,
-  "cta": "GUIDE",
-  "folder": "2026-10-26 Mon - Year-End Moves"
- },
- {
-  "date": "2026-10-27",
-  "slug": "S-Corp-For-2027",
-  "type": "service",
-  "topic": "S corp for 2027: profit decides, Form 2553 by Mar 15, 2027 (nov-push)",
-  "product": null,
-  "cta": "SCORP",
-  "folder": "2026-10-27 Tue - S Corp For 2027"
- },
- {
-  "date": "2026-10-28",
-  "slug": "Jan-15-Estimates",
-  "type": "value",
-  "topic": "Last 2026 estimated tax payment due Jan 15, 2027 (nov-push → /quarterly-estimated-taxes/)",
-  "product": null,
-  "cta": "ESTIMATE",
-  "folder": "2026-10-28 Wed - Jan 15 Estimates"
- },
- {
-  "date": "2026-10-29",
-  "slug": "OPT-FICA-Check",
-  "type": "service",
-  "topic": "F-1/OPT students: Social Security + Medicare (7.65%) withheld in error, employer first then Form 843 + 8316 (nov-push → /international-students/ $49 claim)",
-  "product": null,
-  "cta": "FICA",
-  "folder": "2026-10-29 Thu - OPT FICA Check",
-  "status": "held for Zain's yes (sessions-chat rule 10); in 'Waiting for Zain OK', not emailed to Abiha"
- },
- {
-  "date": "2026-10-30",
-  "slug": "Mileage-Two-Rates",
-  "type": "value",
-  "topic": "2026 has two IRS mileage rates (72.5c Jan-Jun, 76c Jul-Dec): split miles, skip commuting, note odometer Dec 31 -> /tools/mileage-deduction-calculator/",
-  "product": null,
-  "cta": "MILEAGE",
-  "folder": "2026-10-30 Fri - Mileage Two Rates",
-  "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 12:00 PM (Typefully), Oct 30"
- },
- {
-  "date": "2026-11-02",
-  "slug": "Late-Return-Penalty",
-  "type": "service",
-  "topic": "Missed Oct 15: late-filing 5%/mo (max 25%) vs late-payment 0.5%/mo, file now even if you can't pay, payment plan, 3-year refund window (nov-push -> /late-tax-return/)",
-  "product": null,
-  "cta": "LATE",
-  "folder": "2026-11-02 Mon - Post - Late Return Penalty",
-  "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 8:30 AM (Typefully), Nov 2"
- },
- {
-  "date": "2026-10-31",
-  "slug": "1099-Contractor-Tracker",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-01",
-  "slug": "Year-End-Moves",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-03",
-  "slug": "OPT-FICA-Check",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-04",
-  "slug": "S-Corp-For-2027",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-05",
-  "slug": "Jan-15-Estimates",
-  "status": "scheduled",
-  "platforms": [
-   "instagram"
-  ],
-  "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
- },
- {
-  "date": "2026-11-04",
-  "slug": "1099-Who-Not-To-Send",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "note": "Hub (Zain, Nov 3 20:55: 'push another 1099 post on linkedin but dont duplicate'): new angle (1099-K card/app payments, corporations + attorney exception, under $2,000, e-file 10+, due Feb 1 2027). LinkedIn 8:30 AM ET via Typefully draft 11686771. Not for Instagram (IG already ran the $2,000 rule)."
- },
- {
-  "date": "2026-11-09",
-  "slug": "Holiday-Gifts-Tax-Rules",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688503. Not yet on Instagram."
- },
- {
-  "date": "2026-11-11",
-  "slug": "Placed-In-Service-Dec-31",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688505. Not yet on Instagram."
- },
- {
-  "date": "2026-11-16",
-  "slug": "Charitable-Deduction-No-Itemizing",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688507. Not yet on Instagram."
- },
- {
-  "date": "2026-11-06",
-  "slug": "LLC-Annual-Report",
-  "status": "scheduled",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "times": {
-   "instagram": "Fri Nov 6 8:00 PM ET (Meta Business Suite IG+FB; verified with caption Nov 6 by Social)",
-   "linkedin": "Sun Nov 8 6:00 PM ET (Typefully draft 11694679)"
+  {
+    "date": "2026-10-23",
+    "slug": "1099-Contractor-Tracker",
+    "type": "product",
+    "topic": "1099-NEC $2,000 threshold",
+    "product": "09",
+    "cta": "TRACKER",
+    "folder": "2026-10-23 Fri - 1099 Contractor Tracker"
   },
-  "campaign": "nov-push",
-  "link": "https://mfa-advisory.com/llc-annual-report/",
-  "note": "Social agent (Nov 4 run): myth vs fact, FinCEN BOI gone for US companies vs NJ annual report / NY biennial statement; nov-push -> /llc-annual-report/, CTA REPORT. Instagram/Facebook: composer filled (image + caption, IG+FB Nov 6 8:00 PM to match the Nov 4/5 image slots and Zain's Oct 30 evening times; 12 PM already holds a reel) but the Schedule click was blocked by this session's safety check; post files are in Ready to Post."
- },
- {
-  "date": "2026-11-09",
-  "slug": "No-1099-Still-Taxable",
-  "title": "No 1099 this year? You still owe tax.",
-  "status": "scheduled",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "times": {
-   "instagram": "Mon Nov 9 5:30 PM ET (Meta Business Suite, IG+FB)",
-   "linkedin": "Tue Nov 10 6:00 PM ET (Typefully draft 11718411; Nov 9 LinkedIn already had Holiday gifts)"
+  {
+    "date": "2026-10-26",
+    "slug": "Year-End-Moves",
+    "type": "value",
+    "topic": "Year-end moves with a Dec 31 cutoff",
+    "product": null,
+    "cta": "GUIDE",
+    "folder": "2026-10-26 Mon - Year-End Moves"
   },
-  "campaign": "nov-push",
-  "link": "https://mfa-advisory.com/year-end-tax-planning/",
-  "cta_word": "PLAN",
-  "note": "Social agent (Nov 5 run): myth vs fact on side income with no 1099 (1099-NEC $2,000, 1099-K $20,000/200, $400 SE line) -> year-end tax planning session. Proven 'no tax taken out' theme. Verified in Business Suite planner (two 5:30 PM items Mon 9) and Typefully scheduled list."
- },
- {
-  "date": "2026-11-13",
-  "slug": "ip-pin-before-the-tool-closes",
-  "format": "short",
-  "platforms": [
-   "tiktok"
-  ],
-  "status": "scheduled",
-  "title": "6 digits that stop anyone else from filing a tax return with your SSN.",
-  "times": {
-   "tiktok": "Fri Nov 13 5:00 PM ET (TikTok Studio)"
+  {
+    "date": "2026-10-27",
+    "slug": "S-Corp-For-2027",
+    "type": "service",
+    "topic": "S corp for 2027: profit decides, Form 2553 by Mar 15, 2027 (nov-push)",
+    "product": null,
+    "cta": "SCORP",
+    "folder": "2026-10-27 Tue - S Corp For 2027"
   },
-  "link": "https://mfa-advisory.com/blog/year-end-tax-planning-2026-key-dates/",
-  "cta_word": "PIN",
-  "theme": "classic burgundy",
-  "note": "Reel studio Nov 5 batch: new timely topic (IR-2026-127, IP PIN tool offline mid-Nov to mid-Jan)."
- },
- {
-  "date": "2026-11-14",
-  "slug": "ai-art-sales-still-taxable",
-  "format": "short",
-  "platforms": [
-   "tiktok"
-  ],
-  "status": "scheduled",
-  "title": "You sold AI-made prints online and nobody took tax out.",
-  "times": {
-   "tiktok": "Sat Nov 14 5:00 PM ET (TikTok Studio)"
+  {
+    "date": "2026-10-28",
+    "slug": "Jan-15-Estimates",
+    "type": "value",
+    "topic": "Last 2026 estimated tax payment due Jan 15, 2027 (nov-push → /quarterly-estimated-taxes/)",
+    "product": null,
+    "cta": "ESTIMATE",
+    "folder": "2026-10-28 Wed - Jan 15 Estimates"
   },
-  "link": "https://mfa-advisory.com/artists/",
-  "cta_word": "ART",
-  "theme": "neon teal",
-  "note": "Reel studio Nov 5 batch: proven no-tax-taken-out theme as an AI money moment (artist character)."
- },
- {
-  "date": "2026-11-15",
-  "slug": "holiday-side-gig-no-tax-taken-out",
-  "format": "short",
-  "platforms": [
-   "tiktok",
-   "youtube"
-  ],
-  "status": "scheduled",
-  "title": "Holiday side gig? Nobody took tax out.",
-  "times": {
-   "tiktok": "Sun Nov 15 5:00 PM ET (TikTok Studio)",
-   "youtube": "Thu Nov 19 5:30 PM ET, \"Holiday Side Gig? Nobody Took Tax Out (Do This by Jan 15)\" https://youtube.com/shorts/226ZMCsUZDQ"
+  {
+    "date": "2026-10-29",
+    "slug": "OPT-FICA-Check",
+    "type": "service",
+    "topic": "F-1/OPT students: Social Security + Medicare (7.65%) withheld in error, employer first then Form 843 + 8316 (nov-push → /international-students/ $49 claim)",
+    "product": null,
+    "cta": "FICA",
+    "folder": "2026-10-29 Thu - OPT FICA Check",
+    "status": "held for Zain's yes (sessions-chat rule 10); in 'Waiting for Zain OK', not emailed to Abiha"
   },
-  "link": "https://mfa-advisory.com/quarterly-estimated-taxes/",
-  "cta_word": "GIG",
-  "theme": "paper amber",
-  "note": "Reel studio Nov 5 batch: proven 1099/side-income theme (driver character)."
- },
- {
-  "date": "2026-11-18",
-  "slug": "irs-scam-myth-vs-fact",
-  "format": "short",
-  "platforms": [
-   "youtube"
-  ],
-  "status": "scheduled",
-  "title": "\"This is the IRS. Pay today.\" Myth vs fact",
-  "link": "https://mfa-advisory.com/blog/ai-in-accounting-and-tax-2026/",
-  "cta_word": "SCAM",
-  "theme": "classic plum",
-  "note": "IG+FB queue already filled to Nov 27; LinkedIn Typefully November quota taken by 8 scheduled posts.",
-  "times": {
-   "youtube": "Mon Nov 23 5:30 PM ET, \"Fake IRS Call? 4 Tells, Even With AI Voices (Myth vs Fact)\" https://youtube.com/shorts/euwwV-Uudbc"
+  {
+    "date": "2026-10-30",
+    "slug": "Mileage-Two-Rates",
+    "type": "value",
+    "topic": "2026 has two IRS mileage rates (72.5c Jan-Jun, 76c Jul-Dec): split miles, skip commuting, note odometer Dec 31 -> /tools/mileage-deduction-calculator/",
+    "product": null,
+    "cta": "MILEAGE",
+    "folder": "2026-10-30 Fri - Mileage Two Rates",
+    "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 12:00 PM (Typefully), Oct 30"
+  },
+  {
+    "date": "2026-11-02",
+    "slug": "Late-Return-Penalty",
+    "type": "service",
+    "topic": "Missed Oct 15: late-filing 5%/mo (max 25%) vs late-payment 0.5%/mo, file now even if you can't pay, payment plan, 3-year refund window (nov-push -> /late-tax-return/)",
+    "product": null,
+    "cta": "LATE",
+    "folder": "2026-11-02 Mon - Post - Late Return Penalty",
+    "status": "scheduled: Instagram 12:00 PM (Meta) + LinkedIn 8:30 AM (Typefully), Nov 2"
+  },
+  {
+    "date": "2026-10-31",
+    "slug": "1099-Contractor-Tracker",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-01",
+    "slug": "Year-End-Moves",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-03",
+    "slug": "OPT-FICA-Check",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "S-Corp-For-2027",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-05",
+    "slug": "Jan-15-Estimates",
+    "status": "scheduled",
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Hub (Oct 30): re-run of an earlier post; Instagram scheduled 12:00 PM ET in Meta Business Suite; LinkedIn skipped (Abiha may have posted it already)"
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "1099-Who-Not-To-Send",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "note": "Hub (Zain, Nov 3 20:55: 'push another 1099 post on linkedin but dont duplicate'): new angle (1099-K card/app payments, corporations + attorney exception, under $2,000, e-file 10+, due Feb 1 2027). LinkedIn 8:30 AM ET via Typefully draft 11686771. Not for Instagram (IG already ran the $2,000 rule)."
+  },
+  {
+    "date": "2026-11-09",
+    "slug": "Holiday-Gifts-Tax-Rules",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688503. Not yet on Instagram."
+  },
+  {
+    "date": "2026-11-11",
+    "slug": "Placed-In-Service-Dec-31",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688505. Not yet on Instagram."
+  },
+  {
+    "date": "2026-11-16",
+    "slug": "Charitable-Deduction-No-Itemizing",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "note": "Hub (Zain Nov 3 22:53: 'post more on linkedin and post seasonal topics'). LinkedIn 8:30 AM ET via Typefully draft 11688507. Not yet on Instagram."
+  },
+  {
+    "date": "2026-11-06",
+    "slug": "LLC-Annual-Report",
+    "status": "scheduled",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Fri Nov 6 8:00 PM ET (Meta Business Suite IG+FB; verified with caption Nov 6 by Social)",
+      "linkedin": "Sun Nov 8 6:00 PM ET (Typefully draft 11694679)"
+    },
+    "campaign": "nov-push",
+    "link": "https://mfa-advisory.com/llc-annual-report/",
+    "note": "Social agent (Nov 4 run): myth vs fact, FinCEN BOI gone for US companies vs NJ annual report / NY biennial statement; nov-push -> /llc-annual-report/, CTA REPORT. Instagram/Facebook: composer filled (image + caption, IG+FB Nov 6 8:00 PM to match the Nov 4/5 image slots and Zain's Oct 30 evening times; 12 PM already holds a reel) but the Schedule click was blocked by this session's safety check; post files are in Ready to Post."
+  },
+  {
+    "date": "2026-11-09",
+    "slug": "No-1099-Still-Taxable",
+    "title": "No 1099 this year? You still owe tax.",
+    "status": "scheduled",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Mon Nov 9 5:30 PM ET (Meta Business Suite, IG+FB)",
+      "linkedin": "Tue Nov 10 6:00 PM ET (Typefully draft 11718411; Nov 9 LinkedIn already had Holiday gifts)"
+    },
+    "campaign": "nov-push",
+    "link": "https://mfa-advisory.com/year-end-tax-planning/",
+    "cta_word": "PLAN",
+    "note": "Social agent (Nov 5 run): myth vs fact on side income with no 1099 (1099-NEC $2,000, 1099-K $20,000/200, $400 SE line) -> year-end tax planning session. Proven 'no tax taken out' theme. Verified in Business Suite planner (two 5:30 PM items Mon 9) and Typefully scheduled list."
+  },
+  {
+    "date": "2026-11-13",
+    "slug": "ip-pin-before-the-tool-closes",
+    "format": "short",
+    "platforms": [
+      "tiktok"
+    ],
+    "status": "scheduled",
+    "title": "6 digits that stop anyone else from filing a tax return with your SSN.",
+    "times": {
+      "tiktok": "Fri Nov 13 5:00 PM ET (TikTok Studio)"
+    },
+    "link": "https://mfa-advisory.com/blog/year-end-tax-planning-2026-key-dates/",
+    "cta_word": "PIN",
+    "theme": "classic burgundy",
+    "note": "Reel studio Nov 5 batch: new timely topic (IR-2026-127, IP PIN tool offline mid-Nov to mid-Jan)."
+  },
+  {
+    "date": "2026-11-14",
+    "slug": "ai-art-sales-still-taxable",
+    "format": "short",
+    "platforms": [
+      "tiktok"
+    ],
+    "status": "scheduled",
+    "title": "You sold AI-made prints online and nobody took tax out.",
+    "times": {
+      "tiktok": "Sat Nov 14 5:00 PM ET (TikTok Studio)"
+    },
+    "link": "https://mfa-advisory.com/artists/",
+    "cta_word": "ART",
+    "theme": "neon teal",
+    "note": "Reel studio Nov 5 batch: proven no-tax-taken-out theme as an AI money moment (artist character)."
+  },
+  {
+    "date": "2026-11-15",
+    "slug": "holiday-side-gig-no-tax-taken-out",
+    "format": "short",
+    "platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "Holiday side gig? Nobody took tax out.",
+    "times": {
+      "tiktok": "Sun Nov 15 5:00 PM ET (TikTok Studio)",
+      "youtube": "Fri Dec 11 5:30 PM ET (rescheduled Nov 19 by Reel studio per rule 26, Mon/Wed/Fri only)"
+    },
+    "link": "https://mfa-advisory.com/quarterly-estimated-taxes/",
+    "cta_word": "GIG",
+    "theme": "paper amber",
+    "note": "Reel studio Nov 5 batch: proven 1099/side-income theme (driver character)."
+  },
+  {
+    "date": "2026-11-18",
+    "slug": "irs-scam-myth-vs-fact",
+    "format": "short",
+    "platforms": [
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "\"This is the IRS. Pay today.\" Myth vs fact",
+    "link": "https://mfa-advisory.com/blog/ai-in-accounting-and-tax-2026/",
+    "cta_word": "SCAM",
+    "theme": "classic plum",
+    "note": "IG+FB queue already filled to Nov 27; LinkedIn Typefully November quota taken by 8 scheduled posts.",
+    "times": {
+      "youtube": "Mon Nov 23 5:30 PM ET, \"Fake IRS Call? 4 Tells, Even With AI Voices (Myth vs Fact)\" https://youtube.com/shorts/euwwV-Uudbc"
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "slug": "LLC-Tax-Myth",
+    "type": "service",
+    "format": "image",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "status": "scheduled",
+    "times": {
+      "instagram": "Tue Nov 10 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+      "linkedin": "Tue Dec 1 6:00 PM ET (native LinkedIn scheduler; Nov 6-30 each already have a native 7:30 PM LinkedIn video, Typefully 10/10 used)"
+    },
+    "title": "Your LLC didn't cut your tax by $1",
+    "cta_word": "SCORP",
+    "link": "https://mfa-advisory.com/s-corp-election/",
+    "file": "social/posts/2026-11-10-llc-tax-myth.json",
+    "note": "Also fixed Nov 9 No-1099 IG+FB posts, which had been scheduled with no caption (paste event not saved); captions re-added via Edit scheduled post and verified."
+  },
+  {
+    "date": "2026-11-12",
+    "slug": "W9-Before-Dec-31",
+    "type": "service",
+    "format": "image",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "status": "scheduled",
+    "times": {
+      "instagram": "Thu Nov 12 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+      "linkedin": "Wed Dec 2 6:00 PM ET (Typefully draft 11804302; first comment = UTM link)"
+    },
+    "title": "No W-9 on file? Hold back 24%",
+    "campaign": "nov-push",
+    "cta_word": "1099",
+    "link": "https://mfa-advisory.com/1099-filing/",
+    "file": "social/posts/2026-11-12-w9-before-dec-31.json",
+    "note": "Social agent (Nov 9 run): Nov 11 skipped (Veterans Day). Proven 1099 'no tax taken out' theme as a deadline money moment: W-9 before the last payment, 24% backup withholding ($720 on $3,000), 1099-NEC due Mon Feb 1, 2027 -> 1099 filing. LinkedIn native list full Nov 9-Dec 1; Typefully used for Dec 2 (Dec quota)."
+  },
+  {
+    "date": "2026-11-17",
+    "slug": "paycheck-catches-up-estimates",
+    "format": "short",
+    "platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "Skipped estimates? Your paycheck can catch up.",
+    "times": {
+      "tiktok": "Tue Nov 17 5:00 PM ET (TikTok Studio), caption starts \"Day job plus side income, and you skipped the estimated payments this year?\"",
+      "youtube": "Mon Dec 7 5:30 PM ET (rescheduled Nov 19 by Reel studio per rule 26, Mon/Wed/Fri only)"
+    },
+    "link": "https://mfa-advisory.com/quarterly-estimated-taxes/",
+    "theme": "neon teal, worker character",
+    "hook": "story + rule reveal",
+    "note": "Reel studio Nov 9 batch; proven deadline money moment (Jan 15); IRS i2210 withholding treated as paid 1/4 per due date"
+  },
+  {
+    "date": "2026-11-18",
+    "slug": "2027-tax-numbers-are-out",
+    "format": "short",
+    "platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "The 2027 tax numbers just came out.",
+    "times": {
+      "tiktok": "Wed Nov 18 5:00 PM ET (TikTok Studio)",
+      "youtube": "Mon Dec 21 5:30 PM ET (rescheduled Nov 19 by Reel studio per rule 26, Mon/Wed/Fri only)"
+    },
+    "link": "https://mfa-advisory.com/blog/2027-tax-calendar/",
+    "theme": "classic slate, mascot",
+    "hook": "number reveal",
+    "note": "IR-2026-133 (Nov 5): std deduction $16,600/$33,200/$24,925; gift exclusion $20,000; FSA $3,500"
+  },
+  {
+    "date": "2026-11-19",
+    "slug": "donations-count-without-itemizing",
+    "format": "short",
+    "platforms": [
+      "tiktok"
+    ],
+    "status": "scheduled",
+    "title": "\"Donations only count if you itemize.\" Myth vs fact",
+    "times": {
+      "tiktok": "Thu Nov 19 5:00 PM ET (TikTok Studio)"
+    },
+    "link": "https://mfa-advisory.com/year-end-tax-planning/",
+    "theme": "paper forest",
+    "hook": "myth vs fact + does it count rows",
+    "note": "Not on YouTube: YouTube already has the Nov 12 charity Short. IRS Topic 506."
+  },
+  {
+    "date": "2026-11-20",
+    "slug": "craft-fair-cash-box-counts",
+    "format": "short",
+    "platforms": [
+      "youtube"
+    ],
+    "status": "scheduled",
+    "title": "Selling at a Holiday Craft Fair? Your Cash Box Counts (Taxes)",
+    "times": {
+      "youtube": "Wed Dec 9 5:30 PM ET (rescheduled Nov 19 by Reel studio per rule 26, Mon/Wed/Fri only)"
+    },
+    "link": "https://mfa-advisory.com/artists/",
+    "theme": "neon plum, artist character",
+    "hook": "story + does it count rows",
+    "note": "proven artist/commission topic, Nov 20-24 Shorts slot per social-plan-nov"
+  },
+  {
+    "date": "2026-11-13",
+    "slug": "Dec-31-Or-April-15",
+    "title": "Some 2026 tax moves can wait till April",
+    "status": "scheduled",
+    "format": "image",
+    "type": "service",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Fri Nov 13, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+      "linkedin": "Thu Dec 3, 6:00 PM ET (Typefully draft 11829851, first comment = UTM link; Nov 10-Dec 2 each already have a LinkedIn post)"
+    },
+    "link": "https://mfa-advisory.com/year-end-tax-planning/",
+    "utm_campaign": "nov-push",
+    "cta_word": "PLAN",
+    "folder": "Ready to Post/2026-11-13 Fri - Dec 31 or April 15"
+  },
+  {
+    "date": "2026-11-16",
+    "slug": "Pay-Your-Kids-Before-Dec-31",
+    "title": "Your child can earn $16,100 with no income tax",
+    "status": "scheduled",
+    "format": "image",
+    "type": "service",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Mon Nov 16, 5:30 PM ET (Meta Business Suite, IG+FB; verified in Planner)",
+      "linkedin": "Fri Dec 4, 6:00 PM ET (Typefully draft 11874633, first comment = UTM link; Nov 16-Dec 3 each already have a LinkedIn post; Typefully quota now 10/10)"
+    },
+    "link": "https://mfa-advisory.com/year-end-tax-planning/",
+    "utm_campaign": "nov-push",
+    "cta_word": "KIDS",
+    "folder": "Ready to Post/2026-11-16 Mon - Pay Your Kids Before Dec 31"
+  },
+  {
+    "date": "2026-11-22",
+    "slug": "gift-cards-for-staff",
+    "format": "short",
+    "platforms": [],
+    "status": "ready, not scheduled",
+    "title": "A $50 gift card for your team. Taxable?",
+    "planned_slots": "TikTok Sun Nov 22 5:00 PM",
+    "link": "https://mfa-advisory.com/blog/small-business-tax-write-offs-2026/",
+    "theme": "classic burgundy, mascot",
+    "hook": "quiz + rows",
+    "note": "Rendered Nov 12 run; NOT uploaded: Chrome extension could not read tiktok.com / studio.youtube.com pages (no file input ref) and PC folder access was denied, so the MP4s could not reach the PC."
+  },
+  {
+    "date": "2026-11-17",
+    "slug": "F1-Year-Six-Resident",
+    "format": "image",
+    "type": "service",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "status": "scheduled",
+    "title": "Year 6 on F-1? You may be a resident",
+    "times": {
+      "instagram": "2026-11-17 5:30 PM ET",
+      "linkedin": "2026-12-05 6:00 PM ET (Typefully 11901725)"
+    },
+    "link": "https://mfa-advisory.com/international-students/",
+    "utm_campaign": "nov-push",
+    "cta_word": "F1",
+    "niche": "international students",
+    "folder": "Ready to Post/2026-11-17 Tue - F-1 Year Six Can Change Your Taxes"
+  },
+  {
+    "date": "2026-11-18",
+    "slug": "Shopify-Payout-Not-Revenue",
+    "title": "Your Shopify payout isn't your revenue",
+    "topic": "Sprint 1 e-commerce sellers (niche-views-plan v2, lane: ecommerce): Form 1099-K box 1a is the gross amount, not adjusted for fees, refunds, shipping, discounts; payouts are net, so booking payouts understates sales and the IRS sees the gross; fees and refunds are deductible from the gross; TPSOs report over $20,000 and over 200 transactions, payment cards have no threshold; report all income with or without a 1099-K. Before/after example. -> /bookkeeping-cleanup/ (nationwide catch-up quote, book a call).",
+    "lane": "ecommerce",
+    "format": "image",
+    "status": "scheduled",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Wed Nov 18, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+      "linkedin": "Sun Dec 6, 6:00 PM ET (Typefully draft 11963995, first comment = UTM link)"
+    },
+    "link": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push&utm_content=ecommerce",
+    "cta_word": "BOOKS",
+    "file": "social/posts/2026-11-18-shopify-payout-not-revenue.json"
+  },
+  {
+    "date": "2026-11-19",
+    "slug": "Rental-Loss-25000-Limit",
+    "title": "Rental loss? Only up to $25,000 offsets pay",
+    "lane": "realestate",
+    "format": "image",
+    "status": "scheduled",
+    "platforms": [
+      "instagram",
+      "facebook",
+      "linkedin"
+    ],
+    "times": {
+      "instagram": "Thu Nov 19, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
+      "linkedin": "Mon Dec 7, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts; Typefully 10/10)"
+    },
+    "link": "https://mfa-advisory.com/rental-property-taxes/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push&utm_content=real-estate",
+    "cta_word": "RENTAL",
+    "file": "social/posts/2026-11-19-rental-loss-25000-limit.json",
+    "agent": "Social"
+  },
+  {
+    "date": "2026-11-24",
+    "slug": "401k-limit-2027",
+    "title": "2027 401(k) Limit Is $25,500: New Catch-Up and IRA Numbers",
+    "titles": {
+      "youtube": "2027 401(k) Limit Is $25,500: New Catch-Up and IRA Numbers"
+    },
+    "lane": "general",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "youtube"
+    ],
+    "times": {
+      "youtube": "Mon Dec 14 5:30 PM ET (rescheduled Nov 19 by Reel studio per rule 26, Mon/Wed/Fri only)"
+    },
+    "link": "https://youtube.com/shorts/cQZamLOmp6k",
+    "file": "social/shorts/specs/2026-11-21-401k-limit-2027.json",
+    "agent": "Reel studio",
+    "batch": "2026-11-16"
+  },
+  {
+    "date": "2026-11-25",
+    "slug": "can-ai-keep-your-receipts",
+    "title": "Can AI Keep Your Receipts for the IRS? What It Can and Can't Do",
+    "titles": {
+      "youtube": "Can AI Keep Your Receipts for the IRS? What It Can and Can't Do"
+    },
+    "lane": "general",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "youtube"
+    ],
+    "times": {
+      "youtube": "2026-11-25 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/M28rKcH7ac8"
+    },
+    "link": "https://youtube.com/shorts/M28rKcH7ac8",
+    "file": "social/shorts/specs/2026-11-25-can-ai-keep-your-receipts.json",
+    "agent": "Reel studio",
+    "batch": "2026-11-16"
+  },
+  {
+    "date": "2026-11-26",
+    "slug": "bought-dec-31-not-deducted",
+    "title": "Bought Equipment Dec 31? Why It May Not Count for 2026 (Taxes)",
+    "titles": {
+      "youtube": "Bought Equipment Dec 31? Why It May Not Count for 2026 (Taxes)"
+    },
+    "lane": "general",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "youtube"
+    ],
+    "times": {
+      "youtube": "Fri Dec 4 5:30 PM ET (rescheduled Nov 19 by Reel studio per rule 26, Mon/Wed/Fri only)"
+    },
+    "link": "https://youtube.com/shorts/KXlpRpl1Se0",
+    "file": "social/shorts/specs/2026-11-20-bought-dec-31-not-deducted.json",
+    "agent": "Reel studio",
+    "batch": "2026-11-16"
+  },
+  {
+    "date": "2026-11-27",
+    "slug": "sales-tax-follows-you",
+    "title": "Shopify Sellers: Sales Tax Can Follow You to Other States",
+    "titles": {
+      "youtube": "Shopify Sellers: Sales Tax Can Follow You to Other States",
+      "instagram_facebook": "Myth: you only charge sales tax in your home state."
+    },
+    "lane": "ecommerce",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "youtube",
+      "instagram",
+      "facebook"
+    ],
+    "times": {
+      "youtube": "2026-11-27 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/vaOZQHW4KlA",
+      "instagram_facebook": "2026-11-28 6:00 PM ET, Meta Business Suite reel (IG+FB, cover set, caption verified on both copies)"
+    },
+    "link": "https://youtube.com/shorts/vaOZQHW4KlA",
+    "file": "social/shorts/specs/2026-11-27-sales-tax-follows-you.json",
+    "agent": "Reel studio",
+    "batch": "2026-11-16"
+  },
+  {
+    "date": "2026-11-28",
+    "slug": "rental-repair-or-improvement",
+    "title": "Rental Property: Repair or Improvement? (Deduct Now vs 27.5 Years)",
+    "titles": {
+      "youtube": "Rental Property: Repair or Improvement? (Deduct Now vs 27.5 Years)",
+      "instagram_facebook": "Own a rental? Repair or improvement decides how much you write off this year."
+    },
+    "lane": "realestate",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "youtube",
+      "instagram",
+      "facebook"
+    ],
+    "times": {
+      "youtube": "Wed Dec 16 5:30 PM ET (rescheduled Nov 19 by Reel studio per rule 26, Mon/Wed/Fri only)",
+      "instagram_facebook": "2026-11-29 6:00 PM ET, Meta Business Suite reel (IG+FB, cover set, caption verified on both copies)"
+    },
+    "link": "https://youtube.com/shorts/VBTzq3m8HIs",
+    "file": "social/shorts/specs/2026-11-28-rental-repair-or-improvement.json",
+    "agent": "Reel studio",
+    "batch": "2026-11-16"
+  },
+  {
+    "date": "2026-11-29",
+    "slug": "f1-zero-income-still-file-8843",
+    "title": "Earned $0 on F-1? You May Still File Form 8843 (2026 Deadline)",
+    "titles": {
+      "youtube": "Earned $0 on F-1? You May Still File Form 8843 (2026 Deadline)",
+      "instagram_facebook": "On F-1 or J-1 and earned nothing in the US this year? You may still need to file one form."
+    },
+    "lane": "students",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "youtube",
+      "instagram",
+      "facebook"
+    ],
+    "times": {
+      "youtube": "Fri Dec 18 5:30 PM ET (rescheduled Nov 19 by Reel studio per rule 26, Mon/Wed/Fri only)",
+      "instagram_facebook": "2026-11-30 6:00 PM ET, Meta Business Suite reel (IG+FB, cover set, caption verified on both copies)"
+    },
+    "link": "https://youtube.com/shorts/T9BE1LmI2bw",
+    "file": "social/shorts/specs/2026-11-29-f1-zero-income-still-file-8843.json",
+    "agent": "Reel studio",
+    "batch": "2026-11-16"
+  },
+  {
+    "date": "2026-11-30",
+    "slug": "rental-ready-to-rent-dec-31",
+    "title": "Bought a Rental in 2026? When Depreciation Starts (Placed in Service)",
+    "titles": {
+      "youtube": "Bought a Rental in 2026? When Depreciation Starts (Placed in Service)"
+    },
+    "lane": "realestate",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "youtube"
+    ],
+    "times": {
+      "youtube": "2026-11-30 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/OgWWTJNncfA"
+    },
+    "link": "https://youtube.com/shorts/OgWWTJNncfA",
+    "file": "social/shorts/specs/2026-11-30-rental-ready-to-rent-dec-31.json",
+    "agent": "Reel studio",
+    "batch": "2026-11-16"
+  },
+  {
+    "date": "2026-11-20",
+    "slug": "Estimate-Safe-Harbor-Last-Year",
+    "title": "Last year's tax can be your safe number",
+    "lane": "general",
+    "format": "image",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "times": {
+      "linkedin": "Tue Dec 8, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts)",
+      "instagram": "not posted: 5:30 PM IG+FB photo slot dropped from Nov 20 (Zain, Nov 17 11:29); reel brief sent to Reel studio"
+    },
+    "link": "https://mfa-advisory.com/quarterly-estimated-taxes/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push&utm_content=estimates",
+    "cta": "ESTIMATE",
+    "file": "social/posts/2026-11-20-estimate-safe-harbor-last-year.json",
+    "agent": "Social"
+  },
+  {
+    "date": "2026-11-23",
+    "slug": "Count-Inventory-Dec-31",
+    "title": "Unsold stock on Dec 31 isn't a 2026 write-off",
+    "lane": "ecommerce",
+    "format": "image",
+    "status": "scheduled",
+    "platforms": [
+      "linkedin"
+    ],
+    "time": "Wed Dec 9, 6:00 PM ET",
+    "times": {
+      "linkedin": "Wed Dec 9, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts)",
+      "instagram": "not posted: IG+FB photo slot dropped from Nov 20; reel brief sent to Reel studio"
+    },
+    "link": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=linkedin&utm_medium=social&utm_campaign=ecommerce&utm_content=inventory-dec-31",
+    "cta": "BOOKS",
+    "file": "social/posts/2026-11-23-count-inventory-dec-31.json",
+    "agent": "Social"
+  },
+  {
+    "date": "2026-11-20",
+    "slug": "stream-it-write-it-off",
+    "title": "Played GTA VI Yet? Streamers, Can You Write It Off?",
+    "lane": "creators",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "youtube",
+      "tiktok",
+      "instagram",
+      "facebook"
+    ],
+    "times": {
+      "youtube": "Fri Nov 20 5:30 PM ET https://youtube.com/shorts/43JnvM5UbQ4",
+      "tiktok": "Thu Nov 19 5:00 PM ET (scheduled earlier)",
+      "instagram": "Fri Nov 20 6:00 PM ET (Hub)"
+    }
+  },
+  {
+    "date": "2026-11-23",
+    "slug": "streaming-pc-business-share",
+    "title": "New Streaming PC: Is It a Tax Write-Off? (Business-Use Share)",
+    "lane": "creators",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "times": {
+      "tiktok": "Mon Nov 23 5:00 PM ET",
+      "youtube": "Wed Dec 2 5:30 PM ET https://youtube.com/shorts/-ylQU-dk8O0"
+    },
+    "link": "https://mfa-advisory.com/content-creator-taxes/"
+  },
+  {
+    "date": "2026-11-25",
+    "slug": "cash-tips-still-income",
+    "title": "Myth: cash tips aren't income.",
+    "lane": "booth-renters",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "tiktok"
+    ],
+    "times": {
+      "tiktok": "Wed Nov 25 5:00 PM ET"
+    },
+    "link": "https://mfa-advisory.com/tools/no-tax-on-tips-calculator/",
+    "note": "ready for IG+FB/YouTube when a Mon/Wed/Fri slot opens"
+  },
+  {
+    "date": "2026-11-27",
+    "slug": "rental-repair-or-improvement-tiktok",
+    "title": "Own a rental? Repair or improvement",
+    "lane": "realestate",
+    "format": "short",
+    "status": "scheduled",
+    "platforms": [
+      "tiktok"
+    ],
+    "times": {
+      "tiktok": "Fri Nov 27 5:00 PM ET"
+    },
+    "link": "https://mfa-advisory.com/rental-property-taxes/"
   }
- },
- {
-  "date": "2026-11-10",
-  "slug": "LLC-Tax-Myth",
-  "type": "service",
-  "format": "image",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "status": "scheduled",
-  "times": {
-   "instagram": "Tue Nov 10 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
-   "linkedin": "Tue Dec 1 6:00 PM ET (native LinkedIn scheduler; Nov 6-30 each already have a native 7:30 PM LinkedIn video, Typefully 10/10 used)"
-  },
-  "title": "Your LLC didn't cut your tax by $1",
-  "cta_word": "SCORP",
-  "link": "https://mfa-advisory.com/s-corp-election/",
-  "file": "social/posts/2026-11-10-llc-tax-myth.json",
-  "note": "Also fixed Nov 9 No-1099 IG+FB posts, which had been scheduled with no caption (paste event not saved); captions re-added via Edit scheduled post and verified."
- },
- {
-  "date": "2026-11-12",
-  "slug": "W9-Before-Dec-31",
-  "type": "service",
-  "format": "image",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "status": "scheduled",
-  "times": {
-   "instagram": "Thu Nov 12 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
-   "linkedin": "Wed Dec 2 6:00 PM ET (Typefully draft 11804302; first comment = UTM link)"
-  },
-  "title": "No W-9 on file? Hold back 24%",
-  "campaign": "nov-push",
-  "cta_word": "1099",
-  "link": "https://mfa-advisory.com/1099-filing/",
-  "file": "social/posts/2026-11-12-w9-before-dec-31.json",
-  "note": "Social agent (Nov 9 run): Nov 11 skipped (Veterans Day). Proven 1099 'no tax taken out' theme as a deadline money moment: W-9 before the last payment, 24% backup withholding ($720 on $3,000), 1099-NEC due Mon Feb 1, 2027 -> 1099 filing. LinkedIn native list full Nov 9-Dec 1; Typefully used for Dec 2 (Dec quota)."
- },
- {
-  "date": "2026-11-17",
-  "slug": "paycheck-catches-up-estimates",
-  "format": "short",
-  "platforms": [
-   "tiktok",
-   "youtube"
-  ],
-  "status": "scheduled",
-  "title": "Skipped estimates? Your paycheck can catch up.",
-  "times": {
-   "tiktok": "Tue Nov 17 5:00 PM ET (TikTok Studio), caption starts \"Day job plus side income, and you skipped the estimated payments this year?\"",
-   "youtube": "Sun Nov 22 5:30 PM ET, \"Skipped Estimated Taxes? Your Paycheck Can Catch You Up (W-4)\" https://youtube.com/shorts/vahaZqKOoxE"
-  },
-  "link": "https://mfa-advisory.com/quarterly-estimated-taxes/",
-  "theme": "neon teal, worker character",
-  "hook": "story + rule reveal",
-  "note": "Reel studio Nov 9 batch; proven deadline money moment (Jan 15); IRS i2210 withholding treated as paid 1/4 per due date"
- },
- {
-  "date": "2026-11-18",
-  "slug": "2027-tax-numbers-are-out",
-  "format": "short",
-  "platforms": [
-   "tiktok",
-   "youtube"
-  ],
-  "status": "scheduled",
-  "title": "The 2027 tax numbers just came out.",
-  "times": {
-   "tiktok": "Wed Nov 18 5:00 PM ET (TikTok Studio)",
-   "youtube": "Sat Nov 21 5:30 PM ET, \"2027 Tax Numbers Are Out: Standard Deduction, Gift Limit, FSA\" https://youtube.com/shorts/qzLCIglb9eY"
-  },
-  "link": "https://mfa-advisory.com/blog/2027-tax-calendar/",
-  "theme": "classic slate, mascot",
-  "hook": "number reveal",
-  "note": "IR-2026-133 (Nov 5): std deduction $16,600/$33,200/$24,925; gift exclusion $20,000; FSA $3,500"
- },
- {
-  "date": "2026-11-19",
-  "slug": "donations-count-without-itemizing",
-  "format": "short",
-  "platforms": [
-   "tiktok"
-  ],
-  "status": "scheduled",
-  "title": "\"Donations only count if you itemize.\" Myth vs fact",
-  "times": {
-   "tiktok": "Thu Nov 19 5:00 PM ET (TikTok Studio)"
-  },
-  "link": "https://mfa-advisory.com/year-end-tax-planning/",
-  "theme": "paper forest",
-  "hook": "myth vs fact + does it count rows",
-  "note": "Not on YouTube: YouTube already has the Nov 12 charity Short. IRS Topic 506."
- },
- {
-  "date": "2026-11-20",
-  "slug": "craft-fair-cash-box-counts",
-  "format": "short",
-  "platforms": [
-   "youtube"
-  ],
-  "status": "scheduled",
-  "title": "Selling at a Holiday Craft Fair? Your Cash Box Counts (Taxes)",
-  "times": {
-   "youtube": "Fri Nov 20 5:30 PM ET https://youtube.com/shorts/PibSU4KQE8c"
-  },
-  "link": "https://mfa-advisory.com/artists/",
-  "theme": "neon plum, artist character",
-  "hook": "story + does it count rows",
-  "note": "proven artist/commission topic, Nov 20-24 Shorts slot per social-plan-nov"
- },
- {
-  "date": "2026-11-13",
-  "slug": "Dec-31-Or-April-15",
-  "title": "Some 2026 tax moves can wait till April",
-  "status": "scheduled",
-  "format": "image",
-  "type": "service",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "times": {
-   "instagram": "Fri Nov 13, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
-   "linkedin": "Thu Dec 3, 6:00 PM ET (Typefully draft 11829851, first comment = UTM link; Nov 10-Dec 2 each already have a LinkedIn post)"
-  },
-  "link": "https://mfa-advisory.com/year-end-tax-planning/",
-  "utm_campaign": "nov-push",
-  "cta_word": "PLAN",
-  "folder": "Ready to Post/2026-11-13 Fri - Dec 31 or April 15"
- },
- {
-  "date": "2026-11-16",
-  "slug": "Pay-Your-Kids-Before-Dec-31",
-  "title": "Your child can earn $16,100 with no income tax",
-  "status": "scheduled",
-  "format": "image",
-  "type": "service",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "times": {
-   "instagram": "Mon Nov 16, 5:30 PM ET (Meta Business Suite, IG+FB; verified in Planner)",
-   "linkedin": "Fri Dec 4, 6:00 PM ET (Typefully draft 11874633, first comment = UTM link; Nov 16-Dec 3 each already have a LinkedIn post; Typefully quota now 10/10)"
-  },
-  "link": "https://mfa-advisory.com/year-end-tax-planning/",
-  "utm_campaign": "nov-push",
-  "cta_word": "KIDS",
-  "folder": "Ready to Post/2026-11-16 Mon - Pay Your Kids Before Dec 31"
- },
- {
-  "date": "2026-11-22",
-  "slug": "gift-cards-for-staff",
-  "format": "short",
-  "platforms": [],
-  "status": "ready, not scheduled",
-  "title": "A $50 gift card for your team. Taxable?",
-  "planned_slots": "TikTok Sun Nov 22 5:00 PM",
-  "link": "https://mfa-advisory.com/blog/small-business-tax-write-offs-2026/",
-  "theme": "classic burgundy, mascot",
-  "hook": "quiz + rows",
-  "note": "Rendered Nov 12 run; NOT uploaded: Chrome extension could not read tiktok.com / studio.youtube.com pages (no file input ref) and PC folder access was denied, so the MP4s could not reach the PC."
- },
- {
-  "date": "2026-11-17",
-  "slug": "F1-Year-Six-Resident",
-  "format": "image",
-  "type": "service",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "status": "scheduled",
-  "title": "Year 6 on F-1? You may be a resident",
-  "times": {
-   "instagram": "2026-11-17 5:30 PM ET",
-   "linkedin": "2026-12-05 6:00 PM ET (Typefully 11901725)"
-  },
-  "link": "https://mfa-advisory.com/international-students/",
-  "utm_campaign": "nov-push",
-  "cta_word": "F1",
-  "niche": "international students",
-  "folder": "Ready to Post/2026-11-17 Tue - F-1 Year Six Can Change Your Taxes"
- },
- {
-  "date": "2026-11-18",
-  "slug": "Shopify-Payout-Not-Revenue",
-  "title": "Your Shopify payout isn't your revenue",
-  "topic": "Sprint 1 e-commerce sellers (niche-views-plan v2, lane: ecommerce): Form 1099-K box 1a is the gross amount, not adjusted for fees, refunds, shipping, discounts; payouts are net, so booking payouts understates sales and the IRS sees the gross; fees and refunds are deductible from the gross; TPSOs report over $20,000 and over 200 transactions, payment cards have no threshold; report all income with or without a 1099-K. Before/after example. -> /bookkeeping-cleanup/ (nationwide catch-up quote, book a call).",
-  "lane": "ecommerce",
-  "format": "image",
-  "status": "scheduled",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "times": {
-   "instagram": "Wed Nov 18, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
-   "linkedin": "Sun Dec 6, 6:00 PM ET (Typefully draft 11963995, first comment = UTM link)"
-  },
-  "link": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push&utm_content=ecommerce",
-  "cta_word": "BOOKS",
-  "file": "social/posts/2026-11-18-shopify-payout-not-revenue.json"
- },
- {
-  "date": "2026-11-19",
-  "slug": "Rental-Loss-25000-Limit",
-  "title": "Rental loss? Only up to $25,000 offsets pay",
-  "lane": "realestate",
-  "format": "image",
-  "status": "scheduled",
-  "platforms": [
-   "instagram",
-   "facebook",
-   "linkedin"
-  ],
-  "times": {
-   "instagram": "Thu Nov 19, 5:30 PM ET (Meta Business Suite, IG+FB; caption verified in Scheduled list)",
-   "linkedin": "Mon Dec 7, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts; Typefully 10/10)"
-  },
-  "link": "https://mfa-advisory.com/rental-property-taxes/?utm_source=instagram&utm_medium=social&utm_campaign=nov-push&utm_content=real-estate",
-  "cta_word": "RENTAL",
-  "file": "social/posts/2026-11-19-rental-loss-25000-limit.json",
-  "agent": "Social"
- },
- {
-  "date": "2026-11-24",
-  "slug": "401k-limit-2027",
-  "title": "2027 401(k) Limit Is $25,500: New Catch-Up and IRA Numbers",
-  "titles": {
-   "youtube": "2027 401(k) Limit Is $25,500: New Catch-Up and IRA Numbers"
-  },
-  "lane": "general",
-  "format": "short",
-  "status": "scheduled",
-  "platforms": [
-   "youtube"
-  ],
-  "times": {
-   "youtube": "2026-11-24 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/cQZamLOmp6k"
-  },
-  "link": "https://youtube.com/shorts/cQZamLOmp6k",
-  "file": "social/shorts/specs/2026-11-21-401k-limit-2027.json",
-  "agent": "Reel studio",
-  "batch": "2026-11-16"
- },
- {
-  "date": "2026-11-25",
-  "slug": "can-ai-keep-your-receipts",
-  "title": "Can AI Keep Your Receipts for the IRS? What It Can and Can't Do",
-  "titles": {
-   "youtube": "Can AI Keep Your Receipts for the IRS? What It Can and Can't Do"
-  },
-  "lane": "general",
-  "format": "short",
-  "status": "scheduled",
-  "platforms": [
-   "youtube"
-  ],
-  "times": {
-   "youtube": "2026-11-25 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/M28rKcH7ac8"
-  },
-  "link": "https://youtube.com/shorts/M28rKcH7ac8",
-  "file": "social/shorts/specs/2026-11-25-can-ai-keep-your-receipts.json",
-  "agent": "Reel studio",
-  "batch": "2026-11-16"
- },
- {
-  "date": "2026-11-26",
-  "slug": "bought-dec-31-not-deducted",
-  "title": "Bought Equipment Dec 31? Why It May Not Count for 2026 (Taxes)",
-  "titles": {
-   "youtube": "Bought Equipment Dec 31? Why It May Not Count for 2026 (Taxes)"
-  },
-  "lane": "general",
-  "format": "short",
-  "status": "scheduled",
-  "platforms": [
-   "youtube"
-  ],
-  "times": {
-   "youtube": "2026-11-26 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/KXlpRpl1Se0"
-  },
-  "link": "https://youtube.com/shorts/KXlpRpl1Se0",
-  "file": "social/shorts/specs/2026-11-20-bought-dec-31-not-deducted.json",
-  "agent": "Reel studio",
-  "batch": "2026-11-16"
- },
- {
-  "date": "2026-11-27",
-  "slug": "sales-tax-follows-you",
-  "title": "Shopify Sellers: Sales Tax Can Follow You to Other States",
-  "titles": {
-   "youtube": "Shopify Sellers: Sales Tax Can Follow You to Other States",
-   "instagram_facebook": "Myth: you only charge sales tax in your home state."
-  },
-  "lane": "ecommerce",
-  "format": "short",
-  "status": "scheduled",
-  "platforms": [
-   "youtube",
-   "instagram",
-   "facebook"
-  ],
-  "times": {
-   "youtube": "2026-11-27 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/vaOZQHW4KlA",
-   "instagram_facebook": "2026-11-28 6:00 PM ET, Meta Business Suite reel (IG+FB, cover set, caption verified on both copies)"
-  },
-  "link": "https://youtube.com/shorts/vaOZQHW4KlA",
-  "file": "social/shorts/specs/2026-11-27-sales-tax-follows-you.json",
-  "agent": "Reel studio",
-  "batch": "2026-11-16"
- },
- {
-  "date": "2026-11-28",
-  "slug": "rental-repair-or-improvement",
-  "title": "Rental Property: Repair or Improvement? (Deduct Now vs 27.5 Years)",
-  "titles": {
-   "youtube": "Rental Property: Repair or Improvement? (Deduct Now vs 27.5 Years)",
-   "instagram_facebook": "Own a rental? Repair or improvement decides how much you write off this year."
-  },
-  "lane": "realestate",
-  "format": "short",
-  "status": "scheduled",
-  "platforms": [
-   "youtube",
-   "instagram",
-   "facebook"
-  ],
-  "times": {
-   "youtube": "2026-11-28 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/VBTzq3m8HIs",
-   "instagram_facebook": "2026-11-29 6:00 PM ET, Meta Business Suite reel (IG+FB, cover set, caption verified on both copies)"
-  },
-  "link": "https://youtube.com/shorts/VBTzq3m8HIs",
-  "file": "social/shorts/specs/2026-11-28-rental-repair-or-improvement.json",
-  "agent": "Reel studio",
-  "batch": "2026-11-16"
- },
- {
-  "date": "2026-11-29",
-  "slug": "f1-zero-income-still-file-8843",
-  "title": "Earned $0 on F-1? You May Still File Form 8843 (2026 Deadline)",
-  "titles": {
-   "youtube": "Earned $0 on F-1? You May Still File Form 8843 (2026 Deadline)",
-   "instagram_facebook": "On F-1 or J-1 and earned nothing in the US this year? You may still need to file one form."
-  },
-  "lane": "students",
-  "format": "short",
-  "status": "scheduled",
-  "platforms": [
-   "youtube",
-   "instagram",
-   "facebook"
-  ],
-  "times": {
-   "youtube": "2026-11-29 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/T9BE1LmI2bw",
-   "instagram_facebook": "2026-11-30 6:00 PM ET, Meta Business Suite reel (IG+FB, cover set, caption verified on both copies)"
-  },
-  "link": "https://youtube.com/shorts/T9BE1LmI2bw",
-  "file": "social/shorts/specs/2026-11-29-f1-zero-income-still-file-8843.json",
-  "agent": "Reel studio",
-  "batch": "2026-11-16"
- },
- {
-  "date": "2026-11-30",
-  "slug": "rental-ready-to-rent-dec-31",
-  "title": "Bought a Rental in 2026? When Depreciation Starts (Placed in Service)",
-  "titles": {
-   "youtube": "Bought a Rental in 2026? When Depreciation Starts (Placed in Service)"
-  },
-  "lane": "realestate",
-  "format": "short",
-  "status": "scheduled",
-  "platforms": [
-   "youtube"
-  ],
-  "times": {
-   "youtube": "2026-11-30 5:30 PM ET, YouTube Studio scheduled, custom thumbnail, https://youtube.com/shorts/OgWWTJNncfA"
-  },
-  "link": "https://youtube.com/shorts/OgWWTJNncfA",
-  "file": "social/shorts/specs/2026-11-30-rental-ready-to-rent-dec-31.json",
-  "agent": "Reel studio",
-  "batch": "2026-11-16"
- },
- {
-  "date": "2026-11-20",
-  "slug": "Estimate-Safe-Harbor-Last-Year",
-  "title": "Last year's tax can be your safe number",
-  "lane": "general",
-  "format": "image",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "times": {
-   "linkedin": "Tue Dec 8, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts)",
-   "instagram": "not posted: 5:30 PM IG+FB photo slot dropped from Nov 20 (Zain, Nov 17 11:29); reel brief sent to Reel studio"
-  },
-  "link": "https://mfa-advisory.com/quarterly-estimated-taxes/?utm_source=linkedin&utm_medium=social&utm_campaign=nov-push&utm_content=estimates",
-  "cta": "ESTIMATE",
-  "file": "social/posts/2026-11-20-estimate-safe-harbor-last-year.json",
-  "agent": "Social"
- },
- {
-  "date": "2026-11-23",
-  "slug": "Count-Inventory-Dec-31",
-  "title": "Unsold stock on Dec 31 isn't a 2026 write-off",
-  "lane": "ecommerce",
-  "format": "image",
-  "status": "scheduled",
-  "platforms": [
-   "linkedin"
-  ],
-  "time": "Wed Dec 9, 6:00 PM ET",
-  "times": {
-   "linkedin": "Wed Dec 9, 6:00 PM ET (native LinkedIn scheduler, verified in View all scheduled posts)",
-   "instagram": "not posted: IG+FB photo slot dropped from Nov 20; reel brief sent to Reel studio"
-  },
-  "link": "https://mfa-advisory.com/bookkeeping-cleanup/?utm_source=linkedin&utm_medium=social&utm_campaign=ecommerce&utm_content=inventory-dec-31",
-  "cta": "BOOKS",
-  "file": "social/posts/2026-11-23-count-inventory-dec-31.json",
-  "agent": "Social"
- }
 ]
