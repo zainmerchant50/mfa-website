@@ -683,7 +683,7 @@ def patch_home():
     s = path.read_text(encoding="utf-8")
     faq = home_faq(s)
     url = BASE + "/"
-    ld = graph(url, "Accounting Advisory Services, Tax & Bookkeeping | MFA",
+    ld = graph(url, "Accounting & Advisory Services for Small Businesses | MFA",
                plain(re.search(r'<meta name="description" content="(.*?)"', s, re.S).group(1)),
                {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
                    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]} if faq else None,

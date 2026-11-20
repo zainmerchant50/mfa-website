@@ -1,6 +1,14 @@
 {
  "posts": [
   {
+   "title": "ChatGPT for Accounting Is Here: What It Means for Your Books (2026)",
+   "url": "/blog/chatgpt-for-accounting-2026/",
+   "date": "2026-11-20",
+   "category": "Bookkeeping",
+   "thumb": "/blog/chatgpt-for-accounting-2026/og-card.webp",
+   "description": "ChatGPT for Accounting launched Nov. 18, 2026 with QuickBooks, Xero and NetSuite plugins. What it does, who can use it, and what still needs a person."
+  },
+  {
    "title": "Airbnb Host Taxes 2026: Schedule C or E, the 14-Day Rule and Deductions",
    "url": "/blog/airbnb-host-taxes-2026-schedule-c-or-e-14-day-rule/",
    "date": "2026-11-20",
@@ -31,14 +39,6 @@
    "category": "Bookkeeping",
    "thumb": "/blog/how-long-to-keep-business-records/og-card.webp",
    "description": "How long to keep business records: the IRS 3, 4, 6 and 7-year rules, payroll and asset records, NJ's 4-year window, NY's 3 years, and when to shred."
-  },
-  {
-   "title": "When Is a Business Tax Return Due, and What If You Missed It?",
-   "url": "/blog/business-tax-return-deadline-late/",
-   "date": "2026-11-13",
-   "category": "Tax Deadlines",
-   "thumb": "/blog/business-tax-return-deadline-late/og-card.webp",
-   "description": "Business tax return deadline missed? 2025 due dates for Forms 1120, 1120-S and 1065, late penalties ($255 per owner a month), relief, NJ and NY rules."
   }
  ]
 }
