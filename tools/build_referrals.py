@@ -2,7 +2,7 @@
 """Builds /referrals/ (Hub): client referral program, sent directly to clients (noindex, not in the menu or sitemap).
 
 Zain 2026-11-19 21:27: "create a referral page that we can send directly to the clients where each referral the client
-brings, they get 10% of the fee we make from them". Supersedes the Nov 17 "Referral Partner Program" removal (that was a
+brings, they get 10% of the fee we make from them". Terms (Zain 21:54): 10% of the referral's first invoice, paid within 30 days of their payment. Supersedes the Nov 17 "Referral Partner Program" removal (that was a
 public partner program; this one is client-to-client, sent by link only).
 Never "free", never "CPA", no street address. The form posts to the same FormSubmit endpoint as the quote boxes.
 Run via tools/build_resources.py (it calls build(); the URL is NOT added to site_pages.json, so it stays out of the sitemap).
@@ -15,22 +15,22 @@ import ui_kit
 from build_resources import page, write, esc, BASE
 
 URL = BASE + "/referrals/"
-TITLE = "Refer a Friend to MFA: Earn 10% of Their Fees | MFA"
-DESC = "For MFA clients: refer a friend, family member or business owner and earn 10% of the fees we collect from them."
+TITLE = "Refer a Friend to MFA: Earn 10% of Their First Invoice | MFA"
+DESC = "For MFA clients: refer a friend, family member or business owner and earn 10% of their first invoice."
 TEL = '<a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>'
 
 STEPS = [
     ("Tell us who", "Use the form below, or ask them to mention your name when they contact us."),
     ("We help them", "They get our usual written quote and service. You don't have to do anything else."),
-    ("You get 10%", "When they pay us, we pay you 10% of the fees we collect from them."),
+    ("You get 10%", "When they pay their first invoice, we pay you 10% of it."),
 ]
 
 TERMS = [
-    "You earn 10% of the fees we collect from each new client you refer, for work billed in their first 12 months with us.",
-    "We pay you within 30 days after their invoice is paid in full, by bank transfer or check.",
+    "You earn 10% of the first invoice we send each new client you refer.",
+    "We pay you within 30 days of receiving their payment, by bank transfer or check.",
     "A referral counts if the person hasn't contacted or worked with MFA before. If two people refer the same person, the first referral we receive counts.",
     "There's no limit on how many people you can refer.",
-    "Taxes, penalties and interest that clients pay to the IRS or a state are not our fees and don't count. If we refund a fee, the reward on it is reduced to match.",
+    "Taxes, penalties and interest that clients pay to the IRS or a state are not our fees and don't count. If we refund any of that invoice, the reward is reduced to match.",
     "Referral rewards are income to you. We may ask you for a Form W-9 before paying and send you a Form 1099 where the rules require one.",
     "Your friend's tax and financial details stay confidential. We'll only tell you that they became a client and the reward you earned.",
     "We may change or end the program at any time; referrals we've already received are paid under the terms in place when you sent them.",
@@ -86,8 +86,8 @@ def build():
     faq = ui_kit.faq_accordion([(esc(q), esc(a)) for q, a in FAQ], prefix="rf")
     js = JS.replace("__ENDPOINT__", lead_box.ENDPOINT).replace("__EMAIL__", B.EMAIL)
     body = f'''{CSS}<header class="rf-hero"><div class="wrap"><span class="eyebrow">For MFA clients</span>
-<h1>Refer a friend. <em>Earn 10% of their fees.</em></h1>
-<p>Know someone who needs help with taxes, bookkeeping or setting up a business? Send them our way. When they become a client and pay us, you get 10% of the fees we collect from them.</p>
+<h1>Refer a friend. <em>Earn 10% of their first invoice.</em></h1>
+<p>Know someone who needs help with taxes, bookkeeping or setting up a business? Send them our way. When they become a client and pay their first invoice, you get 10% of it.</p>
 <div class="hero-btns"><a class="btn btn-gold" href="#refer">Refer someone</a><a class="btn btn-line" href="#terms">How rewards work</a></div></div></header>
 <main>
 <section class="wrap llc-sec" aria-labelledby="how-h"><div class="sec-hd"><span class="eyebrow eb-dark">How it works</span><h2 id="how-h">Three simple steps.</h2></div>
