@@ -1,0 +1,53 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Airbnb Host Taxes 2026: Schedule C or E\, the 14-Day Rule an
+ d Deductions
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:airbnb-host-taxes-2026-schedule-c-or-e-14-day-rule-0@mfa-advisory.com
+DTSTAMP:20261120T124910Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Airbnb hosts: last day that counts toward 2026 rental and persona
+ l-use days
+DESCRIPTION:Your 2026 day counts (rented at a fair price vs personal use)
+  close today. Personal use over the greater of 14 days or 10% of fair-ren
+ tal days means the place counts as your home.\n\nDetails: https://mfa-adv
+ isory.com/blog/airbnb-host-taxes-2026-schedule-c-or-e-14-day-rule/\nGener
+ al information\, not tax advice. Merchant Financial Advisory\, mfa-adviso
+ ry.com
+URL:https://mfa-advisory.com/blog/airbnb-host-taxes-2026-schedule-c-or-e-
+ 14-day-rule/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Airbnb hosts: last day that counts toward 2026 rental and per
+ sonal-use days
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:airbnb-host-taxes-2026-schedule-c-or-e-14-day-rule-1@mfa-advisory.com
+DTSTAMP:20261120T124910Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:4th 2026 estimated tax payment due (Form 1040-ES)
+DESCRIPTION:Not needed if you file your 2026 return by February 1\, 2027 
+ and pay the entire balance due with it.\n\nDetails: https://mfa-advisory.
+ com/blog/airbnb-host-taxes-2026-schedule-c-or-e-14-day-rule/\nGeneral inf
+ ormation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/airbnb-host-taxes-2026-schedule-c-or-e-
+ 14-day-rule/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:4th 2026 estimated tax payment due (Form 1040-ES)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
