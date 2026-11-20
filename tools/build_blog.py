@@ -722,6 +722,15 @@ def webp_imgs(p, body):
     return re.sub(r'(<img\b[^>]*?\bsrc=")([\w.-]+\.(?:png|jpe?g))"', sub, body)
 
 
+def root_relative(p, html):
+    """Make in-post file links root-relative (/blog/<slug>/cover.webp). A bare "cover.webp" breaks when a crawler or
+    preview reads the page at /blog/<slug> (no slash): it asks for /blog/cover.webp, /blog/<slug>.pdf or
+    /blog/key-dates.ics and gets a 404 (Cloudflare, Nov 13-20: 26 such hits)."""
+    base = f"/blog/{p['slug']}/"
+    return re.sub(r'\b(src|href)="(?![a-z][a-z0-9+.-]*:|/|#|\?|\.)([\w-]+(?:/[\w-]+)*\.(?:webp|png|jpe?g|gif|svg|pdf|ics))"',
+                  lambda m: f'{m.group(1)}="{base}{m.group(2)}"', html)
+
+
 def build_post(p):
     A = {**AUTHOR, **p.get("author", {})}
     url = f"{BASE}/blog/{p['slug']}/"
@@ -775,6 +784,7 @@ def build_post(p):
 </article>
 {cta(p)}</main>
 {audience_strip(p)}{FOOT}{SHARE_JS}{NL_JS}{GUMROAD_JS if any(x.get("via") == "gumroad" for x in prods) else ""}</body></html>'''
+    page = root_relative(p, page)
     out = SITE / "blog" / p["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")

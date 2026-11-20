@@ -908,7 +908,11 @@ def build_download_redirects():
         rel = "/" + folder.relative_to(SITE).as_posix() + "/"
         if rel == "/./":
             rel = "/"
-        for href, dl in re.findall(r'<a\b[^>]*\bhref="([^"/:#?]+)"[^>]*\bdownload="([^"/]+)"', page.read_text(encoding="utf-8")):
+        for href, dl in re.findall(r'<a\b[^>]*\bhref="([^":#?]+)"[^>]*\bdownload="([^"/]+)"', page.read_text(encoding="utf-8")):
+            if href.startswith(rel):          # root-relative link to a file in this folder (build_blog.root_relative)
+                href = href[len(rel):]
+            if "/" in href:
+                continue
             if dl != href and (folder / href).is_file() and not (folder / dl).exists():
                 rows.append(f"{rel}{dl}  {rel}{href}  301")
     rows = sorted(set(rows))

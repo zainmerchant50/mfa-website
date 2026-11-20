@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import vm from "node:vm";
 // Local tests for the MFA Hub gate and API (run: node tools/test_hub.mjs). Uses a generated RSA key, no network.
 import { verifyAccessJwt, _clearCertCache } from "../functions/_shared/hub_auth.js";
-import { onRequest as middleware, hubPathCheck, junkPath, truncatedMatch } from "../functions/_middleware.js";
+import { onRequest as middleware, hubPathCheck, junkPath, truncatedMatch, misplacedPdf } from "../functions/_middleware.js";
 import { readdirSync, statSync } from "node:fs";
 import { onRequestPost as commentPost } from "../functions/api/hub/comment.js";
 import { onRequestPost as financePost } from "../functions/api/hub/finance-answer.js";
@@ -92,6 +92,14 @@ await t("truncatedMatch: cut-short links map to exactly one sitemap page", async
   eq(truncatedMatch("/answers/new-roof<script>", P), null);
   eq(truncatedMatch("/ans", P), null, "short path");
 });
+await t("misplacedPdf: /blog/<slug>.pdf -> /blog/<slug>/<slug>.pdf only for sitemap posts", async () => {
+  const P = ["/blog/", "/blog/month-end-close-checklist-small-business/", "/rental-property-taxes/"];
+  eq(misplacedPdf("/blog/month-end-close-checklist-small-business.pdf", P), "/blog/month-end-close-checklist-small-business/month-end-close-checklist-small-business.pdf");
+  eq(misplacedPdf("/blog/unknown-post.pdf", P), null, "not a page");
+  eq(misplacedPdf("/blog/cover.webp", P), null, "not a pdf");
+  eq(misplacedPdf("/blog/month-end-close-checklist-small-business/x.pdf", P), null, "deeper path");
+  eq(misplacedPdf("/blog/../etc.pdf", P), null);
+});
 await t("middleware: public 404 on a cut-short link -> 301, other 404s stay 404", async () => {
   const SM = '<urlset><url><loc>https://mfa-advisory.com/blog/month-end-close-checklist-small-business/</loc></url><url><loc>https://mfa-advisory.com/blog/</loc></url></urlset>';
   const A = { fetch: async (req) => new URL(req.url).pathname === "/sitemap.xml" ? new Response(SM, { status: 200 }) : new Response("nf", { status: 404 }) };
@@ -100,6 +108,14 @@ await t("middleware: public 404 on a cut-short link -> 301, other 404s stay 404"
   eq(r.status, 301); eq(r.headers.get("Location"), "/blog/month-end-close-checklist-small-business/?utm_source=x");
   eq((await go("https://mfa-advisory.com/blog/nothing-here")).status, 404);
   eq((await go("https://mfa-advisory.com/blog/month-end-close-checklis", "POST")).status, 404);
+});
+await t("middleware: /blog/<slug>.pdf 404 -> 301 to the post's PDF only when that file exists", async () => {
+  const SM = '<urlset><url><loc>https://mfa-advisory.com/blog/month-end-close-checklist-small-business/</loc></url><url><loc>https://mfa-advisory.com/blog/form-1065-guide-llc/</loc></url></urlset>';
+  const A = { fetch: async (req) => { const p = new URL(req.url).pathname; return p === "/sitemap.xml" ? new Response(SM, { status: 200 }) : p === "/blog/month-end-close-checklist-small-business/month-end-close-checklist-small-business.pdf" ? new Response(null, { status: 200 }) : new Response("nf", { status: 404 }); } };
+  const go = (u) => middleware({ request: new Request(u), env: { ...ENV, ASSETS: A }, data: {}, next: async () => new Response("404", { status: 404 }) });
+  let r = await go("https://mfa-advisory.com/blog/month-end-close-checklist-small-business.pdf");
+  eq(r.status, 301); eq(r.headers.get("Location"), "/blog/month-end-close-checklist-small-business/month-end-close-checklist-small-business.pdf");
+  eq((await go("https://mfa-advisory.com/blog/form-1065-guide-llc.pdf")).status, 404, "file missing");
 });
 await t("junkPath: probes get 410, never a real site file", async () => {
   for (const p of ["/wp-json/wp/v2/wpmcp/streamable", "/wp-login.php", "/xmlrpc.php", "/wp-admin/", "/wp/", "/wordpress/", "/wp-sitemap.xml", "/.env", "/.env.backup", "/.git/config", "/.aws/credentials", "/public../.env", "/x1x1.php", "/proc/self/environ", "/api/w/a/../../etc", "/portfolio/business-growth/", "/header/sticky-header/"]) eq(junkPath(p), true, p);

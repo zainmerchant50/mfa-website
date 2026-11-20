@@ -190,10 +190,34 @@ def data_script(d):
     return '<script type="application/json" id="calc-data">' + json.dumps(d, separators=(",", ":")).replace("</", "<\\/") + "</script>"
 
 
+def info_faq(info, url):
+    """FAQPage from the question headings already shown in the page's info section (AI-SEO, Nov 20 2026): each
+    <h2>...?</h2> and the text under it, word for word, so answer engines can quote the visible answer."""
+    import html as _h
+    txt = lambda x: re.sub(r"\s+([.,;:)])", r"\1", re.sub(r"\s+", " ", _h.unescape(re.sub(r"<[^>]+>", " ", x)))).strip()
+    def table(m):   # a table reads as sentences: "<first cell>: <header 2> <cell 2>, <header 3> <cell 3>."
+        cells = lambda r: [c.strip() for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)]
+        rows = [cells(r) for r in re.findall(r"<tr[^>]*>(.*?)</tr>", m.group(0), re.S)]
+        if len(rows) < 2:
+            return m.group(0)
+        hd = rows[0]
+        return " ".join(r[0] + ": " + ", ".join(f"{h.lower() if j else h} {c}" for j, (h, c) in enumerate(zip(hd[1:], r[1:]))) + "."
+                        for r in rows[1:]) + " "
+    info = re.sub(r"<table\b.*?</table>", table, info, flags=re.S)
+    parts = re.split(r"<h2>(.*?)</h2>", info)
+    qs = [{"@type": "Question", "name": txt(parts[i]), "acceptedAnswer": {"@type": "Answer", "text": txt(parts[i + 1])}}
+          for i in range(1, len(parts) - 1, 2) if txt(parts[i]).endswith("?") and txt(parts[i + 1])]
+    return {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": qs} if qs else None
+
+
 def build_page(slug, title, desc, eyebrow, h1, dek, grid, below, info, data, init, f, cta_head, cta_text, extra_src=(), extra_note="", extra_checked=(), callout=True, llc=False, lead=""):
     url = f"{BASE}/tools/{slug}/"
     data = dict(data, page_url=url)
-    ld = json.dumps(clean_ld(tool_ld(PAGES[slug]["name"], url, desc)))
+    ld = clean_ld(tool_ld(PAGES[slug]["name"], url, desc))
+    faq = info_faq(info, url)
+    if faq:
+        ld["@graph"].append(faq)
+    ld = json.dumps(ld)
     head = B.head(f"{title} | MFA", desc, url, OG, EXTRA_CSS + CALC_CSS + f'<script type="application/ld+json">{ld}</script>')
     body = (tool_header(eyebrow, h1, dek) +
             f'<main><div class="tool">{grid}</div><div class="tstack">{below}</div>'

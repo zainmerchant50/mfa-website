@@ -96,6 +96,16 @@ export function truncatedMatch(pathname, paths) {
   return hits.length === 1 ? hits[0] : null;
 }
 
+// Misplaced post PDFs (AI-SEO, Nov 20 2026): readers that load a post at /blog/<slug> (no slash) resolved the old
+// relative link "<slug>.pdf" to /blog/<slug>.pdf (Cloudflare Nov 13-20: 16 404s on 8 posts). Links are root-relative
+// now; this maps the old guess to /blog/<slug>/<slug>.pdf when <slug> is a sitemap page (the caller checks the file).
+export function misplacedPdf(pathname, paths) {
+  const m = /^(\/[a-z0-9-]+\/)([a-z0-9-]{3,})\.pdf$/i.exec(pathname);
+  if (!m) return null;
+  const page = m[1] + m[2] + "/";
+  return paths.includes(page) ? page + m[2] + ".pdf" : null;
+}
+
 async function publicPage(ctx) {
   const res = await ctx.next();
   const m = ctx.request.method;
@@ -104,6 +114,11 @@ async function publicPage(ctx) {
     const url = new URL(ctx.request.url);
     const to = truncatedMatch(url.pathname, await sitemapPaths(ctx.env, url));
     if (to) return new Response(null, { status: 301, headers: { Location: to + url.search, "Cache-Control": "public, max-age=3600" } });
+    const pdf = misplacedPdf(url.pathname, await sitemapPaths(ctx.env, url));
+    if (pdf) {
+      const head = await ctx.env.ASSETS.fetch(new Request(new URL(pdf, url), { method: "HEAD" }));
+      if (head.ok) return new Response(null, { status: 301, headers: { Location: pdf, "Cache-Control": "public, max-age=3600" } });
+    }
   } catch (e) { /* fall through to the normal 404 */ }
   return res;
 }
