@@ -17,6 +17,7 @@ import seo
 import ui_kit
 from build_resources import page, write, esc, BASE, cta
 import build_offers as O
+import lead_box
 
 URL = BASE + "/international-students/"
 OG_IMG = URL + "og.png"   # rendered from content/graphics/international-students-og.html (tools/render_graphics.js)
@@ -26,9 +27,9 @@ CHECKED_SAVE = "2026-10-25"   # treaty and refund pages for the tax-savings sect
 KEYWORDS = ["international student tax filing", "F-1 student tax return", "1040-NR preparer", "Form 8843 help",
             "OPT tax refund Social Security Medicare", "H-1B tax return", "nonresident tax treaty",
             "tax savings for international students", "J-1 tax return", "FICA refund F-1 student"]
-STATE_CODES = ["CT", "MD", "OR"]   # the only states we don't prepare returns for (Zain, 2026-10-25)
-STATES_OUT = "Connecticut, Maryland or Oregon"
-STATES_EXCEPT = "Connecticut, Maryland and Oregon"
+STATE_CODES = ["CT", "MD", "NY", "OR"]   # states we don't prepare returns for (Zain, 2026-10-25; New York added 2026-11-20: "i cant file tax return in New York")
+STATES_OUT = "Connecticut, Maryland, New York or Oregon"
+STATES_EXCEPT = "Connecticut, Maryland, New York and Oregon"
 ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
 TEL = '<a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>'
 
@@ -65,6 +66,13 @@ PRICES = [
      "If you pass the substantial presence test, you file the same Form 1040 as a US citizen, at our standard tax return pricing.",
      ["Form 1040 with your state return", "Dual-status first or last year reviewed", "Quoted up front by return type"],
      "/services/#tax-preparation", "See tax return pricing", False),
+]
+
+# "Social Security back on OPT/CPT pay" steps (ad promise: Forms 843 + 8316). IRS foreign student liability page.
+FICA_STEPS = [
+    ("Check your W-2", "Look at boxes 4 and 6. If Social Security or Medicare tax was taken out while you were an F-1, J-1 or M-1 nonresident doing permitted work (campus job, CPT or OPT), it may have been withheld in error."),
+    ("Ask your employer first", "The IRS wants you to ask the employer for the refund before you claim it. We give you a short request to send their payroll team."),
+    ("We file Forms 843 and 8316", "If the employer won't refund all of it, we prepare Form 843 with Form 8316, your W-2, visa, I-94 and I-20 pages, and tell you where to mail it. $49 per claim."),
 ]
 
 NEED = [
@@ -119,8 +127,18 @@ FAQ = [
      "weren't. Form 8843 sent on its own follows the same Form 1040-NR due date. H-1B workers filing Form 1040 file by "
      "April 15, 2027. Need more time? File Form 4868 by the regular due date."),
     ("Which state returns don't you prepare?",
-     f"State returns are available for every state except {STATES_EXCEPT}, the same as our other tax services. That includes "
-     "New Jersey, New York and California, and we can do your federal return and Form 8843 wherever you live."),
+     f"State returns are available for every state except {STATES_EXCEPT}. That includes New Jersey, California, Indiana and "
+     "Hawaii. We can do your federal Form 1040-NR and Form 8843 wherever you live in the US."),
+    ("My 1040-NR was rejected or never filed. Can you still help?",
+     "Yes. A return the IRS rejected electronically was never filed, so an amended return (Form 1040-X) can't fix it: you file one "
+     "original Form 1040-NR with Form 8843 instead. We work out what was and wasn't filed, prepare the return for each missing "
+     "year, and e-file it if the IRS accepts it or give you a ready-to-mail copy if it doesn't. If you're owed a refund, there's "
+     "no failure-to-file penalty, but you still have to file to get it back."),
+    ("What is Form W-8BEN, and do I file it with my tax return?",
+     "No. Form W-8BEN tells a US bank, broker or other payer that you're a foreign person for tax, so they withhold the right "
+     "amount. You give it to the payer when they ask for it; you don't send it to the IRS or attach it to your return. Students "
+     "use Form 8233, not W-8BEN, to claim a treaty exemption on wages. If you later become a US resident for tax, tell the payer "
+     "and give them a Form W-9 instead."),
     ("Can you help with my visa or immigration status?",
      "No. We prepare tax returns and don't give immigration advice. For questions about your visa, OPT or a change of status, "
      "talk to your school's international student office or an immigration attorney."),
@@ -135,6 +153,8 @@ SOURCES = [
     ("IRS: Taxation of alien individuals by immigration status, H-1B", "https://www.irs.gov/individuals/taxation-of-alien-individuals-by-immigration-status-h-1b"),
     ("IRS: Foreign student liability for Social Security and Medicare taxes", "https://www.irs.gov/individuals/international-taxpayers/foreign-student-liability-for-social-security-and-medicare-taxes"),
     ("IRS: Social Security tax/Medicare tax and self-employment (refunds of taxes withheld in error, Form 843)", "https://www.irs.gov/individuals/international-taxpayers/social-security-tax-medicare-tax-and-self-employment"),
+    ("IRS: About Form W-8BEN (certificate of foreign status, given to the payer)", "https://www.irs.gov/forms-pubs/about-form-w-8-ben"),
+    ("IRS: Failure to file penalty (no penalty when a refund is due)", "https://www.irs.gov/payments/failure-to-file-penalty"),
     ("IRS: Publication 901, U.S. Tax Treaties", "https://www.irs.gov/publications/p901"),
     ("IRS: Claiming tax treaty benefits", "https://www.irs.gov/individuals/international-taxpayers/claiming-tax-treaty-benefits"),
     ("IRS: Withholding certificates and exemptions for personal services and students (Form 8233)",
@@ -163,6 +183,7 @@ CSS = """<style>
 .is-who{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:6px}
 .is-who .card{padding:22px 24px;background:#fff;border:1px solid var(--hair);border-radius:16px}.is-who h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem;color:var(--navy);margin:0 0 6px}
 .is-who p{margin:0;font-size:.92rem;line-height:1.6;color:var(--muted)}
+.is-hero-note{margin:14px 0 0;font-size:.95rem;color:#E8ECF2;opacity:.9}
 .is-note{max-width:980px;margin:16px 0 0;font-size:.88rem;color:var(--muted)}
 .is-note a,.is-steps .step p a,#faqs .faq-a-in a{color:var(--navy);border-bottom:1px solid var(--gold);transition:color .3s}
 .is-note a:hover,.is-steps .step p a:hover,#faqs .faq-a-in a:hover{color:var(--gold)}
@@ -248,12 +269,21 @@ def build():
 <div class="is-btns">{btns}</div></div>''')
     need = "".join(f"<li>{ICO}<div><b>{esc(a)}</b><span>{esc(b)}</span></div></li>" for a, b in NEED)
     steps = "".join(f'<div class="step"><h3>{esc(h)}</h3><p>{p}</p></div>' for h, p in STEPS)
+    fica = "".join(f'<div class="step"><h3>{esc(h)}</h3><p>{esc(p)}</p></div>' for h, p in FICA_STEPS)
+    qbox = lead_box.lead_box("International student taxes", "page-intl", "Get your 1040-NR price.",
+                             "Tell us your visa, your years in the US and what you need. We reply within one business day with a fixed price.",
+                             [("1040nr", "Form 1040-NR + Form 8843"), ("8843", "Form 8843 only"), ("fica", "Social Security / Medicare refund (OPT, CPT, campus job)"),
+                              ("late", "Late, rejected or never-filed return"), ("wrong-form", "Filed Form 1040 by mistake"), ("h1b", "H-1B or first-year return"),
+                              ("other", "Not sure")],
+                             bullets=["Federal return e-filed for you", "State returns for most states", "Price agreed before any work starts"],
+                             example="For example: F-1 since 2023, OPT in 2025, W-2 from one employer, moved from Indiana to Hawaii")
     faq = ui_kit.faq_accordion([(esc(q), esc(a)) for q, a in FAQ], prefix="is")
     src = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(t)}</a></li>' for t, u in SOURCES)
     body = f'''{CSS}{O.DIALOG_CSS}<header class="bhero rhero"><div class="wrap"><span class="eyebrow">Nonresident tax returns</span>
 <h1>International student tax filing <em>for F-1, J-1 and <span class="nw">H-1B</span>.</em></h1>
 <p>Your F-1 or J-1 student tax return on Form 1040-NR, Form 8843 help, a nonresident tax treaty check and OPT Social Security and Medicare refund claims, plus H-1B tax returns. We prepare and e-file, at a set price you see before we start.</p>
-<div class="hero-btns"><a class="btn btn-gold" href="/book/" data-conv="book">Book a 30-minute call</a><a class="btn btn-line" href="#prices">See prices</a></div></div></header>
+<div class="hero-btns"><a class="btn btn-gold" href="#get-price">Get my price</a><a class="btn btn-line" href="/book/" data-conv="book">Book a 30-minute call</a><a class="btn btn-line" href="#prices">See prices</a></div>
+<p class="is-hero-note">Forms 8843 and 1040-NR · late or rejected returns · OPT Social Security refunds · residency checks</p></div></header>
 <main>
 <section class="wrap llc-sec" aria-labelledby="who-h"><div class="sec-hd"><span class="eyebrow eb-dark">Who it's for</span><h2 id="who-h">F-1, J-1 and H-1B tax returns: who we help.</h2>
 <p>The right forms depend on your visa, how long you've been in the US and what you earned, not on where you're from.</p></div>
@@ -262,6 +292,10 @@ def build():
 <p>We confirm which one fits on a short call before any work starts.</p></div>
 <div class="pk is-pk">{"".join(cards)}</div>
 <p class="is-note">State returns are not available for {STATES_OUT}. Not sure if you're a resident or a nonresident for tax? See <a href="#is-2">the FAQ on residency</a>.</p></section>
+<section class="wrap llc-sec" id="opt-refund" aria-labelledby="fica-h"><div class="sec-hd"><span class="eyebrow eb-dark">OPT and campus jobs</span><h2 id="fica-h">Social Security taken from your OPT or CPT pay? Here's how to get it back.</h2>
+<p>F-1, J-1 and M-1 students who are nonresidents for tax generally don't owe Social Security or Medicare on wages for permitted work. If your employer took it anyway, it can usually be claimed back.</p></div>
+<div class="is-steps">{fica}</div></section>
+{qbox}
 <section class="wrap llc-sec" id="savings" aria-labelledby="sv-h"><div class="sec-hd"><span class="eyebrow eb-dark">Tax savings</span><h2 id="sv-h">Tax savings for international students: what's real.</h2>
 <p>Three ways students on F-1 and J-1 visas legitimately pay less or get money back. What you get depends on your income, withholding, visa and treaty, so we never promise an amount.</p></div>
 <div class="is-who is-save">{save}</div></section>
