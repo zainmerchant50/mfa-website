@@ -2,8 +2,8 @@
 """Builds /international-students/ (Site session): US tax returns for international students, scholars and H-1B workers.
 
 Zain approved the service line and these prices in chat on 2026-10-24:
-  Form 8843 only (no US income) $25; student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal,
-  $129 with one state return; Social Security/Medicare (FICA) refund claim, Forms 843 + 8316, $49;
+  Form 8843 only (no US income) $39; student package (Form 1040-NR + Form 8843 + tax treaty check) $149 federal,
+  $199 with one state return; Social Security/Medicare (FICA) refund claim, Forms 843 + 8316, $79 (Zain 2026-11-20: raised from $25/$99/$129/$49 to market rates);
   H-1B and others who are US residents for tax: standard Form 1040 pricing (link to /services/#tax-preparation, no number).
   State returns for every state except CT, MD and OR (same as our other tax services; Zain, 2026-10-25: CA and NY are in).
 Targeted by visa and tax situation, never nationality. No immigration advice. Every fact in the FAQ was checked on irs.gov
@@ -42,18 +42,18 @@ WHO = [
 
 # (tag, title, price, price note, lead, [included], href, button, featured)
 PRICES = [
-    ("No US income", "Form 8843 only", "$25", "per person",
+    ("No US income", "Form 8843 only", "$39", "per person",
      "For F, J, M or Q students and scholars with no US income who still need to send Form 8843.",
      ["Form 8843 prepared from your visa and travel dates", "Day count for the substantial presence test",
-      "Ready for you to sign and mail, with the IRS address"], "pay:f8843", "Pay $25", False),
-    ("Most students", "Student package", "$99", "federal · $129 with one state return",
+      "Ready for you to sign and mail, with the IRS address"], "pay:f8843", "Pay $39", False),
+    ("Most students", "Student package", "$149", "federal · $199 with one state return",
      "Your nonresident federal return, prepared and e-filed, with Form 8843 attached.",
      ["Form 1040-NR, e-filed", "Form 8843", "Tax treaty check for your wages or scholarship",
-      "One state return in the $129 option"], "pay:nr-fed|nr-state", "Pay $99|Pay $129 with state", True),
-    ("OPT and campus jobs", "Social Security refund claim", "$49", "Forms 843 + 8316",
+      "One state return in the $199 option"], "pay:nr-fed|nr-state", "Pay $149|Pay $199 with state", True),
+    ("OPT and campus jobs", "Social Security refund claim", "$79", "Forms 843 + 8316",
      "Social Security and Medicare withheld from your pay while you were exempt, and your employer won't refund it.",
      ["Form 843 claim for refund", "Form 8316 statement", "Supporting documents checklist and filing instructions"],
-     "pay:fica", "Pay $49", False),
+     "pay:fica", "Pay $79", False),
     ("Filed the wrong form?", "Wrong-form fix", "$129", "amended return",
      "You filed a Form 1040 (often through TurboTax) while you were a nonresident. We fix it with the right amended return.",
      ["Your residency checked year by year", "Amended return prepared, with Form 1040-NR and Form 8843", "Any credits you weren't entitled to identified"],
@@ -72,7 +72,7 @@ PRICES = [
 FICA_STEPS = [
     ("Check your W-2", "Look at boxes 4 and 6. If Social Security or Medicare tax was taken out while you were an F-1, J-1 or M-1 nonresident doing permitted work (campus job, CPT or OPT), it may have been withheld in error."),
     ("Ask your employer first", "The IRS wants you to ask the employer for the refund before you claim it. We give you a short request to send their payroll team."),
-    ("We file Forms 843 and 8316", "If the employer won't refund all of it, we prepare Form 843 with Form 8316, your W-2, visa, I-94 and I-20 pages, and tell you where to mail it. $49 per claim."),
+    ("We file Forms 843 and 8316", "If the employer won't refund all of it, we prepare Form 843 with Form 8316, your W-2, visa, I-94 and I-20 pages, and tell you where to mail it. $79 per claim."),
 ]
 
 NEED = [
@@ -97,7 +97,7 @@ FAQ = [
      "Usually yes, but only Form 8843. If you were in the US as an F, J, M or Q student, or a J or Q teacher or trainee, and you "
      "don't count those days toward the substantial presence test, the IRS requires Form 8843 to explain why. With no tax return "
      "to file, you mail Form 8843 on its own by the Form 1040-NR due date. If you file late, the IRS can count those days, "
-     "which can change your tax status. Our Form 8843-only service is $25."),
+     "which can change your tax status. Our Form 8843-only service is $39."),
     ("F-1 student tax return: am I a resident or a nonresident for tax?",
      "It depends on the substantial presence test: at least 31 days in the US this year and 183 days over three years, counting "
      "all of this year's days, one-third of last year's and one-sixth of the year before. Days as an exempt individual don't count. "
@@ -112,7 +112,7 @@ FAQ = [
      "Often, yes. The IRS says F-1, J-1 and M-1 students who are nonresident aliens are exempt from Social Security and Medicare "
      "tax on wages for permitted work, including practical training on or off campus. The exemption ends once you become a "
      "resident for tax, and it doesn't cover F-2, J-2 or M-2 family members or H-1B wages. Ask your employer for a refund first. "
-     "If they won't refund all of it, we prepare Form 843 with Form 8316 and the supporting documents for $49."),
+     "If they won't refund all of it, we prepare Form 843 with Form 8316 and the supporting documents for $79."),
     ("Does a nonresident tax treaty lower my US tax?",
      "It can. If the US has an income tax treaty with your country of residence, students, trainees and researchers may be "
      "exempt from US tax on certain income, such as some wages or a scholarship. Each treaty is different, so your country and "
@@ -223,11 +223,11 @@ def offers():
     """schema.org Offers for the approved prices (the H-1B card has no number: standard Form 1040 pricing, quoted up front)."""
     o = seo._offer
     u = URL + "#prices"
-    return [o("Form 8843 only (no US income)", 25, "Form 8843 prepared for an exempt individual with no US income, ready to sign and mail.", url=u),
-            o("Student package: Form 1040-NR + Form 8843 + tax treaty check", 99, "Federal nonresident return, e-filed. $129 with one state return.", url=u),
-            {**o("Student package with one state return", 129, f"Form 1040-NR, Form 8843, tax treaty check and one state return (not {STATES_OUT}).", url=u),
+    return [o("Form 8843 only (no US income)", 39, "Form 8843 prepared for an exempt individual with no US income, ready to sign and mail.", url=u),
+            o("Student package: Form 1040-NR + Form 8843 + tax treaty check", 149, "Federal nonresident return, e-filed. $199 with one state return.", url=u),
+            {**o("Student package with one state return", 199, f"Form 1040-NR, Form 8843, tax treaty check and one state return (not {STATES_OUT}).", url=u),
              "eligibleRegion": {"@type": "Country", "name": "United States"}, "ineligibleRegion": seo.states_excluded(STATE_CODES)},
-            o("Social Security and Medicare refund claim (Forms 843 + 8316)", 49, "Claim for refund of Social Security and Medicare tax withheld in error.", url=u),
+            o("Social Security and Medicare refund claim (Forms 843 + 8316)", 79, "Claim for refund of Social Security and Medicare tax withheld in error.", url=u),
             o("Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR", 129, "Residency checked and the correct amended return prepared.", url=u),
             o("First-year H-1B (dual-status) tax return, federal", 249, "Dual-status return or first-year choice compared; state return quoted up front.", url=u),
             o("Form 1040 for H-1B workers and other US tax residents", None, "Standard tax return pricing, quoted up front by return type.",
@@ -235,7 +235,7 @@ def offers():
 
 
 TITLE = "International Student Tax Filing: 1040-NR & 8843 | MFA"
-DESC = ("F-1 student tax return on Form 1040-NR $99, Form 8843 help $25, OPT Social Security refund $49, tax treaty check. "
+DESC = ("F-1 student tax return on Form 1040-NR $149, Form 8843 help $39, OPT Social Security refund $79, tax treaty check. "
         "H-1B returns too. E-filed.")
 
 

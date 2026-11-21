@@ -367,14 +367,14 @@
       },
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
-     "price": "25",
+     "price": "39",
      "url": "https://mfa-advisory.com/international-students/#prices"
     },
     {
      "@type": "Offer",
      "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
      "priceCurrency": "USD",
-     "description": "Federal nonresident return, e-filed. $129 with one state return.",
+     "description": "Federal nonresident return, e-filed. $199 with one state return.",
      "itemOffered": {
       "@type": "Service",
       "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
@@ -383,7 +383,7 @@
       },
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
-     "price": "99",
+     "price": "149",
      "url": "https://mfa-advisory.com/international-students/#prices"
     },
     {
@@ -399,7 +399,7 @@
       },
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
-     "price": "129",
+     "price": "199",
      "url": "https://mfa-advisory.com/international-students/#prices",
      "eligibleRegion": {
       "@type": "Country",
@@ -445,7 +445,7 @@
       },
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
-     "price": "49",
+     "price": "79",
      "url": "https://mfa-advisory.com/international-students/#prices"
     },
     {
@@ -1446,7 +1446,7 @@
     "name": "US tax returns for international students and H-1B workers",
     "url": "https://mfa-advisory.com/international-students/",
     "serviceType": "Tax preparation for international students and nonresident aliens (Form 1040-NR, Form 8843, Forms 843 and 8316)",
-    "description": "F-1 student tax return on Form 1040-NR $99, Form 8843 help $25, OPT Social Security refund $49, tax treaty check. H-1B returns too. E-filed. Federal returns for every US state. State returns for every state except Connecticut, Maryland and Oregon.",
+    "description": "F-1 student tax return on Form 1040-NR $149, Form 8843 help $39, OPT Social Security refund $79, tax treaty check. H-1B returns too. E-filed. Federal returns for every US state. State returns for every state except Connecticut, Maryland and Oregon.",
     "provider": {
      "@id": "https://mfa-advisory.com/#organization"
     },
@@ -1472,14 +1472,14 @@
        },
        "url": "https://mfa-advisory.com/international-students/#prices"
       },
-      "price": "25",
+      "price": "39",
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
      {
       "@type": "Offer",
       "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
       "priceCurrency": "USD",
-      "description": "Federal nonresident return, e-filed. $129 with one state return.",
+      "description": "Federal nonresident return, e-filed. $199 with one state return.",
       "itemOffered": {
        "@type": "Service",
        "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
@@ -1488,7 +1488,7 @@
        },
        "url": "https://mfa-advisory.com/international-students/#prices"
       },
-      "price": "99",
+      "price": "149",
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
      {
@@ -1504,7 +1504,7 @@
        },
        "url": "https://mfa-advisory.com/international-students/#prices"
       },
-      "price": "129",
+      "price": "199",
       "url": "https://mfa-advisory.com/international-students/#prices",
       "eligibleRegion": {
        "@type": "Country",
@@ -1550,7 +1550,7 @@
        },
        "url": "https://mfa-advisory.com/international-students/#prices"
       },
-      "price": "49",
+      "price": "79",
       "url": "https://mfa-advisory.com/international-students/#prices"
      },
      {

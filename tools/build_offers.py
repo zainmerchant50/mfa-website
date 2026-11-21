@@ -41,10 +41,10 @@ SERVICES = {
     "qtr-year":    {"name": "Quarterly estimated tax plan, 2027 (four federal and state payments)", "price": 199, "page": "/quarterly-estimated-taxes/", "ask": "state"},
     "qtr-next":    {"name": "Next estimated tax payment (due January 15, 2027)", "price": 59, "page": "/quarterly-estimated-taxes/", "ask": "state"},
     "annual":      {"name": "LLC annual report filing (service fee; state fee billed at cost)", "price": 39, "page": "/llc-annual-report/", "ask": "state"},
-    "f8843":       {"name": "Form 8843 only (per person)", "price": 25, "min": 1, "max": 6, "page": "/international-students/", "ask": "forms"},
-    "nr-fed":      {"name": "Student package: Form 1040-NR + Form 8843 + tax treaty check", "price": 99, "page": "/international-students/", "ask": None},
-    "nr-state":    {"name": "Student package with one state return", "price": 129, "page": "/international-students/", "ask": "state"},
-    "fica":        {"name": "Social Security and Medicare refund claim (Forms 843 + 8316)", "price": 49, "page": "/international-students/", "ask": None},
+    "f8843":       {"name": "Form 8843 only (per person)", "price": 39, "min": 1, "max": 6, "page": "/international-students/", "ask": "forms"},
+    "nr-fed":      {"name": "Student package: Form 1040-NR + Form 8843 + tax treaty check", "price": 149, "page": "/international-students/", "ask": None},
+    "nr-state":    {"name": "Student package with one state return", "price": 199, "page": "/international-students/", "ask": "state"},
+    "fica":        {"name": "Social Security and Medicare refund claim (Forms 843 + 8316)", "price": 79, "page": "/international-students/", "ask": None},
     "nr-fix":      {"name": "Wrong-form fix: amended return when a 1040 was filed instead of a 1040-NR", "price": 129, "page": "/international-students/", "ask": None},
     "dual":        {"name": "First-year H-1B (dual-status) tax return, federal", "price": 249, "page": "/international-students/", "ask": "state"},
     "late-1040":   {"name": "Late 2025 tax return: Form 1040, federal", "price": 249, "page": "/late-tax-return/", "ask": "state"},
@@ -148,7 +148,7 @@ CSS = """<style>
 CRED = "Your work is done by Zain Merchant and his team of tax and accounting experts. Zain: Big Four (ex-PwC) · PTIN/EFIN tax preparer, over 10 years of accounting, audit and tax experience."
 ALSO = [("/year-end-tax-planning/", "Year-end tax planning $99"), ("/1099-filing/", "1099 filing from $20/form"),
         ("/s-corp-election/", "S corp switch $299"), ("/quarterly-estimated-taxes/", "Quarterly estimates $199/yr"),
-        ("/llc-annual-report/", "LLC annual report $39"), ("/international-students/", "International students from $25"),
+        ("/llc-annual-report/", "LLC annual report $39"), ("/international-students/", "International students from $39"),
         ("/llc-formation/", "LLC formation from $150"), ("/bookkeeping/princeton-nj/", "Bookkeeping from $300/mo"),
         ("/late-tax-return/", "Late 2025 tax return from $249")]
 

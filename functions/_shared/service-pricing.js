@@ -58,7 +58,7 @@ export default {
  },
  "f8843": {
   "name": "Form 8843 only (per person)",
-  "amount": 2500,
+  "amount": 3900,
   "min": 1,
   "max": 6,
   "per": true,
@@ -66,7 +66,7 @@ export default {
  },
  "nr-fed": {
   "name": "Student package: Form 1040-NR + Form 8843 + tax treaty check",
-  "amount": 9900,
+  "amount": 14900,
   "min": 1,
   "max": 1,
   "per": false,
@@ -74,7 +74,7 @@ export default {
  },
  "nr-state": {
   "name": "Student package with one state return",
-  "amount": 12900,
+  "amount": 19900,
   "min": 1,
   "max": 1,
   "per": false,
@@ -82,7 +82,7 @@ export default {
  },
  "fica": {
   "name": "Social Security and Medicare refund claim (Forms 843 + 8316)",
-  "amount": 4900,
+  "amount": 7900,
   "min": 1,
   "max": 1,
   "per": false,

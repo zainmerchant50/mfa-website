@@ -477,9 +477,9 @@ def _pricing_lines():
               f"- 1099 preparation and e-filing: ${A['f1099']['per']} per form, ${A['f1099']['min']} minimum.",
               f"- Sales tax registration: ${A['salestax']['price']} (included in Complete Launch). S corporation election (Form 2553): ${A['scorp']['price']} (included in Complete Launch).",
               "- Bookkeeping cleanup and catch-up: fixed quote after a review of a sample of your accounts (https://mfa-advisory.com/bookkeeping-cleanup/).",
-              "- International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; "
-              "student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal, $129 with one state return; Social Security and Medicare "
-              "refund claim (Forms 843 + 8316) $49; wrong-form fix $129; first-year H-1B dual-status return $249; H-1B and other US tax residents file Form 1040 at standard tax return pricing. "
+              "- International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $39; "
+              "student package (Form 1040-NR + Form 8843 + tax treaty check) $149 federal, $199 with one state return; Social Security and Medicare "
+              "refund claim (Forms 843 + 8316) $79; wrong-form fix $129; first-year H-1B dual-status return $249; H-1B and other US tax residents file Form 1040 at standard tax return pricing. "
               "State returns for every state except Connecticut, Maryland and Oregon.",
               "- Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; "
               "bookkeeping, LLC formation and quarterly estimates at the prices above. State returns for every state except Connecticut, Maryland and Oregon.",
@@ -522,7 +522,7 @@ def build_llms(posts):
         f"- [Services]({BASE}/services/): tax preparation, tax planning, bookkeeping (QuickBooks, Xero, Sage, Wave and FreshBooks), financial reporting, fractional CFO, audit support, technical accounting, business advisory",
         f"- [LLC formation in all 50 states]({BASE}/llc-formation/): $150 / $249 / $649 plus the state fee, paid once; state-by-state fees and rules",
         f"- [Bookkeeping cleanup and catch-up]({BASE}/bookkeeping-cleanup/): fixed quote request",
-        f"- [International students and H-1B workers]({BASE}/international-students/): international student tax filing; Form 8843 $25, Form 1040-NR student package $99 ($129 with one state), Social Security and Medicare (FICA) refund claim $49, wrong-form fix (1040 filed instead of 1040-NR) $129, first-year H-1B dual-status return $249, tax treaty check; other H-1B returns at standard Form 1040 pricing",
+        f"- [International students and H-1B workers]({BASE}/international-students/): international student tax filing; Form 8843 $39, Form 1040-NR student package $149 ($199 with one state), Social Security and Medicare (FICA) refund claim $79, wrong-form fix (1040 filed instead of 1040-NR) $129, first-year H-1B dual-status return $249, tax treaty check; other H-1B returns at standard Form 1040 pricing",
         f"- [Year-end tax planning session]({BASE}/year-end-tax-planning/): 60 minutes before Dec 31 plus a written action list, $99, pay online",
         f"- [1099-NEC filing]({BASE}/1099-filing/): W-9s, IRS e-filing and contractor copies; $20 per form early-bird through Dec 15, 2026, then $25 (3-form minimum)",
         f"- [S corp election for 2027]({BASE}/s-corp-election/): savings check, Form 2553, reasonable salary and payroll plan, $299",
