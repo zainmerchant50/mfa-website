@@ -21,9 +21,9 @@ from build_resources import page, write, esc, BASE, cta
 URL = BASE + "/artists/"
 OG_IMG = URL + "og.png"   # rendered from content/graphics/artists-og.html (tools/render_graphics.js)
 CHECKED = "2026-10-25"
-STATES_OUT = "Connecticut, Maryland or Oregon"
-STATES_EXCEPT = "Connecticut, Maryland and Oregon"
-STATE_CODES = ["CT", "MD", "OR"]   # the only states we don't prepare returns for (Zain, 2026-10-25)
+STATES_OUT = "Connecticut, Maryland, New York or Oregon"
+STATES_EXCEPT = "Connecticut, Maryland, New York and Oregon"
+STATE_CODES = ["CT", "MD", "NY", "OR"]   # states we don't prepare returns for (Zain, 2026-10-25; NY added 2026-11-20)
 KEYWORDS = ["artist taxes", "tax deductions for artists", "self-employed artist tax return", "do artists need an LLC",
             "art business bookkeeping", "Etsy artist 1099-K", "tax savings for artists", "Schedule C for artists",
             "musician taxes", "photographer taxes", "art fair sales tax"]

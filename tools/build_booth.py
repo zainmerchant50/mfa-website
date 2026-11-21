@@ -83,7 +83,7 @@ FAQ = [
      "You may get a Form 1099-K from a payment app or card processor, and a 1099-NEC from a salon that pays you $2,000 or more for "
      "work in 2026. Either way, all your income is taxable, including cash, so we match every form to your records."),
     ("Do you work with booth renters outside New Jersey?",
-     "Yes. We prepare federal returns for every state and state returns for every state except Connecticut, Maryland and Oregon."),
+     "Yes. We prepare federal returns for every state and state returns for every state except Connecticut, Maryland, New York and Oregon."),
 ]
 
 SOURCES = [
@@ -182,7 +182,7 @@ def build():
 <section class="wrap llc-sec" aria-labelledby="src-h"><div class="sec-hd"><span class="eyebrow eb-dark">Sources</span><h2 id="src-h">Checked against the IRS.</h2></div>
 <div class="br-src"><div class="sources"><ul>{src}</ul><p class="factline">Facts checked against the pages above on {nice}.</p></div></div></section>
 {cta("Rent a booth? Let's get your taxes right.", "Book a 30-minute call or phone " + TEL + ". Tell us how you get paid and what you pay for your booth, and we'll quote your return before any work starts.")}
-{ui_kit.fineprint("General information, not tax advice for your situation. State returns are not available for Connecticut, Maryland or Oregon. "
+{ui_kit.fineprint("General information, not tax advice for your situation. State returns are not available for Connecticut, Maryland, New York or Oregon. "
                   "Reading this page or booking a call doesn't create a client relationship.")}
 </main>'''
     faq_ld = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [
