@@ -91,7 +91,7 @@ FAQ = [
     ("Do you handle New Jersey and New York rentals?",
      "Yes. New York starts from your federal adjusted gross income, so your federal Schedule E figures generally carry over. "
      "New Jersey treats net rental income as its own category and has its own depreciation rules, so some federal amounts need "
-     "a state adjustment. We prepare state returns for every state except Connecticut, Maryland, New York and Oregon."),
+     "a state adjustment. We prepare state returns for every state except Connecticut, Maryland and Oregon."),
 ]
 
 SOURCES = [
@@ -187,7 +187,7 @@ def build():
 <section class="wrap llc-sec" aria-labelledby="src-h"><div class="sec-hd"><span class="eyebrow eb-dark">Sources</span><h2 id="src-h">Checked against the IRS.</h2></div>
 <div class="rp-src"><div class="sources"><ul>{src}</ul><p class="factline">Facts checked against the pages above on {nice}.</p></div></div></section>
 {cta("Own a rental? Let's get it right.", "Book a 30-minute call or phone " + TEL + ". Tell us how many properties you have and how you rent them, and we'll quote your return before any work starts.")}
-{ui_kit.fineprint("General information, not tax advice for your situation. State returns are not available for Connecticut, Maryland, New York or Oregon. "
+{ui_kit.fineprint("General information, not tax advice for your situation. State returns are not available for Connecticut, Maryland or Oregon. "
                   "Reading this page or booking a call doesn't create a client relationship.")}
 </main>'''
     faq_ld = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [

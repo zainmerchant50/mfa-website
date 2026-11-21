@@ -27,9 +27,9 @@ CHECKED_SAVE = "2026-10-25"   # treaty and refund pages for the tax-savings sect
 KEYWORDS = ["international student tax filing", "F-1 student tax return", "1040-NR preparer", "Form 8843 help",
             "OPT tax refund Social Security Medicare", "H-1B tax return", "nonresident tax treaty",
             "tax savings for international students", "J-1 tax return", "FICA refund F-1 student"]
-STATE_CODES = ["CT", "MD", "NY", "OR"]   # states we don't prepare returns for (Zain, 2026-10-25; New York added 2026-11-20: "i cant file tax return in New York")
-STATES_OUT = "Connecticut, Maryland, New York or Oregon"
-STATES_EXCEPT = "Connecticut, Maryland, New York and Oregon"
+STATE_CODES = ["CT", "MD", "OR"]   # the only states we don't prepare returns for (Zain, 2026-10-25). Zain 2026-11-20: NY is still prepared, just not advertised (don't list it as excluded, don't name it as included)
+STATES_OUT = "Connecticut, Maryland or Oregon"
+STATES_EXCEPT = "Connecticut, Maryland and Oregon"
 ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
 TEL = '<a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>'
 

@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 TF = json.loads((DATA / "tax-figures-2026.json").read_text())
 LLC = json.loads((DATA / "llc-states.json").read_text())
-STATES_EXCEPT = "Connecticut, Maryland, New York and Oregon"
+STATES_EXCEPT = "Connecticut, Maryland and Oregon"
 EARLY_END = "December 15, 2026"
 TEL = '<a href="tel:+13472054468" data-conv="call">(347) 205-4468</a>'
 ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'

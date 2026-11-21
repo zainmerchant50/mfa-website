@@ -480,9 +480,9 @@ def _pricing_lines():
               "- International students and H-1B workers (https://mfa-advisory.com/international-students/): Form 8843 only (no US income) $25; "
               "student package (Form 1040-NR + Form 8843 + tax treaty check) $99 federal, $129 with one state return; Social Security and Medicare "
               "refund claim (Forms 843 + 8316) $49; wrong-form fix $129; first-year H-1B dual-status return $249; H-1B and other US tax residents file Form 1040 at standard tax return pricing. "
-              "State returns for every state except Connecticut, Maryland, New York and Oregon.",
+              "State returns for every state except Connecticut, Maryland and Oregon.",
               "- Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; "
-              "bookkeeping, LLC formation and quarterly estimates at the prices above. State returns for every state except Connecticut, Maryland, New York and Oregon.",
+              "bookkeeping, LLC formation and quarterly estimates at the prices above. State returns for every state except Connecticut, Maryland and Oregon.",
               "- Landlords and short-term rental hosts (https://mfa-advisory.com/rental-property-taxes/): rental property tax returns (Schedule E, or Schedule C "
               "for rentals with substantial services) quoted up front; depreciation, repairs vs improvements, passive loss limits; rental bookkeeping from $300/month.",
               "- Booth renters and beauty pros (https://mfa-advisory.com/booth-renters/): Schedule C + SE tax returns for salon booth renters, barbers, nail, lash and brow techs "
