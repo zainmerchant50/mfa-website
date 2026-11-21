@@ -1,6 +1,6 @@
 // Helpers for /api/hub/* (MFA Hub). The site middleware has already verified the Access JWT and
 // set ctx.data.hubEmail; every handler checks it again so a routing mistake can't open the API.
-export const PAGES = ["home", "board", "calendar", "ads", "finance", "leads", "tasks", "log"];
+export const PAGES = ["home", "board", "calendar", "ads", "finance", "leads", "tasks", "log", "all"];
 
 export function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), {

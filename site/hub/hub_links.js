@@ -86,7 +86,7 @@
     return Object.keys(p || {}).filter(function (k) { return /^[a-z]{1,12}$/.test(k) && p[k] !== null && p[k] !== undefined && p[k] !== ""; })
       .map(function (k) { return k + "=" + encodeURIComponent(String(p[k])); }).join("&");
   }
-  var PAGES = ["home", "board", "calendar", "ads", "finance", "leads", "tasks", "log"];
+  var PAGES = ["home", "board", "calendar", "ads", "finance", "leads", "tasks", "log", "all"];
   function route(page, p) { if (PAGES.indexOf(page) < 0) page = "home"; var q = qs(p); return "/hub/" + (page === "home" ? "" : page + "/") + (q ? "#" + q : ""); }
 
   // Where a comment's item_ref lives in the hub.

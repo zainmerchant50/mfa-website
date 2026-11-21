@@ -1175,13 +1175,68 @@
 
   R.log = function () { pollLog($("log"), $("logAgent")); };
 
+  // ---------- v3: Everything page (Zain 2026-11-20: "i dont see everything") ----------
+  R.all = function (d) {
+    var rows = [], t0 = today();
+    function push(type, when, title, status, owner, note, href, ext) { rows.push({ type: type, when: when || "", title: title || "", status: status || "", owner: owner || "", note: note || "", href: href, ext: ext }); }
+    (d.deadlinesAll || []).forEach(function (r) { var late = r.status === "open" && r.due < t0; push("deadline", r.due, r.title, late ? "overdue" : r.status, r.owner || r.area, r.note, HL.route("home"), r.link); });
+    (d.leadsAll || []).forEach(function (r) { push("lead", (r.received_at || "").slice(0, 10), (r.first_name || "Lead") + (r.topic ? " · " + r.topic : ""), r.status, r.source, r.note + (r.reminder_at ? " · next: " + r.reminder_at : ""), HL.route("leads")); });
+    (d.needsAll || []).forEach(function (r) { push("decision", (r.created_at || "").slice(0, 10), r.title, r.status, r.agent, r.agent_note || r.detail, HL.route("board")); });
+    (d.requests || []).forEach(function (r) { push("request", (r.created_at || "").slice(0, 10), r.body, r.status, r.area, r.agent_note, HL.route("tasks")); });
+    (d.calNext || []).forEach(function (r) { push("post", r.date + (r.time ? " " + r.time : ""), r.title, r.status, r.platform, r.note, HL.route("calendar"), r.link); });
+    (d.agents || []).forEach(function (r) { var x = r.data || {}; push("agent", (r.updated_at || r.at || "").slice(0, 10), r.agent + (x.now ? " · " + x.now : ""), r.status, x.next_run, x.needs_zain || x.last_result, HL.route("board")); });
+    (d.ideas || []).slice(0, 60).forEach(function (r) { push("idea", (r.at || "").slice(0, 10), r.title, r.status, r.agent, (r.data || {}).progress, HL.route("board")); });
+    var hp = HL.parseHash(location.hash), q = new URLSearchParams(location.search).get("q") || "";
+    var counts = {}; rows.forEach(function (r) { counts[r.type] = (counts[r.type] || 0) + 1; });
+    var bar = $("evBar"); clear(bar);
+    [["", "All", rows.length]].concat(["deadline", "lead", "decision", "request", "post", "agent", "idea"].map(function (k) { return [k, k.charAt(0).toUpperCase() + k.slice(1) + "s", counts[k] || 0]; })).forEach(function (c) {
+      var a = el("a", "ev-chip" + ((hp.type || "") === c[0] ? " on" : ""), c[1] + " "); a.href = "#" + (c[0] ? "type=" + c[0] : ""); add(a, el("b", null, String(c[2]))); bar.appendChild(a);
+    });
+    table($("ev"), {
+      rows: rows, sort: { k: "when", dir: "asc" },
+      selects: [{ k: "type", l: "Type", value: hp.type || "", match: true }, { k: "status", l: "Status" }],
+      cols: [
+        { k: "type", l: "Type", cell: function (r) { return el("span", "ev-t ev-" + r.type, r.type); } },
+        { k: "when", l: "Date", cls: "nw" },
+        { k: "title", l: "What", cls: "ww", cell: function (r) { var a = hl(r.title, r.href); return r.ext ? add(el("span"), a, " ", link(r.ext, "open")) : a; } },
+        { k: "status", l: "Status", cell: function (r) { return pill(r.status); } },
+        { k: "owner", l: "Who / where" },
+        { k: "note", l: "Notes", cls: "w", cell: function (r) { return r.note ? clip(r.note) : el("span", "muted", "—"); } }
+      ],
+      empty: "Nothing here yet."
+    });
+    if (q) { var inp = $("ev").querySelector(".tb input[type=search]"); if (inp) { inp.value = q; inp.dispatchEvent(new Event("input")); } var hq = $("hubQ"); if (hq) hq.value = q; }
+  };
+
+  // ---------- v3 shell: sidebar counts, account links, mobile menu ----------
+  function shell(d) {
+    var c = (d && d.counts) || {};
+    Array.prototype.forEach.call(document.querySelectorAll(".cnt[data-count]"), function (n) {
+      var v = Number(c[n.getAttribute("data-count")] || 0); n.textContent = v; n.hidden = !v;
+      if (n.getAttribute("data-count") === "due7" && Number(c.late || 0) > 0) { n.classList.add("hot"); n.title = c.late + " overdue"; }
+      if (n.getAttribute("data-count") === "needs" && v) n.classList.add("hot");
+    });
+    var sl = $("sideLinks");
+    if (sl && d && d.links && !sl.firstChild) {
+      var seen = {};
+      d.links.forEach(function (l) { var u = HL.safeUrl(l.url); if (!u || seen[u]) return; seen[u] = 1; var a = el("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; add(a, el("span", null, l.label || l.key), el("em", "ext-i", "↗")); sl.appendChild(a); });
+    }
+  }
+  (function () {
+    var b = $("hubMenu"), side = $("hubSide"), scrim = $("hubScrim"); if (!b || !side) return;
+    function set(on) { document.body.classList.toggle("hs-open", on); b.setAttribute("aria-expanded", on ? "true" : "false"); if (scrim) scrim.hidden = !on; }
+    b.addEventListener("click", function () { set(!document.body.classList.contains("hs-open")); });
+    if (scrim) scrim.addEventListener("click", function () { set(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+  })();
+
   // ---------- boot ----------
   function load() {
     status("Loading…");
-    if (PAGE === "log") { R.log(); status(""); return; }
+    if (PAGE === "log") { R.log(); status(""); getJSON("/api/hub/data?page=leads").then(shell).catch(function () {}); return; }
     if (PAGE === "board") boardExtras(); // fetched in parallel for the Board's metric tiles
     getJSON("/api/hub/data?page=" + encodeURIComponent(PAGE)).then(function (d) {
-      DATA = d; LINKS = HL.index(d.links); indexComments(d.comments); R[PAGE](d);
+      DATA = d; LINKS = HL.index(d.links); indexComments(d.comments); shell(d); R[PAGE](d);
       status("Updated " + new Date().toLocaleTimeString("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit" }) + " ET");
     }).catch(function (e) { status("Couldn't load (" + e.message + "). Refresh; if it keeps failing, sign in again.", true); });
   }

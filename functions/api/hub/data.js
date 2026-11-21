@@ -26,6 +26,11 @@ const Q = {
   // v6 Today page (operations): dated items + the next two weeks of content across every channel
   deadlines: "SELECT id, due, title, area, owner, status, link, note, updated_at FROM deadlines WHERE status = 'open' OR due >= date('now','-3 days') ORDER BY due, id LIMIT 300",
   calNext: "SELECT id, date, time, platform, title, status, link, note FROM calendar_items WHERE date >= date('now','-1 day') AND date <= date('now','+15 days') ORDER BY date, time LIMIT 1000",
+  // v3 shell (Zain 2026-11-20: "i dont see everything... not easily navigatable"): sidebar badges + the Everything page
+  counts: "SELECT (SELECT COUNT(*) FROM needs WHERE status IN ('open','new')) AS needs, (SELECT COUNT(*) FROM deadlines WHERE status = 'open' AND due < date('now','-5 hours')) AS late, (SELECT COUNT(*) FROM deadlines WHERE status = 'open' AND due <= date('now','+7 days')) AS due7, (SELECT COUNT(*) FROM leads WHERE status NOT IN ('closed','won','lost','test')) AS leads, (SELECT COUNT(*) FROM requests WHERE status <> 'done') AS reqs, (SELECT COUNT(*) FROM calendar_items WHERE date >= date('now','-5 hours') AND date <= date('now','+6 days')) AS posts7",
+  deadlinesAll: "SELECT id, due, title, area, owner, status, link, note, updated_at FROM deadlines WHERE status = 'open' OR updated_at >= datetime('now','-30 days') ORDER BY CASE status WHEN 'open' THEN 0 ELSE 1 END, due, id LIMIT 500",
+  leadsAll: "SELECT id, received_at, first_name, email_domain, topic, source, status, reminder_at, note, updated_at FROM leads ORDER BY received_at DESC LIMIT 200",
+  needsAll: "SELECT id, created_at, source, agent, title, detail, ref, suggestions, status, answer, answered_at, agent_note FROM needs ORDER BY CASE WHEN status IN ('open','new') THEN 0 ELSE 1 END, id DESC LIMIT 300",
 };
 
 export async function onRequestGet(ctx) {
@@ -44,16 +49,19 @@ export async function onRequestGet(ctx) {
     leads: ["leads", "links"],
     tasks: ["requests", "allComments", "needs", "links"],
     log: ["log"],
+    all: ["deadlinesAll", "leadsAll", "needsAll", "requests", "calNext", "agents", "ideas", "links"],
   }[page];
+  want.push("counts");
   const stmts = want.map((k) => db.prepare(Q[k]));
   stmts.push(db.prepare("SELECT id, created_at, item_ref, body, kind, status, agent_note FROM comments WHERE page = ?1 ORDER BY id DESC LIMIT 1000").bind(page));
   const res = await db.batch(stmts);
   const out = { ok: true, page, now: new Date().toISOString() };
   want.forEach((k, i) => { out[k] = res[i].results || []; });
   out.comments = res[res.length - 1].results || [];
+  if (out.counts) out.counts = out.counts[0] || {};
   if (out.agents) out.agents = out.agents.map((r) => ({ ...r, data: parse(r.data) }));
   if (out.ideas) out.ideas = out.ideas.map((r) => ({ ...r, data: parse(r.data) }));
-  for (const k of ["needs", "finance", "financeOpen"]) if (out[k]) out[k] = sugg(out[k]);
+  for (const k of ["needs", "needsAll", "finance", "financeOpen"]) if (out[k]) out[k] = sugg(out[k]);
   return json(out);
 }
 
