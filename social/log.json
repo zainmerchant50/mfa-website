@@ -762,5 +762,33 @@
     "lane": "students",
     "link": "https://mfa-advisory.com/international-students/?utm_source=linkedin&utm_medium=social&utm_campaign=students&utm_content=opt-w2-fica-boxes",
     "note": "Native LinkedIn (Typefully quota 0 until Dec 1). F-1 OPT FICA exemption, W-2 due Feb 1, 2027; $40,000 x 7.65% = $3,060 example. Comment FICA. Reel brief sent to Reel studio (T15). Facts read on irs.gov 2026-11-23."
+  },
+  {
+    "date": "2026-11-30",
+    "title": "Streamed GTA VI all month? No 1099 from the platform doesn't mean no tax.",
+    "platforms": [
+      "tiktok"
+    ],
+    "status": "scheduled",
+    "time": "Mon Nov 30, 2026, 5:00 PM ET",
+    "lane": "creators",
+    "slug": "no-1099-still-income-streamers",
+    "theme": "vice amber",
+    "link": "https://mfa-advisory.com/content-creator-taxes/",
+    "note": "Reel studio Nov 23. Myth vs fact; Comment STREAM. Facts: IRS 'All income is taxable' + 'Manage taxes for your gig work' ($400 net SE), read 2026-11-23. QA: TikTok Posts list Nov 30 5:00 PM (GMT-5) New York, title cover, caption read back = checked text."
+  },
+  {
+    "date": "2026-12-02",
+    "title": "On OPT? Check your W-2 before you file.",
+    "platforms": [
+      "tiktok"
+    ],
+    "status": "scheduled",
+    "time": "Wed Dec 2, 2026, 5:00 PM ET",
+    "lane": "students",
+    "slug": "opt-fica-w2-boxes",
+    "theme": "neon teal",
+    "link": "https://mfa-advisory.com/international-students/",
+    "note": "Reel studio Nov 23 from Social's reel brief. $40,000 OPT pay -> $3,060 SS+Medicare example; employer first, then Form 843 + 8316; Comment FICA. Facts: IRS foreign student FICA page, Topic 751, W-2 instructions, read 2026-11-23. QA: TikTok Posts list Dec 2 5:00 PM (GMT-5) New York, title cover, caption read back."
   }
 ]
