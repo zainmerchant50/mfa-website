@@ -1,0 +1,120 @@
+{
+  "date": "2026-12-02",
+  "slug": "opt-fica-w2-boxes",
+  "lane": "students",
+  "title": "On OPT? Check W-2 boxes 4 and 6.",
+  "type": "value",
+  "accent": "teal",
+  "theme": "neon",
+  "label": "F-1 Tax Check",
+  "checked": "November 23, 2026",
+  "series": "F-1 Tax Check",
+  "link": {
+    "path": "/international-students/",
+    "label": "International student taxes (MFA)"
+  },
+  "hook": {
+    "text": "On *OPT*? Check your W-2.",
+    "sub": "You may have paid tax you didn't owe."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "F-1 under 5 calendar years",
+      "items": [
+        {
+          "l": "Usually a nonresident for tax",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "Social Security + Medicare on OPT pay",
+          "r": "Generally exempt",
+          "ok": true
+        },
+        {
+          "l": "\"Everyone pays FICA\"",
+          "r": "Myth",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "On $40,000 of OPT pay",
+      "value": "$3,060",
+      "sub": "Social Security + Medicare",
+      "note": "6.2% + 1.45%. Look at W-2 boxes 4 and 6."
+    },
+    {
+      "type": "list",
+      "kicker": "If it was taken out",
+      "items": [
+        {
+          "t": "Ask your employer's payroll first"
+        },
+        {
+          "t": "Payroll can't fix it? Form 843 + 8316"
+        },
+        {
+          "t": "W-2s are due to you by Feb 1, 2027"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Comment *FICA*",
+    "url": "mfa-advisory.com",
+    "sub": "Ask your F-1 tax question."
+  },
+  "captions": {
+    "comment_word": "FICA",
+    "instagram": "On OPT? Check your W-2 before you file. 🎓\n\nF-1 students who are still nonresidents for tax (generally under 5 calendar years in the US) are generally exempt from Social Security and Medicare tax on OPT wages.\n\nExample: on $40,000 of OPT pay, that's $3,060 that may not have been owed.\n\n✔️ Look at W-2 boxes 4 and 6 (W-2s are due to you by Feb 1, 2027).\n✔️ Taken out anyway? Ask your employer's payroll first.\n✔️ Payroll can't fix it? Form 843 + Form 8316 go to the IRS.\n\nComment FICA with your F-1 tax question. Tax questions only; work authorization questions go to your DSO.\n\nSource: IRS, Foreign student liability for Social Security and Medicare taxes. General information, not advice for your situation.",
+    "hashtags": [
+      "#f1student",
+      "#internationalstudent",
+      "#opt",
+      "#studentvisa",
+      "#taxtips",
+      "#w2",
+      "#fica"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#f1student",
+      "#opt",
+      "#internationalstudent"
+    ],
+    "youtube_title": "On OPT? Check W-2 Boxes 4 and 6 (F-1 Students)",
+    "youtube_description": "F-1, J-1 and M-1 students who are nonresident aliens for tax (generally under 5 calendar years in the US) are generally exempt from Social Security and Medicare tax on allowed wages, including OPT. Example: $40,000 of OPT pay, $3,060 of Social Security and Medicare. Check W-2 boxes 4 and 6. If it was withheld, ask your employer's payroll first; if they can't fix it, file Form 843 with Form 8316. Sources: IRS foreign student FICA page, Topic 751, W-2 instructions. Tax only; work authorization questions go to your DSO. General information, not advice for your situation.",
+    "pinterest_title": "On OPT? Check W-2 Boxes 4 and 6",
+    "pinterest_description": "F-1 students still nonresident for tax are generally exempt from Social Security and Medicare on OPT pay. Ask payroll first, then Form 843 + 8316. Source: IRS.",
+    "pinterest_alt": "Neon card: On OPT? Check W-2 boxes 4 and 6.",
+    "pinterest_board": "Tax Tips for Everyday People"
+  },
+  "sync": {
+    "ads_keywords": [
+      "opt fica tax",
+      "f1 student social security tax"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "F-1/J-1/M-1 students under 5 calendar years generally nonresident and exempt from Social Security and Medicare on allowed wages; employer first, then Form 843 + 8316",
+      "url": "https://www.irs.gov/individuals/international-taxpayers/foreign-student-liability-for-social-security-and-medicare-taxes"
+    },
+    {
+      "fact": "Social Security 6.2% + Medicare 1.45%",
+      "url": "https://www.irs.gov/taxtopics/tc751"
+    },
+    {
+      "fact": "W-2 furnished by Feb 1, 2027; box 4 SS tax, box 6 Medicare",
+      "url": "https://www.irs.gov/instructions/iw2w3"
+    }
+  ],
+  "thumb": {
+    "title": "On *OPT?*",
+    "sub": "Check W-2 boxes 4 and 6."
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-30",
+  "slug": "no-1099-still-income-streamers",
+  "lane": "creators",
+  "title": "No 1099 from the platform? Still income.",
+  "type": "value",
+  "accent": "amber",
+  "theme": "vice",
+  "label": "Creator Tax Check",
+  "checked": "November 23, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Streamed *GTA VI* all month?",
+    "sub": "No 1099 from the platform? Read this."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"No 1099 means it's not taxable\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "All income counts, form or no form",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "Gear or game codes paid for a review",
+          "r": "Can count",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Net self-employment earnings of",
+      "value": "$400",
+      "sub": "or more = file a return",
+      "note": "Self-employment tax applies (Schedule SE)."
+    },
+    {
+      "type": "list",
+      "kicker": "Before Dec 31",
+      "items": [
+        {
+          "t": "Total your tips, subs, bits and ad share"
+        },
+        {
+          "t": "List gifted gear and what it's worth"
+        },
+        {
+          "t": "Keep receipts for your stream costs"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Comment *STREAM*",
+    "url": "mfa-advisory.com",
+    "sub": "Ask your creator tax question."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Streamed GTA VI all month? 🎮 No 1099 from the platform doesn't mean no tax.\n\nMyth: \"No 1099 means it isn't taxable.\"\nFact: you report all of it, form or no form. That includes tips, subs, bits, ad share and sponsor money.\n\n✔️ Gear or game codes you get in exchange for a review can count as income too.\n✔️ Net $400 or more from self-employment? You file, and self-employment tax applies.\n✔️ Keep receipts for your stream costs before Dec 31.\n\nComment STREAM with your creator tax question.\n\nNot affiliated with Rockstar Games. Sources: IRS gig economy pages. General information, not advice for your situation.",
+    "hashtags": [
+      "#streamer",
+      "#contentcreator",
+      "#twitchstreamer",
+      "#gtavi",
+      "#creatoreconomy",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#creatortaxes",
+      "#gamingpc"
+    ],
+    "youtube_title": "No 1099 From Twitch or YouTube? Your Stream Money Still Counts",
+    "youtube_description": "Myth: no 1099 from the platform means the money isn't taxable. Fact: income from gig and creator work must be reported even if no 1099-K, 1099-MISC or W-2 shows it, and even if it was paid in property or goods. If net self-employment earnings are $400 or more, you file and self-employment tax applies (Schedule SE). Sources: IRS 'All income is taxable' and 'Manage taxes for your gig work'. Not affiliated with Rockstar Games. General information, not advice for your situation.",
+    "pinterest_title": "Streamers: No 1099? Your Stream Money Still Counts",
+    "pinterest_description": "Tips, subs, bits, ad share and gifted gear for reviews can all be income, form or no form. Net $400+ from self-employment means you file. Source: IRS gig economy pages.",
+    "pinterest_alt": "Sunset card: No 1099 from the platform? Still income.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes",
+      "twitch income taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Gig income must be reported even if paid in property or goods and not on a 1099-K, 1099-MISC or W-2",
+      "url": "https://www.irs.gov/newsroom/all-income-is-taxable-including-gig-economy-and-tip-income"
+    },
+    {
+      "fact": "File if net self-employment earnings are $400 or more, even from side work",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work"
+    }
+  ],
+  "thumb": {
+    "title": "No *1099?*",
+    "sub": "Your stream money still counts."
+  }
+}
