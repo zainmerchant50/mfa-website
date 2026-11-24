@@ -1,6 +1,6 @@
 # MFA Social agent: daily Instagram + LinkedIn posts
 
-Last updated: 2026-11-12 by Social (niche posts rule, Zain). Previous: 2026-10-25 by the content-pack agent (Shorts standing rules: plain wording, NJ/NY states, "Comment WORD" end cards, CTA by platform). Created 2026-10-22 by Hub on Zain's instruction.
+Last updated: 2026-11-24 by Hub (Etsy product TikToks, Zain). Before: 2026-11-12 by Social (niche posts rule, Zain). Previous: 2026-10-25 by the content-pack agent (Shorts standing rules: plain wording, NJ/NY states, "Comment WORD" end cards, CTA by platform). Created 2026-10-22 by Hub on Zain's instruction.
 
 ## What it does
 Every weekday, the agent makes **one post** (Instagram image + LinkedIn image + both captions + sources) and saves it to
@@ -39,6 +39,15 @@ there must already be fact-checked and ready to post. Nobody reviews it after yo
      subject = subject.txt, htmlBody = body.html, body = body.txt, no attachments. Each caption sits alone in a box so she
      can copy it straight into LinkedIn / Instagram.
 10. Update the agent dashboard (see `claude/site/agent-dashboard.md` in the project) with what was made and the next idea.
+
+## ETSY PRODUCT TIKTOKS (Zain, 2026-11-24: "we need to post about our etsy products on tiktok")
+- **2 TikToks a week show an Etsy product in use** (start with the Business Expense Tracker, the item with the
+  $1.50/day Etsy ad; then Tax Season Client Email Templates, our first Etsy sale). Real screen recording of the
+  file being filled in, 15-25 s, a hook in the first 2 s ("Stop losing receipts in January"), a trending sound if
+  the upload path allows, captions on screen.
+- End card: "Link in bio → Etsy shop". No prices, no discount codes and no "free" on the video or caption.
+- Count them inside the daily reel cadence; they replace a general tip slot, never a GTA VI slot.
+- Log each one in `social/log.json` with `"lane": "etsy-product"` so Social can compare views against tip reels.
 
 ## NICHE POSTS (Zain, 2026-11-12, overrides the mix below where they clash)
 - **3 of every 5 weekday image posts are niche-specific**, rotating between the two niches that have a page:
