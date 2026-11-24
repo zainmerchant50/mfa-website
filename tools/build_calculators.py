@@ -339,15 +339,15 @@ def build_quarterly():
              '<table class="tbl ctbl"><thead><tr><th>Due date</th><th class="num">Federal</th><th class="num">State</th><th class="num">Total</th></tr></thead><tbody id="dues"></tbody></table></section>')
     below = sched + '<section class="tcard safe" id="safe"></section>' + math_card()
     hi = S["high_income_agi_over"]
-    info = f"""<h2>How this estimate works</h2>
+    info = f"""<h2>How does this quarterly estimated tax calculator work?</h2>
 <p>This calculator follows the 2026 Form 1040-ES worksheet in plain steps. It starts with self-employment tax, takes the deduction for half of it, applies the standard deduction and the 2026 tax brackets, then adds your state tax. The total is split into four payments.</p>
 <ul><li><strong>Self-employment tax.</strong> {pc(fed["se_rate"])} ({pc(fed["ss_rate"])} Social Security + {pc(fed["med_rate"])} Medicare) on {pc(fed["factor"])} of your net profit. Social Security stops at the {usd(fed["wage_base"])} wage base, and your W-2 wages use that up first.</li>
 <li><strong>Additional Medicare Tax.</strong> {pc(fed["addl_rate"])} on wages plus self-employment earnings above {usd(fed["addl_thr"]["single"])} ({usd(fed["addl_thr"]["married_joint"])} if married filing jointly).</li>
 <li><strong>Half of self-employment tax is deductible.</strong> It lowers your income for income tax, not your self-employment tax.</li>
 <li><strong>State.</strong> New Jersey and New York use the 2026 rate schedules in their estimated tax instructions. For another state, enter a flat rate. New York City residents add the city tax.</li></ul>
-<h2>Due dates for 2026 estimated payments</h2>
+<h2>When are 2026 estimated tax payments due?</h2>
 <p>Federal, New Jersey and New York all use the same four dates: {", ".join(day(d) for d in due[:3])} and {day(due[3])}. Estimated payments are generally required if you expect to owe {usd(fed["est_threshold"])} or more after withholding. New Jersey's threshold is {usd(nj["threshold"])} and New York's is {usd(nyd["threshold"])}. {esc(nj["due_note"])}</p>
-<h2>Safe harbor in one paragraph</h2>
+<h2>How much do you have to pay to avoid the underpayment penalty?</h2>
 <p>You avoid the underpayment penalty if your withholding and estimated payments total at least {pc(S["current_year_pct"])} of this year's tax or {pc(S["prior_year_pct"])} of last year's tax, whichever is smaller. The prior-year rule rises to {pc(S["prior_year_pct_high_income"])} if last year's AGI was over {usd(hi)} ({usd(S["high_income_agi_over_mfs"])} if married filing separately). The calculator shows both so you can pick.</p>
 <h2>What this estimate leaves out</h2>
 <ul><li>The qualified business income (QBI) deduction, which can lower your federal tax. Leaving it out makes the estimate higher, not lower.</li>
@@ -379,12 +379,12 @@ def build_1099calc():
           kpi("k-net", "Net profit") + kpi("k-se", "Self-employment tax") + kpi("k-inc", "Federal + state income tax", "wide"))
     res = result_card("Your estimate", kp, cta_label="Get help with your 1099 taxes")
     below = math_card()
-    info = f"""<h2>What you owe on 1099 income</h2>
+    info = f"""<h2>How much tax do you owe on 1099 income?</h2>
 <p>Income reported on a 1099 has no tax taken out. You owe three things on the profit, which is income minus business expenses:</p>
 <ul><li><strong>Self-employment tax of {pc(fed["se_rate"])}.</strong> This covers Social Security and Medicare, both the employee and employer halves, on {pc(fed["factor"])} of profit.</li>
 <li><strong>Federal income tax.</strong> Figured with the 2026 brackets after the standard deduction and the deduction for half of your self-employment tax.</li>
 <li><strong>State income tax.</strong> New Jersey and New York use the 2026 rate schedules; for another state, enter its flat rate.</li></ul>
-<h2>How to use the "set aside" percentage</h2>
+<h2>How much of each 1099 payment should you set aside for taxes?</h2>
 <p>The set-aside figure is your total estimated tax divided by your 1099 income. Move that share of every client payment into a separate savings account, and use it to make quarterly estimated payments. Try the <a href="/tools/quarterly-estimated-tax-calculator/">quarterly estimated tax calculator</a> for the payment dates and the amount that avoids an underpayment penalty.</p>
 <h2>What this estimate leaves out</h2>
 <ul><li>The qualified business income (QBI) deduction, itemized deductions and tax credits. They can lower your tax, so the estimate errs high.</li>
@@ -421,10 +421,10 @@ def build_scorp():
     kp = (kpi("k-save", "Annual savings after costs", "wide gold") + kpi("k-llc", "Self-employment tax as an LLC") + kpi("k-scorp", "Payroll taxes as S corp") + kpi("k-be", "Break-even profit", "wide"))
     res = result_card("Is an S corp worth it?", kp, extra=verdict, cta_label="Ask MFA about an S corp election")
     below = math_card(sub="Self-employment tax on the whole profit versus payroll taxes on the salary. Income tax and the QBI deduction are not part of this comparison.")
-    info = f"""<h2>What this compares</h2>
+    info = f"""<h2>How does an S corp save self-employment tax?</h2>
 <p>An LLC owner who is taxed as a sole proprietor pays self-employment tax ({pc(fed["se_rate"])} on {pc(fed["factor"])} of profit) on all of the profit. An S corporation owner who works in the business is paid a salary and the company pays payroll taxes on that salary only (the same {pc(fed["se_rate"])}, split between employee and employer, on the full salary). Profit left over as distributions is not subject to payroll or self-employment tax. The savings come from that difference, minus the extra costs of running a corporation.</p>
 <p><strong>Not included:</strong> federal and state income tax differences, the qualified business income (QBI) deduction, and the deduction effects of half of self-employment tax versus the employer payroll tax. Those can move the answer in either direction, so use this as a first filter, not a final answer.</p>
-<h2>What else to weigh</h2>
+<h2>What else should you weigh before electing S corp status?</h2>
 <ul><li><strong>Reasonable compensation.</strong> The IRS expects an owner-employee to be paid a reasonable salary before taking distributions. A very low salary is a common audit trigger. Base it on what the role would cost to hire.</li>
 <li><strong>Form 2553 timing.</strong> The S corporation election is made on Form 2553. For 2027, calendar-year entities have until March 15, 2027; check the <a href="/tools/tax-deadlines-2027/">2027 deadlines</a> for the date for your entity.</li>
 <li><strong>Payroll obligations.</strong> You must run payroll, make payroll tax deposits and file quarterly and year-end payroll returns, and the state may add its own payroll registrations.</li>
@@ -459,7 +459,7 @@ def build_paycheck():
     res = result_card("Your take-home pay", kp, cta_label="Talk to MFA about your taxes")
     head = '<thead><tr><th>Item</th><th class="num">Per paycheck</th><th class="num">Per year</th></tr></thead>'
     below = math_card(sub="Annual amounts divided by your number of paychecks. This is the tax on your salary for the year, not the amount your employer withholds under your Form W-4.", head=head, tid="pmath")
-    info = f"""<h2>How take-home pay is figured</h2>
+    info = f"""<h2>How is take-home pay figured on a 2026 paycheck?</h2>
 <ul><li><strong>Federal income tax.</strong> Salary minus pre-tax retirement and Section 125 deductions and the {usd(fed["std"]["single"])} single ({usd(fed["std"]["married_joint"])} joint) standard deduction, then the 2026 brackets.</li>
 <li><strong>Social Security and Medicare (FICA).</strong> {pc(fed["ss_rate"] / 2)} Social Security on wages up to {usd(fed["wage_base"])}, and {pc(fed["med_rate"] / 2)} Medicare on all wages, plus {pc(fed["addl_rate"])} Additional Medicare on wages over {usd(fed["addl_thr"]["single"])}. Your employer pays a matching amount that is not shown here.</li>
 <li><strong>New Jersey.</strong> Rate schedule on wages less 401(k) and Section 125 health deductions, with no standard deduction. New Jersey excludes 401(k) deferrals but taxes 403(b) and 457 deferrals (<a href="https://www.nj.gov/treasury/taxation/njit5.shtml" target="_blank" rel="noopener">NJ Division of Taxation</a>). This estimate treats the amount entered as a 401(k).</li>

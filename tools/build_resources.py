@@ -354,10 +354,27 @@ ids.forEach(function(k){document.getElementById('f-'+k).addEventListener('input'
 var done=function(){b.textContent='Copied';b.classList.add('ok');setTimeout(function(){b.textContent='Copy';b.classList.remove('ok');},1800);};
 if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done);else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(a);}});});})();
 </script>"""
-    info = f'<div class="tinfo"><article class="article"><h2>The templates</h2>{tpls}{sources_block("w9")}</article></div>'
+    # FAQ (AI-SEO, Nov 24 2026): answers restate only what the tips and templates on this page already say.
+    FAQ = [
+        ("When should you ask a vendor for a Form W-9?",
+         "Before the first payment. A W-9 is much harder to collect in January, when you are preparing 1099s."),
+        ("How should a vendor send you a W-9?",
+         "Through a secure upload or portal link rather than plain email, since the form contains a tax ID. Ask vendors not to email their Social Security number or EIN in the body of an email."),
+        ("What does a W-9 confirm?",
+         "The vendor's legal name, business type (tax classification, box 3) and taxpayer identification number, so you can report payments correctly at year-end. Check that the name and tax ID match."),
+        ("What happens if a vendor doesn't send a W-9?",
+         "Without a tax ID you may be required to withhold federal income tax from future payments, and you may still need to issue a Form 1099 in January for services you paid for."),
+        ("When should you ask for a new W-9?",
+         "When a vendor's name, address or entity type changes. Store W-9s securely, outside your inbox."),
+    ]
+    faq_html = "<h2>W-9 request FAQs</h2>" + "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in FAQ)
+    info = f'<div class="tinfo"><article class="article"><h2>The templates</h2>{tpls}{faq_html}{sources_block("w9")}</article></div>'
     body = tool_header("W-9 templates", "W-9 request email templates", "Three copy-ready emails for collecting Form W-9 from vendors: before the first payment, at year-end, and as a reminder.") + \
         f'<main><div class="tool">{form}{side}</div>{info}</main>' + js + cta("Behind on W-9s and 1099s?", "We'll chase the missing W-9s, clean up your vendor list and file your 1099s. Book a 30-minute consultation.")
-    return write("tools/w-9-request-email-template", page(title + " | MFA", desc, url, body, clean_ld(tool_ld("W-9 request email templates", url, desc))))
+    ld = clean_ld(tool_ld("W-9 request email templates", url, desc))
+    ld["@graph"].append({"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]})
+    return write("tools/w-9-request-email-template", page(title + " | MFA", desc, url, body, ld))
 
 
 # ------------------------------------------------------------------ tool: break-even
