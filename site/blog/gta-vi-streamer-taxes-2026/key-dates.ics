@@ -1,0 +1,65 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Streaming GTA VI? What Streamers Owe in Taxes for 2026
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:gta-vi-streamer-taxes-2026-0@mfa-advisory.com
+DTSTAMP:20261124T205219Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day for 2026 streaming costs to count on your 2026 return
+DESCRIPTION:Equipment must be bought and placed in service (set up and st
+ reaming) by Dec. 31 to be deducted for 2026.\n\nDetails: https://mfa-advi
+ sory.com/blog/gta-vi-streamer-taxes-2026/\nGeneral information\, not tax 
+ advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/gta-vi-streamer-taxes-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day for 2026 streaming costs to count on your 2026 return
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gta-vi-streamer-taxes-2026-1@mfa-advisory.com
+DTSTAMP:20261124T205219Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Fourth 2026 estimated tax payment due (Sept. 1 to Dec. 31 income)
+DESCRIPTION:Covers income earned from September through December 2026\, i
+ ncluding your first GTA VI streaming money.\n\nDetails: https://mfa-advis
+ ory.com/blog/gta-vi-streamer-taxes-2026/\nGeneral information\, not tax a
+ dvice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/gta-vi-streamer-taxes-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fourth 2026 estimated tax payment due (Sept. 1 to Dec. 31 inc
+ ome)
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gta-vi-streamer-taxes-2026-2@mfa-advisory.com
+DTSTAMP:20261124T205219Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:2026 federal tax return due
+DESCRIPTION:Schedule C reports your streaming income and costs\; Schedule
+  SE figures self-employment tax.\n\nDetails: https://mfa-advisory.com/blo
+ g/gta-vi-streamer-taxes-2026/\nGeneral information\, not tax advice. Merc
+ hant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/gta-vi-streamer-taxes-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:2026 federal tax return due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

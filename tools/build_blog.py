@@ -286,6 +286,7 @@ SERVICE_FOR = {
     "month-end-close-checklist-small-business": "/services/#bookkeeping",
     "business-tax-return-deadline-late": "/late-tax-return/",
     "rental-property-repairs-vs-improvements-2026": "/services/#tax-preparation",
+    "is-it-safe-to-use-ai-for-taxes-2026": "/services/#tax-preparation",
 }
 SERVICE_BY_CATEGORY = {"Tax Planning": "/services/#tax-planning", "Tax Deadlines": "/services/#tax-preparation",
                        "Bookkeeping": "/services/#bookkeeping"}

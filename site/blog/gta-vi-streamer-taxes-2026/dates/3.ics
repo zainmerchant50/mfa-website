@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:gta-vi-streamer-taxes-2026-2@mfa-advisory.com
+DTSTAMP:20261124T205219Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:2026 federal tax return due
+DESCRIPTION:Schedule C reports your streaming income and costs\; Schedule
+  SE figures self-employment tax.\n\nDetails: https://mfa-advisory.com/blo
+ g/gta-vi-streamer-taxes-2026/\nGeneral information\, not tax advice. Merc
+ hant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/gta-vi-streamer-taxes-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:2026 federal tax return due
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
