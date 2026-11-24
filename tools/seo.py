@@ -487,6 +487,8 @@ def _pricing_lines():
               "for rentals with substantial services) quoted up front; depreciation, repairs vs improvements, passive loss limits; rental bookkeeping from $300/month.",
               "- Booth renters and beauty pros (https://mfa-advisory.com/booth-renters/): Schedule C + SE tax returns for salon booth renters, barbers, nail, lash and brow techs "
               "quoted up front; tips reporting and the tips deduction; quarterly estimates; bookkeeping from $300/month.",
+              "- Rideshare and delivery drivers (https://mfa-advisory.com/rideshare-driver-taxes/): Schedule C + SE tax returns for Uber, Lyft, DoorDash, Instacart and Amazon Flex drivers "
+              "quoted up front; 2026 mileage deduction (72.5¢ Jan–Jun, 76¢ Jul–Dec) or actual car costs; app 1099-K/1099-NEC matched; tips deduction; quarterly estimates; bookkeeping from $300/month.",
               "- Content creators and streamers (https://mfa-advisory.com/content-creator-taxes/): Schedule C + SE tax returns for streamers, YouTubers, TikTok creators, influencers and podcasters "
               "quoted up front; hobby vs business, platform 1099-K payouts, gifted products, gear by business use; quarterly estimates; bookkeeping from $300/month.",
               "- Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts."]
@@ -531,6 +533,7 @@ def build_llms(posts):
         f"- [Late 2025 tax return filing]({BASE}/late-tax-return/): missed the October 15 deadline or never filed; Form 1040 $249, with Schedule C $399, add a state $49",
         f"- [Taxes for artists and creatives]({BASE}/artists/): Schedule C tax returns (quoted up front), bookkeeping for artists from $300/month, LLC formation from $150 plus state fee, quarterly estimates $199/year; tax deductions for artists, Etsy 1099-K, self-employment tax, do artists need an LLC",
         f"- [Rental property taxes for landlords and short-term rental hosts]({BASE}/rental-property-taxes/): Schedule E tax returns (quoted up front), rental bookkeeping from $300/month, depreciation over 27.5 years, repairs vs improvements, the 14-day rule, passive loss allowance",
+        f"- [Rideshare and delivery driver taxes for Uber, Lyft and DoorDash drivers]({BASE}/rideshare-driver-taxes/): Schedule C tax returns (quoted up front), 2026 standard mileage rate 72.5¢ (Jan–Jun) and 76¢ (Jul–Dec), tolls and parking on top, self-employment tax 15.3%, app 1099s, no tax on tips (2025–2028), quarterly estimates, bookkeeping from $300/month",
         f"- [Booth renter taxes for stylists, barbers, nail and lash techs]({BASE}/booth-renters/): Schedule C tax returns (quoted up front), booth rent deduction, self-employment tax 15.3%, cash and app tips, no tax on tips (2025–2028), quarterly estimates, bookkeeping from $300/month",
         f"- [Content creator taxes for streamers, YouTubers and influencers]({BASE}/content-creator-taxes/): Schedule C tax returns (quoted up front), hobby vs business, gear and software deductions by business use, gifted products as income, 1099-K over $20,000 and 200 transactions, self-employment tax 15.3%, quarterly estimates, bookkeeping from $300/month",
         f"- [Machine-readable catalog]({BASE}/catalog.json): all services, prices, tools and products as schema.org JSON",
@@ -653,8 +656,9 @@ def audience_services():
     import build_artists
     import build_rental
     import build_booth
+    import build_rideshare
     import build_creators
-    return [build_intl.service_node(), build_artists.service_node(), build_rental.service_node(), build_booth.service_node(), build_creators.service_node()]
+    return [build_intl.service_node(), build_artists.service_node(), build_rental.service_node(), build_booth.service_node(), build_creators.service_node(), build_rideshare.service_node()]
 
 
 def build_catalog(posts):
@@ -735,6 +739,7 @@ PAGE_KEYWORDS = {
     "/rental-property-taxes/": ["rental property tax preparation", "Schedule E help", "landlord taxes", "short-term rental taxes",
                                 "rental property depreciation"],
     "/booth-renters/": ["booth renter taxes", "salon booth rental", "barber taxes", "nail tech taxes", "no tax on tips"],
+    "/rideshare-driver-taxes/": ["rideshare driver taxes", "uber driver taxes", "doordash taxes", "mileage deduction", "delivery driver taxes"],
     "/content-creator-taxes/": ["content creator taxes", "streamer taxes", "YouTuber taxes", "influencer taxes", "hobby or business"],
     "/tools/2027-tax-calendar/": ["2027 tax calendar", "2027 tax deadlines", "tax due dates 2027", "estimated tax due dates 2027", "NJ NY tax deadlines 2027"],
     "/answers/": ["tax answers", "booth renter tax questions", "Airbnb host tax questions", "landlord tax questions"],
@@ -800,6 +805,7 @@ PAGE_GUIDES = {
     "/international-students/": ["filing-taxes-late-2025-return", "2027-tax-calendar"],
     "/artists/": ["small-business-tax-write-offs-2026", "schedule-c-guide-single-member-llc", "1099-income-filing-threshold"],
     "/booth-renters/": ["small-business-tax-write-offs-2026", "schedule-c-guide-single-member-llc", "1099-income-filing-threshold"],
+    "/rideshare-driver-taxes/": ["schedule-c-guide-single-member-llc", "1099-income-filing-threshold", "small-business-tax-write-offs-2026"],
     "/content-creator-taxes/": ["small-business-tax-write-offs-2026", "1099-income-filing-threshold", "internet-deduction-business-use"],
     "/rental-property-taxes/": ["rental-property-repairs-vs-improvements-2026", "section-179-bonus-depreciation-2026", "how-long-to-keep-business-records"],
     "/princeton-nj/": ["nj-property-tax-relief-anchor-stay-nj-2026", "nj-sales-tax-st50-filing-guide", "salt-cap-2026-nj-ny-pte-tax", "2027-tax-calendar"],

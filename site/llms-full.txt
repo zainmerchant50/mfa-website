@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated November 23, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated November 24, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -96,6 +96,7 @@ Page: https://mfa-advisory.com/services/#business-advisory
 - Artists and creatives (https://mfa-advisory.com/artists/): self-employed artist tax returns (Form 1040 with Schedule C) quoted up front; bookkeeping, LLC formation and quarterly estimates at the prices above. State returns for every state except Connecticut, Maryland and Oregon.
 - Landlords and short-term rental hosts (https://mfa-advisory.com/rental-property-taxes/): rental property tax returns (Schedule E, or Schedule C for rentals with substantial services) quoted up front; depreciation, repairs vs improvements, passive loss limits; rental bookkeeping from $300/month.
 - Booth renters and beauty pros (https://mfa-advisory.com/booth-renters/): Schedule C + SE tax returns for salon booth renters, barbers, nail, lash and brow techs quoted up front; tips reporting and the tips deduction; quarterly estimates; bookkeeping from $300/month.
+- Rideshare and delivery drivers (https://mfa-advisory.com/rideshare-driver-taxes/): Schedule C + SE tax returns for Uber, Lyft, DoorDash, Instacart and Amazon Flex drivers quoted up front; 2026 mileage deduction (72.5¢ Jan–Jun, 76¢ Jul–Dec) or actual car costs; app 1099-K/1099-NEC matched; tips deduction; quarterly estimates; bookkeeping from $300/month.
 - Content creators and streamers (https://mfa-advisory.com/content-creator-taxes/): Schedule C + SE tax returns for streamers, YouTubers, TikTok creators, influencers and podcasters quoted up front; hobby vs business, platform 1099-K payouts, gifted products, gear by business use; quarterly estimates; bookkeeping from $300/month.
 - Tax preparation, tax planning, financial reporting, fractional CFO, audit support and technical accounting: quoted up front before any work starts.
 - Year-end tax planning session (60 minutes + written action list): $99, pay online at https://mfa-advisory.com/year-end-tax-planning/

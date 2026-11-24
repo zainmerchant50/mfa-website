@@ -475,6 +475,8 @@ if __name__ == "__main__":
     urls.append(build_rental.build())
     import build_booth  # noqa: E402  (/booth-renters/, salon booth renters & beauty pros; Zain 2026-11-16)
     urls.append(build_booth.build())
+    import build_rideshare  # noqa: E402  (/rideshare-driver-taxes/, Uber/Lyft/delivery drivers; Zain 2026-11-24)
+    urls.append(build_rideshare.build())
     import build_creators  # noqa: E402  (/content-creator-taxes/, streamers/YouTubers/influencers; Zain 2026-11-18)
     urls.append(build_creators.build())
     import build_referrals  # noqa: E402  (/referrals/, client referral program, noindex + NOT in sitemap; Zain 2026-11-19)
