@@ -1,0 +1,112 @@
+{
+  "date": "2026-12-04",
+  "slug": "streaming-room-home-office",
+  "lane": "creators",
+  "title": "Your streaming room as a home office",
+  "type": "value",
+  "accent": "slate",
+  "theme": "classic",
+  "label": "Creator Tax Check",
+  "checked": "November 24, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Stream *GTA VI* from a spare room?",
+    "sub": "It may count as a home office. Two rules first."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Does it count?",
+      "items": [
+        {
+          "l": "Room used only for streaming, regularly",
+          "r": "Can count",
+          "ok": true
+        },
+        {
+          "l": "Couch where you also watch TV",
+          "r": "No",
+          "ok": false
+        },
+        {
+          "l": "Guest bed in the corner",
+          "r": "No",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Simplified method",
+      "value": "$5",
+      "sub": "per sq ft, up to 300 sq ft",
+      "note": "Or actual expenses (Form 8829)."
+    },
+    {
+      "type": "list",
+      "kicker": "Before Dec 31",
+      "items": [
+        {
+          "t": "Measure the room"
+        },
+        {
+          "t": "Keep it business-only"
+        },
+        {
+          "t": "Photo the setup for your records"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Comment *STREAM*",
+    "url": "mfa-advisory.com",
+    "sub": "Ask your creator tax question."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Stream GTA VI from a spare room? 🎮 It may count as a home office, but only if it passes two rules.\n\nMyth: \"I stream from home, so my whole home is a write-off.\"\nFact: only the part you use regularly and exclusively for the business counts.\n\n✔️ A room used only for streaming: can count.\n✔️ The couch where you also watch TV: no.\n✔️ Simplified method: a set rate per square foot, up to 300 square feet. Or use actual expenses.\n\nMeasure the room and keep it business-only. Comment STREAM with your creator tax question.\n\nNot affiliated with Rockstar Games. General information, not advice for your situation.",
+    "hashtags": [
+      "#streamer",
+      "#contentcreator",
+      "#twitchstreamer",
+      "#gtavi",
+      "#creatoreconomy",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#creatortaxes",
+      "#gamingpc"
+    ],
+    "youtube_title": "Streaming Room as a Home Office? The 2 IRS Rules",
+    "youtube_description": "A room you use regularly and exclusively for your streaming business may qualify for the home office deduction. The simplified option is $5 per square foot of home used for business, up to 300 square feet; or use actual expenses. Mixed personal use does not qualify. Sources: IRS 'Simplified option for home office deduction', Publication 587. Not affiliated with Rockstar Games. General information, not advice for your situation.",
+    "pinterest_title": "Streamers: Does Your Streaming Room Count as a Home Office?",
+    "pinterest_description": "Regular and exclusive business use only. Simplified method: $5 per sq ft up to 300 sq ft. Source: IRS.",
+    "pinterest_alt": "Navy card: Your streaming room as a home office.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes",
+      "twitch income taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Simplified option $5 per sq ft, max 300 sq ft; portion exclusively used on a regular basis for business",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/simplified-option-for-home-office-deduction"
+    }
+  ],
+  "thumb": {
+    "title": "Streaming *room?*",
+    "sub": "The 2 home office rules."
+  }
+}

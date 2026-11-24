@@ -1,0 +1,112 @@
+{
+  "date": "2026-12-03",
+  "slug": "streamer-self-employment-tax",
+  "lane": "creators",
+  "title": "Streamers: $400 net means self-employment tax",
+  "type": "value",
+  "accent": "teal",
+  "theme": "vice",
+  "label": "Creator Tax Check",
+  "checked": "November 24, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Made $400+ streaming *GTA VI* this year?",
+    "sub": "There's a second tax most streamers miss."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"It's side money, only income tax\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Net $400+ = self-employment tax too",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "It's your Social Security + Medicare",
+          "r": "Schedule SE",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Self-employment tax rate",
+      "value": "15.3%",
+      "sub": "12.4% Social Security + 2.9% Medicare",
+      "note": "On net earnings, after stream costs."
+    },
+    {
+      "type": "list",
+      "kicker": "Lower it the legal way",
+      "items": [
+        {
+          "t": "Track every stream cost (net, not gross)"
+        },
+        {
+          "t": "Part of SE tax comes off your income"
+        },
+        {
+          "t": "Pay estimates so April isn't a shock"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Comment *STREAM*",
+    "url": "mfa-advisory.com",
+    "sub": "Ask your creator tax question."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Made $400 or more streaming GTA VI this year? 🎮 There's a second tax most streamers miss.\n\nMyth: \"It's side money, so it's only income tax.\"\nFact: net self-employment earnings of $400 or more mean self-employment tax too: your Social Security and Medicare, figured on Schedule SE.\n\n✔️ It's on net earnings, so track every stream cost.\n✔️ The employer-equivalent part comes off your income for income tax.\n✔️ Pay estimates so April isn't a shock.\n\nComment STREAM with your creator tax question.\n\nNot affiliated with Rockstar Games. General information, not advice for your situation.",
+    "hashtags": [
+      "#streamer",
+      "#contentcreator",
+      "#twitchstreamer",
+      "#gtavi",
+      "#creatoreconomy",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#creatortaxes",
+      "#gamingpc"
+    ],
+    "youtube_title": "Made $400+ Streaming? Self-Employment Tax Applies",
+    "youtube_description": "Net self-employment earnings of $400 or more mean you file and owe self-employment tax (Social Security and Medicare) on Schedule SE, on top of income tax. It is figured on net earnings after business costs, and the employer-equivalent portion is deductible in figuring adjusted gross income. Source: IRS 'Self-employment tax (Social Security and Medicare taxes)'. Not affiliated with Rockstar Games. General information, not advice for your situation.",
+    "pinterest_title": "Streamers: $400+ Net Means Self-Employment Tax",
+    "pinterest_description": "Net $400+ from streaming means self-employment tax on Schedule SE, on top of income tax. Track costs; pay estimates. Source: IRS.",
+    "pinterest_alt": "Sunset card: Made $400+ streaming? Self-employment tax applies.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes",
+      "twitch income taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "SE tax 15.3% (12.4% SS + 2.9% Medicare); net SE earnings $400+; Schedule SE; employer-equivalent portion deductible for AGI",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    }
+  ],
+  "thumb": {
+    "title": "$400 *net?*",
+    "sub": "Self-employment tax applies."
+  }
+}
