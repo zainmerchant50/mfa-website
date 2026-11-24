@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-28",
+  "slug": "streaming-hobby-or-business",
+  "lane": "creators",
+  "title": "Streaming: hobby or business?",
+  "type": "value",
+  "accent": "teal",
+  "theme": "paper",
+  "label": "Creator Tax Check",
+  "checked": "November 24, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Streaming *GTA VI* for fun or as a business?",
+    "sub": "The IRS looks at how you run it."
+  },
+  "beats": [
+    {
+      "type": "list",
+      "kicker": "Signs the IRS looks at",
+      "items": [
+        {
+          "t": "You keep books like a business"
+        },
+        {
+          "t": "You put in time to make a profit"
+        },
+        {
+          "t": "You change things to earn more"
+        },
+        {
+          "t": "You have the know-how or an advisor"
+        }
+      ]
+    },
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"It's a hobby, so I don't report it\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Hobby income still gets reported",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "No one factor decides it",
+          "r": "Fact",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "Before Dec 31",
+      "text": "Run it like a business: *separate account*, receipts, a simple ledger.",
+      "sub": "Form 1040, Schedule 1 for hobby income."
+    }
+  ],
+  "cta": {
+    "big": "Comment *STREAM*",
+    "url": "mfa-advisory.com",
+    "sub": "Hobby or business? Ask us."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Streaming GTA VI for fun, or as a business? 🎮 The IRS looks at how you run it.\n\nMyth: \"It's just a hobby, so I don't report it.\"\nFact: hobby income still gets reported (Form 1040, Schedule 1).\n\nWhat the IRS looks at includes:\n✔️ Do you keep books and records like a business?\n✔️ Do you put in time and effort to make a profit?\n✔️ Do you change how you work to earn more?\n✔️ Do you have the know-how, or an advisor who does?\nNo one factor decides it.\n\nComment STREAM and tell us how you run your channel.\n\nNot affiliated with Rockstar Games. General information, not advice for your situation.",
+    "hashtags": [
+      "#streamer",
+      "#contentcreator",
+      "#twitchstreamer",
+      "#gtavi",
+      "#creatoreconomy",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#creatortaxes",
+      "#gamingpc"
+    ],
+    "youtube_title": "Streaming for Fun or a Business? How the IRS Decides",
+    "youtube_description": "The IRS weighs several factors to tell a hobby from a business: businesslike books and records, time and effort to make a profit, changing methods to earn more, know-how or advisors, and more. No one factor decides it. Hobby income still must be reported on Schedule 1 (Form 1040). Source: IRS 'Here's how to tell the difference between a hobby and a business for tax purposes'. Not affiliated with Rockstar Games. General information, not advice for your situation.",
+    "pinterest_title": "Streamers: Hobby or Business? What the IRS Looks At",
+    "pinterest_description": "Books and records, time and effort, changing methods to earn more: the IRS weighs several factors. Hobby income still gets reported. Source: IRS.",
+    "pinterest_alt": "Cream card: Streaming, hobby or business?",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes",
+      "twitch income taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "IRS factors for hobby vs business; no one factor more important; hobby income reported on Schedule 1 line 8",
+      "url": "https://www.irs.gov/newsroom/heres-how-to-tell-the-difference-between-a-hobby-and-a-business-for-tax-purposes"
+    }
+  ],
+  "thumb": {
+    "title": "Hobby or *business?*",
+    "sub": "How the IRS decides."
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-26",
+  "slug": "game-code-for-review-counts",
+  "lane": "creators",
+  "title": "A game code for a review can be income",
+  "type": "value",
+  "accent": "plum",
+  "theme": "vice",
+  "label": "Creator Tax Check",
+  "checked": "November 24, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Got a *GTA VI* code to review it?",
+    "sub": "Myth vs fact for streamers."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"It was a gift, so it's not income\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Paid in goods for a review = income",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "Count it at what it's worth",
+          "r": "Fair value",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "kicker": "Counts the same way",
+      "items": [
+        {
+          "t": "Game codes sent for a review"
+        },
+        {
+          "t": "Gear a brand sends for a video"
+        },
+        {
+          "t": "Sponsor perks paid in products"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "Before Dec 31",
+      "text": "Keep a list: *what* you got, *when*, and its value.",
+      "sub": "No form needed for it to count."
+    }
+  ],
+  "cta": {
+    "big": "Comment *STREAM*",
+    "url": "mfa-advisory.com",
+    "sub": "Ask your creator tax question."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Got a GTA VI code from a publisher to review it? 🎮\n\nMyth: \"It was a gift, so it isn't income.\"\nFact: when you get goods or property in exchange for your work (a review, a video, a shout-out), the IRS treats it as income, form or no form.\n\n✔️ Count it at what it's worth.\n✔️ Same for gear a brand sends you for a video.\n✔️ Keep a list before Dec 31: what you got, when, and its value.\n\nComment STREAM with your creator tax question.\n\nNot affiliated with Rockstar Games. General information, not advice for your situation.",
+    "hashtags": [
+      "#streamer",
+      "#contentcreator",
+      "#twitchstreamer",
+      "#gtavi",
+      "#creatoreconomy",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#creatortaxes",
+      "#gamingpc"
+    ],
+    "youtube_title": "Got a Game Code for a Review? That Can Be Taxable Income",
+    "youtube_description": "Myth: a game code or gear a publisher sends you for a review is a gift. Fact: income paid in property or goods for your work must be reported, even with no 1099-K, 1099-MISC or W-2. Count it at its value and keep a list. Source: IRS 'All income is taxable, including gig economy and tip income'. Not affiliated with Rockstar Games. General information, not advice for your situation.",
+    "pinterest_title": "Streamers: A Game Code for a Review Can Be Income",
+    "pinterest_description": "Goods or property you get in exchange for a review or video can be income, form or no form. Count it at its value. Source: IRS.",
+    "pinterest_alt": "Sunset card: A game code for a review can be income.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes",
+      "twitch income taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Gig income must be reported even if paid in property or goods and not on a 1099-K, 1099-MISC or W-2",
+      "url": "https://www.irs.gov/newsroom/all-income-is-taxable-including-gig-economy-and-tip-income"
+    }
+  ],
+  "thumb": {
+    "title": "Code for a *review?*",
+    "sub": "That can be income."
+  }
+}

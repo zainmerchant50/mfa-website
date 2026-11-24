@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-29",
+  "slug": "streamer-jan-15-estimate",
+  "lane": "creators",
+  "title": "Streamers: Jan 15 is your last 2026 estimate",
+  "type": "value",
+  "accent": "amber",
+  "theme": "neon",
+  "label": "Creator Tax Check",
+  "checked": "November 24, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Viewers paid you all year in *GTA VI* streams?",
+    "sub": "No tax was taken out."
+  },
+  "beats": [
+    {
+      "type": "stat",
+      "kicker": "Last 2026 estimated payment",
+      "value": "Jan 15",
+      "sub": "2027",
+      "note": "Form 1040-ES, 4th payment."
+    },
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"I'll just pay it all in April\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Owe $1,000+? Estimates are generally due",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "File by Feb 1 and pay it all? Jan can be skipped",
+          "r": "Fact",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "kicker": "This week",
+      "items": [
+        {
+          "t": "Total your 2026 stream income"
+        },
+        {
+          "t": "Set aside for tax + SE tax"
+        },
+        {
+          "t": "Mark Jan 15 on your calendar"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Comment *STREAM*",
+    "url": "mfa-advisory.com",
+    "sub": "Get your estimate sorted."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Viewers paid you all year and no tax was taken out? 🎮 Jan 15, 2027 is the last 2026 estimated payment.\n\nMyth: \"I'll just pay it all in April.\"\nFact: if you expect to owe $1,000 or more after withholding, estimated payments are generally due (Form 1040-ES).\n\n✔️ 4th 2026 payment: Jan 15, 2027.\n✔️ File your 2026 return by Feb 1, 2027 and pay everything due? You can skip the January payment.\n✔️ Total your tips, subs, bits and ad share now.\n\nComment STREAM to get your estimate sorted.\n\nNot affiliated with Rockstar Games. General information, not advice for your situation.",
+    "hashtags": [
+      "#streamer",
+      "#contentcreator",
+      "#twitchstreamer",
+      "#gtavi",
+      "#creatoreconomy",
+      "#taxtips",
+      "#selfemployed"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#creatortaxes",
+      "#gamingpc"
+    ],
+    "youtube_title": "Streamers: Jan 15, 2027 Is Your Last 2026 Tax Payment",
+    "youtube_description": "Stream income usually has no tax taken out. If you expect to owe $1,000 or more after withholding, estimated payments are generally due. The 4th 2026 payment is due Jan 15, 2027; you can skip it if you file your 2026 return by Feb 1, 2027 and pay the entire balance. Sources: IRS Estimated tax FAQ and 2026 Form 1040-ES. Not affiliated with Rockstar Games. General information, not advice for your situation.",
+    "pinterest_title": "Streamers: Jan 15, 2027 Is Your Last 2026 Estimate",
+    "pinterest_description": "Owe $1,000+ after withholding? Estimates are generally due. 4th 2026 payment Jan 15, 2027, or file by Feb 1 and pay in full. Source: IRS Form 1040-ES.",
+    "pinterest_alt": "Dark card: Jan 15 is your last 2026 estimate.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes",
+      "twitch income taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Generally pay estimated tax if you expect to owe at least $1,000; Sept 1-Dec 31 period due Jan 15 of the following year",
+      "url": "https://www.irs.gov/faqs/estimated-tax"
+    },
+    {
+      "fact": "Skip the Jan 15, 2027 payment if you file by Feb 1, 2027 and pay the entire balance",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
+    }
+  ],
+  "thumb": {
+    "title": "Jan *15*",
+    "sub": "Your last 2026 estimate."
+  }
+}
