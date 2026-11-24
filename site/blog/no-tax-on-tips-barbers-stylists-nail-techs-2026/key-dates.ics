@@ -1,0 +1,69 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:No Tax on Tips for Barbers\, Stylists and Nail Techs: Who Qu
+ alifies
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:no-tax-on-tips-barbers-stylists-nail-techs-2026-0@mfa-advisory.com
+DTSTAMP:20261124T011927Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+SUMMARY:Employees: report November cash tips to your employer
+DESCRIPTION:Employees report cash tips to the employer by the 10th day of
+  the month after the month received\, unless they total less than $20 for
+  the month with that employer.\n\nDetails: https://mfa-advisory.com/blog/
+ no-tax-on-tips-barbers-stylists-nail-techs-2026/\nGeneral information\, n
+ ot tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/no-tax-on-tips-barbers-stylists-nail-te
+ chs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Employees: report November cash tips to your employer
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:no-tax-on-tips-barbers-stylists-nail-techs-2026-1@mfa-advisory.com
+DTSTAMP:20261124T011927Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day for tips to count toward the 2026 tips deduction
+DESCRIPTION:The deduction is figured per tax year\, up to $25\,000. Keep 
+ a tip log with dates and amounts.\n\nDetails: https://mfa-advisory.com/bl
+ og/no-tax-on-tips-barbers-stylists-nail-techs-2026/\nGeneral information\
+ , not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/no-tax-on-tips-barbers-stylists-nail-te
+ chs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day for tips to count toward the 2026 tips deduction
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:no-tax-on-tips-barbers-stylists-nail-techs-2026-2@mfa-advisory.com
+DTSTAMP:20261124T011927Z
+DTSTART;VALUE=DATE:20281231
+DTEND;VALUE=DATE:20290101
+SUMMARY:Federal tips deduction ends after tax year 2028
+DESCRIPTION:No deduction is allowed for tax years beginning after Decembe
+ r 31\, 2028\, unless Congress extends it.\n\nDetails: https://mfa-advisor
+ y.com/blog/no-tax-on-tips-barbers-stylists-nail-techs-2026/\nGeneral info
+ rmation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/no-tax-on-tips-barbers-stylists-nail-te
+ chs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Federal tips deduction ends after tax year 2028
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

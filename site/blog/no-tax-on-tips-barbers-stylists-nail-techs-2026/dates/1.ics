@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:no-tax-on-tips-barbers-stylists-nail-techs-2026-0@mfa-advisory.com
+DTSTAMP:20261124T011927Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+SUMMARY:Employees: report November cash tips to your employer
+DESCRIPTION:Employees report cash tips to the employer by the 10th day of
+  the month after the month received\, unless they total less than $20 for
+  the month with that employer.\n\nDetails: https://mfa-advisory.com/blog/
+ no-tax-on-tips-barbers-stylists-nail-techs-2026/\nGeneral information\, n
+ ot tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/no-tax-on-tips-barbers-stylists-nail-te
+ chs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Employees: report November cash tips to your employer
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

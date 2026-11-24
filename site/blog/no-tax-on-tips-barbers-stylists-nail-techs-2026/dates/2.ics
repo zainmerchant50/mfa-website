@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:no-tax-on-tips-barbers-stylists-nail-techs-2026-1@mfa-advisory.com
+DTSTAMP:20261124T011927Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Last day for tips to count toward the 2026 tips deduction
+DESCRIPTION:The deduction is figured per tax year\, up to $25\,000. Keep 
+ a tip log with dates and amounts.\n\nDetails: https://mfa-advisory.com/bl
+ og/no-tax-on-tips-barbers-stylists-nail-techs-2026/\nGeneral information\
+ , not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/no-tax-on-tips-barbers-stylists-nail-te
+ chs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day for tips to count toward the 2026 tips deduction
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

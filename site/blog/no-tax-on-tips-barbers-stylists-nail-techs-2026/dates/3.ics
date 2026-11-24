@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:no-tax-on-tips-barbers-stylists-nail-techs-2026-2@mfa-advisory.com
+DTSTAMP:20261124T011927Z
+DTSTART;VALUE=DATE:20281231
+DTEND;VALUE=DATE:20290101
+SUMMARY:Federal tips deduction ends after tax year 2028
+DESCRIPTION:No deduction is allowed for tax years beginning after Decembe
+ r 31\, 2028\, unless Congress extends it.\n\nDetails: https://mfa-advisor
+ y.com/blog/no-tax-on-tips-barbers-stylists-nail-techs-2026/\nGeneral info
+ rmation\, not tax advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/no-tax-on-tips-barbers-stylists-nail-te
+ chs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Federal tips deduction ends after tax year 2028
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
