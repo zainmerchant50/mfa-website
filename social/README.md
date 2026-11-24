@@ -1,6 +1,6 @@
 # MFA Social agent: daily Instagram + LinkedIn posts
 
-Last updated: 2026-11-24 by Hub (Etsy product TikToks, Zain). Before: 2026-11-12 by Social (niche posts rule, Zain). Previous: 2026-10-25 by the content-pack agent (Shorts standing rules: plain wording, NJ/NY states, "Comment WORD" end cards, CTA by platform). Created 2026-10-22 by Hub on Zain's instruction.
+Last updated: 2026-11-24 by Hub (TikTok 7-day test Dec 5–11 + Etsy product TikToks, Zain). Before: 2026-11-12 by Social (niche posts rule, Zain). Previous: 2026-10-25 by the content-pack agent (Shorts standing rules: plain wording, NJ/NY states, "Comment WORD" end cards, CTA by platform). Created 2026-10-22 by Hub on Zain's instruction.
 
 ## What it does
 Every weekday, the agent makes **one post** (Instagram image + LinkedIn image + both captions + sources) and saves it to
@@ -39,6 +39,15 @@ there must already be fact-checked and ready to post. Nobody reviews it after yo
      subject = subject.txt, htmlBody = body.html, body = body.txt, no attachments. Each caption sits alone in a box so she
      can copy it straight into LinkedIn / Instagram.
 10. Update the agent dashboard (see `claude/site/agent-dashboard.md` in the project) with what was made and the next idea.
+
+## TIKTOK 7-DAY TEST (Zain, 2026-11-24 18:52): Dec 5–11, 2026
+Why: since Nov 4, 20 of 21 TikToks reached 0–2 people (Windsor), avg watch ~2.5 s. Zain: "try seven days of posting with the trending sound, but not my voice or face." TikTok CTA is "Link in bio" (no "Comment WORD").
+- 1 TikTok a day Dec 5–11 (the scheduled queue ends Dec 4; nothing is deleted). GTA VI / creator topics first, same facts rules.
+- Voice: AI voiceover from Kokoro TTS (open-source, Apache-2.0, runs in the cloud workspace, $0). Voice `am_michael`, speed 1.05; models from github.com/thewh1teagle/kokoro-onnx releases (kokoro-v1.0.int8.onnx + voices-v1.0.bin). Never Zain's voice or face; no cloned real voices.
+- Sound: a trending track from TikTok's Commercial Music Library (business-account safe), added at upload in TikTok Studio, low volume under the voice. Note the track name in social/log.json.
+- Hook on screen and in the voice in the first 1–2 seconds (a number or a myth); 15–25 s total; captions burned in.
+- Caption: one line + 3–5 hashtags + "Link in bio". No prices, no "free", "Not affiliated with Rockstar Games" on GTA posts.
+- Log each in social/log.json with `"lane": "tiktok-test"`. Ads analytics judges reach via Windsor (tiktok_organic: video_reach, avg watch) on Dec 12; pass = median reach ≥ 50.
 
 ## ETSY PRODUCT TIKTOKS (Zain, 2026-11-24: "we need to post about our etsy products on tiktok")
 - **2 TikToks a week show an Etsy product in use** (start with the Business Expense Tracker, the item with the
