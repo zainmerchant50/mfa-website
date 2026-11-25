@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:uber-lyft-doordash-taxes-mileage-vs-actual-expenses-2026-0@mfa-adviso
+ ry.com
+DTSTAMP:20261125T134758Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Drivers: write down your Dec. 31 odometer reading
+DESCRIPTION:Your 2026 records need total miles for the year as well as bu
+ siness miles\, so note the odometer at year-end.\n\nDetails: https://mfa-
+ advisory.com/blog/uber-lyft-doordash-taxes-mileage-vs-actual-expenses-202
+ 6/\nGeneral information\, not tax advice. Merchant Financial Advisory\, m
+ fa-advisory.com
+URL:https://mfa-advisory.com/blog/uber-lyft-doordash-taxes-mileage-vs-act
+ ual-expenses-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Drivers: write down your Dec. 31 odometer reading
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
