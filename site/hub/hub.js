@@ -273,7 +273,7 @@
     function val(c, r) { return c.get ? c.get(r) : r[c.k]; }
     function draw() {
       var rows = cfg.rows.filter(function (r) {
-        for (var i = 0; i < (cfg.selects || []).length; i++) { var f = cfg.selects[i], want = st.sel[f.l]; if (want && !(f.match ? f.match(r, want) : String(f.get ? f.get(r) : r[f.k]) === want)) return false; }
+        for (var i = 0; i < (cfg.selects || []).length; i++) { var f = cfg.selects[i], want = st.sel[f.l]; if (want && !(typeof f.match === "function" ? f.match(r, want) : String(f.get ? f.get(r) : r[f.k]) === want)) return false; }
         if (!st.q) return true;
         return cfg.cols.some(function (c) { var v = val(c, r); return v !== null && v !== undefined && String(v).toLowerCase().indexOf(st.q) >= 0; });
       });
