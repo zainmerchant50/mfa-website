@@ -215,9 +215,9 @@ def beat_duration(b):
 
 
 def timeline(p):
-    scenes = [dict(type="hook", **p["hook"], dur=p["hook"].get("dur") or max(1.8, 0.8 + words(p["hook"]["text"] + " " + p["hook"].get("sub", "")) / 6.0))]
+    scenes = [dict({**p["hook"], "type": "hook"}, dur=p["hook"].get("dur") or max(1.8, 0.8 + words(p["hook"]["text"] + " " + p["hook"].get("sub", "")) / 6.0))]
     scenes += [dict(b, dur=beat_duration(b)) for b in p["beats"]]
-    scenes.append(dict(type="cta", **p["cta"], dur=p["cta"].get("dur", 3.2)))
+    scenes.append(dict({**p["cta"], "type": "cta"}, dur=p["cta"].get("dur", 3.2)))
     t = 0.0
     for s in scenes:
         s["s"], s["e"] = round(t, 3), round(t + s["dur"], 3)
