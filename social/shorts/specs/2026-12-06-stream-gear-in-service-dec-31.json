@@ -1,0 +1,108 @@
+{
+  "date": "2026-12-06",
+  "slug": "stream-gear-in-service-dec-31",
+  "lane": "tiktok-test",
+  "title": "New stream gear counts for 2026 only once it's set up",
+  "type": "value",
+  "accent": "teal",
+  "theme": "paper",
+  "label": "Creator Tax Check",
+  "checked": "November 26, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Buying stream gear for *GTA VI* before Dec 31?",
+    "sub": "Buying it isn't enough."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Does it count for 2026?",
+      "items": [
+        {
+          "l": "Ordered Dec 30, arrives Jan 5",
+          "r": "2027",
+          "ok": false
+        },
+        {
+          "l": "Still in the box on Dec 31",
+          "r": "Not yet",
+          "ok": false
+        },
+        {
+          "l": "Set up and ready to stream Dec 31",
+          "r": "2026",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "IRS rule",
+      "text": "Depreciation starts when it's *placed in service*",
+      "sub": "Ready and available for its use."
+    },
+    {
+      "type": "list",
+      "kicker": "Before Dec 31",
+      "items": [
+        {
+          "t": "Set it up and test it"
+        },
+        {
+          "t": "Keep the receipt and date"
+        },
+        {
+          "t": "Only the business-use share counts"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "Creator tax help for streamers."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Buying stream gear before Dec 31? For 2026 it has to be set up and ready to use by Dec 31, not just bought. Link in bio.\n\nNot affiliated with Rockstar Games. General information, not advice for your situation.",
+    "hashtags": [
+      "#gtavi",
+      "#streamer",
+      "#streamsetup",
+      "#yearendtax",
+      "#taxtok"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#gtavi"
+    ],
+    "youtube_title": "Stream Gear Bought Dec 31: Does It Count for 2026?",
+    "youtube_description": "You begin to depreciate business property when it is placed in service: ready and available for a specific use, not when you buy it. Source: IRS Publication 946. Not affiliated with Rockstar Games. General information, not advice for your situation.",
+    "pinterest_title": "Stream Gear Must Be Set Up by Dec 31 to Count for 2026",
+    "pinterest_description": "Depreciation starts when gear is placed in service (ready and available for use), not when bought. Source: IRS Pub 946.",
+    "pinterest_alt": "Paper card: Buying stream gear before Dec 31? It has to be set up.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Depreciation begins when property is placed in service = ready and available for a specific use",
+      "url": "https://www.irs.gov/publications/p946"
+    }
+  ],
+  "thumb": {
+    "title": "Bought *Dec 31?*",
+    "sub": "It has to be set up."
+  },
+  "voice": "Buying stream gear for GTA VI before December 31st? Buying it isn't enough. Ordered December 30th, arrives in January? That's 2027. Still in the box? Not yet. For 2026, it has to be set up and ready to stream by December 31st. Keep the receipt, and only the business share counts. Link in bio."
+}

@@ -1,0 +1,108 @@
+{
+  "date": "2026-12-05",
+  "slug": "viewer-donations-are-income",
+  "lane": "tiktok-test",
+  "title": "Viewer donations on your GTA VI stream count as income",
+  "type": "value",
+  "accent": "amber",
+  "theme": "vice",
+  "label": "Creator Tax Check",
+  "checked": "November 26, 2026",
+  "series": "Creator Tax Check",
+  "link": {
+    "path": "/content-creator-taxes/",
+    "label": "Content creator taxes (MFA)"
+  },
+  "hook": {
+    "text": "Viewers tipped your *GTA VI* stream?",
+    "sub": "Myth: donations are just gifts."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"Tips from viewers are gifts\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Stream income goes on your return",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "No 1099? Still report it",
+          "r": "IRS",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "kicker": "Counts as income",
+      "items": [
+        {
+          "t": "Tips, bits and donations"
+        },
+        {
+          "t": "Subs and ad revenue"
+        },
+        {
+          "t": "Gear or codes you get for content"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "Do this now",
+      "text": "Log every payout *by month*",
+      "sub": "Then subtract your stream costs."
+    }
+  ],
+  "cta": {
+    "big": "Link in *bio*",
+    "url": "mfa-advisory.com",
+    "sub": "Creator tax help for streamers."
+  },
+  "captions": {
+    "comment_word": "STREAM",
+    "instagram": "Viewers tipped your GTA VI stream? Those donations are income to report, not gifts. Link in bio.\n\nNot affiliated with Rockstar Games. General information, not advice for your situation.",
+    "hashtags": [
+      "#gtavi",
+      "#streamer",
+      "#twitchstreamer",
+      "#streamertips",
+      "#taxtok"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#streamer",
+      "#gtavi"
+    ],
+    "youtube_title": "Viewer Donations on Your Stream: Gift or Income?",
+    "youtube_description": "Money viewers send while you stream is reportable income, even with no Form 1099. Source: IRS Gig economy tax center. Not affiliated with Rockstar Games. General information, not advice for your situation.",
+    "pinterest_title": "Viewer Donations on Your Stream Count as Income",
+    "pinterest_description": "Tips, bits and donations from viewers go on your tax return, form or no form. Source: IRS.",
+    "pinterest_alt": "Sunset card: Viewers tipped your stream? It counts as income.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "streamer taxes"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Gig economy income must be reported even if not on a 1099 or W-2 and paid in any form incl. cash, property, goods",
+      "url": "https://www.irs.gov/businesses/gig-economy-tax-center"
+    }
+  ],
+  "thumb": {
+    "title": "Gift or *income?*",
+    "sub": "Viewer donations count."
+  },
+  "voice": "Viewers tipped your GTA VI stream? Myth: donations are just gifts. Fact: money viewers send for your stream is income you report, even with no 1099. Tips, bits, subs, ad money, even gear you get for content. Log every payout by month, then subtract your stream costs. Link in bio."
+}

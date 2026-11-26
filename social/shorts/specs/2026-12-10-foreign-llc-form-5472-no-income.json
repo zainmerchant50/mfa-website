@@ -1,0 +1,111 @@
+{
+  "date": "2026-12-10",
+  "slug": "foreign-llc-form-5472-no-income",
+  "lane": "foreign-llc",
+  "title": "Foreign-owned US LLC with no income still files Form 5472",
+  "type": "value",
+  "accent": "burgundy",
+  "theme": "neon",
+  "label": "Founder Tax Check",
+  "checked": "November 26, 2026",
+  "series": "Founder Tax Check",
+  "link": {
+    "path": "/answers/does-a-foreign-owned-llc-file-form-5472/",
+    "label": "Does a foreign-owned LLC file Form 5472? (MFA)"
+  },
+  "hook": {
+    "text": "Foreign owner of a US LLC with *$0 income?*",
+    "sub": "Myth: no income, nothing to file."
+  },
+  "beats": [
+    {
+      "type": "rows",
+      "kicker": "Myth vs fact",
+      "items": [
+        {
+          "l": "\"No sales, so no IRS filing\"",
+          "r": "Myth",
+          "ok": false
+        },
+        {
+          "l": "Form 5472 + a pro forma 1120",
+          "r": "Fact",
+          "ok": true
+        },
+        {
+          "l": "Money you put in or take out counts",
+          "r": "Reportable",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "kicker": "Penalty for not filing",
+      "value": "$25,000",
+      "sub": "Per form, per IRS Form 5472 instructions",
+      "note": "More if it stays unfiled after notice."
+    },
+    {
+      "type": "list",
+      "kicker": "Before the 2026 return",
+      "items": [
+        {
+          "t": "Get an EIN for the LLC"
+        },
+        {
+          "t": "List every owner transfer in 2026"
+        },
+        {
+          "t": "File by the Form 1120 due date"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "big": "Comment *5472*",
+    "url": "mfa-advisory.com",
+    "sub": "Ask your US LLC question."
+  },
+  "captions": {
+    "comment_word": "5472",
+    "instagram": "Foreign owner of a US single-member LLC with no income? 🌍 Myth: no income means nothing to file.\n\nFact: a foreign-owned US LLC files Form 5472 with a pro forma Form 1120 for a year with reportable transactions, and money you put in or take out counts.\n\n✔️ Get an EIN for the LLC.\n✔️ List every transfer between you and the LLC.\n✔️ File by the Form 1120 due date. The IRS penalty for missing it is steep.\n\nComment 5472 and we'll send the answer page.\n\nGeneral information, not advice for your situation.",
+    "hashtags": [
+      "#llc",
+      "#foreignfounder",
+      "#usllc",
+      "#nonresident",
+      "#startupfounder",
+      "#taxtips",
+      "#form5472"
+    ],
+    "youtube_hashtags": [
+      "#shorts",
+      "#llc",
+      "#foreignfounder",
+      "#usllc"
+    ],
+    "youtube_title": "Foreign-Owned US LLC With $0 Income? Form 5472 Still Due",
+    "youtube_description": "A US disregarded entity wholly owned by a foreign person files a pro forma Form 1120 with Form 5472 attached. Reportable transactions include contributions to and distributions from the entity. The penalty for failure to file is $25,000. Source: IRS Instructions for Form 5472. General information, not advice for your situation.",
+    "pinterest_title": "Foreign-Owned US LLC: Form 5472 Even With $0 Income",
+    "pinterest_description": "Foreign-owned US single-member LLCs file Form 5472 with a pro forma 1120; owner contributions and distributions count. Penalty $25,000. Source: IRS.",
+    "pinterest_alt": "Neon card: Foreign owner of a US LLC with $0 income? Form 5472 still due.",
+    "pinterest_board": "Small Business Tax Tips"
+  },
+  "sync": {
+    "ads_keywords": [
+      "form 5472 foreign owned llc"
+    ],
+    "pin_ids": []
+  },
+  "sources": [
+    {
+      "fact": "Foreign-owned US DE files pro forma 1120 with 5472; contributions/distributions reportable (Part V); $25,000 penalty",
+      "url": "https://www.irs.gov/instructions/i5472"
+    }
+  ],
+  "thumb": {
+    "title": "$0 income, *still file?*",
+    "sub": "Foreign-owned US LLCs: Form 5472."
+  }
+}
