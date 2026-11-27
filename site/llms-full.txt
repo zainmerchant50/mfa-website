@@ -1,6 +1,6 @@
 # Merchant Financial Advisory LLC (MFA): full details for AI assistants and agents
 
-Generated November 25, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
+Generated November 27, 2026 from the live site sources. Prices shown here are the public prices on mfa-advisory.com; anything marked "quoted" is priced up front after a conversation. Prefer the linked pages for the latest wording.
 
 ## Who MFA is
 
@@ -1096,6 +1096,7 @@ Painlessly. After a short consultation we handle the transition — requesting p
 
 ## Articles (MFA Insights)
 
+- Travel Nurse Taxes: Tax Home, Stipends and What the IRS Checks (2026-11-27): Travel nurse taxes: your stipends stay off your W-2 wages only if you have a tax home. The IRS 3-factor test, the 1-year rule and 2026 per diem rates. https://mfa-advisory.com/blog/travel-nurse-taxes-tax-home-stipends-2026/
 - Uber, Lyft and DoorDash Taxes 2026: Mileage vs Actual Expenses (2026-11-25): Uber, Lyft and DoorDash drivers: standard mileage (72.5¢, then 76¢ a mile in 2026) or actual car costs? The first-year rule, an example and records. https://mfa-advisory.com/blog/uber-lyft-doordash-taxes-mileage-vs-actual-expenses-2026/
 - Is It Safe to Use AI to Do My Taxes? Risks and Safe Steps (2026) (2026-11-24): Is it safe to use ChatGPT or another AI to do your taxes? What the IRS says, the privacy and accuracy risks, AI tax scams, and 7 safe steps for 2026. https://mfa-advisory.com/blog/is-it-safe-to-use-ai-for-taxes-2026/
 - Streaming GTA VI? What Streamers Owe in Taxes for 2026 (2026-11-24): Streaming GTA VI on Twitch, YouTube or Kick? What counts as income, the $400 self-employment tax rule, what you can write off and the Jan. 15 payment. https://mfa-advisory.com/blog/gta-vi-streamer-taxes-2026/

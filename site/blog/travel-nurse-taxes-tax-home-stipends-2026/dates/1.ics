@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merchant Financial Advisory//MFA Insights//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:travel-nurse-taxes-tax-home-stipends-2026-0@mfa-advisory.com
+DTSTAMP:20261127T124338Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Travel nurses: agencies furnish 2026 Forms W-2
+DESCRIPTION:Check box 1 (taxable wages) and box 12 code L (substantiated 
+ per diem) on each agency W-2.\n\nDetails: https://mfa-advisory.com/blog/t
+ ravel-nurse-taxes-tax-home-stipends-2026/\nGeneral information\, not tax 
+ advice. Merchant Financial Advisory\, mfa-advisory.com
+URL:https://mfa-advisory.com/blog/travel-nurse-taxes-tax-home-stipends-20
+ 26/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Travel nurses: agencies furnish 2026 Forms W-2
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
