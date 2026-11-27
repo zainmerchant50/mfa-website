@@ -245,7 +245,7 @@ def reg(slug, name, kind, card_desc, icon, group, kw, badge="New"):
 
 reg("quarterly-estimated-tax-calculator", "Quarterly estimated tax calculator", "Calculator",
     "Your four 2026 estimated payments and their due dates, federal and NJ/NY, with the amount that avoids an underpayment penalty.", "calc", "taxcalcs",
-    "estimated tax quarterly 1040-es safe harbor self employed")
+    "estimated tax quarterly 1040-es safe harbor self employed estimated taxes calculator quarterly tax estimator")
 reg("1099-tax-calculator", "1099 tax calculator", "Calculator",
     "Estimate self-employment tax, federal income tax and NJ/NY tax on freelance income, and how much of each payment to set aside.", "calc", "taxcalcs",
     "1099 self employment tax freelancer independent contractor set aside")
@@ -356,8 +356,8 @@ def build_quarterly():
 <li>{esc(nyd["note"])}</li></ul>
 <p>Planning for 2027? The 2027 estimated payment dates are on the <a href="/tools/tax-deadlines-2027/">2027 deadlines page</a>. We will update this calculator when the 2027 figures are final.</p>"""
     data = {"fed": fed, "nj": nj, "ny": nyd, "nyc": nyc}
-    return build_page(slug, "Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY",
-                      "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the penalty-safe amount.",
+    return build_page(slug, "Estimated Taxes Calculator 2026: Quarterly Payments",
+                      "Calculate your 2026 quarterly estimated taxes: self-employment tax, federal income tax and NJ or NY tax, with each due date and the penalty-safe amount.",
                       "Quarterly estimated tax", "Quarterly estimated tax calculator",
                       "Enter your expected 2026 profit and see what to pay on each due date, with the math shown, federal and state.",
                       grid + res, below, info, data, "quarterly", f, "Not sure what to pay?", "We calculate your estimates, track what you have paid and keep you ahead of every due date. Book a 30-minute consultation.")

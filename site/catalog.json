@@ -5936,9 +5936,9 @@
    "dateModified": "2026-11-27",
    "item": {
     "@type": "WebApplication",
-    "name": "Quarterly Estimated Tax Calculator 2026: Fed, NJ & NY",
+    "name": "Estimated Taxes Calculator 2026: Quarterly Payments",
     "url": "https://mfa-advisory.com/tools/quarterly-estimated-tax-calculator/",
-    "description": "Estimate your four 2026 quarterly tax payments: self-employment tax, federal income tax and NJ or NY tax, with due dates and the penalty-safe amount.",
+    "description": "Calculate your 2026 quarterly estimated taxes: self-employment tax, federal income tax and NJ or NY tax, with each due date and the penalty-safe amount.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
     "provider": {

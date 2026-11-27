@@ -782,7 +782,7 @@ PAGE_KEYWORDS = {
                                         "NJ paycheck calculator", "NY paycheck calculator"],
     "/tools/profit-margin-calculator/": ["profit margin calculator", "markup calculator", "gross margin", "pricing calculator"],
     "/tools/quarterly-estimated-tax-calculator/": ["quarterly estimated tax calculator", "estimated tax payments 2026",
-                                                   "1040-ES calculator", "NJ estimated tax", "NY estimated tax"],
+                                                   "estimated taxes calculator", "quarterly tax estimator", "1040-ES calculator", "NJ estimated tax", "NY estimated tax"],
     "/tools/s-corp-tax-savings-calculator/": ["S corp tax savings calculator", "is an S corp worth it", "S corp vs LLC",
                                               "reasonable salary S corp"],
     "/tools/tax-deadlines-2027/": ["2027 tax deadlines", "business tax deadlines by entity", "NJ tax deadlines 2027",

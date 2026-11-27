@@ -1,8 +1,8 @@
 {
  "_about": "Search-engine title tags (<=60 chars) and meta descriptions (<=155 chars) for blog posts whose own title/description are longer. Used only for <title>, og:/twitter: tags and the meta description; the page headline and the card text on /blog/ are unchanged. New posts: add an entry here when tools/build_blog.py prints an SEO length warning.",
  "2027-tax-calendar": {
-  "title": "2027 Tax Calendar: IRS, NJ & NY Deadlines | MFA",
-  "desc": "2027 tax calendar: every key IRS, New Jersey and New York deadline, from 1099s and W-2s to April 15 and estimated taxes. Save it to your calendar."
+  "title": "Tax Day 2027 Is April 15: Full 2027 Tax Calendar | MFA",
+  "desc": "Tax Day 2027 is Thursday, April 15. Every 2027 IRS, New Jersey and New York deadline in one calendar: W-2s, 1099s, estimates and extensions."
  },
  "adoption-tax-credit-refund-2026": {
   "title": "Adoption Tax Credit Refund 2026: What to Do | MFA",
@@ -58,7 +58,8 @@
   "title": "Small Business Tax Write-Offs 2026: What Counts | MFA"
  },
  "hiring-overseas-contractors-taxes-w8ben": {
-  "title": "Hiring Overseas Contractors: W-8BEN vs. W-9, 1099 | MFA"
+  "title": "1099 for Foreign Contractors? W-8BEN vs W-9 Rules | MFA",
+  "desc": "Paying a foreign contractor? Collect a W-8BEN, not a W-9. Work done abroad generally needs no 1099-NEC or 30% withholding. What to deduct and keep."
  },
  "filing-taxes-late-2025-return": {
   "title": "Filing Taxes Late in 2026: Penalties and Next Steps | MFA"
